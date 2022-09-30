@@ -111,36 +111,7 @@ unsafe impl ::windows::core::Interface for CompositionDebugHeatMaps {
 impl ::windows::core::RuntimeName for CompositionDebugHeatMaps {
     const NAME: &'static str = "Windows.UI.Composition.Diagnostics.CompositionDebugHeatMaps";
 }
-impl ::core::convert::From<CompositionDebugHeatMaps> for ::windows::core::IUnknown {
-    fn from(value: CompositionDebugHeatMaps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionDebugHeatMaps> for ::windows::core::IUnknown {
-    fn from(value: &CompositionDebugHeatMaps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionDebugHeatMaps> for &::windows::core::IUnknown {
-    fn from(value: &CompositionDebugHeatMaps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionDebugHeatMaps> for ::windows::core::IInspectable {
-    fn from(value: CompositionDebugHeatMaps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionDebugHeatMaps> for ::windows::core::IInspectable {
-    fn from(value: &CompositionDebugHeatMaps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionDebugHeatMaps> for &::windows::core::IInspectable {
-    fn from(value: &CompositionDebugHeatMaps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionDebugHeatMaps, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CompositionDebugHeatMaps {}
 unsafe impl ::core::marker::Sync for CompositionDebugHeatMaps {}
 #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
@@ -198,36 +169,7 @@ unsafe impl ::windows::core::Interface for CompositionDebugSettings {
 impl ::windows::core::RuntimeName for CompositionDebugSettings {
     const NAME: &'static str = "Windows.UI.Composition.Diagnostics.CompositionDebugSettings";
 }
-impl ::core::convert::From<CompositionDebugSettings> for ::windows::core::IUnknown {
-    fn from(value: CompositionDebugSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionDebugSettings> for ::windows::core::IUnknown {
-    fn from(value: &CompositionDebugSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionDebugSettings> for &::windows::core::IUnknown {
-    fn from(value: &CompositionDebugSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionDebugSettings> for ::windows::core::IInspectable {
-    fn from(value: CompositionDebugSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionDebugSettings> for ::windows::core::IInspectable {
-    fn from(value: &CompositionDebugSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionDebugSettings> for &::windows::core::IInspectable {
-    fn from(value: &CompositionDebugSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionDebugSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CompositionDebugSettings {}
 unsafe impl ::core::marker::Sync for CompositionDebugSettings {}
 #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]

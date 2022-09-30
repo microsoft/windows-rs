@@ -41,21 +41,7 @@ impl AsyncIAssociatedIdentityProvider {
         (::windows::core::Vtable::vtable(self).Finish_ChangeCredential)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<AsyncIAssociatedIdentityProvider> for ::windows::core::IUnknown {
-    fn from(value: AsyncIAssociatedIdentityProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIAssociatedIdentityProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIAssociatedIdentityProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIAssociatedIdentityProvider> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIAssociatedIdentityProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(AsyncIAssociatedIdentityProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for AsyncIAssociatedIdentityProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -147,21 +133,7 @@ impl AsyncIConnectedIdentityProvider {
         (::windows::core::Vtable::vtable(self).Finish_GetAccountState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ACCOUNT_STATE>(result__)
     }
 }
-impl ::core::convert::From<AsyncIConnectedIdentityProvider> for ::windows::core::IUnknown {
-    fn from(value: AsyncIConnectedIdentityProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIConnectedIdentityProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIConnectedIdentityProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIConnectedIdentityProvider> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIConnectedIdentityProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(AsyncIConnectedIdentityProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for AsyncIConnectedIdentityProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -222,21 +194,7 @@ impl AsyncIIdentityAdvise {
         (::windows::core::Vtable::vtable(self).Finish_IdentityUpdated)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<AsyncIIdentityAdvise> for ::windows::core::IUnknown {
-    fn from(value: AsyncIIdentityAdvise) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIIdentityAdvise> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIIdentityAdvise) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIIdentityAdvise> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIIdentityAdvise) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(AsyncIIdentityAdvise, ::windows::core::IUnknown);
 impl ::core::clone::Clone for AsyncIIdentityAdvise {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -287,21 +245,7 @@ impl AsyncIIdentityAuthentication {
         (::windows::core::Vtable::vtable(self).Finish_ValidateIdentityCredential)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppidentityproperties.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<AsyncIIdentityAuthentication> for ::windows::core::IUnknown {
-    fn from(value: AsyncIIdentityAuthentication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIIdentityAuthentication> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIIdentityAuthentication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIIdentityAuthentication> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIIdentityAuthentication) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(AsyncIIdentityAuthentication, ::windows::core::IUnknown);
 impl ::core::clone::Clone for AsyncIIdentityAuthentication {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -428,21 +372,7 @@ impl AsyncIIdentityProvider {
         (::windows::core::Vtable::vtable(self).Finish_UnAdvise)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<AsyncIIdentityProvider> for ::windows::core::IUnknown {
-    fn from(value: AsyncIIdentityProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIIdentityProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIIdentityProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIIdentityProvider> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIIdentityProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(AsyncIIdentityProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for AsyncIIdentityProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -563,21 +493,7 @@ impl AsyncIIdentityStore {
         (::windows::core::Vtable::vtable(self).Finish_Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<AsyncIIdentityStore> for ::windows::core::IUnknown {
-    fn from(value: AsyncIIdentityStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIIdentityStore> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIIdentityStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIIdentityStore> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIIdentityStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(AsyncIIdentityStore, ::windows::core::IUnknown);
 impl ::core::clone::Clone for AsyncIIdentityStore {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -647,21 +563,7 @@ impl AsyncIIdentityStoreEx {
         (::windows::core::Vtable::vtable(self).Finish_DeleteConnectedIdentity)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<AsyncIIdentityStoreEx> for ::windows::core::IUnknown {
-    fn from(value: AsyncIIdentityStoreEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIIdentityStoreEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIIdentityStoreEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIIdentityStoreEx> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIIdentityStoreEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(AsyncIIdentityStoreEx, ::windows::core::IUnknown);
 impl ::core::clone::Clone for AsyncIIdentityStoreEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -725,21 +627,7 @@ impl IAssociatedIdentityProvider {
         (::windows::core::Vtable::vtable(self).ChangeCredential)(::windows::core::Vtable::as_raw(self), hwndparent.into(), lpszuniqueid.into()).ok()
     }
 }
-impl ::core::convert::From<IAssociatedIdentityProvider> for ::windows::core::IUnknown {
-    fn from(value: IAssociatedIdentityProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAssociatedIdentityProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAssociatedIdentityProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAssociatedIdentityProvider> for ::windows::core::IUnknown {
-    fn from(value: &IAssociatedIdentityProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAssociatedIdentityProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAssociatedIdentityProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -808,21 +696,7 @@ impl IConnectedIdentityProvider {
         (::windows::core::Vtable::vtable(self).GetAccountState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ACCOUNT_STATE>(result__)
     }
 }
-impl ::core::convert::From<IConnectedIdentityProvider> for ::windows::core::IUnknown {
-    fn from(value: IConnectedIdentityProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IConnectedIdentityProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IConnectedIdentityProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IConnectedIdentityProvider> for ::windows::core::IUnknown {
-    fn from(value: &IConnectedIdentityProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IConnectedIdentityProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IConnectedIdentityProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -872,21 +746,7 @@ impl IIdentityAdvise {
         (::windows::core::Vtable::vtable(self).IdentityUpdated)(::windows::core::Vtable::as_raw(self), dwidentityupdateevents, lpszuniqueid.into()).ok()
     }
 }
-impl ::core::convert::From<IIdentityAdvise> for ::windows::core::IUnknown {
-    fn from(value: IIdentityAdvise) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IIdentityAdvise> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IIdentityAdvise) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IIdentityAdvise> for ::windows::core::IUnknown {
-    fn from(value: &IIdentityAdvise) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IIdentityAdvise, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IIdentityAdvise {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -928,21 +788,7 @@ impl IIdentityAuthentication {
         (::windows::core::Vtable::vtable(self).ValidateIdentityCredential)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(credbuffer.as_ptr()), credbuffer.len() as _, ::core::mem::transmute(ppidentityproperties.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IIdentityAuthentication> for ::windows::core::IUnknown {
-    fn from(value: IIdentityAuthentication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IIdentityAuthentication> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IIdentityAuthentication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IIdentityAuthentication> for ::windows::core::IUnknown {
-    fn from(value: &IIdentityAuthentication) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IIdentityAuthentication, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IIdentityAuthentication {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1035,21 +881,7 @@ impl IIdentityProvider {
         (::windows::core::Vtable::vtable(self).UnAdvise)(::windows::core::Vtable::as_raw(self), dwcookie).ok()
     }
 }
-impl ::core::convert::From<IIdentityProvider> for ::windows::core::IUnknown {
-    fn from(value: IIdentityProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IIdentityProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IIdentityProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IIdentityProvider> for ::windows::core::IUnknown {
-    fn from(value: &IIdentityProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IIdentityProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IIdentityProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1136,21 +968,7 @@ impl IIdentityStore {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IIdentityStore> for ::windows::core::IUnknown {
-    fn from(value: IIdentityStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IIdentityStore> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IIdentityStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IIdentityStore> for ::windows::core::IUnknown {
-    fn from(value: &IIdentityStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IIdentityStore, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IIdentityStore {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1205,21 +1023,7 @@ impl IIdentityStoreEx {
         (::windows::core::Vtable::vtable(self).DeleteConnectedIdentity)(::windows::core::Vtable::as_raw(self), connectedname.into(), ::core::mem::transmute(providerguid)).ok()
     }
 }
-impl ::core::convert::From<IIdentityStoreEx> for ::windows::core::IUnknown {
-    fn from(value: IIdentityStoreEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IIdentityStoreEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IIdentityStoreEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IIdentityStoreEx> for ::windows::core::IUnknown {
-    fn from(value: &IIdentityStoreEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IIdentityStoreEx, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IIdentityStoreEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())

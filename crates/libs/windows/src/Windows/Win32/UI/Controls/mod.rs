@@ -2827,21 +2827,7 @@ impl IImageList {
         (::windows::core::Vtable::vtable(self).GetOverlayImage)(::windows::core::Vtable::as_raw(self), ioverlay, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
-impl ::core::convert::From<IImageList> for ::windows::core::IUnknown {
-    fn from(value: IImageList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IImageList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IImageList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IImageList> for ::windows::core::IUnknown {
-    fn from(value: &IImageList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IImageList, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IImageList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3159,36 +3145,7 @@ impl IImageList2 {
         (::windows::core::Vtable::vtable(self).ReplaceFromImageList)(::windows::core::Vtable::as_raw(self), i, pil.into().abi(), isrc, punk.into().abi(), dwflags).ok()
     }
 }
-impl ::core::convert::From<IImageList2> for ::windows::core::IUnknown {
-    fn from(value: IImageList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IImageList2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IImageList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IImageList2> for ::windows::core::IUnknown {
-    fn from(value: &IImageList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IImageList2> for IImageList {
-    fn from(value: IImageList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IImageList2> for &'a IImageList {
-    fn from(value: &'a IImageList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IImageList2> for IImageList {
-    fn from(value: &IImageList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IImageList2, ::windows::core::IUnknown, IImageList);
 impl ::core::clone::Clone for IImageList2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())

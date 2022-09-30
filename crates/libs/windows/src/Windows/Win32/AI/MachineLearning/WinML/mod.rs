@@ -49,21 +49,7 @@ impl IMLOperatorAttributes {
         (::windows::core::Vtable::vtable(self).GetStringAttributeElement)(::windows::core::Vtable::as_raw(self), name.into(), elementindex, attributeelement.len() as _, ::core::mem::transmute(attributeelement.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IMLOperatorAttributes> for ::windows::core::IUnknown {
-    fn from(value: IMLOperatorAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLOperatorAttributes> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMLOperatorAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLOperatorAttributes> for ::windows::core::IUnknown {
-    fn from(value: &IMLOperatorAttributes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMLOperatorAttributes, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMLOperatorAttributes {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -106,21 +92,7 @@ impl IMLOperatorKernel {
         (::windows::core::Vtable::vtable(self).Compute)(::windows::core::Vtable::as_raw(self), context.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMLOperatorKernel> for ::windows::core::IUnknown {
-    fn from(value: IMLOperatorKernel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLOperatorKernel> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMLOperatorKernel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLOperatorKernel> for ::windows::core::IUnknown {
-    fn from(value: &IMLOperatorKernel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMLOperatorKernel, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMLOperatorKernel {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -173,21 +145,7 @@ impl IMLOperatorKernelContext {
         (::windows::core::Vtable::vtable(self).GetExecutionInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(executionobject.unwrap_or(::std::ptr::null_mut())))
     }
 }
-impl ::core::convert::From<IMLOperatorKernelContext> for ::windows::core::IUnknown {
-    fn from(value: IMLOperatorKernelContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLOperatorKernelContext> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMLOperatorKernelContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLOperatorKernelContext> for ::windows::core::IUnknown {
-    fn from(value: &IMLOperatorKernelContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMLOperatorKernelContext, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMLOperatorKernelContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -281,36 +239,7 @@ impl IMLOperatorKernelCreationContext {
         (::windows::core::Vtable::vtable(self).GetExecutionInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(executionobject.unwrap_or(::std::ptr::null_mut())))
     }
 }
-impl ::core::convert::From<IMLOperatorKernelCreationContext> for ::windows::core::IUnknown {
-    fn from(value: IMLOperatorKernelCreationContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLOperatorKernelCreationContext> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMLOperatorKernelCreationContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLOperatorKernelCreationContext> for ::windows::core::IUnknown {
-    fn from(value: &IMLOperatorKernelCreationContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMLOperatorKernelCreationContext> for IMLOperatorAttributes {
-    fn from(value: IMLOperatorKernelCreationContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLOperatorKernelCreationContext> for &'a IMLOperatorAttributes {
-    fn from(value: &'a IMLOperatorKernelCreationContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLOperatorKernelCreationContext> for IMLOperatorAttributes {
-    fn from(value: &IMLOperatorKernelCreationContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMLOperatorKernelCreationContext, ::windows::core::IUnknown, IMLOperatorAttributes);
 impl ::core::clone::Clone for IMLOperatorKernelCreationContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -359,21 +288,7 @@ impl IMLOperatorKernelFactory {
         (::windows::core::Vtable::vtable(self).CreateKernel)(::windows::core::Vtable::as_raw(self), context.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMLOperatorKernel>(result__)
     }
 }
-impl ::core::convert::From<IMLOperatorKernelFactory> for ::windows::core::IUnknown {
-    fn from(value: IMLOperatorKernelFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLOperatorKernelFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMLOperatorKernelFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLOperatorKernelFactory> for ::windows::core::IUnknown {
-    fn from(value: &IMLOperatorKernelFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMLOperatorKernelFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMLOperatorKernelFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -421,21 +336,7 @@ impl IMLOperatorRegistry {
         (::windows::core::Vtable::vtable(self).RegisterOperatorKernel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(operatorkernel), operatorkernelfactory.into().abi(), shapeinferrer.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMLOperatorRegistry> for ::windows::core::IUnknown {
-    fn from(value: IMLOperatorRegistry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLOperatorRegistry> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMLOperatorRegistry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLOperatorRegistry> for ::windows::core::IUnknown {
-    fn from(value: &IMLOperatorRegistry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMLOperatorRegistry, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMLOperatorRegistry {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -522,36 +423,7 @@ impl IMLOperatorShapeInferenceContext {
         (::windows::core::Vtable::vtable(self).SetOutputTensorShape)(::windows::core::Vtable::as_raw(self), outputindex, dimensioncount, ::core::mem::transmute(dimensions)).ok()
     }
 }
-impl ::core::convert::From<IMLOperatorShapeInferenceContext> for ::windows::core::IUnknown {
-    fn from(value: IMLOperatorShapeInferenceContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLOperatorShapeInferenceContext> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMLOperatorShapeInferenceContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLOperatorShapeInferenceContext> for ::windows::core::IUnknown {
-    fn from(value: &IMLOperatorShapeInferenceContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMLOperatorShapeInferenceContext> for IMLOperatorAttributes {
-    fn from(value: IMLOperatorShapeInferenceContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLOperatorShapeInferenceContext> for &'a IMLOperatorAttributes {
-    fn from(value: &'a IMLOperatorShapeInferenceContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLOperatorShapeInferenceContext> for IMLOperatorAttributes {
-    fn from(value: &IMLOperatorShapeInferenceContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMLOperatorShapeInferenceContext, ::windows::core::IUnknown, IMLOperatorAttributes);
 impl ::core::clone::Clone for IMLOperatorShapeInferenceContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -598,21 +470,7 @@ impl IMLOperatorShapeInferrer {
         (::windows::core::Vtable::vtable(self).InferOutputShapes)(::windows::core::Vtable::as_raw(self), context.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMLOperatorShapeInferrer> for ::windows::core::IUnknown {
-    fn from(value: IMLOperatorShapeInferrer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLOperatorShapeInferrer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMLOperatorShapeInferrer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLOperatorShapeInferrer> for ::windows::core::IUnknown {
-    fn from(value: &IMLOperatorShapeInferrer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMLOperatorShapeInferrer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMLOperatorShapeInferrer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -667,21 +525,7 @@ impl IMLOperatorTensor {
         (::windows::core::Vtable::vtable(self).GetDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(datainterface.unwrap_or(::std::ptr::null_mut())))
     }
 }
-impl ::core::convert::From<IMLOperatorTensor> for ::windows::core::IUnknown {
-    fn from(value: IMLOperatorTensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLOperatorTensor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMLOperatorTensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLOperatorTensor> for ::windows::core::IUnknown {
-    fn from(value: &IMLOperatorTensor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMLOperatorTensor, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMLOperatorTensor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -738,21 +582,7 @@ impl IMLOperatorTensorShapeDescription {
         (::windows::core::Vtable::vtable(self).GetOutputTensorShape)(::windows::core::Vtable::as_raw(self), outputindex, dimensions.len() as _, ::core::mem::transmute(dimensions.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IMLOperatorTensorShapeDescription> for ::windows::core::IUnknown {
-    fn from(value: IMLOperatorTensorShapeDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLOperatorTensorShapeDescription> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMLOperatorTensorShapeDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLOperatorTensorShapeDescription> for ::windows::core::IUnknown {
-    fn from(value: &IMLOperatorTensorShapeDescription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMLOperatorTensorShapeDescription, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMLOperatorTensorShapeDescription {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -835,36 +665,7 @@ impl IMLOperatorTypeInferenceContext {
         (::windows::core::Vtable::vtable(self).SetOutputEdgeDescription)(::windows::core::Vtable::as_raw(self), outputindex, ::core::mem::transmute(edgedescription)).ok()
     }
 }
-impl ::core::convert::From<IMLOperatorTypeInferenceContext> for ::windows::core::IUnknown {
-    fn from(value: IMLOperatorTypeInferenceContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLOperatorTypeInferenceContext> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMLOperatorTypeInferenceContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLOperatorTypeInferenceContext> for ::windows::core::IUnknown {
-    fn from(value: &IMLOperatorTypeInferenceContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMLOperatorTypeInferenceContext> for IMLOperatorAttributes {
-    fn from(value: IMLOperatorTypeInferenceContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLOperatorTypeInferenceContext> for &'a IMLOperatorAttributes {
-    fn from(value: &'a IMLOperatorTypeInferenceContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLOperatorTypeInferenceContext> for IMLOperatorAttributes {
-    fn from(value: &IMLOperatorTypeInferenceContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMLOperatorTypeInferenceContext, ::windows::core::IUnknown, IMLOperatorAttributes);
 impl ::core::clone::Clone for IMLOperatorTypeInferenceContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -909,21 +710,7 @@ impl IMLOperatorTypeInferrer {
         (::windows::core::Vtable::vtable(self).InferOutputTypes)(::windows::core::Vtable::as_raw(self), context.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMLOperatorTypeInferrer> for ::windows::core::IUnknown {
-    fn from(value: IMLOperatorTypeInferrer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLOperatorTypeInferrer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMLOperatorTypeInferrer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLOperatorTypeInferrer> for ::windows::core::IUnknown {
-    fn from(value: &IMLOperatorTypeInferrer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMLOperatorTypeInferrer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMLOperatorTypeInferrer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -974,21 +761,7 @@ impl IWinMLEvaluationContext {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWinMLEvaluationContext> for ::windows::core::IUnknown {
-    fn from(value: IWinMLEvaluationContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWinMLEvaluationContext> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWinMLEvaluationContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWinMLEvaluationContext> for ::windows::core::IUnknown {
-    fn from(value: &IWinMLEvaluationContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWinMLEvaluationContext, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWinMLEvaluationContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1049,21 +822,7 @@ impl IWinMLModel {
         (::windows::core::Vtable::vtable(self).EnumerateModelOutputs)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut WINML_VARIABLE_DESC>(result__)
     }
 }
-impl ::core::convert::From<IWinMLModel> for ::windows::core::IUnknown {
-    fn from(value: IWinMLModel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWinMLModel> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWinMLModel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWinMLModel> for ::windows::core::IUnknown {
-    fn from(value: &IWinMLModel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWinMLModel, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWinMLModel {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1128,21 +887,7 @@ impl IWinMLRuntime {
         (::windows::core::Vtable::vtable(self).EvaluateModel)(::windows::core::Vtable::as_raw(self), pcontext.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IWinMLRuntime> for ::windows::core::IUnknown {
-    fn from(value: IWinMLRuntime) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWinMLRuntime> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWinMLRuntime) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWinMLRuntime> for ::windows::core::IUnknown {
-    fn from(value: &IWinMLRuntime) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWinMLRuntime, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWinMLRuntime {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1185,21 +930,7 @@ impl IWinMLRuntimeFactory {
         (::windows::core::Vtable::vtable(self).CreateRuntime)(::windows::core::Vtable::as_raw(self), runtimetype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWinMLRuntime>(result__)
     }
 }
-impl ::core::convert::From<IWinMLRuntimeFactory> for ::windows::core::IUnknown {
-    fn from(value: IWinMLRuntimeFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWinMLRuntimeFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWinMLRuntimeFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWinMLRuntimeFactory> for ::windows::core::IUnknown {
-    fn from(value: &IWinMLRuntimeFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWinMLRuntimeFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWinMLRuntimeFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())

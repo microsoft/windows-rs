@@ -1617,36 +1617,7 @@ unsafe impl ::windows::core::Interface for Calendar {
 impl ::windows::core::RuntimeName for Calendar {
     const NAME: &'static str = "Windows.Globalization.Calendar";
 }
-impl ::core::convert::From<Calendar> for ::windows::core::IUnknown {
-    fn from(value: Calendar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Calendar> for ::windows::core::IUnknown {
-    fn from(value: &Calendar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Calendar> for &::windows::core::IUnknown {
-    fn from(value: &Calendar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Calendar> for ::windows::core::IInspectable {
-    fn from(value: Calendar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Calendar> for ::windows::core::IInspectable {
-    fn from(value: &Calendar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Calendar> for &::windows::core::IInspectable {
-    fn from(value: &Calendar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Calendar, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Calendar {}
 unsafe impl ::core::marker::Sync for Calendar {}
 #[doc = "*Required features: `\"Globalization\"`*"]
@@ -1847,36 +1818,7 @@ unsafe impl ::windows::core::Interface for CurrencyAmount {
 impl ::windows::core::RuntimeName for CurrencyAmount {
     const NAME: &'static str = "Windows.Globalization.CurrencyAmount";
 }
-impl ::core::convert::From<CurrencyAmount> for ::windows::core::IUnknown {
-    fn from(value: CurrencyAmount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CurrencyAmount> for ::windows::core::IUnknown {
-    fn from(value: &CurrencyAmount) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CurrencyAmount> for &::windows::core::IUnknown {
-    fn from(value: &CurrencyAmount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CurrencyAmount> for ::windows::core::IInspectable {
-    fn from(value: CurrencyAmount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CurrencyAmount> for ::windows::core::IInspectable {
-    fn from(value: &CurrencyAmount) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CurrencyAmount> for &::windows::core::IInspectable {
-    fn from(value: &CurrencyAmount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CurrencyAmount, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CurrencyAmount {}
 unsafe impl ::core::marker::Sync for CurrencyAmount {}
 #[doc = "*Required features: `\"Globalization\"`*"]
@@ -2990,36 +2932,7 @@ unsafe impl ::windows::core::Interface for GeographicRegion {
 impl ::windows::core::RuntimeName for GeographicRegion {
     const NAME: &'static str = "Windows.Globalization.GeographicRegion";
 }
-impl ::core::convert::From<GeographicRegion> for ::windows::core::IUnknown {
-    fn from(value: GeographicRegion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GeographicRegion> for ::windows::core::IUnknown {
-    fn from(value: &GeographicRegion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GeographicRegion> for &::windows::core::IUnknown {
-    fn from(value: &GeographicRegion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GeographicRegion> for ::windows::core::IInspectable {
-    fn from(value: GeographicRegion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GeographicRegion> for ::windows::core::IInspectable {
-    fn from(value: &GeographicRegion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GeographicRegion> for &::windows::core::IInspectable {
-    fn from(value: &GeographicRegion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GeographicRegion, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GeographicRegion {}
 unsafe impl ::core::marker::Sync for GeographicRegion {}
 #[doc = "*Required features: `\"Globalization\"`*"]
@@ -3080,36 +2993,7 @@ unsafe impl ::windows::core::Interface for JapanesePhoneme {
 impl ::windows::core::RuntimeName for JapanesePhoneme {
     const NAME: &'static str = "Windows.Globalization.JapanesePhoneme";
 }
-impl ::core::convert::From<JapanesePhoneme> for ::windows::core::IUnknown {
-    fn from(value: JapanesePhoneme) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&JapanesePhoneme> for ::windows::core::IUnknown {
-    fn from(value: &JapanesePhoneme) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&JapanesePhoneme> for &::windows::core::IUnknown {
-    fn from(value: &JapanesePhoneme) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<JapanesePhoneme> for ::windows::core::IInspectable {
-    fn from(value: JapanesePhoneme) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&JapanesePhoneme> for ::windows::core::IInspectable {
-    fn from(value: &JapanesePhoneme) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&JapanesePhoneme> for &::windows::core::IInspectable {
-    fn from(value: &JapanesePhoneme) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(JapanesePhoneme, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Globalization\"`*"]
 pub struct JapanesePhoneticAnalyzer;
 impl JapanesePhoneticAnalyzer {
@@ -3282,36 +3166,7 @@ unsafe impl ::windows::core::Interface for Language {
 impl ::windows::core::RuntimeName for Language {
     const NAME: &'static str = "Windows.Globalization.Language";
 }
-impl ::core::convert::From<Language> for ::windows::core::IUnknown {
-    fn from(value: Language) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Language> for ::windows::core::IUnknown {
-    fn from(value: &Language) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Language> for &::windows::core::IUnknown {
-    fn from(value: &Language) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Language> for ::windows::core::IInspectable {
-    fn from(value: Language) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Language> for ::windows::core::IInspectable {
-    fn from(value: &Language) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Language> for &::windows::core::IInspectable {
-    fn from(value: &Language) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Language, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Language {}
 unsafe impl ::core::marker::Sync for Language {}
 #[doc = "*Required features: `\"Globalization\"`*"]

@@ -256,36 +256,7 @@ unsafe impl ::windows::core::Interface for ResourceLoader {
 impl ::windows::core::RuntimeName for ResourceLoader {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.ResourceLoader";
 }
-impl ::core::convert::From<ResourceLoader> for ::windows::core::IUnknown {
-    fn from(value: ResourceLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ResourceLoader> for ::windows::core::IUnknown {
-    fn from(value: &ResourceLoader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ResourceLoader> for &::windows::core::IUnknown {
-    fn from(value: &ResourceLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ResourceLoader> for ::windows::core::IInspectable {
-    fn from(value: ResourceLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ResourceLoader> for ::windows::core::IInspectable {
-    fn from(value: &ResourceLoader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ResourceLoader> for &::windows::core::IInspectable {
-    fn from(value: &ResourceLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ResourceLoader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ResourceLoader {}
 unsafe impl ::core::marker::Sync for ResourceLoader {}
 #[cfg(feature = "implement")]

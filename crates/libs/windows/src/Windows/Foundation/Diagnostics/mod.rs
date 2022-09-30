@@ -67,36 +67,7 @@ impl IErrorReportingSettings {
         }
     }
 }
-impl ::core::convert::From<IErrorReportingSettings> for ::windows::core::IUnknown {
-    fn from(value: IErrorReportingSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IErrorReportingSettings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IErrorReportingSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IErrorReportingSettings> for ::windows::core::IUnknown {
-    fn from(value: &IErrorReportingSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IErrorReportingSettings> for ::windows::core::IInspectable {
-    fn from(value: IErrorReportingSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IErrorReportingSettings> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IErrorReportingSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IErrorReportingSettings> for ::windows::core::IInspectable {
-    fn from(value: &IErrorReportingSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IErrorReportingSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IErrorReportingSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -193,36 +164,7 @@ impl IFileLoggingSession {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<IFileLoggingSession> for ::windows::core::IUnknown {
-    fn from(value: IFileLoggingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFileLoggingSession> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFileLoggingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFileLoggingSession> for ::windows::core::IUnknown {
-    fn from(value: &IFileLoggingSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IFileLoggingSession> for ::windows::core::IInspectable {
-    fn from(value: IFileLoggingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFileLoggingSession> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IFileLoggingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFileLoggingSession> for ::windows::core::IInspectable {
-    fn from(value: &IFileLoggingSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFileLoggingSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IFileLoggingSession> for super::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: IFileLoggingSession) -> ::windows::core::Result<Self> {
@@ -426,36 +368,7 @@ impl ILoggingChannel {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<ILoggingChannel> for ::windows::core::IUnknown {
-    fn from(value: ILoggingChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILoggingChannel> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILoggingChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILoggingChannel> for ::windows::core::IUnknown {
-    fn from(value: &ILoggingChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ILoggingChannel> for ::windows::core::IInspectable {
-    fn from(value: ILoggingChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILoggingChannel> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ILoggingChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILoggingChannel> for ::windows::core::IInspectable {
-    fn from(value: &ILoggingChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILoggingChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ILoggingChannel> for super::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: ILoggingChannel) -> ::windows::core::Result<Self> {
@@ -821,36 +734,7 @@ impl ILoggingSession {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<ILoggingSession> for ::windows::core::IUnknown {
-    fn from(value: ILoggingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILoggingSession> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILoggingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILoggingSession> for ::windows::core::IUnknown {
-    fn from(value: &ILoggingSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ILoggingSession> for ::windows::core::IInspectable {
-    fn from(value: ILoggingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILoggingSession> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ILoggingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILoggingSession> for ::windows::core::IInspectable {
-    fn from(value: &ILoggingSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILoggingSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ILoggingSession> for super::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: ILoggingSession) -> ::windows::core::Result<Self> {
@@ -997,36 +881,7 @@ impl ILoggingTarget {
         }
     }
 }
-impl ::core::convert::From<ILoggingTarget> for ::windows::core::IUnknown {
-    fn from(value: ILoggingTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILoggingTarget> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILoggingTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILoggingTarget> for ::windows::core::IUnknown {
-    fn from(value: &ILoggingTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ILoggingTarget> for ::windows::core::IInspectable {
-    fn from(value: ILoggingTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILoggingTarget> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ILoggingTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILoggingTarget> for ::windows::core::IInspectable {
-    fn from(value: &ILoggingTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILoggingTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ILoggingTarget {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1193,36 +1048,7 @@ unsafe impl ::windows::core::Interface for ErrorDetails {
 impl ::windows::core::RuntimeName for ErrorDetails {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ErrorDetails";
 }
-impl ::core::convert::From<ErrorDetails> for ::windows::core::IUnknown {
-    fn from(value: ErrorDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ErrorDetails> for ::windows::core::IUnknown {
-    fn from(value: &ErrorDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ErrorDetails> for &::windows::core::IUnknown {
-    fn from(value: &ErrorDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ErrorDetails> for ::windows::core::IInspectable {
-    fn from(value: ErrorDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ErrorDetails> for ::windows::core::IInspectable {
-    fn from(value: &ErrorDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ErrorDetails> for &::windows::core::IInspectable {
-    fn from(value: &ErrorDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ErrorDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ErrorDetails {}
 unsafe impl ::core::marker::Sync for ErrorDetails {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
@@ -1328,36 +1154,7 @@ unsafe impl ::windows::core::Interface for FileLoggingSession {
 impl ::windows::core::RuntimeName for FileLoggingSession {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.FileLoggingSession";
 }
-impl ::core::convert::From<FileLoggingSession> for ::windows::core::IUnknown {
-    fn from(value: FileLoggingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileLoggingSession> for ::windows::core::IUnknown {
-    fn from(value: &FileLoggingSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileLoggingSession> for &::windows::core::IUnknown {
-    fn from(value: &FileLoggingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileLoggingSession> for ::windows::core::IInspectable {
-    fn from(value: FileLoggingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileLoggingSession> for ::windows::core::IInspectable {
-    fn from(value: &FileLoggingSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileLoggingSession> for &::windows::core::IInspectable {
-    fn from(value: &FileLoggingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FileLoggingSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<FileLoggingSession> for super::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: FileLoggingSession) -> ::windows::core::Result<Self> {
@@ -1444,36 +1241,7 @@ unsafe impl ::windows::core::Interface for LogFileGeneratedEventArgs {
 impl ::windows::core::RuntimeName for LogFileGeneratedEventArgs {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LogFileGeneratedEventArgs";
 }
-impl ::core::convert::From<LogFileGeneratedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: LogFileGeneratedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LogFileGeneratedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &LogFileGeneratedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LogFileGeneratedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &LogFileGeneratedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LogFileGeneratedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: LogFileGeneratedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LogFileGeneratedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &LogFileGeneratedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LogFileGeneratedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &LogFileGeneratedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LogFileGeneratedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LogFileGeneratedEventArgs {}
 unsafe impl ::core::marker::Sync for LogFileGeneratedEventArgs {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
@@ -1640,36 +1408,7 @@ unsafe impl ::windows::core::Interface for LoggingActivity {
 impl ::windows::core::RuntimeName for LoggingActivity {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingActivity";
 }
-impl ::core::convert::From<LoggingActivity> for ::windows::core::IUnknown {
-    fn from(value: LoggingActivity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LoggingActivity> for ::windows::core::IUnknown {
-    fn from(value: &LoggingActivity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LoggingActivity> for &::windows::core::IUnknown {
-    fn from(value: &LoggingActivity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LoggingActivity> for ::windows::core::IInspectable {
-    fn from(value: LoggingActivity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LoggingActivity> for ::windows::core::IInspectable {
-    fn from(value: &LoggingActivity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LoggingActivity> for &::windows::core::IInspectable {
-    fn from(value: &LoggingActivity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LoggingActivity, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LoggingActivity> for super::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: LoggingActivity) -> ::windows::core::Result<Self> {
@@ -1901,36 +1640,7 @@ unsafe impl ::windows::core::Interface for LoggingChannel {
 impl ::windows::core::RuntimeName for LoggingChannel {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingChannel";
 }
-impl ::core::convert::From<LoggingChannel> for ::windows::core::IUnknown {
-    fn from(value: LoggingChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LoggingChannel> for ::windows::core::IUnknown {
-    fn from(value: &LoggingChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LoggingChannel> for &::windows::core::IUnknown {
-    fn from(value: &LoggingChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LoggingChannel> for ::windows::core::IInspectable {
-    fn from(value: LoggingChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LoggingChannel> for ::windows::core::IInspectable {
-    fn from(value: &LoggingChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LoggingChannel> for &::windows::core::IInspectable {
-    fn from(value: &LoggingChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LoggingChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LoggingChannel> for super::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: LoggingChannel) -> ::windows::core::Result<Self> {
@@ -2056,36 +1766,7 @@ unsafe impl ::windows::core::Interface for LoggingChannelOptions {
 impl ::windows::core::RuntimeName for LoggingChannelOptions {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingChannelOptions";
 }
-impl ::core::convert::From<LoggingChannelOptions> for ::windows::core::IUnknown {
-    fn from(value: LoggingChannelOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LoggingChannelOptions> for ::windows::core::IUnknown {
-    fn from(value: &LoggingChannelOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LoggingChannelOptions> for &::windows::core::IUnknown {
-    fn from(value: &LoggingChannelOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LoggingChannelOptions> for ::windows::core::IInspectable {
-    fn from(value: LoggingChannelOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LoggingChannelOptions> for ::windows::core::IInspectable {
-    fn from(value: &LoggingChannelOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LoggingChannelOptions> for &::windows::core::IInspectable {
-    fn from(value: &LoggingChannelOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LoggingChannelOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LoggingChannelOptions {}
 unsafe impl ::core::marker::Sync for LoggingChannelOptions {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
@@ -2592,36 +2273,7 @@ unsafe impl ::windows::core::Interface for LoggingFields {
 impl ::windows::core::RuntimeName for LoggingFields {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingFields";
 }
-impl ::core::convert::From<LoggingFields> for ::windows::core::IUnknown {
-    fn from(value: LoggingFields) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LoggingFields> for ::windows::core::IUnknown {
-    fn from(value: &LoggingFields) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LoggingFields> for &::windows::core::IUnknown {
-    fn from(value: &LoggingFields) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LoggingFields> for ::windows::core::IInspectable {
-    fn from(value: LoggingFields) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LoggingFields> for ::windows::core::IInspectable {
-    fn from(value: &LoggingFields) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LoggingFields> for &::windows::core::IInspectable {
-    fn from(value: &LoggingFields) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LoggingFields, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LoggingFields {}
 unsafe impl ::core::marker::Sync for LoggingFields {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
@@ -2745,36 +2397,7 @@ unsafe impl ::windows::core::Interface for LoggingOptions {
 impl ::windows::core::RuntimeName for LoggingOptions {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingOptions";
 }
-impl ::core::convert::From<LoggingOptions> for ::windows::core::IUnknown {
-    fn from(value: LoggingOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LoggingOptions> for ::windows::core::IUnknown {
-    fn from(value: &LoggingOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LoggingOptions> for &::windows::core::IUnknown {
-    fn from(value: &LoggingOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LoggingOptions> for ::windows::core::IInspectable {
-    fn from(value: LoggingOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LoggingOptions> for ::windows::core::IInspectable {
-    fn from(value: &LoggingOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LoggingOptions> for &::windows::core::IInspectable {
-    fn from(value: &LoggingOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LoggingOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LoggingOptions {}
 unsafe impl ::core::marker::Sync for LoggingOptions {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
@@ -2873,36 +2496,7 @@ unsafe impl ::windows::core::Interface for LoggingSession {
 impl ::windows::core::RuntimeName for LoggingSession {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingSession";
 }
-impl ::core::convert::From<LoggingSession> for ::windows::core::IUnknown {
-    fn from(value: LoggingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LoggingSession> for ::windows::core::IUnknown {
-    fn from(value: &LoggingSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LoggingSession> for &::windows::core::IUnknown {
-    fn from(value: &LoggingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LoggingSession> for ::windows::core::IInspectable {
-    fn from(value: LoggingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LoggingSession> for ::windows::core::IInspectable {
-    fn from(value: &LoggingSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LoggingSession> for &::windows::core::IInspectable {
-    fn from(value: &LoggingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LoggingSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LoggingSession> for super::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: LoggingSession) -> ::windows::core::Result<Self> {
@@ -2998,36 +2592,7 @@ unsafe impl ::windows::core::Interface for RuntimeBrokerErrorSettings {
 impl ::windows::core::RuntimeName for RuntimeBrokerErrorSettings {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.RuntimeBrokerErrorSettings";
 }
-impl ::core::convert::From<RuntimeBrokerErrorSettings> for ::windows::core::IUnknown {
-    fn from(value: RuntimeBrokerErrorSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RuntimeBrokerErrorSettings> for ::windows::core::IUnknown {
-    fn from(value: &RuntimeBrokerErrorSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RuntimeBrokerErrorSettings> for &::windows::core::IUnknown {
-    fn from(value: &RuntimeBrokerErrorSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RuntimeBrokerErrorSettings> for ::windows::core::IInspectable {
-    fn from(value: RuntimeBrokerErrorSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RuntimeBrokerErrorSettings> for ::windows::core::IInspectable {
-    fn from(value: &RuntimeBrokerErrorSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RuntimeBrokerErrorSettings> for &::windows::core::IInspectable {
-    fn from(value: &RuntimeBrokerErrorSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RuntimeBrokerErrorSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RuntimeBrokerErrorSettings> for IErrorReportingSettings {
     type Error = ::windows::core::Error;
     fn try_from(value: RuntimeBrokerErrorSettings) -> ::windows::core::Result<Self> {
@@ -3100,36 +2665,7 @@ unsafe impl ::windows::core::Interface for TracingStatusChangedEventArgs {
 impl ::windows::core::RuntimeName for TracingStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.TracingStatusChangedEventArgs";
 }
-impl ::core::convert::From<TracingStatusChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: TracingStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TracingStatusChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &TracingStatusChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TracingStatusChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &TracingStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TracingStatusChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: TracingStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TracingStatusChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &TracingStatusChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TracingStatusChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &TracingStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TracingStatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TracingStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TracingStatusChangedEventArgs {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]

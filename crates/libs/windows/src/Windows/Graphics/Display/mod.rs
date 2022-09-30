@@ -658,36 +658,7 @@ unsafe impl ::windows::core::Interface for AdvancedColorInfo {
 impl ::windows::core::RuntimeName for AdvancedColorInfo {
     const NAME: &'static str = "Windows.Graphics.Display.AdvancedColorInfo";
 }
-impl ::core::convert::From<AdvancedColorInfo> for ::windows::core::IUnknown {
-    fn from(value: AdvancedColorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdvancedColorInfo> for ::windows::core::IUnknown {
-    fn from(value: &AdvancedColorInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdvancedColorInfo> for &::windows::core::IUnknown {
-    fn from(value: &AdvancedColorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdvancedColorInfo> for ::windows::core::IInspectable {
-    fn from(value: AdvancedColorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdvancedColorInfo> for ::windows::core::IInspectable {
-    fn from(value: &AdvancedColorInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdvancedColorInfo> for &::windows::core::IInspectable {
-    fn from(value: &AdvancedColorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AdvancedColorInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdvancedColorInfo {}
 unsafe impl ::core::marker::Sync for AdvancedColorInfo {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
@@ -841,36 +812,7 @@ unsafe impl ::windows::core::Interface for BrightnessOverride {
 impl ::windows::core::RuntimeName for BrightnessOverride {
     const NAME: &'static str = "Windows.Graphics.Display.BrightnessOverride";
 }
-impl ::core::convert::From<BrightnessOverride> for ::windows::core::IUnknown {
-    fn from(value: BrightnessOverride) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BrightnessOverride> for ::windows::core::IUnknown {
-    fn from(value: &BrightnessOverride) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BrightnessOverride> for &::windows::core::IUnknown {
-    fn from(value: &BrightnessOverride) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BrightnessOverride> for ::windows::core::IInspectable {
-    fn from(value: BrightnessOverride) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BrightnessOverride> for ::windows::core::IInspectable {
-    fn from(value: &BrightnessOverride) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BrightnessOverride> for &::windows::core::IInspectable {
-    fn from(value: &BrightnessOverride) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BrightnessOverride, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BrightnessOverride {}
 unsafe impl ::core::marker::Sync for BrightnessOverride {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
@@ -947,36 +889,7 @@ unsafe impl ::windows::core::Interface for BrightnessOverrideSettings {
 impl ::windows::core::RuntimeName for BrightnessOverrideSettings {
     const NAME: &'static str = "Windows.Graphics.Display.BrightnessOverrideSettings";
 }
-impl ::core::convert::From<BrightnessOverrideSettings> for ::windows::core::IUnknown {
-    fn from(value: BrightnessOverrideSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BrightnessOverrideSettings> for ::windows::core::IUnknown {
-    fn from(value: &BrightnessOverrideSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BrightnessOverrideSettings> for &::windows::core::IUnknown {
-    fn from(value: &BrightnessOverrideSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BrightnessOverrideSettings> for ::windows::core::IInspectable {
-    fn from(value: BrightnessOverrideSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BrightnessOverrideSettings> for ::windows::core::IInspectable {
-    fn from(value: &BrightnessOverrideSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BrightnessOverrideSettings> for &::windows::core::IInspectable {
-    fn from(value: &BrightnessOverrideSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BrightnessOverrideSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BrightnessOverrideSettings {}
 unsafe impl ::core::marker::Sync for BrightnessOverrideSettings {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
@@ -1034,36 +947,7 @@ unsafe impl ::windows::core::Interface for ColorOverrideSettings {
 impl ::windows::core::RuntimeName for ColorOverrideSettings {
     const NAME: &'static str = "Windows.Graphics.Display.ColorOverrideSettings";
 }
-impl ::core::convert::From<ColorOverrideSettings> for ::windows::core::IUnknown {
-    fn from(value: ColorOverrideSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ColorOverrideSettings> for ::windows::core::IUnknown {
-    fn from(value: &ColorOverrideSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ColorOverrideSettings> for &::windows::core::IUnknown {
-    fn from(value: &ColorOverrideSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ColorOverrideSettings> for ::windows::core::IInspectable {
-    fn from(value: ColorOverrideSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ColorOverrideSettings> for ::windows::core::IInspectable {
-    fn from(value: &ColorOverrideSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ColorOverrideSettings> for &::windows::core::IInspectable {
-    fn from(value: &ColorOverrideSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ColorOverrideSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ColorOverrideSettings {}
 unsafe impl ::core::marker::Sync for ColorOverrideSettings {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
@@ -1210,36 +1094,7 @@ unsafe impl ::windows::core::Interface for DisplayEnhancementOverride {
 impl ::windows::core::RuntimeName for DisplayEnhancementOverride {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayEnhancementOverride";
 }
-impl ::core::convert::From<DisplayEnhancementOverride> for ::windows::core::IUnknown {
-    fn from(value: DisplayEnhancementOverride) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayEnhancementOverride> for ::windows::core::IUnknown {
-    fn from(value: &DisplayEnhancementOverride) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayEnhancementOverride> for &::windows::core::IUnknown {
-    fn from(value: &DisplayEnhancementOverride) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayEnhancementOverride> for ::windows::core::IInspectable {
-    fn from(value: DisplayEnhancementOverride) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayEnhancementOverride> for ::windows::core::IInspectable {
-    fn from(value: &DisplayEnhancementOverride) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayEnhancementOverride> for &::windows::core::IInspectable {
-    fn from(value: &DisplayEnhancementOverride) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayEnhancementOverride, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayEnhancementOverride {}
 unsafe impl ::core::marker::Sync for DisplayEnhancementOverride {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
@@ -1302,36 +1157,7 @@ unsafe impl ::windows::core::Interface for DisplayEnhancementOverrideCapabilitie
 impl ::windows::core::RuntimeName for DisplayEnhancementOverrideCapabilities {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayEnhancementOverrideCapabilities";
 }
-impl ::core::convert::From<DisplayEnhancementOverrideCapabilities> for ::windows::core::IUnknown {
-    fn from(value: DisplayEnhancementOverrideCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayEnhancementOverrideCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &DisplayEnhancementOverrideCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayEnhancementOverrideCapabilities> for &::windows::core::IUnknown {
-    fn from(value: &DisplayEnhancementOverrideCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayEnhancementOverrideCapabilities> for ::windows::core::IInspectable {
-    fn from(value: DisplayEnhancementOverrideCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayEnhancementOverrideCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &DisplayEnhancementOverrideCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayEnhancementOverrideCapabilities> for &::windows::core::IInspectable {
-    fn from(value: &DisplayEnhancementOverrideCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayEnhancementOverrideCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayEnhancementOverrideCapabilities {}
 unsafe impl ::core::marker::Sync for DisplayEnhancementOverrideCapabilities {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
@@ -1378,36 +1204,7 @@ unsafe impl ::windows::core::Interface for DisplayEnhancementOverrideCapabilitie
 impl ::windows::core::RuntimeName for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayEnhancementOverrideCapabilitiesChangedEventArgs";
 }
-impl ::core::convert::From<DisplayEnhancementOverrideCapabilitiesChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DisplayEnhancementOverrideCapabilitiesChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayEnhancementOverrideCapabilitiesChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DisplayEnhancementOverrideCapabilitiesChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayEnhancementOverrideCapabilitiesChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DisplayEnhancementOverrideCapabilitiesChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayEnhancementOverrideCapabilitiesChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DisplayEnhancementOverrideCapabilitiesChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayEnhancementOverrideCapabilitiesChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DisplayEnhancementOverrideCapabilitiesChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayEnhancementOverrideCapabilitiesChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DisplayEnhancementOverrideCapabilitiesChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayEnhancementOverrideCapabilitiesChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
@@ -1650,36 +1447,7 @@ unsafe impl ::windows::core::Interface for DisplayInformation {
 impl ::windows::core::RuntimeName for DisplayInformation {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayInformation";
 }
-impl ::core::convert::From<DisplayInformation> for ::windows::core::IUnknown {
-    fn from(value: DisplayInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayInformation> for ::windows::core::IUnknown {
-    fn from(value: &DisplayInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayInformation> for &::windows::core::IUnknown {
-    fn from(value: &DisplayInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayInformation> for ::windows::core::IInspectable {
-    fn from(value: DisplayInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayInformation> for ::windows::core::IInspectable {
-    fn from(value: &DisplayInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayInformation> for &::windows::core::IInspectable {
-    fn from(value: &DisplayInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayInformation {}
 unsafe impl ::core::marker::Sync for DisplayInformation {}
 #[doc = "*Required features: `\"Graphics_Display\"`, `\"deprecated\"`*"]
@@ -1872,36 +1640,7 @@ unsafe impl ::windows::core::Interface for DisplayServices {
 impl ::windows::core::RuntimeName for DisplayServices {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayServices";
 }
-impl ::core::convert::From<DisplayServices> for ::windows::core::IUnknown {
-    fn from(value: DisplayServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayServices> for ::windows::core::IUnknown {
-    fn from(value: &DisplayServices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayServices> for &::windows::core::IUnknown {
-    fn from(value: &DisplayServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayServices> for ::windows::core::IInspectable {
-    fn from(value: DisplayServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayServices> for ::windows::core::IInspectable {
-    fn from(value: &DisplayServices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayServices> for &::windows::core::IInspectable {
-    fn from(value: &DisplayServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayServices, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayServices {}
 unsafe impl ::core::marker::Sync for DisplayServices {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]

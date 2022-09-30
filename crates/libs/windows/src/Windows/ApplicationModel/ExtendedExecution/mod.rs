@@ -91,36 +91,7 @@ unsafe impl ::windows::core::Interface for ExtendedExecutionRevokedEventArgs {
 impl ::windows::core::RuntimeName for ExtendedExecutionRevokedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedEventArgs";
 }
-impl ::core::convert::From<ExtendedExecutionRevokedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ExtendedExecutionRevokedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ExtendedExecutionRevokedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ExtendedExecutionRevokedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ExtendedExecutionRevokedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ExtendedExecutionRevokedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ExtendedExecutionRevokedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ExtendedExecutionRevokedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ExtendedExecutionRevokedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ExtendedExecutionRevokedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ExtendedExecutionRevokedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ExtendedExecutionRevokedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ExtendedExecutionRevokedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ExtendedExecutionRevokedEventArgs {}
 unsafe impl ::core::marker::Sync for ExtendedExecutionRevokedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
@@ -230,36 +201,7 @@ unsafe impl ::windows::core::Interface for ExtendedExecutionSession {
 impl ::windows::core::RuntimeName for ExtendedExecutionSession {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionSession";
 }
-impl ::core::convert::From<ExtendedExecutionSession> for ::windows::core::IUnknown {
-    fn from(value: ExtendedExecutionSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ExtendedExecutionSession> for ::windows::core::IUnknown {
-    fn from(value: &ExtendedExecutionSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ExtendedExecutionSession> for &::windows::core::IUnknown {
-    fn from(value: &ExtendedExecutionSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ExtendedExecutionSession> for ::windows::core::IInspectable {
-    fn from(value: ExtendedExecutionSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ExtendedExecutionSession> for ::windows::core::IInspectable {
-    fn from(value: &ExtendedExecutionSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ExtendedExecutionSession> for &::windows::core::IInspectable {
-    fn from(value: &ExtendedExecutionSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ExtendedExecutionSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ExtendedExecutionSession> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;

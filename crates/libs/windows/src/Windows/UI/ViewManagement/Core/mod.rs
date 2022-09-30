@@ -493,36 +493,7 @@ unsafe impl ::windows::core::Interface for CoreFrameworkInputView {
 impl ::windows::core::RuntimeName for CoreFrameworkInputView {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreFrameworkInputView";
 }
-impl ::core::convert::From<CoreFrameworkInputView> for ::windows::core::IUnknown {
-    fn from(value: CoreFrameworkInputView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreFrameworkInputView> for ::windows::core::IUnknown {
-    fn from(value: &CoreFrameworkInputView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreFrameworkInputView> for &::windows::core::IUnknown {
-    fn from(value: &CoreFrameworkInputView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreFrameworkInputView> for ::windows::core::IInspectable {
-    fn from(value: CoreFrameworkInputView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreFrameworkInputView> for ::windows::core::IInspectable {
-    fn from(value: &CoreFrameworkInputView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreFrameworkInputView> for &::windows::core::IInspectable {
-    fn from(value: &CoreFrameworkInputView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreFrameworkInputView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreFrameworkInputView {}
 unsafe impl ::core::marker::Sync for CoreFrameworkInputView {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -587,36 +558,7 @@ unsafe impl ::windows::core::Interface for CoreFrameworkInputViewAnimationStarti
 impl ::windows::core::RuntimeName for CoreFrameworkInputViewAnimationStartingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreFrameworkInputViewAnimationStartingEventArgs";
 }
-impl ::core::convert::From<CoreFrameworkInputViewAnimationStartingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CoreFrameworkInputViewAnimationStartingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreFrameworkInputViewAnimationStartingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CoreFrameworkInputViewAnimationStartingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreFrameworkInputViewAnimationStartingEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CoreFrameworkInputViewAnimationStartingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreFrameworkInputViewAnimationStartingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CoreFrameworkInputViewAnimationStartingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreFrameworkInputViewAnimationStartingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CoreFrameworkInputViewAnimationStartingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreFrameworkInputViewAnimationStartingEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CoreFrameworkInputViewAnimationStartingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreFrameworkInputViewAnimationStartingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreFrameworkInputViewAnimationStartingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreFrameworkInputViewAnimationStartingEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -672,36 +614,7 @@ unsafe impl ::windows::core::Interface for CoreFrameworkInputViewOcclusionsChang
 impl ::windows::core::RuntimeName for CoreFrameworkInputViewOcclusionsChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreFrameworkInputViewOcclusionsChangedEventArgs";
 }
-impl ::core::convert::From<CoreFrameworkInputViewOcclusionsChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CoreFrameworkInputViewOcclusionsChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreFrameworkInputViewOcclusionsChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CoreFrameworkInputViewOcclusionsChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreFrameworkInputViewOcclusionsChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CoreFrameworkInputViewOcclusionsChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreFrameworkInputViewOcclusionsChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CoreFrameworkInputViewOcclusionsChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreFrameworkInputViewOcclusionsChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CoreFrameworkInputViewOcclusionsChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreFrameworkInputViewOcclusionsChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CoreFrameworkInputViewOcclusionsChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreFrameworkInputViewOcclusionsChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreFrameworkInputViewOcclusionsChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreFrameworkInputViewOcclusionsChangedEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -928,36 +841,7 @@ unsafe impl ::windows::core::Interface for CoreInputView {
 impl ::windows::core::RuntimeName for CoreInputView {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputView";
 }
-impl ::core::convert::From<CoreInputView> for ::windows::core::IUnknown {
-    fn from(value: CoreInputView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreInputView> for ::windows::core::IUnknown {
-    fn from(value: &CoreInputView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreInputView> for &::windows::core::IUnknown {
-    fn from(value: &CoreInputView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreInputView> for ::windows::core::IInspectable {
-    fn from(value: CoreInputView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreInputView> for ::windows::core::IInspectable {
-    fn from(value: &CoreInputView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreInputView> for &::windows::core::IInspectable {
-    fn from(value: &CoreInputView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreInputView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreInputView {}
 unsafe impl ::core::marker::Sync for CoreInputView {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -1026,36 +910,7 @@ unsafe impl ::windows::core::Interface for CoreInputViewAnimationStartingEventAr
 impl ::windows::core::RuntimeName for CoreInputViewAnimationStartingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewAnimationStartingEventArgs";
 }
-impl ::core::convert::From<CoreInputViewAnimationStartingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CoreInputViewAnimationStartingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreInputViewAnimationStartingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CoreInputViewAnimationStartingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreInputViewAnimationStartingEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CoreInputViewAnimationStartingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreInputViewAnimationStartingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CoreInputViewAnimationStartingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreInputViewAnimationStartingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CoreInputViewAnimationStartingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreInputViewAnimationStartingEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CoreInputViewAnimationStartingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreInputViewAnimationStartingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreInputViewAnimationStartingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreInputViewAnimationStartingEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -1102,36 +957,7 @@ unsafe impl ::windows::core::Interface for CoreInputViewHidingEventArgs {
 impl ::windows::core::RuntimeName for CoreInputViewHidingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewHidingEventArgs";
 }
-impl ::core::convert::From<CoreInputViewHidingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CoreInputViewHidingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreInputViewHidingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CoreInputViewHidingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreInputViewHidingEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CoreInputViewHidingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreInputViewHidingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CoreInputViewHidingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreInputViewHidingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CoreInputViewHidingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreInputViewHidingEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CoreInputViewHidingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreInputViewHidingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreInputViewHidingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreInputViewHidingEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -1187,36 +1013,7 @@ unsafe impl ::windows::core::Interface for CoreInputViewOcclusion {
 impl ::windows::core::RuntimeName for CoreInputViewOcclusion {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewOcclusion";
 }
-impl ::core::convert::From<CoreInputViewOcclusion> for ::windows::core::IUnknown {
-    fn from(value: CoreInputViewOcclusion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreInputViewOcclusion> for ::windows::core::IUnknown {
-    fn from(value: &CoreInputViewOcclusion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreInputViewOcclusion> for &::windows::core::IUnknown {
-    fn from(value: &CoreInputViewOcclusion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreInputViewOcclusion> for ::windows::core::IInspectable {
-    fn from(value: CoreInputViewOcclusion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreInputViewOcclusion> for ::windows::core::IInspectable {
-    fn from(value: &CoreInputViewOcclusion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreInputViewOcclusion> for &::windows::core::IInspectable {
-    fn from(value: &CoreInputViewOcclusion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreInputViewOcclusion, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreInputViewOcclusion {}
 unsafe impl ::core::marker::Sync for CoreInputViewOcclusion {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -1276,36 +1073,7 @@ unsafe impl ::windows::core::Interface for CoreInputViewOcclusionsChangedEventAr
 impl ::windows::core::RuntimeName for CoreInputViewOcclusionsChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewOcclusionsChangedEventArgs";
 }
-impl ::core::convert::From<CoreInputViewOcclusionsChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CoreInputViewOcclusionsChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreInputViewOcclusionsChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CoreInputViewOcclusionsChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreInputViewOcclusionsChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CoreInputViewOcclusionsChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreInputViewOcclusionsChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CoreInputViewOcclusionsChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreInputViewOcclusionsChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CoreInputViewOcclusionsChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreInputViewOcclusionsChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CoreInputViewOcclusionsChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreInputViewOcclusionsChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreInputViewOcclusionsChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreInputViewOcclusionsChangedEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -1352,36 +1120,7 @@ unsafe impl ::windows::core::Interface for CoreInputViewShowingEventArgs {
 impl ::windows::core::RuntimeName for CoreInputViewShowingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewShowingEventArgs";
 }
-impl ::core::convert::From<CoreInputViewShowingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CoreInputViewShowingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreInputViewShowingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CoreInputViewShowingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreInputViewShowingEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CoreInputViewShowingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreInputViewShowingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CoreInputViewShowingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreInputViewShowingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CoreInputViewShowingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreInputViewShowingEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CoreInputViewShowingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreInputViewShowingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreInputViewShowingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreInputViewShowingEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -1459,36 +1198,7 @@ unsafe impl ::windows::core::Interface for CoreInputViewTransferringXYFocusEvent
 impl ::windows::core::RuntimeName for CoreInputViewTransferringXYFocusEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewTransferringXYFocusEventArgs";
 }
-impl ::core::convert::From<CoreInputViewTransferringXYFocusEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CoreInputViewTransferringXYFocusEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreInputViewTransferringXYFocusEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CoreInputViewTransferringXYFocusEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreInputViewTransferringXYFocusEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CoreInputViewTransferringXYFocusEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreInputViewTransferringXYFocusEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CoreInputViewTransferringXYFocusEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreInputViewTransferringXYFocusEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CoreInputViewTransferringXYFocusEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreInputViewTransferringXYFocusEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CoreInputViewTransferringXYFocusEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreInputViewTransferringXYFocusEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreInputViewTransferringXYFocusEventArgs {}
 unsafe impl ::core::marker::Sync for CoreInputViewTransferringXYFocusEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -1561,36 +1271,7 @@ unsafe impl ::windows::core::Interface for UISettingsController {
 impl ::windows::core::RuntimeName for UISettingsController {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.UISettingsController";
 }
-impl ::core::convert::From<UISettingsController> for ::windows::core::IUnknown {
-    fn from(value: UISettingsController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UISettingsController> for ::windows::core::IUnknown {
-    fn from(value: &UISettingsController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UISettingsController> for &::windows::core::IUnknown {
-    fn from(value: &UISettingsController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UISettingsController> for ::windows::core::IInspectable {
-    fn from(value: UISettingsController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UISettingsController> for ::windows::core::IInspectable {
-    fn from(value: &UISettingsController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UISettingsController> for &::windows::core::IInspectable {
-    fn from(value: &UISettingsController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UISettingsController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UISettingsController {}
 unsafe impl ::core::marker::Sync for UISettingsController {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]

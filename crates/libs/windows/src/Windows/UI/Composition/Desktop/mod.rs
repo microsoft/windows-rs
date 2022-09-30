@@ -169,36 +169,7 @@ unsafe impl ::windows::core::Interface for DesktopWindowTarget {
 impl ::windows::core::RuntimeName for DesktopWindowTarget {
     const NAME: &'static str = "Windows.UI.Composition.Desktop.DesktopWindowTarget";
 }
-impl ::core::convert::From<DesktopWindowTarget> for ::windows::core::IUnknown {
-    fn from(value: DesktopWindowTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DesktopWindowTarget> for ::windows::core::IUnknown {
-    fn from(value: &DesktopWindowTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DesktopWindowTarget> for &::windows::core::IUnknown {
-    fn from(value: &DesktopWindowTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DesktopWindowTarget> for ::windows::core::IInspectable {
-    fn from(value: DesktopWindowTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DesktopWindowTarget> for ::windows::core::IInspectable {
-    fn from(value: &DesktopWindowTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DesktopWindowTarget> for &::windows::core::IInspectable {
-    fn from(value: &DesktopWindowTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DesktopWindowTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DesktopWindowTarget> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: DesktopWindowTarget) -> ::windows::core::Result<Self> {

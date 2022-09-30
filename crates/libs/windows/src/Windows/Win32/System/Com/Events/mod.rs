@@ -2,21 +2,7 @@
 #[repr(transparent)]
 pub struct IDontSupportEventSubscription(::windows::core::IUnknown);
 impl IDontSupportEventSubscription {}
-impl ::core::convert::From<IDontSupportEventSubscription> for ::windows::core::IUnknown {
-    fn from(value: IDontSupportEventSubscription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDontSupportEventSubscription> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDontSupportEventSubscription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDontSupportEventSubscription> for ::windows::core::IUnknown {
-    fn from(value: &IDontSupportEventSubscription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDontSupportEventSubscription, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDontSupportEventSubscription {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -62,21 +48,7 @@ impl IEnumEventObject {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), cskipelem).ok()
     }
 }
-impl ::core::convert::From<IEnumEventObject> for ::windows::core::IUnknown {
-    fn from(value: IEnumEventObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumEventObject> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumEventObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumEventObject> for ::windows::core::IUnknown {
-    fn from(value: &IEnumEventObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumEventObject, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumEventObject {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -162,36 +134,7 @@ impl IEventClass {
         (::windows::core::Vtable::vtable(self).SetTypeLib)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrtypelib)).ok()
     }
 }
-impl ::core::convert::From<IEventClass> for ::windows::core::IUnknown {
-    fn from(value: IEventClass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEventClass> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEventClass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEventClass> for ::windows::core::IUnknown {
-    fn from(value: &IEventClass) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IEventClass> for super::IDispatch {
-    fn from(value: IEventClass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEventClass> for &'a super::IDispatch {
-    fn from(value: &'a IEventClass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEventClass> for super::IDispatch {
-    fn from(value: &IEventClass) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEventClass, ::windows::core::IUnknown, super::IDispatch);
 impl ::core::clone::Clone for IEventClass {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -329,51 +272,7 @@ impl IEventClass2 {
         (::windows::core::Vtable::vtable(self).SetFireInParallel)(::windows::core::Vtable::as_raw(self), ffireinparallel.into()).ok()
     }
 }
-impl ::core::convert::From<IEventClass2> for ::windows::core::IUnknown {
-    fn from(value: IEventClass2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEventClass2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEventClass2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEventClass2> for ::windows::core::IUnknown {
-    fn from(value: &IEventClass2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IEventClass2> for super::IDispatch {
-    fn from(value: IEventClass2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEventClass2> for &'a super::IDispatch {
-    fn from(value: &'a IEventClass2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEventClass2> for super::IDispatch {
-    fn from(value: &IEventClass2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IEventClass2> for IEventClass {
-    fn from(value: IEventClass2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEventClass2> for &'a IEventClass {
-    fn from(value: &'a IEventClass2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEventClass2> for IEventClass {
-    fn from(value: &IEventClass2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEventClass2, ::windows::core::IUnknown, super::IDispatch, IEventClass);
 impl ::core::clone::Clone for IEventClass2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -454,36 +353,7 @@ impl IEventControl {
         (::windows::core::Vtable::vtable(self).SetDefaultQuery)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(methodname), ::core::mem::transmute_copy(criteria), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
-impl ::core::convert::From<IEventControl> for ::windows::core::IUnknown {
-    fn from(value: IEventControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEventControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEventControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEventControl> for ::windows::core::IUnknown {
-    fn from(value: &IEventControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IEventControl> for super::IDispatch {
-    fn from(value: IEventControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEventControl> for &'a super::IDispatch {
-    fn from(value: &'a IEventControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEventControl> for super::IDispatch {
-    fn from(value: &IEventControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEventControl, ::windows::core::IUnknown, super::IDispatch);
 impl ::core::clone::Clone for IEventControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -536,21 +406,7 @@ impl IEventObjectChange {
         (::windows::core::Vtable::vtable(self).ChangedPublisher)(::windows::core::Vtable::as_raw(self), changetype, ::core::mem::transmute_copy(bstrpublisherid)).ok()
     }
 }
-impl ::core::convert::From<IEventObjectChange> for ::windows::core::IUnknown {
-    fn from(value: IEventObjectChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEventObjectChange> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEventObjectChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEventObjectChange> for ::windows::core::IUnknown {
-    fn from(value: &IEventObjectChange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEventObjectChange, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEventObjectChange {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -592,21 +448,7 @@ impl IEventObjectChange2 {
         (::windows::core::Vtable::vtable(self).ChangedEventClass)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pinfo)).ok()
     }
 }
-impl ::core::convert::From<IEventObjectChange2> for ::windows::core::IUnknown {
-    fn from(value: IEventObjectChange2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEventObjectChange2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEventObjectChange2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEventObjectChange2> for ::windows::core::IUnknown {
-    fn from(value: &IEventObjectChange2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEventObjectChange2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEventObjectChange2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -667,36 +509,7 @@ impl IEventObjectCollection {
         (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(objectid)).ok()
     }
 }
-impl ::core::convert::From<IEventObjectCollection> for ::windows::core::IUnknown {
-    fn from(value: IEventObjectCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEventObjectCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEventObjectCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEventObjectCollection> for ::windows::core::IUnknown {
-    fn from(value: &IEventObjectCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IEventObjectCollection> for super::IDispatch {
-    fn from(value: IEventObjectCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEventObjectCollection> for &'a super::IDispatch {
-    fn from(value: &'a IEventObjectCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEventObjectCollection> for super::IDispatch {
-    fn from(value: &IEventObjectCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEventObjectCollection, ::windows::core::IUnknown, super::IDispatch);
 impl ::core::clone::Clone for IEventObjectCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -759,36 +572,7 @@ impl IEventProperty {
         (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propertyvalue)).ok()
     }
 }
-impl ::core::convert::From<IEventProperty> for ::windows::core::IUnknown {
-    fn from(value: IEventProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEventProperty> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEventProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEventProperty> for ::windows::core::IUnknown {
-    fn from(value: &IEventProperty) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IEventProperty> for super::IDispatch {
-    fn from(value: IEventProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEventProperty> for &'a super::IDispatch {
-    fn from(value: &'a IEventProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEventProperty> for super::IDispatch {
-    fn from(value: &IEventProperty) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEventProperty, ::windows::core::IUnknown, super::IDispatch);
 impl ::core::clone::Clone for IEventProperty {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -884,36 +668,7 @@ impl IEventPublisher {
         (::windows::core::Vtable::vtable(self).GetDefaultPropertyCollection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEventObjectCollection>(result__)
     }
 }
-impl ::core::convert::From<IEventPublisher> for ::windows::core::IUnknown {
-    fn from(value: IEventPublisher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEventPublisher> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEventPublisher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEventPublisher> for ::windows::core::IUnknown {
-    fn from(value: &IEventPublisher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IEventPublisher> for super::IDispatch {
-    fn from(value: IEventPublisher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEventPublisher> for &'a super::IDispatch {
-    fn from(value: &'a IEventPublisher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEventPublisher> for super::IDispatch {
-    fn from(value: &IEventPublisher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEventPublisher, ::windows::core::IUnknown, super::IDispatch);
 impl ::core::clone::Clone for IEventPublisher {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1110,36 +865,7 @@ impl IEventSubscription {
         (::windows::core::Vtable::vtable(self).SetInterfaceID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrinterfaceid)).ok()
     }
 }
-impl ::core::convert::From<IEventSubscription> for ::windows::core::IUnknown {
-    fn from(value: IEventSubscription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEventSubscription> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEventSubscription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEventSubscription> for ::windows::core::IUnknown {
-    fn from(value: &IEventSubscription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IEventSubscription> for super::IDispatch {
-    fn from(value: IEventSubscription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEventSubscription> for &'a super::IDispatch {
-    fn from(value: &'a IEventSubscription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEventSubscription> for super::IDispatch {
-    fn from(value: &IEventSubscription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEventSubscription, ::windows::core::IUnknown, super::IDispatch);
 impl ::core::clone::Clone for IEventSubscription {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1254,36 +980,7 @@ impl IEventSystem {
         (::windows::core::Vtable::vtable(self).RemoveS)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(progid), ::core::mem::transmute_copy(querycriteria)).ok()
     }
 }
-impl ::core::convert::From<IEventSystem> for ::windows::core::IUnknown {
-    fn from(value: IEventSystem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEventSystem> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEventSystem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEventSystem> for ::windows::core::IUnknown {
-    fn from(value: &IEventSystem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IEventSystem> for super::IDispatch {
-    fn from(value: IEventSystem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEventSystem> for &'a super::IDispatch {
-    fn from(value: &'a IEventSystem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEventSystem> for super::IDispatch {
-    fn from(value: &IEventSystem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEventSystem, ::windows::core::IUnknown, super::IDispatch);
 impl ::core::clone::Clone for IEventSystem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1328,36 +1025,7 @@ impl IFiringControl {
         (::windows::core::Vtable::vtable(self).FireSubscription)(::windows::core::Vtable::as_raw(self), subscription.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IFiringControl> for ::windows::core::IUnknown {
-    fn from(value: IFiringControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFiringControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFiringControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFiringControl> for ::windows::core::IUnknown {
-    fn from(value: &IFiringControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IFiringControl> for super::IDispatch {
-    fn from(value: IFiringControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFiringControl> for &'a super::IDispatch {
-    fn from(value: &'a IFiringControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFiringControl> for super::IDispatch {
-    fn from(value: &IFiringControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFiringControl, ::windows::core::IUnknown, super::IDispatch);
 impl ::core::clone::Clone for IFiringControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1433,21 +1101,7 @@ impl IMultiInterfaceEventControl {
         (::windows::core::Vtable::vtable(self).SetFireInParallel)(::windows::core::Vtable::as_raw(self), ffireinparallel.into()).ok()
     }
 }
-impl ::core::convert::From<IMultiInterfaceEventControl> for ::windows::core::IUnknown {
-    fn from(value: IMultiInterfaceEventControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMultiInterfaceEventControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMultiInterfaceEventControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMultiInterfaceEventControl> for ::windows::core::IUnknown {
-    fn from(value: &IMultiInterfaceEventControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMultiInterfaceEventControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMultiInterfaceEventControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1511,21 +1165,7 @@ impl IMultiInterfacePublisherFilter {
         (::windows::core::Vtable::vtable(self).PrepareToFire)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(iid), ::core::mem::transmute_copy(methodname), firingcontrol.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMultiInterfacePublisherFilter> for ::windows::core::IUnknown {
-    fn from(value: IMultiInterfacePublisherFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMultiInterfacePublisherFilter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMultiInterfacePublisherFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMultiInterfacePublisherFilter> for ::windows::core::IUnknown {
-    fn from(value: &IMultiInterfacePublisherFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMultiInterfacePublisherFilter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMultiInterfacePublisherFilter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1572,21 +1212,7 @@ impl IPublisherFilter {
         (::windows::core::Vtable::vtable(self).PrepareToFire)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(methodname), firingcontrol.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IPublisherFilter> for ::windows::core::IUnknown {
-    fn from(value: IPublisherFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPublisherFilter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPublisherFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPublisherFilter> for ::windows::core::IUnknown {
-    fn from(value: &IPublisherFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPublisherFilter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPublisherFilter {
     fn clone(&self) -> Self {
         Self(self.0.clone())

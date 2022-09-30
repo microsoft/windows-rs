@@ -110,36 +110,7 @@ impl ILowLevelDevicesAggregateProvider {
         }
     }
 }
-impl ::core::convert::From<ILowLevelDevicesAggregateProvider> for ::windows::core::IUnknown {
-    fn from(value: ILowLevelDevicesAggregateProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILowLevelDevicesAggregateProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILowLevelDevicesAggregateProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILowLevelDevicesAggregateProvider> for ::windows::core::IUnknown {
-    fn from(value: &ILowLevelDevicesAggregateProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ILowLevelDevicesAggregateProvider> for ::windows::core::IInspectable {
-    fn from(value: ILowLevelDevicesAggregateProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILowLevelDevicesAggregateProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ILowLevelDevicesAggregateProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILowLevelDevicesAggregateProvider> for ::windows::core::IInspectable {
-    fn from(value: &ILowLevelDevicesAggregateProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILowLevelDevicesAggregateProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ILowLevelDevicesAggregateProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -349,36 +320,7 @@ unsafe impl ::windows::core::Interface for LowLevelDevicesAggregateProvider {
 impl ::windows::core::RuntimeName for LowLevelDevicesAggregateProvider {
     const NAME: &'static str = "Windows.Devices.LowLevelDevicesAggregateProvider";
 }
-impl ::core::convert::From<LowLevelDevicesAggregateProvider> for ::windows::core::IUnknown {
-    fn from(value: LowLevelDevicesAggregateProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LowLevelDevicesAggregateProvider> for ::windows::core::IUnknown {
-    fn from(value: &LowLevelDevicesAggregateProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LowLevelDevicesAggregateProvider> for &::windows::core::IUnknown {
-    fn from(value: &LowLevelDevicesAggregateProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LowLevelDevicesAggregateProvider> for ::windows::core::IInspectable {
-    fn from(value: LowLevelDevicesAggregateProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LowLevelDevicesAggregateProvider> for ::windows::core::IInspectable {
-    fn from(value: &LowLevelDevicesAggregateProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LowLevelDevicesAggregateProvider> for &::windows::core::IInspectable {
-    fn from(value: &LowLevelDevicesAggregateProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LowLevelDevicesAggregateProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LowLevelDevicesAggregateProvider> for ILowLevelDevicesAggregateProvider {
     type Error = ::windows::core::Error;
     fn try_from(value: LowLevelDevicesAggregateProvider) -> ::windows::core::Result<Self> {
@@ -455,36 +397,7 @@ unsafe impl ::windows::core::Interface for LowLevelDevicesController {
 impl ::windows::core::RuntimeName for LowLevelDevicesController {
     const NAME: &'static str = "Windows.Devices.LowLevelDevicesController";
 }
-impl ::core::convert::From<LowLevelDevicesController> for ::windows::core::IUnknown {
-    fn from(value: LowLevelDevicesController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LowLevelDevicesController> for ::windows::core::IUnknown {
-    fn from(value: &LowLevelDevicesController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LowLevelDevicesController> for &::windows::core::IUnknown {
-    fn from(value: &LowLevelDevicesController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LowLevelDevicesController> for ::windows::core::IInspectable {
-    fn from(value: LowLevelDevicesController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LowLevelDevicesController> for ::windows::core::IInspectable {
-    fn from(value: &LowLevelDevicesController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LowLevelDevicesController> for &::windows::core::IInspectable {
-    fn from(value: &LowLevelDevicesController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LowLevelDevicesController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LowLevelDevicesController {}
 unsafe impl ::core::marker::Sync for LowLevelDevicesController {}
 #[cfg(feature = "implement")]

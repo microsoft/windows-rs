@@ -58,21 +58,7 @@ impl IEnumOfflineFilesItems {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumOfflineFilesItems>(result__)
     }
 }
-impl ::core::convert::From<IEnumOfflineFilesItems> for ::windows::core::IUnknown {
-    fn from(value: IEnumOfflineFilesItems) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumOfflineFilesItems> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumOfflineFilesItems) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumOfflineFilesItems> for ::windows::core::IUnknown {
-    fn from(value: &IEnumOfflineFilesItems) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumOfflineFilesItems, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumOfflineFilesItems {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -122,21 +108,7 @@ impl IEnumOfflineFilesSettings {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumOfflineFilesSettings>(result__)
     }
 }
-impl ::core::convert::From<IEnumOfflineFilesSettings> for ::windows::core::IUnknown {
-    fn from(value: IEnumOfflineFilesSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumOfflineFilesSettings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumOfflineFilesSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumOfflineFilesSettings> for ::windows::core::IUnknown {
-    fn from(value: &IEnumOfflineFilesSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumOfflineFilesSettings, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumOfflineFilesSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -305,21 +277,7 @@ impl IOfflineFilesCache {
         (::windows::core::Vtable::vtable(self).IsPathCacheable)(::windows::core::Vtable::as_raw(self), pszpath.into(), ::core::mem::transmute(pbcacheable), ::core::mem::transmute(psharecachingmode)).ok()
     }
 }
-impl ::core::convert::From<IOfflineFilesCache> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesCache) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesCache> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesCache) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesCache> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesCache) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesCache, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOfflineFilesCache {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -538,36 +496,7 @@ impl IOfflineFilesCache2 {
         (::windows::core::Vtable::vtable(self).RenameItemEx)(::windows::core::Vtable::as_raw(self), pszpathoriginal.into(), pszpathnew.into(), breplaceifexists.into()).ok()
     }
 }
-impl ::core::convert::From<IOfflineFilesCache2> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesCache2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesCache2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesCache2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesCache2> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesCache2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IOfflineFilesCache2> for IOfflineFilesCache {
-    fn from(value: IOfflineFilesCache2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesCache2> for &'a IOfflineFilesCache {
-    fn from(value: &'a IOfflineFilesCache2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesCache2> for IOfflineFilesCache {
-    fn from(value: &IOfflineFilesCache2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesCache2, ::windows::core::IUnknown, IOfflineFilesCache);
 impl ::core::clone::Clone for IOfflineFilesCache2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -639,21 +568,7 @@ impl IOfflineFilesChangeInfo {
         (::windows::core::Vtable::vtable(self).IsLocallyModifiedTime)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IOfflineFilesChangeInfo> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesChangeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesChangeInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesChangeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesChangeInfo> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesChangeInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesChangeInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOfflineFilesChangeInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -739,21 +654,7 @@ impl IOfflineFilesConnectionInfo {
         (::windows::core::Vtable::vtable(self).TransitionOffline)(::windows::core::Vtable::as_raw(self), hwndparent.into(), dwflags, bforceopenfilesclosed.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IOfflineFilesConnectionInfo> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesConnectionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesConnectionInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesConnectionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesConnectionInfo> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesConnectionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesConnectionInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOfflineFilesConnectionInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -820,36 +721,7 @@ impl IOfflineFilesDirectoryItem {
         (::windows::core::Vtable::vtable(self).base__.IsMarkedForDeletion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IOfflineFilesDirectoryItem> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesDirectoryItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesDirectoryItem> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesDirectoryItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesDirectoryItem> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesDirectoryItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IOfflineFilesDirectoryItem> for IOfflineFilesItem {
-    fn from(value: IOfflineFilesDirectoryItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesDirectoryItem> for &'a IOfflineFilesItem {
-    fn from(value: &'a IOfflineFilesDirectoryItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesDirectoryItem> for IOfflineFilesItem {
-    fn from(value: &IOfflineFilesDirectoryItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesDirectoryItem, ::windows::core::IUnknown, IOfflineFilesItem);
 impl ::core::clone::Clone for IOfflineFilesDirectoryItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -890,21 +762,7 @@ impl IOfflineFilesDirtyInfo {
         (::windows::core::Vtable::vtable(self).RemoteDirtyByteCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
     }
 }
-impl ::core::convert::From<IOfflineFilesDirtyInfo> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesDirtyInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesDirtyInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesDirtyInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesDirtyInfo> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesDirtyInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesDirtyInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOfflineFilesDirtyInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -949,21 +807,7 @@ impl IOfflineFilesErrorInfo {
         (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IOfflineFilesErrorInfo> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesErrorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesErrorInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesErrorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesErrorInfo> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesErrorInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesErrorInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOfflineFilesErrorInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1146,21 +990,7 @@ impl IOfflineFilesEvents {
         (::windows::core::Vtable::vtable(self).Ping)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IOfflineFilesEvents> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesEvents> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOfflineFilesEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1408,36 +1238,7 @@ impl IOfflineFilesEvents2 {
         (::windows::core::Vtable::vtable(self).SettingsChangesApplied)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IOfflineFilesEvents2> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesEvents2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesEvents2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesEvents2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesEvents2> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesEvents2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IOfflineFilesEvents2> for IOfflineFilesEvents {
-    fn from(value: IOfflineFilesEvents2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesEvents2> for &'a IOfflineFilesEvents {
-    fn from(value: &'a IOfflineFilesEvents2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesEvents2> for IOfflineFilesEvents {
-    fn from(value: &IOfflineFilesEvents2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesEvents2, ::windows::core::IUnknown, IOfflineFilesEvents);
 impl ::core::clone::Clone for IOfflineFilesEvents2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1674,51 +1475,7 @@ impl IOfflineFilesEvents3 {
         (::windows::core::Vtable::vtable(self).PrefetchFileEnd)(::windows::core::Vtable::as_raw(self), pszpath.into(), hrresult).ok()
     }
 }
-impl ::core::convert::From<IOfflineFilesEvents3> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesEvents3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesEvents3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesEvents3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesEvents3> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesEvents3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IOfflineFilesEvents3> for IOfflineFilesEvents {
-    fn from(value: IOfflineFilesEvents3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesEvents3> for &'a IOfflineFilesEvents {
-    fn from(value: &'a IOfflineFilesEvents3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesEvents3> for IOfflineFilesEvents {
-    fn from(value: &IOfflineFilesEvents3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IOfflineFilesEvents3> for IOfflineFilesEvents2 {
-    fn from(value: IOfflineFilesEvents3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesEvents3> for &'a IOfflineFilesEvents2 {
-    fn from(value: &'a IOfflineFilesEvents3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesEvents3> for IOfflineFilesEvents2 {
-    fn from(value: &IOfflineFilesEvents3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesEvents3, ::windows::core::IUnknown, IOfflineFilesEvents, IOfflineFilesEvents2);
 impl ::core::clone::Clone for IOfflineFilesEvents3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1958,66 +1715,7 @@ impl IOfflineFilesEvents4 {
         (::windows::core::Vtable::vtable(self).PrefetchCloseHandleEnd)(::windows::core::Vtable::as_raw(self), dwclosedhandlecount, dwopenhandlecount, hrresult).ok()
     }
 }
-impl ::core::convert::From<IOfflineFilesEvents4> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesEvents4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesEvents4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesEvents4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesEvents4> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesEvents4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IOfflineFilesEvents4> for IOfflineFilesEvents {
-    fn from(value: IOfflineFilesEvents4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesEvents4> for &'a IOfflineFilesEvents {
-    fn from(value: &'a IOfflineFilesEvents4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesEvents4> for IOfflineFilesEvents {
-    fn from(value: &IOfflineFilesEvents4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IOfflineFilesEvents4> for IOfflineFilesEvents2 {
-    fn from(value: IOfflineFilesEvents4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesEvents4> for &'a IOfflineFilesEvents2 {
-    fn from(value: &'a IOfflineFilesEvents4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesEvents4> for IOfflineFilesEvents2 {
-    fn from(value: &IOfflineFilesEvents4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IOfflineFilesEvents4> for IOfflineFilesEvents3 {
-    fn from(value: IOfflineFilesEvents4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesEvents4> for &'a IOfflineFilesEvents3 {
-    fn from(value: &'a IOfflineFilesEvents4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesEvents4> for IOfflineFilesEvents3 {
-    fn from(value: &IOfflineFilesEvents4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesEvents4, ::windows::core::IUnknown, IOfflineFilesEvents, IOfflineFilesEvents2, IOfflineFilesEvents3);
 impl ::core::clone::Clone for IOfflineFilesEvents4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2061,21 +1759,7 @@ impl IOfflineFilesEventsFilter {
         (::windows::core::Vtable::vtable(self).GetExcludedEvents)(::windows::core::Vtable::as_raw(self), celements, ::core::mem::transmute(prgevents), ::core::mem::transmute(pcevents)).ok()
     }
 }
-impl ::core::convert::From<IOfflineFilesEventsFilter> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesEventsFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesEventsFilter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesEventsFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesEventsFilter> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesEventsFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesEventsFilter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOfflineFilesEventsFilter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2144,36 +1828,7 @@ impl IOfflineFilesFileItem {
         (::windows::core::Vtable::vtable(self).IsEncrypted)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IOfflineFilesFileItem> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesFileItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesFileItem> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesFileItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesFileItem> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesFileItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IOfflineFilesFileItem> for IOfflineFilesItem {
-    fn from(value: IOfflineFilesFileItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesFileItem> for &'a IOfflineFilesItem {
-    fn from(value: &'a IOfflineFilesFileItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesFileItem> for IOfflineFilesItem {
-    fn from(value: &IOfflineFilesFileItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesFileItem, ::windows::core::IUnknown, IOfflineFilesItem);
 impl ::core::clone::Clone for IOfflineFilesFileItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2227,21 +1882,7 @@ impl IOfflineFilesFileSysInfo {
         (::windows::core::Vtable::vtable(self).GetFileSize)(::windows::core::Vtable::as_raw(self), copy, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
     }
 }
-impl ::core::convert::From<IOfflineFilesFileSysInfo> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesFileSysInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesFileSysInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesFileSysInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesFileSysInfo> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesFileSysInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesFileSysInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOfflineFilesFileSysInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2286,21 +1927,7 @@ impl IOfflineFilesGhostInfo {
         (::windows::core::Vtable::vtable(self).IsGhosted)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IOfflineFilesGhostInfo> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesGhostInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesGhostInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesGhostInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesGhostInfo> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesGhostInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesGhostInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOfflineFilesGhostInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2358,21 +1985,7 @@ impl IOfflineFilesItem {
         (::windows::core::Vtable::vtable(self).IsMarkedForDeletion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IOfflineFilesItem> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesItem> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesItem> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesItem, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOfflineFilesItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2427,21 +2040,7 @@ impl IOfflineFilesItemContainer {
         (::windows::core::Vtable::vtable(self).EnumItemsEx)(::windows::core::Vtable::as_raw(self), pincludefilefilter.into().abi(), pincludedirfilter.into().abi(), pexcludefilefilter.into().abi(), pexcludedirfilter.into().abi(), dwenumflags, dwqueryflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumOfflineFilesItems>(result__)
     }
 }
-impl ::core::convert::From<IOfflineFilesItemContainer> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesItemContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesItemContainer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesItemContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesItemContainer> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesItemContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesItemContainer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOfflineFilesItemContainer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2487,21 +2086,7 @@ impl IOfflineFilesItemFilter {
         (::windows::core::Vtable::vtable(self).GetPatternFilter)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszpattern.as_ptr()), pszpattern.len() as _).ok()
     }
 }
-impl ::core::convert::From<IOfflineFilesItemFilter> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesItemFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesItemFilter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesItemFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesItemFilter> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesItemFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesItemFilter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOfflineFilesItemFilter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2566,21 +2151,7 @@ impl IOfflineFilesPinInfo {
         (::windows::core::Vtable::vtable(self).IsPinnedForFolderRedirection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbpinnedforfolderredirection), ::core::mem::transmute(pbinherit)).ok()
     }
 }
-impl ::core::convert::From<IOfflineFilesPinInfo> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesPinInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesPinInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesPinInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesPinInfo> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesPinInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesPinInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOfflineFilesPinInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2665,36 +2236,7 @@ impl IOfflineFilesPinInfo2 {
         (::windows::core::Vtable::vtable(self).IsPartlyPinned)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IOfflineFilesPinInfo2> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesPinInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesPinInfo2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesPinInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesPinInfo2> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesPinInfo2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IOfflineFilesPinInfo2> for IOfflineFilesPinInfo {
-    fn from(value: IOfflineFilesPinInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesPinInfo2> for &'a IOfflineFilesPinInfo {
-    fn from(value: &'a IOfflineFilesPinInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesPinInfo2> for IOfflineFilesPinInfo {
-    fn from(value: &IOfflineFilesPinInfo2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesPinInfo2, ::windows::core::IUnknown, IOfflineFilesPinInfo);
 impl ::core::clone::Clone for IOfflineFilesPinInfo2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2746,21 +2288,7 @@ impl IOfflineFilesProgress {
         (::windows::core::Vtable::vtable(self).End)(::windows::core::Vtable::as_raw(self), hrresult).ok()
     }
 }
-impl ::core::convert::From<IOfflineFilesProgress> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesProgress> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesProgress> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesProgress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesProgress, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOfflineFilesProgress {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2823,36 +2351,7 @@ impl IOfflineFilesServerItem {
         (::windows::core::Vtable::vtable(self).base__.IsMarkedForDeletion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IOfflineFilesServerItem> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesServerItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesServerItem> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesServerItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesServerItem> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesServerItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IOfflineFilesServerItem> for IOfflineFilesItem {
-    fn from(value: IOfflineFilesServerItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesServerItem> for &'a IOfflineFilesItem {
-    fn from(value: &'a IOfflineFilesServerItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesServerItem> for IOfflineFilesItem {
-    fn from(value: &IOfflineFilesServerItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesServerItem, ::windows::core::IUnknown, IOfflineFilesItem);
 impl ::core::clone::Clone for IOfflineFilesServerItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2924,21 +2423,7 @@ impl IOfflineFilesSetting {
         (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvarvalue), ::core::mem::transmute(pbsetbypolicy)).ok()
     }
 }
-impl ::core::convert::From<IOfflineFilesSetting> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesSetting) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesSetting> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesSetting) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesSetting> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesSetting) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesSetting, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOfflineFilesSetting {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3006,21 +2491,7 @@ impl IOfflineFilesShareInfo {
         (::windows::core::Vtable::vtable(self).IsShareDfsJunction)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IOfflineFilesShareInfo> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesShareInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesShareInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesShareInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesShareInfo> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesShareInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesShareInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOfflineFilesShareInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3080,36 +2551,7 @@ impl IOfflineFilesShareItem {
         (::windows::core::Vtable::vtable(self).base__.IsMarkedForDeletion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IOfflineFilesShareItem> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesShareItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesShareItem> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesShareItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesShareItem> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesShareItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IOfflineFilesShareItem> for IOfflineFilesItem {
-    fn from(value: IOfflineFilesShareItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesShareItem> for &'a IOfflineFilesItem {
-    fn from(value: &'a IOfflineFilesShareItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesShareItem> for IOfflineFilesItem {
-    fn from(value: &IOfflineFilesShareItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesShareItem, ::windows::core::IUnknown, IOfflineFilesItem);
 impl ::core::clone::Clone for IOfflineFilesShareItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3171,36 +2613,7 @@ impl IOfflineFilesSimpleProgress {
         (::windows::core::Vtable::vtable(self).ItemResult)(::windows::core::Vtable::as_raw(self), pszfile.into(), hrresult, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OFFLINEFILES_OP_RESPONSE>(result__)
     }
 }
-impl ::core::convert::From<IOfflineFilesSimpleProgress> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesSimpleProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesSimpleProgress> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesSimpleProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesSimpleProgress> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesSimpleProgress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IOfflineFilesSimpleProgress> for IOfflineFilesProgress {
-    fn from(value: IOfflineFilesSimpleProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesSimpleProgress> for &'a IOfflineFilesProgress {
-    fn from(value: &'a IOfflineFilesSimpleProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesSimpleProgress> for IOfflineFilesProgress {
-    fn from(value: &IOfflineFilesSimpleProgress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesSimpleProgress, ::windows::core::IUnknown, IOfflineFilesProgress);
 impl ::core::clone::Clone for IOfflineFilesSimpleProgress {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3243,21 +2656,7 @@ impl IOfflineFilesSuspend {
         (::windows::core::Vtable::vtable(self).SuspendRoot)(::windows::core::Vtable::as_raw(self), bsuspend.into()).ok()
     }
 }
-impl ::core::convert::From<IOfflineFilesSuspend> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesSuspend) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesSuspend> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesSuspend) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesSuspend> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesSuspend) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesSuspend, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOfflineFilesSuspend {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3299,21 +2698,7 @@ impl IOfflineFilesSuspendInfo {
         (::windows::core::Vtable::vtable(self).IsSuspended)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbsuspended), ::core::mem::transmute(pbsuspendedroot)).ok()
     }
 }
-impl ::core::convert::From<IOfflineFilesSuspendInfo> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesSuspendInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesSuspendInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesSuspendInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesSuspendInfo> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesSuspendInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesSuspendInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOfflineFilesSuspendInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3356,21 +2741,7 @@ impl IOfflineFilesSyncConflictHandler {
         (::windows::core::Vtable::vtable(self).ResolveConflict)(::windows::core::Vtable::as_raw(self), pszpath.into(), fstateknown, state, fchangedetails, ::core::mem::transmute(pconflictresolution), ::core::mem::transmute(ppsznewname)).ok()
     }
 }
-impl ::core::convert::From<IOfflineFilesSyncConflictHandler> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesSyncConflictHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesSyncConflictHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesSyncConflictHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesSyncConflictHandler> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesSyncConflictHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesSyncConflictHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOfflineFilesSyncConflictHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3444,36 +2815,7 @@ impl IOfflineFilesSyncErrorInfo {
         (::windows::core::Vtable::vtable(self).GetOriginalInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOfflineFilesSyncErrorItemInfo>(result__)
     }
 }
-impl ::core::convert::From<IOfflineFilesSyncErrorInfo> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesSyncErrorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesSyncErrorInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesSyncErrorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesSyncErrorInfo> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesSyncErrorInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IOfflineFilesSyncErrorInfo> for IOfflineFilesErrorInfo {
-    fn from(value: IOfflineFilesSyncErrorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesSyncErrorInfo> for &'a IOfflineFilesErrorInfo {
-    fn from(value: &'a IOfflineFilesSyncErrorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesSyncErrorInfo> for IOfflineFilesErrorInfo {
-    fn from(value: &IOfflineFilesSyncErrorInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesSyncErrorInfo, ::windows::core::IUnknown, IOfflineFilesErrorInfo);
 impl ::core::clone::Clone for IOfflineFilesSyncErrorInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3532,21 +2874,7 @@ impl IOfflineFilesSyncErrorItemInfo {
         (::windows::core::Vtable::vtable(self).GetFileSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
     }
 }
-impl ::core::convert::From<IOfflineFilesSyncErrorItemInfo> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesSyncErrorItemInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesSyncErrorItemInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesSyncErrorItemInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesSyncErrorItemInfo> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesSyncErrorItemInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesSyncErrorItemInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOfflineFilesSyncErrorItemInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3615,36 +2943,7 @@ impl IOfflineFilesSyncProgress {
         (::windows::core::Vtable::vtable(self).SyncItemResult)(::windows::core::Vtable::as_raw(self), pszfile.into(), hrresult, perrorinfo.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OFFLINEFILES_OP_RESPONSE>(result__)
     }
 }
-impl ::core::convert::From<IOfflineFilesSyncProgress> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesSyncProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesSyncProgress> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesSyncProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesSyncProgress> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesSyncProgress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IOfflineFilesSyncProgress> for IOfflineFilesProgress {
-    fn from(value: IOfflineFilesSyncProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesSyncProgress> for &'a IOfflineFilesProgress {
-    fn from(value: &'a IOfflineFilesSyncProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesSyncProgress> for IOfflineFilesProgress {
-    fn from(value: &IOfflineFilesSyncProgress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesSyncProgress, ::windows::core::IUnknown, IOfflineFilesProgress);
 impl ::core::clone::Clone for IOfflineFilesSyncProgress {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3685,21 +2984,7 @@ impl IOfflineFilesTransparentCacheInfo {
         (::windows::core::Vtable::vtable(self).IsTransparentlyCached)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IOfflineFilesTransparentCacheInfo> for ::windows::core::IUnknown {
-    fn from(value: IOfflineFilesTransparentCacheInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOfflineFilesTransparentCacheInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOfflineFilesTransparentCacheInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOfflineFilesTransparentCacheInfo> for ::windows::core::IUnknown {
-    fn from(value: &IOfflineFilesTransparentCacheInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOfflineFilesTransparentCacheInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOfflineFilesTransparentCacheInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())

@@ -494,36 +494,7 @@ unsafe impl ::windows::core::Interface for IppAttributeError {
 impl ::windows::core::RuntimeName for IppAttributeError {
     const NAME: &'static str = "Windows.Devices.Printers.IppAttributeError";
 }
-impl ::core::convert::From<IppAttributeError> for ::windows::core::IUnknown {
-    fn from(value: IppAttributeError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IppAttributeError> for ::windows::core::IUnknown {
-    fn from(value: &IppAttributeError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IppAttributeError> for &::windows::core::IUnknown {
-    fn from(value: &IppAttributeError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IppAttributeError> for ::windows::core::IInspectable {
-    fn from(value: IppAttributeError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IppAttributeError> for ::windows::core::IInspectable {
-    fn from(value: &IppAttributeError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IppAttributeError> for &::windows::core::IInspectable {
-    fn from(value: &IppAttributeError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IppAttributeError, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IppAttributeError {}
 unsafe impl ::core::marker::Sync for IppAttributeError {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
@@ -1095,36 +1066,7 @@ unsafe impl ::windows::core::Interface for IppAttributeValue {
 impl ::windows::core::RuntimeName for IppAttributeValue {
     const NAME: &'static str = "Windows.Devices.Printers.IppAttributeValue";
 }
-impl ::core::convert::From<IppAttributeValue> for ::windows::core::IUnknown {
-    fn from(value: IppAttributeValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IppAttributeValue> for ::windows::core::IUnknown {
-    fn from(value: &IppAttributeValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IppAttributeValue> for &::windows::core::IUnknown {
-    fn from(value: &IppAttributeValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IppAttributeValue> for ::windows::core::IInspectable {
-    fn from(value: IppAttributeValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IppAttributeValue> for ::windows::core::IInspectable {
-    fn from(value: &IppAttributeValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IppAttributeValue> for &::windows::core::IInspectable {
-    fn from(value: &IppAttributeValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IppAttributeValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IppAttributeValue {}
 unsafe impl ::core::marker::Sync for IppAttributeValue {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
@@ -1189,36 +1131,7 @@ unsafe impl ::windows::core::Interface for IppIntegerRange {
 impl ::windows::core::RuntimeName for IppIntegerRange {
     const NAME: &'static str = "Windows.Devices.Printers.IppIntegerRange";
 }
-impl ::core::convert::From<IppIntegerRange> for ::windows::core::IUnknown {
-    fn from(value: IppIntegerRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IppIntegerRange> for ::windows::core::IUnknown {
-    fn from(value: &IppIntegerRange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IppIntegerRange> for &::windows::core::IUnknown {
-    fn from(value: &IppIntegerRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IppIntegerRange> for ::windows::core::IInspectable {
-    fn from(value: IppIntegerRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IppIntegerRange> for ::windows::core::IInspectable {
-    fn from(value: &IppIntegerRange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IppIntegerRange> for &::windows::core::IInspectable {
-    fn from(value: &IppIntegerRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IppIntegerRange, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IppIntegerRange {}
 unsafe impl ::core::marker::Sync for IppIntegerRange {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
@@ -1326,36 +1239,7 @@ unsafe impl ::windows::core::Interface for IppPrintDevice {
 impl ::windows::core::RuntimeName for IppPrintDevice {
     const NAME: &'static str = "Windows.Devices.Printers.IppPrintDevice";
 }
-impl ::core::convert::From<IppPrintDevice> for ::windows::core::IUnknown {
-    fn from(value: IppPrintDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IppPrintDevice> for ::windows::core::IUnknown {
-    fn from(value: &IppPrintDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IppPrintDevice> for &::windows::core::IUnknown {
-    fn from(value: &IppPrintDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IppPrintDevice> for ::windows::core::IInspectable {
-    fn from(value: IppPrintDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IppPrintDevice> for ::windows::core::IInspectable {
-    fn from(value: &IppPrintDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IppPrintDevice> for &::windows::core::IInspectable {
-    fn from(value: &IppPrintDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IppPrintDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IppPrintDevice {}
 unsafe impl ::core::marker::Sync for IppPrintDevice {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
@@ -1427,36 +1311,7 @@ unsafe impl ::windows::core::Interface for IppResolution {
 impl ::windows::core::RuntimeName for IppResolution {
     const NAME: &'static str = "Windows.Devices.Printers.IppResolution";
 }
-impl ::core::convert::From<IppResolution> for ::windows::core::IUnknown {
-    fn from(value: IppResolution) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IppResolution> for ::windows::core::IUnknown {
-    fn from(value: &IppResolution) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IppResolution> for &::windows::core::IUnknown {
-    fn from(value: &IppResolution) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IppResolution> for ::windows::core::IInspectable {
-    fn from(value: IppResolution) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IppResolution> for ::windows::core::IInspectable {
-    fn from(value: &IppResolution) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IppResolution> for &::windows::core::IInspectable {
-    fn from(value: &IppResolution) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IppResolution, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IppResolution {}
 unsafe impl ::core::marker::Sync for IppResolution {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
@@ -1512,36 +1367,7 @@ unsafe impl ::windows::core::Interface for IppSetAttributesResult {
 impl ::windows::core::RuntimeName for IppSetAttributesResult {
     const NAME: &'static str = "Windows.Devices.Printers.IppSetAttributesResult";
 }
-impl ::core::convert::From<IppSetAttributesResult> for ::windows::core::IUnknown {
-    fn from(value: IppSetAttributesResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IppSetAttributesResult> for ::windows::core::IUnknown {
-    fn from(value: &IppSetAttributesResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IppSetAttributesResult> for &::windows::core::IUnknown {
-    fn from(value: &IppSetAttributesResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IppSetAttributesResult> for ::windows::core::IInspectable {
-    fn from(value: IppSetAttributesResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IppSetAttributesResult> for ::windows::core::IInspectable {
-    fn from(value: &IppSetAttributesResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IppSetAttributesResult> for &::windows::core::IInspectable {
-    fn from(value: &IppSetAttributesResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IppSetAttributesResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IppSetAttributesResult {}
 unsafe impl ::core::marker::Sync for IppSetAttributesResult {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
@@ -1606,36 +1432,7 @@ unsafe impl ::windows::core::Interface for IppTextWithLanguage {
 impl ::windows::core::RuntimeName for IppTextWithLanguage {
     const NAME: &'static str = "Windows.Devices.Printers.IppTextWithLanguage";
 }
-impl ::core::convert::From<IppTextWithLanguage> for ::windows::core::IUnknown {
-    fn from(value: IppTextWithLanguage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IppTextWithLanguage> for ::windows::core::IUnknown {
-    fn from(value: &IppTextWithLanguage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IppTextWithLanguage> for &::windows::core::IUnknown {
-    fn from(value: &IppTextWithLanguage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IppTextWithLanguage> for ::windows::core::IInspectable {
-    fn from(value: IppTextWithLanguage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IppTextWithLanguage> for ::windows::core::IInspectable {
-    fn from(value: &IppTextWithLanguage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IppTextWithLanguage> for &::windows::core::IInspectable {
-    fn from(value: &IppTextWithLanguage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IppTextWithLanguage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IppTextWithLanguage {}
 unsafe impl ::core::marker::Sync for IppTextWithLanguage {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
@@ -1701,36 +1498,7 @@ unsafe impl ::windows::core::Interface for Print3DDevice {
 impl ::windows::core::RuntimeName for Print3DDevice {
     const NAME: &'static str = "Windows.Devices.Printers.Print3DDevice";
 }
-impl ::core::convert::From<Print3DDevice> for ::windows::core::IUnknown {
-    fn from(value: Print3DDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Print3DDevice> for ::windows::core::IUnknown {
-    fn from(value: &Print3DDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Print3DDevice> for &::windows::core::IUnknown {
-    fn from(value: &Print3DDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Print3DDevice> for ::windows::core::IInspectable {
-    fn from(value: Print3DDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Print3DDevice> for ::windows::core::IInspectable {
-    fn from(value: &Print3DDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Print3DDevice> for &::windows::core::IInspectable {
-    fn from(value: &Print3DDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Print3DDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DDevice {}
 unsafe impl ::core::marker::Sync for Print3DDevice {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
@@ -1805,36 +1573,7 @@ unsafe impl ::windows::core::Interface for PrintSchema {
 impl ::windows::core::RuntimeName for PrintSchema {
     const NAME: &'static str = "Windows.Devices.Printers.PrintSchema";
 }
-impl ::core::convert::From<PrintSchema> for ::windows::core::IUnknown {
-    fn from(value: PrintSchema) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintSchema> for ::windows::core::IUnknown {
-    fn from(value: &PrintSchema) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintSchema> for &::windows::core::IUnknown {
-    fn from(value: &PrintSchema) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintSchema> for ::windows::core::IInspectable {
-    fn from(value: PrintSchema) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintSchema> for ::windows::core::IInspectable {
-    fn from(value: &PrintSchema) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintSchema> for &::windows::core::IInspectable {
-    fn from(value: &PrintSchema) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintSchema, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintSchema {}
 unsafe impl ::core::marker::Sync for PrintSchema {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]

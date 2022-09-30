@@ -1964,36 +1964,7 @@ impl IContentPrefetcherTaskTrigger {
         (::windows::core::Vtable::vtable(self).IsRegisteredForContentPrefetch)(::windows::core::Vtable::as_raw(self), packagefullname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
     }
 }
-impl ::core::convert::From<IContentPrefetcherTaskTrigger> for ::windows::core::IUnknown {
-    fn from(value: IContentPrefetcherTaskTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContentPrefetcherTaskTrigger> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContentPrefetcherTaskTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContentPrefetcherTaskTrigger> for ::windows::core::IUnknown {
-    fn from(value: &IContentPrefetcherTaskTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IContentPrefetcherTaskTrigger> for ::windows::core::IInspectable {
-    fn from(value: IContentPrefetcherTaskTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContentPrefetcherTaskTrigger> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IContentPrefetcherTaskTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContentPrefetcherTaskTrigger> for ::windows::core::IInspectable {
-    fn from(value: &IContentPrefetcherTaskTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContentPrefetcherTaskTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IContentPrefetcherTaskTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())

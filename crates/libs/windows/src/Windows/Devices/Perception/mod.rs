@@ -2059,41 +2059,7 @@ impl ::windows::core::RuntimeName for PerceptionColorFrame {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionColorFrame";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionColorFrame> for ::windows::core::IUnknown {
-    fn from(value: PerceptionColorFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrame> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionColorFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrame> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionColorFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionColorFrame> for ::windows::core::IInspectable {
-    fn from(value: PerceptionColorFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrame> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionColorFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrame> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionColorFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionColorFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<PerceptionColorFrame> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2186,41 +2152,7 @@ impl ::windows::core::RuntimeName for PerceptionColorFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionColorFrameArrivedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionColorFrameArrivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PerceptionColorFrameArrivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameArrivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionColorFrameArrivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameArrivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionColorFrameArrivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionColorFrameArrivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PerceptionColorFrameArrivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameArrivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionColorFrameArrivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameArrivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionColorFrameArrivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionColorFrameArrivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionColorFrameArrivedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -2327,41 +2259,7 @@ impl ::windows::core::RuntimeName for PerceptionColorFrameReader {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionColorFrameReader";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionColorFrameReader> for ::windows::core::IUnknown {
-    fn from(value: PerceptionColorFrameReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameReader> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionColorFrameReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameReader> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionColorFrameReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionColorFrameReader> for ::windows::core::IInspectable {
-    fn from(value: PerceptionColorFrameReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameReader> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionColorFrameReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameReader> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionColorFrameReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionColorFrameReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<PerceptionColorFrameReader> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2729,41 +2627,7 @@ impl ::windows::core::RuntimeName for PerceptionColorFrameSource {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionColorFrameSource";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionColorFrameSource> for ::windows::core::IUnknown {
-    fn from(value: PerceptionColorFrameSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameSource> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionColorFrameSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameSource> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionColorFrameSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionColorFrameSource> for ::windows::core::IInspectable {
-    fn from(value: PerceptionColorFrameSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameSource> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionColorFrameSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameSource> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionColorFrameSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionColorFrameSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionColorFrameSource {}
 #[cfg(feature = "deprecated")]
@@ -2825,41 +2689,7 @@ impl ::windows::core::RuntimeName for PerceptionColorFrameSourceAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionColorFrameSourceAddedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionColorFrameSourceAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PerceptionColorFrameSourceAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameSourceAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionColorFrameSourceAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameSourceAddedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionColorFrameSourceAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionColorFrameSourceAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PerceptionColorFrameSourceAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameSourceAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionColorFrameSourceAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameSourceAddedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionColorFrameSourceAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionColorFrameSourceAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionColorFrameSourceAddedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -2921,41 +2751,7 @@ impl ::windows::core::RuntimeName for PerceptionColorFrameSourceRemovedEventArgs
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionColorFrameSourceRemovedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionColorFrameSourceRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PerceptionColorFrameSourceRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameSourceRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionColorFrameSourceRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameSourceRemovedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionColorFrameSourceRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionColorFrameSourceRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PerceptionColorFrameSourceRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameSourceRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionColorFrameSourceRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameSourceRemovedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionColorFrameSourceRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionColorFrameSourceRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionColorFrameSourceRemovedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -3089,41 +2885,7 @@ impl ::windows::core::RuntimeName for PerceptionColorFrameSourceWatcher {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionColorFrameSourceWatcher";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionColorFrameSourceWatcher> for ::windows::core::IUnknown {
-    fn from(value: PerceptionColorFrameSourceWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameSourceWatcher> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionColorFrameSourceWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameSourceWatcher> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionColorFrameSourceWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionColorFrameSourceWatcher> for ::windows::core::IInspectable {
-    fn from(value: PerceptionColorFrameSourceWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameSourceWatcher> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionColorFrameSourceWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionColorFrameSourceWatcher> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionColorFrameSourceWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionColorFrameSourceWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionColorFrameSourceWatcher {}
 #[cfg(feature = "deprecated")]
@@ -3209,41 +2971,7 @@ impl ::windows::core::RuntimeName for PerceptionControlSession {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionControlSession";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionControlSession> for ::windows::core::IUnknown {
-    fn from(value: PerceptionControlSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionControlSession> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionControlSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionControlSession> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionControlSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionControlSession> for ::windows::core::IInspectable {
-    fn from(value: PerceptionControlSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionControlSession> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionControlSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionControlSession> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionControlSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionControlSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<PerceptionControlSession> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3351,41 +3079,7 @@ impl ::windows::core::RuntimeName for PerceptionDepthCorrelatedCameraIntrinsics 
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthCorrelatedCameraIntrinsics";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionDepthCorrelatedCameraIntrinsics> for ::windows::core::IUnknown {
-    fn from(value: PerceptionDepthCorrelatedCameraIntrinsics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthCorrelatedCameraIntrinsics> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionDepthCorrelatedCameraIntrinsics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthCorrelatedCameraIntrinsics> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionDepthCorrelatedCameraIntrinsics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionDepthCorrelatedCameraIntrinsics> for ::windows::core::IInspectable {
-    fn from(value: PerceptionDepthCorrelatedCameraIntrinsics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthCorrelatedCameraIntrinsics> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionDepthCorrelatedCameraIntrinsics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthCorrelatedCameraIntrinsics> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionDepthCorrelatedCameraIntrinsics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionDepthCorrelatedCameraIntrinsics, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionDepthCorrelatedCameraIntrinsics {}
 #[cfg(feature = "deprecated")]
@@ -3471,41 +3165,7 @@ impl ::windows::core::RuntimeName for PerceptionDepthCorrelatedCoordinateMapper 
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthCorrelatedCoordinateMapper";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionDepthCorrelatedCoordinateMapper> for ::windows::core::IUnknown {
-    fn from(value: PerceptionDepthCorrelatedCoordinateMapper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthCorrelatedCoordinateMapper> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionDepthCorrelatedCoordinateMapper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthCorrelatedCoordinateMapper> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionDepthCorrelatedCoordinateMapper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionDepthCorrelatedCoordinateMapper> for ::windows::core::IInspectable {
-    fn from(value: PerceptionDepthCorrelatedCoordinateMapper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthCorrelatedCoordinateMapper> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionDepthCorrelatedCoordinateMapper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthCorrelatedCoordinateMapper> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionDepthCorrelatedCoordinateMapper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionDepthCorrelatedCoordinateMapper, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionDepthCorrelatedCoordinateMapper {}
 #[cfg(feature = "deprecated")]
@@ -3573,41 +3233,7 @@ impl ::windows::core::RuntimeName for PerceptionDepthFrame {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthFrame";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionDepthFrame> for ::windows::core::IUnknown {
-    fn from(value: PerceptionDepthFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrame> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionDepthFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrame> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionDepthFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionDepthFrame> for ::windows::core::IInspectable {
-    fn from(value: PerceptionDepthFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrame> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionDepthFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrame> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionDepthFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionDepthFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<PerceptionDepthFrame> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3700,41 +3326,7 @@ impl ::windows::core::RuntimeName for PerceptionDepthFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthFrameArrivedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionDepthFrameArrivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PerceptionDepthFrameArrivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameArrivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionDepthFrameArrivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameArrivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionDepthFrameArrivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionDepthFrameArrivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PerceptionDepthFrameArrivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameArrivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionDepthFrameArrivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameArrivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionDepthFrameArrivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionDepthFrameArrivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionDepthFrameArrivedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -3841,41 +3433,7 @@ impl ::windows::core::RuntimeName for PerceptionDepthFrameReader {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthFrameReader";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionDepthFrameReader> for ::windows::core::IUnknown {
-    fn from(value: PerceptionDepthFrameReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameReader> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionDepthFrameReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameReader> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionDepthFrameReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionDepthFrameReader> for ::windows::core::IInspectable {
-    fn from(value: PerceptionDepthFrameReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameReader> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionDepthFrameReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameReader> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionDepthFrameReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionDepthFrameReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<PerceptionDepthFrameReader> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4243,41 +3801,7 @@ impl ::windows::core::RuntimeName for PerceptionDepthFrameSource {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthFrameSource";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionDepthFrameSource> for ::windows::core::IUnknown {
-    fn from(value: PerceptionDepthFrameSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameSource> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionDepthFrameSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameSource> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionDepthFrameSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionDepthFrameSource> for ::windows::core::IInspectable {
-    fn from(value: PerceptionDepthFrameSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameSource> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionDepthFrameSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameSource> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionDepthFrameSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionDepthFrameSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionDepthFrameSource {}
 #[cfg(feature = "deprecated")]
@@ -4339,41 +3863,7 @@ impl ::windows::core::RuntimeName for PerceptionDepthFrameSourceAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthFrameSourceAddedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionDepthFrameSourceAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PerceptionDepthFrameSourceAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameSourceAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionDepthFrameSourceAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameSourceAddedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionDepthFrameSourceAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionDepthFrameSourceAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PerceptionDepthFrameSourceAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameSourceAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionDepthFrameSourceAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameSourceAddedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionDepthFrameSourceAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionDepthFrameSourceAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionDepthFrameSourceAddedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -4435,41 +3925,7 @@ impl ::windows::core::RuntimeName for PerceptionDepthFrameSourceRemovedEventArgs
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthFrameSourceRemovedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionDepthFrameSourceRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PerceptionDepthFrameSourceRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameSourceRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionDepthFrameSourceRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameSourceRemovedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionDepthFrameSourceRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionDepthFrameSourceRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PerceptionDepthFrameSourceRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameSourceRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionDepthFrameSourceRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameSourceRemovedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionDepthFrameSourceRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionDepthFrameSourceRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionDepthFrameSourceRemovedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -4603,41 +4059,7 @@ impl ::windows::core::RuntimeName for PerceptionDepthFrameSourceWatcher {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthFrameSourceWatcher";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionDepthFrameSourceWatcher> for ::windows::core::IUnknown {
-    fn from(value: PerceptionDepthFrameSourceWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameSourceWatcher> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionDepthFrameSourceWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameSourceWatcher> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionDepthFrameSourceWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionDepthFrameSourceWatcher> for ::windows::core::IInspectable {
-    fn from(value: PerceptionDepthFrameSourceWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameSourceWatcher> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionDepthFrameSourceWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionDepthFrameSourceWatcher> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionDepthFrameSourceWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionDepthFrameSourceWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionDepthFrameSourceWatcher {}
 #[cfg(feature = "deprecated")]
@@ -4708,41 +4130,7 @@ impl ::windows::core::RuntimeName for PerceptionFrameSourcePropertiesChangedEven
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionFrameSourcePropertiesChangedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionFrameSourcePropertiesChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PerceptionFrameSourcePropertiesChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionFrameSourcePropertiesChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionFrameSourcePropertiesChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionFrameSourcePropertiesChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionFrameSourcePropertiesChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionFrameSourcePropertiesChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PerceptionFrameSourcePropertiesChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionFrameSourcePropertiesChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionFrameSourcePropertiesChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionFrameSourcePropertiesChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionFrameSourcePropertiesChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionFrameSourcePropertiesChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionFrameSourcePropertiesChangedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -4813,41 +4201,7 @@ impl ::windows::core::RuntimeName for PerceptionFrameSourcePropertyChangeResult 
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionFrameSourcePropertyChangeResult";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionFrameSourcePropertyChangeResult> for ::windows::core::IUnknown {
-    fn from(value: PerceptionFrameSourcePropertyChangeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionFrameSourcePropertyChangeResult> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionFrameSourcePropertyChangeResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionFrameSourcePropertyChangeResult> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionFrameSourcePropertyChangeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionFrameSourcePropertyChangeResult> for ::windows::core::IInspectable {
-    fn from(value: PerceptionFrameSourcePropertyChangeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionFrameSourcePropertyChangeResult> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionFrameSourcePropertyChangeResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionFrameSourcePropertyChangeResult> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionFrameSourcePropertyChangeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionFrameSourcePropertyChangeResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionFrameSourcePropertyChangeResult {}
 #[cfg(feature = "deprecated")]
@@ -4915,41 +4269,7 @@ impl ::windows::core::RuntimeName for PerceptionInfraredFrame {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionInfraredFrame";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionInfraredFrame> for ::windows::core::IUnknown {
-    fn from(value: PerceptionInfraredFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrame> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionInfraredFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrame> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionInfraredFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionInfraredFrame> for ::windows::core::IInspectable {
-    fn from(value: PerceptionInfraredFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrame> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionInfraredFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrame> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionInfraredFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionInfraredFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<PerceptionInfraredFrame> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -5042,41 +4362,7 @@ impl ::windows::core::RuntimeName for PerceptionInfraredFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionInfraredFrameArrivedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionInfraredFrameArrivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PerceptionInfraredFrameArrivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameArrivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionInfraredFrameArrivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameArrivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionInfraredFrameArrivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionInfraredFrameArrivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PerceptionInfraredFrameArrivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameArrivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionInfraredFrameArrivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameArrivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionInfraredFrameArrivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionInfraredFrameArrivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionInfraredFrameArrivedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -5183,41 +4469,7 @@ impl ::windows::core::RuntimeName for PerceptionInfraredFrameReader {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionInfraredFrameReader";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionInfraredFrameReader> for ::windows::core::IUnknown {
-    fn from(value: PerceptionInfraredFrameReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameReader> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionInfraredFrameReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameReader> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionInfraredFrameReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionInfraredFrameReader> for ::windows::core::IInspectable {
-    fn from(value: PerceptionInfraredFrameReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameReader> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionInfraredFrameReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameReader> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionInfraredFrameReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionInfraredFrameReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<PerceptionInfraredFrameReader> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -5585,41 +4837,7 @@ impl ::windows::core::RuntimeName for PerceptionInfraredFrameSource {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionInfraredFrameSource";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionInfraredFrameSource> for ::windows::core::IUnknown {
-    fn from(value: PerceptionInfraredFrameSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameSource> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionInfraredFrameSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameSource> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionInfraredFrameSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionInfraredFrameSource> for ::windows::core::IInspectable {
-    fn from(value: PerceptionInfraredFrameSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameSource> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionInfraredFrameSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameSource> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionInfraredFrameSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionInfraredFrameSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionInfraredFrameSource {}
 #[cfg(feature = "deprecated")]
@@ -5681,41 +4899,7 @@ impl ::windows::core::RuntimeName for PerceptionInfraredFrameSourceAddedEventArg
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionInfraredFrameSourceAddedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionInfraredFrameSourceAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PerceptionInfraredFrameSourceAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameSourceAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionInfraredFrameSourceAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameSourceAddedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionInfraredFrameSourceAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionInfraredFrameSourceAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PerceptionInfraredFrameSourceAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameSourceAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionInfraredFrameSourceAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameSourceAddedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionInfraredFrameSourceAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionInfraredFrameSourceAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionInfraredFrameSourceAddedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -5777,41 +4961,7 @@ impl ::windows::core::RuntimeName for PerceptionInfraredFrameSourceRemovedEventA
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionInfraredFrameSourceRemovedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionInfraredFrameSourceRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PerceptionInfraredFrameSourceRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameSourceRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionInfraredFrameSourceRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameSourceRemovedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionInfraredFrameSourceRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionInfraredFrameSourceRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PerceptionInfraredFrameSourceRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameSourceRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionInfraredFrameSourceRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameSourceRemovedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionInfraredFrameSourceRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionInfraredFrameSourceRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionInfraredFrameSourceRemovedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -5945,41 +5095,7 @@ impl ::windows::core::RuntimeName for PerceptionInfraredFrameSourceWatcher {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionInfraredFrameSourceWatcher";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionInfraredFrameSourceWatcher> for ::windows::core::IUnknown {
-    fn from(value: PerceptionInfraredFrameSourceWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameSourceWatcher> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionInfraredFrameSourceWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameSourceWatcher> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionInfraredFrameSourceWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionInfraredFrameSourceWatcher> for ::windows::core::IInspectable {
-    fn from(value: PerceptionInfraredFrameSourceWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameSourceWatcher> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionInfraredFrameSourceWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionInfraredFrameSourceWatcher> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionInfraredFrameSourceWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionInfraredFrameSourceWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionInfraredFrameSourceWatcher {}
 #[cfg(feature = "deprecated")]
@@ -6086,41 +5202,7 @@ impl ::windows::core::RuntimeName for PerceptionVideoProfile {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionVideoProfile";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionVideoProfile> for ::windows::core::IUnknown {
-    fn from(value: PerceptionVideoProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionVideoProfile> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionVideoProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionVideoProfile> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionVideoProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionVideoProfile> for ::windows::core::IInspectable {
-    fn from(value: PerceptionVideoProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionVideoProfile> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionVideoProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionVideoProfile> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionVideoProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionVideoProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionVideoProfile {}
 #[cfg(feature = "deprecated")]

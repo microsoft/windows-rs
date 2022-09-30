@@ -187,36 +187,7 @@ unsafe impl ::windows::core::Interface for NotePlacementChangedPreviewEventArgs 
 impl ::windows::core::RuntimeName for NotePlacementChangedPreviewEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NotePlacementChangedPreviewEventArgs";
 }
-impl ::core::convert::From<NotePlacementChangedPreviewEventArgs> for ::windows::core::IUnknown {
-    fn from(value: NotePlacementChangedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NotePlacementChangedPreviewEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &NotePlacementChangedPreviewEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NotePlacementChangedPreviewEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &NotePlacementChangedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NotePlacementChangedPreviewEventArgs> for ::windows::core::IInspectable {
-    fn from(value: NotePlacementChangedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NotePlacementChangedPreviewEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &NotePlacementChangedPreviewEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NotePlacementChangedPreviewEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &NotePlacementChangedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NotePlacementChangedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NotePlacementChangedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for NotePlacementChangedPreviewEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`*"]
@@ -270,36 +241,7 @@ unsafe impl ::windows::core::Interface for NoteVisibilityChangedPreviewEventArgs
 impl ::windows::core::RuntimeName for NoteVisibilityChangedPreviewEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NoteVisibilityChangedPreviewEventArgs";
 }
-impl ::core::convert::From<NoteVisibilityChangedPreviewEventArgs> for ::windows::core::IUnknown {
-    fn from(value: NoteVisibilityChangedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NoteVisibilityChangedPreviewEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &NoteVisibilityChangedPreviewEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NoteVisibilityChangedPreviewEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &NoteVisibilityChangedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NoteVisibilityChangedPreviewEventArgs> for ::windows::core::IInspectable {
-    fn from(value: NoteVisibilityChangedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NoteVisibilityChangedPreviewEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &NoteVisibilityChangedPreviewEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NoteVisibilityChangedPreviewEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &NoteVisibilityChangedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NoteVisibilityChangedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NoteVisibilityChangedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for NoteVisibilityChangedPreviewEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`*"]
@@ -486,36 +428,7 @@ unsafe impl ::windows::core::Interface for NotesWindowManagerPreview {
 impl ::windows::core::RuntimeName for NotesWindowManagerPreview {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NotesWindowManagerPreview";
 }
-impl ::core::convert::From<NotesWindowManagerPreview> for ::windows::core::IUnknown {
-    fn from(value: NotesWindowManagerPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NotesWindowManagerPreview> for ::windows::core::IUnknown {
-    fn from(value: &NotesWindowManagerPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NotesWindowManagerPreview> for &::windows::core::IUnknown {
-    fn from(value: &NotesWindowManagerPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NotesWindowManagerPreview> for ::windows::core::IInspectable {
-    fn from(value: NotesWindowManagerPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NotesWindowManagerPreview> for ::windows::core::IInspectable {
-    fn from(value: &NotesWindowManagerPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NotesWindowManagerPreview> for &::windows::core::IInspectable {
-    fn from(value: &NotesWindowManagerPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NotesWindowManagerPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NotesWindowManagerPreview {}
 unsafe impl ::core::marker::Sync for NotesWindowManagerPreview {}
 #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`*"]
@@ -573,36 +486,7 @@ unsafe impl ::windows::core::Interface for NotesWindowManagerPreviewShowNoteOpti
 impl ::windows::core::RuntimeName for NotesWindowManagerPreviewShowNoteOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NotesWindowManagerPreviewShowNoteOptions";
 }
-impl ::core::convert::From<NotesWindowManagerPreviewShowNoteOptions> for ::windows::core::IUnknown {
-    fn from(value: NotesWindowManagerPreviewShowNoteOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NotesWindowManagerPreviewShowNoteOptions> for ::windows::core::IUnknown {
-    fn from(value: &NotesWindowManagerPreviewShowNoteOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NotesWindowManagerPreviewShowNoteOptions> for &::windows::core::IUnknown {
-    fn from(value: &NotesWindowManagerPreviewShowNoteOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NotesWindowManagerPreviewShowNoteOptions> for ::windows::core::IInspectable {
-    fn from(value: NotesWindowManagerPreviewShowNoteOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NotesWindowManagerPreviewShowNoteOptions> for ::windows::core::IInspectable {
-    fn from(value: &NotesWindowManagerPreviewShowNoteOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NotesWindowManagerPreviewShowNoteOptions> for &::windows::core::IInspectable {
-    fn from(value: &NotesWindowManagerPreviewShowNoteOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NotesWindowManagerPreviewShowNoteOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NotesWindowManagerPreviewShowNoteOptions {}
 unsafe impl ::core::marker::Sync for NotesWindowManagerPreviewShowNoteOptions {}
 #[cfg(feature = "implement")]

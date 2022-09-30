@@ -789,36 +789,7 @@ unsafe impl ::windows::core::Interface for EnhancedWaypoint {
 impl ::windows::core::RuntimeName for EnhancedWaypoint {
     const NAME: &'static str = "Windows.Services.Maps.EnhancedWaypoint";
 }
-impl ::core::convert::From<EnhancedWaypoint> for ::windows::core::IUnknown {
-    fn from(value: EnhancedWaypoint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EnhancedWaypoint> for ::windows::core::IUnknown {
-    fn from(value: &EnhancedWaypoint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EnhancedWaypoint> for &::windows::core::IUnknown {
-    fn from(value: &EnhancedWaypoint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EnhancedWaypoint> for ::windows::core::IInspectable {
-    fn from(value: EnhancedWaypoint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EnhancedWaypoint> for ::windows::core::IInspectable {
-    fn from(value: &EnhancedWaypoint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EnhancedWaypoint> for &::windows::core::IInspectable {
-    fn from(value: &EnhancedWaypoint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EnhancedWaypoint, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EnhancedWaypoint {}
 unsafe impl ::core::marker::Sync for EnhancedWaypoint {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -872,36 +843,7 @@ unsafe impl ::windows::core::Interface for ManeuverWarning {
 impl ::windows::core::RuntimeName for ManeuverWarning {
     const NAME: &'static str = "Windows.Services.Maps.ManeuverWarning";
 }
-impl ::core::convert::From<ManeuverWarning> for ::windows::core::IUnknown {
-    fn from(value: ManeuverWarning) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ManeuverWarning> for ::windows::core::IUnknown {
-    fn from(value: &ManeuverWarning) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ManeuverWarning> for &::windows::core::IUnknown {
-    fn from(value: &ManeuverWarning) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ManeuverWarning> for ::windows::core::IInspectable {
-    fn from(value: ManeuverWarning) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ManeuverWarning> for ::windows::core::IInspectable {
-    fn from(value: &ManeuverWarning) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ManeuverWarning> for &::windows::core::IInspectable {
-    fn from(value: &ManeuverWarning) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ManeuverWarning, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ManeuverWarning {}
 unsafe impl ::core::marker::Sync for ManeuverWarning {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -1053,36 +995,7 @@ unsafe impl ::windows::core::Interface for MapAddress {
 impl ::windows::core::RuntimeName for MapAddress {
     const NAME: &'static str = "Windows.Services.Maps.MapAddress";
 }
-impl ::core::convert::From<MapAddress> for ::windows::core::IUnknown {
-    fn from(value: MapAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MapAddress> for ::windows::core::IUnknown {
-    fn from(value: &MapAddress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MapAddress> for &::windows::core::IUnknown {
-    fn from(value: &MapAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MapAddress> for ::windows::core::IInspectable {
-    fn from(value: MapAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MapAddress> for ::windows::core::IInspectable {
-    fn from(value: &MapAddress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MapAddress> for &::windows::core::IInspectable {
-    fn from(value: &MapAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MapAddress, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MapAddress {}
 unsafe impl ::core::marker::Sync for MapAddress {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -1152,36 +1065,7 @@ unsafe impl ::windows::core::Interface for MapLocation {
 impl ::windows::core::RuntimeName for MapLocation {
     const NAME: &'static str = "Windows.Services.Maps.MapLocation";
 }
-impl ::core::convert::From<MapLocation> for ::windows::core::IUnknown {
-    fn from(value: MapLocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MapLocation> for ::windows::core::IUnknown {
-    fn from(value: &MapLocation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MapLocation> for &::windows::core::IUnknown {
-    fn from(value: &MapLocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MapLocation> for ::windows::core::IInspectable {
-    fn from(value: MapLocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MapLocation> for ::windows::core::IInspectable {
-    fn from(value: &MapLocation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MapLocation> for &::windows::core::IInspectable {
-    fn from(value: &MapLocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MapLocation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MapLocation {}
 unsafe impl ::core::marker::Sync for MapLocation {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -1286,36 +1170,7 @@ unsafe impl ::windows::core::Interface for MapLocationFinderResult {
 impl ::windows::core::RuntimeName for MapLocationFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.MapLocationFinderResult";
 }
-impl ::core::convert::From<MapLocationFinderResult> for ::windows::core::IUnknown {
-    fn from(value: MapLocationFinderResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MapLocationFinderResult> for ::windows::core::IUnknown {
-    fn from(value: &MapLocationFinderResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MapLocationFinderResult> for &::windows::core::IUnknown {
-    fn from(value: &MapLocationFinderResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MapLocationFinderResult> for ::windows::core::IInspectable {
-    fn from(value: MapLocationFinderResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MapLocationFinderResult> for ::windows::core::IInspectable {
-    fn from(value: &MapLocationFinderResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MapLocationFinderResult> for &::windows::core::IInspectable {
-    fn from(value: &MapLocationFinderResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MapLocationFinderResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MapLocationFinderResult {}
 unsafe impl ::core::marker::Sync for MapLocationFinderResult {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -1460,36 +1315,7 @@ unsafe impl ::windows::core::Interface for MapRoute {
 impl ::windows::core::RuntimeName for MapRoute {
     const NAME: &'static str = "Windows.Services.Maps.MapRoute";
 }
-impl ::core::convert::From<MapRoute> for ::windows::core::IUnknown {
-    fn from(value: MapRoute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MapRoute> for ::windows::core::IUnknown {
-    fn from(value: &MapRoute) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MapRoute> for &::windows::core::IUnknown {
-    fn from(value: &MapRoute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MapRoute> for ::windows::core::IInspectable {
-    fn from(value: MapRoute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MapRoute> for ::windows::core::IInspectable {
-    fn from(value: &MapRoute) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MapRoute> for &::windows::core::IInspectable {
-    fn from(value: &MapRoute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MapRoute, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MapRoute {}
 unsafe impl ::core::marker::Sync for MapRoute {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -1607,36 +1433,7 @@ unsafe impl ::windows::core::Interface for MapRouteDrivingOptions {
 impl ::windows::core::RuntimeName for MapRouteDrivingOptions {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteDrivingOptions";
 }
-impl ::core::convert::From<MapRouteDrivingOptions> for ::windows::core::IUnknown {
-    fn from(value: MapRouteDrivingOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MapRouteDrivingOptions> for ::windows::core::IUnknown {
-    fn from(value: &MapRouteDrivingOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MapRouteDrivingOptions> for &::windows::core::IUnknown {
-    fn from(value: &MapRouteDrivingOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MapRouteDrivingOptions> for ::windows::core::IInspectable {
-    fn from(value: MapRouteDrivingOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MapRouteDrivingOptions> for ::windows::core::IInspectable {
-    fn from(value: &MapRouteDrivingOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MapRouteDrivingOptions> for &::windows::core::IInspectable {
-    fn from(value: &MapRouteDrivingOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MapRouteDrivingOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MapRouteDrivingOptions {}
 unsafe impl ::core::marker::Sync for MapRouteDrivingOptions {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -1853,36 +1650,7 @@ unsafe impl ::windows::core::Interface for MapRouteFinderResult {
 impl ::windows::core::RuntimeName for MapRouteFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteFinderResult";
 }
-impl ::core::convert::From<MapRouteFinderResult> for ::windows::core::IUnknown {
-    fn from(value: MapRouteFinderResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MapRouteFinderResult> for ::windows::core::IUnknown {
-    fn from(value: &MapRouteFinderResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MapRouteFinderResult> for &::windows::core::IUnknown {
-    fn from(value: &MapRouteFinderResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MapRouteFinderResult> for ::windows::core::IInspectable {
-    fn from(value: MapRouteFinderResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MapRouteFinderResult> for ::windows::core::IInspectable {
-    fn from(value: &MapRouteFinderResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MapRouteFinderResult> for &::windows::core::IInspectable {
-    fn from(value: &MapRouteFinderResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MapRouteFinderResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MapRouteFinderResult {}
 unsafe impl ::core::marker::Sync for MapRouteFinderResult {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -1981,36 +1749,7 @@ unsafe impl ::windows::core::Interface for MapRouteLeg {
 impl ::windows::core::RuntimeName for MapRouteLeg {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteLeg";
 }
-impl ::core::convert::From<MapRouteLeg> for ::windows::core::IUnknown {
-    fn from(value: MapRouteLeg) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MapRouteLeg> for ::windows::core::IUnknown {
-    fn from(value: &MapRouteLeg) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MapRouteLeg> for &::windows::core::IUnknown {
-    fn from(value: &MapRouteLeg) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MapRouteLeg> for ::windows::core::IInspectable {
-    fn from(value: MapRouteLeg) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MapRouteLeg> for ::windows::core::IInspectable {
-    fn from(value: &MapRouteLeg) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MapRouteLeg> for &::windows::core::IInspectable {
-    fn from(value: &MapRouteLeg) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MapRouteLeg, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MapRouteLeg {}
 unsafe impl ::core::marker::Sync for MapRouteLeg {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -2124,36 +1863,7 @@ unsafe impl ::windows::core::Interface for MapRouteManeuver {
 impl ::windows::core::RuntimeName for MapRouteManeuver {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteManeuver";
 }
-impl ::core::convert::From<MapRouteManeuver> for ::windows::core::IUnknown {
-    fn from(value: MapRouteManeuver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MapRouteManeuver> for ::windows::core::IUnknown {
-    fn from(value: &MapRouteManeuver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MapRouteManeuver> for &::windows::core::IUnknown {
-    fn from(value: &MapRouteManeuver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MapRouteManeuver> for ::windows::core::IInspectable {
-    fn from(value: MapRouteManeuver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MapRouteManeuver> for ::windows::core::IInspectable {
-    fn from(value: &MapRouteManeuver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MapRouteManeuver> for &::windows::core::IInspectable {
-    fn from(value: &MapRouteManeuver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MapRouteManeuver, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MapRouteManeuver {}
 unsafe impl ::core::marker::Sync for MapRouteManeuver {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -2356,36 +2066,7 @@ unsafe impl ::windows::core::Interface for PlaceInfo {
 impl ::windows::core::RuntimeName for PlaceInfo {
     const NAME: &'static str = "Windows.Services.Maps.PlaceInfo";
 }
-impl ::core::convert::From<PlaceInfo> for ::windows::core::IUnknown {
-    fn from(value: PlaceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlaceInfo> for ::windows::core::IUnknown {
-    fn from(value: &PlaceInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlaceInfo> for &::windows::core::IUnknown {
-    fn from(value: &PlaceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlaceInfo> for ::windows::core::IInspectable {
-    fn from(value: PlaceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlaceInfo> for ::windows::core::IInspectable {
-    fn from(value: &PlaceInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlaceInfo> for &::windows::core::IInspectable {
-    fn from(value: &PlaceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlaceInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PlaceInfo {}
 unsafe impl ::core::marker::Sync for PlaceInfo {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -2454,36 +2135,7 @@ unsafe impl ::windows::core::Interface for PlaceInfoCreateOptions {
 impl ::windows::core::RuntimeName for PlaceInfoCreateOptions {
     const NAME: &'static str = "Windows.Services.Maps.PlaceInfoCreateOptions";
 }
-impl ::core::convert::From<PlaceInfoCreateOptions> for ::windows::core::IUnknown {
-    fn from(value: PlaceInfoCreateOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlaceInfoCreateOptions> for ::windows::core::IUnknown {
-    fn from(value: &PlaceInfoCreateOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlaceInfoCreateOptions> for &::windows::core::IUnknown {
-    fn from(value: &PlaceInfoCreateOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlaceInfoCreateOptions> for ::windows::core::IInspectable {
-    fn from(value: PlaceInfoCreateOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlaceInfoCreateOptions> for ::windows::core::IInspectable {
-    fn from(value: &PlaceInfoCreateOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlaceInfoCreateOptions> for &::windows::core::IInspectable {
-    fn from(value: &PlaceInfoCreateOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlaceInfoCreateOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PlaceInfoCreateOptions {}
 unsafe impl ::core::marker::Sync for PlaceInfoCreateOptions {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]

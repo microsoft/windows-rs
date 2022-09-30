@@ -55,36 +55,7 @@ impl IAsyncAction {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<IAsyncAction> for ::windows::core::IUnknown {
-    fn from(value: IAsyncAction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAsyncAction> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAsyncAction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAsyncAction> for ::windows::core::IUnknown {
-    fn from(value: &IAsyncAction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAsyncAction> for ::windows::core::IInspectable {
-    fn from(value: IAsyncAction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAsyncAction> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAsyncAction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAsyncAction> for ::windows::core::IInspectable {
-    fn from(value: &IAsyncAction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAsyncAction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IAsyncAction> for IAsyncInfo {
     type Error = ::windows::core::Error;
     fn try_from(value: IAsyncAction) -> ::windows::core::Result<Self> {
@@ -391,36 +362,7 @@ impl IAsyncInfo {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<IAsyncInfo> for ::windows::core::IUnknown {
-    fn from(value: IAsyncInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAsyncInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAsyncInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAsyncInfo> for ::windows::core::IUnknown {
-    fn from(value: &IAsyncInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAsyncInfo> for ::windows::core::IInspectable {
-    fn from(value: IAsyncInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAsyncInfo> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAsyncInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAsyncInfo> for ::windows::core::IInspectable {
-    fn from(value: &IAsyncInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAsyncInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IAsyncInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -835,36 +777,7 @@ impl IClosable {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<IClosable> for ::windows::core::IUnknown {
-    fn from(value: IClosable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IClosable> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IClosable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IClosable> for ::windows::core::IUnknown {
-    fn from(value: &IClosable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IClosable> for ::windows::core::IInspectable {
-    fn from(value: IClosable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IClosable> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IClosable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IClosable> for ::windows::core::IInspectable {
-    fn from(value: &IClosable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IClosable, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IClosable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -942,36 +855,7 @@ impl IGetActivationFactory {
         }
     }
 }
-impl ::core::convert::From<IGetActivationFactory> for ::windows::core::IUnknown {
-    fn from(value: IGetActivationFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGetActivationFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGetActivationFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGetActivationFactory> for ::windows::core::IUnknown {
-    fn from(value: &IGetActivationFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IGetActivationFactory> for ::windows::core::IInspectable {
-    fn from(value: IGetActivationFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGetActivationFactory> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IGetActivationFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGetActivationFactory> for ::windows::core::IInspectable {
-    fn from(value: &IGetActivationFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGetActivationFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IGetActivationFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1040,36 +924,7 @@ impl IMemoryBuffer {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<IMemoryBuffer> for ::windows::core::IUnknown {
-    fn from(value: IMemoryBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMemoryBuffer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMemoryBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMemoryBuffer> for ::windows::core::IUnknown {
-    fn from(value: &IMemoryBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMemoryBuffer> for ::windows::core::IInspectable {
-    fn from(value: IMemoryBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMemoryBuffer> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IMemoryBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMemoryBuffer> for ::windows::core::IInspectable {
-    fn from(value: &IMemoryBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMemoryBuffer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IMemoryBuffer> for IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: IMemoryBuffer) -> ::windows::core::Result<Self> {
@@ -1166,36 +1021,7 @@ impl IMemoryBufferReference {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<IMemoryBufferReference> for ::windows::core::IUnknown {
-    fn from(value: IMemoryBufferReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMemoryBufferReference> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMemoryBufferReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMemoryBufferReference> for ::windows::core::IUnknown {
-    fn from(value: &IMemoryBufferReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMemoryBufferReference> for ::windows::core::IInspectable {
-    fn from(value: IMemoryBufferReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMemoryBufferReference> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IMemoryBufferReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMemoryBufferReference> for ::windows::core::IInspectable {
-    fn from(value: &IMemoryBufferReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMemoryBufferReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IMemoryBufferReference> for IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: IMemoryBufferReference) -> ::windows::core::Result<Self> {
@@ -1473,36 +1299,7 @@ impl IPropertyValue {
         unsafe { (::windows::core::Vtable::vtable(this).GetRectArray)(::windows::core::Vtable::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
 }
-impl ::core::convert::From<IPropertyValue> for ::windows::core::IUnknown {
-    fn from(value: IPropertyValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyValue> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertyValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyValue> for ::windows::core::IUnknown {
-    fn from(value: &IPropertyValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPropertyValue> for ::windows::core::IInspectable {
-    fn from(value: IPropertyValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyValue> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPropertyValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyValue> for ::windows::core::IInspectable {
-    fn from(value: &IPropertyValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertyValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IPropertyValue {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2277,36 +2074,7 @@ impl IStringable {
         }
     }
 }
-impl ::core::convert::From<IStringable> for ::windows::core::IUnknown {
-    fn from(value: IStringable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStringable> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStringable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStringable> for ::windows::core::IUnknown {
-    fn from(value: &IStringable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IStringable> for ::windows::core::IInspectable {
-    fn from(value: IStringable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStringable> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IStringable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStringable> for ::windows::core::IInspectable {
-    fn from(value: &IStringable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStringable, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IStringable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2440,36 +2208,7 @@ impl IWwwFormUrlDecoderEntry {
         }
     }
 }
-impl ::core::convert::From<IWwwFormUrlDecoderEntry> for ::windows::core::IUnknown {
-    fn from(value: IWwwFormUrlDecoderEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWwwFormUrlDecoderEntry> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWwwFormUrlDecoderEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWwwFormUrlDecoderEntry> for ::windows::core::IUnknown {
-    fn from(value: &IWwwFormUrlDecoderEntry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWwwFormUrlDecoderEntry> for ::windows::core::IInspectable {
-    fn from(value: IWwwFormUrlDecoderEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWwwFormUrlDecoderEntry> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWwwFormUrlDecoderEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWwwFormUrlDecoderEntry> for ::windows::core::IInspectable {
-    fn from(value: &IWwwFormUrlDecoderEntry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWwwFormUrlDecoderEntry, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IWwwFormUrlDecoderEntry {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2592,36 +2331,7 @@ unsafe impl ::windows::core::Interface for Deferral {
 impl ::windows::core::RuntimeName for Deferral {
     const NAME: &'static str = "Windows.Foundation.Deferral";
 }
-impl ::core::convert::From<Deferral> for ::windows::core::IUnknown {
-    fn from(value: Deferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Deferral> for ::windows::core::IUnknown {
-    fn from(value: &Deferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Deferral> for &::windows::core::IUnknown {
-    fn from(value: &Deferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Deferral> for ::windows::core::IInspectable {
-    fn from(value: Deferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Deferral> for ::windows::core::IInspectable {
-    fn from(value: &Deferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Deferral> for &::windows::core::IInspectable {
-    fn from(value: &Deferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Deferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Deferral> for IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: Deferral) -> ::windows::core::Result<Self> {
@@ -2732,36 +2442,7 @@ unsafe impl ::windows::core::Interface for MemoryBuffer {
 impl ::windows::core::RuntimeName for MemoryBuffer {
     const NAME: &'static str = "Windows.Foundation.MemoryBuffer";
 }
-impl ::core::convert::From<MemoryBuffer> for ::windows::core::IUnknown {
-    fn from(value: MemoryBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MemoryBuffer> for ::windows::core::IUnknown {
-    fn from(value: &MemoryBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MemoryBuffer> for &::windows::core::IUnknown {
-    fn from(value: &MemoryBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MemoryBuffer> for ::windows::core::IInspectable {
-    fn from(value: MemoryBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MemoryBuffer> for ::windows::core::IInspectable {
-    fn from(value: &MemoryBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MemoryBuffer> for &::windows::core::IInspectable {
-    fn from(value: &MemoryBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MemoryBuffer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MemoryBuffer> for IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: MemoryBuffer) -> ::windows::core::Result<Self> {
@@ -3262,36 +2943,7 @@ unsafe impl ::windows::core::Interface for Uri {
 impl ::windows::core::RuntimeName for Uri {
     const NAME: &'static str = "Windows.Foundation.Uri";
 }
-impl ::core::convert::From<Uri> for ::windows::core::IUnknown {
-    fn from(value: Uri) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Uri> for ::windows::core::IUnknown {
-    fn from(value: &Uri) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Uri> for &::windows::core::IUnknown {
-    fn from(value: &Uri) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Uri> for ::windows::core::IInspectable {
-    fn from(value: Uri) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Uri> for ::windows::core::IInspectable {
-    fn from(value: &Uri) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Uri> for &::windows::core::IInspectable {
-    fn from(value: &Uri) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Uri, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Uri> for IStringable {
     type Error = ::windows::core::Error;
     fn try_from(value: Uri) -> ::windows::core::Result<Self> {
@@ -3433,36 +3085,7 @@ impl ::core::iter::IntoIterator for &WwwFormUrlDecoder {
         Collections::VectorViewIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-impl ::core::convert::From<WwwFormUrlDecoder> for ::windows::core::IUnknown {
-    fn from(value: WwwFormUrlDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WwwFormUrlDecoder> for ::windows::core::IUnknown {
-    fn from(value: &WwwFormUrlDecoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WwwFormUrlDecoder> for &::windows::core::IUnknown {
-    fn from(value: &WwwFormUrlDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WwwFormUrlDecoder> for ::windows::core::IInspectable {
-    fn from(value: WwwFormUrlDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WwwFormUrlDecoder> for ::windows::core::IInspectable {
-    fn from(value: &WwwFormUrlDecoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WwwFormUrlDecoder> for &::windows::core::IInspectable {
-    fn from(value: &WwwFormUrlDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WwwFormUrlDecoder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<WwwFormUrlDecoder> for Collections::IIterable<IWwwFormUrlDecoderEntry> {
     type Error = ::windows::core::Error;
@@ -3560,36 +3183,7 @@ unsafe impl ::windows::core::Interface for WwwFormUrlDecoderEntry {
 impl ::windows::core::RuntimeName for WwwFormUrlDecoderEntry {
     const NAME: &'static str = "Windows.Foundation.WwwFormUrlDecoderEntry";
 }
-impl ::core::convert::From<WwwFormUrlDecoderEntry> for ::windows::core::IUnknown {
-    fn from(value: WwwFormUrlDecoderEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WwwFormUrlDecoderEntry> for ::windows::core::IUnknown {
-    fn from(value: &WwwFormUrlDecoderEntry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WwwFormUrlDecoderEntry> for &::windows::core::IUnknown {
-    fn from(value: &WwwFormUrlDecoderEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WwwFormUrlDecoderEntry> for ::windows::core::IInspectable {
-    fn from(value: WwwFormUrlDecoderEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WwwFormUrlDecoderEntry> for ::windows::core::IInspectable {
-    fn from(value: &WwwFormUrlDecoderEntry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WwwFormUrlDecoderEntry> for &::windows::core::IInspectable {
-    fn from(value: &WwwFormUrlDecoderEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WwwFormUrlDecoderEntry, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WwwFormUrlDecoderEntry> for IWwwFormUrlDecoderEntry {
     type Error = ::windows::core::Error;
     fn try_from(value: WwwFormUrlDecoderEntry) -> ::windows::core::Result<Self> {

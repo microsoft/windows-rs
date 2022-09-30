@@ -286,36 +286,7 @@ unsafe impl ::windows::core::Interface for SpatialSurfaceInfo {
 impl ::windows::core::RuntimeName for SpatialSurfaceInfo {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceInfo";
 }
-impl ::core::convert::From<SpatialSurfaceInfo> for ::windows::core::IUnknown {
-    fn from(value: SpatialSurfaceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialSurfaceInfo> for ::windows::core::IUnknown {
-    fn from(value: &SpatialSurfaceInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialSurfaceInfo> for &::windows::core::IUnknown {
-    fn from(value: &SpatialSurfaceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialSurfaceInfo> for ::windows::core::IInspectable {
-    fn from(value: SpatialSurfaceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialSurfaceInfo> for ::windows::core::IInspectable {
-    fn from(value: &SpatialSurfaceInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialSurfaceInfo> for &::windows::core::IInspectable {
-    fn from(value: &SpatialSurfaceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialSurfaceInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialSurfaceInfo {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceInfo {}
 #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
@@ -399,36 +370,7 @@ unsafe impl ::windows::core::Interface for SpatialSurfaceMesh {
 impl ::windows::core::RuntimeName for SpatialSurfaceMesh {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceMesh";
 }
-impl ::core::convert::From<SpatialSurfaceMesh> for ::windows::core::IUnknown {
-    fn from(value: SpatialSurfaceMesh) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialSurfaceMesh> for ::windows::core::IUnknown {
-    fn from(value: &SpatialSurfaceMesh) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialSurfaceMesh> for &::windows::core::IUnknown {
-    fn from(value: &SpatialSurfaceMesh) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialSurfaceMesh> for ::windows::core::IInspectable {
-    fn from(value: SpatialSurfaceMesh) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialSurfaceMesh> for ::windows::core::IInspectable {
-    fn from(value: &SpatialSurfaceMesh) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialSurfaceMesh> for &::windows::core::IInspectable {
-    fn from(value: &SpatialSurfaceMesh) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialSurfaceMesh, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialSurfaceMesh {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceMesh {}
 #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
@@ -500,36 +442,7 @@ unsafe impl ::windows::core::Interface for SpatialSurfaceMeshBuffer {
 impl ::windows::core::RuntimeName for SpatialSurfaceMeshBuffer {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshBuffer";
 }
-impl ::core::convert::From<SpatialSurfaceMeshBuffer> for ::windows::core::IUnknown {
-    fn from(value: SpatialSurfaceMeshBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialSurfaceMeshBuffer> for ::windows::core::IUnknown {
-    fn from(value: &SpatialSurfaceMeshBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialSurfaceMeshBuffer> for &::windows::core::IUnknown {
-    fn from(value: &SpatialSurfaceMeshBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialSurfaceMeshBuffer> for ::windows::core::IInspectable {
-    fn from(value: SpatialSurfaceMeshBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialSurfaceMeshBuffer> for ::windows::core::IInspectable {
-    fn from(value: &SpatialSurfaceMeshBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialSurfaceMeshBuffer> for &::windows::core::IInspectable {
-    fn from(value: &SpatialSurfaceMeshBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialSurfaceMeshBuffer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialSurfaceMeshBuffer {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceMeshBuffer {}
 #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
@@ -661,36 +574,7 @@ unsafe impl ::windows::core::Interface for SpatialSurfaceMeshOptions {
 impl ::windows::core::RuntimeName for SpatialSurfaceMeshOptions {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshOptions";
 }
-impl ::core::convert::From<SpatialSurfaceMeshOptions> for ::windows::core::IUnknown {
-    fn from(value: SpatialSurfaceMeshOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialSurfaceMeshOptions> for ::windows::core::IUnknown {
-    fn from(value: &SpatialSurfaceMeshOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialSurfaceMeshOptions> for &::windows::core::IUnknown {
-    fn from(value: &SpatialSurfaceMeshOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialSurfaceMeshOptions> for ::windows::core::IInspectable {
-    fn from(value: SpatialSurfaceMeshOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialSurfaceMeshOptions> for ::windows::core::IInspectable {
-    fn from(value: &SpatialSurfaceMeshOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialSurfaceMeshOptions> for &::windows::core::IInspectable {
-    fn from(value: &SpatialSurfaceMeshOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialSurfaceMeshOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialSurfaceMeshOptions {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceMeshOptions {}
 #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
@@ -799,36 +683,7 @@ unsafe impl ::windows::core::Interface for SpatialSurfaceObserver {
 impl ::windows::core::RuntimeName for SpatialSurfaceObserver {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceObserver";
 }
-impl ::core::convert::From<SpatialSurfaceObserver> for ::windows::core::IUnknown {
-    fn from(value: SpatialSurfaceObserver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialSurfaceObserver> for ::windows::core::IUnknown {
-    fn from(value: &SpatialSurfaceObserver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialSurfaceObserver> for &::windows::core::IUnknown {
-    fn from(value: &SpatialSurfaceObserver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialSurfaceObserver> for ::windows::core::IInspectable {
-    fn from(value: SpatialSurfaceObserver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialSurfaceObserver> for ::windows::core::IInspectable {
-    fn from(value: &SpatialSurfaceObserver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialSurfaceObserver> for &::windows::core::IInspectable {
-    fn from(value: &SpatialSurfaceObserver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialSurfaceObserver, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialSurfaceObserver {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceObserver {}
 #[cfg(feature = "implement")]

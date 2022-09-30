@@ -259,36 +259,7 @@ unsafe impl ::windows::core::Interface for PnpObject {
 impl ::windows::core::RuntimeName for PnpObject {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.PnpObject";
 }
-impl ::core::convert::From<PnpObject> for ::windows::core::IUnknown {
-    fn from(value: PnpObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PnpObject> for ::windows::core::IUnknown {
-    fn from(value: &PnpObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PnpObject> for &::windows::core::IUnknown {
-    fn from(value: &PnpObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PnpObject> for ::windows::core::IInspectable {
-    fn from(value: PnpObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PnpObject> for ::windows::core::IInspectable {
-    fn from(value: &PnpObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PnpObject> for &::windows::core::IInspectable {
-    fn from(value: &PnpObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PnpObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PnpObject {}
 unsafe impl ::core::marker::Sync for PnpObject {}
 #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation_Collections\"`*"]
@@ -400,41 +371,7 @@ impl ::core::iter::IntoIterator for &PnpObjectCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<PnpObjectCollection> for ::windows::core::IUnknown {
-    fn from(value: PnpObjectCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PnpObjectCollection> for ::windows::core::IUnknown {
-    fn from(value: &PnpObjectCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PnpObjectCollection> for &::windows::core::IUnknown {
-    fn from(value: &PnpObjectCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<PnpObjectCollection> for ::windows::core::IInspectable {
-    fn from(value: PnpObjectCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PnpObjectCollection> for ::windows::core::IInspectable {
-    fn from(value: &PnpObjectCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PnpObjectCollection> for &::windows::core::IInspectable {
-    fn from(value: &PnpObjectCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PnpObjectCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<PnpObjectCollection> for super::super::super::Foundation::Collections::IIterable<PnpObject> {
     type Error = ::windows::core::Error;
@@ -543,36 +480,7 @@ unsafe impl ::windows::core::Interface for PnpObjectUpdate {
 impl ::windows::core::RuntimeName for PnpObjectUpdate {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.PnpObjectUpdate";
 }
-impl ::core::convert::From<PnpObjectUpdate> for ::windows::core::IUnknown {
-    fn from(value: PnpObjectUpdate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PnpObjectUpdate> for ::windows::core::IUnknown {
-    fn from(value: &PnpObjectUpdate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PnpObjectUpdate> for &::windows::core::IUnknown {
-    fn from(value: &PnpObjectUpdate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PnpObjectUpdate> for ::windows::core::IInspectable {
-    fn from(value: PnpObjectUpdate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PnpObjectUpdate> for ::windows::core::IInspectable {
-    fn from(value: &PnpObjectUpdate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PnpObjectUpdate> for &::windows::core::IInspectable {
-    fn from(value: &PnpObjectUpdate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PnpObjectUpdate, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PnpObjectUpdate {}
 unsafe impl ::core::marker::Sync for PnpObjectUpdate {}
 #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`*"]
@@ -702,36 +610,7 @@ unsafe impl ::windows::core::Interface for PnpObjectWatcher {
 impl ::windows::core::RuntimeName for PnpObjectWatcher {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.PnpObjectWatcher";
 }
-impl ::core::convert::From<PnpObjectWatcher> for ::windows::core::IUnknown {
-    fn from(value: PnpObjectWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PnpObjectWatcher> for ::windows::core::IUnknown {
-    fn from(value: &PnpObjectWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PnpObjectWatcher> for &::windows::core::IUnknown {
-    fn from(value: &PnpObjectWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PnpObjectWatcher> for ::windows::core::IInspectable {
-    fn from(value: PnpObjectWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PnpObjectWatcher> for ::windows::core::IInspectable {
-    fn from(value: &PnpObjectWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PnpObjectWatcher> for &::windows::core::IInspectable {
-    fn from(value: &PnpObjectWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PnpObjectWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PnpObjectWatcher {}
 unsafe impl ::core::marker::Sync for PnpObjectWatcher {}
 #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`*"]

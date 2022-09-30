@@ -32,36 +32,7 @@ impl ICompositionFramePresentStatistics {
         (::windows::core::Vtable::vtable(self).GetDisplayInstanceArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(displayinstancearraycount), ::core::mem::transmute(displayinstancearray))
     }
 }
-impl ::core::convert::From<ICompositionFramePresentStatistics> for ::windows::core::IUnknown {
-    fn from(value: ICompositionFramePresentStatistics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICompositionFramePresentStatistics> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICompositionFramePresentStatistics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionFramePresentStatistics> for ::windows::core::IUnknown {
-    fn from(value: &ICompositionFramePresentStatistics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICompositionFramePresentStatistics> for IPresentStatistics {
-    fn from(value: ICompositionFramePresentStatistics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICompositionFramePresentStatistics> for &'a IPresentStatistics {
-    fn from(value: &'a ICompositionFramePresentStatistics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionFramePresentStatistics> for IPresentStatistics {
-    fn from(value: &ICompositionFramePresentStatistics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICompositionFramePresentStatistics, ::windows::core::IUnknown, IPresentStatistics);
 impl ::core::clone::Clone for ICompositionFramePresentStatistics {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -129,36 +100,7 @@ impl IIndependentFlipFramePresentStatistics {
         result__
     }
 }
-impl ::core::convert::From<IIndependentFlipFramePresentStatistics> for ::windows::core::IUnknown {
-    fn from(value: IIndependentFlipFramePresentStatistics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IIndependentFlipFramePresentStatistics> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IIndependentFlipFramePresentStatistics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IIndependentFlipFramePresentStatistics> for ::windows::core::IUnknown {
-    fn from(value: &IIndependentFlipFramePresentStatistics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IIndependentFlipFramePresentStatistics> for IPresentStatistics {
-    fn from(value: IIndependentFlipFramePresentStatistics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IIndependentFlipFramePresentStatistics> for &'a IPresentStatistics {
-    fn from(value: &'a IIndependentFlipFramePresentStatistics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IIndependentFlipFramePresentStatistics> for IPresentStatistics {
-    fn from(value: &IIndependentFlipFramePresentStatistics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IIndependentFlipFramePresentStatistics, ::windows::core::IUnknown, IPresentStatistics);
 impl ::core::clone::Clone for IIndependentFlipFramePresentStatistics {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -205,21 +147,7 @@ impl IPresentStatistics {
         (::windows::core::Vtable::vtable(self).GetKind)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IPresentStatistics> for ::windows::core::IUnknown {
-    fn from(value: IPresentStatistics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPresentStatistics> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPresentStatistics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPresentStatistics> for ::windows::core::IUnknown {
-    fn from(value: &IPresentStatistics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPresentStatistics, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPresentStatistics {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -266,36 +194,7 @@ impl IPresentStatusPresentStatistics {
         (::windows::core::Vtable::vtable(self).GetPresentStatus)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IPresentStatusPresentStatistics> for ::windows::core::IUnknown {
-    fn from(value: IPresentStatusPresentStatistics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPresentStatusPresentStatistics> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPresentStatusPresentStatistics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPresentStatusPresentStatistics> for ::windows::core::IUnknown {
-    fn from(value: &IPresentStatusPresentStatistics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPresentStatusPresentStatistics> for IPresentStatistics {
-    fn from(value: IPresentStatusPresentStatistics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPresentStatusPresentStatistics> for &'a IPresentStatistics {
-    fn from(value: &'a IPresentStatusPresentStatistics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPresentStatusPresentStatistics> for IPresentStatistics {
-    fn from(value: &IPresentStatusPresentStatistics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPresentStatusPresentStatistics, ::windows::core::IUnknown, IPresentStatistics);
 impl ::core::clone::Clone for IPresentStatusPresentStatistics {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -340,21 +239,7 @@ impl IPresentationBuffer {
         (::windows::core::Vtable::vtable(self).IsAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
     }
 }
-impl ::core::convert::From<IPresentationBuffer> for ::windows::core::IUnknown {
-    fn from(value: IPresentationBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPresentationBuffer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPresentationBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPresentationBuffer> for ::windows::core::IUnknown {
-    fn from(value: &IPresentationBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPresentationBuffer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPresentationBuffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -395,21 +280,7 @@ impl IPresentationContent {
         (::windows::core::Vtable::vtable(self).SetTag)(::windows::core::Vtable::as_raw(self), tag)
     }
 }
-impl ::core::convert::From<IPresentationContent> for ::windows::core::IUnknown {
-    fn from(value: IPresentationContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPresentationContent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPresentationContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPresentationContent> for ::windows::core::IUnknown {
-    fn from(value: &IPresentationContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPresentationContent, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPresentationContent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -453,21 +324,7 @@ impl IPresentationFactory {
         (::windows::core::Vtable::vtable(self).CreatePresentationManager)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPresentationManager>(result__)
     }
 }
-impl ::core::convert::From<IPresentationFactory> for ::windows::core::IUnknown {
-    fn from(value: IPresentationFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPresentationFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPresentationFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPresentationFactory> for ::windows::core::IUnknown {
-    fn from(value: &IPresentationFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPresentationFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPresentationFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -560,21 +417,7 @@ impl IPresentationManager {
         (::windows::core::Vtable::vtable(self).GetNextPresentStatistics)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPresentStatistics>(result__)
     }
 }
-impl ::core::convert::From<IPresentationManager> for ::windows::core::IUnknown {
-    fn from(value: IPresentationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPresentationManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPresentationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPresentationManager> for ::windows::core::IUnknown {
-    fn from(value: &IPresentationManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPresentationManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPresentationManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -668,36 +511,7 @@ impl IPresentationSurface {
         (::windows::core::Vtable::vtable(self).SetLetterboxingMargins)(::windows::core::Vtable::as_raw(self), leftletterboxsize, topletterboxsize, rightletterboxsize, bottomletterboxsize).ok()
     }
 }
-impl ::core::convert::From<IPresentationSurface> for ::windows::core::IUnknown {
-    fn from(value: IPresentationSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPresentationSurface> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPresentationSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPresentationSurface> for ::windows::core::IUnknown {
-    fn from(value: &IPresentationSurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPresentationSurface> for IPresentationContent {
-    fn from(value: IPresentationSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPresentationSurface> for &'a IPresentationContent {
-    fn from(value: &'a IPresentationSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPresentationSurface> for IPresentationContent {
-    fn from(value: &IPresentationSurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPresentationSurface, ::windows::core::IUnknown, IPresentationContent);
 impl ::core::clone::Clone for IPresentationSurface {
     fn clone(&self) -> Self {
         Self(self.0.clone())

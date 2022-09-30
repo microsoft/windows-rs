@@ -31,41 +31,7 @@ impl IAutomaticUpdates {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAutomaticUpdates> for ::windows::core::IUnknown {
-    fn from(value: IAutomaticUpdates) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAutomaticUpdates> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAutomaticUpdates) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAutomaticUpdates> for ::windows::core::IUnknown {
-    fn from(value: &IAutomaticUpdates) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAutomaticUpdates> for super::Com::IDispatch {
-    fn from(value: IAutomaticUpdates) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAutomaticUpdates> for &'a super::Com::IDispatch {
-    fn from(value: &'a IAutomaticUpdates) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAutomaticUpdates> for super::Com::IDispatch {
-    fn from(value: &IAutomaticUpdates) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAutomaticUpdates, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAutomaticUpdates {
     fn clone(&self) -> Self {
@@ -149,59 +115,7 @@ impl IAutomaticUpdates2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAutomaticUpdates2> for ::windows::core::IUnknown {
-    fn from(value: IAutomaticUpdates2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAutomaticUpdates2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAutomaticUpdates2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAutomaticUpdates2> for ::windows::core::IUnknown {
-    fn from(value: &IAutomaticUpdates2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAutomaticUpdates2> for super::Com::IDispatch {
-    fn from(value: IAutomaticUpdates2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAutomaticUpdates2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IAutomaticUpdates2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAutomaticUpdates2> for super::Com::IDispatch {
-    fn from(value: &IAutomaticUpdates2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAutomaticUpdates2> for IAutomaticUpdates {
-    fn from(value: IAutomaticUpdates2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAutomaticUpdates2> for &'a IAutomaticUpdates {
-    fn from(value: &'a IAutomaticUpdates2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAutomaticUpdates2> for IAutomaticUpdates {
-    fn from(value: &IAutomaticUpdates2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAutomaticUpdates2, ::windows::core::IUnknown, super::Com::IDispatch, IAutomaticUpdates);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAutomaticUpdates2 {
     fn clone(&self) -> Self {
@@ -260,41 +174,7 @@ impl IAutomaticUpdatesResults {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAutomaticUpdatesResults> for ::windows::core::IUnknown {
-    fn from(value: IAutomaticUpdatesResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAutomaticUpdatesResults> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAutomaticUpdatesResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAutomaticUpdatesResults> for ::windows::core::IUnknown {
-    fn from(value: &IAutomaticUpdatesResults) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAutomaticUpdatesResults> for super::Com::IDispatch {
-    fn from(value: IAutomaticUpdatesResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAutomaticUpdatesResults> for &'a super::Com::IDispatch {
-    fn from(value: &'a IAutomaticUpdatesResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAutomaticUpdatesResults> for super::Com::IDispatch {
-    fn from(value: &IAutomaticUpdatesResults) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAutomaticUpdatesResults, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAutomaticUpdatesResults {
     fn clone(&self) -> Self {
@@ -380,41 +260,7 @@ impl IAutomaticUpdatesSettings {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAutomaticUpdatesSettings> for ::windows::core::IUnknown {
-    fn from(value: IAutomaticUpdatesSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAutomaticUpdatesSettings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAutomaticUpdatesSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAutomaticUpdatesSettings> for ::windows::core::IUnknown {
-    fn from(value: &IAutomaticUpdatesSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAutomaticUpdatesSettings> for super::Com::IDispatch {
-    fn from(value: IAutomaticUpdatesSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAutomaticUpdatesSettings> for &'a super::Com::IDispatch {
-    fn from(value: &'a IAutomaticUpdatesSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAutomaticUpdatesSettings> for super::Com::IDispatch {
-    fn from(value: &IAutomaticUpdatesSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAutomaticUpdatesSettings, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAutomaticUpdatesSettings {
     fn clone(&self) -> Self {
@@ -513,59 +359,7 @@ impl IAutomaticUpdatesSettings2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAutomaticUpdatesSettings2> for ::windows::core::IUnknown {
-    fn from(value: IAutomaticUpdatesSettings2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAutomaticUpdatesSettings2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAutomaticUpdatesSettings2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAutomaticUpdatesSettings2> for ::windows::core::IUnknown {
-    fn from(value: &IAutomaticUpdatesSettings2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAutomaticUpdatesSettings2> for super::Com::IDispatch {
-    fn from(value: IAutomaticUpdatesSettings2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAutomaticUpdatesSettings2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IAutomaticUpdatesSettings2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAutomaticUpdatesSettings2> for super::Com::IDispatch {
-    fn from(value: &IAutomaticUpdatesSettings2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAutomaticUpdatesSettings2> for IAutomaticUpdatesSettings {
-    fn from(value: IAutomaticUpdatesSettings2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAutomaticUpdatesSettings2> for &'a IAutomaticUpdatesSettings {
-    fn from(value: &'a IAutomaticUpdatesSettings2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAutomaticUpdatesSettings2> for IAutomaticUpdatesSettings {
-    fn from(value: &IAutomaticUpdatesSettings2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAutomaticUpdatesSettings2, ::windows::core::IUnknown, super::Com::IDispatch, IAutomaticUpdatesSettings);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAutomaticUpdatesSettings2 {
     fn clone(&self) -> Self {
@@ -671,77 +465,7 @@ impl IAutomaticUpdatesSettings3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAutomaticUpdatesSettings3> for ::windows::core::IUnknown {
-    fn from(value: IAutomaticUpdatesSettings3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAutomaticUpdatesSettings3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAutomaticUpdatesSettings3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAutomaticUpdatesSettings3> for ::windows::core::IUnknown {
-    fn from(value: &IAutomaticUpdatesSettings3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAutomaticUpdatesSettings3> for super::Com::IDispatch {
-    fn from(value: IAutomaticUpdatesSettings3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAutomaticUpdatesSettings3> for &'a super::Com::IDispatch {
-    fn from(value: &'a IAutomaticUpdatesSettings3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAutomaticUpdatesSettings3> for super::Com::IDispatch {
-    fn from(value: &IAutomaticUpdatesSettings3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAutomaticUpdatesSettings3> for IAutomaticUpdatesSettings {
-    fn from(value: IAutomaticUpdatesSettings3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAutomaticUpdatesSettings3> for &'a IAutomaticUpdatesSettings {
-    fn from(value: &'a IAutomaticUpdatesSettings3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAutomaticUpdatesSettings3> for IAutomaticUpdatesSettings {
-    fn from(value: &IAutomaticUpdatesSettings3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAutomaticUpdatesSettings3> for IAutomaticUpdatesSettings2 {
-    fn from(value: IAutomaticUpdatesSettings3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAutomaticUpdatesSettings3> for &'a IAutomaticUpdatesSettings2 {
-    fn from(value: &'a IAutomaticUpdatesSettings3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAutomaticUpdatesSettings3> for IAutomaticUpdatesSettings2 {
-    fn from(value: &IAutomaticUpdatesSettings3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAutomaticUpdatesSettings3, ::windows::core::IUnknown, super::Com::IDispatch, IAutomaticUpdatesSettings, IAutomaticUpdatesSettings2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAutomaticUpdatesSettings3 {
     fn clone(&self) -> Self {
@@ -832,41 +556,7 @@ impl ICategory {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ICategory> for ::windows::core::IUnknown {
-    fn from(value: ICategory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ICategory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICategory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ICategory> for ::windows::core::IUnknown {
-    fn from(value: &ICategory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ICategory> for super::Com::IDispatch {
-    fn from(value: ICategory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ICategory> for &'a super::Com::IDispatch {
-    fn from(value: &'a ICategory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ICategory> for super::Com::IDispatch {
-    fn from(value: &ICategory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICategory, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ICategory {
     fn clone(&self) -> Self {
@@ -944,41 +634,7 @@ impl ICategoryCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ICategoryCollection> for ::windows::core::IUnknown {
-    fn from(value: ICategoryCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ICategoryCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICategoryCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ICategoryCollection> for ::windows::core::IUnknown {
-    fn from(value: &ICategoryCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ICategoryCollection> for super::Com::IDispatch {
-    fn from(value: ICategoryCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ICategoryCollection> for &'a super::Com::IDispatch {
-    fn from(value: &'a ICategoryCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ICategoryCollection> for super::Com::IDispatch {
-    fn from(value: &ICategoryCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICategoryCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ICategoryCollection {
     fn clone(&self) -> Self {
@@ -1033,21 +689,7 @@ impl IDownloadCompletedCallback {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self), downloadjob.into().abi(), callbackargs.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IDownloadCompletedCallback> for ::windows::core::IUnknown {
-    fn from(value: IDownloadCompletedCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDownloadCompletedCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDownloadCompletedCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDownloadCompletedCallback> for ::windows::core::IUnknown {
-    fn from(value: &IDownloadCompletedCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDownloadCompletedCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDownloadCompletedCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1086,41 +728,7 @@ pub struct IDownloadCompletedCallbackArgs(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDownloadCompletedCallbackArgs {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDownloadCompletedCallbackArgs> for ::windows::core::IUnknown {
-    fn from(value: IDownloadCompletedCallbackArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IDownloadCompletedCallbackArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDownloadCompletedCallbackArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDownloadCompletedCallbackArgs> for ::windows::core::IUnknown {
-    fn from(value: &IDownloadCompletedCallbackArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDownloadCompletedCallbackArgs> for super::Com::IDispatch {
-    fn from(value: IDownloadCompletedCallbackArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IDownloadCompletedCallbackArgs> for &'a super::Com::IDispatch {
-    fn from(value: &'a IDownloadCompletedCallbackArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDownloadCompletedCallbackArgs> for super::Com::IDispatch {
-    fn from(value: &IDownloadCompletedCallbackArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDownloadCompletedCallbackArgs, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IDownloadCompletedCallbackArgs {
     fn clone(&self) -> Self {
@@ -1191,41 +799,7 @@ impl IDownloadJob {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDownloadJob> for ::windows::core::IUnknown {
-    fn from(value: IDownloadJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IDownloadJob> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDownloadJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDownloadJob> for ::windows::core::IUnknown {
-    fn from(value: &IDownloadJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDownloadJob> for super::Com::IDispatch {
-    fn from(value: IDownloadJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IDownloadJob> for &'a super::Com::IDispatch {
-    fn from(value: &'a IDownloadJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDownloadJob> for super::Com::IDispatch {
-    fn from(value: &IDownloadJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDownloadJob, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IDownloadJob {
     fn clone(&self) -> Self {
@@ -1329,41 +903,7 @@ impl IDownloadProgress {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDownloadProgress> for ::windows::core::IUnknown {
-    fn from(value: IDownloadProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IDownloadProgress> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDownloadProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDownloadProgress> for ::windows::core::IUnknown {
-    fn from(value: &IDownloadProgress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDownloadProgress> for super::Com::IDispatch {
-    fn from(value: IDownloadProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IDownloadProgress> for &'a super::Com::IDispatch {
-    fn from(value: &'a IDownloadProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDownloadProgress> for super::Com::IDispatch {
-    fn from(value: &IDownloadProgress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDownloadProgress, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IDownloadProgress {
     fn clone(&self) -> Self {
@@ -1436,21 +976,7 @@ impl IDownloadProgressChangedCallback {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self), downloadjob.into().abi(), callbackargs.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IDownloadProgressChangedCallback> for ::windows::core::IUnknown {
-    fn from(value: IDownloadProgressChangedCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDownloadProgressChangedCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDownloadProgressChangedCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDownloadProgressChangedCallback> for ::windows::core::IUnknown {
-    fn from(value: &IDownloadProgressChangedCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDownloadProgressChangedCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDownloadProgressChangedCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1496,41 +1022,7 @@ impl IDownloadProgressChangedCallbackArgs {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDownloadProgressChangedCallbackArgs> for ::windows::core::IUnknown {
-    fn from(value: IDownloadProgressChangedCallbackArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IDownloadProgressChangedCallbackArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDownloadProgressChangedCallbackArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDownloadProgressChangedCallbackArgs> for ::windows::core::IUnknown {
-    fn from(value: &IDownloadProgressChangedCallbackArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDownloadProgressChangedCallbackArgs> for super::Com::IDispatch {
-    fn from(value: IDownloadProgressChangedCallbackArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IDownloadProgressChangedCallbackArgs> for &'a super::Com::IDispatch {
-    fn from(value: &'a IDownloadProgressChangedCallbackArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDownloadProgressChangedCallbackArgs> for super::Com::IDispatch {
-    fn from(value: &IDownloadProgressChangedCallbackArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDownloadProgressChangedCallbackArgs, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IDownloadProgressChangedCallbackArgs {
     fn clone(&self) -> Self {
@@ -1591,41 +1083,7 @@ impl IDownloadResult {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDownloadResult> for ::windows::core::IUnknown {
-    fn from(value: IDownloadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IDownloadResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDownloadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDownloadResult> for ::windows::core::IUnknown {
-    fn from(value: &IDownloadResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDownloadResult> for super::Com::IDispatch {
-    fn from(value: IDownloadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IDownloadResult> for &'a super::Com::IDispatch {
-    fn from(value: &'a IDownloadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDownloadResult> for super::Com::IDispatch {
-    fn from(value: &IDownloadResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDownloadResult, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IDownloadResult {
     fn clone(&self) -> Self {
@@ -1690,41 +1148,7 @@ impl IImageInformation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IImageInformation> for ::windows::core::IUnknown {
-    fn from(value: IImageInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IImageInformation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IImageInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IImageInformation> for ::windows::core::IUnknown {
-    fn from(value: &IImageInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IImageInformation> for super::Com::IDispatch {
-    fn from(value: IImageInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IImageInformation> for &'a super::Com::IDispatch {
-    fn from(value: &'a IImageInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IImageInformation> for super::Com::IDispatch {
-    fn from(value: &IImageInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IImageInformation, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IImageInformation {
     fn clone(&self) -> Self {
@@ -1779,41 +1203,7 @@ impl IInstallationAgent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IInstallationAgent> for ::windows::core::IUnknown {
-    fn from(value: IInstallationAgent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IInstallationAgent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInstallationAgent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IInstallationAgent> for ::windows::core::IUnknown {
-    fn from(value: &IInstallationAgent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IInstallationAgent> for super::Com::IDispatch {
-    fn from(value: IInstallationAgent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IInstallationAgent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IInstallationAgent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IInstallationAgent> for super::Com::IDispatch {
-    fn from(value: &IInstallationAgent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInstallationAgent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IInstallationAgent {
     fn clone(&self) -> Self {
@@ -1876,41 +1266,7 @@ impl IInstallationBehavior {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IInstallationBehavior> for ::windows::core::IUnknown {
-    fn from(value: IInstallationBehavior) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IInstallationBehavior> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInstallationBehavior) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IInstallationBehavior> for ::windows::core::IUnknown {
-    fn from(value: &IInstallationBehavior) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IInstallationBehavior> for super::Com::IDispatch {
-    fn from(value: IInstallationBehavior) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IInstallationBehavior> for &'a super::Com::IDispatch {
-    fn from(value: &'a IInstallationBehavior) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IInstallationBehavior> for super::Com::IDispatch {
-    fn from(value: &IInstallationBehavior) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInstallationBehavior, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IInstallationBehavior {
     fn clone(&self) -> Self {
@@ -1963,21 +1319,7 @@ impl IInstallationCompletedCallback {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self), installationjob.into().abi(), callbackargs.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IInstallationCompletedCallback> for ::windows::core::IUnknown {
-    fn from(value: IInstallationCompletedCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInstallationCompletedCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInstallationCompletedCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInstallationCompletedCallback> for ::windows::core::IUnknown {
-    fn from(value: &IInstallationCompletedCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInstallationCompletedCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInstallationCompletedCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2016,41 +1358,7 @@ pub struct IInstallationCompletedCallbackArgs(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationCompletedCallbackArgs {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IInstallationCompletedCallbackArgs> for ::windows::core::IUnknown {
-    fn from(value: IInstallationCompletedCallbackArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IInstallationCompletedCallbackArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInstallationCompletedCallbackArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IInstallationCompletedCallbackArgs> for ::windows::core::IUnknown {
-    fn from(value: &IInstallationCompletedCallbackArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IInstallationCompletedCallbackArgs> for super::Com::IDispatch {
-    fn from(value: IInstallationCompletedCallbackArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IInstallationCompletedCallbackArgs> for &'a super::Com::IDispatch {
-    fn from(value: &'a IInstallationCompletedCallbackArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IInstallationCompletedCallbackArgs> for super::Com::IDispatch {
-    fn from(value: &IInstallationCompletedCallbackArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInstallationCompletedCallbackArgs, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IInstallationCompletedCallbackArgs {
     fn clone(&self) -> Self {
@@ -2121,41 +1429,7 @@ impl IInstallationJob {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IInstallationJob> for ::windows::core::IUnknown {
-    fn from(value: IInstallationJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IInstallationJob> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInstallationJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IInstallationJob> for ::windows::core::IUnknown {
-    fn from(value: &IInstallationJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IInstallationJob> for super::Com::IDispatch {
-    fn from(value: IInstallationJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IInstallationJob> for &'a super::Com::IDispatch {
-    fn from(value: &'a IInstallationJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IInstallationJob> for super::Com::IDispatch {
-    fn from(value: &IInstallationJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInstallationJob, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IInstallationJob {
     fn clone(&self) -> Self {
@@ -2231,41 +1505,7 @@ impl IInstallationProgress {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IInstallationProgress> for ::windows::core::IUnknown {
-    fn from(value: IInstallationProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IInstallationProgress> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInstallationProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IInstallationProgress> for ::windows::core::IUnknown {
-    fn from(value: &IInstallationProgress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IInstallationProgress> for super::Com::IDispatch {
-    fn from(value: IInstallationProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IInstallationProgress> for &'a super::Com::IDispatch {
-    fn from(value: &'a IInstallationProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IInstallationProgress> for super::Com::IDispatch {
-    fn from(value: &IInstallationProgress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInstallationProgress, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IInstallationProgress {
     fn clone(&self) -> Self {
@@ -2321,21 +1561,7 @@ impl IInstallationProgressChangedCallback {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self), installationjob.into().abi(), callbackargs.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IInstallationProgressChangedCallback> for ::windows::core::IUnknown {
-    fn from(value: IInstallationProgressChangedCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInstallationProgressChangedCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInstallationProgressChangedCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInstallationProgressChangedCallback> for ::windows::core::IUnknown {
-    fn from(value: &IInstallationProgressChangedCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInstallationProgressChangedCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInstallationProgressChangedCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2381,41 +1607,7 @@ impl IInstallationProgressChangedCallbackArgs {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IInstallationProgressChangedCallbackArgs> for ::windows::core::IUnknown {
-    fn from(value: IInstallationProgressChangedCallbackArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IInstallationProgressChangedCallbackArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInstallationProgressChangedCallbackArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IInstallationProgressChangedCallbackArgs> for ::windows::core::IUnknown {
-    fn from(value: &IInstallationProgressChangedCallbackArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IInstallationProgressChangedCallbackArgs> for super::Com::IDispatch {
-    fn from(value: IInstallationProgressChangedCallbackArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IInstallationProgressChangedCallbackArgs> for &'a super::Com::IDispatch {
-    fn from(value: &'a IInstallationProgressChangedCallbackArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IInstallationProgressChangedCallbackArgs> for super::Com::IDispatch {
-    fn from(value: &IInstallationProgressChangedCallbackArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInstallationProgressChangedCallbackArgs, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IInstallationProgressChangedCallbackArgs {
     fn clone(&self) -> Self {
@@ -2480,41 +1672,7 @@ impl IInstallationResult {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IInstallationResult> for ::windows::core::IUnknown {
-    fn from(value: IInstallationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IInstallationResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInstallationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IInstallationResult> for ::windows::core::IUnknown {
-    fn from(value: &IInstallationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IInstallationResult> for super::Com::IDispatch {
-    fn from(value: IInstallationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IInstallationResult> for &'a super::Com::IDispatch {
-    fn from(value: &'a IInstallationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IInstallationResult> for super::Com::IDispatch {
-    fn from(value: &IInstallationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInstallationResult, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IInstallationResult {
     fn clone(&self) -> Self {
@@ -2580,59 +1738,7 @@ impl IInvalidProductLicenseException {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IInvalidProductLicenseException> for ::windows::core::IUnknown {
-    fn from(value: IInvalidProductLicenseException) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IInvalidProductLicenseException> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInvalidProductLicenseException) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IInvalidProductLicenseException> for ::windows::core::IUnknown {
-    fn from(value: &IInvalidProductLicenseException) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IInvalidProductLicenseException> for super::Com::IDispatch {
-    fn from(value: IInvalidProductLicenseException) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IInvalidProductLicenseException> for &'a super::Com::IDispatch {
-    fn from(value: &'a IInvalidProductLicenseException) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IInvalidProductLicenseException> for super::Com::IDispatch {
-    fn from(value: &IInvalidProductLicenseException) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IInvalidProductLicenseException> for IUpdateException {
-    fn from(value: IInvalidProductLicenseException) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IInvalidProductLicenseException> for &'a IUpdateException {
-    fn from(value: &'a IInvalidProductLicenseException) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IInvalidProductLicenseException> for IUpdateException {
-    fn from(value: &IInvalidProductLicenseException) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInvalidProductLicenseException, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateException);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IInvalidProductLicenseException {
     fn clone(&self) -> Self {
@@ -2682,21 +1788,7 @@ impl ISearchCompletedCallback {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self), searchjob.into().abi(), callbackargs.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ISearchCompletedCallback> for ::windows::core::IUnknown {
-    fn from(value: ISearchCompletedCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISearchCompletedCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISearchCompletedCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISearchCompletedCallback> for ::windows::core::IUnknown {
-    fn from(value: &ISearchCompletedCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISearchCompletedCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISearchCompletedCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2735,41 +1827,7 @@ pub struct ISearchCompletedCallbackArgs(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISearchCompletedCallbackArgs {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISearchCompletedCallbackArgs> for ::windows::core::IUnknown {
-    fn from(value: ISearchCompletedCallbackArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISearchCompletedCallbackArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISearchCompletedCallbackArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISearchCompletedCallbackArgs> for ::windows::core::IUnknown {
-    fn from(value: &ISearchCompletedCallbackArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISearchCompletedCallbackArgs> for super::Com::IDispatch {
-    fn from(value: ISearchCompletedCallbackArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISearchCompletedCallbackArgs> for &'a super::Com::IDispatch {
-    fn from(value: &'a ISearchCompletedCallbackArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISearchCompletedCallbackArgs> for super::Com::IDispatch {
-    fn from(value: &ISearchCompletedCallbackArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISearchCompletedCallbackArgs, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISearchCompletedCallbackArgs {
     fn clone(&self) -> Self {
@@ -2828,41 +1886,7 @@ impl ISearchJob {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISearchJob> for ::windows::core::IUnknown {
-    fn from(value: ISearchJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISearchJob> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISearchJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISearchJob> for ::windows::core::IUnknown {
-    fn from(value: &ISearchJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISearchJob> for super::Com::IDispatch {
-    fn from(value: ISearchJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISearchJob> for &'a super::Com::IDispatch {
-    fn from(value: &'a ISearchJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISearchJob> for super::Com::IDispatch {
-    fn from(value: &ISearchJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISearchJob, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISearchJob {
     fn clone(&self) -> Self {
@@ -2934,41 +1958,7 @@ impl ISearchResult {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISearchResult> for ::windows::core::IUnknown {
-    fn from(value: ISearchResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISearchResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISearchResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISearchResult> for ::windows::core::IUnknown {
-    fn from(value: &ISearchResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISearchResult> for super::Com::IDispatch {
-    fn from(value: ISearchResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISearchResult> for &'a super::Com::IDispatch {
-    fn from(value: &'a ISearchResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISearchResult> for super::Com::IDispatch {
-    fn from(value: &ISearchResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISearchResult, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISearchResult {
     fn clone(&self) -> Self {
@@ -3062,41 +2052,7 @@ impl IStringCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IStringCollection> for ::windows::core::IUnknown {
-    fn from(value: IStringCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IStringCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStringCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IStringCollection> for ::windows::core::IUnknown {
-    fn from(value: &IStringCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IStringCollection> for super::Com::IDispatch {
-    fn from(value: IStringCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IStringCollection> for &'a super::Com::IDispatch {
-    fn from(value: &'a IStringCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IStringCollection> for super::Com::IDispatch {
-    fn from(value: &IStringCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStringCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IStringCollection {
     fn clone(&self) -> Self {
@@ -3160,41 +2116,7 @@ impl ISystemInformation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISystemInformation> for ::windows::core::IUnknown {
-    fn from(value: ISystemInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISystemInformation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISystemInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISystemInformation> for ::windows::core::IUnknown {
-    fn from(value: &ISystemInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISystemInformation> for super::Com::IDispatch {
-    fn from(value: ISystemInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISystemInformation> for &'a super::Com::IDispatch {
-    fn from(value: &'a ISystemInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISystemInformation> for super::Com::IDispatch {
-    fn from(value: &ISystemInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISystemInformation, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISystemInformation {
     fn clone(&self) -> Self {
@@ -3448,41 +2370,7 @@ impl IUpdate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdate> for ::windows::core::IUnknown {
-    fn from(value: IUpdate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdate> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdate> for ::windows::core::IUnknown {
-    fn from(value: &IUpdate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdate> for super::Com::IDispatch {
-    fn from(value: IUpdate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdate> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdate> for super::Com::IDispatch {
-    fn from(value: &IUpdate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdate, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdate {
     fn clone(&self) -> Self {
@@ -3849,59 +2737,7 @@ impl IUpdate2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdate2> for ::windows::core::IUnknown {
-    fn from(value: IUpdate2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdate2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdate2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdate2> for ::windows::core::IUnknown {
-    fn from(value: &IUpdate2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdate2> for super::Com::IDispatch {
-    fn from(value: IUpdate2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdate2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdate2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdate2> for super::Com::IDispatch {
-    fn from(value: &IUpdate2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdate2> for IUpdate {
-    fn from(value: IUpdate2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdate2> for &'a IUpdate {
-    fn from(value: &'a IUpdate2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdate2> for IUpdate {
-    fn from(value: &IUpdate2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdate2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdate2 {
     fn clone(&self) -> Self {
@@ -4189,77 +3025,7 @@ impl IUpdate3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdate3> for ::windows::core::IUnknown {
-    fn from(value: IUpdate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdate3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdate3> for ::windows::core::IUnknown {
-    fn from(value: &IUpdate3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdate3> for super::Com::IDispatch {
-    fn from(value: IUpdate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdate3> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdate3> for super::Com::IDispatch {
-    fn from(value: &IUpdate3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdate3> for IUpdate {
-    fn from(value: IUpdate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdate3> for &'a IUpdate {
-    fn from(value: &'a IUpdate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdate3> for IUpdate {
-    fn from(value: &IUpdate3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdate3> for IUpdate2 {
-    fn from(value: IUpdate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdate3> for &'a IUpdate2 {
-    fn from(value: &'a IUpdate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdate3> for IUpdate2 {
-    fn from(value: &IUpdate3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdate3, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate, IUpdate2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdate3 {
     fn clone(&self) -> Self {
@@ -4542,95 +3308,7 @@ impl IUpdate4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdate4> for ::windows::core::IUnknown {
-    fn from(value: IUpdate4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdate4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdate4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdate4> for ::windows::core::IUnknown {
-    fn from(value: &IUpdate4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdate4> for super::Com::IDispatch {
-    fn from(value: IUpdate4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdate4> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdate4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdate4> for super::Com::IDispatch {
-    fn from(value: &IUpdate4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdate4> for IUpdate {
-    fn from(value: IUpdate4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdate4> for &'a IUpdate {
-    fn from(value: &'a IUpdate4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdate4> for IUpdate {
-    fn from(value: &IUpdate4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdate4> for IUpdate2 {
-    fn from(value: IUpdate4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdate4> for &'a IUpdate2 {
-    fn from(value: &'a IUpdate4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdate4> for IUpdate2 {
-    fn from(value: &IUpdate4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdate4> for IUpdate3 {
-    fn from(value: IUpdate4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdate4> for &'a IUpdate3 {
-    fn from(value: &'a IUpdate4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdate4> for IUpdate3 {
-    fn from(value: &IUpdate4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdate4, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate, IUpdate2, IUpdate3);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdate4 {
     fn clone(&self) -> Self {
@@ -4921,113 +3599,7 @@ impl IUpdate5 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdate5> for ::windows::core::IUnknown {
-    fn from(value: IUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdate5> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdate5> for ::windows::core::IUnknown {
-    fn from(value: &IUpdate5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdate5> for super::Com::IDispatch {
-    fn from(value: IUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdate5> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdate5> for super::Com::IDispatch {
-    fn from(value: &IUpdate5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdate5> for IUpdate {
-    fn from(value: IUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdate5> for &'a IUpdate {
-    fn from(value: &'a IUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdate5> for IUpdate {
-    fn from(value: &IUpdate5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdate5> for IUpdate2 {
-    fn from(value: IUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdate5> for &'a IUpdate2 {
-    fn from(value: &'a IUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdate5> for IUpdate2 {
-    fn from(value: &IUpdate5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdate5> for IUpdate3 {
-    fn from(value: IUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdate5> for &'a IUpdate3 {
-    fn from(value: &'a IUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdate5> for IUpdate3 {
-    fn from(value: &IUpdate5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdate5> for IUpdate4 {
-    fn from(value: IUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdate5> for &'a IUpdate4 {
-    fn from(value: &'a IUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdate5> for IUpdate4 {
-    fn from(value: &IUpdate5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdate5, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate, IUpdate2, IUpdate3, IUpdate4);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdate5 {
     fn clone(&self) -> Self {
@@ -5127,41 +3699,7 @@ impl IUpdateCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateCollection> for ::windows::core::IUnknown {
-    fn from(value: IUpdateCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateCollection> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateCollection> for super::Com::IDispatch {
-    fn from(value: IUpdateCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateCollection> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateCollection> for super::Com::IDispatch {
-    fn from(value: &IUpdateCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateCollection {
     fn clone(&self) -> Self {
@@ -5233,41 +3771,7 @@ impl IUpdateDownloadContent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateDownloadContent> for ::windows::core::IUnknown {
-    fn from(value: IUpdateDownloadContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateDownloadContent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateDownloadContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateDownloadContent> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateDownloadContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateDownloadContent> for super::Com::IDispatch {
-    fn from(value: IUpdateDownloadContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateDownloadContent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateDownloadContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateDownloadContent> for super::Com::IDispatch {
-    fn from(value: &IUpdateDownloadContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateDownloadContent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateDownloadContent {
     fn clone(&self) -> Self {
@@ -5319,59 +3823,7 @@ impl IUpdateDownloadContent2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateDownloadContent2> for ::windows::core::IUnknown {
-    fn from(value: IUpdateDownloadContent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateDownloadContent2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateDownloadContent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateDownloadContent2> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateDownloadContent2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateDownloadContent2> for super::Com::IDispatch {
-    fn from(value: IUpdateDownloadContent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateDownloadContent2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateDownloadContent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateDownloadContent2> for super::Com::IDispatch {
-    fn from(value: &IUpdateDownloadContent2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateDownloadContent2> for IUpdateDownloadContent {
-    fn from(value: IUpdateDownloadContent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateDownloadContent2> for &'a IUpdateDownloadContent {
-    fn from(value: &'a IUpdateDownloadContent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateDownloadContent2> for IUpdateDownloadContent {
-    fn from(value: &IUpdateDownloadContent2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateDownloadContent2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateDownloadContent);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateDownloadContent2 {
     fn clone(&self) -> Self {
@@ -5429,41 +3881,7 @@ impl IUpdateDownloadContentCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateDownloadContentCollection> for ::windows::core::IUnknown {
-    fn from(value: IUpdateDownloadContentCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateDownloadContentCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateDownloadContentCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateDownloadContentCollection> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateDownloadContentCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateDownloadContentCollection> for super::Com::IDispatch {
-    fn from(value: IUpdateDownloadContentCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateDownloadContentCollection> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateDownloadContentCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateDownloadContentCollection> for super::Com::IDispatch {
-    fn from(value: &IUpdateDownloadContentCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateDownloadContentCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateDownloadContentCollection {
     fn clone(&self) -> Self {
@@ -5520,41 +3938,7 @@ impl IUpdateDownloadResult {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateDownloadResult> for ::windows::core::IUnknown {
-    fn from(value: IUpdateDownloadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateDownloadResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateDownloadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateDownloadResult> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateDownloadResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateDownloadResult> for super::Com::IDispatch {
-    fn from(value: IUpdateDownloadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateDownloadResult> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateDownloadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateDownloadResult> for super::Com::IDispatch {
-    fn from(value: &IUpdateDownloadResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateDownloadResult, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateDownloadResult {
     fn clone(&self) -> Self {
@@ -5660,41 +4044,7 @@ impl IUpdateDownloader {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateDownloader> for ::windows::core::IUnknown {
-    fn from(value: IUpdateDownloader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateDownloader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateDownloader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateDownloader> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateDownloader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateDownloader> for super::Com::IDispatch {
-    fn from(value: IUpdateDownloader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateDownloader> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateDownloader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateDownloader> for super::Com::IDispatch {
-    fn from(value: &IUpdateDownloader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateDownloader, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateDownloader {
     fn clone(&self) -> Self {
@@ -5775,41 +4125,7 @@ impl IUpdateException {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateException> for ::windows::core::IUnknown {
-    fn from(value: IUpdateException) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateException> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateException) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateException> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateException) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateException> for super::Com::IDispatch {
-    fn from(value: IUpdateException) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateException> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateException) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateException> for super::Com::IDispatch {
-    fn from(value: &IUpdateException) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateException, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateException {
     fn clone(&self) -> Self {
@@ -5869,41 +4185,7 @@ impl IUpdateExceptionCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateExceptionCollection> for ::windows::core::IUnknown {
-    fn from(value: IUpdateExceptionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateExceptionCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateExceptionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateExceptionCollection> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateExceptionCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateExceptionCollection> for super::Com::IDispatch {
-    fn from(value: IUpdateExceptionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateExceptionCollection> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateExceptionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateExceptionCollection> for super::Com::IDispatch {
-    fn from(value: &IUpdateExceptionCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateExceptionCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateExceptionCollection {
     fn clone(&self) -> Self {
@@ -6012,41 +4294,7 @@ impl IUpdateHistoryEntry {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateHistoryEntry> for ::windows::core::IUnknown {
-    fn from(value: IUpdateHistoryEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateHistoryEntry> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateHistoryEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateHistoryEntry> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateHistoryEntry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateHistoryEntry> for super::Com::IDispatch {
-    fn from(value: IUpdateHistoryEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateHistoryEntry> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateHistoryEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateHistoryEntry> for super::Com::IDispatch {
-    fn from(value: &IUpdateHistoryEntry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateHistoryEntry, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateHistoryEntry {
     fn clone(&self) -> Self {
@@ -6175,59 +4423,7 @@ impl IUpdateHistoryEntry2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateHistoryEntry2> for ::windows::core::IUnknown {
-    fn from(value: IUpdateHistoryEntry2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateHistoryEntry2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateHistoryEntry2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateHistoryEntry2> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateHistoryEntry2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateHistoryEntry2> for super::Com::IDispatch {
-    fn from(value: IUpdateHistoryEntry2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateHistoryEntry2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateHistoryEntry2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateHistoryEntry2> for super::Com::IDispatch {
-    fn from(value: &IUpdateHistoryEntry2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateHistoryEntry2> for IUpdateHistoryEntry {
-    fn from(value: IUpdateHistoryEntry2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateHistoryEntry2> for &'a IUpdateHistoryEntry {
-    fn from(value: &'a IUpdateHistoryEntry2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateHistoryEntry2> for IUpdateHistoryEntry {
-    fn from(value: &IUpdateHistoryEntry2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateHistoryEntry2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateHistoryEntry);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateHistoryEntry2 {
     fn clone(&self) -> Self {
@@ -6288,41 +4484,7 @@ impl IUpdateHistoryEntryCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateHistoryEntryCollection> for ::windows::core::IUnknown {
-    fn from(value: IUpdateHistoryEntryCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateHistoryEntryCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateHistoryEntryCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateHistoryEntryCollection> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateHistoryEntryCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateHistoryEntryCollection> for super::Com::IDispatch {
-    fn from(value: IUpdateHistoryEntryCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateHistoryEntryCollection> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateHistoryEntryCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateHistoryEntryCollection> for super::Com::IDispatch {
-    fn from(value: &IUpdateHistoryEntryCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateHistoryEntryCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateHistoryEntryCollection {
     fn clone(&self) -> Self {
@@ -6379,41 +4541,7 @@ impl IUpdateIdentity {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateIdentity> for ::windows::core::IUnknown {
-    fn from(value: IUpdateIdentity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateIdentity> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateIdentity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateIdentity> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateIdentity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateIdentity> for super::Com::IDispatch {
-    fn from(value: IUpdateIdentity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateIdentity> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateIdentity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateIdentity> for super::Com::IDispatch {
-    fn from(value: &IUpdateIdentity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateIdentity, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateIdentity {
     fn clone(&self) -> Self {
@@ -6470,41 +4598,7 @@ impl IUpdateInstallationResult {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateInstallationResult> for ::windows::core::IUnknown {
-    fn from(value: IUpdateInstallationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateInstallationResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateInstallationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateInstallationResult> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateInstallationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateInstallationResult> for super::Com::IDispatch {
-    fn from(value: IUpdateInstallationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateInstallationResult> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateInstallationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateInstallationResult> for super::Com::IDispatch {
-    fn from(value: &IUpdateInstallationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateInstallationResult, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateInstallationResult {
     fn clone(&self) -> Self {
@@ -6675,41 +4769,7 @@ impl IUpdateInstaller {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateInstaller> for ::windows::core::IUnknown {
-    fn from(value: IUpdateInstaller) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateInstaller> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateInstaller) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateInstaller> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateInstaller) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateInstaller> for super::Com::IDispatch {
-    fn from(value: IUpdateInstaller) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateInstaller> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateInstaller) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateInstaller> for super::Com::IDispatch {
-    fn from(value: &IUpdateInstaller) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateInstaller, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateInstaller {
     fn clone(&self) -> Self {
@@ -6938,59 +4998,7 @@ impl IUpdateInstaller2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateInstaller2> for ::windows::core::IUnknown {
-    fn from(value: IUpdateInstaller2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateInstaller2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateInstaller2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateInstaller2> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateInstaller2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateInstaller2> for super::Com::IDispatch {
-    fn from(value: IUpdateInstaller2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateInstaller2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateInstaller2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateInstaller2> for super::Com::IDispatch {
-    fn from(value: &IUpdateInstaller2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateInstaller2> for IUpdateInstaller {
-    fn from(value: IUpdateInstaller2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateInstaller2> for &'a IUpdateInstaller {
-    fn from(value: &'a IUpdateInstaller2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateInstaller2> for IUpdateInstaller {
-    fn from(value: &IUpdateInstaller2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateInstaller2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateInstaller);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateInstaller2 {
     fn clone(&self) -> Self {
@@ -7174,77 +5182,7 @@ impl IUpdateInstaller3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateInstaller3> for ::windows::core::IUnknown {
-    fn from(value: IUpdateInstaller3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateInstaller3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateInstaller3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateInstaller3> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateInstaller3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateInstaller3> for super::Com::IDispatch {
-    fn from(value: IUpdateInstaller3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateInstaller3> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateInstaller3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateInstaller3> for super::Com::IDispatch {
-    fn from(value: &IUpdateInstaller3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateInstaller3> for IUpdateInstaller {
-    fn from(value: IUpdateInstaller3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateInstaller3> for &'a IUpdateInstaller {
-    fn from(value: &'a IUpdateInstaller3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateInstaller3> for IUpdateInstaller {
-    fn from(value: &IUpdateInstaller3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateInstaller3> for IUpdateInstaller2 {
-    fn from(value: IUpdateInstaller3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateInstaller3> for &'a IUpdateInstaller2 {
-    fn from(value: &'a IUpdateInstaller3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateInstaller3> for IUpdateInstaller2 {
-    fn from(value: &IUpdateInstaller3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateInstaller3, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateInstaller, IUpdateInstaller2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateInstaller3 {
     fn clone(&self) -> Self {
@@ -7431,95 +5369,7 @@ impl IUpdateInstaller4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateInstaller4> for ::windows::core::IUnknown {
-    fn from(value: IUpdateInstaller4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateInstaller4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateInstaller4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateInstaller4> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateInstaller4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateInstaller4> for super::Com::IDispatch {
-    fn from(value: IUpdateInstaller4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateInstaller4> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateInstaller4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateInstaller4> for super::Com::IDispatch {
-    fn from(value: &IUpdateInstaller4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateInstaller4> for IUpdateInstaller {
-    fn from(value: IUpdateInstaller4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateInstaller4> for &'a IUpdateInstaller {
-    fn from(value: &'a IUpdateInstaller4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateInstaller4> for IUpdateInstaller {
-    fn from(value: &IUpdateInstaller4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateInstaller4> for IUpdateInstaller2 {
-    fn from(value: IUpdateInstaller4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateInstaller4> for &'a IUpdateInstaller2 {
-    fn from(value: &'a IUpdateInstaller4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateInstaller4> for IUpdateInstaller2 {
-    fn from(value: &IUpdateInstaller4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateInstaller4> for IUpdateInstaller3 {
-    fn from(value: IUpdateInstaller4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateInstaller4> for &'a IUpdateInstaller3 {
-    fn from(value: &'a IUpdateInstaller4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateInstaller4> for IUpdateInstaller3 {
-    fn from(value: &IUpdateInstaller4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateInstaller4, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateInstaller, IUpdateInstaller2, IUpdateInstaller3);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateInstaller4 {
     fn clone(&self) -> Self {
@@ -7563,21 +5413,7 @@ impl IUpdateLockdown {
         (::windows::core::Vtable::vtable(self).LockDown)(::windows::core::Vtable::as_raw(self), flags).ok()
     }
 }
-impl ::core::convert::From<IUpdateLockdown> for ::windows::core::IUnknown {
-    fn from(value: IUpdateLockdown) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUpdateLockdown> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateLockdown) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUpdateLockdown> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateLockdown) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateLockdown, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUpdateLockdown {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7695,41 +5531,7 @@ impl IUpdateSearcher {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateSearcher> for ::windows::core::IUnknown {
-    fn from(value: IUpdateSearcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateSearcher> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateSearcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateSearcher> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateSearcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateSearcher> for super::Com::IDispatch {
-    fn from(value: IUpdateSearcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateSearcher> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateSearcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateSearcher> for super::Com::IDispatch {
-    fn from(value: &IUpdateSearcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateSearcher, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateSearcher {
     fn clone(&self) -> Self {
@@ -7890,59 +5692,7 @@ impl IUpdateSearcher2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateSearcher2> for ::windows::core::IUnknown {
-    fn from(value: IUpdateSearcher2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateSearcher2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateSearcher2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateSearcher2> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateSearcher2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateSearcher2> for super::Com::IDispatch {
-    fn from(value: IUpdateSearcher2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateSearcher2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateSearcher2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateSearcher2> for super::Com::IDispatch {
-    fn from(value: &IUpdateSearcher2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateSearcher2> for IUpdateSearcher {
-    fn from(value: IUpdateSearcher2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateSearcher2> for &'a IUpdateSearcher {
-    fn from(value: &'a IUpdateSearcher2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateSearcher2> for IUpdateSearcher {
-    fn from(value: &IUpdateSearcher2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateSearcher2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateSearcher);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateSearcher2 {
     fn clone(&self) -> Self {
@@ -8082,77 +5832,7 @@ impl IUpdateSearcher3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateSearcher3> for ::windows::core::IUnknown {
-    fn from(value: IUpdateSearcher3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateSearcher3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateSearcher3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateSearcher3> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateSearcher3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateSearcher3> for super::Com::IDispatch {
-    fn from(value: IUpdateSearcher3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateSearcher3> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateSearcher3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateSearcher3> for super::Com::IDispatch {
-    fn from(value: &IUpdateSearcher3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateSearcher3> for IUpdateSearcher {
-    fn from(value: IUpdateSearcher3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateSearcher3> for &'a IUpdateSearcher {
-    fn from(value: &'a IUpdateSearcher3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateSearcher3> for IUpdateSearcher {
-    fn from(value: &IUpdateSearcher3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateSearcher3> for IUpdateSearcher2 {
-    fn from(value: IUpdateSearcher3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateSearcher3> for &'a IUpdateSearcher2 {
-    fn from(value: &'a IUpdateSearcher3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateSearcher3> for IUpdateSearcher2 {
-    fn from(value: &IUpdateSearcher3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateSearcher3, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateSearcher, IUpdateSearcher2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateSearcher3 {
     fn clone(&self) -> Self {
@@ -8253,41 +5933,7 @@ impl IUpdateService {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateService> for ::windows::core::IUnknown {
-    fn from(value: IUpdateService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateService> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateService> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateService> for super::Com::IDispatch {
-    fn from(value: IUpdateService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateService> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateService> for super::Com::IDispatch {
-    fn from(value: &IUpdateService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateService, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateService {
     fn clone(&self) -> Self {
@@ -8409,59 +6055,7 @@ impl IUpdateService2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateService2> for ::windows::core::IUnknown {
-    fn from(value: IUpdateService2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateService2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateService2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateService2> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateService2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateService2> for super::Com::IDispatch {
-    fn from(value: IUpdateService2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateService2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateService2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateService2> for super::Com::IDispatch {
-    fn from(value: &IUpdateService2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateService2> for IUpdateService {
-    fn from(value: IUpdateService2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateService2> for &'a IUpdateService {
-    fn from(value: &'a IUpdateService2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateService2> for IUpdateService {
-    fn from(value: &IUpdateService2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateService2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateService);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateService2 {
     fn clone(&self) -> Self {
@@ -8519,41 +6113,7 @@ impl IUpdateServiceCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateServiceCollection> for ::windows::core::IUnknown {
-    fn from(value: IUpdateServiceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateServiceCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateServiceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateServiceCollection> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateServiceCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateServiceCollection> for super::Com::IDispatch {
-    fn from(value: IUpdateServiceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateServiceCollection> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateServiceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateServiceCollection> for super::Com::IDispatch {
-    fn from(value: &IUpdateServiceCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateServiceCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateServiceCollection {
     fn clone(&self) -> Self {
@@ -8637,41 +6197,7 @@ impl IUpdateServiceManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateServiceManager> for ::windows::core::IUnknown {
-    fn from(value: IUpdateServiceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateServiceManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateServiceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateServiceManager> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateServiceManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateServiceManager> for super::Com::IDispatch {
-    fn from(value: IUpdateServiceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateServiceManager> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateServiceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateServiceManager> for super::Com::IDispatch {
-    fn from(value: &IUpdateServiceManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateServiceManager, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateServiceManager {
     fn clone(&self) -> Self {
@@ -8787,59 +6313,7 @@ impl IUpdateServiceManager2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateServiceManager2> for ::windows::core::IUnknown {
-    fn from(value: IUpdateServiceManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateServiceManager2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateServiceManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateServiceManager2> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateServiceManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateServiceManager2> for super::Com::IDispatch {
-    fn from(value: IUpdateServiceManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateServiceManager2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateServiceManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateServiceManager2> for super::Com::IDispatch {
-    fn from(value: &IUpdateServiceManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateServiceManager2> for IUpdateServiceManager {
-    fn from(value: IUpdateServiceManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateServiceManager2> for &'a IUpdateServiceManager {
-    fn from(value: &'a IUpdateServiceManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateServiceManager2> for IUpdateServiceManager {
-    fn from(value: &IUpdateServiceManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateServiceManager2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateServiceManager);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateServiceManager2 {
     fn clone(&self) -> Self {
@@ -8910,41 +6384,7 @@ impl IUpdateServiceRegistration {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateServiceRegistration> for ::windows::core::IUnknown {
-    fn from(value: IUpdateServiceRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateServiceRegistration> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateServiceRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateServiceRegistration> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateServiceRegistration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateServiceRegistration> for super::Com::IDispatch {
-    fn from(value: IUpdateServiceRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateServiceRegistration> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateServiceRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateServiceRegistration> for super::Com::IDispatch {
-    fn from(value: &IUpdateServiceRegistration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateServiceRegistration, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateServiceRegistration {
     fn clone(&self) -> Self {
@@ -9037,41 +6477,7 @@ impl IUpdateSession {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateSession> for ::windows::core::IUnknown {
-    fn from(value: IUpdateSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateSession> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateSession> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateSession> for super::Com::IDispatch {
-    fn from(value: IUpdateSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateSession> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateSession> for super::Com::IDispatch {
-    fn from(value: &IUpdateSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateSession, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateSession {
     fn clone(&self) -> Self {
@@ -9187,59 +6593,7 @@ impl IUpdateSession2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateSession2> for ::windows::core::IUnknown {
-    fn from(value: IUpdateSession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateSession2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateSession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateSession2> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateSession2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateSession2> for super::Com::IDispatch {
-    fn from(value: IUpdateSession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateSession2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateSession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateSession2> for super::Com::IDispatch {
-    fn from(value: &IUpdateSession2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateSession2> for IUpdateSession {
-    fn from(value: IUpdateSession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateSession2> for &'a IUpdateSession {
-    fn from(value: &'a IUpdateSession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateSession2> for IUpdateSession {
-    fn from(value: &IUpdateSession2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateSession2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateSession);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateSession2 {
     fn clone(&self) -> Self {
@@ -9346,77 +6700,7 @@ impl IUpdateSession3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateSession3> for ::windows::core::IUnknown {
-    fn from(value: IUpdateSession3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateSession3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUpdateSession3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateSession3> for ::windows::core::IUnknown {
-    fn from(value: &IUpdateSession3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateSession3> for super::Com::IDispatch {
-    fn from(value: IUpdateSession3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateSession3> for &'a super::Com::IDispatch {
-    fn from(value: &'a IUpdateSession3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateSession3> for super::Com::IDispatch {
-    fn from(value: &IUpdateSession3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateSession3> for IUpdateSession {
-    fn from(value: IUpdateSession3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateSession3> for &'a IUpdateSession {
-    fn from(value: &'a IUpdateSession3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateSession3> for IUpdateSession {
-    fn from(value: &IUpdateSession3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUpdateSession3> for IUpdateSession2 {
-    fn from(value: IUpdateSession3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUpdateSession3> for &'a IUpdateSession2 {
-    fn from(value: &'a IUpdateSession3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUpdateSession3> for IUpdateSession2 {
-    fn from(value: &IUpdateSession3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUpdateSession3, ::windows::core::IUnknown, super::Com::IDispatch, IUpdateSession, IUpdateSession2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUpdateSession3 {
     fn clone(&self) -> Self {
@@ -9530,41 +6814,7 @@ impl IWebProxy {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWebProxy> for ::windows::core::IUnknown {
-    fn from(value: IWebProxy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWebProxy> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWebProxy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWebProxy> for ::windows::core::IUnknown {
-    fn from(value: &IWebProxy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWebProxy> for super::Com::IDispatch {
-    fn from(value: IWebProxy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWebProxy> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWebProxy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWebProxy> for super::Com::IDispatch {
-    fn from(value: &IWebProxy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWebProxy, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWebProxy {
     fn clone(&self) -> Self {
@@ -9871,59 +7121,7 @@ impl IWindowsDriverUpdate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate> for ::windows::core::IUnknown {
-    fn from(value: IWindowsDriverUpdate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWindowsDriverUpdate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate> for ::windows::core::IUnknown {
-    fn from(value: &IWindowsDriverUpdate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate> for super::Com::IDispatch {
-    fn from(value: IWindowsDriverUpdate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWindowsDriverUpdate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate> for super::Com::IDispatch {
-    fn from(value: &IWindowsDriverUpdate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate> for IUpdate {
-    fn from(value: IWindowsDriverUpdate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate> for &'a IUpdate {
-    fn from(value: &'a IWindowsDriverUpdate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate> for IUpdate {
-    fn from(value: &IWindowsDriverUpdate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWindowsDriverUpdate, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWindowsDriverUpdate {
     fn clone(&self) -> Self {
@@ -10237,77 +7435,7 @@ impl IWindowsDriverUpdate2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate2> for ::windows::core::IUnknown {
-    fn from(value: IWindowsDriverUpdate2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWindowsDriverUpdate2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate2> for ::windows::core::IUnknown {
-    fn from(value: &IWindowsDriverUpdate2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate2> for super::Com::IDispatch {
-    fn from(value: IWindowsDriverUpdate2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWindowsDriverUpdate2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate2> for super::Com::IDispatch {
-    fn from(value: &IWindowsDriverUpdate2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate2> for IUpdate {
-    fn from(value: IWindowsDriverUpdate2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate2> for &'a IUpdate {
-    fn from(value: &'a IWindowsDriverUpdate2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate2> for IUpdate {
-    fn from(value: &IWindowsDriverUpdate2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate2> for IWindowsDriverUpdate {
-    fn from(value: IWindowsDriverUpdate2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate2> for &'a IWindowsDriverUpdate {
-    fn from(value: &'a IWindowsDriverUpdate2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate2> for IWindowsDriverUpdate {
-    fn from(value: &IWindowsDriverUpdate2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWindowsDriverUpdate2, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWindowsDriverUpdate2 {
     fn clone(&self) -> Self {
@@ -10627,95 +7755,7 @@ impl IWindowsDriverUpdate3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate3> for ::windows::core::IUnknown {
-    fn from(value: IWindowsDriverUpdate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWindowsDriverUpdate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate3> for ::windows::core::IUnknown {
-    fn from(value: &IWindowsDriverUpdate3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate3> for super::Com::IDispatch {
-    fn from(value: IWindowsDriverUpdate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate3> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWindowsDriverUpdate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate3> for super::Com::IDispatch {
-    fn from(value: &IWindowsDriverUpdate3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate3> for IUpdate {
-    fn from(value: IWindowsDriverUpdate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate3> for &'a IUpdate {
-    fn from(value: &'a IWindowsDriverUpdate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate3> for IUpdate {
-    fn from(value: &IWindowsDriverUpdate3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate3> for IWindowsDriverUpdate {
-    fn from(value: IWindowsDriverUpdate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate3> for &'a IWindowsDriverUpdate {
-    fn from(value: &'a IWindowsDriverUpdate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate3> for IWindowsDriverUpdate {
-    fn from(value: &IWindowsDriverUpdate3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate3> for IWindowsDriverUpdate2 {
-    fn from(value: IWindowsDriverUpdate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate3> for &'a IWindowsDriverUpdate2 {
-    fn from(value: &'a IWindowsDriverUpdate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate3> for IWindowsDriverUpdate2 {
-    fn from(value: &IWindowsDriverUpdate3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWindowsDriverUpdate3, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate, IWindowsDriverUpdate2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWindowsDriverUpdate3 {
     fn clone(&self) -> Self {
@@ -11036,113 +8076,7 @@ impl IWindowsDriverUpdate4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate4> for ::windows::core::IUnknown {
-    fn from(value: IWindowsDriverUpdate4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWindowsDriverUpdate4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate4> for ::windows::core::IUnknown {
-    fn from(value: &IWindowsDriverUpdate4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate4> for super::Com::IDispatch {
-    fn from(value: IWindowsDriverUpdate4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate4> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWindowsDriverUpdate4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate4> for super::Com::IDispatch {
-    fn from(value: &IWindowsDriverUpdate4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate4> for IUpdate {
-    fn from(value: IWindowsDriverUpdate4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate4> for &'a IUpdate {
-    fn from(value: &'a IWindowsDriverUpdate4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate4> for IUpdate {
-    fn from(value: &IWindowsDriverUpdate4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate4> for IWindowsDriverUpdate {
-    fn from(value: IWindowsDriverUpdate4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate4> for &'a IWindowsDriverUpdate {
-    fn from(value: &'a IWindowsDriverUpdate4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate4> for IWindowsDriverUpdate {
-    fn from(value: &IWindowsDriverUpdate4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate4> for IWindowsDriverUpdate2 {
-    fn from(value: IWindowsDriverUpdate4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate4> for &'a IWindowsDriverUpdate2 {
-    fn from(value: &'a IWindowsDriverUpdate4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate4> for IWindowsDriverUpdate2 {
-    fn from(value: &IWindowsDriverUpdate4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate4> for IWindowsDriverUpdate3 {
-    fn from(value: IWindowsDriverUpdate4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate4> for &'a IWindowsDriverUpdate3 {
-    fn from(value: &'a IWindowsDriverUpdate4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate4> for IWindowsDriverUpdate3 {
-    fn from(value: &IWindowsDriverUpdate4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWindowsDriverUpdate4, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate, IWindowsDriverUpdate2, IWindowsDriverUpdate3);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWindowsDriverUpdate4 {
     fn clone(&self) -> Self {
@@ -11475,131 +8409,7 @@ impl IWindowsDriverUpdate5 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate5> for ::windows::core::IUnknown {
-    fn from(value: IWindowsDriverUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate5> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWindowsDriverUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate5> for ::windows::core::IUnknown {
-    fn from(value: &IWindowsDriverUpdate5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate5> for super::Com::IDispatch {
-    fn from(value: IWindowsDriverUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate5> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWindowsDriverUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate5> for super::Com::IDispatch {
-    fn from(value: &IWindowsDriverUpdate5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate5> for IUpdate {
-    fn from(value: IWindowsDriverUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate5> for &'a IUpdate {
-    fn from(value: &'a IWindowsDriverUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate5> for IUpdate {
-    fn from(value: &IWindowsDriverUpdate5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate5> for IWindowsDriverUpdate {
-    fn from(value: IWindowsDriverUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate5> for &'a IWindowsDriverUpdate {
-    fn from(value: &'a IWindowsDriverUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate5> for IWindowsDriverUpdate {
-    fn from(value: &IWindowsDriverUpdate5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate5> for IWindowsDriverUpdate2 {
-    fn from(value: IWindowsDriverUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate5> for &'a IWindowsDriverUpdate2 {
-    fn from(value: &'a IWindowsDriverUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate5> for IWindowsDriverUpdate2 {
-    fn from(value: &IWindowsDriverUpdate5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate5> for IWindowsDriverUpdate3 {
-    fn from(value: IWindowsDriverUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate5> for &'a IWindowsDriverUpdate3 {
-    fn from(value: &'a IWindowsDriverUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate5> for IWindowsDriverUpdate3 {
-    fn from(value: &IWindowsDriverUpdate5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdate5> for IWindowsDriverUpdate4 {
-    fn from(value: IWindowsDriverUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate5> for &'a IWindowsDriverUpdate4 {
-    fn from(value: &'a IWindowsDriverUpdate5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdate5> for IWindowsDriverUpdate4 {
-    fn from(value: &IWindowsDriverUpdate5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWindowsDriverUpdate5, ::windows::core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate, IWindowsDriverUpdate2, IWindowsDriverUpdate3, IWindowsDriverUpdate4);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWindowsDriverUpdate5 {
     fn clone(&self) -> Self {
@@ -11676,41 +8486,7 @@ impl IWindowsDriverUpdateEntry {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdateEntry> for ::windows::core::IUnknown {
-    fn from(value: IWindowsDriverUpdateEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdateEntry> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWindowsDriverUpdateEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdateEntry> for ::windows::core::IUnknown {
-    fn from(value: &IWindowsDriverUpdateEntry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdateEntry> for super::Com::IDispatch {
-    fn from(value: IWindowsDriverUpdateEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdateEntry> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWindowsDriverUpdateEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdateEntry> for super::Com::IDispatch {
-    fn from(value: &IWindowsDriverUpdateEntry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWindowsDriverUpdateEntry, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWindowsDriverUpdateEntry {
     fn clone(&self) -> Self {
@@ -11775,41 +8551,7 @@ impl IWindowsDriverUpdateEntryCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdateEntryCollection> for ::windows::core::IUnknown {
-    fn from(value: IWindowsDriverUpdateEntryCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdateEntryCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWindowsDriverUpdateEntryCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdateEntryCollection> for ::windows::core::IUnknown {
-    fn from(value: &IWindowsDriverUpdateEntryCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsDriverUpdateEntryCollection> for super::Com::IDispatch {
-    fn from(value: IWindowsDriverUpdateEntryCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsDriverUpdateEntryCollection> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWindowsDriverUpdateEntryCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsDriverUpdateEntryCollection> for super::Com::IDispatch {
-    fn from(value: &IWindowsDriverUpdateEntryCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWindowsDriverUpdateEntryCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWindowsDriverUpdateEntryCollection {
     fn clone(&self) -> Self {
@@ -11867,41 +8609,7 @@ impl IWindowsUpdateAgentInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsUpdateAgentInfo> for ::windows::core::IUnknown {
-    fn from(value: IWindowsUpdateAgentInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsUpdateAgentInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWindowsUpdateAgentInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsUpdateAgentInfo> for ::windows::core::IUnknown {
-    fn from(value: &IWindowsUpdateAgentInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsUpdateAgentInfo> for super::Com::IDispatch {
-    fn from(value: IWindowsUpdateAgentInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsUpdateAgentInfo> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWindowsUpdateAgentInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsUpdateAgentInfo> for super::Com::IDispatch {
-    fn from(value: &IWindowsUpdateAgentInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWindowsUpdateAgentInfo, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWindowsUpdateAgentInfo {
     fn clone(&self) -> Self {

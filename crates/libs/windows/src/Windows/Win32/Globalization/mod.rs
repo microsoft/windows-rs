@@ -11996,21 +11996,7 @@ impl IComprehensiveSpellCheckProvider {
         (::windows::core::Vtable::vtable(self).ComprehensiveCheck)(::windows::core::Vtable::as_raw(self), text.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumSpellingError>(result__)
     }
 }
-impl ::core::convert::From<IComprehensiveSpellCheckProvider> for ::windows::core::IUnknown {
-    fn from(value: IComprehensiveSpellCheckProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IComprehensiveSpellCheckProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IComprehensiveSpellCheckProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IComprehensiveSpellCheckProvider> for ::windows::core::IUnknown {
-    fn from(value: &IComprehensiveSpellCheckProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IComprehensiveSpellCheckProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IComprehensiveSpellCheckProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12057,21 +12043,7 @@ impl IEnumCodePage {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), celt).ok()
     }
 }
-impl ::core::convert::From<IEnumCodePage> for ::windows::core::IUnknown {
-    fn from(value: IEnumCodePage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumCodePage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumCodePage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumCodePage> for ::windows::core::IUnknown {
-    fn from(value: &IEnumCodePage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumCodePage, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumCodePage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12121,21 +12093,7 @@ impl IEnumRfc1766 {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), celt).ok()
     }
 }
-impl ::core::convert::From<IEnumRfc1766> for ::windows::core::IUnknown {
-    fn from(value: IEnumRfc1766) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumRfc1766> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumRfc1766) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumRfc1766> for ::windows::core::IUnknown {
-    fn from(value: &IEnumRfc1766) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumRfc1766, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumRfc1766 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12185,21 +12143,7 @@ impl IEnumScript {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), celt).ok()
     }
 }
-impl ::core::convert::From<IEnumScript> for ::windows::core::IUnknown {
-    fn from(value: IEnumScript) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumScript> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumScript) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumScript> for ::windows::core::IUnknown {
-    fn from(value: &IEnumScript) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumScript, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumScript {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12240,21 +12184,7 @@ impl IEnumSpellingError {
         (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpellingError>(result__)
     }
 }
-impl ::core::convert::From<IEnumSpellingError> for ::windows::core::IUnknown {
-    fn from(value: IEnumSpellingError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumSpellingError> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumSpellingError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumSpellingError> for ::windows::core::IUnknown {
-    fn from(value: &IEnumSpellingError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumSpellingError, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumSpellingError {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12303,21 +12233,7 @@ impl IMLangCodePages {
         (::windows::core::Vtable::vtable(self).CodePagesToCodePage)(::windows::core::Vtable::as_raw(self), dwcodepages, udefaultcodepage, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMLangCodePages> for ::windows::core::IUnknown {
-    fn from(value: IMLangCodePages) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLangCodePages> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMLangCodePages) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLangCodePages> for ::windows::core::IUnknown {
-    fn from(value: &IMLangCodePages) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMLangCodePages, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMLangCodePages {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12384,21 +12300,7 @@ impl IMLangConvertCharset {
         (::windows::core::Vtable::vtable(self).DoConversionFromUnicode)(::windows::core::Vtable::as_raw(self), psrcstr.into(), ::core::mem::transmute(pcsrcsize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdststr), ::core::mem::transmute(pcdstsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IMLangConvertCharset> for ::windows::core::IUnknown {
-    fn from(value: IMLangConvertCharset) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLangConvertCharset> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMLangConvertCharset) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLangConvertCharset> for ::windows::core::IUnknown {
-    fn from(value: &IMLangConvertCharset) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMLangConvertCharset, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMLangConvertCharset {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12484,36 +12386,7 @@ impl IMLangFontLink {
         (::windows::core::Vtable::vtable(self).ResetFontMapping)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMLangFontLink> for ::windows::core::IUnknown {
-    fn from(value: IMLangFontLink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLangFontLink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMLangFontLink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLangFontLink> for ::windows::core::IUnknown {
-    fn from(value: &IMLangFontLink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMLangFontLink> for IMLangCodePages {
-    fn from(value: IMLangFontLink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLangFontLink> for &'a IMLangCodePages {
-    fn from(value: &'a IMLangFontLink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLangFontLink> for IMLangCodePages {
-    fn from(value: &IMLangFontLink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMLangFontLink, ::windows::core::IUnknown, IMLangCodePages);
 impl ::core::clone::Clone for IMLangFontLink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12620,36 +12493,7 @@ impl IMLangFontLink2 {
         (::windows::core::Vtable::vtable(self).CodePageToScriptID)(::windows::core::Vtable::as_raw(self), uicodepage, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
     }
 }
-impl ::core::convert::From<IMLangFontLink2> for ::windows::core::IUnknown {
-    fn from(value: IMLangFontLink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLangFontLink2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMLangFontLink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLangFontLink2> for ::windows::core::IUnknown {
-    fn from(value: &IMLangFontLink2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMLangFontLink2> for IMLangCodePages {
-    fn from(value: IMLangFontLink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLangFontLink2> for &'a IMLangCodePages {
-    fn from(value: &'a IMLangFontLink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLangFontLink2> for IMLangCodePages {
-    fn from(value: &IMLangFontLink2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMLangFontLink2, ::windows::core::IUnknown, IMLangCodePages);
 impl ::core::clone::Clone for IMLangFontLink2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12713,21 +12557,7 @@ impl IMLangLineBreakConsole {
         (::windows::core::Vtable::vtable(self).BreakLineA)(::windows::core::Vtable::as_raw(self), locale, ucodepage, ::core::mem::transmute(pszsrc.as_ptr()), pszsrc.len() as _, cmaxcolumns, ::core::mem::transmute(pcchline.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcchskip.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IMLangLineBreakConsole> for ::windows::core::IUnknown {
-    fn from(value: IMLangLineBreakConsole) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLangLineBreakConsole> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMLangLineBreakConsole) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLangLineBreakConsole> for ::windows::core::IUnknown {
-    fn from(value: &IMLangLineBreakConsole) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMLangLineBreakConsole, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMLangLineBreakConsole {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12787,21 +12617,7 @@ impl IMLangString {
         (::windows::core::Vtable::vtable(self).GetMLStr)(::windows::core::Vtable::as_raw(self), lsrcpos, lsrclen, punkouter.into().abi(), dwclscontext, ::core::mem::transmute(piid), ::core::mem::transmute(ppdestmlstr), ::core::mem::transmute(pldestpos.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pldestlen.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IMLangString> for ::windows::core::IUnknown {
-    fn from(value: IMLangString) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLangString> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMLangString) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLangString> for ::windows::core::IUnknown {
-    fn from(value: &IMLangString) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMLangString, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMLangString {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12892,36 +12708,7 @@ impl IMLangStringAStr {
         (::windows::core::Vtable::vtable(self).GetLocale)(::windows::core::Vtable::as_raw(self), lsrcpos, lsrcmaxlen, ::core::mem::transmute(plocale.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pllocalepos.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pllocalelen.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IMLangStringAStr> for ::windows::core::IUnknown {
-    fn from(value: IMLangStringAStr) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLangStringAStr> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMLangStringAStr) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLangStringAStr> for ::windows::core::IUnknown {
-    fn from(value: &IMLangStringAStr) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMLangStringAStr> for IMLangString {
-    fn from(value: IMLangStringAStr) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLangStringAStr> for &'a IMLangString {
-    fn from(value: &'a IMLangStringAStr) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLangStringAStr> for IMLangString {
-    fn from(value: &IMLangStringAStr) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMLangStringAStr, ::windows::core::IUnknown, IMLangString);
 impl ::core::clone::Clone for IMLangStringAStr {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12983,21 +12770,7 @@ impl IMLangStringBufA {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), cchoffset, cchdelete).ok()
     }
 }
-impl ::core::convert::From<IMLangStringBufA> for ::windows::core::IUnknown {
-    fn from(value: IMLangStringBufA) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLangStringBufA> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMLangStringBufA) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLangStringBufA> for ::windows::core::IUnknown {
-    fn from(value: &IMLangStringBufA) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMLangStringBufA, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMLangStringBufA {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13057,21 +12830,7 @@ impl IMLangStringBufW {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), cchoffset, cchdelete).ok()
     }
 }
-impl ::core::convert::From<IMLangStringBufW> for ::windows::core::IUnknown {
-    fn from(value: IMLangStringBufW) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLangStringBufW> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMLangStringBufW) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLangStringBufW> for ::windows::core::IUnknown {
-    fn from(value: &IMLangStringBufW) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMLangStringBufW, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMLangStringBufW {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13160,36 +12919,7 @@ impl IMLangStringWStr {
         (::windows::core::Vtable::vtable(self).GetLocale)(::windows::core::Vtable::as_raw(self), lsrcpos, lsrcmaxlen, ::core::mem::transmute(plocale.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pllocalepos.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pllocalelen.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IMLangStringWStr> for ::windows::core::IUnknown {
-    fn from(value: IMLangStringWStr) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLangStringWStr> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMLangStringWStr) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLangStringWStr> for ::windows::core::IUnknown {
-    fn from(value: &IMLangStringWStr) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMLangStringWStr> for IMLangString {
-    fn from(value: IMLangStringWStr) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMLangStringWStr> for &'a IMLangString {
-    fn from(value: &'a IMLangStringWStr) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMLangStringWStr> for IMLangString {
-    fn from(value: &IMLangStringWStr) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMLangStringWStr, ::windows::core::IUnknown, IMLangString);
 impl ::core::clone::Clone for IMLangStringWStr {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13290,21 +13020,7 @@ impl IMultiLanguage {
         (::windows::core::Vtable::vtable(self).CreateConvertCharset)(::windows::core::Vtable::as_raw(self), uisrccodepage, uidstcodepage, dwproperty, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMLangConvertCharset>(result__)
     }
 }
-impl ::core::convert::From<IMultiLanguage> for ::windows::core::IUnknown {
-    fn from(value: IMultiLanguage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMultiLanguage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMultiLanguage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMultiLanguage> for ::windows::core::IUnknown {
-    fn from(value: &IMultiLanguage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMultiLanguage, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMultiLanguage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13483,21 +13199,7 @@ impl IMultiLanguage2 {
         (::windows::core::Vtable::vtable(self).ValidateCodePageEx)(::windows::core::Vtable::as_raw(self), uicodepage, hwnd.into(), dwfiodcontrol).ok()
     }
 }
-impl ::core::convert::From<IMultiLanguage2> for ::windows::core::IUnknown {
-    fn from(value: IMultiLanguage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMultiLanguage2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMultiLanguage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMultiLanguage2> for ::windows::core::IUnknown {
-    fn from(value: &IMultiLanguage2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMultiLanguage2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMultiLanguage2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13715,36 +13417,7 @@ impl IMultiLanguage3 {
         (::windows::core::Vtable::vtable(self).DetectOutboundCodePageInIStream)(::windows::core::Vtable::as_raw(self), dwflags, pstrin.into().abi(), ::core::mem::transmute(puipreferredcodepages.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), puipreferredcodepages.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(puidetectedcodepages), ::core::mem::transmute(pndetectedcodepages), lpspecialchar.into()).ok()
     }
 }
-impl ::core::convert::From<IMultiLanguage3> for ::windows::core::IUnknown {
-    fn from(value: IMultiLanguage3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMultiLanguage3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMultiLanguage3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMultiLanguage3> for ::windows::core::IUnknown {
-    fn from(value: &IMultiLanguage3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMultiLanguage3> for IMultiLanguage2 {
-    fn from(value: IMultiLanguage3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMultiLanguage3> for &'a IMultiLanguage2 {
-    fn from(value: &'a IMultiLanguage3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMultiLanguage3> for IMultiLanguage2 {
-    fn from(value: &IMultiLanguage3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMultiLanguage3, ::windows::core::IUnknown, IMultiLanguage2);
 impl ::core::clone::Clone for IMultiLanguage3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13800,21 +13473,7 @@ impl IOptionDescription {
         (::windows::core::Vtable::vtable(self).Labels)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::System::Com::IEnumString>(result__)
     }
 }
-impl ::core::convert::From<IOptionDescription> for ::windows::core::IUnknown {
-    fn from(value: IOptionDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOptionDescription> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOptionDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOptionDescription> for ::windows::core::IUnknown {
-    fn from(value: &IOptionDescription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOptionDescription, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOptionDescription {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13916,21 +13575,7 @@ impl ISpellCheckProvider {
         (::windows::core::Vtable::vtable(self).InitializeWordlist)(::windows::core::Vtable::as_raw(self), wordlisttype, words.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ISpellCheckProvider> for ::windows::core::IUnknown {
-    fn from(value: ISpellCheckProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpellCheckProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpellCheckProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpellCheckProvider> for ::windows::core::IUnknown {
-    fn from(value: &ISpellCheckProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpellCheckProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpellCheckProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14004,21 +13649,7 @@ impl ISpellCheckProviderFactory {
         (::windows::core::Vtable::vtable(self).CreateSpellCheckProvider)(::windows::core::Vtable::as_raw(self), languagetag.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpellCheckProvider>(result__)
     }
 }
-impl ::core::convert::From<ISpellCheckProviderFactory> for ::windows::core::IUnknown {
-    fn from(value: ISpellCheckProviderFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpellCheckProviderFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpellCheckProviderFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpellCheckProviderFactory> for ::windows::core::IUnknown {
-    fn from(value: &ISpellCheckProviderFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpellCheckProviderFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpellCheckProviderFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14144,21 +13775,7 @@ impl ISpellChecker {
         (::windows::core::Vtable::vtable(self).ComprehensiveCheck)(::windows::core::Vtable::as_raw(self), text.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumSpellingError>(result__)
     }
 }
-impl ::core::convert::From<ISpellChecker> for ::windows::core::IUnknown {
-    fn from(value: ISpellChecker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpellChecker> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpellChecker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpellChecker> for ::windows::core::IUnknown {
-    fn from(value: &ISpellChecker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpellChecker, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpellChecker {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14301,36 +13918,7 @@ impl ISpellChecker2 {
         (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), word.into()).ok()
     }
 }
-impl ::core::convert::From<ISpellChecker2> for ::windows::core::IUnknown {
-    fn from(value: ISpellChecker2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpellChecker2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpellChecker2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpellChecker2> for ::windows::core::IUnknown {
-    fn from(value: &ISpellChecker2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpellChecker2> for ISpellChecker {
-    fn from(value: ISpellChecker2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpellChecker2> for &'a ISpellChecker {
-    fn from(value: &'a ISpellChecker2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpellChecker2> for ISpellChecker {
-    fn from(value: &ISpellChecker2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpellChecker2, ::windows::core::IUnknown, ISpellChecker);
 impl ::core::clone::Clone for ISpellChecker2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14370,21 +13958,7 @@ impl ISpellCheckerChangedEventHandler {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self), sender.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ISpellCheckerChangedEventHandler> for ::windows::core::IUnknown {
-    fn from(value: ISpellCheckerChangedEventHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpellCheckerChangedEventHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpellCheckerChangedEventHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpellCheckerChangedEventHandler> for ::windows::core::IUnknown {
-    fn from(value: &ISpellCheckerChangedEventHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpellCheckerChangedEventHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpellCheckerChangedEventHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14440,21 +14014,7 @@ impl ISpellCheckerFactory {
         (::windows::core::Vtable::vtable(self).CreateSpellChecker)(::windows::core::Vtable::as_raw(self), languagetag.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpellChecker>(result__)
     }
 }
-impl ::core::convert::From<ISpellCheckerFactory> for ::windows::core::IUnknown {
-    fn from(value: ISpellCheckerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpellCheckerFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpellCheckerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpellCheckerFactory> for ::windows::core::IUnknown {
-    fn from(value: &ISpellCheckerFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpellCheckerFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpellCheckerFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14512,21 +14072,7 @@ impl ISpellingError {
         (::windows::core::Vtable::vtable(self).Replacement)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<ISpellingError> for ::windows::core::IUnknown {
-    fn from(value: ISpellingError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpellingError> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpellingError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpellingError> for ::windows::core::IUnknown {
-    fn from(value: &ISpellingError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpellingError, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpellingError {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14577,21 +14123,7 @@ impl IUserDictionariesRegistrar {
         (::windows::core::Vtable::vtable(self).UnregisterUserDictionary)(::windows::core::Vtable::as_raw(self), dictionarypath.into(), languagetag.into()).ok()
     }
 }
-impl ::core::convert::From<IUserDictionariesRegistrar> for ::windows::core::IUnknown {
-    fn from(value: IUserDictionariesRegistrar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUserDictionariesRegistrar> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUserDictionariesRegistrar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUserDictionariesRegistrar> for ::windows::core::IUnknown {
-    fn from(value: &IUserDictionariesRegistrar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUserDictionariesRegistrar, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUserDictionariesRegistrar {
     fn clone(&self) -> Self {
         Self(self.0.clone())

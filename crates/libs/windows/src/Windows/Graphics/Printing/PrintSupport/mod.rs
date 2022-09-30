@@ -243,36 +243,7 @@ unsafe impl ::windows::core::Interface for PrintSupportExtensionSession {
 impl ::windows::core::RuntimeName for PrintSupportExtensionSession {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionSession";
 }
-impl ::core::convert::From<PrintSupportExtensionSession> for ::windows::core::IUnknown {
-    fn from(value: PrintSupportExtensionSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintSupportExtensionSession> for ::windows::core::IUnknown {
-    fn from(value: &PrintSupportExtensionSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintSupportExtensionSession> for &::windows::core::IUnknown {
-    fn from(value: &PrintSupportExtensionSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintSupportExtensionSession> for ::windows::core::IInspectable {
-    fn from(value: PrintSupportExtensionSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintSupportExtensionSession> for ::windows::core::IInspectable {
-    fn from(value: &PrintSupportExtensionSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintSupportExtensionSession> for &::windows::core::IInspectable {
-    fn from(value: &PrintSupportExtensionSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintSupportExtensionSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintSupportExtensionSession {}
 unsafe impl ::core::marker::Sync for PrintSupportExtensionSession {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`*"]
@@ -319,36 +290,7 @@ unsafe impl ::windows::core::Interface for PrintSupportExtensionTriggerDetails {
 impl ::windows::core::RuntimeName for PrintSupportExtensionTriggerDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionTriggerDetails";
 }
-impl ::core::convert::From<PrintSupportExtensionTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: PrintSupportExtensionTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintSupportExtensionTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &PrintSupportExtensionTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintSupportExtensionTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &PrintSupportExtensionTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintSupportExtensionTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: PrintSupportExtensionTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintSupportExtensionTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &PrintSupportExtensionTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintSupportExtensionTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &PrintSupportExtensionTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintSupportExtensionTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintSupportExtensionTriggerDetails {}
 unsafe impl ::core::marker::Sync for PrintSupportExtensionTriggerDetails {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`*"]
@@ -412,36 +354,7 @@ unsafe impl ::windows::core::Interface for PrintSupportPrintDeviceCapabilitiesCh
 impl ::windows::core::RuntimeName for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesChangedEventArgs";
 }
-impl ::core::convert::From<PrintSupportPrintDeviceCapabilitiesChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PrintSupportPrintDeviceCapabilitiesChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintSupportPrintDeviceCapabilitiesChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PrintSupportPrintDeviceCapabilitiesChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintSupportPrintDeviceCapabilitiesChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PrintSupportPrintDeviceCapabilitiesChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintSupportPrintDeviceCapabilitiesChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PrintSupportPrintDeviceCapabilitiesChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintSupportPrintDeviceCapabilitiesChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PrintSupportPrintDeviceCapabilitiesChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintSupportPrintDeviceCapabilitiesChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PrintSupportPrintDeviceCapabilitiesChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintSupportPrintDeviceCapabilitiesChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`*"]
@@ -503,36 +416,7 @@ unsafe impl ::windows::core::Interface for PrintSupportPrintTicketValidationRequ
 impl ::windows::core::RuntimeName for PrintSupportPrintTicketValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintTicketValidationRequestedEventArgs";
 }
-impl ::core::convert::From<PrintSupportPrintTicketValidationRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PrintSupportPrintTicketValidationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintSupportPrintTicketValidationRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PrintSupportPrintTicketValidationRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintSupportPrintTicketValidationRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PrintSupportPrintTicketValidationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintSupportPrintTicketValidationRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PrintSupportPrintTicketValidationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintSupportPrintTicketValidationRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PrintSupportPrintTicketValidationRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintSupportPrintTicketValidationRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PrintSupportPrintTicketValidationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintSupportPrintTicketValidationRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintSupportPrintTicketValidationRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintSupportPrintTicketValidationRequestedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`*"]
@@ -590,36 +474,7 @@ unsafe impl ::windows::core::Interface for PrintSupportSessionInfo {
 impl ::windows::core::RuntimeName for PrintSupportSessionInfo {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportSessionInfo";
 }
-impl ::core::convert::From<PrintSupportSessionInfo> for ::windows::core::IUnknown {
-    fn from(value: PrintSupportSessionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintSupportSessionInfo> for ::windows::core::IUnknown {
-    fn from(value: &PrintSupportSessionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintSupportSessionInfo> for &::windows::core::IUnknown {
-    fn from(value: &PrintSupportSessionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintSupportSessionInfo> for ::windows::core::IInspectable {
-    fn from(value: PrintSupportSessionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintSupportSessionInfo> for ::windows::core::IInspectable {
-    fn from(value: &PrintSupportSessionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintSupportSessionInfo> for &::windows::core::IInspectable {
-    fn from(value: &PrintSupportSessionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintSupportSessionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintSupportSessionInfo {}
 unsafe impl ::core::marker::Sync for PrintSupportSessionInfo {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`*"]
@@ -711,36 +566,7 @@ unsafe impl ::windows::core::Interface for PrintSupportSettingsActivatedEventArg
 impl ::windows::core::RuntimeName for PrintSupportSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsActivatedEventArgs";
 }
-impl ::core::convert::From<PrintSupportSettingsActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PrintSupportSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintSupportSettingsActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PrintSupportSettingsActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintSupportSettingsActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PrintSupportSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintSupportSettingsActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PrintSupportSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintSupportSettingsActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PrintSupportSettingsActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintSupportSettingsActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PrintSupportSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintSupportSettingsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<PrintSupportSettingsActivatedEventArgs> for super::super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -860,36 +686,7 @@ unsafe impl ::windows::core::Interface for PrintSupportSettingsUISession {
 impl ::windows::core::RuntimeName for PrintSupportSettingsUISession {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsUISession";
 }
-impl ::core::convert::From<PrintSupportSettingsUISession> for ::windows::core::IUnknown {
-    fn from(value: PrintSupportSettingsUISession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintSupportSettingsUISession> for ::windows::core::IUnknown {
-    fn from(value: &PrintSupportSettingsUISession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintSupportSettingsUISession> for &::windows::core::IUnknown {
-    fn from(value: &PrintSupportSettingsUISession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintSupportSettingsUISession> for ::windows::core::IInspectable {
-    fn from(value: PrintSupportSettingsUISession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintSupportSettingsUISession> for ::windows::core::IInspectable {
-    fn from(value: &PrintSupportSettingsUISession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintSupportSettingsUISession> for &::windows::core::IInspectable {
-    fn from(value: &PrintSupportSettingsUISession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintSupportSettingsUISession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintSupportSettingsUISession {}
 unsafe impl ::core::marker::Sync for PrintSupportSettingsUISession {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`*"]

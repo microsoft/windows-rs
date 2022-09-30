@@ -181,36 +181,7 @@ impl IHttpFilter {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<IHttpFilter> for ::windows::core::IUnknown {
-    fn from(value: IHttpFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHttpFilter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IHttpFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHttpFilter> for ::windows::core::IUnknown {
-    fn from(value: &IHttpFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IHttpFilter> for ::windows::core::IInspectable {
-    fn from(value: IHttpFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHttpFilter> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IHttpFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHttpFilter> for ::windows::core::IInspectable {
-    fn from(value: &IHttpFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IHttpFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IHttpFilter> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -552,36 +523,7 @@ unsafe impl ::windows::core::Interface for HttpBaseProtocolFilter {
 impl ::windows::core::RuntimeName for HttpBaseProtocolFilter {
     const NAME: &'static str = "Windows.Web.Http.Filters.HttpBaseProtocolFilter";
 }
-impl ::core::convert::From<HttpBaseProtocolFilter> for ::windows::core::IUnknown {
-    fn from(value: HttpBaseProtocolFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpBaseProtocolFilter> for ::windows::core::IUnknown {
-    fn from(value: &HttpBaseProtocolFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpBaseProtocolFilter> for &::windows::core::IUnknown {
-    fn from(value: &HttpBaseProtocolFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpBaseProtocolFilter> for ::windows::core::IInspectable {
-    fn from(value: HttpBaseProtocolFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpBaseProtocolFilter> for ::windows::core::IInspectable {
-    fn from(value: &HttpBaseProtocolFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpBaseProtocolFilter> for &::windows::core::IInspectable {
-    fn from(value: &HttpBaseProtocolFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpBaseProtocolFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpBaseProtocolFilter> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -684,36 +626,7 @@ unsafe impl ::windows::core::Interface for HttpCacheControl {
 impl ::windows::core::RuntimeName for HttpCacheControl {
     const NAME: &'static str = "Windows.Web.Http.Filters.HttpCacheControl";
 }
-impl ::core::convert::From<HttpCacheControl> for ::windows::core::IUnknown {
-    fn from(value: HttpCacheControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpCacheControl> for ::windows::core::IUnknown {
-    fn from(value: &HttpCacheControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpCacheControl> for &::windows::core::IUnknown {
-    fn from(value: &HttpCacheControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpCacheControl> for ::windows::core::IInspectable {
-    fn from(value: HttpCacheControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpCacheControl> for ::windows::core::IInspectable {
-    fn from(value: &HttpCacheControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpCacheControl> for &::windows::core::IInspectable {
-    fn from(value: &HttpCacheControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpCacheControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HttpCacheControl {}
 unsafe impl ::core::marker::Sync for HttpCacheControl {}
 #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
@@ -809,36 +722,7 @@ unsafe impl ::windows::core::Interface for HttpServerCustomValidationRequestedEv
 impl ::windows::core::RuntimeName for HttpServerCustomValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Filters.HttpServerCustomValidationRequestedEventArgs";
 }
-impl ::core::convert::From<HttpServerCustomValidationRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: HttpServerCustomValidationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpServerCustomValidationRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &HttpServerCustomValidationRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpServerCustomValidationRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &HttpServerCustomValidationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpServerCustomValidationRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: HttpServerCustomValidationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpServerCustomValidationRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &HttpServerCustomValidationRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpServerCustomValidationRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &HttpServerCustomValidationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpServerCustomValidationRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HttpServerCustomValidationRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for HttpServerCustomValidationRequestedEventArgs {}
 #[doc = "*Required features: `\"Web_Http_Filters\"`*"]

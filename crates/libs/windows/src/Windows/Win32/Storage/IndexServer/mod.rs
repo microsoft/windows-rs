@@ -77,21 +77,7 @@ impl IFilter {
         (::windows::core::Vtable::vtable(self).BindRegion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(origpos), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk))
     }
 }
-impl ::core::convert::From<IFilter> for ::windows::core::IUnknown {
-    fn from(value: IFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFilter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFilter> for ::windows::core::IUnknown {
-    fn from(value: &IFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFilter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFilter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -151,21 +137,7 @@ impl IPhraseSink {
         (::windows::core::Vtable::vtable(self).PutPhrase)(::windows::core::Vtable::as_raw(self), pwcphrase.into(), cwcphrase).ok()
     }
 }
-impl ::core::convert::From<IPhraseSink> for ::windows::core::IUnknown {
-    fn from(value: IPhraseSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPhraseSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPhraseSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPhraseSink> for ::windows::core::IUnknown {
-    fn from(value: &IPhraseSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPhraseSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPhraseSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())

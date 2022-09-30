@@ -23,36 +23,7 @@ impl IPrintManagerInterop {
         (::windows::core::Vtable::vtable(self).ShowPrintUIForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IPrintManagerInterop> for ::windows::core::IUnknown {
-    fn from(value: IPrintManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintManagerInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintManagerInterop> for ::windows::core::IUnknown {
-    fn from(value: &IPrintManagerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPrintManagerInterop> for ::windows::core::IInspectable {
-    fn from(value: IPrintManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintManagerInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPrintManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintManagerInterop> for ::windows::core::IInspectable {
-    fn from(value: &IPrintManagerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrintManagerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IPrintManagerInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -111,21 +82,7 @@ impl IPrintWorkflowConfigurationNative {
         (::windows::core::Vtable::vtable(self).UserProperties)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Graphics::Printing::IPrinterPropertyBag>(result__)
     }
 }
-impl ::core::convert::From<IPrintWorkflowConfigurationNative> for ::windows::core::IUnknown {
-    fn from(value: IPrintWorkflowConfigurationNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintWorkflowConfigurationNative> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintWorkflowConfigurationNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintWorkflowConfigurationNative> for ::windows::core::IUnknown {
-    fn from(value: &IPrintWorkflowConfigurationNative) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrintWorkflowConfigurationNative, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPrintWorkflowConfigurationNative {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -182,21 +139,7 @@ impl IPrintWorkflowObjectModelSourceFileContentNative {
         (::windows::core::Vtable::vtable(self).ObjectFactory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Storage::Xps::IXpsOMObjectFactory1>(result__)
     }
 }
-impl ::core::convert::From<IPrintWorkflowObjectModelSourceFileContentNative> for ::windows::core::IUnknown {
-    fn from(value: IPrintWorkflowObjectModelSourceFileContentNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintWorkflowObjectModelSourceFileContentNative> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintWorkflowObjectModelSourceFileContentNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintWorkflowObjectModelSourceFileContentNative> for ::windows::core::IUnknown {
-    fn from(value: &IPrintWorkflowObjectModelSourceFileContentNative) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrintWorkflowObjectModelSourceFileContentNative, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPrintWorkflowObjectModelSourceFileContentNative {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -240,21 +183,7 @@ impl IPrintWorkflowXpsObjectModelTargetPackageNative {
         (::windows::core::Vtable::vtable(self).DocumentPackageTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Storage::Xps::IXpsDocumentPackageTarget>(result__)
     }
 }
-impl ::core::convert::From<IPrintWorkflowXpsObjectModelTargetPackageNative> for ::windows::core::IUnknown {
-    fn from(value: IPrintWorkflowXpsObjectModelTargetPackageNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintWorkflowXpsObjectModelTargetPackageNative> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintWorkflowXpsObjectModelTargetPackageNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintWorkflowXpsObjectModelTargetPackageNative> for ::windows::core::IUnknown {
-    fn from(value: &IPrintWorkflowXpsObjectModelTargetPackageNative) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrintWorkflowXpsObjectModelTargetPackageNative, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPrintWorkflowXpsObjectModelTargetPackageNative {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -326,21 +255,7 @@ impl IPrintWorkflowXpsReceiver {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IPrintWorkflowXpsReceiver> for ::windows::core::IUnknown {
-    fn from(value: IPrintWorkflowXpsReceiver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintWorkflowXpsReceiver> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintWorkflowXpsReceiver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintWorkflowXpsReceiver> for ::windows::core::IUnknown {
-    fn from(value: &IPrintWorkflowXpsReceiver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrintWorkflowXpsReceiver, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPrintWorkflowXpsReceiver {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -425,36 +340,7 @@ impl IPrintWorkflowXpsReceiver2 {
         (::windows::core::Vtable::vtable(self).Failed)(::windows::core::Vtable::as_raw(self), xpserror).ok()
     }
 }
-impl ::core::convert::From<IPrintWorkflowXpsReceiver2> for ::windows::core::IUnknown {
-    fn from(value: IPrintWorkflowXpsReceiver2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintWorkflowXpsReceiver2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintWorkflowXpsReceiver2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintWorkflowXpsReceiver2> for ::windows::core::IUnknown {
-    fn from(value: &IPrintWorkflowXpsReceiver2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPrintWorkflowXpsReceiver2> for IPrintWorkflowXpsReceiver {
-    fn from(value: IPrintWorkflowXpsReceiver2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintWorkflowXpsReceiver2> for &'a IPrintWorkflowXpsReceiver {
-    fn from(value: &'a IPrintWorkflowXpsReceiver2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintWorkflowXpsReceiver2> for IPrintWorkflowXpsReceiver {
-    fn from(value: &IPrintWorkflowXpsReceiver2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrintWorkflowXpsReceiver2, ::windows::core::IUnknown, IPrintWorkflowXpsReceiver);
 impl ::core::clone::Clone for IPrintWorkflowXpsReceiver2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -508,36 +394,7 @@ impl IPrinting3DManagerInterop {
         (::windows::core::Vtable::vtable(self).ShowPrintUIForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IPrinting3DManagerInterop> for ::windows::core::IUnknown {
-    fn from(value: IPrinting3DManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrinting3DManagerInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrinting3DManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrinting3DManagerInterop> for ::windows::core::IUnknown {
-    fn from(value: &IPrinting3DManagerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPrinting3DManagerInterop> for ::windows::core::IInspectable {
-    fn from(value: IPrinting3DManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrinting3DManagerInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPrinting3DManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrinting3DManagerInterop> for ::windows::core::IInspectable {
-    fn from(value: &IPrinting3DManagerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrinting3DManagerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IPrinting3DManagerInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())

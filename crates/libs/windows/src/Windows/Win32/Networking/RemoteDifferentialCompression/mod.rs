@@ -10,21 +10,7 @@ impl IFindSimilarResults {
         (::windows::core::Vtable::vtable(self).GetNextFileId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(numtraitsmatched), ::core::mem::transmute(similarityfileid)).ok()
     }
 }
-impl ::core::convert::From<IFindSimilarResults> for ::windows::core::IUnknown {
-    fn from(value: IFindSimilarResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFindSimilarResults> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFindSimilarResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFindSimilarResults> for ::windows::core::IUnknown {
-    fn from(value: &IFindSimilarResults) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFindSimilarResults, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFindSimilarResults {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -67,21 +53,7 @@ impl IRdcComparator {
         (::windows::core::Vtable::vtable(self).Process)(::windows::core::Vtable::as_raw(self), endofinput.into(), ::core::mem::transmute(endofoutput), ::core::mem::transmute(inputbuffer), ::core::mem::transmute(outputbuffer), ::core::mem::transmute(rdc_errorcode)).ok()
     }
 }
-impl ::core::convert::From<IRdcComparator> for ::windows::core::IUnknown {
-    fn from(value: IRdcComparator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRdcComparator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRdcComparator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRdcComparator> for ::windows::core::IUnknown {
-    fn from(value: &IRdcComparator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRdcComparator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRdcComparator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -131,21 +103,7 @@ impl IRdcFileReader {
         (::windows::core::Vtable::vtable(self).GetFilePosition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
-impl ::core::convert::From<IRdcFileReader> for ::windows::core::IUnknown {
-    fn from(value: IRdcFileReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRdcFileReader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRdcFileReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRdcFileReader> for ::windows::core::IUnknown {
-    fn from(value: &IRdcFileReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRdcFileReader, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRdcFileReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -207,36 +165,7 @@ impl IRdcFileWriter {
         (::windows::core::Vtable::vtable(self).DeleteOnClose)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IRdcFileWriter> for ::windows::core::IUnknown {
-    fn from(value: IRdcFileWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRdcFileWriter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRdcFileWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRdcFileWriter> for ::windows::core::IUnknown {
-    fn from(value: &IRdcFileWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IRdcFileWriter> for IRdcFileReader {
-    fn from(value: IRdcFileWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRdcFileWriter> for &'a IRdcFileReader {
-    fn from(value: &'a IRdcFileWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRdcFileWriter> for IRdcFileReader {
-    fn from(value: &IRdcFileWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRdcFileWriter, ::windows::core::IUnknown, IRdcFileReader);
 impl ::core::clone::Clone for IRdcFileWriter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -284,21 +213,7 @@ impl IRdcGenerator {
         (::windows::core::Vtable::vtable(self).Process)(::windows::core::Vtable::as_raw(self), endofinput.into(), ::core::mem::transmute(endofoutput), ::core::mem::transmute(inputbuffer), outputbuffers.len() as _, ::core::mem::transmute(outputbuffers.as_ptr()), ::core::mem::transmute(rdc_errorcode)).ok()
     }
 }
-impl ::core::convert::From<IRdcGenerator> for ::windows::core::IUnknown {
-    fn from(value: IRdcGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRdcGenerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRdcGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRdcGenerator> for ::windows::core::IUnknown {
-    fn from(value: &IRdcGenerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRdcGenerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRdcGenerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -350,21 +265,7 @@ impl IRdcGeneratorFilterMaxParameters {
         (::windows::core::Vtable::vtable(self).SetHashWindowSize)(::windows::core::Vtable::as_raw(self), hashwindowsize).ok()
     }
 }
-impl ::core::convert::From<IRdcGeneratorFilterMaxParameters> for ::windows::core::IUnknown {
-    fn from(value: IRdcGeneratorFilterMaxParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRdcGeneratorFilterMaxParameters> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRdcGeneratorFilterMaxParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRdcGeneratorFilterMaxParameters> for ::windows::core::IUnknown {
-    fn from(value: &IRdcGeneratorFilterMaxParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRdcGeneratorFilterMaxParameters, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRdcGeneratorFilterMaxParameters {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -415,21 +316,7 @@ impl IRdcGeneratorParameters {
         (::windows::core::Vtable::vtable(self).Serialize)(::windows::core::Vtable::as_raw(self), size, ::core::mem::transmute(parametersblob), ::core::mem::transmute(byteswritten)).ok()
     }
 }
-impl ::core::convert::From<IRdcGeneratorParameters> for ::windows::core::IUnknown {
-    fn from(value: IRdcGeneratorParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRdcGeneratorParameters> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRdcGeneratorParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRdcGeneratorParameters> for ::windows::core::IUnknown {
-    fn from(value: &IRdcGeneratorParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRdcGeneratorParameters, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRdcGeneratorParameters {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -499,21 +386,7 @@ impl IRdcLibrary {
         (::windows::core::Vtable::vtable(self).GetRDCVersion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(currentversion), ::core::mem::transmute(minimumcompatibleappversion)).ok()
     }
 }
-impl ::core::convert::From<IRdcLibrary> for ::windows::core::IUnknown {
-    fn from(value: IRdcLibrary) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRdcLibrary> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRdcLibrary) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRdcLibrary> for ::windows::core::IUnknown {
-    fn from(value: &IRdcLibrary) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRdcLibrary, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRdcLibrary {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -562,21 +435,7 @@ impl IRdcSignatureReader {
         (::windows::core::Vtable::vtable(self).ReadSignatures)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rdcsignaturepointer), ::core::mem::transmute(endofoutput)).ok()
     }
 }
-impl ::core::convert::From<IRdcSignatureReader> for ::windows::core::IUnknown {
-    fn from(value: IRdcSignatureReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRdcSignatureReader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRdcSignatureReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRdcSignatureReader> for ::windows::core::IUnknown {
-    fn from(value: &IRdcSignatureReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRdcSignatureReader, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRdcSignatureReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -621,21 +480,7 @@ impl IRdcSimilarityGenerator {
         (::windows::core::Vtable::vtable(self).Results)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SimilarityData>(result__)
     }
 }
-impl ::core::convert::From<IRdcSimilarityGenerator> for ::windows::core::IUnknown {
-    fn from(value: IRdcSimilarityGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRdcSimilarityGenerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRdcSimilarityGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRdcSimilarityGenerator> for ::windows::core::IUnknown {
-    fn from(value: &IRdcSimilarityGenerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRdcSimilarityGenerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRdcSimilarityGenerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -717,21 +562,7 @@ impl ISimilarity {
         (::windows::core::Vtable::vtable(self).GetRecordCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<ISimilarity> for ::windows::core::IUnknown {
-    fn from(value: ISimilarity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISimilarity> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISimilarity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISimilarity> for ::windows::core::IUnknown {
-    fn from(value: &ISimilarity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISimilarity, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISimilarity {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -823,21 +654,7 @@ impl ISimilarityFileIdTable {
         (::windows::core::Vtable::vtable(self).GetRecordCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<ISimilarityFileIdTable> for ::windows::core::IUnknown {
-    fn from(value: ISimilarityFileIdTable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISimilarityFileIdTable> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISimilarityFileIdTable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISimilarityFileIdTable> for ::windows::core::IUnknown {
-    fn from(value: &ISimilarityFileIdTable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISimilarityFileIdTable, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISimilarityFileIdTable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -889,21 +706,7 @@ impl ISimilarityReportProgress {
         (::windows::core::Vtable::vtable(self).ReportProgress)(::windows::core::Vtable::as_raw(self), percentcompleted).ok()
     }
 }
-impl ::core::convert::From<ISimilarityReportProgress> for ::windows::core::IUnknown {
-    fn from(value: ISimilarityReportProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISimilarityReportProgress> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISimilarityReportProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISimilarityReportProgress> for ::windows::core::IUnknown {
-    fn from(value: &ISimilarityReportProgress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISimilarityReportProgress, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISimilarityReportProgress {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -942,21 +745,7 @@ impl ISimilarityTableDumpState {
         (::windows::core::Vtable::vtable(self).GetNextData)(::windows::core::Vtable::as_raw(self), resultssize, ::core::mem::transmute(resultsused), ::core::mem::transmute(eof), ::core::mem::transmute(results)).ok()
     }
 }
-impl ::core::convert::From<ISimilarityTableDumpState> for ::windows::core::IUnknown {
-    fn from(value: ISimilarityTableDumpState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISimilarityTableDumpState> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISimilarityTableDumpState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISimilarityTableDumpState> for ::windows::core::IUnknown {
-    fn from(value: &ISimilarityTableDumpState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISimilarityTableDumpState, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISimilarityTableDumpState {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1011,21 +800,7 @@ impl ISimilarityTraitsMappedView {
         (::windows::core::Vtable::vtable(self).GetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(mappedpagebegin), ::core::mem::transmute(mappedpageend))
     }
 }
-impl ::core::convert::From<ISimilarityTraitsMappedView> for ::windows::core::IUnknown {
-    fn from(value: ISimilarityTraitsMappedView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISimilarityTraitsMappedView> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISimilarityTraitsMappedView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISimilarityTraitsMappedView> for ::windows::core::IUnknown {
-    fn from(value: &ISimilarityTraitsMappedView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISimilarityTraitsMappedView, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISimilarityTraitsMappedView {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1090,21 +865,7 @@ impl ISimilarityTraitsMapping {
         (::windows::core::Vtable::vtable(self).CreateView)(::windows::core::Vtable::as_raw(self), minimummappedpages, accessmode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISimilarityTraitsMappedView>(result__)
     }
 }
-impl ::core::convert::From<ISimilarityTraitsMapping> for ::windows::core::IUnknown {
-    fn from(value: ISimilarityTraitsMapping) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISimilarityTraitsMapping> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISimilarityTraitsMapping) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISimilarityTraitsMapping> for ::windows::core::IUnknown {
-    fn from(value: &ISimilarityTraitsMapping) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISimilarityTraitsMapping, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISimilarityTraitsMapping {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1186,21 +947,7 @@ impl ISimilarityTraitsTable {
         (::windows::core::Vtable::vtable(self).GetLastIndex)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<ISimilarityTraitsTable> for ::windows::core::IUnknown {
-    fn from(value: ISimilarityTraitsTable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISimilarityTraitsTable> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISimilarityTraitsTable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISimilarityTraitsTable> for ::windows::core::IUnknown {
-    fn from(value: &ISimilarityTraitsTable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISimilarityTraitsTable, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISimilarityTraitsTable {
     fn clone(&self) -> Self {
         Self(self.0.clone())

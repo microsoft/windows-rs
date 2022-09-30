@@ -954,41 +954,7 @@ impl IADsTSUserEx {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IADsTSUserEx> for ::windows::core::IUnknown {
-    fn from(value: IADsTSUserEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IADsTSUserEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IADsTSUserEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IADsTSUserEx> for ::windows::core::IUnknown {
-    fn from(value: &IADsTSUserEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IADsTSUserEx> for super::Com::IDispatch {
-    fn from(value: IADsTSUserEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IADsTSUserEx> for &'a super::Com::IDispatch {
-    fn from(value: &'a IADsTSUserEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IADsTSUserEx> for super::Com::IDispatch {
-    fn from(value: &IADsTSUserEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IADsTSUserEx, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IADsTSUserEx {
     fn clone(&self) -> Self {
@@ -1076,21 +1042,7 @@ impl IAudioDeviceEndpoint {
         (::windows::core::Vtable::vtable(self).WriteExclusiveModeParametersToSharedMemory)(::windows::core::Vtable::as_raw(self), htargetprocess, hnsperiod, hnsbufferduration, u32latencycoefficient, ::core::mem::transmute(pu32sharedmemorysize), ::core::mem::transmute(phsharedmemory)).ok()
     }
 }
-impl ::core::convert::From<IAudioDeviceEndpoint> for ::windows::core::IUnknown {
-    fn from(value: IAudioDeviceEndpoint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioDeviceEndpoint> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioDeviceEndpoint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioDeviceEndpoint> for ::windows::core::IUnknown {
-    fn from(value: &IAudioDeviceEndpoint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioDeviceEndpoint, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioDeviceEndpoint {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1158,21 +1110,7 @@ impl IAudioEndpoint {
         (::windows::core::Vtable::vtable(self).SetEventHandle)(::windows::core::Vtable::as_raw(self), eventhandle.into()).ok()
     }
 }
-impl ::core::convert::From<IAudioEndpoint> for ::windows::core::IUnknown {
-    fn from(value: IAudioEndpoint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioEndpoint> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioEndpoint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioEndpoint> for ::windows::core::IUnknown {
-    fn from(value: &IAudioEndpoint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioEndpoint, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioEndpoint {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1225,21 +1163,7 @@ impl IAudioEndpointControl {
         (::windows::core::Vtable::vtable(self).Stop)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IAudioEndpointControl> for ::windows::core::IUnknown {
-    fn from(value: IAudioEndpointControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioEndpointControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioEndpointControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioEndpointControl> for ::windows::core::IUnknown {
-    fn from(value: &IAudioEndpointControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioEndpointControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioEndpointControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1287,21 +1211,7 @@ impl IAudioEndpointRT {
         (::windows::core::Vtable::vtable(self).SetPinActive)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IAudioEndpointRT> for ::windows::core::IUnknown {
-    fn from(value: IAudioEndpointRT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioEndpointRT> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioEndpointRT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioEndpointRT> for ::windows::core::IUnknown {
-    fn from(value: &IAudioEndpointRT) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioEndpointRT, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioEndpointRT {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1349,21 +1259,7 @@ impl IAudioInputEndpointRT {
         (::windows::core::Vtable::vtable(self).PulseEndpoint)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IAudioInputEndpointRT> for ::windows::core::IUnknown {
-    fn from(value: IAudioInputEndpointRT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioInputEndpointRT> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioInputEndpointRT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioInputEndpointRT> for ::windows::core::IUnknown {
-    fn from(value: &IAudioInputEndpointRT) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioInputEndpointRT, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioInputEndpointRT {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1413,21 +1309,7 @@ impl IAudioOutputEndpointRT {
         (::windows::core::Vtable::vtable(self).PulseEndpoint)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IAudioOutputEndpointRT> for ::windows::core::IUnknown {
-    fn from(value: IAudioOutputEndpointRT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioOutputEndpointRT> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioOutputEndpointRT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioOutputEndpointRT> for ::windows::core::IUnknown {
-    fn from(value: &IAudioOutputEndpointRT) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioOutputEndpointRT, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioOutputEndpointRT {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1518,41 +1400,7 @@ impl IRemoteDesktopClient {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRemoteDesktopClient> for ::windows::core::IUnknown {
-    fn from(value: IRemoteDesktopClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRemoteDesktopClient> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRemoteDesktopClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRemoteDesktopClient> for ::windows::core::IUnknown {
-    fn from(value: &IRemoteDesktopClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRemoteDesktopClient> for super::Com::IDispatch {
-    fn from(value: IRemoteDesktopClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRemoteDesktopClient> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRemoteDesktopClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRemoteDesktopClient> for super::Com::IDispatch {
-    fn from(value: &IRemoteDesktopClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRemoteDesktopClient, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRemoteDesktopClient {
     fn clone(&self) -> Self {
@@ -1633,41 +1481,7 @@ impl IRemoteDesktopClientActions {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRemoteDesktopClientActions> for ::windows::core::IUnknown {
-    fn from(value: IRemoteDesktopClientActions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRemoteDesktopClientActions> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRemoteDesktopClientActions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRemoteDesktopClientActions> for ::windows::core::IUnknown {
-    fn from(value: &IRemoteDesktopClientActions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRemoteDesktopClientActions> for super::Com::IDispatch {
-    fn from(value: IRemoteDesktopClientActions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRemoteDesktopClientActions> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRemoteDesktopClientActions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRemoteDesktopClientActions> for super::Com::IDispatch {
-    fn from(value: &IRemoteDesktopClientActions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRemoteDesktopClientActions, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRemoteDesktopClientActions {
     fn clone(&self) -> Self {
@@ -1735,41 +1549,7 @@ impl IRemoteDesktopClientSettings {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRemoteDesktopClientSettings> for ::windows::core::IUnknown {
-    fn from(value: IRemoteDesktopClientSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRemoteDesktopClientSettings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRemoteDesktopClientSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRemoteDesktopClientSettings> for ::windows::core::IUnknown {
-    fn from(value: &IRemoteDesktopClientSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRemoteDesktopClientSettings> for super::Com::IDispatch {
-    fn from(value: IRemoteDesktopClientSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRemoteDesktopClientSettings> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRemoteDesktopClientSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRemoteDesktopClientSettings> for super::Com::IDispatch {
-    fn from(value: &IRemoteDesktopClientSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRemoteDesktopClientSettings, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRemoteDesktopClientSettings {
     fn clone(&self) -> Self {
@@ -1843,41 +1623,7 @@ impl IRemoteDesktopClientTouchPointer {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRemoteDesktopClientTouchPointer> for ::windows::core::IUnknown {
-    fn from(value: IRemoteDesktopClientTouchPointer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRemoteDesktopClientTouchPointer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRemoteDesktopClientTouchPointer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRemoteDesktopClientTouchPointer> for ::windows::core::IUnknown {
-    fn from(value: &IRemoteDesktopClientTouchPointer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRemoteDesktopClientTouchPointer> for super::Com::IDispatch {
-    fn from(value: IRemoteDesktopClientTouchPointer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRemoteDesktopClientTouchPointer> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRemoteDesktopClientTouchPointer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRemoteDesktopClientTouchPointer> for super::Com::IDispatch {
-    fn from(value: &IRemoteDesktopClientTouchPointer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRemoteDesktopClientTouchPointer, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRemoteDesktopClientTouchPointer {
     fn clone(&self) -> Self {
@@ -1930,21 +1676,7 @@ impl IRemoteSystemAdditionalInfoProvider {
         (::windows::core::Vtable::vtable(self).GetAdditionalInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(deduplicationid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IRemoteSystemAdditionalInfoProvider> for ::windows::core::IUnknown {
-    fn from(value: IRemoteSystemAdditionalInfoProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRemoteSystemAdditionalInfoProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRemoteSystemAdditionalInfoProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRemoteSystemAdditionalInfoProvider> for ::windows::core::IUnknown {
-    fn from(value: &IRemoteSystemAdditionalInfoProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRemoteSystemAdditionalInfoProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRemoteSystemAdditionalInfoProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1984,21 +1716,7 @@ impl ITSGAccountingEngine {
         (::windows::core::Vtable::vtable(self).DoAccounting)(::windows::core::Vtable::as_raw(self), accountingdatatype, accountingdata.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ITSGAccountingEngine> for ::windows::core::IUnknown {
-    fn from(value: ITSGAccountingEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITSGAccountingEngine> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITSGAccountingEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITSGAccountingEngine> for ::windows::core::IUnknown {
-    fn from(value: &ITSGAccountingEngine) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITSGAccountingEngine, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITSGAccountingEngine {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2049,21 +1767,7 @@ impl ITSGAuthenticateUserSink {
         (::windows::core::Vtable::vtable(self).DisconnectUser)(::windows::core::Vtable::as_raw(self), context).ok()
     }
 }
-impl ::core::convert::From<ITSGAuthenticateUserSink> for ::windows::core::IUnknown {
-    fn from(value: ITSGAuthenticateUserSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITSGAuthenticateUserSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITSGAuthenticateUserSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITSGAuthenticateUserSink> for ::windows::core::IUnknown {
-    fn from(value: &ITSGAuthenticateUserSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITSGAuthenticateUserSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITSGAuthenticateUserSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2112,21 +1816,7 @@ impl ITSGAuthenticationEngine {
         (::windows::core::Vtable::vtable(self).CancelAuthentication)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(mainsessionid), context).ok()
     }
 }
-impl ::core::convert::From<ITSGAuthenticationEngine> for ::windows::core::IUnknown {
-    fn from(value: ITSGAuthenticationEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITSGAuthenticationEngine> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITSGAuthenticationEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITSGAuthenticationEngine> for ::windows::core::IUnknown {
-    fn from(value: &ITSGAuthenticationEngine) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITSGAuthenticationEngine, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITSGAuthenticationEngine {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2164,21 +1854,7 @@ impl ITSGAuthorizeConnectionSink {
         (::windows::core::Vtable::vtable(self).OnConnectionAuthorized)(::windows::core::Vtable::as_raw(self), hrin, ::core::mem::transmute(mainsessionid), pbsohresponse.len() as _, ::core::mem::transmute(pbsohresponse.as_ptr()), idletimeout, sessiontimeout, sessiontimeoutaction, trustclass, ::core::mem::transmute(policyattributes)).ok()
     }
 }
-impl ::core::convert::From<ITSGAuthorizeConnectionSink> for ::windows::core::IUnknown {
-    fn from(value: ITSGAuthorizeConnectionSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITSGAuthorizeConnectionSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITSGAuthorizeConnectionSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITSGAuthorizeConnectionSink> for ::windows::core::IUnknown {
-    fn from(value: &ITSGAuthorizeConnectionSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITSGAuthorizeConnectionSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITSGAuthorizeConnectionSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2215,21 +1891,7 @@ impl ITSGAuthorizeResourceSink {
         (::windows::core::Vtable::vtable(self).OnChannelAuthorized)(::windows::core::Vtable::as_raw(self), hrin, ::core::mem::transmute(mainsessionid), subsessionid, ::core::mem::transmute(allowedresourcenames.as_ptr()), allowedresourcenames.len() as _, ::core::mem::transmute(failedresourcenames.as_ptr()), failedresourcenames.len() as _).ok()
     }
 }
-impl ::core::convert::From<ITSGAuthorizeResourceSink> for ::windows::core::IUnknown {
-    fn from(value: ITSGAuthorizeResourceSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITSGAuthorizeResourceSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITSGAuthorizeResourceSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITSGAuthorizeResourceSink> for ::windows::core::IUnknown {
-    fn from(value: &ITSGAuthorizeResourceSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITSGAuthorizeResourceSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITSGAuthorizeResourceSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2287,21 +1949,7 @@ impl ITSGPolicyEngine {
         (::windows::core::Vtable::vtable(self).IsQuarantineEnabled)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<ITSGPolicyEngine> for ::windows::core::IUnknown {
-    fn from(value: ITSGPolicyEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITSGPolicyEngine> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITSGPolicyEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITSGPolicyEngine> for ::windows::core::IUnknown {
-    fn from(value: &ITSGPolicyEngine) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITSGPolicyEngine, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITSGPolicyEngine {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2350,21 +1998,7 @@ impl ITsSbBaseNotifySink {
         (::windows::core::Vtable::vtable(self).OnReportStatus)(::windows::core::Vtable::as_raw(self), messagetype, messageid).ok()
     }
 }
-impl ::core::convert::From<ITsSbBaseNotifySink> for ::windows::core::IUnknown {
-    fn from(value: ITsSbBaseNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbBaseNotifySink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbBaseNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbBaseNotifySink> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbBaseNotifySink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbBaseNotifySink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITsSbBaseNotifySink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2469,21 +2103,7 @@ impl ITsSbClientConnection {
         (::windows::core::Vtable::vtable(self).GetDisconnectedSession)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITsSbSession>(result__)
     }
 }
-impl ::core::convert::From<ITsSbClientConnection> for ::windows::core::IUnknown {
-    fn from(value: ITsSbClientConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbClientConnection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbClientConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbClientConnection> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbClientConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbClientConnection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITsSbClientConnection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2563,59 +2183,7 @@ impl ITsSbClientConnectionPropertySet {
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<ITsSbClientConnectionPropertySet> for ::windows::core::IUnknown {
-    fn from(value: ITsSbClientConnectionPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl<'a> ::core::convert::From<&'a ITsSbClientConnectionPropertySet> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbClientConnectionPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<&ITsSbClientConnectionPropertySet> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbClientConnectionPropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<ITsSbClientConnectionPropertySet> for super::Com::StructuredStorage::IPropertyBag {
-    fn from(value: ITsSbClientConnectionPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl<'a> ::core::convert::From<&'a ITsSbClientConnectionPropertySet> for &'a super::Com::StructuredStorage::IPropertyBag {
-    fn from(value: &'a ITsSbClientConnectionPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<&ITsSbClientConnectionPropertySet> for super::Com::StructuredStorage::IPropertyBag {
-    fn from(value: &ITsSbClientConnectionPropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<ITsSbClientConnectionPropertySet> for ITsSbPropertySet {
-    fn from(value: ITsSbClientConnectionPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl<'a> ::core::convert::From<&'a ITsSbClientConnectionPropertySet> for &'a ITsSbPropertySet {
-    fn from(value: &'a ITsSbClientConnectionPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<&ITsSbClientConnectionPropertySet> for ITsSbPropertySet {
-    fn from(value: &ITsSbClientConnectionPropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbClientConnectionPropertySet, ::windows::core::IUnknown, super::Com::StructuredStorage::IPropertyBag, ITsSbPropertySet);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::clone::Clone for ITsSbClientConnectionPropertySet {
     fn clone(&self) -> Self {
@@ -2677,21 +2245,7 @@ impl ITsSbEnvironment {
         (::windows::core::Vtable::vtable(self).SetEnvironmentPropertySet)(::windows::core::Vtable::as_raw(self), pval.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ITsSbEnvironment> for ::windows::core::IUnknown {
-    fn from(value: ITsSbEnvironment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbEnvironment> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbEnvironment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbEnvironment> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbEnvironment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbEnvironment, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITsSbEnvironment {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2754,59 +2308,7 @@ impl ITsSbEnvironmentPropertySet {
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<ITsSbEnvironmentPropertySet> for ::windows::core::IUnknown {
-    fn from(value: ITsSbEnvironmentPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl<'a> ::core::convert::From<&'a ITsSbEnvironmentPropertySet> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbEnvironmentPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<&ITsSbEnvironmentPropertySet> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbEnvironmentPropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<ITsSbEnvironmentPropertySet> for super::Com::StructuredStorage::IPropertyBag {
-    fn from(value: ITsSbEnvironmentPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl<'a> ::core::convert::From<&'a ITsSbEnvironmentPropertySet> for &'a super::Com::StructuredStorage::IPropertyBag {
-    fn from(value: &'a ITsSbEnvironmentPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<&ITsSbEnvironmentPropertySet> for super::Com::StructuredStorage::IPropertyBag {
-    fn from(value: &ITsSbEnvironmentPropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<ITsSbEnvironmentPropertySet> for ITsSbPropertySet {
-    fn from(value: ITsSbEnvironmentPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl<'a> ::core::convert::From<&'a ITsSbEnvironmentPropertySet> for &'a ITsSbPropertySet {
-    fn from(value: &'a ITsSbEnvironmentPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<&ITsSbEnvironmentPropertySet> for ITsSbPropertySet {
-    fn from(value: &ITsSbEnvironmentPropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbEnvironmentPropertySet, ::windows::core::IUnknown, super::Com::StructuredStorage::IPropertyBag, ITsSbPropertySet);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::clone::Clone for ITsSbEnvironmentPropertySet {
     fn clone(&self) -> Self {
@@ -2863,21 +2365,7 @@ impl ITsSbFilterPluginStore {
         (::windows::core::Vtable::vtable(self).DeleteProperties)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(propertyname)).ok()
     }
 }
-impl ::core::convert::From<ITsSbFilterPluginStore> for ::windows::core::IUnknown {
-    fn from(value: ITsSbFilterPluginStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbFilterPluginStore> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbFilterPluginStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbFilterPluginStore> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbFilterPluginStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbFilterPluginStore, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITsSbFilterPluginStore {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2928,21 +2416,7 @@ impl ITsSbGenericNotifySink {
         (::windows::core::Vtable::vtable(self).GetWaitTimeout)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
 }
-impl ::core::convert::From<ITsSbGenericNotifySink> for ::windows::core::IUnknown {
-    fn from(value: ITsSbGenericNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbGenericNotifySink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbGenericNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbGenericNotifySink> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbGenericNotifySink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbGenericNotifySink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITsSbGenericNotifySink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3007,21 +2481,7 @@ impl ITsSbGlobalStore {
         (::windows::core::Vtable::vtable(self).GetFarmProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(farmname), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute(pvarvalue)).ok()
     }
 }
-impl ::core::convert::From<ITsSbGlobalStore> for ::windows::core::IUnknown {
-    fn from(value: ITsSbGlobalStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbGlobalStore> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbGlobalStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbGlobalStore> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbGlobalStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbGlobalStore, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITsSbGlobalStore {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3071,21 +2531,7 @@ impl ITsSbLoadBalanceResult {
         (::windows::core::Vtable::vtable(self).TargetName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
-impl ::core::convert::From<ITsSbLoadBalanceResult> for ::windows::core::IUnknown {
-    fn from(value: ITsSbLoadBalanceResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbLoadBalanceResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbLoadBalanceResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbLoadBalanceResult> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbLoadBalanceResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbLoadBalanceResult, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITsSbLoadBalanceResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3139,36 +2585,7 @@ impl ITsSbLoadBalancing {
         (::windows::core::Vtable::vtable(self).GetMostSuitableTarget)(::windows::core::Vtable::as_raw(self), pconnection.into().abi(), plbsink.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ITsSbLoadBalancing> for ::windows::core::IUnknown {
-    fn from(value: ITsSbLoadBalancing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbLoadBalancing> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbLoadBalancing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbLoadBalancing> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbLoadBalancing) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITsSbLoadBalancing> for ITsSbPlugin {
-    fn from(value: ITsSbLoadBalancing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbLoadBalancing> for &'a ITsSbPlugin {
-    fn from(value: &'a ITsSbLoadBalancing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbLoadBalancing> for ITsSbPlugin {
-    fn from(value: &ITsSbLoadBalancing) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbLoadBalancing, ::windows::core::IUnknown, ITsSbPlugin);
 impl ::core::clone::Clone for ITsSbLoadBalancing {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3217,36 +2634,7 @@ impl ITsSbLoadBalancingNotifySink {
         (::windows::core::Vtable::vtable(self).OnGetMostSuitableTarget)(::windows::core::Vtable::as_raw(self), plbresult.into().abi(), fisnewconnection.into()).ok()
     }
 }
-impl ::core::convert::From<ITsSbLoadBalancingNotifySink> for ::windows::core::IUnknown {
-    fn from(value: ITsSbLoadBalancingNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbLoadBalancingNotifySink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbLoadBalancingNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbLoadBalancingNotifySink> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbLoadBalancingNotifySink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITsSbLoadBalancingNotifySink> for ITsSbBaseNotifySink {
-    fn from(value: ITsSbLoadBalancingNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbLoadBalancingNotifySink> for &'a ITsSbBaseNotifySink {
-    fn from(value: &'a ITsSbLoadBalancingNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbLoadBalancingNotifySink> for ITsSbBaseNotifySink {
-    fn from(value: &ITsSbLoadBalancingNotifySink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbLoadBalancingNotifySink, ::windows::core::IUnknown, ITsSbBaseNotifySink);
 impl ::core::clone::Clone for ITsSbLoadBalancingNotifySink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3303,36 +2691,7 @@ impl ITsSbOrchestration {
         (::windows::core::Vtable::vtable(self).PrepareTargetForConnect)(::windows::core::Vtable::as_raw(self), pconnection.into().abi(), porchestrationnotifysink.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ITsSbOrchestration> for ::windows::core::IUnknown {
-    fn from(value: ITsSbOrchestration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbOrchestration> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbOrchestration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbOrchestration> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbOrchestration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITsSbOrchestration> for ITsSbPlugin {
-    fn from(value: ITsSbOrchestration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbOrchestration> for &'a ITsSbPlugin {
-    fn from(value: &'a ITsSbOrchestration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbOrchestration> for ITsSbPlugin {
-    fn from(value: &ITsSbOrchestration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbOrchestration, ::windows::core::IUnknown, ITsSbPlugin);
 impl ::core::clone::Clone for ITsSbOrchestration {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3378,36 +2737,7 @@ impl ITsSbOrchestrationNotifySink {
         (::windows::core::Vtable::vtable(self).OnReadyToConnect)(::windows::core::Vtable::as_raw(self), ptarget.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ITsSbOrchestrationNotifySink> for ::windows::core::IUnknown {
-    fn from(value: ITsSbOrchestrationNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbOrchestrationNotifySink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbOrchestrationNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbOrchestrationNotifySink> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbOrchestrationNotifySink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITsSbOrchestrationNotifySink> for ITsSbBaseNotifySink {
-    fn from(value: ITsSbOrchestrationNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbOrchestrationNotifySink> for &'a ITsSbBaseNotifySink {
-    fn from(value: &'a ITsSbOrchestrationNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbOrchestrationNotifySink> for ITsSbBaseNotifySink {
-    fn from(value: &ITsSbOrchestrationNotifySink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbOrchestrationNotifySink, ::windows::core::IUnknown, ITsSbBaseNotifySink);
 impl ::core::clone::Clone for ITsSbOrchestrationNotifySink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3461,36 +2791,7 @@ impl ITsSbPlacement {
         (::windows::core::Vtable::vtable(self).QueryEnvironmentForTarget)(::windows::core::Vtable::as_raw(self), pconnection.into().abi(), pplacementsink.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ITsSbPlacement> for ::windows::core::IUnknown {
-    fn from(value: ITsSbPlacement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbPlacement> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbPlacement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbPlacement> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbPlacement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITsSbPlacement> for ITsSbPlugin {
-    fn from(value: ITsSbPlacement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbPlacement> for &'a ITsSbPlugin {
-    fn from(value: &'a ITsSbPlacement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbPlacement> for ITsSbPlugin {
-    fn from(value: &ITsSbPlacement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbPlacement, ::windows::core::IUnknown, ITsSbPlugin);
 impl ::core::clone::Clone for ITsSbPlacement {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3536,36 +2837,7 @@ impl ITsSbPlacementNotifySink {
         (::windows::core::Vtable::vtable(self).OnQueryEnvironmentCompleted)(::windows::core::Vtable::as_raw(self), penvironment.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ITsSbPlacementNotifySink> for ::windows::core::IUnknown {
-    fn from(value: ITsSbPlacementNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbPlacementNotifySink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbPlacementNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbPlacementNotifySink> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbPlacementNotifySink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITsSbPlacementNotifySink> for ITsSbBaseNotifySink {
-    fn from(value: ITsSbPlacementNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbPlacementNotifySink> for &'a ITsSbBaseNotifySink {
-    fn from(value: &'a ITsSbPlacementNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbPlacementNotifySink> for ITsSbBaseNotifySink {
-    fn from(value: &ITsSbPlacementNotifySink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbPlacementNotifySink, ::windows::core::IUnknown, ITsSbBaseNotifySink);
 impl ::core::clone::Clone for ITsSbPlacementNotifySink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3612,21 +2884,7 @@ impl ITsSbPlugin {
         (::windows::core::Vtable::vtable(self).Terminate)(::windows::core::Vtable::as_raw(self), hr).ok()
     }
 }
-impl ::core::convert::From<ITsSbPlugin> for ::windows::core::IUnknown {
-    fn from(value: ITsSbPlugin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbPlugin> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbPlugin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbPlugin> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbPlugin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbPlugin, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITsSbPlugin {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3676,36 +2934,7 @@ impl ITsSbPluginNotifySink {
         (::windows::core::Vtable::vtable(self).OnTerminated)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ITsSbPluginNotifySink> for ::windows::core::IUnknown {
-    fn from(value: ITsSbPluginNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbPluginNotifySink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbPluginNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbPluginNotifySink> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbPluginNotifySink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITsSbPluginNotifySink> for ITsSbBaseNotifySink {
-    fn from(value: ITsSbPluginNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbPluginNotifySink> for &'a ITsSbBaseNotifySink {
-    fn from(value: &'a ITsSbPluginNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbPluginNotifySink> for ITsSbBaseNotifySink {
-    fn from(value: &ITsSbPluginNotifySink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbPluginNotifySink, ::windows::core::IUnknown, ITsSbBaseNotifySink);
 impl ::core::clone::Clone for ITsSbPluginNotifySink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3760,59 +2989,7 @@ impl ITsSbPluginPropertySet {
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<ITsSbPluginPropertySet> for ::windows::core::IUnknown {
-    fn from(value: ITsSbPluginPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl<'a> ::core::convert::From<&'a ITsSbPluginPropertySet> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbPluginPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<&ITsSbPluginPropertySet> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbPluginPropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<ITsSbPluginPropertySet> for super::Com::StructuredStorage::IPropertyBag {
-    fn from(value: ITsSbPluginPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl<'a> ::core::convert::From<&'a ITsSbPluginPropertySet> for &'a super::Com::StructuredStorage::IPropertyBag {
-    fn from(value: &'a ITsSbPluginPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<&ITsSbPluginPropertySet> for super::Com::StructuredStorage::IPropertyBag {
-    fn from(value: &ITsSbPluginPropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<ITsSbPluginPropertySet> for ITsSbPropertySet {
-    fn from(value: ITsSbPluginPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl<'a> ::core::convert::From<&'a ITsSbPluginPropertySet> for &'a ITsSbPropertySet {
-    fn from(value: &'a ITsSbPluginPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<&ITsSbPluginPropertySet> for ITsSbPropertySet {
-    fn from(value: &ITsSbPluginPropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbPluginPropertySet, ::windows::core::IUnknown, super::Com::StructuredStorage::IPropertyBag, ITsSbPropertySet);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::clone::Clone for ITsSbPluginPropertySet {
     fn clone(&self) -> Self {
@@ -3872,41 +3049,7 @@ impl ITsSbPropertySet {
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<ITsSbPropertySet> for ::windows::core::IUnknown {
-    fn from(value: ITsSbPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl<'a> ::core::convert::From<&'a ITsSbPropertySet> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<&ITsSbPropertySet> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbPropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<ITsSbPropertySet> for super::Com::StructuredStorage::IPropertyBag {
-    fn from(value: ITsSbPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl<'a> ::core::convert::From<&'a ITsSbPropertySet> for &'a super::Com::StructuredStorage::IPropertyBag {
-    fn from(value: &'a ITsSbPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<&ITsSbPropertySet> for super::Com::StructuredStorage::IPropertyBag {
-    fn from(value: &ITsSbPropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbPropertySet, ::windows::core::IUnknown, super::Com::StructuredStorage::IPropertyBag);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::clone::Clone for ITsSbPropertySet {
     fn clone(&self) -> Self {
@@ -4001,21 +3144,7 @@ impl ITsSbProvider {
         (::windows::core::Vtable::vtable(self).CreateEnvironmentPropertySetObject)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITsSbEnvironmentPropertySet>(result__)
     }
 }
-impl ::core::convert::From<ITsSbProvider> for ::windows::core::IUnknown {
-    fn from(value: ITsSbProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbProvider> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITsSbProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4103,36 +3232,7 @@ impl ITsSbProvisioning {
         (::windows::core::Vtable::vtable(self).CancelJob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(jobguid)).ok()
     }
 }
-impl ::core::convert::From<ITsSbProvisioning> for ::windows::core::IUnknown {
-    fn from(value: ITsSbProvisioning) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbProvisioning> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbProvisioning) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbProvisioning> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbProvisioning) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITsSbProvisioning> for ITsSbPlugin {
-    fn from(value: ITsSbProvisioning) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbProvisioning> for &'a ITsSbPlugin {
-    fn from(value: &'a ITsSbProvisioning) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbProvisioning> for ITsSbPlugin {
-    fn from(value: &ITsSbProvisioning) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbProvisioning, ::windows::core::IUnknown, ITsSbPlugin);
 impl ::core::clone::Clone for ITsSbProvisioning {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4187,21 +3287,7 @@ impl ITsSbProvisioningPluginNotifySink {
         (::windows::core::Vtable::vtable(self).OnVirtualMachineHostStatusChanged)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(vmhost), vmhostnotifystatus, errorcode, ::core::mem::transmute_copy(errordescr)).ok()
     }
 }
-impl ::core::convert::From<ITsSbProvisioningPluginNotifySink> for ::windows::core::IUnknown {
-    fn from(value: ITsSbProvisioningPluginNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbProvisioningPluginNotifySink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbProvisioningPluginNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbProvisioningPluginNotifySink> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbProvisioningPluginNotifySink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbProvisioningPluginNotifySink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITsSbProvisioningPluginNotifySink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4258,21 +3344,7 @@ impl ITsSbResourceNotification {
         (::windows::core::Vtable::vtable(self).NotifyClientConnectionStateChange)(::windows::core::Vtable::as_raw(self), changetype, pconnection.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ITsSbResourceNotification> for ::windows::core::IUnknown {
-    fn from(value: ITsSbResourceNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbResourceNotification> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbResourceNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbResourceNotification> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbResourceNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbResourceNotification, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITsSbResourceNotification {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4317,21 +3389,7 @@ impl ITsSbResourceNotificationEx {
         (::windows::core::Vtable::vtable(self).NotifyClientConnectionStateChangeEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(username), ::core::mem::transmute_copy(domain), ::core::mem::transmute_copy(initialprogram), ::core::mem::transmute_copy(poolname), ::core::mem::transmute_copy(targetname), connectionchangetype).ok()
     }
 }
-impl ::core::convert::From<ITsSbResourceNotificationEx> for ::windows::core::IUnknown {
-    fn from(value: ITsSbResourceNotificationEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbResourceNotificationEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbResourceNotificationEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbResourceNotificationEx> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbResourceNotificationEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbResourceNotificationEx, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITsSbResourceNotificationEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4380,36 +3438,7 @@ impl ITsSbResourcePlugin {
         (::windows::core::Vtable::vtable(self).base__.Terminate)(::windows::core::Vtable::as_raw(self), hr).ok()
     }
 }
-impl ::core::convert::From<ITsSbResourcePlugin> for ::windows::core::IUnknown {
-    fn from(value: ITsSbResourcePlugin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbResourcePlugin> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbResourcePlugin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbResourcePlugin> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbResourcePlugin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITsSbResourcePlugin> for ITsSbPlugin {
-    fn from(value: ITsSbResourcePlugin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbResourcePlugin> for &'a ITsSbPlugin {
-    fn from(value: &'a ITsSbResourcePlugin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbResourcePlugin> for ITsSbPlugin {
-    fn from(value: &ITsSbResourcePlugin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbResourcePlugin, ::windows::core::IUnknown, ITsSbPlugin);
 impl ::core::clone::Clone for ITsSbResourcePlugin {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4586,21 +3615,7 @@ impl ITsSbResourcePluginStore {
         (::windows::core::Vtable::vtable(self).SetServerDrainMode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(serverfqdn), drainmode).ok()
     }
 }
-impl ::core::convert::From<ITsSbResourcePluginStore> for ::windows::core::IUnknown {
-    fn from(value: ITsSbResourcePluginStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbResourcePluginStore> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbResourcePluginStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbResourcePluginStore> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbResourcePluginStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbResourcePluginStore, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITsSbResourcePluginStore {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4694,21 +3709,7 @@ impl ITsSbServiceNotification {
         (::windows::core::Vtable::vtable(self).NotifyServiceSuccess)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ITsSbServiceNotification> for ::windows::core::IUnknown {
-    fn from(value: ITsSbServiceNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbServiceNotification> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbServiceNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbServiceNotification> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbServiceNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbServiceNotification, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITsSbServiceNotification {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4812,21 +3813,7 @@ impl ITsSbSession {
         (::windows::core::Vtable::vtable(self).SetProtocolType)(::windows::core::Vtable::as_raw(self), val).ok()
     }
 }
-impl ::core::convert::From<ITsSbSession> for ::windows::core::IUnknown {
-    fn from(value: ITsSbSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbSession> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbSession> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbSession, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITsSbSession {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4962,21 +3949,7 @@ impl ITsSbTarget {
         (::windows::core::Vtable::vtable(self).TargetLoad)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<ITsSbTarget> for ::windows::core::IUnknown {
-    fn from(value: ITsSbTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbTarget> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbTarget> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbTarget, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITsSbTarget {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5054,59 +4027,7 @@ impl ITsSbTargetPropertySet {
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<ITsSbTargetPropertySet> for ::windows::core::IUnknown {
-    fn from(value: ITsSbTargetPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl<'a> ::core::convert::From<&'a ITsSbTargetPropertySet> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbTargetPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<&ITsSbTargetPropertySet> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbTargetPropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<ITsSbTargetPropertySet> for super::Com::StructuredStorage::IPropertyBag {
-    fn from(value: ITsSbTargetPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl<'a> ::core::convert::From<&'a ITsSbTargetPropertySet> for &'a super::Com::StructuredStorage::IPropertyBag {
-    fn from(value: &'a ITsSbTargetPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<&ITsSbTargetPropertySet> for super::Com::StructuredStorage::IPropertyBag {
-    fn from(value: &ITsSbTargetPropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<ITsSbTargetPropertySet> for ITsSbPropertySet {
-    fn from(value: ITsSbTargetPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl<'a> ::core::convert::From<&'a ITsSbTargetPropertySet> for &'a ITsSbPropertySet {
-    fn from(value: &'a ITsSbTargetPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::convert::From<&ITsSbTargetPropertySet> for ITsSbPropertySet {
-    fn from(value: &ITsSbTargetPropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbTargetPropertySet, ::windows::core::IUnknown, super::Com::StructuredStorage::IPropertyBag, ITsSbPropertySet);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::clone::Clone for ITsSbTargetPropertySet {
     fn clone(&self) -> Self {
@@ -5190,21 +4111,7 @@ impl ITsSbTaskInfo {
         (::windows::core::Vtable::vtable(self).Status)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RDV_TASK_STATUS>(result__)
     }
 }
-impl ::core::convert::From<ITsSbTaskInfo> for ::windows::core::IUnknown {
-    fn from(value: ITsSbTaskInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbTaskInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbTaskInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbTaskInfo> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbTaskInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbTaskInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITsSbTaskInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5280,36 +4187,7 @@ impl ITsSbTaskPlugin {
         (::windows::core::Vtable::vtable(self).SetTaskQueue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(pszhostname), pitssbtaskinfo.len() as _, ::core::mem::transmute(pitssbtaskinfo.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<ITsSbTaskPlugin> for ::windows::core::IUnknown {
-    fn from(value: ITsSbTaskPlugin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbTaskPlugin> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbTaskPlugin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbTaskPlugin> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbTaskPlugin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITsSbTaskPlugin> for ITsSbPlugin {
-    fn from(value: ITsSbTaskPlugin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbTaskPlugin> for &'a ITsSbPlugin {
-    fn from(value: &'a ITsSbTaskPlugin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbTaskPlugin> for ITsSbPlugin {
-    fn from(value: &ITsSbTaskPlugin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbTaskPlugin, ::windows::core::IUnknown, ITsSbPlugin);
 impl ::core::clone::Clone for ITsSbTaskPlugin {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5364,36 +4242,7 @@ impl ITsSbTaskPluginNotifySink {
         (::windows::core::Vtable::vtable(self).OnReportTasks)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(szhostname)).ok()
     }
 }
-impl ::core::convert::From<ITsSbTaskPluginNotifySink> for ::windows::core::IUnknown {
-    fn from(value: ITsSbTaskPluginNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbTaskPluginNotifySink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITsSbTaskPluginNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbTaskPluginNotifySink> for ::windows::core::IUnknown {
-    fn from(value: &ITsSbTaskPluginNotifySink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITsSbTaskPluginNotifySink> for ITsSbBaseNotifySink {
-    fn from(value: ITsSbTaskPluginNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITsSbTaskPluginNotifySink> for &'a ITsSbBaseNotifySink {
-    fn from(value: &'a ITsSbTaskPluginNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITsSbTaskPluginNotifySink> for ITsSbBaseNotifySink {
-    fn from(value: &ITsSbTaskPluginNotifySink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITsSbTaskPluginNotifySink, ::windows::core::IUnknown, ITsSbBaseNotifySink);
 impl ::core::clone::Clone for ITsSbTaskPluginNotifySink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5437,21 +4286,7 @@ impl IWRdsEnhancedFastReconnectArbitrator {
         (::windows::core::Vtable::vtable(self).GetSessionForEnhancedFastReconnect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psessionidarray), dwsessioncount, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
-impl ::core::convert::From<IWRdsEnhancedFastReconnectArbitrator> for ::windows::core::IUnknown {
-    fn from(value: IWRdsEnhancedFastReconnectArbitrator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWRdsEnhancedFastReconnectArbitrator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWRdsEnhancedFastReconnectArbitrator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWRdsEnhancedFastReconnectArbitrator> for ::windows::core::IUnknown {
-    fn from(value: &IWRdsEnhancedFastReconnectArbitrator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWRdsEnhancedFastReconnectArbitrator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWRdsEnhancedFastReconnectArbitrator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5501,21 +4336,7 @@ impl IWRdsGraphicsChannel {
         (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), pchannelevents.into().abi(), popencontext.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IWRdsGraphicsChannel> for ::windows::core::IUnknown {
-    fn from(value: IWRdsGraphicsChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWRdsGraphicsChannel> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWRdsGraphicsChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWRdsGraphicsChannel> for ::windows::core::IUnknown {
-    fn from(value: &IWRdsGraphicsChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWRdsGraphicsChannel, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWRdsGraphicsChannel {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5575,21 +4396,7 @@ impl IWRdsGraphicsChannelEvents {
         (::windows::core::Vtable::vtable(self).OnMetricsUpdate)(::windows::core::Vtable::as_raw(self), bandwidth, rtt, lastsentbyteindex).ok()
     }
 }
-impl ::core::convert::From<IWRdsGraphicsChannelEvents> for ::windows::core::IUnknown {
-    fn from(value: IWRdsGraphicsChannelEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWRdsGraphicsChannelEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWRdsGraphicsChannelEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWRdsGraphicsChannelEvents> for ::windows::core::IUnknown {
-    fn from(value: &IWRdsGraphicsChannelEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWRdsGraphicsChannelEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWRdsGraphicsChannelEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5634,21 +4441,7 @@ impl IWRdsGraphicsChannelManager {
         (::windows::core::Vtable::vtable(self).CreateChannel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszchannelname), channeltype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWRdsGraphicsChannel>(result__)
     }
 }
-impl ::core::convert::From<IWRdsGraphicsChannelManager> for ::windows::core::IUnknown {
-    fn from(value: IWRdsGraphicsChannelManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWRdsGraphicsChannelManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWRdsGraphicsChannelManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWRdsGraphicsChannelManager> for ::windows::core::IUnknown {
-    fn from(value: &IWRdsGraphicsChannelManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWRdsGraphicsChannelManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWRdsGraphicsChannelManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5801,21 +4594,7 @@ impl IWRdsProtocolConnection {
         (::windows::core::Vtable::vtable(self).NotifyCommandProcessCreated)(::windows::core::Vtable::as_raw(self), sessionid).ok()
     }
 }
-impl ::core::convert::From<IWRdsProtocolConnection> for ::windows::core::IUnknown {
-    fn from(value: IWRdsProtocolConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWRdsProtocolConnection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWRdsProtocolConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWRdsProtocolConnection> for ::windows::core::IUnknown {
-    fn from(value: &IWRdsProtocolConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWRdsProtocolConnection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWRdsProtocolConnection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5912,21 +4691,7 @@ impl IWRdsProtocolConnectionCallback {
         (::windows::core::Vtable::vtable(self).GetConnectionId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IWRdsProtocolConnectionCallback> for ::windows::core::IUnknown {
-    fn from(value: IWRdsProtocolConnectionCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWRdsProtocolConnectionCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWRdsProtocolConnectionCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWRdsProtocolConnectionCallback> for ::windows::core::IUnknown {
-    fn from(value: &IWRdsProtocolConnectionCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWRdsProtocolConnectionCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWRdsProtocolConnectionCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5971,21 +4736,7 @@ impl IWRdsProtocolConnectionSettings {
         (::windows::core::Vtable::vtable(self).GetConnectionSetting)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propertyid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WTS_PROPERTY_VALUE>(result__)
     }
 }
-impl ::core::convert::From<IWRdsProtocolConnectionSettings> for ::windows::core::IUnknown {
-    fn from(value: IWRdsProtocolConnectionSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWRdsProtocolConnectionSettings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWRdsProtocolConnectionSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWRdsProtocolConnectionSettings> for ::windows::core::IUnknown {
-    fn from(value: &IWRdsProtocolConnectionSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWRdsProtocolConnectionSettings, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWRdsProtocolConnectionSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6034,21 +4785,7 @@ impl IWRdsProtocolLicenseConnection {
         (::windows::core::Vtable::vtable(self).ProtocolComplete)(::windows::core::Vtable::as_raw(self), ulcomplete).ok()
     }
 }
-impl ::core::convert::From<IWRdsProtocolLicenseConnection> for ::windows::core::IUnknown {
-    fn from(value: IWRdsProtocolLicenseConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWRdsProtocolLicenseConnection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWRdsProtocolLicenseConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWRdsProtocolLicenseConnection> for ::windows::core::IUnknown {
-    fn from(value: &IWRdsProtocolLicenseConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWRdsProtocolLicenseConnection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWRdsProtocolLicenseConnection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6101,21 +4838,7 @@ impl IWRdsProtocolListener {
         (::windows::core::Vtable::vtable(self).StopListen)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWRdsProtocolListener> for ::windows::core::IUnknown {
-    fn from(value: IWRdsProtocolListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWRdsProtocolListener> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWRdsProtocolListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWRdsProtocolListener> for ::windows::core::IUnknown {
-    fn from(value: &IWRdsProtocolListener) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWRdsProtocolListener, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWRdsProtocolListener {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6160,21 +4883,7 @@ impl IWRdsProtocolListenerCallback {
         (::windows::core::Vtable::vtable(self).OnConnected)(::windows::core::Vtable::as_raw(self), pconnection.into().abi(), ::core::mem::transmute(pwrdsconnectionsettings), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWRdsProtocolConnectionCallback>(result__)
     }
 }
-impl ::core::convert::From<IWRdsProtocolListenerCallback> for ::windows::core::IUnknown {
-    fn from(value: IWRdsProtocolListenerCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWRdsProtocolListenerCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWRdsProtocolListenerCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWRdsProtocolListenerCallback> for ::windows::core::IUnknown {
-    fn from(value: &IWRdsProtocolListenerCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWRdsProtocolListenerCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWRdsProtocolListenerCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6237,21 +4946,7 @@ impl IWRdsProtocolLogonErrorRedirector {
         (::windows::core::Vtable::vtable(self).RedirectLogonError)(::windows::core::Vtable::as_raw(self), ntsstatus, ntssubstatus, pszcaption.into(), pszmessage.into(), utype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>(result__)
     }
 }
-impl ::core::convert::From<IWRdsProtocolLogonErrorRedirector> for ::windows::core::IUnknown {
-    fn from(value: IWRdsProtocolLogonErrorRedirector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWRdsProtocolLogonErrorRedirector> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWRdsProtocolLogonErrorRedirector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWRdsProtocolLogonErrorRedirector> for ::windows::core::IUnknown {
-    fn from(value: &IWRdsProtocolLogonErrorRedirector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWRdsProtocolLogonErrorRedirector, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWRdsProtocolLogonErrorRedirector {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6323,21 +5018,7 @@ impl IWRdsProtocolManager {
         (::windows::core::Vtable::vtable(self).Uninitialize)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWRdsProtocolManager> for ::windows::core::IUnknown {
-    fn from(value: IWRdsProtocolManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWRdsProtocolManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWRdsProtocolManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWRdsProtocolManager> for ::windows::core::IUnknown {
-    fn from(value: &IWRdsProtocolManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWRdsProtocolManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWRdsProtocolManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6395,21 +5076,7 @@ impl IWRdsProtocolSettings {
         (::windows::core::Vtable::vtable(self).MergeSettings)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwrdssettings), wrdsconnectionsettinglevel, ::core::mem::transmute(pwrdsconnectionsettings)).ok()
     }
 }
-impl ::core::convert::From<IWRdsProtocolSettings> for ::windows::core::IUnknown {
-    fn from(value: IWRdsProtocolSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWRdsProtocolSettings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWRdsProtocolSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWRdsProtocolSettings> for ::windows::core::IUnknown {
-    fn from(value: &IWRdsProtocolSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWRdsProtocolSettings, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWRdsProtocolSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6460,21 +5127,7 @@ impl IWRdsProtocolShadowCallback {
         (::windows::core::Vtable::vtable(self).InvokeTargetShadow)(::windows::core::Vtable::as_raw(self), ptargetservername.into(), targetsessionid, ::core::mem::transmute(pparam1.as_ptr()), pparam1.len() as _, ::core::mem::transmute(pparam2.as_ptr()), pparam2.len() as _, ::core::mem::transmute(pparam3.as_ptr()), pparam3.len() as _, ::core::mem::transmute(pparam4.as_ptr()), pparam4.len() as _, pclientname.into()).ok()
     }
 }
-impl ::core::convert::From<IWRdsProtocolShadowCallback> for ::windows::core::IUnknown {
-    fn from(value: IWRdsProtocolShadowCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWRdsProtocolShadowCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWRdsProtocolShadowCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWRdsProtocolShadowCallback> for ::windows::core::IUnknown {
-    fn from(value: &IWRdsProtocolShadowCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWRdsProtocolShadowCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWRdsProtocolShadowCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6525,21 +5178,7 @@ impl IWRdsProtocolShadowConnection {
         (::windows::core::Vtable::vtable(self).DoTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pparam1.as_ptr()), pparam1.len() as _, ::core::mem::transmute(pparam2.as_ptr()), pparam2.len() as _, ::core::mem::transmute(pparam3.as_ptr()), pparam3.len() as _, ::core::mem::transmute(pparam4.as_ptr()), pparam4.len() as _, pclientname.into()).ok()
     }
 }
-impl ::core::convert::From<IWRdsProtocolShadowConnection> for ::windows::core::IUnknown {
-    fn from(value: IWRdsProtocolShadowConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWRdsProtocolShadowConnection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWRdsProtocolShadowConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWRdsProtocolShadowConnection> for ::windows::core::IUnknown {
-    fn from(value: &IWRdsProtocolShadowConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWRdsProtocolShadowConnection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWRdsProtocolShadowConnection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6597,21 +5236,7 @@ impl IWRdsWddmIddProps {
         (::windows::core::Vtable::vtable(self).EnableWddmIdd)(::windows::core::Vtable::as_raw(self), enabled.into()).ok()
     }
 }
-impl ::core::convert::From<IWRdsWddmIddProps> for ::windows::core::IUnknown {
-    fn from(value: IWRdsWddmIddProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWRdsWddmIddProps> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWRdsWddmIddProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWRdsWddmIddProps> for ::windows::core::IUnknown {
-    fn from(value: &IWRdsWddmIddProps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWRdsWddmIddProps, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWRdsWddmIddProps {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6661,21 +5286,7 @@ impl IWTSBitmapRenderService {
         (::windows::core::Vtable::vtable(self).GetMappedRenderer)(::windows::core::Vtable::as_raw(self), mappingid, pmappedrenderercallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWTSBitmapRenderer>(result__)
     }
 }
-impl ::core::convert::From<IWTSBitmapRenderService> for ::windows::core::IUnknown {
-    fn from(value: IWTSBitmapRenderService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWTSBitmapRenderService> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWTSBitmapRenderService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWTSBitmapRenderService> for ::windows::core::IUnknown {
-    fn from(value: &IWTSBitmapRenderService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWTSBitmapRenderService, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWTSBitmapRenderService {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6719,21 +5330,7 @@ impl IWTSBitmapRenderer {
         (::windows::core::Vtable::vtable(self).RemoveMapping)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWTSBitmapRenderer> for ::windows::core::IUnknown {
-    fn from(value: IWTSBitmapRenderer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWTSBitmapRenderer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWTSBitmapRenderer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWTSBitmapRenderer> for ::windows::core::IUnknown {
-    fn from(value: &IWTSBitmapRenderer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWTSBitmapRenderer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWTSBitmapRenderer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6774,21 +5371,7 @@ impl IWTSBitmapRendererCallback {
         (::windows::core::Vtable::vtable(self).OnTargetSizeChanged)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rcnewsize)).ok()
     }
 }
-impl ::core::convert::From<IWTSBitmapRendererCallback> for ::windows::core::IUnknown {
-    fn from(value: IWTSBitmapRendererCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWTSBitmapRendererCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWTSBitmapRendererCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWTSBitmapRendererCallback> for ::windows::core::IUnknown {
-    fn from(value: &IWTSBitmapRendererCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWTSBitmapRendererCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWTSBitmapRendererCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6831,21 +5414,7 @@ impl IWTSListener {
         (::windows::core::Vtable::vtable(self).GetConfiguration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::StructuredStorage::IPropertyBag>(result__)
     }
 }
-impl ::core::convert::From<IWTSListener> for ::windows::core::IUnknown {
-    fn from(value: IWTSListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWTSListener> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWTSListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWTSListener> for ::windows::core::IUnknown {
-    fn from(value: &IWTSListener) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWTSListener, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWTSListener {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6890,21 +5459,7 @@ impl IWTSListenerCallback {
         (::windows::core::Vtable::vtable(self).OnNewChannelConnection)(::windows::core::Vtable::as_raw(self), pchannel.into().abi(), ::core::mem::transmute_copy(data), ::core::mem::transmute(pbaccept), ::core::mem::transmute(ppcallback)).ok()
     }
 }
-impl ::core::convert::From<IWTSListenerCallback> for ::windows::core::IUnknown {
-    fn from(value: IWTSListenerCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWTSListenerCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWTSListenerCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWTSListenerCallback> for ::windows::core::IUnknown {
-    fn from(value: &IWTSListenerCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWTSListenerCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWTSListenerCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6956,21 +5511,7 @@ impl IWTSPlugin {
         (::windows::core::Vtable::vtable(self).Terminated)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWTSPlugin> for ::windows::core::IUnknown {
-    fn from(value: IWTSPlugin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWTSPlugin> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWTSPlugin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWTSPlugin> for ::windows::core::IUnknown {
-    fn from(value: &IWTSPlugin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWTSPlugin, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWTSPlugin {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7011,21 +5552,7 @@ impl IWTSPluginServiceProvider {
         (::windows::core::Vtable::vtable(self).GetService)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(serviceid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
-impl ::core::convert::From<IWTSPluginServiceProvider> for ::windows::core::IUnknown {
-    fn from(value: IWTSPluginServiceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWTSPluginServiceProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWTSPluginServiceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWTSPluginServiceProvider> for ::windows::core::IUnknown {
-    fn from(value: &IWTSPluginServiceProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWTSPluginServiceProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWTSPluginServiceProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7171,21 +5698,7 @@ impl IWTSProtocolConnection {
         (::windows::core::Vtable::vtable(self).GetShadowConnection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWTSProtocolShadowConnection>(result__)
     }
 }
-impl ::core::convert::From<IWTSProtocolConnection> for ::windows::core::IUnknown {
-    fn from(value: IWTSProtocolConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWTSProtocolConnection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWTSProtocolConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWTSProtocolConnection> for ::windows::core::IUnknown {
-    fn from(value: &IWTSProtocolConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWTSProtocolConnection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWTSProtocolConnection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7280,21 +5793,7 @@ impl IWTSProtocolConnectionCallback {
         (::windows::core::Vtable::vtable(self).DisplayIOCtl)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(displayioctl)).ok()
     }
 }
-impl ::core::convert::From<IWTSProtocolConnectionCallback> for ::windows::core::IUnknown {
-    fn from(value: IWTSProtocolConnectionCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWTSProtocolConnectionCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWTSProtocolConnectionCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWTSProtocolConnectionCallback> for ::windows::core::IUnknown {
-    fn from(value: &IWTSProtocolConnectionCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWTSProtocolConnectionCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWTSProtocolConnectionCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7346,21 +5845,7 @@ impl IWTSProtocolLicenseConnection {
         (::windows::core::Vtable::vtable(self).ProtocolComplete)(::windows::core::Vtable::as_raw(self), ulcomplete).ok()
     }
 }
-impl ::core::convert::From<IWTSProtocolLicenseConnection> for ::windows::core::IUnknown {
-    fn from(value: IWTSProtocolLicenseConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWTSProtocolLicenseConnection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWTSProtocolLicenseConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWTSProtocolLicenseConnection> for ::windows::core::IUnknown {
-    fn from(value: &IWTSProtocolLicenseConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWTSProtocolLicenseConnection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWTSProtocolLicenseConnection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7409,21 +5894,7 @@ impl IWTSProtocolListener {
         (::windows::core::Vtable::vtable(self).StopListen)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWTSProtocolListener> for ::windows::core::IUnknown {
-    fn from(value: IWTSProtocolListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWTSProtocolListener> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWTSProtocolListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWTSProtocolListener> for ::windows::core::IUnknown {
-    fn from(value: &IWTSProtocolListener) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWTSProtocolListener, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWTSProtocolListener {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7465,21 +5936,7 @@ impl IWTSProtocolListenerCallback {
         (::windows::core::Vtable::vtable(self).OnConnected)(::windows::core::Vtable::as_raw(self), pconnection.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWTSProtocolConnectionCallback>(result__)
     }
 }
-impl ::core::convert::From<IWTSProtocolListenerCallback> for ::windows::core::IUnknown {
-    fn from(value: IWTSProtocolListenerCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWTSProtocolListenerCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWTSProtocolListenerCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWTSProtocolListenerCallback> for ::windows::core::IUnknown {
-    fn from(value: &IWTSProtocolListenerCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWTSProtocolListenerCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWTSProtocolListenerCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7539,21 +5996,7 @@ impl IWTSProtocolLogonErrorRedirector {
         (::windows::core::Vtable::vtable(self).RedirectLogonError)(::windows::core::Vtable::as_raw(self), ntsstatus, ntssubstatus, pszcaption.into(), pszmessage.into(), utype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>(result__)
     }
 }
-impl ::core::convert::From<IWTSProtocolLogonErrorRedirector> for ::windows::core::IUnknown {
-    fn from(value: IWTSProtocolLogonErrorRedirector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWTSProtocolLogonErrorRedirector> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWTSProtocolLogonErrorRedirector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWTSProtocolLogonErrorRedirector> for ::windows::core::IUnknown {
-    fn from(value: &IWTSProtocolLogonErrorRedirector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWTSProtocolLogonErrorRedirector, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWTSProtocolLogonErrorRedirector {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7609,21 +6052,7 @@ impl IWTSProtocolManager {
         (::windows::core::Vtable::vtable(self).NotifySessionStateChange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(sessionid), eventid).ok()
     }
 }
-impl ::core::convert::From<IWTSProtocolManager> for ::windows::core::IUnknown {
-    fn from(value: IWTSProtocolManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWTSProtocolManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWTSProtocolManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWTSProtocolManager> for ::windows::core::IUnknown {
-    fn from(value: &IWTSProtocolManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWTSProtocolManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWTSProtocolManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7671,21 +6100,7 @@ impl IWTSProtocolShadowCallback {
         (::windows::core::Vtable::vtable(self).InvokeTargetShadow)(::windows::core::Vtable::as_raw(self), ptargetservername.into(), targetsessionid, ::core::mem::transmute(pparam1.as_ptr()), pparam1.len() as _, ::core::mem::transmute(pparam2.as_ptr()), pparam2.len() as _, ::core::mem::transmute(pparam3.as_ptr()), pparam3.len() as _, ::core::mem::transmute(pparam4.as_ptr()), pparam4.len() as _, pclientname.into()).ok()
     }
 }
-impl ::core::convert::From<IWTSProtocolShadowCallback> for ::windows::core::IUnknown {
-    fn from(value: IWTSProtocolShadowCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWTSProtocolShadowCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWTSProtocolShadowCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWTSProtocolShadowCallback> for ::windows::core::IUnknown {
-    fn from(value: &IWTSProtocolShadowCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWTSProtocolShadowCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWTSProtocolShadowCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7736,21 +6151,7 @@ impl IWTSProtocolShadowConnection {
         (::windows::core::Vtable::vtable(self).DoTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pparam1.as_ptr()), pparam1.len() as _, ::core::mem::transmute(pparam2.as_ptr()), pparam2.len() as _, ::core::mem::transmute(pparam3.as_ptr()), pparam3.len() as _, ::core::mem::transmute(pparam4.as_ptr()), pparam4.len() as _, pclientname.into()).ok()
     }
 }
-impl ::core::convert::From<IWTSProtocolShadowConnection> for ::windows::core::IUnknown {
-    fn from(value: IWTSProtocolShadowConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWTSProtocolShadowConnection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWTSProtocolShadowConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWTSProtocolShadowConnection> for ::windows::core::IUnknown {
-    fn from(value: &IWTSProtocolShadowConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWTSProtocolShadowConnection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWTSProtocolShadowConnection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7818,21 +6219,7 @@ impl IWTSSBPlugin {
         (::windows::core::Vtable::vtable(self).WTSSBX_GetUserExternalSession)(::windows::core::Vtable::as_raw(self), username.into(), domainname.into(), applicationtype.into(), ::core::mem::transmute(redirectorinternalip), ::core::mem::transmute(psessionid), ::core::mem::transmute(pmachineconnectinfo)).ok()
     }
 }
-impl ::core::convert::From<IWTSSBPlugin> for ::windows::core::IUnknown {
-    fn from(value: IWTSSBPlugin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWTSSBPlugin> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWTSSBPlugin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWTSSBPlugin> for ::windows::core::IUnknown {
-    fn from(value: &IWTSSBPlugin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWTSSBPlugin, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWTSSBPlugin {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7883,21 +6270,7 @@ impl IWTSVirtualChannel {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWTSVirtualChannel> for ::windows::core::IUnknown {
-    fn from(value: IWTSVirtualChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWTSVirtualChannel> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWTSVirtualChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWTSVirtualChannel> for ::windows::core::IUnknown {
-    fn from(value: &IWTSVirtualChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWTSVirtualChannel, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWTSVirtualChannel {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7938,21 +6311,7 @@ impl IWTSVirtualChannelCallback {
         (::windows::core::Vtable::vtable(self).OnClose)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWTSVirtualChannelCallback> for ::windows::core::IUnknown {
-    fn from(value: IWTSVirtualChannelCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWTSVirtualChannelCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWTSVirtualChannelCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWTSVirtualChannelCallback> for ::windows::core::IUnknown {
-    fn from(value: &IWTSVirtualChannelCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWTSVirtualChannelCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWTSVirtualChannelCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7994,21 +6353,7 @@ impl IWTSVirtualChannelManager {
         (::windows::core::Vtable::vtable(self).CreateListener)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszchannelname), uflags, plistenercallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWTSListener>(result__)
     }
 }
-impl ::core::convert::From<IWTSVirtualChannelManager> for ::windows::core::IUnknown {
-    fn from(value: IWTSVirtualChannelManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWTSVirtualChannelManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWTSVirtualChannelManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWTSVirtualChannelManager> for ::windows::core::IUnknown {
-    fn from(value: &IWTSVirtualChannelManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWTSVirtualChannelManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWTSVirtualChannelManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8057,21 +6402,7 @@ impl IWorkspace {
         (::windows::core::Vtable::vtable(self).GetProcessId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IWorkspace> for ::windows::core::IUnknown {
-    fn from(value: IWorkspace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWorkspace> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWorkspace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWorkspace> for ::windows::core::IUnknown {
-    fn from(value: &IWorkspace) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWorkspace, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWorkspace {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8133,36 +6464,7 @@ impl IWorkspace2 {
         (::windows::core::Vtable::vtable(self).StartRemoteApplicationEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrworkspaceid), ::core::mem::transmute_copy(bstrrequestingappid), ::core::mem::transmute_copy(bstrrequestingappfamilyname), blaunchintoimmersiveclient, ::core::mem::transmute_copy(bstrimmersiveclientactivationcontext), ::core::mem::transmute(psaparams)).ok()
     }
 }
-impl ::core::convert::From<IWorkspace2> for ::windows::core::IUnknown {
-    fn from(value: IWorkspace2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWorkspace2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWorkspace2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWorkspace2> for ::windows::core::IUnknown {
-    fn from(value: &IWorkspace2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWorkspace2> for IWorkspace {
-    fn from(value: IWorkspace2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWorkspace2> for &'a IWorkspace {
-    fn from(value: &'a IWorkspace2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWorkspace2> for IWorkspace {
-    fn from(value: &IWorkspace2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWorkspace2, ::windows::core::IUnknown, IWorkspace);
 impl ::core::clone::Clone for IWorkspace2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8228,51 +6530,7 @@ impl IWorkspace3 {
         (::windows::core::Vtable::vtable(self).SetClaimsToken)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstraccesstoken), ullaccesstokenexpiration, ::core::mem::transmute_copy(bstrrefreshtoken)).ok()
     }
 }
-impl ::core::convert::From<IWorkspace3> for ::windows::core::IUnknown {
-    fn from(value: IWorkspace3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWorkspace3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWorkspace3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWorkspace3> for ::windows::core::IUnknown {
-    fn from(value: &IWorkspace3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWorkspace3> for IWorkspace {
-    fn from(value: IWorkspace3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWorkspace3> for &'a IWorkspace {
-    fn from(value: &'a IWorkspace3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWorkspace3> for IWorkspace {
-    fn from(value: &IWorkspace3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWorkspace3> for IWorkspace2 {
-    fn from(value: IWorkspace3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWorkspace3> for &'a IWorkspace2 {
-    fn from(value: &'a IWorkspace3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWorkspace3> for IWorkspace2 {
-    fn from(value: &IWorkspace3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWorkspace3, ::windows::core::IUnknown, IWorkspace, IWorkspace2);
 impl ::core::clone::Clone for IWorkspace3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8321,21 +6579,7 @@ impl IWorkspaceClientExt {
         (::windows::core::Vtable::vtable(self).IssueDisconnect)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWorkspaceClientExt> for ::windows::core::IUnknown {
-    fn from(value: IWorkspaceClientExt) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWorkspaceClientExt> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWorkspaceClientExt) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWorkspaceClientExt> for ::windows::core::IUnknown {
-    fn from(value: &IWorkspaceClientExt) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWorkspaceClientExt, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWorkspaceClientExt {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8381,21 +6625,7 @@ impl IWorkspaceRegistration {
         (::windows::core::Vtable::vtable(self).RemoveResource)(::windows::core::Vtable::as_raw(self), dwcookieconnection).ok()
     }
 }
-impl ::core::convert::From<IWorkspaceRegistration> for ::windows::core::IUnknown {
-    fn from(value: IWorkspaceRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWorkspaceRegistration> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWorkspaceRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWorkspaceRegistration> for ::windows::core::IUnknown {
-    fn from(value: &IWorkspaceRegistration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWorkspaceRegistration, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWorkspaceRegistration {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8449,36 +6679,7 @@ impl IWorkspaceRegistration2 {
         (::windows::core::Vtable::vtable(self).RemoveResourceEx)(::windows::core::Vtable::as_raw(self), dwcookieconnection, ::core::mem::transmute(correlationid)).ok()
     }
 }
-impl ::core::convert::From<IWorkspaceRegistration2> for ::windows::core::IUnknown {
-    fn from(value: IWorkspaceRegistration2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWorkspaceRegistration2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWorkspaceRegistration2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWorkspaceRegistration2> for ::windows::core::IUnknown {
-    fn from(value: &IWorkspaceRegistration2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWorkspaceRegistration2> for IWorkspaceRegistration {
-    fn from(value: IWorkspaceRegistration2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWorkspaceRegistration2> for &'a IWorkspaceRegistration {
-    fn from(value: &'a IWorkspaceRegistration2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWorkspaceRegistration2> for IWorkspaceRegistration {
-    fn from(value: &IWorkspaceRegistration2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWorkspaceRegistration2, ::windows::core::IUnknown, IWorkspaceRegistration);
 impl ::core::clone::Clone for IWorkspaceRegistration2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8523,21 +6724,7 @@ impl IWorkspaceReportMessage {
         (::windows::core::Vtable::vtable(self).RegisterErrorEvent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrwkspid), dwerrortype, ::core::mem::transmute_copy(bstrerrormessagetype), dwerrorcode).ok()
     }
 }
-impl ::core::convert::From<IWorkspaceReportMessage> for ::windows::core::IUnknown {
-    fn from(value: IWorkspaceReportMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWorkspaceReportMessage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWorkspaceReportMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWorkspaceReportMessage> for ::windows::core::IUnknown {
-    fn from(value: &IWorkspaceReportMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWorkspaceReportMessage, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWorkspaceReportMessage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8595,41 +6782,7 @@ impl IWorkspaceResTypeRegistry {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWorkspaceResTypeRegistry> for ::windows::core::IUnknown {
-    fn from(value: IWorkspaceResTypeRegistry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWorkspaceResTypeRegistry> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWorkspaceResTypeRegistry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWorkspaceResTypeRegistry> for ::windows::core::IUnknown {
-    fn from(value: &IWorkspaceResTypeRegistry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWorkspaceResTypeRegistry> for super::Com::IDispatch {
-    fn from(value: IWorkspaceResTypeRegistry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWorkspaceResTypeRegistry> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWorkspaceResTypeRegistry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWorkspaceResTypeRegistry> for super::Com::IDispatch {
-    fn from(value: &IWorkspaceResTypeRegistry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWorkspaceResTypeRegistry, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWorkspaceResTypeRegistry {
     fn clone(&self) -> Self {
@@ -8703,41 +6856,7 @@ impl IWorkspaceScriptable {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWorkspaceScriptable> for ::windows::core::IUnknown {
-    fn from(value: IWorkspaceScriptable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWorkspaceScriptable> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWorkspaceScriptable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWorkspaceScriptable> for ::windows::core::IUnknown {
-    fn from(value: &IWorkspaceScriptable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWorkspaceScriptable> for super::Com::IDispatch {
-    fn from(value: IWorkspaceScriptable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWorkspaceScriptable> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWorkspaceScriptable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWorkspaceScriptable> for super::Com::IDispatch {
-    fn from(value: &IWorkspaceScriptable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWorkspaceScriptable, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWorkspaceScriptable {
     fn clone(&self) -> Self {
@@ -8816,59 +6935,7 @@ impl IWorkspaceScriptable2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWorkspaceScriptable2> for ::windows::core::IUnknown {
-    fn from(value: IWorkspaceScriptable2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWorkspaceScriptable2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWorkspaceScriptable2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWorkspaceScriptable2> for ::windows::core::IUnknown {
-    fn from(value: &IWorkspaceScriptable2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWorkspaceScriptable2> for super::Com::IDispatch {
-    fn from(value: IWorkspaceScriptable2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWorkspaceScriptable2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWorkspaceScriptable2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWorkspaceScriptable2> for super::Com::IDispatch {
-    fn from(value: &IWorkspaceScriptable2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWorkspaceScriptable2> for IWorkspaceScriptable {
-    fn from(value: IWorkspaceScriptable2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWorkspaceScriptable2> for &'a IWorkspaceScriptable {
-    fn from(value: &'a IWorkspaceScriptable2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWorkspaceScriptable2> for IWorkspaceScriptable {
-    fn from(value: &IWorkspaceScriptable2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWorkspaceScriptable2, ::windows::core::IUnknown, super::Com::IDispatch, IWorkspaceScriptable);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWorkspaceScriptable2 {
     fn clone(&self) -> Self {
@@ -8959,77 +7026,7 @@ impl IWorkspaceScriptable3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWorkspaceScriptable3> for ::windows::core::IUnknown {
-    fn from(value: IWorkspaceScriptable3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWorkspaceScriptable3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWorkspaceScriptable3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWorkspaceScriptable3> for ::windows::core::IUnknown {
-    fn from(value: &IWorkspaceScriptable3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWorkspaceScriptable3> for super::Com::IDispatch {
-    fn from(value: IWorkspaceScriptable3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWorkspaceScriptable3> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWorkspaceScriptable3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWorkspaceScriptable3> for super::Com::IDispatch {
-    fn from(value: &IWorkspaceScriptable3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWorkspaceScriptable3> for IWorkspaceScriptable {
-    fn from(value: IWorkspaceScriptable3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWorkspaceScriptable3> for &'a IWorkspaceScriptable {
-    fn from(value: &'a IWorkspaceScriptable3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWorkspaceScriptable3> for IWorkspaceScriptable {
-    fn from(value: &IWorkspaceScriptable3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWorkspaceScriptable3> for IWorkspaceScriptable2 {
-    fn from(value: IWorkspaceScriptable3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWorkspaceScriptable3> for &'a IWorkspaceScriptable2 {
-    fn from(value: &'a IWorkspaceScriptable3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWorkspaceScriptable3> for IWorkspaceScriptable2 {
-    fn from(value: &IWorkspaceScriptable3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWorkspaceScriptable3, ::windows::core::IUnknown, super::Com::IDispatch, IWorkspaceScriptable, IWorkspaceScriptable2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWorkspaceScriptable3 {
     fn clone(&self) -> Self {
@@ -9102,21 +7099,7 @@ impl ItsPubPlugin {
         (::windows::core::Vtable::vtable(self).ResolveResource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(resourcetype), ::core::mem::transmute(resourcelocation), ::core::mem::transmute(endpointname), userid.into(), alias.into()).ok()
     }
 }
-impl ::core::convert::From<ItsPubPlugin> for ::windows::core::IUnknown {
-    fn from(value: ItsPubPlugin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ItsPubPlugin> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ItsPubPlugin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ItsPubPlugin> for ::windows::core::IUnknown {
-    fn from(value: &ItsPubPlugin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ItsPubPlugin, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ItsPubPlugin {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9215,36 +7198,7 @@ impl ItsPubPlugin2 {
         (::windows::core::Vtable::vtable(self).DeletePersonalDesktopAssignment)(::windows::core::Vtable::as_raw(self), userid.into(), poolid.into(), endpointname.into()).ok()
     }
 }
-impl ::core::convert::From<ItsPubPlugin2> for ::windows::core::IUnknown {
-    fn from(value: ItsPubPlugin2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ItsPubPlugin2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ItsPubPlugin2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ItsPubPlugin2> for ::windows::core::IUnknown {
-    fn from(value: &ItsPubPlugin2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ItsPubPlugin2> for ItsPubPlugin {
-    fn from(value: ItsPubPlugin2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ItsPubPlugin2> for &'a ItsPubPlugin {
-    fn from(value: &'a ItsPubPlugin2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ItsPubPlugin2> for ItsPubPlugin {
-    fn from(value: &ItsPubPlugin2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ItsPubPlugin2, ::windows::core::IUnknown, ItsPubPlugin);
 impl ::core::clone::Clone for ItsPubPlugin2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9283,41 +7237,7 @@ pub struct _ITSWkspEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _ITSWkspEvents {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_ITSWkspEvents> for ::windows::core::IUnknown {
-    fn from(value: _ITSWkspEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _ITSWkspEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a _ITSWkspEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_ITSWkspEvents> for ::windows::core::IUnknown {
-    fn from(value: &_ITSWkspEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_ITSWkspEvents> for super::Com::IDispatch {
-    fn from(value: _ITSWkspEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _ITSWkspEvents> for &'a super::Com::IDispatch {
-    fn from(value: &'a _ITSWkspEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_ITSWkspEvents> for super::Com::IDispatch {
-    fn from(value: &_ITSWkspEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(_ITSWkspEvents, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for _ITSWkspEvents {
     fn clone(&self) -> Self {

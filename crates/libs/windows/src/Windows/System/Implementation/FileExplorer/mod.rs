@@ -48,36 +48,7 @@ impl ISysStorageProviderEventSource {
         unsafe { (::windows::core::Vtable::vtable(this).RemoveEventReceived)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
 }
-impl ::core::convert::From<ISysStorageProviderEventSource> for ::windows::core::IUnknown {
-    fn from(value: ISysStorageProviderEventSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISysStorageProviderEventSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISysStorageProviderEventSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISysStorageProviderEventSource> for ::windows::core::IUnknown {
-    fn from(value: &ISysStorageProviderEventSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISysStorageProviderEventSource> for ::windows::core::IInspectable {
-    fn from(value: ISysStorageProviderEventSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISysStorageProviderEventSource> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISysStorageProviderEventSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISysStorageProviderEventSource> for ::windows::core::IInspectable {
-    fn from(value: &ISysStorageProviderEventSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISysStorageProviderEventSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ISysStorageProviderEventSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -139,36 +110,7 @@ impl ISysStorageProviderHandlerFactory {
         }
     }
 }
-impl ::core::convert::From<ISysStorageProviderHandlerFactory> for ::windows::core::IUnknown {
-    fn from(value: ISysStorageProviderHandlerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISysStorageProviderHandlerFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISysStorageProviderHandlerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISysStorageProviderHandlerFactory> for ::windows::core::IUnknown {
-    fn from(value: &ISysStorageProviderHandlerFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISysStorageProviderHandlerFactory> for ::windows::core::IInspectable {
-    fn from(value: ISysStorageProviderHandlerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISysStorageProviderHandlerFactory> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISysStorageProviderHandlerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISysStorageProviderHandlerFactory> for ::windows::core::IInspectable {
-    fn from(value: &ISysStorageProviderHandlerFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISysStorageProviderHandlerFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ISysStorageProviderHandlerFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -219,36 +161,7 @@ impl ISysStorageProviderHttpRequestProvider {
         }
     }
 }
-impl ::core::convert::From<ISysStorageProviderHttpRequestProvider> for ::windows::core::IUnknown {
-    fn from(value: ISysStorageProviderHttpRequestProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISysStorageProviderHttpRequestProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISysStorageProviderHttpRequestProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISysStorageProviderHttpRequestProvider> for ::windows::core::IUnknown {
-    fn from(value: &ISysStorageProviderHttpRequestProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISysStorageProviderHttpRequestProvider> for ::windows::core::IInspectable {
-    fn from(value: ISysStorageProviderHttpRequestProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISysStorageProviderHttpRequestProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISysStorageProviderHttpRequestProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISysStorageProviderHttpRequestProvider> for ::windows::core::IInspectable {
-    fn from(value: &ISysStorageProviderHttpRequestProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISysStorageProviderHttpRequestProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ISysStorageProviderHttpRequestProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -342,36 +255,7 @@ unsafe impl ::windows::core::Interface for SysStorageProviderEventReceivedEventA
 impl ::windows::core::RuntimeName for SysStorageProviderEventReceivedEventArgs {
     const NAME: &'static str = "Windows.System.Implementation.FileExplorer.SysStorageProviderEventReceivedEventArgs";
 }
-impl ::core::convert::From<SysStorageProviderEventReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SysStorageProviderEventReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SysStorageProviderEventReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SysStorageProviderEventReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SysStorageProviderEventReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SysStorageProviderEventReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SysStorageProviderEventReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SysStorageProviderEventReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SysStorageProviderEventReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SysStorageProviderEventReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SysStorageProviderEventReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SysStorageProviderEventReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SysStorageProviderEventReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SysStorageProviderEventReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for SysStorageProviderEventReceivedEventArgs {}
 #[cfg(feature = "implement")]

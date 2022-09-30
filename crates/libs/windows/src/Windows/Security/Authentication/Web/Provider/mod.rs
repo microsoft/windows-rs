@@ -224,36 +224,7 @@ impl IWebAccountProviderBaseReportOperation {
         unsafe { (::windows::core::Vtable::vtable(this).ReportError)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::convert::From<IWebAccountProviderBaseReportOperation> for ::windows::core::IUnknown {
-    fn from(value: IWebAccountProviderBaseReportOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebAccountProviderBaseReportOperation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWebAccountProviderBaseReportOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderBaseReportOperation> for ::windows::core::IUnknown {
-    fn from(value: &IWebAccountProviderBaseReportOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWebAccountProviderBaseReportOperation> for ::windows::core::IInspectable {
-    fn from(value: IWebAccountProviderBaseReportOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebAccountProviderBaseReportOperation> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWebAccountProviderBaseReportOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderBaseReportOperation> for ::windows::core::IInspectable {
-    fn from(value: &IWebAccountProviderBaseReportOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWebAccountProviderBaseReportOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IWebAccountProviderBaseReportOperation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -342,36 +313,7 @@ impl IWebAccountProviderOperation {
         }
     }
 }
-impl ::core::convert::From<IWebAccountProviderOperation> for ::windows::core::IUnknown {
-    fn from(value: IWebAccountProviderOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebAccountProviderOperation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWebAccountProviderOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderOperation> for ::windows::core::IUnknown {
-    fn from(value: &IWebAccountProviderOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWebAccountProviderOperation> for ::windows::core::IInspectable {
-    fn from(value: IWebAccountProviderOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebAccountProviderOperation> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWebAccountProviderOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderOperation> for ::windows::core::IInspectable {
-    fn from(value: &IWebAccountProviderOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWebAccountProviderOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IWebAccountProviderOperation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -489,36 +431,7 @@ impl IWebAccountProviderSilentReportOperation {
         unsafe { (::windows::core::Vtable::vtable(this).ReportError)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::convert::From<IWebAccountProviderSilentReportOperation> for ::windows::core::IUnknown {
-    fn from(value: IWebAccountProviderSilentReportOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebAccountProviderSilentReportOperation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWebAccountProviderSilentReportOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderSilentReportOperation> for ::windows::core::IUnknown {
-    fn from(value: &IWebAccountProviderSilentReportOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWebAccountProviderSilentReportOperation> for ::windows::core::IInspectable {
-    fn from(value: IWebAccountProviderSilentReportOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebAccountProviderSilentReportOperation> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWebAccountProviderSilentReportOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderSilentReportOperation> for ::windows::core::IInspectable {
-    fn from(value: &IWebAccountProviderSilentReportOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWebAccountProviderSilentReportOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IWebAccountProviderSilentReportOperation> for IWebAccountProviderBaseReportOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: IWebAccountProviderSilentReportOperation) -> ::windows::core::Result<Self> {
@@ -589,36 +502,7 @@ impl IWebAccountProviderTokenObjects {
         }
     }
 }
-impl ::core::convert::From<IWebAccountProviderTokenObjects> for ::windows::core::IUnknown {
-    fn from(value: IWebAccountProviderTokenObjects) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebAccountProviderTokenObjects> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWebAccountProviderTokenObjects) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderTokenObjects> for ::windows::core::IUnknown {
-    fn from(value: &IWebAccountProviderTokenObjects) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWebAccountProviderTokenObjects> for ::windows::core::IInspectable {
-    fn from(value: IWebAccountProviderTokenObjects) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebAccountProviderTokenObjects> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWebAccountProviderTokenObjects) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderTokenObjects> for ::windows::core::IInspectable {
-    fn from(value: &IWebAccountProviderTokenObjects) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWebAccountProviderTokenObjects, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IWebAccountProviderTokenObjects {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -675,36 +559,7 @@ impl IWebAccountProviderTokenObjects2 {
         }
     }
 }
-impl ::core::convert::From<IWebAccountProviderTokenObjects2> for ::windows::core::IUnknown {
-    fn from(value: IWebAccountProviderTokenObjects2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebAccountProviderTokenObjects2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWebAccountProviderTokenObjects2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderTokenObjects2> for ::windows::core::IUnknown {
-    fn from(value: &IWebAccountProviderTokenObjects2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWebAccountProviderTokenObjects2> for ::windows::core::IInspectable {
-    fn from(value: IWebAccountProviderTokenObjects2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebAccountProviderTokenObjects2> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWebAccountProviderTokenObjects2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderTokenObjects2> for ::windows::core::IInspectable {
-    fn from(value: &IWebAccountProviderTokenObjects2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWebAccountProviderTokenObjects2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IWebAccountProviderTokenObjects2> for IWebAccountProviderTokenObjects {
     type Error = ::windows::core::Error;
     fn try_from(value: IWebAccountProviderTokenObjects2) -> ::windows::core::Result<Self> {
@@ -805,36 +660,7 @@ impl IWebAccountProviderTokenOperation {
         }
     }
 }
-impl ::core::convert::From<IWebAccountProviderTokenOperation> for ::windows::core::IUnknown {
-    fn from(value: IWebAccountProviderTokenOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebAccountProviderTokenOperation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWebAccountProviderTokenOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderTokenOperation> for ::windows::core::IUnknown {
-    fn from(value: &IWebAccountProviderTokenOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWebAccountProviderTokenOperation> for ::windows::core::IInspectable {
-    fn from(value: IWebAccountProviderTokenOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebAccountProviderTokenOperation> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWebAccountProviderTokenOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderTokenOperation> for ::windows::core::IInspectable {
-    fn from(value: &IWebAccountProviderTokenOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWebAccountProviderTokenOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IWebAccountProviderTokenOperation> for IWebAccountProviderOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: IWebAccountProviderTokenOperation) -> ::windows::core::Result<Self> {
@@ -920,36 +746,7 @@ impl IWebAccountProviderUIReportOperation {
         unsafe { (::windows::core::Vtable::vtable(this).ReportError)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::convert::From<IWebAccountProviderUIReportOperation> for ::windows::core::IUnknown {
-    fn from(value: IWebAccountProviderUIReportOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebAccountProviderUIReportOperation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWebAccountProviderUIReportOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderUIReportOperation> for ::windows::core::IUnknown {
-    fn from(value: &IWebAccountProviderUIReportOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWebAccountProviderUIReportOperation> for ::windows::core::IInspectable {
-    fn from(value: IWebAccountProviderUIReportOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebAccountProviderUIReportOperation> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWebAccountProviderUIReportOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderUIReportOperation> for ::windows::core::IInspectable {
-    fn from(value: &IWebAccountProviderUIReportOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWebAccountProviderUIReportOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IWebAccountProviderUIReportOperation> for IWebAccountProviderBaseReportOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: IWebAccountProviderUIReportOperation) -> ::windows::core::Result<Self> {
@@ -1216,36 +1013,7 @@ unsafe impl ::windows::core::Interface for WebAccountClientView {
 impl ::windows::core::RuntimeName for WebAccountClientView {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountClientView";
 }
-impl ::core::convert::From<WebAccountClientView> for ::windows::core::IUnknown {
-    fn from(value: WebAccountClientView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountClientView> for ::windows::core::IUnknown {
-    fn from(value: &WebAccountClientView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountClientView> for &::windows::core::IUnknown {
-    fn from(value: &WebAccountClientView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebAccountClientView> for ::windows::core::IInspectable {
-    fn from(value: WebAccountClientView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountClientView> for ::windows::core::IInspectable {
-    fn from(value: &WebAccountClientView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountClientView> for &::windows::core::IInspectable {
-    fn from(value: &WebAccountClientView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebAccountClientView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebAccountClientView {}
 unsafe impl ::core::marker::Sync for WebAccountClientView {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
@@ -1561,36 +1329,7 @@ unsafe impl ::windows::core::Interface for WebAccountProviderAddAccountOperation
 impl ::windows::core::RuntimeName for WebAccountProviderAddAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderAddAccountOperation";
 }
-impl ::core::convert::From<WebAccountProviderAddAccountOperation> for ::windows::core::IUnknown {
-    fn from(value: WebAccountProviderAddAccountOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountProviderAddAccountOperation> for ::windows::core::IUnknown {
-    fn from(value: &WebAccountProviderAddAccountOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountProviderAddAccountOperation> for &::windows::core::IUnknown {
-    fn from(value: &WebAccountProviderAddAccountOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebAccountProviderAddAccountOperation> for ::windows::core::IInspectable {
-    fn from(value: WebAccountProviderAddAccountOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountProviderAddAccountOperation> for ::windows::core::IInspectable {
-    fn from(value: &WebAccountProviderAddAccountOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountProviderAddAccountOperation> for &::windows::core::IInspectable {
-    fn from(value: &WebAccountProviderAddAccountOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebAccountProviderAddAccountOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebAccountProviderAddAccountOperation> for IWebAccountProviderOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: WebAccountProviderAddAccountOperation) -> ::windows::core::Result<Self> {
@@ -1675,36 +1414,7 @@ unsafe impl ::windows::core::Interface for WebAccountProviderDeleteAccountOperat
 impl ::windows::core::RuntimeName for WebAccountProviderDeleteAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderDeleteAccountOperation";
 }
-impl ::core::convert::From<WebAccountProviderDeleteAccountOperation> for ::windows::core::IUnknown {
-    fn from(value: WebAccountProviderDeleteAccountOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountProviderDeleteAccountOperation> for ::windows::core::IUnknown {
-    fn from(value: &WebAccountProviderDeleteAccountOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountProviderDeleteAccountOperation> for &::windows::core::IUnknown {
-    fn from(value: &WebAccountProviderDeleteAccountOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebAccountProviderDeleteAccountOperation> for ::windows::core::IInspectable {
-    fn from(value: WebAccountProviderDeleteAccountOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountProviderDeleteAccountOperation> for ::windows::core::IInspectable {
-    fn from(value: &WebAccountProviderDeleteAccountOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountProviderDeleteAccountOperation> for &::windows::core::IInspectable {
-    fn from(value: &WebAccountProviderDeleteAccountOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebAccountProviderDeleteAccountOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebAccountProviderDeleteAccountOperation> for IWebAccountProviderBaseReportOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: WebAccountProviderDeleteAccountOperation) -> ::windows::core::Result<Self> {
@@ -1840,36 +1550,7 @@ unsafe impl ::windows::core::Interface for WebAccountProviderGetTokenSilentOpera
 impl ::windows::core::RuntimeName for WebAccountProviderGetTokenSilentOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderGetTokenSilentOperation";
 }
-impl ::core::convert::From<WebAccountProviderGetTokenSilentOperation> for ::windows::core::IUnknown {
-    fn from(value: WebAccountProviderGetTokenSilentOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountProviderGetTokenSilentOperation> for ::windows::core::IUnknown {
-    fn from(value: &WebAccountProviderGetTokenSilentOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountProviderGetTokenSilentOperation> for &::windows::core::IUnknown {
-    fn from(value: &WebAccountProviderGetTokenSilentOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebAccountProviderGetTokenSilentOperation> for ::windows::core::IInspectable {
-    fn from(value: WebAccountProviderGetTokenSilentOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountProviderGetTokenSilentOperation> for ::windows::core::IInspectable {
-    fn from(value: &WebAccountProviderGetTokenSilentOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountProviderGetTokenSilentOperation> for &::windows::core::IInspectable {
-    fn from(value: &WebAccountProviderGetTokenSilentOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebAccountProviderGetTokenSilentOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebAccountProviderGetTokenSilentOperation> for IWebAccountProviderBaseReportOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: WebAccountProviderGetTokenSilentOperation) -> ::windows::core::Result<Self> {
@@ -2005,36 +1686,7 @@ unsafe impl ::windows::core::Interface for WebAccountProviderManageAccountOperat
 impl ::windows::core::RuntimeName for WebAccountProviderManageAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderManageAccountOperation";
 }
-impl ::core::convert::From<WebAccountProviderManageAccountOperation> for ::windows::core::IUnknown {
-    fn from(value: WebAccountProviderManageAccountOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountProviderManageAccountOperation> for ::windows::core::IUnknown {
-    fn from(value: &WebAccountProviderManageAccountOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountProviderManageAccountOperation> for &::windows::core::IUnknown {
-    fn from(value: &WebAccountProviderManageAccountOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebAccountProviderManageAccountOperation> for ::windows::core::IInspectable {
-    fn from(value: WebAccountProviderManageAccountOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountProviderManageAccountOperation> for ::windows::core::IInspectable {
-    fn from(value: &WebAccountProviderManageAccountOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountProviderManageAccountOperation> for &::windows::core::IInspectable {
-    fn from(value: &WebAccountProviderManageAccountOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebAccountProviderManageAccountOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebAccountProviderManageAccountOperation> for IWebAccountProviderOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: WebAccountProviderManageAccountOperation) -> ::windows::core::Result<Self> {
@@ -2145,36 +1797,7 @@ unsafe impl ::windows::core::Interface for WebAccountProviderRequestTokenOperati
 impl ::windows::core::RuntimeName for WebAccountProviderRequestTokenOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderRequestTokenOperation";
 }
-impl ::core::convert::From<WebAccountProviderRequestTokenOperation> for ::windows::core::IUnknown {
-    fn from(value: WebAccountProviderRequestTokenOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountProviderRequestTokenOperation> for ::windows::core::IUnknown {
-    fn from(value: &WebAccountProviderRequestTokenOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountProviderRequestTokenOperation> for &::windows::core::IUnknown {
-    fn from(value: &WebAccountProviderRequestTokenOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebAccountProviderRequestTokenOperation> for ::windows::core::IInspectable {
-    fn from(value: WebAccountProviderRequestTokenOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountProviderRequestTokenOperation> for ::windows::core::IInspectable {
-    fn from(value: &WebAccountProviderRequestTokenOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountProviderRequestTokenOperation> for &::windows::core::IInspectable {
-    fn from(value: &WebAccountProviderRequestTokenOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebAccountProviderRequestTokenOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebAccountProviderRequestTokenOperation> for IWebAccountProviderBaseReportOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: WebAccountProviderRequestTokenOperation) -> ::windows::core::Result<Self> {
@@ -2349,36 +1972,7 @@ unsafe impl ::windows::core::Interface for WebAccountProviderRetrieveCookiesOper
 impl ::windows::core::RuntimeName for WebAccountProviderRetrieveCookiesOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderRetrieveCookiesOperation";
 }
-impl ::core::convert::From<WebAccountProviderRetrieveCookiesOperation> for ::windows::core::IUnknown {
-    fn from(value: WebAccountProviderRetrieveCookiesOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountProviderRetrieveCookiesOperation> for ::windows::core::IUnknown {
-    fn from(value: &WebAccountProviderRetrieveCookiesOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountProviderRetrieveCookiesOperation> for &::windows::core::IUnknown {
-    fn from(value: &WebAccountProviderRetrieveCookiesOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebAccountProviderRetrieveCookiesOperation> for ::windows::core::IInspectable {
-    fn from(value: WebAccountProviderRetrieveCookiesOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountProviderRetrieveCookiesOperation> for ::windows::core::IInspectable {
-    fn from(value: &WebAccountProviderRetrieveCookiesOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountProviderRetrieveCookiesOperation> for &::windows::core::IInspectable {
-    fn from(value: &WebAccountProviderRetrieveCookiesOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebAccountProviderRetrieveCookiesOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebAccountProviderRetrieveCookiesOperation> for IWebAccountProviderBaseReportOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: WebAccountProviderRetrieveCookiesOperation) -> ::windows::core::Result<Self> {
@@ -2498,36 +2092,7 @@ unsafe impl ::windows::core::Interface for WebAccountProviderSignOutAccountOpera
 impl ::windows::core::RuntimeName for WebAccountProviderSignOutAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderSignOutAccountOperation";
 }
-impl ::core::convert::From<WebAccountProviderSignOutAccountOperation> for ::windows::core::IUnknown {
-    fn from(value: WebAccountProviderSignOutAccountOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountProviderSignOutAccountOperation> for ::windows::core::IUnknown {
-    fn from(value: &WebAccountProviderSignOutAccountOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountProviderSignOutAccountOperation> for &::windows::core::IUnknown {
-    fn from(value: &WebAccountProviderSignOutAccountOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebAccountProviderSignOutAccountOperation> for ::windows::core::IInspectable {
-    fn from(value: WebAccountProviderSignOutAccountOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountProviderSignOutAccountOperation> for ::windows::core::IInspectable {
-    fn from(value: &WebAccountProviderSignOutAccountOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountProviderSignOutAccountOperation> for &::windows::core::IInspectable {
-    fn from(value: &WebAccountProviderSignOutAccountOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebAccountProviderSignOutAccountOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebAccountProviderSignOutAccountOperation> for IWebAccountProviderBaseReportOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: WebAccountProviderSignOutAccountOperation) -> ::windows::core::Result<Self> {
@@ -2621,36 +2186,7 @@ unsafe impl ::windows::core::Interface for WebAccountProviderTriggerDetails {
 impl ::windows::core::RuntimeName for WebAccountProviderTriggerDetails {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderTriggerDetails";
 }
-impl ::core::convert::From<WebAccountProviderTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: WebAccountProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountProviderTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &WebAccountProviderTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountProviderTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &WebAccountProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebAccountProviderTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: WebAccountProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountProviderTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &WebAccountProviderTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountProviderTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &WebAccountProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebAccountProviderTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebAccountProviderTriggerDetails> for IWebAccountProviderTokenObjects {
     type Error = ::windows::core::Error;
     fn try_from(value: WebAccountProviderTriggerDetails) -> ::windows::core::Result<Self> {
@@ -2803,36 +2339,7 @@ unsafe impl ::windows::core::Interface for WebProviderTokenRequest {
 impl ::windows::core::RuntimeName for WebProviderTokenRequest {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebProviderTokenRequest";
 }
-impl ::core::convert::From<WebProviderTokenRequest> for ::windows::core::IUnknown {
-    fn from(value: WebProviderTokenRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebProviderTokenRequest> for ::windows::core::IUnknown {
-    fn from(value: &WebProviderTokenRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebProviderTokenRequest> for &::windows::core::IUnknown {
-    fn from(value: &WebProviderTokenRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebProviderTokenRequest> for ::windows::core::IInspectable {
-    fn from(value: WebProviderTokenRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebProviderTokenRequest> for ::windows::core::IInspectable {
-    fn from(value: &WebProviderTokenRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebProviderTokenRequest> for &::windows::core::IInspectable {
-    fn from(value: &WebProviderTokenRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebProviderTokenRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebProviderTokenRequest {}
 unsafe impl ::core::marker::Sync for WebProviderTokenRequest {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
@@ -2894,36 +2401,7 @@ unsafe impl ::windows::core::Interface for WebProviderTokenResponse {
 impl ::windows::core::RuntimeName for WebProviderTokenResponse {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse";
 }
-impl ::core::convert::From<WebProviderTokenResponse> for ::windows::core::IUnknown {
-    fn from(value: WebProviderTokenResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebProviderTokenResponse> for ::windows::core::IUnknown {
-    fn from(value: &WebProviderTokenResponse) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebProviderTokenResponse> for &::windows::core::IUnknown {
-    fn from(value: &WebProviderTokenResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebProviderTokenResponse> for ::windows::core::IInspectable {
-    fn from(value: WebProviderTokenResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebProviderTokenResponse> for ::windows::core::IInspectable {
-    fn from(value: &WebProviderTokenResponse) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebProviderTokenResponse> for &::windows::core::IInspectable {
-    fn from(value: &WebProviderTokenResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebProviderTokenResponse, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebProviderTokenResponse {}
 unsafe impl ::core::marker::Sync for WebProviderTokenResponse {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]

@@ -248,41 +248,7 @@ impl ::windows::core::RuntimeName for SocialDashboardItemUpdater {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.Provider.SocialDashboardItemUpdater";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SocialDashboardItemUpdater> for ::windows::core::IUnknown {
-    fn from(value: SocialDashboardItemUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SocialDashboardItemUpdater> for ::windows::core::IUnknown {
-    fn from(value: &SocialDashboardItemUpdater) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SocialDashboardItemUpdater> for &::windows::core::IUnknown {
-    fn from(value: &SocialDashboardItemUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SocialDashboardItemUpdater> for ::windows::core::IInspectable {
-    fn from(value: SocialDashboardItemUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SocialDashboardItemUpdater> for ::windows::core::IInspectable {
-    fn from(value: &SocialDashboardItemUpdater) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SocialDashboardItemUpdater> for &::windows::core::IInspectable {
-    fn from(value: &SocialDashboardItemUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SocialDashboardItemUpdater, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for SocialDashboardItemUpdater {}
 #[cfg(feature = "deprecated")]
@@ -371,41 +337,7 @@ impl ::windows::core::RuntimeName for SocialFeedUpdater {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.Provider.SocialFeedUpdater";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SocialFeedUpdater> for ::windows::core::IUnknown {
-    fn from(value: SocialFeedUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SocialFeedUpdater> for ::windows::core::IUnknown {
-    fn from(value: &SocialFeedUpdater) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SocialFeedUpdater> for &::windows::core::IUnknown {
-    fn from(value: &SocialFeedUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SocialFeedUpdater> for ::windows::core::IInspectable {
-    fn from(value: SocialFeedUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SocialFeedUpdater> for ::windows::core::IInspectable {
-    fn from(value: &SocialFeedUpdater) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SocialFeedUpdater> for &::windows::core::IInspectable {
-    fn from(value: &SocialFeedUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SocialFeedUpdater, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for SocialFeedUpdater {}
 #[cfg(feature = "deprecated")]

@@ -163,21 +163,7 @@ impl ID2D1AnalysisTransform {
         (::windows::core::Vtable::vtable(self).ProcessAnalysisResults)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(analysisdata.as_ptr()), analysisdata.len() as _).ok()
     }
 }
-impl ::core::convert::From<ID2D1AnalysisTransform> for ::windows::core::IUnknown {
-    fn from(value: ID2D1AnalysisTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1AnalysisTransform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1AnalysisTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1AnalysisTransform> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1AnalysisTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1AnalysisTransform, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID2D1AnalysisTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -261,51 +247,7 @@ impl ID2D1Bitmap {
         (::windows::core::Vtable::vtable(self).CopyFromMemory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(dstrect.unwrap_or(::std::ptr::null())), ::core::mem::transmute(srcdata), pitch).ok()
     }
 }
-impl ::core::convert::From<ID2D1Bitmap> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Bitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Bitmap> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Bitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Bitmap> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Bitmap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Bitmap> for ID2D1Resource {
-    fn from(value: ID2D1Bitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Bitmap> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1Bitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Bitmap> for ID2D1Resource {
-    fn from(value: &ID2D1Bitmap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Bitmap> for ID2D1Image {
-    fn from(value: ID2D1Bitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Bitmap> for &'a ID2D1Image {
-    fn from(value: &'a ID2D1Bitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Bitmap> for ID2D1Image {
-    fn from(value: &ID2D1Bitmap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Bitmap, ::windows::core::IUnknown, ID2D1Resource, ID2D1Image);
 impl ::core::clone::Clone for ID2D1Bitmap {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -432,66 +374,7 @@ impl ID2D1Bitmap1 {
         (::windows::core::Vtable::vtable(self).Unmap)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ID2D1Bitmap1> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Bitmap1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Bitmap1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Bitmap1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Bitmap1> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Bitmap1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Bitmap1> for ID2D1Resource {
-    fn from(value: ID2D1Bitmap1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Bitmap1> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1Bitmap1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Bitmap1> for ID2D1Resource {
-    fn from(value: &ID2D1Bitmap1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Bitmap1> for ID2D1Image {
-    fn from(value: ID2D1Bitmap1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Bitmap1> for &'a ID2D1Image {
-    fn from(value: &'a ID2D1Bitmap1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Bitmap1> for ID2D1Image {
-    fn from(value: &ID2D1Bitmap1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Bitmap1> for ID2D1Bitmap {
-    fn from(value: ID2D1Bitmap1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Bitmap1> for &'a ID2D1Bitmap {
-    fn from(value: &'a ID2D1Bitmap1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Bitmap1> for ID2D1Bitmap {
-    fn from(value: &ID2D1Bitmap1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Bitmap1, ::windows::core::IUnknown, ID2D1Resource, ID2D1Image, ID2D1Bitmap);
 impl ::core::clone::Clone for ID2D1Bitmap1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -580,51 +463,7 @@ impl ID2D1BitmapBrush {
         (::windows::core::Vtable::vtable(self).GetBitmap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(bitmap.unwrap_or(::std::ptr::null_mut())))
     }
 }
-impl ::core::convert::From<ID2D1BitmapBrush> for ::windows::core::IUnknown {
-    fn from(value: ID2D1BitmapBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1BitmapBrush> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1BitmapBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1BitmapBrush> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1BitmapBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1BitmapBrush> for ID2D1Resource {
-    fn from(value: ID2D1BitmapBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1BitmapBrush> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1BitmapBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1BitmapBrush> for ID2D1Resource {
-    fn from(value: &ID2D1BitmapBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1BitmapBrush> for ID2D1Brush {
-    fn from(value: ID2D1BitmapBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1BitmapBrush> for &'a ID2D1Brush {
-    fn from(value: &'a ID2D1BitmapBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1BitmapBrush> for ID2D1Brush {
-    fn from(value: &ID2D1BitmapBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1BitmapBrush, ::windows::core::IUnknown, ID2D1Resource, ID2D1Brush);
 impl ::core::clone::Clone for ID2D1BitmapBrush {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -719,66 +558,7 @@ impl ID2D1BitmapBrush1 {
         (::windows::core::Vtable::vtable(self).GetInterpolationMode1)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID2D1BitmapBrush1> for ::windows::core::IUnknown {
-    fn from(value: ID2D1BitmapBrush1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1BitmapBrush1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1BitmapBrush1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1BitmapBrush1> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1BitmapBrush1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1BitmapBrush1> for ID2D1Resource {
-    fn from(value: ID2D1BitmapBrush1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1BitmapBrush1> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1BitmapBrush1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1BitmapBrush1> for ID2D1Resource {
-    fn from(value: &ID2D1BitmapBrush1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1BitmapBrush1> for ID2D1Brush {
-    fn from(value: ID2D1BitmapBrush1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1BitmapBrush1> for &'a ID2D1Brush {
-    fn from(value: &'a ID2D1BitmapBrush1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1BitmapBrush1> for ID2D1Brush {
-    fn from(value: &ID2D1BitmapBrush1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1BitmapBrush1> for ID2D1BitmapBrush {
-    fn from(value: ID2D1BitmapBrush1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1BitmapBrush1> for &'a ID2D1BitmapBrush {
-    fn from(value: &'a ID2D1BitmapBrush1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1BitmapBrush1> for ID2D1BitmapBrush {
-    fn from(value: &ID2D1BitmapBrush1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1BitmapBrush1, ::windows::core::IUnknown, ID2D1Resource, ID2D1Brush, ID2D1BitmapBrush);
 impl ::core::clone::Clone for ID2D1BitmapBrush1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1144,51 +924,7 @@ impl ID2D1BitmapRenderTarget {
         (::windows::core::Vtable::vtable(self).GetBitmap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1Bitmap>(result__)
     }
 }
-impl ::core::convert::From<ID2D1BitmapRenderTarget> for ::windows::core::IUnknown {
-    fn from(value: ID2D1BitmapRenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1BitmapRenderTarget> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1BitmapRenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1BitmapRenderTarget> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1BitmapRenderTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1BitmapRenderTarget> for ID2D1Resource {
-    fn from(value: ID2D1BitmapRenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1BitmapRenderTarget> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1BitmapRenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1BitmapRenderTarget> for ID2D1Resource {
-    fn from(value: &ID2D1BitmapRenderTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1BitmapRenderTarget> for ID2D1RenderTarget {
-    fn from(value: ID2D1BitmapRenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1BitmapRenderTarget> for &'a ID2D1RenderTarget {
-    fn from(value: &'a ID2D1BitmapRenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1BitmapRenderTarget> for ID2D1RenderTarget {
-    fn from(value: &ID2D1BitmapRenderTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1BitmapRenderTarget, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget);
 impl ::core::clone::Clone for ID2D1BitmapRenderTarget {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1244,51 +980,7 @@ impl ID2D1BlendTransform {
         (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(description))
     }
 }
-impl ::core::convert::From<ID2D1BlendTransform> for ::windows::core::IUnknown {
-    fn from(value: ID2D1BlendTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1BlendTransform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1BlendTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1BlendTransform> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1BlendTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1BlendTransform> for ID2D1TransformNode {
-    fn from(value: ID2D1BlendTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1BlendTransform> for &'a ID2D1TransformNode {
-    fn from(value: &'a ID2D1BlendTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1BlendTransform> for ID2D1TransformNode {
-    fn from(value: &ID2D1BlendTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1BlendTransform> for ID2D1ConcreteTransform {
-    fn from(value: ID2D1BlendTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1BlendTransform> for &'a ID2D1ConcreteTransform {
-    fn from(value: &'a ID2D1BlendTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1BlendTransform> for ID2D1ConcreteTransform {
-    fn from(value: &ID2D1BlendTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1BlendTransform, ::windows::core::IUnknown, ID2D1TransformNode, ID2D1ConcreteTransform);
 impl ::core::clone::Clone for ID2D1BlendTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1351,51 +1043,7 @@ impl ID2D1BorderTransform {
         (::windows::core::Vtable::vtable(self).GetExtendModeY)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID2D1BorderTransform> for ::windows::core::IUnknown {
-    fn from(value: ID2D1BorderTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1BorderTransform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1BorderTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1BorderTransform> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1BorderTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1BorderTransform> for ID2D1TransformNode {
-    fn from(value: ID2D1BorderTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1BorderTransform> for &'a ID2D1TransformNode {
-    fn from(value: &'a ID2D1BorderTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1BorderTransform> for ID2D1TransformNode {
-    fn from(value: &ID2D1BorderTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1BorderTransform> for ID2D1ConcreteTransform {
-    fn from(value: ID2D1BorderTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1BorderTransform> for &'a ID2D1ConcreteTransform {
-    fn from(value: &'a ID2D1BorderTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1BorderTransform> for ID2D1ConcreteTransform {
-    fn from(value: &ID2D1BorderTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1BorderTransform, ::windows::core::IUnknown, ID2D1TransformNode, ID2D1ConcreteTransform);
 impl ::core::clone::Clone for ID2D1BorderTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1447,36 +1095,7 @@ impl ID2D1BoundsAdjustmentTransform {
         (::windows::core::Vtable::vtable(self).GetOutputBounds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(outputbounds))
     }
 }
-impl ::core::convert::From<ID2D1BoundsAdjustmentTransform> for ::windows::core::IUnknown {
-    fn from(value: ID2D1BoundsAdjustmentTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1BoundsAdjustmentTransform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1BoundsAdjustmentTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1BoundsAdjustmentTransform> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1BoundsAdjustmentTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1BoundsAdjustmentTransform> for ID2D1TransformNode {
-    fn from(value: ID2D1BoundsAdjustmentTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1BoundsAdjustmentTransform> for &'a ID2D1TransformNode {
-    fn from(value: &'a ID2D1BoundsAdjustmentTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1BoundsAdjustmentTransform> for ID2D1TransformNode {
-    fn from(value: &ID2D1BoundsAdjustmentTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1BoundsAdjustmentTransform, ::windows::core::IUnknown, ID2D1TransformNode);
 impl ::core::clone::Clone for ID2D1BoundsAdjustmentTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1538,36 +1157,7 @@ impl ID2D1Brush {
         (::windows::core::Vtable::vtable(self).GetTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transform))
     }
 }
-impl ::core::convert::From<ID2D1Brush> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Brush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Brush> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Brush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Brush> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Brush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Brush> for ID2D1Resource {
-    fn from(value: ID2D1Brush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Brush> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1Brush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Brush> for ID2D1Resource {
-    fn from(value: &ID2D1Brush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Brush, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::clone::Clone for ID2D1Brush {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1624,36 +1214,7 @@ impl ID2D1ColorContext {
         (::windows::core::Vtable::vtable(self).GetProfile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(profile.as_ptr()), profile.len() as _).ok()
     }
 }
-impl ::core::convert::From<ID2D1ColorContext> for ::windows::core::IUnknown {
-    fn from(value: ID2D1ColorContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ColorContext> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1ColorContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ColorContext> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1ColorContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1ColorContext> for ID2D1Resource {
-    fn from(value: ID2D1ColorContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ColorContext> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1ColorContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ColorContext> for ID2D1Resource {
-    fn from(value: &ID2D1ColorContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1ColorContext, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::clone::Clone for ID2D1ColorContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1717,51 +1278,7 @@ impl ID2D1ColorContext1 {
         (::windows::core::Vtable::vtable(self).GetSimpleColorProfile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D2D1_SIMPLE_COLOR_PROFILE>(result__)
     }
 }
-impl ::core::convert::From<ID2D1ColorContext1> for ::windows::core::IUnknown {
-    fn from(value: ID2D1ColorContext1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ColorContext1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1ColorContext1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ColorContext1> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1ColorContext1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1ColorContext1> for ID2D1Resource {
-    fn from(value: ID2D1ColorContext1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ColorContext1> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1ColorContext1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ColorContext1> for ID2D1Resource {
-    fn from(value: &ID2D1ColorContext1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1ColorContext1> for ID2D1ColorContext {
-    fn from(value: ID2D1ColorContext1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ColorContext1> for &'a ID2D1ColorContext {
-    fn from(value: &'a ID2D1ColorContext1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ColorContext1> for ID2D1ColorContext {
-    fn from(value: &ID2D1ColorContext1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1ColorContext1, ::windows::core::IUnknown, ID2D1Resource, ID2D1ColorContext);
 impl ::core::clone::Clone for ID2D1ColorContext1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1817,51 +1334,7 @@ impl ID2D1CommandList {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ID2D1CommandList> for ::windows::core::IUnknown {
-    fn from(value: ID2D1CommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1CommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandList> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1CommandList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1CommandList> for ID2D1Resource {
-    fn from(value: ID2D1CommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandList> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1CommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandList> for ID2D1Resource {
-    fn from(value: &ID2D1CommandList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1CommandList> for ID2D1Image {
-    fn from(value: ID2D1CommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandList> for &'a ID2D1Image {
-    fn from(value: &'a ID2D1CommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandList> for ID2D1Image {
-    fn from(value: &ID2D1CommandList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1CommandList, ::windows::core::IUnknown, ID2D1Resource, ID2D1Image);
 impl ::core::clone::Clone for ID2D1CommandList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2046,21 +1519,7 @@ impl ID2D1CommandSink {
         (::windows::core::Vtable::vtable(self).PopLayer)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ID2D1CommandSink> for ::windows::core::IUnknown {
-    fn from(value: ID2D1CommandSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1CommandSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandSink> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1CommandSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1CommandSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID2D1CommandSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2310,36 +1769,7 @@ impl ID2D1CommandSink1 {
         (::windows::core::Vtable::vtable(self).SetPrimitiveBlend1)(::windows::core::Vtable::as_raw(self), primitiveblend).ok()
     }
 }
-impl ::core::convert::From<ID2D1CommandSink1> for ::windows::core::IUnknown {
-    fn from(value: ID2D1CommandSink1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandSink1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1CommandSink1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandSink1> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1CommandSink1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1CommandSink1> for ID2D1CommandSink {
-    fn from(value: ID2D1CommandSink1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandSink1> for &'a ID2D1CommandSink {
-    fn from(value: &'a ID2D1CommandSink1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandSink1> for ID2D1CommandSink {
-    fn from(value: &ID2D1CommandSink1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1CommandSink1, ::windows::core::IUnknown, ID2D1CommandSink);
 impl ::core::clone::Clone for ID2D1CommandSink1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2548,51 +1978,7 @@ impl ID2D1CommandSink2 {
         (::windows::core::Vtable::vtable(self).DrawGdiMetafile2)(::windows::core::Vtable::as_raw(self), gdimetafile.into().abi(), ::core::mem::transmute(destinationrectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sourcerectangle.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<ID2D1CommandSink2> for ::windows::core::IUnknown {
-    fn from(value: ID2D1CommandSink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandSink2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1CommandSink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandSink2> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1CommandSink2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1CommandSink2> for ID2D1CommandSink {
-    fn from(value: ID2D1CommandSink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandSink2> for &'a ID2D1CommandSink {
-    fn from(value: &'a ID2D1CommandSink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandSink2> for ID2D1CommandSink {
-    fn from(value: &ID2D1CommandSink2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1CommandSink2> for ID2D1CommandSink1 {
-    fn from(value: ID2D1CommandSink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandSink2> for &'a ID2D1CommandSink1 {
-    fn from(value: &'a ID2D1CommandSink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandSink2> for ID2D1CommandSink1 {
-    fn from(value: &ID2D1CommandSink2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1CommandSink2, ::windows::core::IUnknown, ID2D1CommandSink, ID2D1CommandSink1);
 impl ::core::clone::Clone for ID2D1CommandSink2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2813,66 +2199,7 @@ impl ID2D1CommandSink3 {
         (::windows::core::Vtable::vtable(self).DrawSpriteBatch)(::windows::core::Vtable::as_raw(self), spritebatch.into().abi(), startindex, spritecount, bitmap.into().abi(), interpolationmode, spriteoptions).ok()
     }
 }
-impl ::core::convert::From<ID2D1CommandSink3> for ::windows::core::IUnknown {
-    fn from(value: ID2D1CommandSink3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandSink3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1CommandSink3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandSink3> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1CommandSink3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1CommandSink3> for ID2D1CommandSink {
-    fn from(value: ID2D1CommandSink3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandSink3> for &'a ID2D1CommandSink {
-    fn from(value: &'a ID2D1CommandSink3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandSink3> for ID2D1CommandSink {
-    fn from(value: &ID2D1CommandSink3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1CommandSink3> for ID2D1CommandSink1 {
-    fn from(value: ID2D1CommandSink3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandSink3> for &'a ID2D1CommandSink1 {
-    fn from(value: &'a ID2D1CommandSink3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandSink3> for ID2D1CommandSink1 {
-    fn from(value: &ID2D1CommandSink3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1CommandSink3> for ID2D1CommandSink2 {
-    fn from(value: ID2D1CommandSink3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandSink3> for &'a ID2D1CommandSink2 {
-    fn from(value: &'a ID2D1CommandSink3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandSink3> for ID2D1CommandSink2 {
-    fn from(value: &ID2D1CommandSink3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1CommandSink3, ::windows::core::IUnknown, ID2D1CommandSink, ID2D1CommandSink1, ID2D1CommandSink2);
 impl ::core::clone::Clone for ID2D1CommandSink3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3091,81 +2418,7 @@ impl ID2D1CommandSink4 {
         (::windows::core::Vtable::vtable(self).SetPrimitiveBlend2)(::windows::core::Vtable::as_raw(self), primitiveblend).ok()
     }
 }
-impl ::core::convert::From<ID2D1CommandSink4> for ::windows::core::IUnknown {
-    fn from(value: ID2D1CommandSink4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandSink4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1CommandSink4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandSink4> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1CommandSink4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1CommandSink4> for ID2D1CommandSink {
-    fn from(value: ID2D1CommandSink4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandSink4> for &'a ID2D1CommandSink {
-    fn from(value: &'a ID2D1CommandSink4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandSink4> for ID2D1CommandSink {
-    fn from(value: &ID2D1CommandSink4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1CommandSink4> for ID2D1CommandSink1 {
-    fn from(value: ID2D1CommandSink4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandSink4> for &'a ID2D1CommandSink1 {
-    fn from(value: &'a ID2D1CommandSink4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandSink4> for ID2D1CommandSink1 {
-    fn from(value: &ID2D1CommandSink4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1CommandSink4> for ID2D1CommandSink2 {
-    fn from(value: ID2D1CommandSink4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandSink4> for &'a ID2D1CommandSink2 {
-    fn from(value: &'a ID2D1CommandSink4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandSink4> for ID2D1CommandSink2 {
-    fn from(value: &ID2D1CommandSink4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1CommandSink4> for ID2D1CommandSink3 {
-    fn from(value: ID2D1CommandSink4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandSink4> for &'a ID2D1CommandSink3 {
-    fn from(value: &'a ID2D1CommandSink4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandSink4> for ID2D1CommandSink3 {
-    fn from(value: &ID2D1CommandSink4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1CommandSink4, ::windows::core::IUnknown, ID2D1CommandSink, ID2D1CommandSink1, ID2D1CommandSink2, ID2D1CommandSink3);
 impl ::core::clone::Clone for ID2D1CommandSink4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3392,96 +2645,7 @@ impl ID2D1CommandSink5 {
         (::windows::core::Vtable::vtable(self).BlendImage)(::windows::core::Vtable::as_raw(self), image.into().abi(), blendmode, ::core::mem::transmute(targetoffset.unwrap_or(::std::ptr::null())), ::core::mem::transmute(imagerectangle.unwrap_or(::std::ptr::null())), interpolationmode).ok()
     }
 }
-impl ::core::convert::From<ID2D1CommandSink5> for ::windows::core::IUnknown {
-    fn from(value: ID2D1CommandSink5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandSink5> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1CommandSink5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandSink5> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1CommandSink5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1CommandSink5> for ID2D1CommandSink {
-    fn from(value: ID2D1CommandSink5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandSink5> for &'a ID2D1CommandSink {
-    fn from(value: &'a ID2D1CommandSink5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandSink5> for ID2D1CommandSink {
-    fn from(value: &ID2D1CommandSink5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1CommandSink5> for ID2D1CommandSink1 {
-    fn from(value: ID2D1CommandSink5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandSink5> for &'a ID2D1CommandSink1 {
-    fn from(value: &'a ID2D1CommandSink5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandSink5> for ID2D1CommandSink1 {
-    fn from(value: &ID2D1CommandSink5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1CommandSink5> for ID2D1CommandSink2 {
-    fn from(value: ID2D1CommandSink5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandSink5> for &'a ID2D1CommandSink2 {
-    fn from(value: &'a ID2D1CommandSink5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandSink5> for ID2D1CommandSink2 {
-    fn from(value: &ID2D1CommandSink5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1CommandSink5> for ID2D1CommandSink3 {
-    fn from(value: ID2D1CommandSink5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandSink5> for &'a ID2D1CommandSink3 {
-    fn from(value: &'a ID2D1CommandSink5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandSink5> for ID2D1CommandSink3 {
-    fn from(value: &ID2D1CommandSink5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1CommandSink5> for ID2D1CommandSink4 {
-    fn from(value: ID2D1CommandSink5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1CommandSink5> for &'a ID2D1CommandSink4 {
-    fn from(value: &'a ID2D1CommandSink5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1CommandSink5> for ID2D1CommandSink4 {
-    fn from(value: &ID2D1CommandSink5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1CommandSink5, ::windows::core::IUnknown, ID2D1CommandSink, ID2D1CommandSink1, ID2D1CommandSink2, ID2D1CommandSink3, ID2D1CommandSink4);
 impl ::core::clone::Clone for ID2D1CommandSink5 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3549,36 +2713,7 @@ impl ID2D1ComputeInfo {
         (::windows::core::Vtable::vtable(self).SetResourceTexture)(::windows::core::Vtable::as_raw(self), textureindex, resourcetexture.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ID2D1ComputeInfo> for ::windows::core::IUnknown {
-    fn from(value: ID2D1ComputeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ComputeInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1ComputeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ComputeInfo> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1ComputeInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1ComputeInfo> for ID2D1RenderInfo {
-    fn from(value: ID2D1ComputeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ComputeInfo> for &'a ID2D1RenderInfo {
-    fn from(value: &'a ID2D1ComputeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ComputeInfo> for ID2D1RenderInfo {
-    fn from(value: &ID2D1ComputeInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1ComputeInfo, ::windows::core::IUnknown, ID2D1RenderInfo);
 impl ::core::clone::Clone for ID2D1ComputeInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3646,51 +2781,7 @@ impl ID2D1ComputeTransform {
         (::windows::core::Vtable::vtable(self).CalculateThreadgroups)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(outputrect), ::core::mem::transmute(dimensionx), ::core::mem::transmute(dimensiony), ::core::mem::transmute(dimensionz)).ok()
     }
 }
-impl ::core::convert::From<ID2D1ComputeTransform> for ::windows::core::IUnknown {
-    fn from(value: ID2D1ComputeTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ComputeTransform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1ComputeTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ComputeTransform> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1ComputeTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1ComputeTransform> for ID2D1TransformNode {
-    fn from(value: ID2D1ComputeTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ComputeTransform> for &'a ID2D1TransformNode {
-    fn from(value: &'a ID2D1ComputeTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ComputeTransform> for ID2D1TransformNode {
-    fn from(value: &ID2D1ComputeTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1ComputeTransform> for ID2D1Transform {
-    fn from(value: ID2D1ComputeTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ComputeTransform> for &'a ID2D1Transform {
-    fn from(value: &'a ID2D1ComputeTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ComputeTransform> for ID2D1Transform {
-    fn from(value: &ID2D1ComputeTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1ComputeTransform, ::windows::core::IUnknown, ID2D1TransformNode, ID2D1Transform);
 impl ::core::clone::Clone for ID2D1ComputeTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3744,36 +2835,7 @@ impl ID2D1ConcreteTransform {
         (::windows::core::Vtable::vtable(self).SetCached)(::windows::core::Vtable::as_raw(self), iscached.into())
     }
 }
-impl ::core::convert::From<ID2D1ConcreteTransform> for ::windows::core::IUnknown {
-    fn from(value: ID2D1ConcreteTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ConcreteTransform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1ConcreteTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ConcreteTransform> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1ConcreteTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1ConcreteTransform> for ID2D1TransformNode {
-    fn from(value: ID2D1ConcreteTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ConcreteTransform> for &'a ID2D1TransformNode {
-    fn from(value: &'a ID2D1ConcreteTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ConcreteTransform> for ID2D1TransformNode {
-    fn from(value: &ID2D1ConcreteTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1ConcreteTransform, ::windows::core::IUnknown, ID2D1TransformNode);
 impl ::core::clone::Clone for ID2D1ConcreteTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4146,51 +3208,7 @@ impl ID2D1DCRenderTarget {
         (::windows::core::Vtable::vtable(self).BindDC)(::windows::core::Vtable::as_raw(self), hdc.into(), ::core::mem::transmute(psubrect)).ok()
     }
 }
-impl ::core::convert::From<ID2D1DCRenderTarget> for ::windows::core::IUnknown {
-    fn from(value: ID2D1DCRenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DCRenderTarget> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1DCRenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DCRenderTarget> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1DCRenderTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DCRenderTarget> for ID2D1Resource {
-    fn from(value: ID2D1DCRenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DCRenderTarget> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1DCRenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DCRenderTarget> for ID2D1Resource {
-    fn from(value: &ID2D1DCRenderTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DCRenderTarget> for ID2D1RenderTarget {
-    fn from(value: ID2D1DCRenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DCRenderTarget> for &'a ID2D1RenderTarget {
-    fn from(value: &'a ID2D1DCRenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DCRenderTarget> for ID2D1RenderTarget {
-    fn from(value: &ID2D1DCRenderTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1DCRenderTarget, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget);
 impl ::core::clone::Clone for ID2D1DCRenderTarget {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4255,36 +3273,7 @@ impl ID2D1Device {
         (::windows::core::Vtable::vtable(self).ClearResources)(::windows::core::Vtable::as_raw(self), millisecondssinceuse)
     }
 }
-impl ::core::convert::From<ID2D1Device> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Device) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Device) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Device) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device> for ID2D1Resource {
-    fn from(value: ID2D1Device) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1Device) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device> for ID2D1Resource {
-    fn from(value: &ID2D1Device) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Device, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::clone::Clone for ID2D1Device {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4363,51 +3352,7 @@ impl ID2D1Device1 {
         (::windows::core::Vtable::vtable(self).CreateDeviceContext2)(::windows::core::Vtable::as_raw(self), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1DeviceContext1>(result__)
     }
 }
-impl ::core::convert::From<ID2D1Device1> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Device1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Device1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device1> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Device1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device1> for ID2D1Resource {
-    fn from(value: ID2D1Device1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device1> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1Device1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device1> for ID2D1Resource {
-    fn from(value: &ID2D1Device1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device1> for ID2D1Device {
-    fn from(value: ID2D1Device1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device1> for &'a ID2D1Device {
-    fn from(value: &'a ID2D1Device1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device1> for ID2D1Device {
-    fn from(value: &ID2D1Device1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Device1, ::windows::core::IUnknown, ID2D1Resource, ID2D1Device);
 impl ::core::clone::Clone for ID2D1Device1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4497,66 +3442,7 @@ impl ID2D1Device2 {
         (::windows::core::Vtable::vtable(self).GetDxgiDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Dxgi::IDXGIDevice>(result__)
     }
 }
-impl ::core::convert::From<ID2D1Device2> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Device2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Device2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device2> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Device2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device2> for ID2D1Resource {
-    fn from(value: ID2D1Device2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device2> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1Device2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device2> for ID2D1Resource {
-    fn from(value: &ID2D1Device2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device2> for ID2D1Device {
-    fn from(value: ID2D1Device2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device2> for &'a ID2D1Device {
-    fn from(value: &'a ID2D1Device2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device2> for ID2D1Device {
-    fn from(value: &ID2D1Device2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device2> for ID2D1Device1 {
-    fn from(value: ID2D1Device2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device2> for &'a ID2D1Device1 {
-    fn from(value: &'a ID2D1Device2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device2> for ID2D1Device1 {
-    fn from(value: &ID2D1Device2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Device2, ::windows::core::IUnknown, ID2D1Resource, ID2D1Device, ID2D1Device1);
 impl ::core::clone::Clone for ID2D1Device2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4653,81 +3539,7 @@ impl ID2D1Device3 {
         (::windows::core::Vtable::vtable(self).CreateDeviceContext4)(::windows::core::Vtable::as_raw(self), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1DeviceContext3>(result__)
     }
 }
-impl ::core::convert::From<ID2D1Device3> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Device3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Device3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device3> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Device3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device3> for ID2D1Resource {
-    fn from(value: ID2D1Device3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device3> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1Device3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device3> for ID2D1Resource {
-    fn from(value: &ID2D1Device3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device3> for ID2D1Device {
-    fn from(value: ID2D1Device3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device3> for &'a ID2D1Device {
-    fn from(value: &'a ID2D1Device3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device3> for ID2D1Device {
-    fn from(value: &ID2D1Device3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device3> for ID2D1Device1 {
-    fn from(value: ID2D1Device3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device3> for &'a ID2D1Device1 {
-    fn from(value: &'a ID2D1Device3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device3> for ID2D1Device1 {
-    fn from(value: &ID2D1Device3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device3> for ID2D1Device2 {
-    fn from(value: ID2D1Device3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device3> for &'a ID2D1Device2 {
-    fn from(value: &'a ID2D1Device3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device3> for ID2D1Device2 {
-    fn from(value: &ID2D1Device3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Device3, ::windows::core::IUnknown, ID2D1Resource, ID2D1Device, ID2D1Device1, ID2D1Device2);
 impl ::core::clone::Clone for ID2D1Device3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4829,96 +3641,7 @@ impl ID2D1Device4 {
         (::windows::core::Vtable::vtable(self).GetMaximumColorGlyphCacheMemory)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID2D1Device4> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Device4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Device4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device4> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Device4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device4> for ID2D1Resource {
-    fn from(value: ID2D1Device4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device4> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1Device4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device4> for ID2D1Resource {
-    fn from(value: &ID2D1Device4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device4> for ID2D1Device {
-    fn from(value: ID2D1Device4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device4> for &'a ID2D1Device {
-    fn from(value: &'a ID2D1Device4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device4> for ID2D1Device {
-    fn from(value: &ID2D1Device4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device4> for ID2D1Device1 {
-    fn from(value: ID2D1Device4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device4> for &'a ID2D1Device1 {
-    fn from(value: &'a ID2D1Device4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device4> for ID2D1Device1 {
-    fn from(value: &ID2D1Device4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device4> for ID2D1Device2 {
-    fn from(value: ID2D1Device4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device4> for &'a ID2D1Device2 {
-    fn from(value: &'a ID2D1Device4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device4> for ID2D1Device2 {
-    fn from(value: &ID2D1Device4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device4> for ID2D1Device3 {
-    fn from(value: ID2D1Device4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device4> for &'a ID2D1Device3 {
-    fn from(value: &'a ID2D1Device4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device4> for ID2D1Device3 {
-    fn from(value: &ID2D1Device4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Device4, ::windows::core::IUnknown, ID2D1Resource, ID2D1Device, ID2D1Device1, ID2D1Device2, ID2D1Device3);
 impl ::core::clone::Clone for ID2D1Device4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5026,111 +3749,7 @@ impl ID2D1Device5 {
         (::windows::core::Vtable::vtable(self).CreateDeviceContext6)(::windows::core::Vtable::as_raw(self), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1DeviceContext5>(result__)
     }
 }
-impl ::core::convert::From<ID2D1Device5> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Device5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device5> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Device5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device5> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Device5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device5> for ID2D1Resource {
-    fn from(value: ID2D1Device5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device5> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1Device5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device5> for ID2D1Resource {
-    fn from(value: &ID2D1Device5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device5> for ID2D1Device {
-    fn from(value: ID2D1Device5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device5> for &'a ID2D1Device {
-    fn from(value: &'a ID2D1Device5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device5> for ID2D1Device {
-    fn from(value: &ID2D1Device5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device5> for ID2D1Device1 {
-    fn from(value: ID2D1Device5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device5> for &'a ID2D1Device1 {
-    fn from(value: &'a ID2D1Device5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device5> for ID2D1Device1 {
-    fn from(value: &ID2D1Device5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device5> for ID2D1Device2 {
-    fn from(value: ID2D1Device5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device5> for &'a ID2D1Device2 {
-    fn from(value: &'a ID2D1Device5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device5> for ID2D1Device2 {
-    fn from(value: &ID2D1Device5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device5> for ID2D1Device3 {
-    fn from(value: ID2D1Device5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device5> for &'a ID2D1Device3 {
-    fn from(value: &'a ID2D1Device5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device5> for ID2D1Device3 {
-    fn from(value: &ID2D1Device5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device5> for ID2D1Device4 {
-    fn from(value: ID2D1Device5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device5> for &'a ID2D1Device4 {
-    fn from(value: &'a ID2D1Device5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device5> for ID2D1Device4 {
-    fn from(value: &ID2D1Device5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Device5, ::windows::core::IUnknown, ID2D1Resource, ID2D1Device, ID2D1Device1, ID2D1Device2, ID2D1Device3, ID2D1Device4);
 impl ::core::clone::Clone for ID2D1Device5 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5240,126 +3859,7 @@ impl ID2D1Device6 {
         (::windows::core::Vtable::vtable(self).CreateDeviceContext7)(::windows::core::Vtable::as_raw(self), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1DeviceContext6>(result__)
     }
 }
-impl ::core::convert::From<ID2D1Device6> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Device6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device6> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Device6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device6> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Device6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device6> for ID2D1Resource {
-    fn from(value: ID2D1Device6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device6> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1Device6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device6> for ID2D1Resource {
-    fn from(value: &ID2D1Device6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device6> for ID2D1Device {
-    fn from(value: ID2D1Device6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device6> for &'a ID2D1Device {
-    fn from(value: &'a ID2D1Device6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device6> for ID2D1Device {
-    fn from(value: &ID2D1Device6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device6> for ID2D1Device1 {
-    fn from(value: ID2D1Device6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device6> for &'a ID2D1Device1 {
-    fn from(value: &'a ID2D1Device6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device6> for ID2D1Device1 {
-    fn from(value: &ID2D1Device6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device6> for ID2D1Device2 {
-    fn from(value: ID2D1Device6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device6> for &'a ID2D1Device2 {
-    fn from(value: &'a ID2D1Device6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device6> for ID2D1Device2 {
-    fn from(value: &ID2D1Device6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device6> for ID2D1Device3 {
-    fn from(value: ID2D1Device6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device6> for &'a ID2D1Device3 {
-    fn from(value: &'a ID2D1Device6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device6> for ID2D1Device3 {
-    fn from(value: &ID2D1Device6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device6> for ID2D1Device4 {
-    fn from(value: ID2D1Device6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device6> for &'a ID2D1Device4 {
-    fn from(value: &'a ID2D1Device6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device6> for ID2D1Device4 {
-    fn from(value: &ID2D1Device6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Device6> for ID2D1Device5 {
-    fn from(value: ID2D1Device6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Device6> for &'a ID2D1Device5 {
-    fn from(value: &'a ID2D1Device6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Device6> for ID2D1Device5 {
-    fn from(value: &ID2D1Device6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Device6, ::windows::core::IUnknown, ID2D1Resource, ID2D1Device, ID2D1Device1, ID2D1Device2, ID2D1Device3, ID2D1Device4, ID2D1Device5);
 impl ::core::clone::Clone for ID2D1Device6 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5944,51 +4444,7 @@ impl ID2D1DeviceContext {
         (::windows::core::Vtable::vtable(self).FillOpacityMask2)(::windows::core::Vtable::as_raw(self), opacitymask.into().abi(), brush.into().abi(), ::core::mem::transmute(destinationrectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sourcerectangle.unwrap_or(::std::ptr::null())))
     }
 }
-impl ::core::convert::From<ID2D1DeviceContext> for ::windows::core::IUnknown {
-    fn from(value: ID2D1DeviceContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1DeviceContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1DeviceContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext> for ID2D1Resource {
-    fn from(value: ID2D1DeviceContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1DeviceContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext> for ID2D1Resource {
-    fn from(value: &ID2D1DeviceContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext> for ID2D1RenderTarget {
-    fn from(value: ID2D1DeviceContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext> for &'a ID2D1RenderTarget {
-    fn from(value: &'a ID2D1DeviceContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext> for ID2D1RenderTarget {
-    fn from(value: &ID2D1DeviceContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1DeviceContext, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget);
 impl ::core::clone::Clone for ID2D1DeviceContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6698,66 +5154,7 @@ impl ID2D1DeviceContext1 {
         (::windows::core::Vtable::vtable(self).DrawGeometryRealization)(::windows::core::Vtable::as_raw(self), geometryrealization.into().abi(), brush.into().abi())
     }
 }
-impl ::core::convert::From<ID2D1DeviceContext1> for ::windows::core::IUnknown {
-    fn from(value: ID2D1DeviceContext1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1DeviceContext1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext1> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1DeviceContext1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext1> for ID2D1Resource {
-    fn from(value: ID2D1DeviceContext1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext1> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1DeviceContext1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext1> for ID2D1Resource {
-    fn from(value: &ID2D1DeviceContext1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext1> for ID2D1RenderTarget {
-    fn from(value: ID2D1DeviceContext1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext1> for &'a ID2D1RenderTarget {
-    fn from(value: &'a ID2D1DeviceContext1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext1> for ID2D1RenderTarget {
-    fn from(value: &ID2D1DeviceContext1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext1> for ID2D1DeviceContext {
-    fn from(value: ID2D1DeviceContext1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext1> for &'a ID2D1DeviceContext {
-    fn from(value: &'a ID2D1DeviceContext1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext1> for ID2D1DeviceContext {
-    fn from(value: &ID2D1DeviceContext1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1DeviceContext1, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext);
 impl ::core::clone::Clone for ID2D1DeviceContext1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7439,81 +5836,7 @@ impl ID2D1DeviceContext2 {
         (::windows::core::Vtable::vtable(self).CreateTransformedImageSource)(::windows::core::Vtable::as_raw(self), imagesource.into().abi(), ::core::mem::transmute(properties), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1TransformedImageSource>(result__)
     }
 }
-impl ::core::convert::From<ID2D1DeviceContext2> for ::windows::core::IUnknown {
-    fn from(value: ID2D1DeviceContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1DeviceContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext2> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1DeviceContext2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext2> for ID2D1Resource {
-    fn from(value: ID2D1DeviceContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext2> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1DeviceContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext2> for ID2D1Resource {
-    fn from(value: &ID2D1DeviceContext2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext2> for ID2D1RenderTarget {
-    fn from(value: ID2D1DeviceContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext2> for &'a ID2D1RenderTarget {
-    fn from(value: &'a ID2D1DeviceContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext2> for ID2D1RenderTarget {
-    fn from(value: &ID2D1DeviceContext2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext2> for ID2D1DeviceContext {
-    fn from(value: ID2D1DeviceContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext2> for &'a ID2D1DeviceContext {
-    fn from(value: &'a ID2D1DeviceContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext2> for ID2D1DeviceContext {
-    fn from(value: &ID2D1DeviceContext2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext2> for ID2D1DeviceContext1 {
-    fn from(value: ID2D1DeviceContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext2> for &'a ID2D1DeviceContext1 {
-    fn from(value: &'a ID2D1DeviceContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext2> for ID2D1DeviceContext1 {
-    fn from(value: &ID2D1DeviceContext2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1DeviceContext2, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext, ID2D1DeviceContext1);
 impl ::core::clone::Clone for ID2D1DeviceContext2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8232,96 +6555,7 @@ impl ID2D1DeviceContext3 {
         (::windows::core::Vtable::vtable(self).DrawSpriteBatch)(::windows::core::Vtable::as_raw(self), spritebatch.into().abi(), startindex, spritecount, bitmap.into().abi(), interpolationmode, spriteoptions)
     }
 }
-impl ::core::convert::From<ID2D1DeviceContext3> for ::windows::core::IUnknown {
-    fn from(value: ID2D1DeviceContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1DeviceContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext3> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1DeviceContext3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext3> for ID2D1Resource {
-    fn from(value: ID2D1DeviceContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext3> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1DeviceContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext3> for ID2D1Resource {
-    fn from(value: &ID2D1DeviceContext3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext3> for ID2D1RenderTarget {
-    fn from(value: ID2D1DeviceContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext3> for &'a ID2D1RenderTarget {
-    fn from(value: &'a ID2D1DeviceContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext3> for ID2D1RenderTarget {
-    fn from(value: &ID2D1DeviceContext3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext3> for ID2D1DeviceContext {
-    fn from(value: ID2D1DeviceContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext3> for &'a ID2D1DeviceContext {
-    fn from(value: &'a ID2D1DeviceContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext3> for ID2D1DeviceContext {
-    fn from(value: &ID2D1DeviceContext3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext3> for ID2D1DeviceContext1 {
-    fn from(value: ID2D1DeviceContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext3> for &'a ID2D1DeviceContext1 {
-    fn from(value: &'a ID2D1DeviceContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext3> for ID2D1DeviceContext1 {
-    fn from(value: &ID2D1DeviceContext3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext3> for ID2D1DeviceContext2 {
-    fn from(value: ID2D1DeviceContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext3> for &'a ID2D1DeviceContext2 {
-    fn from(value: &'a ID2D1DeviceContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext3> for ID2D1DeviceContext2 {
-    fn from(value: &ID2D1DeviceContext3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1DeviceContext3, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext, ID2D1DeviceContext1, ID2D1DeviceContext2);
 impl ::core::clone::Clone for ID2D1DeviceContext3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9071,111 +7305,7 @@ impl ID2D1DeviceContext4 {
         (::windows::core::Vtable::vtable(self).GetSvgGlyphImage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(glyphorigin), fontface.into().abi(), fontemsize, glyphindex, issideways.into(), ::core::mem::transmute(worldtransform.unwrap_or(::std::ptr::null())), defaultfillbrush.into().abi(), svgglyphstyle.into().abi(), colorpaletteindex, ::core::mem::transmute(glyphtransform), ::core::mem::transmute(glyphimage)).ok()
     }
 }
-impl ::core::convert::From<ID2D1DeviceContext4> for ::windows::core::IUnknown {
-    fn from(value: ID2D1DeviceContext4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1DeviceContext4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext4> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1DeviceContext4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext4> for ID2D1Resource {
-    fn from(value: ID2D1DeviceContext4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext4> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1DeviceContext4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext4> for ID2D1Resource {
-    fn from(value: &ID2D1DeviceContext4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext4> for ID2D1RenderTarget {
-    fn from(value: ID2D1DeviceContext4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext4> for &'a ID2D1RenderTarget {
-    fn from(value: &'a ID2D1DeviceContext4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext4> for ID2D1RenderTarget {
-    fn from(value: &ID2D1DeviceContext4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext4> for ID2D1DeviceContext {
-    fn from(value: ID2D1DeviceContext4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext4> for &'a ID2D1DeviceContext {
-    fn from(value: &'a ID2D1DeviceContext4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext4> for ID2D1DeviceContext {
-    fn from(value: &ID2D1DeviceContext4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext4> for ID2D1DeviceContext1 {
-    fn from(value: ID2D1DeviceContext4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext4> for &'a ID2D1DeviceContext1 {
-    fn from(value: &'a ID2D1DeviceContext4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext4> for ID2D1DeviceContext1 {
-    fn from(value: &ID2D1DeviceContext4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext4> for ID2D1DeviceContext2 {
-    fn from(value: ID2D1DeviceContext4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext4> for &'a ID2D1DeviceContext2 {
-    fn from(value: &'a ID2D1DeviceContext4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext4> for ID2D1DeviceContext2 {
-    fn from(value: &ID2D1DeviceContext4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext4> for ID2D1DeviceContext3 {
-    fn from(value: ID2D1DeviceContext4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext4> for &'a ID2D1DeviceContext3 {
-    fn from(value: &'a ID2D1DeviceContext4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext4> for ID2D1DeviceContext3 {
-    fn from(value: &ID2D1DeviceContext4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1DeviceContext4, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext, ID2D1DeviceContext1, ID2D1DeviceContext2, ID2D1DeviceContext3);
 impl ::core::clone::Clone for ID2D1DeviceContext4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9975,126 +8105,7 @@ impl ID2D1DeviceContext5 {
         (::windows::core::Vtable::vtable(self).CreateColorContextFromSimpleColorProfile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(simpleprofile), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext1>(result__)
     }
 }
-impl ::core::convert::From<ID2D1DeviceContext5> for ::windows::core::IUnknown {
-    fn from(value: ID2D1DeviceContext5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext5> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1DeviceContext5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext5> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1DeviceContext5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext5> for ID2D1Resource {
-    fn from(value: ID2D1DeviceContext5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext5> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1DeviceContext5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext5> for ID2D1Resource {
-    fn from(value: &ID2D1DeviceContext5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext5> for ID2D1RenderTarget {
-    fn from(value: ID2D1DeviceContext5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext5> for &'a ID2D1RenderTarget {
-    fn from(value: &'a ID2D1DeviceContext5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext5> for ID2D1RenderTarget {
-    fn from(value: &ID2D1DeviceContext5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext5> for ID2D1DeviceContext {
-    fn from(value: ID2D1DeviceContext5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext5> for &'a ID2D1DeviceContext {
-    fn from(value: &'a ID2D1DeviceContext5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext5> for ID2D1DeviceContext {
-    fn from(value: &ID2D1DeviceContext5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext5> for ID2D1DeviceContext1 {
-    fn from(value: ID2D1DeviceContext5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext5> for &'a ID2D1DeviceContext1 {
-    fn from(value: &'a ID2D1DeviceContext5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext5> for ID2D1DeviceContext1 {
-    fn from(value: &ID2D1DeviceContext5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext5> for ID2D1DeviceContext2 {
-    fn from(value: ID2D1DeviceContext5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext5> for &'a ID2D1DeviceContext2 {
-    fn from(value: &'a ID2D1DeviceContext5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext5> for ID2D1DeviceContext2 {
-    fn from(value: &ID2D1DeviceContext5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext5> for ID2D1DeviceContext3 {
-    fn from(value: ID2D1DeviceContext5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext5> for &'a ID2D1DeviceContext3 {
-    fn from(value: &'a ID2D1DeviceContext5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext5> for ID2D1DeviceContext3 {
-    fn from(value: &ID2D1DeviceContext5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext5> for ID2D1DeviceContext4 {
-    fn from(value: ID2D1DeviceContext5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext5> for &'a ID2D1DeviceContext4 {
-    fn from(value: &'a ID2D1DeviceContext5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext5> for ID2D1DeviceContext4 {
-    fn from(value: &ID2D1DeviceContext5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1DeviceContext5, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext, ID2D1DeviceContext1, ID2D1DeviceContext2, ID2D1DeviceContext3, ID2D1DeviceContext4);
 impl ::core::clone::Clone for ID2D1DeviceContext5 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10890,141 +8901,7 @@ impl ID2D1DeviceContext6 {
         (::windows::core::Vtable::vtable(self).BlendImage)(::windows::core::Vtable::as_raw(self), image.into().abi(), blendmode, ::core::mem::transmute(targetoffset.unwrap_or(::std::ptr::null())), ::core::mem::transmute(imagerectangle.unwrap_or(::std::ptr::null())), interpolationmode)
     }
 }
-impl ::core::convert::From<ID2D1DeviceContext6> for ::windows::core::IUnknown {
-    fn from(value: ID2D1DeviceContext6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext6> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1DeviceContext6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext6> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1DeviceContext6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext6> for ID2D1Resource {
-    fn from(value: ID2D1DeviceContext6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext6> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1DeviceContext6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext6> for ID2D1Resource {
-    fn from(value: &ID2D1DeviceContext6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext6> for ID2D1RenderTarget {
-    fn from(value: ID2D1DeviceContext6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext6> for &'a ID2D1RenderTarget {
-    fn from(value: &'a ID2D1DeviceContext6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext6> for ID2D1RenderTarget {
-    fn from(value: &ID2D1DeviceContext6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext6> for ID2D1DeviceContext {
-    fn from(value: ID2D1DeviceContext6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext6> for &'a ID2D1DeviceContext {
-    fn from(value: &'a ID2D1DeviceContext6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext6> for ID2D1DeviceContext {
-    fn from(value: &ID2D1DeviceContext6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext6> for ID2D1DeviceContext1 {
-    fn from(value: ID2D1DeviceContext6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext6> for &'a ID2D1DeviceContext1 {
-    fn from(value: &'a ID2D1DeviceContext6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext6> for ID2D1DeviceContext1 {
-    fn from(value: &ID2D1DeviceContext6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext6> for ID2D1DeviceContext2 {
-    fn from(value: ID2D1DeviceContext6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext6> for &'a ID2D1DeviceContext2 {
-    fn from(value: &'a ID2D1DeviceContext6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext6> for ID2D1DeviceContext2 {
-    fn from(value: &ID2D1DeviceContext6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext6> for ID2D1DeviceContext3 {
-    fn from(value: ID2D1DeviceContext6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext6> for &'a ID2D1DeviceContext3 {
-    fn from(value: &'a ID2D1DeviceContext6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext6> for ID2D1DeviceContext3 {
-    fn from(value: &ID2D1DeviceContext6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext6> for ID2D1DeviceContext4 {
-    fn from(value: ID2D1DeviceContext6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext6> for &'a ID2D1DeviceContext4 {
-    fn from(value: &'a ID2D1DeviceContext6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext6> for ID2D1DeviceContext4 {
-    fn from(value: &ID2D1DeviceContext6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DeviceContext6> for ID2D1DeviceContext5 {
-    fn from(value: ID2D1DeviceContext6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DeviceContext6> for &'a ID2D1DeviceContext5 {
-    fn from(value: &'a ID2D1DeviceContext6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DeviceContext6> for ID2D1DeviceContext5 {
-    fn from(value: &ID2D1DeviceContext6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1DeviceContext6, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext, ID2D1DeviceContext1, ID2D1DeviceContext2, ID2D1DeviceContext3, ID2D1DeviceContext4, ID2D1DeviceContext5);
 impl ::core::clone::Clone for ID2D1DeviceContext6 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11101,36 +8978,7 @@ impl ID2D1DrawInfo {
         (::windows::core::Vtable::vtable(self).SetVertexProcessing)(::windows::core::Vtable::as_raw(self), vertexbuffer.into().abi(), vertexoptions, ::core::mem::transmute(blenddescription.unwrap_or(::std::ptr::null())), ::core::mem::transmute(vertexrange.unwrap_or(::std::ptr::null())), ::core::mem::transmute(vertexshader.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<ID2D1DrawInfo> for ::windows::core::IUnknown {
-    fn from(value: ID2D1DrawInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DrawInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1DrawInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DrawInfo> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1DrawInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DrawInfo> for ID2D1RenderInfo {
-    fn from(value: ID2D1DrawInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DrawInfo> for &'a ID2D1RenderInfo {
-    fn from(value: &'a ID2D1DrawInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DrawInfo> for ID2D1RenderInfo {
-    fn from(value: &ID2D1DrawInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1DrawInfo, ::windows::core::IUnknown, ID2D1RenderInfo);
 impl ::core::clone::Clone for ID2D1DrawInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11195,51 +9043,7 @@ impl ID2D1DrawTransform {
         (::windows::core::Vtable::vtable(self).SetDrawInfo)(::windows::core::Vtable::as_raw(self), drawinfo.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ID2D1DrawTransform> for ::windows::core::IUnknown {
-    fn from(value: ID2D1DrawTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DrawTransform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1DrawTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DrawTransform> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1DrawTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DrawTransform> for ID2D1TransformNode {
-    fn from(value: ID2D1DrawTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DrawTransform> for &'a ID2D1TransformNode {
-    fn from(value: &'a ID2D1DrawTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DrawTransform> for ID2D1TransformNode {
-    fn from(value: &ID2D1DrawTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DrawTransform> for ID2D1Transform {
-    fn from(value: ID2D1DrawTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DrawTransform> for &'a ID2D1Transform {
-    fn from(value: &'a ID2D1DrawTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DrawTransform> for ID2D1Transform {
-    fn from(value: &ID2D1DrawTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1DrawTransform, ::windows::core::IUnknown, ID2D1TransformNode, ID2D1Transform);
 impl ::core::clone::Clone for ID2D1DrawTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11301,36 +9105,7 @@ impl ID2D1DrawingStateBlock {
         (::windows::core::Vtable::vtable(self).GetTextRenderingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textrenderingparams.unwrap_or(::std::ptr::null_mut())))
     }
 }
-impl ::core::convert::From<ID2D1DrawingStateBlock> for ::windows::core::IUnknown {
-    fn from(value: ID2D1DrawingStateBlock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DrawingStateBlock> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1DrawingStateBlock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DrawingStateBlock> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1DrawingStateBlock) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DrawingStateBlock> for ID2D1Resource {
-    fn from(value: ID2D1DrawingStateBlock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DrawingStateBlock> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1DrawingStateBlock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DrawingStateBlock> for ID2D1Resource {
-    fn from(value: &ID2D1DrawingStateBlock) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1DrawingStateBlock, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::clone::Clone for ID2D1DrawingStateBlock {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11417,51 +9192,7 @@ impl ID2D1DrawingStateBlock1 {
         (::windows::core::Vtable::vtable(self).SetDescription2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(statedescription))
     }
 }
-impl ::core::convert::From<ID2D1DrawingStateBlock1> for ::windows::core::IUnknown {
-    fn from(value: ID2D1DrawingStateBlock1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DrawingStateBlock1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1DrawingStateBlock1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DrawingStateBlock1> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1DrawingStateBlock1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DrawingStateBlock1> for ID2D1Resource {
-    fn from(value: ID2D1DrawingStateBlock1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DrawingStateBlock1> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1DrawingStateBlock1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DrawingStateBlock1> for ID2D1Resource {
-    fn from(value: &ID2D1DrawingStateBlock1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1DrawingStateBlock1> for ID2D1DrawingStateBlock {
-    fn from(value: ID2D1DrawingStateBlock1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1DrawingStateBlock1> for &'a ID2D1DrawingStateBlock {
-    fn from(value: &'a ID2D1DrawingStateBlock1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1DrawingStateBlock1> for ID2D1DrawingStateBlock {
-    fn from(value: &ID2D1DrawingStateBlock1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1DrawingStateBlock1, ::windows::core::IUnknown, ID2D1Resource, ID2D1DrawingStateBlock);
 impl ::core::clone::Clone for ID2D1DrawingStateBlock1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11568,36 +9299,7 @@ impl ID2D1Effect {
         (::windows::core::Vtable::vtable(self).GetOutput)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(outputimage))
     }
 }
-impl ::core::convert::From<ID2D1Effect> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Effect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Effect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Effect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Effect> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Effect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Effect> for ID2D1Properties {
-    fn from(value: ID2D1Effect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Effect> for &'a ID2D1Properties {
-    fn from(value: &'a ID2D1Effect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Effect> for ID2D1Properties {
-    fn from(value: &ID2D1Effect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Effect, ::windows::core::IUnknown, ID2D1Properties);
 impl ::core::clone::Clone for ID2D1Effect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11740,21 +9442,7 @@ impl ID2D1EffectContext {
         (::windows::core::Vtable::vtable(self).IsBufferPrecisionSupported)(::windows::core::Vtable::as_raw(self), bufferprecision)
     }
 }
-impl ::core::convert::From<ID2D1EffectContext> for ::windows::core::IUnknown {
-    fn from(value: ID2D1EffectContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1EffectContext> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1EffectContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1EffectContext> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1EffectContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1EffectContext, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID2D1EffectContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11935,36 +9623,7 @@ impl ID2D1EffectContext1 {
         (::windows::core::Vtable::vtable(self).CreateLookupTable3D)(::windows::core::Vtable::as_raw(self), precision, ::core::mem::transmute(extents.as_ptr()), ::core::mem::transmute(data.as_ptr()), data.len() as _, ::core::mem::transmute(strides.as_ptr()), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1LookupTable3D>(result__)
     }
 }
-impl ::core::convert::From<ID2D1EffectContext1> for ::windows::core::IUnknown {
-    fn from(value: ID2D1EffectContext1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1EffectContext1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1EffectContext1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1EffectContext1> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1EffectContext1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1EffectContext1> for ID2D1EffectContext {
-    fn from(value: ID2D1EffectContext1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1EffectContext1> for &'a ID2D1EffectContext {
-    fn from(value: &'a ID2D1EffectContext1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1EffectContext1> for ID2D1EffectContext {
-    fn from(value: &ID2D1EffectContext1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1EffectContext1, ::windows::core::IUnknown, ID2D1EffectContext);
 impl ::core::clone::Clone for ID2D1EffectContext1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12116,51 +9775,7 @@ impl ID2D1EffectContext2 {
         (::windows::core::Vtable::vtable(self).CreateColorContextFromSimpleColorProfile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(simpleprofile), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext1>(result__)
     }
 }
-impl ::core::convert::From<ID2D1EffectContext2> for ::windows::core::IUnknown {
-    fn from(value: ID2D1EffectContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1EffectContext2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1EffectContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1EffectContext2> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1EffectContext2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1EffectContext2> for ID2D1EffectContext {
-    fn from(value: ID2D1EffectContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1EffectContext2> for &'a ID2D1EffectContext {
-    fn from(value: &'a ID2D1EffectContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1EffectContext2> for ID2D1EffectContext {
-    fn from(value: &ID2D1EffectContext2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1EffectContext2> for ID2D1EffectContext1 {
-    fn from(value: ID2D1EffectContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1EffectContext2> for &'a ID2D1EffectContext1 {
-    fn from(value: &'a ID2D1EffectContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1EffectContext2> for ID2D1EffectContext1 {
-    fn from(value: &ID2D1EffectContext2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1EffectContext2, ::windows::core::IUnknown, ID2D1EffectContext, ID2D1EffectContext1);
 impl ::core::clone::Clone for ID2D1EffectContext2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12219,21 +9834,7 @@ impl ID2D1EffectImpl {
         (::windows::core::Vtable::vtable(self).SetGraph)(::windows::core::Vtable::as_raw(self), transformgraph.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ID2D1EffectImpl> for ::windows::core::IUnknown {
-    fn from(value: ID2D1EffectImpl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1EffectImpl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1EffectImpl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1EffectImpl> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1EffectImpl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1EffectImpl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID2D1EffectImpl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12377,51 +9978,7 @@ impl ID2D1EllipseGeometry {
         (::windows::core::Vtable::vtable(self).GetEllipse)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ellipse))
     }
 }
-impl ::core::convert::From<ID2D1EllipseGeometry> for ::windows::core::IUnknown {
-    fn from(value: ID2D1EllipseGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1EllipseGeometry> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1EllipseGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1EllipseGeometry> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1EllipseGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1EllipseGeometry> for ID2D1Resource {
-    fn from(value: ID2D1EllipseGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1EllipseGeometry> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1EllipseGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1EllipseGeometry> for ID2D1Resource {
-    fn from(value: &ID2D1EllipseGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1EllipseGeometry> for ID2D1Geometry {
-    fn from(value: ID2D1EllipseGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1EllipseGeometry> for &'a ID2D1Geometry {
-    fn from(value: &'a ID2D1EllipseGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1EllipseGeometry> for ID2D1Geometry {
-    fn from(value: &ID2D1EllipseGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1EllipseGeometry, ::windows::core::IUnknown, ID2D1Resource, ID2D1Geometry);
 impl ::core::clone::Clone for ID2D1EllipseGeometry {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12546,21 +10103,7 @@ impl ID2D1Factory {
         (::windows::core::Vtable::vtable(self).CreateDCRenderTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rendertargetproperties), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1DCRenderTarget>(result__)
     }
 }
-impl ::core::convert::From<ID2D1Factory> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Factory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Factory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Factory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Factory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID2D1Factory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12784,36 +10327,7 @@ impl ID2D1Factory1 {
         (::windows::core::Vtable::vtable(self).GetEffectProperties)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(effectid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1Properties>(result__)
     }
 }
-impl ::core::convert::From<ID2D1Factory1> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Factory1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Factory1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory1> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Factory1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory1> for ID2D1Factory {
-    fn from(value: ID2D1Factory1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory1> for &'a ID2D1Factory {
-    fn from(value: &'a ID2D1Factory1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory1> for ID2D1Factory {
-    fn from(value: &ID2D1Factory1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Factory1, ::windows::core::IUnknown, ID2D1Factory);
 impl ::core::clone::Clone for ID2D1Factory1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13024,51 +10538,7 @@ impl ID2D1Factory2 {
         (::windows::core::Vtable::vtable(self).CreateDevice2)(::windows::core::Vtable::as_raw(self), dxgidevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1Device1>(result__)
     }
 }
-impl ::core::convert::From<ID2D1Factory2> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Factory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Factory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory2> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Factory2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory2> for ID2D1Factory {
-    fn from(value: ID2D1Factory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory2> for &'a ID2D1Factory {
-    fn from(value: &'a ID2D1Factory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory2> for ID2D1Factory {
-    fn from(value: &ID2D1Factory2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory2> for ID2D1Factory1 {
-    fn from(value: ID2D1Factory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory2> for &'a ID2D1Factory1 {
-    fn from(value: &'a ID2D1Factory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory2> for ID2D1Factory1 {
-    fn from(value: &ID2D1Factory2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Factory2, ::windows::core::IUnknown, ID2D1Factory, ID2D1Factory1);
 impl ::core::clone::Clone for ID2D1Factory2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13270,66 +10740,7 @@ impl ID2D1Factory3 {
         (::windows::core::Vtable::vtable(self).CreateDevice3)(::windows::core::Vtable::as_raw(self), dxgidevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1Device2>(result__)
     }
 }
-impl ::core::convert::From<ID2D1Factory3> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Factory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Factory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory3> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Factory3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory3> for ID2D1Factory {
-    fn from(value: ID2D1Factory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory3> for &'a ID2D1Factory {
-    fn from(value: &'a ID2D1Factory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory3> for ID2D1Factory {
-    fn from(value: &ID2D1Factory3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory3> for ID2D1Factory1 {
-    fn from(value: ID2D1Factory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory3> for &'a ID2D1Factory1 {
-    fn from(value: &'a ID2D1Factory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory3> for ID2D1Factory1 {
-    fn from(value: &ID2D1Factory3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory3> for ID2D1Factory2 {
-    fn from(value: ID2D1Factory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory3> for &'a ID2D1Factory2 {
-    fn from(value: &'a ID2D1Factory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory3> for ID2D1Factory2 {
-    fn from(value: &ID2D1Factory3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Factory3, ::windows::core::IUnknown, ID2D1Factory, ID2D1Factory1, ID2D1Factory2);
 impl ::core::clone::Clone for ID2D1Factory3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13540,81 +10951,7 @@ impl ID2D1Factory4 {
         (::windows::core::Vtable::vtable(self).CreateDevice4)(::windows::core::Vtable::as_raw(self), dxgidevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1Device3>(result__)
     }
 }
-impl ::core::convert::From<ID2D1Factory4> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Factory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Factory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory4> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Factory4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory4> for ID2D1Factory {
-    fn from(value: ID2D1Factory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory4> for &'a ID2D1Factory {
-    fn from(value: &'a ID2D1Factory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory4> for ID2D1Factory {
-    fn from(value: &ID2D1Factory4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory4> for ID2D1Factory1 {
-    fn from(value: ID2D1Factory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory4> for &'a ID2D1Factory1 {
-    fn from(value: &'a ID2D1Factory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory4> for ID2D1Factory1 {
-    fn from(value: &ID2D1Factory4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory4> for ID2D1Factory2 {
-    fn from(value: ID2D1Factory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory4> for &'a ID2D1Factory2 {
-    fn from(value: &'a ID2D1Factory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory4> for ID2D1Factory2 {
-    fn from(value: &ID2D1Factory4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory4> for ID2D1Factory3 {
-    fn from(value: ID2D1Factory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory4> for &'a ID2D1Factory3 {
-    fn from(value: &'a ID2D1Factory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory4> for ID2D1Factory3 {
-    fn from(value: &ID2D1Factory4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Factory4, ::windows::core::IUnknown, ID2D1Factory, ID2D1Factory1, ID2D1Factory2, ID2D1Factory3);
 impl ::core::clone::Clone for ID2D1Factory4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13834,96 +11171,7 @@ impl ID2D1Factory5 {
         (::windows::core::Vtable::vtable(self).CreateDevice5)(::windows::core::Vtable::as_raw(self), dxgidevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1Device4>(result__)
     }
 }
-impl ::core::convert::From<ID2D1Factory5> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Factory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory5> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Factory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory5> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Factory5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory5> for ID2D1Factory {
-    fn from(value: ID2D1Factory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory5> for &'a ID2D1Factory {
-    fn from(value: &'a ID2D1Factory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory5> for ID2D1Factory {
-    fn from(value: &ID2D1Factory5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory5> for ID2D1Factory1 {
-    fn from(value: ID2D1Factory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory5> for &'a ID2D1Factory1 {
-    fn from(value: &'a ID2D1Factory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory5> for ID2D1Factory1 {
-    fn from(value: &ID2D1Factory5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory5> for ID2D1Factory2 {
-    fn from(value: ID2D1Factory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory5> for &'a ID2D1Factory2 {
-    fn from(value: &'a ID2D1Factory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory5> for ID2D1Factory2 {
-    fn from(value: &ID2D1Factory5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory5> for ID2D1Factory3 {
-    fn from(value: ID2D1Factory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory5> for &'a ID2D1Factory3 {
-    fn from(value: &'a ID2D1Factory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory5> for ID2D1Factory3 {
-    fn from(value: &ID2D1Factory5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory5> for ID2D1Factory4 {
-    fn from(value: ID2D1Factory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory5> for &'a ID2D1Factory4 {
-    fn from(value: &'a ID2D1Factory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory5> for ID2D1Factory4 {
-    fn from(value: &ID2D1Factory5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Factory5, ::windows::core::IUnknown, ID2D1Factory, ID2D1Factory1, ID2D1Factory2, ID2D1Factory3, ID2D1Factory4);
 impl ::core::clone::Clone for ID2D1Factory5 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14152,111 +11400,7 @@ impl ID2D1Factory6 {
         (::windows::core::Vtable::vtable(self).CreateDevice6)(::windows::core::Vtable::as_raw(self), dxgidevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1Device5>(result__)
     }
 }
-impl ::core::convert::From<ID2D1Factory6> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Factory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory6> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Factory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory6> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Factory6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory6> for ID2D1Factory {
-    fn from(value: ID2D1Factory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory6> for &'a ID2D1Factory {
-    fn from(value: &'a ID2D1Factory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory6> for ID2D1Factory {
-    fn from(value: &ID2D1Factory6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory6> for ID2D1Factory1 {
-    fn from(value: ID2D1Factory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory6> for &'a ID2D1Factory1 {
-    fn from(value: &'a ID2D1Factory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory6> for ID2D1Factory1 {
-    fn from(value: &ID2D1Factory6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory6> for ID2D1Factory2 {
-    fn from(value: ID2D1Factory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory6> for &'a ID2D1Factory2 {
-    fn from(value: &'a ID2D1Factory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory6> for ID2D1Factory2 {
-    fn from(value: &ID2D1Factory6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory6> for ID2D1Factory3 {
-    fn from(value: ID2D1Factory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory6> for &'a ID2D1Factory3 {
-    fn from(value: &'a ID2D1Factory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory6> for ID2D1Factory3 {
-    fn from(value: &ID2D1Factory6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory6> for ID2D1Factory4 {
-    fn from(value: ID2D1Factory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory6> for &'a ID2D1Factory4 {
-    fn from(value: &'a ID2D1Factory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory6> for ID2D1Factory4 {
-    fn from(value: &ID2D1Factory6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory6> for ID2D1Factory5 {
-    fn from(value: ID2D1Factory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory6> for &'a ID2D1Factory5 {
-    fn from(value: &'a ID2D1Factory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory6> for ID2D1Factory5 {
-    fn from(value: &ID2D1Factory6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Factory6, ::windows::core::IUnknown, ID2D1Factory, ID2D1Factory1, ID2D1Factory2, ID2D1Factory3, ID2D1Factory4, ID2D1Factory5);
 impl ::core::clone::Clone for ID2D1Factory6 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14494,126 +11638,7 @@ impl ID2D1Factory7 {
         (::windows::core::Vtable::vtable(self).CreateDevice7)(::windows::core::Vtable::as_raw(self), dxgidevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1Device6>(result__)
     }
 }
-impl ::core::convert::From<ID2D1Factory7> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Factory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory7> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Factory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory7> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Factory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory7> for ID2D1Factory {
-    fn from(value: ID2D1Factory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory7> for &'a ID2D1Factory {
-    fn from(value: &'a ID2D1Factory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory7> for ID2D1Factory {
-    fn from(value: &ID2D1Factory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory7> for ID2D1Factory1 {
-    fn from(value: ID2D1Factory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory7> for &'a ID2D1Factory1 {
-    fn from(value: &'a ID2D1Factory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory7> for ID2D1Factory1 {
-    fn from(value: &ID2D1Factory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory7> for ID2D1Factory2 {
-    fn from(value: ID2D1Factory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory7> for &'a ID2D1Factory2 {
-    fn from(value: &'a ID2D1Factory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory7> for ID2D1Factory2 {
-    fn from(value: &ID2D1Factory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory7> for ID2D1Factory3 {
-    fn from(value: ID2D1Factory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory7> for &'a ID2D1Factory3 {
-    fn from(value: &'a ID2D1Factory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory7> for ID2D1Factory3 {
-    fn from(value: &ID2D1Factory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory7> for ID2D1Factory4 {
-    fn from(value: ID2D1Factory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory7> for &'a ID2D1Factory4 {
-    fn from(value: &'a ID2D1Factory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory7> for ID2D1Factory4 {
-    fn from(value: &ID2D1Factory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory7> for ID2D1Factory5 {
-    fn from(value: ID2D1Factory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory7> for &'a ID2D1Factory5 {
-    fn from(value: &'a ID2D1Factory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory7> for ID2D1Factory5 {
-    fn from(value: &ID2D1Factory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Factory7> for ID2D1Factory6 {
-    fn from(value: ID2D1Factory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Factory7> for &'a ID2D1Factory6 {
-    fn from(value: &'a ID2D1Factory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Factory7> for ID2D1Factory6 {
-    fn from(value: &ID2D1Factory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Factory7, ::windows::core::IUnknown, ID2D1Factory, ID2D1Factory1, ID2D1Factory2, ID2D1Factory3, ID2D1Factory4, ID2D1Factory5, ID2D1Factory6);
 impl ::core::clone::Clone for ID2D1Factory7 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14663,21 +11688,7 @@ impl ID2D1GdiInteropRenderTarget {
         (::windows::core::Vtable::vtable(self).ReleaseDC)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(update.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<ID2D1GdiInteropRenderTarget> for ::windows::core::IUnknown {
-    fn from(value: ID2D1GdiInteropRenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1GdiInteropRenderTarget> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1GdiInteropRenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1GdiInteropRenderTarget> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1GdiInteropRenderTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1GdiInteropRenderTarget, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID2D1GdiInteropRenderTarget {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14735,36 +11746,7 @@ impl ID2D1GdiMetafile {
         (::windows::core::Vtable::vtable(self).GetBounds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<Common::D2D_RECT_F>(result__)
     }
 }
-impl ::core::convert::From<ID2D1GdiMetafile> for ::windows::core::IUnknown {
-    fn from(value: ID2D1GdiMetafile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1GdiMetafile> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1GdiMetafile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1GdiMetafile> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1GdiMetafile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1GdiMetafile> for ID2D1Resource {
-    fn from(value: ID2D1GdiMetafile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1GdiMetafile> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1GdiMetafile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1GdiMetafile> for ID2D1Resource {
-    fn from(value: &ID2D1GdiMetafile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1GdiMetafile, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::clone::Clone for ID2D1GdiMetafile {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14828,51 +11810,7 @@ impl ID2D1GdiMetafile1 {
         (::windows::core::Vtable::vtable(self).GetSourceBounds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<Common::D2D_RECT_F>(result__)
     }
 }
-impl ::core::convert::From<ID2D1GdiMetafile1> for ::windows::core::IUnknown {
-    fn from(value: ID2D1GdiMetafile1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1GdiMetafile1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1GdiMetafile1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1GdiMetafile1> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1GdiMetafile1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1GdiMetafile1> for ID2D1Resource {
-    fn from(value: ID2D1GdiMetafile1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1GdiMetafile1> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1GdiMetafile1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1GdiMetafile1> for ID2D1Resource {
-    fn from(value: &ID2D1GdiMetafile1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1GdiMetafile1> for ID2D1GdiMetafile {
-    fn from(value: ID2D1GdiMetafile1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1GdiMetafile1> for &'a ID2D1GdiMetafile {
-    fn from(value: &'a ID2D1GdiMetafile1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1GdiMetafile1> for ID2D1GdiMetafile {
-    fn from(value: &ID2D1GdiMetafile1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1GdiMetafile1, ::windows::core::IUnknown, ID2D1Resource, ID2D1GdiMetafile);
 impl ::core::clone::Clone for ID2D1GdiMetafile1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14915,21 +11853,7 @@ impl ID2D1GdiMetafileSink {
         (::windows::core::Vtable::vtable(self).ProcessRecord)(::windows::core::Vtable::as_raw(self), recordtype, ::core::mem::transmute(recorddata.unwrap_or(::std::ptr::null())), recorddatasize).ok()
     }
 }
-impl ::core::convert::From<ID2D1GdiMetafileSink> for ::windows::core::IUnknown {
-    fn from(value: ID2D1GdiMetafileSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1GdiMetafileSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1GdiMetafileSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1GdiMetafileSink> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1GdiMetafileSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1GdiMetafileSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID2D1GdiMetafileSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14971,36 +11895,7 @@ impl ID2D1GdiMetafileSink1 {
         (::windows::core::Vtable::vtable(self).ProcessRecord2)(::windows::core::Vtable::as_raw(self), recordtype, ::core::mem::transmute(recorddata.unwrap_or(::std::ptr::null())), recorddatasize, flags).ok()
     }
 }
-impl ::core::convert::From<ID2D1GdiMetafileSink1> for ::windows::core::IUnknown {
-    fn from(value: ID2D1GdiMetafileSink1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1GdiMetafileSink1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1GdiMetafileSink1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1GdiMetafileSink1> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1GdiMetafileSink1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1GdiMetafileSink1> for ID2D1GdiMetafileSink {
-    fn from(value: ID2D1GdiMetafileSink1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1GdiMetafileSink1> for &'a ID2D1GdiMetafileSink {
-    fn from(value: &'a ID2D1GdiMetafileSink1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1GdiMetafileSink1> for ID2D1GdiMetafileSink {
-    fn from(value: &ID2D1GdiMetafileSink1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1GdiMetafileSink1, ::windows::core::IUnknown, ID2D1GdiMetafileSink);
 impl ::core::clone::Clone for ID2D1GdiMetafileSink1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -15137,36 +12032,7 @@ impl ID2D1Geometry {
         (::windows::core::Vtable::vtable(self).Widen)(::windows::core::Vtable::as_raw(self), strokewidth, strokestyle.into().abi(), ::core::mem::transmute(worldtransform.unwrap_or(::std::ptr::null())), flatteningtolerance, geometrysink.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ID2D1Geometry> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Geometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Geometry> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Geometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Geometry> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Geometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Geometry> for ID2D1Resource {
-    fn from(value: ID2D1Geometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Geometry> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1Geometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Geometry> for ID2D1Resource {
-    fn from(value: &ID2D1Geometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Geometry, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::clone::Clone for ID2D1Geometry {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -15365,51 +12231,7 @@ impl ID2D1GeometryGroup {
         (::windows::core::Vtable::vtable(self).GetSourceGeometries)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(geometries.as_ptr()), geometries.len() as _)
     }
 }
-impl ::core::convert::From<ID2D1GeometryGroup> for ::windows::core::IUnknown {
-    fn from(value: ID2D1GeometryGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1GeometryGroup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1GeometryGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1GeometryGroup> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1GeometryGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1GeometryGroup> for ID2D1Resource {
-    fn from(value: ID2D1GeometryGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1GeometryGroup> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1GeometryGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1GeometryGroup> for ID2D1Resource {
-    fn from(value: &ID2D1GeometryGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1GeometryGroup> for ID2D1Geometry {
-    fn from(value: ID2D1GeometryGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1GeometryGroup> for &'a ID2D1Geometry {
-    fn from(value: &'a ID2D1GeometryGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1GeometryGroup> for ID2D1Geometry {
-    fn from(value: &ID2D1GeometryGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1GeometryGroup, ::windows::core::IUnknown, ID2D1Resource, ID2D1Geometry);
 impl ::core::clone::Clone for ID2D1GeometryGroup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -15453,36 +12275,7 @@ impl ID2D1GeometryRealization {
         (::windows::core::Vtable::vtable(self).base__.GetFactory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(factory))
     }
 }
-impl ::core::convert::From<ID2D1GeometryRealization> for ::windows::core::IUnknown {
-    fn from(value: ID2D1GeometryRealization) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1GeometryRealization> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1GeometryRealization) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1GeometryRealization> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1GeometryRealization) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1GeometryRealization> for ID2D1Resource {
-    fn from(value: ID2D1GeometryRealization) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1GeometryRealization> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1GeometryRealization) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1GeometryRealization> for ID2D1Resource {
-    fn from(value: &ID2D1GeometryRealization) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1GeometryRealization, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::clone::Clone for ID2D1GeometryRealization {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -15580,41 +12373,7 @@ impl ID2D1GeometrySink {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::convert::From<ID2D1GeometrySink> for ::windows::core::IUnknown {
-    fn from(value: ID2D1GeometrySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl<'a> ::core::convert::From<&'a ID2D1GeometrySink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1GeometrySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::convert::From<&ID2D1GeometrySink> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1GeometrySink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::convert::From<ID2D1GeometrySink> for Common::ID2D1SimplifiedGeometrySink {
-    fn from(value: ID2D1GeometrySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl<'a> ::core::convert::From<&'a ID2D1GeometrySink> for &'a Common::ID2D1SimplifiedGeometrySink {
-    fn from(value: &'a ID2D1GeometrySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::convert::From<&ID2D1GeometrySink> for Common::ID2D1SimplifiedGeometrySink {
-    fn from(value: &ID2D1GeometrySink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1GeometrySink, ::windows::core::IUnknown, Common::ID2D1SimplifiedGeometrySink);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::clone::Clone for ID2D1GeometrySink {
     fn clone(&self) -> Self {
@@ -15689,36 +12448,7 @@ impl ID2D1GradientMesh {
         (::windows::core::Vtable::vtable(self).GetPatches)(::windows::core::Vtable::as_raw(self), startindex, ::core::mem::transmute(patches.as_ptr()), patches.len() as _).ok()
     }
 }
-impl ::core::convert::From<ID2D1GradientMesh> for ::windows::core::IUnknown {
-    fn from(value: ID2D1GradientMesh) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1GradientMesh> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1GradientMesh) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1GradientMesh> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1GradientMesh) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1GradientMesh> for ID2D1Resource {
-    fn from(value: ID2D1GradientMesh) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1GradientMesh> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1GradientMesh) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1GradientMesh> for ID2D1Resource {
-    fn from(value: &ID2D1GradientMesh) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1GradientMesh, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::clone::Clone for ID2D1GradientMesh {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -15775,36 +12505,7 @@ impl ID2D1GradientStopCollection {
         (::windows::core::Vtable::vtable(self).GetExtendMode)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID2D1GradientStopCollection> for ::windows::core::IUnknown {
-    fn from(value: ID2D1GradientStopCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1GradientStopCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1GradientStopCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1GradientStopCollection> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1GradientStopCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1GradientStopCollection> for ID2D1Resource {
-    fn from(value: ID2D1GradientStopCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1GradientStopCollection> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1GradientStopCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1GradientStopCollection> for ID2D1Resource {
-    fn from(value: &ID2D1GradientStopCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1GradientStopCollection, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::clone::Clone for ID2D1GradientStopCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -15880,51 +12581,7 @@ impl ID2D1GradientStopCollection1 {
         (::windows::core::Vtable::vtable(self).GetColorInterpolationMode)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID2D1GradientStopCollection1> for ::windows::core::IUnknown {
-    fn from(value: ID2D1GradientStopCollection1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1GradientStopCollection1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1GradientStopCollection1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1GradientStopCollection1> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1GradientStopCollection1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1GradientStopCollection1> for ID2D1Resource {
-    fn from(value: ID2D1GradientStopCollection1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1GradientStopCollection1> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1GradientStopCollection1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1GradientStopCollection1> for ID2D1Resource {
-    fn from(value: &ID2D1GradientStopCollection1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1GradientStopCollection1> for ID2D1GradientStopCollection {
-    fn from(value: ID2D1GradientStopCollection1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1GradientStopCollection1> for &'a ID2D1GradientStopCollection {
-    fn from(value: &'a ID2D1GradientStopCollection1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1GradientStopCollection1> for ID2D1GradientStopCollection {
-    fn from(value: &ID2D1GradientStopCollection1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1GradientStopCollection1, ::windows::core::IUnknown, ID2D1Resource, ID2D1GradientStopCollection);
 impl ::core::clone::Clone for ID2D1GradientStopCollection1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -16305,51 +12962,7 @@ impl ID2D1HwndRenderTarget {
         (::windows::core::Vtable::vtable(self).GetHwnd)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID2D1HwndRenderTarget> for ::windows::core::IUnknown {
-    fn from(value: ID2D1HwndRenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1HwndRenderTarget> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1HwndRenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1HwndRenderTarget> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1HwndRenderTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1HwndRenderTarget> for ID2D1Resource {
-    fn from(value: ID2D1HwndRenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1HwndRenderTarget> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1HwndRenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1HwndRenderTarget> for ID2D1Resource {
-    fn from(value: &ID2D1HwndRenderTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1HwndRenderTarget> for ID2D1RenderTarget {
-    fn from(value: ID2D1HwndRenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1HwndRenderTarget> for &'a ID2D1RenderTarget {
-    fn from(value: &'a ID2D1HwndRenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1HwndRenderTarget> for ID2D1RenderTarget {
-    fn from(value: &ID2D1HwndRenderTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1HwndRenderTarget, ::windows::core::IUnknown, ID2D1Resource, ID2D1RenderTarget);
 impl ::core::clone::Clone for ID2D1HwndRenderTarget {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -16396,36 +13009,7 @@ impl ID2D1Image {
         (::windows::core::Vtable::vtable(self).base__.GetFactory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(factory))
     }
 }
-impl ::core::convert::From<ID2D1Image> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Image) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Image> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Image) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Image> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Image) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Image> for ID2D1Resource {
-    fn from(value: ID2D1Image) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Image> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1Image) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Image> for ID2D1Resource {
-    fn from(value: &ID2D1Image) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Image, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::clone::Clone for ID2D1Image {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -16516,51 +13100,7 @@ impl ID2D1ImageBrush {
         (::windows::core::Vtable::vtable(self).GetSourceRectangle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(sourcerectangle))
     }
 }
-impl ::core::convert::From<ID2D1ImageBrush> for ::windows::core::IUnknown {
-    fn from(value: ID2D1ImageBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ImageBrush> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1ImageBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ImageBrush> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1ImageBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1ImageBrush> for ID2D1Resource {
-    fn from(value: ID2D1ImageBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ImageBrush> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1ImageBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ImageBrush> for ID2D1Resource {
-    fn from(value: &ID2D1ImageBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1ImageBrush> for ID2D1Brush {
-    fn from(value: ID2D1ImageBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ImageBrush> for &'a ID2D1Brush {
-    fn from(value: &'a ID2D1ImageBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ImageBrush> for ID2D1Brush {
-    fn from(value: &ID2D1ImageBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1ImageBrush, ::windows::core::IUnknown, ID2D1Resource, ID2D1Brush);
 impl ::core::clone::Clone for ID2D1ImageBrush {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -16623,51 +13163,7 @@ impl ID2D1ImageSource {
         (::windows::core::Vtable::vtable(self).TryReclaimResources)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<ID2D1ImageSource> for ::windows::core::IUnknown {
-    fn from(value: ID2D1ImageSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ImageSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1ImageSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ImageSource> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1ImageSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1ImageSource> for ID2D1Resource {
-    fn from(value: ID2D1ImageSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ImageSource> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1ImageSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ImageSource> for ID2D1Resource {
-    fn from(value: &ID2D1ImageSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1ImageSource> for ID2D1Image {
-    fn from(value: ID2D1ImageSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ImageSource> for &'a ID2D1Image {
-    fn from(value: &'a ID2D1ImageSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ImageSource> for ID2D1Image {
-    fn from(value: &ID2D1ImageSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1ImageSource, ::windows::core::IUnknown, ID2D1Resource, ID2D1Image);
 impl ::core::clone::Clone for ID2D1ImageSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -16734,66 +13230,7 @@ impl ID2D1ImageSourceFromWic {
         (::windows::core::Vtable::vtable(self).GetSource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(wicbitmapsource.unwrap_or(::std::ptr::null_mut())))
     }
 }
-impl ::core::convert::From<ID2D1ImageSourceFromWic> for ::windows::core::IUnknown {
-    fn from(value: ID2D1ImageSourceFromWic) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ImageSourceFromWic> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1ImageSourceFromWic) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ImageSourceFromWic> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1ImageSourceFromWic) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1ImageSourceFromWic> for ID2D1Resource {
-    fn from(value: ID2D1ImageSourceFromWic) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ImageSourceFromWic> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1ImageSourceFromWic) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ImageSourceFromWic> for ID2D1Resource {
-    fn from(value: &ID2D1ImageSourceFromWic) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1ImageSourceFromWic> for ID2D1Image {
-    fn from(value: ID2D1ImageSourceFromWic) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ImageSourceFromWic> for &'a ID2D1Image {
-    fn from(value: &'a ID2D1ImageSourceFromWic) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ImageSourceFromWic> for ID2D1Image {
-    fn from(value: &ID2D1ImageSourceFromWic) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1ImageSourceFromWic> for ID2D1ImageSource {
-    fn from(value: ID2D1ImageSourceFromWic) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ImageSourceFromWic> for &'a ID2D1ImageSource {
-    fn from(value: &'a ID2D1ImageSourceFromWic) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ImageSourceFromWic> for ID2D1ImageSource {
-    fn from(value: &ID2D1ImageSourceFromWic) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1ImageSourceFromWic, ::windows::core::IUnknown, ID2D1Resource, ID2D1Image, ID2D1ImageSource);
 impl ::core::clone::Clone for ID2D1ImageSourceFromWic {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -16887,36 +13324,7 @@ impl ID2D1Ink {
         (::windows::core::Vtable::vtable(self).GetBounds)(::windows::core::Vtable::as_raw(self), inkstyle.into().abi(), ::core::mem::transmute(worldtransform.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<Common::D2D_RECT_F>(result__)
     }
 }
-impl ::core::convert::From<ID2D1Ink> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Ink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Ink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Ink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Ink> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Ink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Ink> for ID2D1Resource {
-    fn from(value: ID2D1Ink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Ink> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1Ink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Ink> for ID2D1Resource {
-    fn from(value: &ID2D1Ink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Ink, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::clone::Clone for ID2D1Ink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -16986,36 +13394,7 @@ impl ID2D1InkStyle {
         (::windows::core::Vtable::vtable(self).GetNibShape)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID2D1InkStyle> for ::windows::core::IUnknown {
-    fn from(value: ID2D1InkStyle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1InkStyle> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1InkStyle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1InkStyle> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1InkStyle) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1InkStyle> for ID2D1Resource {
-    fn from(value: ID2D1InkStyle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1InkStyle> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1InkStyle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1InkStyle> for ID2D1Resource {
-    fn from(value: &ID2D1InkStyle) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1InkStyle, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::clone::Clone for ID2D1InkStyle {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -17070,36 +13449,7 @@ impl ID2D1Layer {
         result__
     }
 }
-impl ::core::convert::From<ID2D1Layer> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Layer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Layer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Layer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Layer> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Layer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Layer> for ID2D1Resource {
-    fn from(value: ID2D1Layer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Layer> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1Layer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Layer> for ID2D1Resource {
-    fn from(value: &ID2D1Layer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Layer, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::clone::Clone for ID2D1Layer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -17184,51 +13534,7 @@ impl ID2D1LinearGradientBrush {
         (::windows::core::Vtable::vtable(self).GetGradientStopCollection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(gradientstopcollection))
     }
 }
-impl ::core::convert::From<ID2D1LinearGradientBrush> for ::windows::core::IUnknown {
-    fn from(value: ID2D1LinearGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1LinearGradientBrush> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1LinearGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1LinearGradientBrush> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1LinearGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1LinearGradientBrush> for ID2D1Resource {
-    fn from(value: ID2D1LinearGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1LinearGradientBrush> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1LinearGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1LinearGradientBrush> for ID2D1Resource {
-    fn from(value: &ID2D1LinearGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1LinearGradientBrush> for ID2D1Brush {
-    fn from(value: ID2D1LinearGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1LinearGradientBrush> for &'a ID2D1Brush {
-    fn from(value: &'a ID2D1LinearGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1LinearGradientBrush> for ID2D1Brush {
-    fn from(value: &ID2D1LinearGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1LinearGradientBrush, ::windows::core::IUnknown, ID2D1Resource, ID2D1Brush);
 impl ::core::clone::Clone for ID2D1LinearGradientBrush {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -17283,36 +13589,7 @@ impl ID2D1LookupTable3D {
         (::windows::core::Vtable::vtable(self).base__.GetFactory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(factory))
     }
 }
-impl ::core::convert::From<ID2D1LookupTable3D> for ::windows::core::IUnknown {
-    fn from(value: ID2D1LookupTable3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1LookupTable3D> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1LookupTable3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1LookupTable3D> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1LookupTable3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1LookupTable3D> for ID2D1Resource {
-    fn from(value: ID2D1LookupTable3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1LookupTable3D> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1LookupTable3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1LookupTable3D> for ID2D1Resource {
-    fn from(value: &ID2D1LookupTable3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1LookupTable3D, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::clone::Clone for ID2D1LookupTable3D {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -17354,36 +13631,7 @@ impl ID2D1Mesh {
         (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1TessellationSink>(result__)
     }
 }
-impl ::core::convert::From<ID2D1Mesh> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Mesh) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Mesh> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Mesh) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Mesh> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Mesh) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Mesh> for ID2D1Resource {
-    fn from(value: ID2D1Mesh) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Mesh> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1Mesh) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Mesh> for ID2D1Resource {
-    fn from(value: &ID2D1Mesh) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Mesh, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::clone::Clone for ID2D1Mesh {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -17430,21 +13678,7 @@ impl ID2D1Multithread {
         (::windows::core::Vtable::vtable(self).Leave)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID2D1Multithread> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Multithread) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Multithread> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Multithread) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Multithread> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Multithread) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Multithread, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID2D1Multithread {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -17500,36 +13734,7 @@ impl ID2D1OffsetTransform {
         result__
     }
 }
-impl ::core::convert::From<ID2D1OffsetTransform> for ::windows::core::IUnknown {
-    fn from(value: ID2D1OffsetTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1OffsetTransform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1OffsetTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1OffsetTransform> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1OffsetTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1OffsetTransform> for ID2D1TransformNode {
-    fn from(value: ID2D1OffsetTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1OffsetTransform> for &'a ID2D1TransformNode {
-    fn from(value: &'a ID2D1OffsetTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1OffsetTransform> for ID2D1TransformNode {
-    fn from(value: &ID2D1OffsetTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1OffsetTransform, ::windows::core::IUnknown, ID2D1TransformNode);
 impl ::core::clone::Clone for ID2D1OffsetTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -17695,51 +13900,7 @@ impl ID2D1PathGeometry {
         (::windows::core::Vtable::vtable(self).GetFigureCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<ID2D1PathGeometry> for ::windows::core::IUnknown {
-    fn from(value: ID2D1PathGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1PathGeometry> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1PathGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1PathGeometry> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1PathGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1PathGeometry> for ID2D1Resource {
-    fn from(value: ID2D1PathGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1PathGeometry> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1PathGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1PathGeometry> for ID2D1Resource {
-    fn from(value: &ID2D1PathGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1PathGeometry> for ID2D1Geometry {
-    fn from(value: ID2D1PathGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1PathGeometry> for &'a ID2D1Geometry {
-    fn from(value: &'a ID2D1PathGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1PathGeometry> for ID2D1Geometry {
-    fn from(value: &ID2D1PathGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1PathGeometry, ::windows::core::IUnknown, ID2D1Resource, ID2D1Geometry);
 impl ::core::clone::Clone for ID2D1PathGeometry {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -17913,66 +14074,7 @@ impl ID2D1PathGeometry1 {
         (::windows::core::Vtable::vtable(self).ComputePointAndSegmentAtLength)(::windows::core::Vtable::as_raw(self), length, startsegment, ::core::mem::transmute(worldtransform.unwrap_or(::std::ptr::null())), flatteningtolerance, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D2D1_POINT_DESCRIPTION>(result__)
     }
 }
-impl ::core::convert::From<ID2D1PathGeometry1> for ::windows::core::IUnknown {
-    fn from(value: ID2D1PathGeometry1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1PathGeometry1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1PathGeometry1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1PathGeometry1> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1PathGeometry1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1PathGeometry1> for ID2D1Resource {
-    fn from(value: ID2D1PathGeometry1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1PathGeometry1> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1PathGeometry1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1PathGeometry1> for ID2D1Resource {
-    fn from(value: &ID2D1PathGeometry1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1PathGeometry1> for ID2D1Geometry {
-    fn from(value: ID2D1PathGeometry1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1PathGeometry1> for &'a ID2D1Geometry {
-    fn from(value: &'a ID2D1PathGeometry1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1PathGeometry1> for ID2D1Geometry {
-    fn from(value: &ID2D1PathGeometry1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1PathGeometry1> for ID2D1PathGeometry {
-    fn from(value: ID2D1PathGeometry1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1PathGeometry1> for &'a ID2D1PathGeometry {
-    fn from(value: &'a ID2D1PathGeometry1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1PathGeometry1> for ID2D1PathGeometry {
-    fn from(value: &ID2D1PathGeometry1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1PathGeometry1, ::windows::core::IUnknown, ID2D1Resource, ID2D1Geometry, ID2D1PathGeometry);
 impl ::core::clone::Clone for ID2D1PathGeometry1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -18023,21 +14125,7 @@ impl ID2D1PrintControl {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ID2D1PrintControl> for ::windows::core::IUnknown {
-    fn from(value: ID2D1PrintControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1PrintControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1PrintControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1PrintControl> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1PrintControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1PrintControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID2D1PrintControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -18120,21 +14208,7 @@ impl ID2D1Properties {
         (::windows::core::Vtable::vtable(self).GetSubProperties)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1Properties>(result__)
     }
 }
-impl ::core::convert::From<ID2D1Properties> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Properties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Properties> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Properties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Properties> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Properties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Properties, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID2D1Properties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -18238,51 +14312,7 @@ impl ID2D1RadialGradientBrush {
         (::windows::core::Vtable::vtable(self).GetGradientStopCollection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(gradientstopcollection))
     }
 }
-impl ::core::convert::From<ID2D1RadialGradientBrush> for ::windows::core::IUnknown {
-    fn from(value: ID2D1RadialGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1RadialGradientBrush> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1RadialGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1RadialGradientBrush> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1RadialGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1RadialGradientBrush> for ID2D1Resource {
-    fn from(value: ID2D1RadialGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1RadialGradientBrush> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1RadialGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1RadialGradientBrush> for ID2D1Resource {
-    fn from(value: &ID2D1RadialGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1RadialGradientBrush> for ID2D1Brush {
-    fn from(value: ID2D1RadialGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1RadialGradientBrush> for &'a ID2D1Brush {
-    fn from(value: &'a ID2D1RadialGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1RadialGradientBrush> for ID2D1Brush {
-    fn from(value: &ID2D1RadialGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1RadialGradientBrush, ::windows::core::IUnknown, ID2D1Resource, ID2D1Brush);
 impl ::core::clone::Clone for ID2D1RadialGradientBrush {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -18444,51 +14474,7 @@ impl ID2D1RectangleGeometry {
         (::windows::core::Vtable::vtable(self).GetRect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rect))
     }
 }
-impl ::core::convert::From<ID2D1RectangleGeometry> for ::windows::core::IUnknown {
-    fn from(value: ID2D1RectangleGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1RectangleGeometry> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1RectangleGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1RectangleGeometry> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1RectangleGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1RectangleGeometry> for ID2D1Resource {
-    fn from(value: ID2D1RectangleGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1RectangleGeometry> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1RectangleGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1RectangleGeometry> for ID2D1Resource {
-    fn from(value: &ID2D1RectangleGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1RectangleGeometry> for ID2D1Geometry {
-    fn from(value: ID2D1RectangleGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1RectangleGeometry> for &'a ID2D1Geometry {
-    fn from(value: &'a ID2D1RectangleGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1RectangleGeometry> for ID2D1Geometry {
-    fn from(value: &ID2D1RectangleGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1RectangleGeometry, ::windows::core::IUnknown, ID2D1Resource, ID2D1Geometry);
 impl ::core::clone::Clone for ID2D1RectangleGeometry {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -18544,21 +14530,7 @@ impl ID2D1RenderInfo {
         (::windows::core::Vtable::vtable(self).SetInstructionCountHint)(::windows::core::Vtable::as_raw(self), instructioncount)
     }
 }
-impl ::core::convert::From<ID2D1RenderInfo> for ::windows::core::IUnknown {
-    fn from(value: ID2D1RenderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1RenderInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1RenderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1RenderInfo> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1RenderInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1RenderInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID2D1RenderInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -18925,36 +14897,7 @@ impl ID2D1RenderTarget {
         (::windows::core::Vtable::vtable(self).IsSupported)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rendertargetproperties))
     }
 }
-impl ::core::convert::From<ID2D1RenderTarget> for ::windows::core::IUnknown {
-    fn from(value: ID2D1RenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1RenderTarget> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1RenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1RenderTarget> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1RenderTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1RenderTarget> for ID2D1Resource {
-    fn from(value: ID2D1RenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1RenderTarget> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1RenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1RenderTarget> for ID2D1Resource {
-    fn from(value: &ID2D1RenderTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1RenderTarget, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::clone::Clone for ID2D1RenderTarget {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -19144,21 +15087,7 @@ impl ID2D1Resource {
         (::windows::core::Vtable::vtable(self).GetFactory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(factory))
     }
 }
-impl ::core::convert::From<ID2D1Resource> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Resource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Resource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Resource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Resource> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Resource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Resource, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID2D1Resource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -19197,21 +15126,7 @@ impl ID2D1ResourceTexture {
         (::windows::core::Vtable::vtable(self).Update)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(minimumextents.unwrap_or(::std::ptr::null())), ::core::mem::transmute(maximimumextents.unwrap_or(::std::ptr::null())), ::core::mem::transmute(strides.unwrap_or(::std::ptr::null())), dimensions, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
     }
 }
-impl ::core::convert::From<ID2D1ResourceTexture> for ::windows::core::IUnknown {
-    fn from(value: ID2D1ResourceTexture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1ResourceTexture> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1ResourceTexture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1ResourceTexture> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1ResourceTexture) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1ResourceTexture, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID2D1ResourceTexture {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -19353,51 +15268,7 @@ impl ID2D1RoundedRectangleGeometry {
         (::windows::core::Vtable::vtable(self).GetRoundedRect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(roundedrect))
     }
 }
-impl ::core::convert::From<ID2D1RoundedRectangleGeometry> for ::windows::core::IUnknown {
-    fn from(value: ID2D1RoundedRectangleGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1RoundedRectangleGeometry> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1RoundedRectangleGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1RoundedRectangleGeometry> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1RoundedRectangleGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1RoundedRectangleGeometry> for ID2D1Resource {
-    fn from(value: ID2D1RoundedRectangleGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1RoundedRectangleGeometry> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1RoundedRectangleGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1RoundedRectangleGeometry> for ID2D1Resource {
-    fn from(value: &ID2D1RoundedRectangleGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1RoundedRectangleGeometry> for ID2D1Geometry {
-    fn from(value: ID2D1RoundedRectangleGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1RoundedRectangleGeometry> for &'a ID2D1Geometry {
-    fn from(value: &'a ID2D1RoundedRectangleGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1RoundedRectangleGeometry> for ID2D1Geometry {
-    fn from(value: &ID2D1RoundedRectangleGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1RoundedRectangleGeometry, ::windows::core::IUnknown, ID2D1Resource, ID2D1Geometry);
 impl ::core::clone::Clone for ID2D1RoundedRectangleGeometry {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -19467,51 +15338,7 @@ impl ID2D1SolidColorBrush {
         result__
     }
 }
-impl ::core::convert::From<ID2D1SolidColorBrush> for ::windows::core::IUnknown {
-    fn from(value: ID2D1SolidColorBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SolidColorBrush> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1SolidColorBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SolidColorBrush> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1SolidColorBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1SolidColorBrush> for ID2D1Resource {
-    fn from(value: ID2D1SolidColorBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SolidColorBrush> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1SolidColorBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SolidColorBrush> for ID2D1Resource {
-    fn from(value: &ID2D1SolidColorBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1SolidColorBrush> for ID2D1Brush {
-    fn from(value: ID2D1SolidColorBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SolidColorBrush> for &'a ID2D1Brush {
-    fn from(value: &'a ID2D1SolidColorBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SolidColorBrush> for ID2D1Brush {
-    fn from(value: &ID2D1SolidColorBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1SolidColorBrush, ::windows::core::IUnknown, ID2D1Resource, ID2D1Brush);
 impl ::core::clone::Clone for ID2D1SolidColorBrush {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -19587,51 +15414,7 @@ impl ID2D1SourceTransform {
         (::windows::core::Vtable::vtable(self).Draw)(::windows::core::Vtable::as_raw(self), target.into().abi(), ::core::mem::transmute(drawrect), ::core::mem::transmute(targetorigin)).ok()
     }
 }
-impl ::core::convert::From<ID2D1SourceTransform> for ::windows::core::IUnknown {
-    fn from(value: ID2D1SourceTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SourceTransform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1SourceTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SourceTransform> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1SourceTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1SourceTransform> for ID2D1TransformNode {
-    fn from(value: ID2D1SourceTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SourceTransform> for &'a ID2D1TransformNode {
-    fn from(value: &'a ID2D1SourceTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SourceTransform> for ID2D1TransformNode {
-    fn from(value: &ID2D1SourceTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1SourceTransform> for ID2D1Transform {
-    fn from(value: ID2D1SourceTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SourceTransform> for &'a ID2D1Transform {
-    fn from(value: &'a ID2D1SourceTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SourceTransform> for ID2D1Transform {
-    fn from(value: &ID2D1SourceTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1SourceTransform, ::windows::core::IUnknown, ID2D1TransformNode, ID2D1Transform);
 impl ::core::clone::Clone for ID2D1SourceTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -19695,36 +15478,7 @@ impl ID2D1SpriteBatch {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID2D1SpriteBatch> for ::windows::core::IUnknown {
-    fn from(value: ID2D1SpriteBatch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SpriteBatch> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1SpriteBatch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SpriteBatch> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1SpriteBatch) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1SpriteBatch> for ID2D1Resource {
-    fn from(value: ID2D1SpriteBatch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SpriteBatch> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1SpriteBatch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SpriteBatch> for ID2D1Resource {
-    fn from(value: &ID2D1SpriteBatch) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1SpriteBatch, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::clone::Clone for ID2D1SpriteBatch {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -19803,36 +15557,7 @@ impl ID2D1StrokeStyle {
         (::windows::core::Vtable::vtable(self).GetDashes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(dashes.as_ptr()), dashes.len() as _)
     }
 }
-impl ::core::convert::From<ID2D1StrokeStyle> for ::windows::core::IUnknown {
-    fn from(value: ID2D1StrokeStyle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1StrokeStyle> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1StrokeStyle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1StrokeStyle> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1StrokeStyle) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1StrokeStyle> for ID2D1Resource {
-    fn from(value: ID2D1StrokeStyle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1StrokeStyle> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1StrokeStyle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1StrokeStyle> for ID2D1Resource {
-    fn from(value: &ID2D1StrokeStyle) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1StrokeStyle, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::clone::Clone for ID2D1StrokeStyle {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -19909,51 +15634,7 @@ impl ID2D1StrokeStyle1 {
         (::windows::core::Vtable::vtable(self).GetStrokeTransformType)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID2D1StrokeStyle1> for ::windows::core::IUnknown {
-    fn from(value: ID2D1StrokeStyle1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1StrokeStyle1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1StrokeStyle1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1StrokeStyle1> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1StrokeStyle1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1StrokeStyle1> for ID2D1Resource {
-    fn from(value: ID2D1StrokeStyle1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1StrokeStyle1> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1StrokeStyle1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1StrokeStyle1> for ID2D1Resource {
-    fn from(value: &ID2D1StrokeStyle1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1StrokeStyle1> for ID2D1StrokeStyle {
-    fn from(value: ID2D1StrokeStyle1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1StrokeStyle1> for &'a ID2D1StrokeStyle {
-    fn from(value: &'a ID2D1StrokeStyle1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1StrokeStyle1> for ID2D1StrokeStyle {
-    fn from(value: &ID2D1StrokeStyle1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1StrokeStyle1, ::windows::core::IUnknown, ID2D1Resource, ID2D1StrokeStyle);
 impl ::core::clone::Clone for ID2D1StrokeStyle1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -19999,36 +15680,7 @@ impl ID2D1SvgAttribute {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1SvgAttribute>(result__)
     }
 }
-impl ::core::convert::From<ID2D1SvgAttribute> for ::windows::core::IUnknown {
-    fn from(value: ID2D1SvgAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SvgAttribute> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1SvgAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SvgAttribute> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1SvgAttribute) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1SvgAttribute> for ID2D1Resource {
-    fn from(value: ID2D1SvgAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SvgAttribute> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1SvgAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SvgAttribute> for ID2D1Resource {
-    fn from(value: &ID2D1SvgAttribute) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1SvgAttribute, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::clone::Clone for ID2D1SvgAttribute {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -20137,36 +15789,7 @@ impl ID2D1SvgDocument {
         (::windows::core::Vtable::vtable(self).CreatePathData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(segmentdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), segmentdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(commands.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), commands.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1SvgPathData>(result__)
     }
 }
-impl ::core::convert::From<ID2D1SvgDocument> for ::windows::core::IUnknown {
-    fn from(value: ID2D1SvgDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SvgDocument> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1SvgDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SvgDocument> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1SvgDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1SvgDocument> for ID2D1Resource {
-    fn from(value: ID2D1SvgDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SvgDocument> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1SvgDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SvgDocument> for ID2D1Resource {
-    fn from(value: &ID2D1SvgDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1SvgDocument, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::clone::Clone for ID2D1SvgDocument {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -20390,36 +16013,7 @@ impl ID2D1SvgElement {
         (::windows::core::Vtable::vtable(self).GetAttributeValueLength)(::windows::core::Vtable::as_raw(self), name.into(), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<ID2D1SvgElement> for ::windows::core::IUnknown {
-    fn from(value: ID2D1SvgElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SvgElement> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1SvgElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SvgElement> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1SvgElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1SvgElement> for ID2D1Resource {
-    fn from(value: ID2D1SvgElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SvgElement> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1SvgElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SvgElement> for ID2D1Resource {
-    fn from(value: &ID2D1SvgElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1SvgElement, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::clone::Clone for ID2D1SvgElement {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -20523,36 +16117,7 @@ impl ID2D1SvgGlyphStyle {
         (::windows::core::Vtable::vtable(self).GetStroke)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(brush.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(strokewidth.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(dashes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dashes.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(dashoffset.unwrap_or(::std::ptr::null_mut())))
     }
 }
-impl ::core::convert::From<ID2D1SvgGlyphStyle> for ::windows::core::IUnknown {
-    fn from(value: ID2D1SvgGlyphStyle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SvgGlyphStyle> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1SvgGlyphStyle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SvgGlyphStyle> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1SvgGlyphStyle) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1SvgGlyphStyle> for ID2D1Resource {
-    fn from(value: ID2D1SvgGlyphStyle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SvgGlyphStyle> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1SvgGlyphStyle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SvgGlyphStyle> for ID2D1Resource {
-    fn from(value: &ID2D1SvgGlyphStyle) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1SvgGlyphStyle, ::windows::core::IUnknown, ID2D1Resource);
 impl ::core::clone::Clone for ID2D1SvgGlyphStyle {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -20630,51 +16195,7 @@ impl ID2D1SvgPaint {
         (::windows::core::Vtable::vtable(self).GetIdLength)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID2D1SvgPaint> for ::windows::core::IUnknown {
-    fn from(value: ID2D1SvgPaint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SvgPaint> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1SvgPaint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SvgPaint> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1SvgPaint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1SvgPaint> for ID2D1Resource {
-    fn from(value: ID2D1SvgPaint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SvgPaint> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1SvgPaint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SvgPaint> for ID2D1Resource {
-    fn from(value: &ID2D1SvgPaint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1SvgPaint> for ID2D1SvgAttribute {
-    fn from(value: ID2D1SvgPaint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SvgPaint> for &'a ID2D1SvgAttribute {
-    fn from(value: &'a ID2D1SvgPaint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SvgPaint> for ID2D1SvgAttribute {
-    fn from(value: &ID2D1SvgPaint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1SvgPaint, ::windows::core::IUnknown, ID2D1Resource, ID2D1SvgAttribute);
 impl ::core::clone::Clone for ID2D1SvgPaint {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -20762,51 +16283,7 @@ impl ID2D1SvgPathData {
         (::windows::core::Vtable::vtable(self).CreatePathGeometry)(::windows::core::Vtable::as_raw(self), fillmode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1PathGeometry1>(result__)
     }
 }
-impl ::core::convert::From<ID2D1SvgPathData> for ::windows::core::IUnknown {
-    fn from(value: ID2D1SvgPathData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SvgPathData> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1SvgPathData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SvgPathData> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1SvgPathData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1SvgPathData> for ID2D1Resource {
-    fn from(value: ID2D1SvgPathData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SvgPathData> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1SvgPathData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SvgPathData> for ID2D1Resource {
-    fn from(value: &ID2D1SvgPathData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1SvgPathData> for ID2D1SvgAttribute {
-    fn from(value: ID2D1SvgPathData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SvgPathData> for &'a ID2D1SvgAttribute {
-    fn from(value: &'a ID2D1SvgPathData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SvgPathData> for ID2D1SvgAttribute {
-    fn from(value: &ID2D1SvgPathData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1SvgPathData, ::windows::core::IUnknown, ID2D1Resource, ID2D1SvgAttribute);
 impl ::core::clone::Clone for ID2D1SvgPathData {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -20879,51 +16356,7 @@ impl ID2D1SvgPointCollection {
         (::windows::core::Vtable::vtable(self).GetPointsCount)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID2D1SvgPointCollection> for ::windows::core::IUnknown {
-    fn from(value: ID2D1SvgPointCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SvgPointCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1SvgPointCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SvgPointCollection> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1SvgPointCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1SvgPointCollection> for ID2D1Resource {
-    fn from(value: ID2D1SvgPointCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SvgPointCollection> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1SvgPointCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SvgPointCollection> for ID2D1Resource {
-    fn from(value: &ID2D1SvgPointCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1SvgPointCollection> for ID2D1SvgAttribute {
-    fn from(value: ID2D1SvgPointCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SvgPointCollection> for &'a ID2D1SvgAttribute {
-    fn from(value: &'a ID2D1SvgPointCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SvgPointCollection> for ID2D1SvgAttribute {
-    fn from(value: &ID2D1SvgPointCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1SvgPointCollection, ::windows::core::IUnknown, ID2D1Resource, ID2D1SvgAttribute);
 impl ::core::clone::Clone for ID2D1SvgPointCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -20996,51 +16429,7 @@ impl ID2D1SvgStrokeDashArray {
         (::windows::core::Vtable::vtable(self).GetDashesCount)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID2D1SvgStrokeDashArray> for ::windows::core::IUnknown {
-    fn from(value: ID2D1SvgStrokeDashArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SvgStrokeDashArray> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1SvgStrokeDashArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SvgStrokeDashArray> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1SvgStrokeDashArray) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1SvgStrokeDashArray> for ID2D1Resource {
-    fn from(value: ID2D1SvgStrokeDashArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SvgStrokeDashArray> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1SvgStrokeDashArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SvgStrokeDashArray> for ID2D1Resource {
-    fn from(value: &ID2D1SvgStrokeDashArray) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1SvgStrokeDashArray> for ID2D1SvgAttribute {
-    fn from(value: ID2D1SvgStrokeDashArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SvgStrokeDashArray> for &'a ID2D1SvgAttribute {
-    fn from(value: &'a ID2D1SvgStrokeDashArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SvgStrokeDashArray> for ID2D1SvgAttribute {
-    fn from(value: &ID2D1SvgStrokeDashArray) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1SvgStrokeDashArray, ::windows::core::IUnknown, ID2D1Resource, ID2D1SvgAttribute);
 impl ::core::clone::Clone for ID2D1SvgStrokeDashArray {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -21089,21 +16478,7 @@ impl ID2D1TessellationSink {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ID2D1TessellationSink> for ::windows::core::IUnknown {
-    fn from(value: ID2D1TessellationSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1TessellationSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1TessellationSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1TessellationSink> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1TessellationSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1TessellationSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID2D1TessellationSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -21162,36 +16537,7 @@ impl ID2D1Transform {
         (::windows::core::Vtable::vtable(self).MapInvalidRect)(::windows::core::Vtable::as_raw(self), inputindex, ::core::mem::transmute(invalidinputrect), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
     }
 }
-impl ::core::convert::From<ID2D1Transform> for ::windows::core::IUnknown {
-    fn from(value: ID2D1Transform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Transform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1Transform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Transform> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1Transform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1Transform> for ID2D1TransformNode {
-    fn from(value: ID2D1Transform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1Transform> for &'a ID2D1TransformNode {
-    fn from(value: &'a ID2D1Transform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1Transform> for ID2D1TransformNode {
-    fn from(value: &ID2D1Transform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1Transform, ::windows::core::IUnknown, ID2D1TransformNode);
 impl ::core::clone::Clone for ID2D1Transform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -21284,21 +16630,7 @@ impl ID2D1TransformGraph {
         (::windows::core::Vtable::vtable(self).SetPassthroughGraph)(::windows::core::Vtable::as_raw(self), effectinputindex).ok()
     }
 }
-impl ::core::convert::From<ID2D1TransformGraph> for ::windows::core::IUnknown {
-    fn from(value: ID2D1TransformGraph) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1TransformGraph> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1TransformGraph) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1TransformGraph> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1TransformGraph) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1TransformGraph, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID2D1TransformGraph {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -21345,21 +16677,7 @@ impl ID2D1TransformNode {
         (::windows::core::Vtable::vtable(self).GetInputCount)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID2D1TransformNode> for ::windows::core::IUnknown {
-    fn from(value: ID2D1TransformNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1TransformNode> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1TransformNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1TransformNode> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1TransformNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1TransformNode, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID2D1TransformNode {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -21504,51 +16822,7 @@ impl ID2D1TransformedGeometry {
         (::windows::core::Vtable::vtable(self).GetTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transform))
     }
 }
-impl ::core::convert::From<ID2D1TransformedGeometry> for ::windows::core::IUnknown {
-    fn from(value: ID2D1TransformedGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1TransformedGeometry> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1TransformedGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1TransformedGeometry> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1TransformedGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1TransformedGeometry> for ID2D1Resource {
-    fn from(value: ID2D1TransformedGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1TransformedGeometry> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1TransformedGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1TransformedGeometry> for ID2D1Resource {
-    fn from(value: &ID2D1TransformedGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1TransformedGeometry> for ID2D1Geometry {
-    fn from(value: ID2D1TransformedGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1TransformedGeometry> for &'a ID2D1Geometry {
-    fn from(value: &'a ID2D1TransformedGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1TransformedGeometry> for ID2D1Geometry {
-    fn from(value: &ID2D1TransformedGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1TransformedGeometry, ::windows::core::IUnknown, ID2D1Resource, ID2D1Geometry);
 impl ::core::clone::Clone for ID2D1TransformedGeometry {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -21597,51 +16871,7 @@ impl ID2D1TransformedImageSource {
         (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(properties))
     }
 }
-impl ::core::convert::From<ID2D1TransformedImageSource> for ::windows::core::IUnknown {
-    fn from(value: ID2D1TransformedImageSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1TransformedImageSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1TransformedImageSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1TransformedImageSource> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1TransformedImageSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1TransformedImageSource> for ID2D1Resource {
-    fn from(value: ID2D1TransformedImageSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1TransformedImageSource> for &'a ID2D1Resource {
-    fn from(value: &'a ID2D1TransformedImageSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1TransformedImageSource> for ID2D1Resource {
-    fn from(value: &ID2D1TransformedImageSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID2D1TransformedImageSource> for ID2D1Image {
-    fn from(value: ID2D1TransformedImageSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1TransformedImageSource> for &'a ID2D1Image {
-    fn from(value: &'a ID2D1TransformedImageSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1TransformedImageSource> for ID2D1Image {
-    fn from(value: &ID2D1TransformedImageSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1TransformedImageSource, ::windows::core::IUnknown, ID2D1Resource, ID2D1Image);
 impl ::core::clone::Clone for ID2D1TransformedImageSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -21684,21 +16914,7 @@ impl ID2D1VertexBuffer {
         (::windows::core::Vtable::vtable(self).Unmap)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ID2D1VertexBuffer> for ::windows::core::IUnknown {
-    fn from(value: ID2D1VertexBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1VertexBuffer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1VertexBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1VertexBuffer> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1VertexBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1VertexBuffer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID2D1VertexBuffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())

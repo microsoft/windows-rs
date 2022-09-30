@@ -390,36 +390,7 @@ unsafe impl ::windows::core::Interface for AtomPubClient {
 impl ::windows::core::RuntimeName for AtomPubClient {
     const NAME: &'static str = "Windows.Web.AtomPub.AtomPubClient";
 }
-impl ::core::convert::From<AtomPubClient> for ::windows::core::IUnknown {
-    fn from(value: AtomPubClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AtomPubClient> for ::windows::core::IUnknown {
-    fn from(value: &AtomPubClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AtomPubClient> for &::windows::core::IUnknown {
-    fn from(value: &AtomPubClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AtomPubClient> for ::windows::core::IInspectable {
-    fn from(value: AtomPubClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AtomPubClient> for ::windows::core::IInspectable {
-    fn from(value: &AtomPubClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AtomPubClient> for &::windows::core::IInspectable {
-    fn from(value: &AtomPubClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AtomPubClient, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Web_Syndication")]
 impl ::core::convert::TryFrom<AtomPubClient> for super::Syndication::ISyndicationClient {
     type Error = ::windows::core::Error;
@@ -619,36 +590,7 @@ unsafe impl ::windows::core::Interface for ResourceCollection {
 impl ::windows::core::RuntimeName for ResourceCollection {
     const NAME: &'static str = "Windows.Web.AtomPub.ResourceCollection";
 }
-impl ::core::convert::From<ResourceCollection> for ::windows::core::IUnknown {
-    fn from(value: ResourceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ResourceCollection> for ::windows::core::IUnknown {
-    fn from(value: &ResourceCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ResourceCollection> for &::windows::core::IUnknown {
-    fn from(value: &ResourceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ResourceCollection> for ::windows::core::IInspectable {
-    fn from(value: ResourceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ResourceCollection> for ::windows::core::IInspectable {
-    fn from(value: &ResourceCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ResourceCollection> for &::windows::core::IInspectable {
-    fn from(value: &ResourceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ResourceCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Web_Syndication")]
 impl ::core::convert::TryFrom<ResourceCollection> for super::Syndication::ISyndicationNode {
     type Error = ::windows::core::Error;
@@ -821,36 +763,7 @@ unsafe impl ::windows::core::Interface for ServiceDocument {
 impl ::windows::core::RuntimeName for ServiceDocument {
     const NAME: &'static str = "Windows.Web.AtomPub.ServiceDocument";
 }
-impl ::core::convert::From<ServiceDocument> for ::windows::core::IUnknown {
-    fn from(value: ServiceDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ServiceDocument> for ::windows::core::IUnknown {
-    fn from(value: &ServiceDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ServiceDocument> for &::windows::core::IUnknown {
-    fn from(value: &ServiceDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ServiceDocument> for ::windows::core::IInspectable {
-    fn from(value: ServiceDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ServiceDocument> for ::windows::core::IInspectable {
-    fn from(value: &ServiceDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ServiceDocument> for &::windows::core::IInspectable {
-    fn from(value: &ServiceDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ServiceDocument, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Web_Syndication")]
 impl ::core::convert::TryFrom<ServiceDocument> for super::Syndication::ISyndicationNode {
     type Error = ::windows::core::Error;
@@ -1032,36 +945,7 @@ unsafe impl ::windows::core::Interface for Workspace {
 impl ::windows::core::RuntimeName for Workspace {
     const NAME: &'static str = "Windows.Web.AtomPub.Workspace";
 }
-impl ::core::convert::From<Workspace> for ::windows::core::IUnknown {
-    fn from(value: Workspace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Workspace> for ::windows::core::IUnknown {
-    fn from(value: &Workspace) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Workspace> for &::windows::core::IUnknown {
-    fn from(value: &Workspace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Workspace> for ::windows::core::IInspectable {
-    fn from(value: Workspace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Workspace> for ::windows::core::IInspectable {
-    fn from(value: &Workspace) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Workspace> for &::windows::core::IInspectable {
-    fn from(value: &Workspace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Workspace, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Web_Syndication")]
 impl ::core::convert::TryFrom<Workspace> for super::Syndication::ISyndicationNode {
     type Error = ::windows::core::Error;

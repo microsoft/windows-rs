@@ -160,36 +160,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastingMonitor {
 impl ::windows::core::RuntimeName for AppBroadcastingMonitor {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.AppBroadcastingMonitor";
 }
-impl ::core::convert::From<AppBroadcastingMonitor> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastingMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastingMonitor> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastingMonitor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastingMonitor> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastingMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastingMonitor> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastingMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastingMonitor> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastingMonitor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastingMonitor> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastingMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastingMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastingMonitor {}
 unsafe impl ::core::marker::Sync for AppBroadcastingMonitor {}
 #[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
@@ -243,36 +214,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastingStatus {
 impl ::windows::core::RuntimeName for AppBroadcastingStatus {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.AppBroadcastingStatus";
 }
-impl ::core::convert::From<AppBroadcastingStatus> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastingStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastingStatus> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastingStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastingStatus> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastingStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastingStatus> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastingStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastingStatus> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastingStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastingStatus> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastingStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastingStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastingStatus {}
 unsafe impl ::core::marker::Sync for AppBroadcastingStatus {}
 #[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
@@ -368,36 +310,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastingStatusDetails {
 impl ::windows::core::RuntimeName for AppBroadcastingStatusDetails {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails";
 }
-impl ::core::convert::From<AppBroadcastingStatusDetails> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastingStatusDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastingStatusDetails> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastingStatusDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastingStatusDetails> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastingStatusDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastingStatusDetails> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastingStatusDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastingStatusDetails> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastingStatusDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastingStatusDetails> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastingStatusDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastingStatusDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastingStatusDetails {}
 unsafe impl ::core::marker::Sync for AppBroadcastingStatusDetails {}
 #[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
@@ -467,36 +380,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastingUI {
 impl ::windows::core::RuntimeName for AppBroadcastingUI {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.AppBroadcastingUI";
 }
-impl ::core::convert::From<AppBroadcastingUI> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastingUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastingUI> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastingUI) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastingUI> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastingUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastingUI> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastingUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastingUI> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastingUI) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastingUI> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastingUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastingUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastingUI {}
 unsafe impl ::core::marker::Sync for AppBroadcastingUI {}
 #[cfg(feature = "implement")]

@@ -961,36 +961,7 @@ unsafe impl ::windows::core::Interface for Print3DManager {
 impl ::windows::core::RuntimeName for Print3DManager {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DManager";
 }
-impl ::core::convert::From<Print3DManager> for ::windows::core::IUnknown {
-    fn from(value: Print3DManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Print3DManager> for ::windows::core::IUnknown {
-    fn from(value: &Print3DManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Print3DManager> for &::windows::core::IUnknown {
-    fn from(value: &Print3DManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Print3DManager> for ::windows::core::IInspectable {
-    fn from(value: Print3DManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Print3DManager> for ::windows::core::IInspectable {
-    fn from(value: &Print3DManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Print3DManager> for &::windows::core::IInspectable {
-    fn from(value: &Print3DManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Print3DManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DManager {}
 unsafe impl ::core::marker::Sync for Print3DManager {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1082,36 +1053,7 @@ unsafe impl ::windows::core::Interface for Print3DTask {
 impl ::windows::core::RuntimeName for Print3DTask {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTask";
 }
-impl ::core::convert::From<Print3DTask> for ::windows::core::IUnknown {
-    fn from(value: Print3DTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Print3DTask> for ::windows::core::IUnknown {
-    fn from(value: &Print3DTask) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Print3DTask> for &::windows::core::IUnknown {
-    fn from(value: &Print3DTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Print3DTask> for ::windows::core::IInspectable {
-    fn from(value: Print3DTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Print3DTask> for ::windows::core::IInspectable {
-    fn from(value: &Print3DTask) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Print3DTask> for &::windows::core::IInspectable {
-    fn from(value: &Print3DTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Print3DTask, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTask {}
 unsafe impl ::core::marker::Sync for Print3DTask {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1165,36 +1107,7 @@ unsafe impl ::windows::core::Interface for Print3DTaskCompletedEventArgs {
 impl ::windows::core::RuntimeName for Print3DTaskCompletedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskCompletedEventArgs";
 }
-impl ::core::convert::From<Print3DTaskCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: Print3DTaskCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Print3DTaskCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &Print3DTaskCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Print3DTaskCompletedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &Print3DTaskCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Print3DTaskCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: Print3DTaskCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Print3DTaskCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &Print3DTaskCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Print3DTaskCompletedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &Print3DTaskCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Print3DTaskCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTaskCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskCompletedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1241,36 +1154,7 @@ unsafe impl ::windows::core::Interface for Print3DTaskRequest {
 impl ::windows::core::RuntimeName for Print3DTaskRequest {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskRequest";
 }
-impl ::core::convert::From<Print3DTaskRequest> for ::windows::core::IUnknown {
-    fn from(value: Print3DTaskRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Print3DTaskRequest> for ::windows::core::IUnknown {
-    fn from(value: &Print3DTaskRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Print3DTaskRequest> for &::windows::core::IUnknown {
-    fn from(value: &Print3DTaskRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Print3DTaskRequest> for ::windows::core::IInspectable {
-    fn from(value: Print3DTaskRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Print3DTaskRequest> for ::windows::core::IInspectable {
-    fn from(value: &Print3DTaskRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Print3DTaskRequest> for &::windows::core::IInspectable {
-    fn from(value: &Print3DTaskRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Print3DTaskRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTaskRequest {}
 unsafe impl ::core::marker::Sync for Print3DTaskRequest {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1317,36 +1201,7 @@ unsafe impl ::windows::core::Interface for Print3DTaskRequestedEventArgs {
 impl ::windows::core::RuntimeName for Print3DTaskRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskRequestedEventArgs";
 }
-impl ::core::convert::From<Print3DTaskRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: Print3DTaskRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Print3DTaskRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &Print3DTaskRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Print3DTaskRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &Print3DTaskRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Print3DTaskRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: Print3DTaskRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Print3DTaskRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &Print3DTaskRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Print3DTaskRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &Print3DTaskRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Print3DTaskRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTaskRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskRequestedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1393,36 +1248,7 @@ unsafe impl ::windows::core::Interface for Print3DTaskSourceChangedEventArgs {
 impl ::windows::core::RuntimeName for Print3DTaskSourceChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskSourceChangedEventArgs";
 }
-impl ::core::convert::From<Print3DTaskSourceChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: Print3DTaskSourceChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Print3DTaskSourceChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &Print3DTaskSourceChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Print3DTaskSourceChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &Print3DTaskSourceChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Print3DTaskSourceChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: Print3DTaskSourceChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Print3DTaskSourceChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &Print3DTaskSourceChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Print3DTaskSourceChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &Print3DTaskSourceChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Print3DTaskSourceChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTaskSourceChangedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskSourceChangedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1466,36 +1292,7 @@ unsafe impl ::windows::core::Interface for Print3DTaskSourceRequestedArgs {
 impl ::windows::core::RuntimeName for Print3DTaskSourceRequestedArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskSourceRequestedArgs";
 }
-impl ::core::convert::From<Print3DTaskSourceRequestedArgs> for ::windows::core::IUnknown {
-    fn from(value: Print3DTaskSourceRequestedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Print3DTaskSourceRequestedArgs> for ::windows::core::IUnknown {
-    fn from(value: &Print3DTaskSourceRequestedArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Print3DTaskSourceRequestedArgs> for &::windows::core::IUnknown {
-    fn from(value: &Print3DTaskSourceRequestedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Print3DTaskSourceRequestedArgs> for ::windows::core::IInspectable {
-    fn from(value: Print3DTaskSourceRequestedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Print3DTaskSourceRequestedArgs> for ::windows::core::IInspectable {
-    fn from(value: &Print3DTaskSourceRequestedArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Print3DTaskSourceRequestedArgs> for &::windows::core::IInspectable {
-    fn from(value: &Print3DTaskSourceRequestedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Print3DTaskSourceRequestedArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTaskSourceRequestedArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskSourceRequestedArgs {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1659,36 +1456,7 @@ unsafe impl ::windows::core::Interface for Printing3D3MFPackage {
 impl ::windows::core::RuntimeName for Printing3D3MFPackage {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3D3MFPackage";
 }
-impl ::core::convert::From<Printing3D3MFPackage> for ::windows::core::IUnknown {
-    fn from(value: Printing3D3MFPackage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3D3MFPackage> for ::windows::core::IUnknown {
-    fn from(value: &Printing3D3MFPackage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3D3MFPackage> for &::windows::core::IUnknown {
-    fn from(value: &Printing3D3MFPackage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Printing3D3MFPackage> for ::windows::core::IInspectable {
-    fn from(value: Printing3D3MFPackage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3D3MFPackage> for ::windows::core::IInspectable {
-    fn from(value: &Printing3D3MFPackage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3D3MFPackage> for &::windows::core::IInspectable {
-    fn from(value: &Printing3D3MFPackage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Printing3D3MFPackage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3D3MFPackage {}
 unsafe impl ::core::marker::Sync for Printing3D3MFPackage {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1774,36 +1542,7 @@ unsafe impl ::windows::core::Interface for Printing3DBaseMaterial {
 impl ::windows::core::RuntimeName for Printing3DBaseMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DBaseMaterial";
 }
-impl ::core::convert::From<Printing3DBaseMaterial> for ::windows::core::IUnknown {
-    fn from(value: Printing3DBaseMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DBaseMaterial> for ::windows::core::IUnknown {
-    fn from(value: &Printing3DBaseMaterial) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DBaseMaterial> for &::windows::core::IUnknown {
-    fn from(value: &Printing3DBaseMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Printing3DBaseMaterial> for ::windows::core::IInspectable {
-    fn from(value: Printing3DBaseMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DBaseMaterial> for ::windows::core::IInspectable {
-    fn from(value: &Printing3DBaseMaterial) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DBaseMaterial> for &::windows::core::IInspectable {
-    fn from(value: &Printing3DBaseMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Printing3DBaseMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DBaseMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DBaseMaterial {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1870,36 +1609,7 @@ unsafe impl ::windows::core::Interface for Printing3DBaseMaterialGroup {
 impl ::windows::core::RuntimeName for Printing3DBaseMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DBaseMaterialGroup";
 }
-impl ::core::convert::From<Printing3DBaseMaterialGroup> for ::windows::core::IUnknown {
-    fn from(value: Printing3DBaseMaterialGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DBaseMaterialGroup> for ::windows::core::IUnknown {
-    fn from(value: &Printing3DBaseMaterialGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DBaseMaterialGroup> for &::windows::core::IUnknown {
-    fn from(value: &Printing3DBaseMaterialGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Printing3DBaseMaterialGroup> for ::windows::core::IInspectable {
-    fn from(value: Printing3DBaseMaterialGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DBaseMaterialGroup> for ::windows::core::IInspectable {
-    fn from(value: &Printing3DBaseMaterialGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DBaseMaterialGroup> for &::windows::core::IInspectable {
-    fn from(value: &Printing3DBaseMaterialGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Printing3DBaseMaterialGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DBaseMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DBaseMaterialGroup {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1972,36 +1682,7 @@ unsafe impl ::windows::core::Interface for Printing3DColorMaterial {
 impl ::windows::core::RuntimeName for Printing3DColorMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DColorMaterial";
 }
-impl ::core::convert::From<Printing3DColorMaterial> for ::windows::core::IUnknown {
-    fn from(value: Printing3DColorMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DColorMaterial> for ::windows::core::IUnknown {
-    fn from(value: &Printing3DColorMaterial) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DColorMaterial> for &::windows::core::IUnknown {
-    fn from(value: &Printing3DColorMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Printing3DColorMaterial> for ::windows::core::IInspectable {
-    fn from(value: Printing3DColorMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DColorMaterial> for ::windows::core::IInspectable {
-    fn from(value: &Printing3DColorMaterial) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DColorMaterial> for &::windows::core::IInspectable {
-    fn from(value: &Printing3DColorMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Printing3DColorMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DColorMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DColorMaterial {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2068,36 +1749,7 @@ unsafe impl ::windows::core::Interface for Printing3DColorMaterialGroup {
 impl ::windows::core::RuntimeName for Printing3DColorMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DColorMaterialGroup";
 }
-impl ::core::convert::From<Printing3DColorMaterialGroup> for ::windows::core::IUnknown {
-    fn from(value: Printing3DColorMaterialGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DColorMaterialGroup> for ::windows::core::IUnknown {
-    fn from(value: &Printing3DColorMaterialGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DColorMaterialGroup> for &::windows::core::IUnknown {
-    fn from(value: &Printing3DColorMaterialGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Printing3DColorMaterialGroup> for ::windows::core::IInspectable {
-    fn from(value: Printing3DColorMaterialGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DColorMaterialGroup> for ::windows::core::IInspectable {
-    fn from(value: &Printing3DColorMaterialGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DColorMaterialGroup> for &::windows::core::IInspectable {
-    fn from(value: &Printing3DColorMaterialGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Printing3DColorMaterialGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DColorMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DColorMaterialGroup {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2208,36 +1860,7 @@ unsafe impl ::windows::core::Interface for Printing3DComponent {
 impl ::windows::core::RuntimeName for Printing3DComponent {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DComponent";
 }
-impl ::core::convert::From<Printing3DComponent> for ::windows::core::IUnknown {
-    fn from(value: Printing3DComponent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DComponent> for ::windows::core::IUnknown {
-    fn from(value: &Printing3DComponent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DComponent> for &::windows::core::IUnknown {
-    fn from(value: &Printing3DComponent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Printing3DComponent> for ::windows::core::IInspectable {
-    fn from(value: Printing3DComponent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DComponent> for ::windows::core::IInspectable {
-    fn from(value: &Printing3DComponent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DComponent> for &::windows::core::IInspectable {
-    fn from(value: &Printing3DComponent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Printing3DComponent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DComponent {}
 unsafe impl ::core::marker::Sync for Printing3DComponent {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2310,36 +1933,7 @@ unsafe impl ::windows::core::Interface for Printing3DComponentWithMatrix {
 impl ::windows::core::RuntimeName for Printing3DComponentWithMatrix {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DComponentWithMatrix";
 }
-impl ::core::convert::From<Printing3DComponentWithMatrix> for ::windows::core::IUnknown {
-    fn from(value: Printing3DComponentWithMatrix) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DComponentWithMatrix> for ::windows::core::IUnknown {
-    fn from(value: &Printing3DComponentWithMatrix) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DComponentWithMatrix> for &::windows::core::IUnknown {
-    fn from(value: &Printing3DComponentWithMatrix) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Printing3DComponentWithMatrix> for ::windows::core::IInspectable {
-    fn from(value: Printing3DComponentWithMatrix) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DComponentWithMatrix> for ::windows::core::IInspectable {
-    fn from(value: &Printing3DComponentWithMatrix) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DComponentWithMatrix> for &::windows::core::IInspectable {
-    fn from(value: &Printing3DComponentWithMatrix) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Printing3DComponentWithMatrix, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DComponentWithMatrix {}
 unsafe impl ::core::marker::Sync for Printing3DComponentWithMatrix {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2395,36 +1989,7 @@ unsafe impl ::windows::core::Interface for Printing3DCompositeMaterial {
 impl ::windows::core::RuntimeName for Printing3DCompositeMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DCompositeMaterial";
 }
-impl ::core::convert::From<Printing3DCompositeMaterial> for ::windows::core::IUnknown {
-    fn from(value: Printing3DCompositeMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DCompositeMaterial> for ::windows::core::IUnknown {
-    fn from(value: &Printing3DCompositeMaterial) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DCompositeMaterial> for &::windows::core::IUnknown {
-    fn from(value: &Printing3DCompositeMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Printing3DCompositeMaterial> for ::windows::core::IInspectable {
-    fn from(value: Printing3DCompositeMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DCompositeMaterial> for ::windows::core::IInspectable {
-    fn from(value: &Printing3DCompositeMaterial) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DCompositeMaterial> for &::windows::core::IInspectable {
-    fn from(value: &Printing3DCompositeMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Printing3DCompositeMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DCompositeMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DCompositeMaterial {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2511,36 +2076,7 @@ unsafe impl ::windows::core::Interface for Printing3DCompositeMaterialGroup {
 impl ::windows::core::RuntimeName for Printing3DCompositeMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DCompositeMaterialGroup";
 }
-impl ::core::convert::From<Printing3DCompositeMaterialGroup> for ::windows::core::IUnknown {
-    fn from(value: Printing3DCompositeMaterialGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DCompositeMaterialGroup> for ::windows::core::IUnknown {
-    fn from(value: &Printing3DCompositeMaterialGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DCompositeMaterialGroup> for &::windows::core::IUnknown {
-    fn from(value: &Printing3DCompositeMaterialGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Printing3DCompositeMaterialGroup> for ::windows::core::IInspectable {
-    fn from(value: Printing3DCompositeMaterialGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DCompositeMaterialGroup> for ::windows::core::IInspectable {
-    fn from(value: &Printing3DCompositeMaterialGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DCompositeMaterialGroup> for &::windows::core::IInspectable {
-    fn from(value: &Printing3DCompositeMaterialGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Printing3DCompositeMaterialGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DCompositeMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DCompositeMaterialGroup {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2620,36 +2156,7 @@ unsafe impl ::windows::core::Interface for Printing3DFaceReductionOptions {
 impl ::windows::core::RuntimeName for Printing3DFaceReductionOptions {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DFaceReductionOptions";
 }
-impl ::core::convert::From<Printing3DFaceReductionOptions> for ::windows::core::IUnknown {
-    fn from(value: Printing3DFaceReductionOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DFaceReductionOptions> for ::windows::core::IUnknown {
-    fn from(value: &Printing3DFaceReductionOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DFaceReductionOptions> for &::windows::core::IUnknown {
-    fn from(value: &Printing3DFaceReductionOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Printing3DFaceReductionOptions> for ::windows::core::IInspectable {
-    fn from(value: Printing3DFaceReductionOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DFaceReductionOptions> for ::windows::core::IInspectable {
-    fn from(value: &Printing3DFaceReductionOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DFaceReductionOptions> for &::windows::core::IInspectable {
-    fn from(value: &Printing3DFaceReductionOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Printing3DFaceReductionOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DFaceReductionOptions {}
 unsafe impl ::core::marker::Sync for Printing3DFaceReductionOptions {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2741,36 +2248,7 @@ unsafe impl ::windows::core::Interface for Printing3DMaterial {
 impl ::windows::core::RuntimeName for Printing3DMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMaterial";
 }
-impl ::core::convert::From<Printing3DMaterial> for ::windows::core::IUnknown {
-    fn from(value: Printing3DMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DMaterial> for ::windows::core::IUnknown {
-    fn from(value: &Printing3DMaterial) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DMaterial> for &::windows::core::IUnknown {
-    fn from(value: &Printing3DMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Printing3DMaterial> for ::windows::core::IInspectable {
-    fn from(value: Printing3DMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DMaterial> for ::windows::core::IInspectable {
-    fn from(value: &Printing3DMaterial) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DMaterial> for &::windows::core::IInspectable {
-    fn from(value: &Printing3DMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Printing3DMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DMaterial {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2962,36 +2440,7 @@ unsafe impl ::windows::core::Interface for Printing3DMesh {
 impl ::windows::core::RuntimeName for Printing3DMesh {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMesh";
 }
-impl ::core::convert::From<Printing3DMesh> for ::windows::core::IUnknown {
-    fn from(value: Printing3DMesh) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DMesh> for ::windows::core::IUnknown {
-    fn from(value: &Printing3DMesh) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DMesh> for &::windows::core::IUnknown {
-    fn from(value: &Printing3DMesh) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Printing3DMesh> for ::windows::core::IInspectable {
-    fn from(value: Printing3DMesh) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DMesh> for ::windows::core::IInspectable {
-    fn from(value: &Printing3DMesh) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DMesh> for &::windows::core::IInspectable {
-    fn from(value: &Printing3DMesh) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Printing3DMesh, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DMesh {}
 unsafe impl ::core::marker::Sync for Printing3DMesh {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -3056,36 +2505,7 @@ unsafe impl ::windows::core::Interface for Printing3DMeshVerificationResult {
 impl ::windows::core::RuntimeName for Printing3DMeshVerificationResult {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMeshVerificationResult";
 }
-impl ::core::convert::From<Printing3DMeshVerificationResult> for ::windows::core::IUnknown {
-    fn from(value: Printing3DMeshVerificationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DMeshVerificationResult> for ::windows::core::IUnknown {
-    fn from(value: &Printing3DMeshVerificationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DMeshVerificationResult> for &::windows::core::IUnknown {
-    fn from(value: &Printing3DMeshVerificationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Printing3DMeshVerificationResult> for ::windows::core::IInspectable {
-    fn from(value: Printing3DMeshVerificationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DMeshVerificationResult> for ::windows::core::IInspectable {
-    fn from(value: &Printing3DMeshVerificationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DMeshVerificationResult> for &::windows::core::IInspectable {
-    fn from(value: &Printing3DMeshVerificationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Printing3DMeshVerificationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DMeshVerificationResult {}
 unsafe impl ::core::marker::Sync for Printing3DMeshVerificationResult {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -3291,36 +2711,7 @@ unsafe impl ::windows::core::Interface for Printing3DModel {
 impl ::windows::core::RuntimeName for Printing3DModel {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DModel";
 }
-impl ::core::convert::From<Printing3DModel> for ::windows::core::IUnknown {
-    fn from(value: Printing3DModel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DModel> for ::windows::core::IUnknown {
-    fn from(value: &Printing3DModel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DModel> for &::windows::core::IUnknown {
-    fn from(value: &Printing3DModel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Printing3DModel> for ::windows::core::IInspectable {
-    fn from(value: Printing3DModel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DModel> for ::windows::core::IInspectable {
-    fn from(value: &Printing3DModel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DModel> for &::windows::core::IInspectable {
-    fn from(value: &Printing3DModel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Printing3DModel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DModel {}
 unsafe impl ::core::marker::Sync for Printing3DModel {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -3400,36 +2791,7 @@ unsafe impl ::windows::core::Interface for Printing3DModelTexture {
 impl ::windows::core::RuntimeName for Printing3DModelTexture {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DModelTexture";
 }
-impl ::core::convert::From<Printing3DModelTexture> for ::windows::core::IUnknown {
-    fn from(value: Printing3DModelTexture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DModelTexture> for ::windows::core::IUnknown {
-    fn from(value: &Printing3DModelTexture) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DModelTexture> for &::windows::core::IUnknown {
-    fn from(value: &Printing3DModelTexture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Printing3DModelTexture> for ::windows::core::IInspectable {
-    fn from(value: Printing3DModelTexture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DModelTexture> for ::windows::core::IInspectable {
-    fn from(value: &Printing3DModelTexture) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DModelTexture> for &::windows::core::IInspectable {
-    fn from(value: &Printing3DModelTexture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Printing3DModelTexture, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DModelTexture {}
 unsafe impl ::core::marker::Sync for Printing3DModelTexture {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -3485,36 +2847,7 @@ unsafe impl ::windows::core::Interface for Printing3DMultiplePropertyMaterial {
 impl ::windows::core::RuntimeName for Printing3DMultiplePropertyMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterial";
 }
-impl ::core::convert::From<Printing3DMultiplePropertyMaterial> for ::windows::core::IUnknown {
-    fn from(value: Printing3DMultiplePropertyMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DMultiplePropertyMaterial> for ::windows::core::IUnknown {
-    fn from(value: &Printing3DMultiplePropertyMaterial) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DMultiplePropertyMaterial> for &::windows::core::IUnknown {
-    fn from(value: &Printing3DMultiplePropertyMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Printing3DMultiplePropertyMaterial> for ::windows::core::IInspectable {
-    fn from(value: Printing3DMultiplePropertyMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DMultiplePropertyMaterial> for ::windows::core::IInspectable {
-    fn from(value: &Printing3DMultiplePropertyMaterial) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DMultiplePropertyMaterial> for &::windows::core::IInspectable {
-    fn from(value: &Printing3DMultiplePropertyMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Printing3DMultiplePropertyMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DMultiplePropertyMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DMultiplePropertyMaterial {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -3590,36 +2923,7 @@ unsafe impl ::windows::core::Interface for Printing3DMultiplePropertyMaterialGro
 impl ::windows::core::RuntimeName for Printing3DMultiplePropertyMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterialGroup";
 }
-impl ::core::convert::From<Printing3DMultiplePropertyMaterialGroup> for ::windows::core::IUnknown {
-    fn from(value: Printing3DMultiplePropertyMaterialGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DMultiplePropertyMaterialGroup> for ::windows::core::IUnknown {
-    fn from(value: &Printing3DMultiplePropertyMaterialGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DMultiplePropertyMaterialGroup> for &::windows::core::IUnknown {
-    fn from(value: &Printing3DMultiplePropertyMaterialGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Printing3DMultiplePropertyMaterialGroup> for ::windows::core::IInspectable {
-    fn from(value: Printing3DMultiplePropertyMaterialGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DMultiplePropertyMaterialGroup> for ::windows::core::IInspectable {
-    fn from(value: &Printing3DMultiplePropertyMaterialGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DMultiplePropertyMaterialGroup> for &::windows::core::IInspectable {
-    fn from(value: &Printing3DMultiplePropertyMaterialGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Printing3DMultiplePropertyMaterialGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DMultiplePropertyMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DMultiplePropertyMaterialGroup {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -3699,36 +3003,7 @@ unsafe impl ::windows::core::Interface for Printing3DTexture2CoordMaterial {
 impl ::windows::core::RuntimeName for Printing3DTexture2CoordMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterial";
 }
-impl ::core::convert::From<Printing3DTexture2CoordMaterial> for ::windows::core::IUnknown {
-    fn from(value: Printing3DTexture2CoordMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DTexture2CoordMaterial> for ::windows::core::IUnknown {
-    fn from(value: &Printing3DTexture2CoordMaterial) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DTexture2CoordMaterial> for &::windows::core::IUnknown {
-    fn from(value: &Printing3DTexture2CoordMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Printing3DTexture2CoordMaterial> for ::windows::core::IInspectable {
-    fn from(value: Printing3DTexture2CoordMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DTexture2CoordMaterial> for ::windows::core::IInspectable {
-    fn from(value: &Printing3DTexture2CoordMaterial) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DTexture2CoordMaterial> for &::windows::core::IInspectable {
-    fn from(value: &Printing3DTexture2CoordMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Printing3DTexture2CoordMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DTexture2CoordMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DTexture2CoordMaterial {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -3806,36 +3081,7 @@ unsafe impl ::windows::core::Interface for Printing3DTexture2CoordMaterialGroup 
 impl ::windows::core::RuntimeName for Printing3DTexture2CoordMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterialGroup";
 }
-impl ::core::convert::From<Printing3DTexture2CoordMaterialGroup> for ::windows::core::IUnknown {
-    fn from(value: Printing3DTexture2CoordMaterialGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DTexture2CoordMaterialGroup> for ::windows::core::IUnknown {
-    fn from(value: &Printing3DTexture2CoordMaterialGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DTexture2CoordMaterialGroup> for &::windows::core::IUnknown {
-    fn from(value: &Printing3DTexture2CoordMaterialGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Printing3DTexture2CoordMaterialGroup> for ::windows::core::IInspectable {
-    fn from(value: Printing3DTexture2CoordMaterialGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DTexture2CoordMaterialGroup> for ::windows::core::IInspectable {
-    fn from(value: &Printing3DTexture2CoordMaterialGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DTexture2CoordMaterialGroup> for &::windows::core::IInspectable {
-    fn from(value: &Printing3DTexture2CoordMaterialGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Printing3DTexture2CoordMaterialGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DTexture2CoordMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DTexture2CoordMaterialGroup {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -3912,36 +3158,7 @@ unsafe impl ::windows::core::Interface for Printing3DTextureResource {
 impl ::windows::core::RuntimeName for Printing3DTextureResource {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DTextureResource";
 }
-impl ::core::convert::From<Printing3DTextureResource> for ::windows::core::IUnknown {
-    fn from(value: Printing3DTextureResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DTextureResource> for ::windows::core::IUnknown {
-    fn from(value: &Printing3DTextureResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DTextureResource> for &::windows::core::IUnknown {
-    fn from(value: &Printing3DTextureResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Printing3DTextureResource> for ::windows::core::IInspectable {
-    fn from(value: Printing3DTextureResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Printing3DTextureResource> for ::windows::core::IInspectable {
-    fn from(value: &Printing3DTextureResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Printing3DTextureResource> for &::windows::core::IInspectable {
-    fn from(value: &Printing3DTextureResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Printing3DTextureResource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DTextureResource {}
 unsafe impl ::core::marker::Sync for Printing3DTextureResource {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]

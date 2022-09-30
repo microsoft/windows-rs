@@ -2006,21 +2006,7 @@ impl IAVIEditStream {
         (::windows::core::Vtable::vtable(self).SetInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpinfo), cbinfo).ok()
     }
 }
-impl ::core::convert::From<IAVIEditStream> for ::windows::core::IUnknown {
-    fn from(value: IAVIEditStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAVIEditStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAVIEditStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAVIEditStream> for ::windows::core::IUnknown {
-    fn from(value: &IAVIEditStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAVIEditStream, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAVIEditStream {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2084,21 +2070,7 @@ impl IAVIFile {
         (::windows::core::Vtable::vtable(self).DeleteStream)(::windows::core::Vtable::as_raw(self), fcctype, lparam).ok()
     }
 }
-impl ::core::convert::From<IAVIFile> for ::windows::core::IUnknown {
-    fn from(value: IAVIFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAVIFile> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAVIFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAVIFile> for ::windows::core::IUnknown {
-    fn from(value: &IAVIFile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAVIFile, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAVIFile {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2189,59 +2161,7 @@ impl IAVIPersistFile {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAVIPersistFile> for ::windows::core::IUnknown {
-    fn from(value: IAVIPersistFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAVIPersistFile> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAVIPersistFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAVIPersistFile> for ::windows::core::IUnknown {
-    fn from(value: &IAVIPersistFile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAVIPersistFile> for super::super::System::Com::IPersist {
-    fn from(value: IAVIPersistFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAVIPersistFile> for &'a super::super::System::Com::IPersist {
-    fn from(value: &'a IAVIPersistFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAVIPersistFile> for super::super::System::Com::IPersist {
-    fn from(value: &IAVIPersistFile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAVIPersistFile> for super::super::System::Com::IPersistFile {
-    fn from(value: IAVIPersistFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAVIPersistFile> for &'a super::super::System::Com::IPersistFile {
-    fn from(value: &'a IAVIPersistFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAVIPersistFile> for super::super::System::Com::IPersistFile {
-    fn from(value: &IAVIPersistFile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAVIPersistFile, ::windows::core::IUnknown, super::super::System::Com::IPersist, super::super::System::Com::IPersistFile);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAVIPersistFile {
     fn clone(&self) -> Self {
@@ -2325,21 +2245,7 @@ impl IAVIStream {
         (::windows::core::Vtable::vtable(self).SetInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpinfo), cbinfo).ok()
     }
 }
-impl ::core::convert::From<IAVIStream> for ::windows::core::IUnknown {
-    fn from(value: IAVIStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAVIStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAVIStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAVIStream> for ::windows::core::IUnknown {
-    fn from(value: &IAVIStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAVIStream, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAVIStream {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2398,21 +2304,7 @@ impl IAVIStreaming {
         (::windows::core::Vtable::vtable(self).End)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IAVIStreaming> for ::windows::core::IUnknown {
-    fn from(value: IAVIStreaming) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAVIStreaming> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAVIStreaming) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAVIStreaming> for ::windows::core::IUnknown {
-    fn from(value: &IAVIStreaming) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAVIStreaming, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAVIStreaming {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2461,21 +2353,7 @@ impl IGetFrame {
         (::windows::core::Vtable::vtable(self).SetFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpbi), ::core::mem::transmute(lpbits.unwrap_or(::std::ptr::null())), x, y, dx, dy).ok()
     }
 }
-impl ::core::convert::From<IGetFrame> for ::windows::core::IUnknown {
-    fn from(value: IGetFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGetFrame> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGetFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGetFrame> for ::windows::core::IUnknown {
-    fn from(value: &IGetFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGetFrame, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IGetFrame {
     fn clone(&self) -> Self {
         Self(self.0.clone())

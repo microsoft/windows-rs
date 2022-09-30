@@ -450,36 +450,7 @@ unsafe impl ::windows::core::Interface for AnalyticsVersionInfo {
 impl ::windows::core::RuntimeName for AnalyticsVersionInfo {
     const NAME: &'static str = "Windows.System.Profile.AnalyticsVersionInfo";
 }
-impl ::core::convert::From<AnalyticsVersionInfo> for ::windows::core::IUnknown {
-    fn from(value: AnalyticsVersionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AnalyticsVersionInfo> for ::windows::core::IUnknown {
-    fn from(value: &AnalyticsVersionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AnalyticsVersionInfo> for &::windows::core::IUnknown {
-    fn from(value: &AnalyticsVersionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AnalyticsVersionInfo> for ::windows::core::IInspectable {
-    fn from(value: AnalyticsVersionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AnalyticsVersionInfo> for ::windows::core::IInspectable {
-    fn from(value: &AnalyticsVersionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AnalyticsVersionInfo> for &::windows::core::IInspectable {
-    fn from(value: &AnalyticsVersionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AnalyticsVersionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AnalyticsVersionInfo {}
 unsafe impl ::core::marker::Sync for AnalyticsVersionInfo {}
 #[doc = "*Required features: `\"System_Profile\"`*"]
@@ -612,36 +583,7 @@ unsafe impl ::windows::core::Interface for HardwareToken {
 impl ::windows::core::RuntimeName for HardwareToken {
     const NAME: &'static str = "Windows.System.Profile.HardwareToken";
 }
-impl ::core::convert::From<HardwareToken> for ::windows::core::IUnknown {
-    fn from(value: HardwareToken) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HardwareToken> for ::windows::core::IUnknown {
-    fn from(value: &HardwareToken) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HardwareToken> for &::windows::core::IUnknown {
-    fn from(value: &HardwareToken) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HardwareToken> for ::windows::core::IInspectable {
-    fn from(value: HardwareToken) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HardwareToken> for ::windows::core::IInspectable {
-    fn from(value: &HardwareToken) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HardwareToken> for &::windows::core::IInspectable {
-    fn from(value: &HardwareToken) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HardwareToken, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HardwareToken {}
 unsafe impl ::core::marker::Sync for HardwareToken {}
 #[doc = "*Required features: `\"System_Profile\"`*"]
@@ -957,36 +899,7 @@ unsafe impl ::windows::core::Interface for SystemIdentificationInfo {
 impl ::windows::core::RuntimeName for SystemIdentificationInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemIdentificationInfo";
 }
-impl ::core::convert::From<SystemIdentificationInfo> for ::windows::core::IUnknown {
-    fn from(value: SystemIdentificationInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemIdentificationInfo> for ::windows::core::IUnknown {
-    fn from(value: &SystemIdentificationInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemIdentificationInfo> for &::windows::core::IUnknown {
-    fn from(value: &SystemIdentificationInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SystemIdentificationInfo> for ::windows::core::IInspectable {
-    fn from(value: SystemIdentificationInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemIdentificationInfo> for ::windows::core::IInspectable {
-    fn from(value: &SystemIdentificationInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemIdentificationInfo> for &::windows::core::IInspectable {
-    fn from(value: &SystemIdentificationInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SystemIdentificationInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemIdentificationInfo {}
 unsafe impl ::core::marker::Sync for SystemIdentificationInfo {}
 #[doc = "*Required features: `\"System_Profile\"`*"]
@@ -1071,36 +984,7 @@ unsafe impl ::windows::core::Interface for UnsupportedAppRequirement {
 impl ::windows::core::RuntimeName for UnsupportedAppRequirement {
     const NAME: &'static str = "Windows.System.Profile.UnsupportedAppRequirement";
 }
-impl ::core::convert::From<UnsupportedAppRequirement> for ::windows::core::IUnknown {
-    fn from(value: UnsupportedAppRequirement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UnsupportedAppRequirement> for ::windows::core::IUnknown {
-    fn from(value: &UnsupportedAppRequirement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UnsupportedAppRequirement> for &::windows::core::IUnknown {
-    fn from(value: &UnsupportedAppRequirement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UnsupportedAppRequirement> for ::windows::core::IInspectable {
-    fn from(value: UnsupportedAppRequirement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UnsupportedAppRequirement> for ::windows::core::IInspectable {
-    fn from(value: &UnsupportedAppRequirement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UnsupportedAppRequirement> for &::windows::core::IInspectable {
-    fn from(value: &UnsupportedAppRequirement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UnsupportedAppRequirement, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UnsupportedAppRequirement {}
 unsafe impl ::core::marker::Sync for UnsupportedAppRequirement {}
 #[doc = "*Required features: `\"System_Profile\"`*"]

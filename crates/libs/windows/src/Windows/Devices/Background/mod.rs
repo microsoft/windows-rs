@@ -94,36 +94,7 @@ unsafe impl ::windows::core::Interface for DeviceServicingDetails {
 impl ::windows::core::RuntimeName for DeviceServicingDetails {
     const NAME: &'static str = "Windows.Devices.Background.DeviceServicingDetails";
 }
-impl ::core::convert::From<DeviceServicingDetails> for ::windows::core::IUnknown {
-    fn from(value: DeviceServicingDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceServicingDetails> for ::windows::core::IUnknown {
-    fn from(value: &DeviceServicingDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceServicingDetails> for &::windows::core::IUnknown {
-    fn from(value: &DeviceServicingDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceServicingDetails> for ::windows::core::IInspectable {
-    fn from(value: DeviceServicingDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceServicingDetails> for ::windows::core::IInspectable {
-    fn from(value: &DeviceServicingDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceServicingDetails> for &::windows::core::IInspectable {
-    fn from(value: &DeviceServicingDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceServicingDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceServicingDetails {}
 unsafe impl ::core::marker::Sync for DeviceServicingDetails {}
 #[doc = "*Required features: `\"Devices_Background\"`*"]
@@ -177,36 +148,7 @@ unsafe impl ::windows::core::Interface for DeviceUseDetails {
 impl ::windows::core::RuntimeName for DeviceUseDetails {
     const NAME: &'static str = "Windows.Devices.Background.DeviceUseDetails";
 }
-impl ::core::convert::From<DeviceUseDetails> for ::windows::core::IUnknown {
-    fn from(value: DeviceUseDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceUseDetails> for ::windows::core::IUnknown {
-    fn from(value: &DeviceUseDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceUseDetails> for &::windows::core::IUnknown {
-    fn from(value: &DeviceUseDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceUseDetails> for ::windows::core::IInspectable {
-    fn from(value: DeviceUseDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceUseDetails> for ::windows::core::IInspectable {
-    fn from(value: &DeviceUseDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceUseDetails> for &::windows::core::IInspectable {
-    fn from(value: &DeviceUseDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceUseDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceUseDetails {}
 unsafe impl ::core::marker::Sync for DeviceUseDetails {}
 #[cfg(feature = "implement")]

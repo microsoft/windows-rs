@@ -353,36 +353,7 @@ unsafe impl ::windows::core::Interface for SimpleHapticsController {
 impl ::windows::core::RuntimeName for SimpleHapticsController {
     const NAME: &'static str = "Windows.Devices.Haptics.SimpleHapticsController";
 }
-impl ::core::convert::From<SimpleHapticsController> for ::windows::core::IUnknown {
-    fn from(value: SimpleHapticsController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SimpleHapticsController> for ::windows::core::IUnknown {
-    fn from(value: &SimpleHapticsController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SimpleHapticsController> for &::windows::core::IUnknown {
-    fn from(value: &SimpleHapticsController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SimpleHapticsController> for ::windows::core::IInspectable {
-    fn from(value: SimpleHapticsController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SimpleHapticsController> for ::windows::core::IInspectable {
-    fn from(value: &SimpleHapticsController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SimpleHapticsController> for &::windows::core::IInspectable {
-    fn from(value: &SimpleHapticsController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SimpleHapticsController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SimpleHapticsController {}
 unsafe impl ::core::marker::Sync for SimpleHapticsController {}
 #[doc = "*Required features: `\"Devices_Haptics\"`*"]
@@ -438,36 +409,7 @@ unsafe impl ::windows::core::Interface for SimpleHapticsControllerFeedback {
 impl ::windows::core::RuntimeName for SimpleHapticsControllerFeedback {
     const NAME: &'static str = "Windows.Devices.Haptics.SimpleHapticsControllerFeedback";
 }
-impl ::core::convert::From<SimpleHapticsControllerFeedback> for ::windows::core::IUnknown {
-    fn from(value: SimpleHapticsControllerFeedback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SimpleHapticsControllerFeedback> for ::windows::core::IUnknown {
-    fn from(value: &SimpleHapticsControllerFeedback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SimpleHapticsControllerFeedback> for &::windows::core::IUnknown {
-    fn from(value: &SimpleHapticsControllerFeedback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SimpleHapticsControllerFeedback> for ::windows::core::IInspectable {
-    fn from(value: SimpleHapticsControllerFeedback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SimpleHapticsControllerFeedback> for ::windows::core::IInspectable {
-    fn from(value: &SimpleHapticsControllerFeedback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SimpleHapticsControllerFeedback> for &::windows::core::IInspectable {
-    fn from(value: &SimpleHapticsControllerFeedback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SimpleHapticsControllerFeedback, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SimpleHapticsControllerFeedback {}
 unsafe impl ::core::marker::Sync for SimpleHapticsControllerFeedback {}
 #[doc = "*Required features: `\"Devices_Haptics\"`*"]
@@ -564,36 +506,7 @@ unsafe impl ::windows::core::Interface for VibrationDevice {
 impl ::windows::core::RuntimeName for VibrationDevice {
     const NAME: &'static str = "Windows.Devices.Haptics.VibrationDevice";
 }
-impl ::core::convert::From<VibrationDevice> for ::windows::core::IUnknown {
-    fn from(value: VibrationDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VibrationDevice> for ::windows::core::IUnknown {
-    fn from(value: &VibrationDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VibrationDevice> for &::windows::core::IUnknown {
-    fn from(value: &VibrationDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VibrationDevice> for ::windows::core::IInspectable {
-    fn from(value: VibrationDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VibrationDevice> for ::windows::core::IInspectable {
-    fn from(value: &VibrationDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VibrationDevice> for &::windows::core::IInspectable {
-    fn from(value: &VibrationDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VibrationDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VibrationDevice {}
 unsafe impl ::core::marker::Sync for VibrationDevice {}
 #[doc = "*Required features: `\"Devices_Haptics\"`*"]

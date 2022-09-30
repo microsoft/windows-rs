@@ -150,41 +150,7 @@ impl IDynamicPortMapping {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDynamicPortMapping> for ::windows::core::IUnknown {
-    fn from(value: IDynamicPortMapping) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IDynamicPortMapping> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDynamicPortMapping) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDynamicPortMapping> for ::windows::core::IUnknown {
-    fn from(value: &IDynamicPortMapping) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDynamicPortMapping> for super::super::System::Com::IDispatch {
-    fn from(value: IDynamicPortMapping) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IDynamicPortMapping> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IDynamicPortMapping) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDynamicPortMapping> for super::super::System::Com::IDispatch {
-    fn from(value: &IDynamicPortMapping) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDynamicPortMapping, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IDynamicPortMapping {
     fn clone(&self) -> Self {
@@ -264,41 +230,7 @@ impl IDynamicPortMappingCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDynamicPortMappingCollection> for ::windows::core::IUnknown {
-    fn from(value: IDynamicPortMappingCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IDynamicPortMappingCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDynamicPortMappingCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDynamicPortMappingCollection> for ::windows::core::IUnknown {
-    fn from(value: &IDynamicPortMappingCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDynamicPortMappingCollection> for super::super::System::Com::IDispatch {
-    fn from(value: IDynamicPortMappingCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IDynamicPortMappingCollection> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IDynamicPortMappingCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDynamicPortMappingCollection> for super::super::System::Com::IDispatch {
-    fn from(value: &IDynamicPortMappingCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDynamicPortMappingCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IDynamicPortMappingCollection {
     fn clone(&self) -> Self {
@@ -362,21 +294,7 @@ impl IEnumNetConnection {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumNetConnection>(result__)
     }
 }
-impl ::core::convert::From<IEnumNetConnection> for ::windows::core::IUnknown {
-    fn from(value: IEnumNetConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumNetConnection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumNetConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumNetConnection> for ::windows::core::IUnknown {
-    fn from(value: &IEnumNetConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumNetConnection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumNetConnection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -428,21 +346,7 @@ impl IEnumNetSharingEveryConnection {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumNetSharingEveryConnection>(result__)
     }
 }
-impl ::core::convert::From<IEnumNetSharingEveryConnection> for ::windows::core::IUnknown {
-    fn from(value: IEnumNetSharingEveryConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumNetSharingEveryConnection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumNetSharingEveryConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumNetSharingEveryConnection> for ::windows::core::IUnknown {
-    fn from(value: &IEnumNetSharingEveryConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumNetSharingEveryConnection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumNetSharingEveryConnection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -497,21 +401,7 @@ impl IEnumNetSharingPortMapping {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumNetSharingPortMapping>(result__)
     }
 }
-impl ::core::convert::From<IEnumNetSharingPortMapping> for ::windows::core::IUnknown {
-    fn from(value: IEnumNetSharingPortMapping) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumNetSharingPortMapping> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumNetSharingPortMapping) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumNetSharingPortMapping> for ::windows::core::IUnknown {
-    fn from(value: &IEnumNetSharingPortMapping) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumNetSharingPortMapping, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumNetSharingPortMapping {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -566,21 +456,7 @@ impl IEnumNetSharingPrivateConnection {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumNetSharingPrivateConnection>(result__)
     }
 }
-impl ::core::convert::From<IEnumNetSharingPrivateConnection> for ::windows::core::IUnknown {
-    fn from(value: IEnumNetSharingPrivateConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumNetSharingPrivateConnection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumNetSharingPrivateConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumNetSharingPrivateConnection> for ::windows::core::IUnknown {
-    fn from(value: &IEnumNetSharingPrivateConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumNetSharingPrivateConnection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumNetSharingPrivateConnection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -635,21 +511,7 @@ impl IEnumNetSharingPublicConnection {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumNetSharingPublicConnection>(result__)
     }
 }
-impl ::core::convert::From<IEnumNetSharingPublicConnection> for ::windows::core::IUnknown {
-    fn from(value: IEnumNetSharingPublicConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumNetSharingPublicConnection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumNetSharingPublicConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumNetSharingPublicConnection> for ::windows::core::IUnknown {
-    fn from(value: &IEnumNetSharingPublicConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumNetSharingPublicConnection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumNetSharingPublicConnection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -704,41 +566,7 @@ impl INATEventManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INATEventManager> for ::windows::core::IUnknown {
-    fn from(value: INATEventManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INATEventManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INATEventManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INATEventManager> for ::windows::core::IUnknown {
-    fn from(value: &INATEventManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INATEventManager> for super::super::System::Com::IDispatch {
-    fn from(value: INATEventManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INATEventManager> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INATEventManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INATEventManager> for super::super::System::Com::IDispatch {
-    fn from(value: &INATEventManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INATEventManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INATEventManager {
     fn clone(&self) -> Self {
@@ -783,21 +611,7 @@ impl INATExternalIPAddressCallback {
         (::windows::core::Vtable::vtable(self).NewExternalIPAddress)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrnewexternalipaddress)).ok()
     }
 }
-impl ::core::convert::From<INATExternalIPAddressCallback> for ::windows::core::IUnknown {
-    fn from(value: INATExternalIPAddressCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INATExternalIPAddressCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INATExternalIPAddressCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INATExternalIPAddressCallback> for ::windows::core::IUnknown {
-    fn from(value: &INATExternalIPAddressCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INATExternalIPAddressCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INATExternalIPAddressCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -834,21 +648,7 @@ impl INATNumberOfEntriesCallback {
         (::windows::core::Vtable::vtable(self).NewNumberOfEntries)(::windows::core::Vtable::as_raw(self), lnewnumberofentries).ok()
     }
 }
-impl ::core::convert::From<INATNumberOfEntriesCallback> for ::windows::core::IUnknown {
-    fn from(value: INATNumberOfEntriesCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INATNumberOfEntriesCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INATNumberOfEntriesCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INATNumberOfEntriesCallback> for ::windows::core::IUnknown {
-    fn from(value: &INATNumberOfEntriesCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INATNumberOfEntriesCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INATNumberOfEntriesCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -912,21 +712,7 @@ impl INetConnection {
         (::windows::core::Vtable::vtable(self).Rename)(::windows::core::Vtable::as_raw(self), pszwnewname.into()).ok()
     }
 }
-impl ::core::convert::From<INetConnection> for ::windows::core::IUnknown {
-    fn from(value: INetConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetConnection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetConnection> for ::windows::core::IUnknown {
-    fn from(value: &INetConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetConnection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetConnection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -988,21 +774,7 @@ impl INetConnectionConnectUi {
         (::windows::core::Vtable::vtable(self).Disconnect)(::windows::core::Vtable::as_raw(self), hwndparent.into(), dwflags).ok()
     }
 }
-impl ::core::convert::From<INetConnectionConnectUi> for ::windows::core::IUnknown {
-    fn from(value: INetConnectionConnectUi) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetConnectionConnectUi> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetConnectionConnectUi) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetConnectionConnectUi> for ::windows::core::IUnknown {
-    fn from(value: &INetConnectionConnectUi) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetConnectionConnectUi, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetConnectionConnectUi {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1048,21 +820,7 @@ impl INetConnectionManager {
         (::windows::core::Vtable::vtable(self).EnumConnections)(::windows::core::Vtable::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumNetConnection>(result__)
     }
 }
-impl ::core::convert::From<INetConnectionManager> for ::windows::core::IUnknown {
-    fn from(value: INetConnectionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetConnectionManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetConnectionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetConnectionManager> for ::windows::core::IUnknown {
-    fn from(value: &INetConnectionManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetConnectionManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetConnectionManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1123,41 +881,7 @@ impl INetConnectionProps {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetConnectionProps> for ::windows::core::IUnknown {
-    fn from(value: INetConnectionProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetConnectionProps> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetConnectionProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetConnectionProps> for ::windows::core::IUnknown {
-    fn from(value: &INetConnectionProps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetConnectionProps> for super::super::System::Com::IDispatch {
-    fn from(value: INetConnectionProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetConnectionProps> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetConnectionProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetConnectionProps> for super::super::System::Com::IDispatch {
-    fn from(value: &INetConnectionProps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetConnectionProps, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetConnectionProps {
     fn clone(&self) -> Self {
@@ -1248,41 +972,7 @@ impl INetFwAuthorizedApplication {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwAuthorizedApplication> for ::windows::core::IUnknown {
-    fn from(value: INetFwAuthorizedApplication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwAuthorizedApplication> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetFwAuthorizedApplication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwAuthorizedApplication> for ::windows::core::IUnknown {
-    fn from(value: &INetFwAuthorizedApplication) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwAuthorizedApplication> for super::super::System::Com::IDispatch {
-    fn from(value: INetFwAuthorizedApplication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwAuthorizedApplication> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetFwAuthorizedApplication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwAuthorizedApplication> for super::super::System::Com::IDispatch {
-    fn from(value: &INetFwAuthorizedApplication) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetFwAuthorizedApplication, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetFwAuthorizedApplication {
     fn clone(&self) -> Self {
@@ -1362,41 +1052,7 @@ impl INetFwAuthorizedApplications {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwAuthorizedApplications> for ::windows::core::IUnknown {
-    fn from(value: INetFwAuthorizedApplications) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwAuthorizedApplications> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetFwAuthorizedApplications) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwAuthorizedApplications> for ::windows::core::IUnknown {
-    fn from(value: &INetFwAuthorizedApplications) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwAuthorizedApplications> for super::super::System::Com::IDispatch {
-    fn from(value: INetFwAuthorizedApplications) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwAuthorizedApplications> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetFwAuthorizedApplications) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwAuthorizedApplications> for super::super::System::Com::IDispatch {
-    fn from(value: &INetFwAuthorizedApplications) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetFwAuthorizedApplications, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetFwAuthorizedApplications {
     fn clone(&self) -> Self {
@@ -1520,41 +1176,7 @@ impl INetFwIcmpSettings {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwIcmpSettings> for ::windows::core::IUnknown {
-    fn from(value: INetFwIcmpSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwIcmpSettings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetFwIcmpSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwIcmpSettings> for ::windows::core::IUnknown {
-    fn from(value: &INetFwIcmpSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwIcmpSettings> for super::super::System::Com::IDispatch {
-    fn from(value: INetFwIcmpSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwIcmpSettings> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetFwIcmpSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwIcmpSettings> for super::super::System::Com::IDispatch {
-    fn from(value: &INetFwIcmpSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetFwIcmpSettings, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetFwIcmpSettings {
     fn clone(&self) -> Self {
@@ -1640,41 +1262,7 @@ impl INetFwMgr {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwMgr> for ::windows::core::IUnknown {
-    fn from(value: INetFwMgr) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwMgr> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetFwMgr) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwMgr> for ::windows::core::IUnknown {
-    fn from(value: &INetFwMgr) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwMgr> for super::super::System::Com::IDispatch {
-    fn from(value: INetFwMgr) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwMgr> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetFwMgr) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwMgr> for super::super::System::Com::IDispatch {
-    fn from(value: &INetFwMgr) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetFwMgr, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetFwMgr {
     fn clone(&self) -> Self {
@@ -1784,41 +1372,7 @@ impl INetFwOpenPort {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwOpenPort> for ::windows::core::IUnknown {
-    fn from(value: INetFwOpenPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwOpenPort> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetFwOpenPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwOpenPort> for ::windows::core::IUnknown {
-    fn from(value: &INetFwOpenPort) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwOpenPort> for super::super::System::Com::IDispatch {
-    fn from(value: INetFwOpenPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwOpenPort> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetFwOpenPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwOpenPort> for super::super::System::Com::IDispatch {
-    fn from(value: &INetFwOpenPort) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetFwOpenPort, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetFwOpenPort {
     fn clone(&self) -> Self {
@@ -1901,41 +1455,7 @@ impl INetFwOpenPorts {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwOpenPorts> for ::windows::core::IUnknown {
-    fn from(value: INetFwOpenPorts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwOpenPorts> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetFwOpenPorts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwOpenPorts> for ::windows::core::IUnknown {
-    fn from(value: &INetFwOpenPorts) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwOpenPorts> for super::super::System::Com::IDispatch {
-    fn from(value: INetFwOpenPorts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwOpenPorts> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetFwOpenPorts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwOpenPorts> for super::super::System::Com::IDispatch {
-    fn from(value: &INetFwOpenPorts) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetFwOpenPorts, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetFwOpenPorts {
     fn clone(&self) -> Self {
@@ -2001,41 +1521,7 @@ impl INetFwPolicy {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwPolicy> for ::windows::core::IUnknown {
-    fn from(value: INetFwPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwPolicy> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetFwPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwPolicy> for ::windows::core::IUnknown {
-    fn from(value: &INetFwPolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwPolicy> for super::super::System::Com::IDispatch {
-    fn from(value: INetFwPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwPolicy> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetFwPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwPolicy> for super::super::System::Com::IDispatch {
-    fn from(value: &INetFwPolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetFwPolicy, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetFwPolicy {
     fn clone(&self) -> Self {
@@ -2176,41 +1662,7 @@ impl INetFwPolicy2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwPolicy2> for ::windows::core::IUnknown {
-    fn from(value: INetFwPolicy2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwPolicy2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetFwPolicy2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwPolicy2> for ::windows::core::IUnknown {
-    fn from(value: &INetFwPolicy2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwPolicy2> for super::super::System::Com::IDispatch {
-    fn from(value: INetFwPolicy2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwPolicy2> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetFwPolicy2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwPolicy2> for super::super::System::Com::IDispatch {
-    fn from(value: &INetFwPolicy2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetFwPolicy2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetFwPolicy2 {
     fn clone(&self) -> Self {
@@ -2312,41 +1764,7 @@ impl INetFwProduct {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwProduct> for ::windows::core::IUnknown {
-    fn from(value: INetFwProduct) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwProduct> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetFwProduct) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwProduct> for ::windows::core::IUnknown {
-    fn from(value: &INetFwProduct) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwProduct> for super::super::System::Com::IDispatch {
-    fn from(value: INetFwProduct) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwProduct> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetFwProduct) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwProduct> for super::super::System::Com::IDispatch {
-    fn from(value: &INetFwProduct) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetFwProduct, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetFwProduct {
     fn clone(&self) -> Self {
@@ -2423,41 +1841,7 @@ impl INetFwProducts {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwProducts> for ::windows::core::IUnknown {
-    fn from(value: INetFwProducts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwProducts> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetFwProducts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwProducts> for ::windows::core::IUnknown {
-    fn from(value: &INetFwProducts) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwProducts> for super::super::System::Com::IDispatch {
-    fn from(value: INetFwProducts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwProducts> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetFwProducts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwProducts> for super::super::System::Com::IDispatch {
-    fn from(value: &INetFwProducts) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetFwProducts, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetFwProducts {
     fn clone(&self) -> Self {
@@ -2572,41 +1956,7 @@ impl INetFwProfile {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwProfile> for ::windows::core::IUnknown {
-    fn from(value: INetFwProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwProfile> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetFwProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwProfile> for ::windows::core::IUnknown {
-    fn from(value: &INetFwProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwProfile> for super::super::System::Com::IDispatch {
-    fn from(value: INetFwProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwProfile> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetFwProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwProfile> for super::super::System::Com::IDispatch {
-    fn from(value: &INetFwProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetFwProfile, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetFwProfile {
     fn clone(&self) -> Self {
@@ -2706,41 +2056,7 @@ impl INetFwRemoteAdminSettings {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwRemoteAdminSettings> for ::windows::core::IUnknown {
-    fn from(value: INetFwRemoteAdminSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwRemoteAdminSettings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetFwRemoteAdminSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwRemoteAdminSettings> for ::windows::core::IUnknown {
-    fn from(value: &INetFwRemoteAdminSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwRemoteAdminSettings> for super::super::System::Com::IDispatch {
-    fn from(value: INetFwRemoteAdminSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwRemoteAdminSettings> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetFwRemoteAdminSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwRemoteAdminSettings> for super::super::System::Com::IDispatch {
-    fn from(value: &INetFwRemoteAdminSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetFwRemoteAdminSettings, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetFwRemoteAdminSettings {
     fn clone(&self) -> Self {
@@ -2924,41 +2240,7 @@ impl INetFwRule {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwRule> for ::windows::core::IUnknown {
-    fn from(value: INetFwRule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwRule> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetFwRule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwRule> for ::windows::core::IUnknown {
-    fn from(value: &INetFwRule) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwRule> for super::super::System::Com::IDispatch {
-    fn from(value: INetFwRule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwRule> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetFwRule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwRule> for super::super::System::Com::IDispatch {
-    fn from(value: &INetFwRule) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetFwRule, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetFwRule {
     fn clone(&self) -> Self {
@@ -3183,59 +2465,7 @@ impl INetFwRule2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwRule2> for ::windows::core::IUnknown {
-    fn from(value: INetFwRule2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwRule2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetFwRule2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwRule2> for ::windows::core::IUnknown {
-    fn from(value: &INetFwRule2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwRule2> for super::super::System::Com::IDispatch {
-    fn from(value: INetFwRule2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwRule2> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetFwRule2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwRule2> for super::super::System::Com::IDispatch {
-    fn from(value: &INetFwRule2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwRule2> for INetFwRule {
-    fn from(value: INetFwRule2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwRule2> for &'a INetFwRule {
-    fn from(value: &'a INetFwRule2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwRule2> for INetFwRule {
-    fn from(value: &INetFwRule2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetFwRule2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, INetFwRule);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetFwRule2 {
     fn clone(&self) -> Self {
@@ -3462,77 +2692,7 @@ impl INetFwRule3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwRule3> for ::windows::core::IUnknown {
-    fn from(value: INetFwRule3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwRule3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetFwRule3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwRule3> for ::windows::core::IUnknown {
-    fn from(value: &INetFwRule3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwRule3> for super::super::System::Com::IDispatch {
-    fn from(value: INetFwRule3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwRule3> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetFwRule3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwRule3> for super::super::System::Com::IDispatch {
-    fn from(value: &INetFwRule3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwRule3> for INetFwRule {
-    fn from(value: INetFwRule3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwRule3> for &'a INetFwRule {
-    fn from(value: &'a INetFwRule3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwRule3> for INetFwRule {
-    fn from(value: &INetFwRule3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwRule3> for INetFwRule2 {
-    fn from(value: INetFwRule3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwRule3> for &'a INetFwRule2 {
-    fn from(value: &'a INetFwRule3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwRule3> for INetFwRule2 {
-    fn from(value: &INetFwRule3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetFwRule3, ::windows::core::IUnknown, super::super::System::Com::IDispatch, INetFwRule, INetFwRule2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetFwRule3 {
     fn clone(&self) -> Self {
@@ -3612,41 +2772,7 @@ impl INetFwRules {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwRules> for ::windows::core::IUnknown {
-    fn from(value: INetFwRules) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwRules> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetFwRules) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwRules> for ::windows::core::IUnknown {
-    fn from(value: &INetFwRules) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwRules> for super::super::System::Com::IDispatch {
-    fn from(value: INetFwRules) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwRules> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetFwRules) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwRules> for super::super::System::Com::IDispatch {
-    fn from(value: &INetFwRules) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetFwRules, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetFwRules {
     fn clone(&self) -> Self {
@@ -3746,41 +2872,7 @@ impl INetFwService {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwService> for ::windows::core::IUnknown {
-    fn from(value: INetFwService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwService> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetFwService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwService> for ::windows::core::IUnknown {
-    fn from(value: &INetFwService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwService> for super::super::System::Com::IDispatch {
-    fn from(value: INetFwService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwService> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetFwService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwService> for super::super::System::Com::IDispatch {
-    fn from(value: &INetFwService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetFwService, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetFwService {
     fn clone(&self) -> Self {
@@ -3851,41 +2943,7 @@ impl INetFwServiceRestriction {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwServiceRestriction> for ::windows::core::IUnknown {
-    fn from(value: INetFwServiceRestriction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwServiceRestriction> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetFwServiceRestriction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwServiceRestriction> for ::windows::core::IUnknown {
-    fn from(value: &INetFwServiceRestriction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwServiceRestriction> for super::super::System::Com::IDispatch {
-    fn from(value: INetFwServiceRestriction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwServiceRestriction> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetFwServiceRestriction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwServiceRestriction> for super::super::System::Com::IDispatch {
-    fn from(value: &INetFwServiceRestriction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetFwServiceRestriction, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetFwServiceRestriction {
     fn clone(&self) -> Self {
@@ -3948,41 +3006,7 @@ impl INetFwServices {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwServices> for ::windows::core::IUnknown {
-    fn from(value: INetFwServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwServices> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetFwServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwServices> for ::windows::core::IUnknown {
-    fn from(value: &INetFwServices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetFwServices> for super::super::System::Com::IDispatch {
-    fn from(value: INetFwServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetFwServices> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetFwServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetFwServices> for super::super::System::Com::IDispatch {
-    fn from(value: &INetFwServices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetFwServices, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetFwServices {
     fn clone(&self) -> Self {
@@ -4075,41 +3099,7 @@ impl INetSharingConfiguration {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetSharingConfiguration> for ::windows::core::IUnknown {
-    fn from(value: INetSharingConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetSharingConfiguration> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetSharingConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetSharingConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &INetSharingConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetSharingConfiguration> for super::super::System::Com::IDispatch {
-    fn from(value: INetSharingConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetSharingConfiguration> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetSharingConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetSharingConfiguration> for super::super::System::Com::IDispatch {
-    fn from(value: &INetSharingConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetSharingConfiguration, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetSharingConfiguration {
     fn clone(&self) -> Self {
@@ -4179,41 +3169,7 @@ impl INetSharingEveryConnectionCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetSharingEveryConnectionCollection> for ::windows::core::IUnknown {
-    fn from(value: INetSharingEveryConnectionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetSharingEveryConnectionCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetSharingEveryConnectionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetSharingEveryConnectionCollection> for ::windows::core::IUnknown {
-    fn from(value: &INetSharingEveryConnectionCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetSharingEveryConnectionCollection> for super::super::System::Com::IDispatch {
-    fn from(value: INetSharingEveryConnectionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetSharingEveryConnectionCollection> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetSharingEveryConnectionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetSharingEveryConnectionCollection> for super::super::System::Com::IDispatch {
-    fn from(value: &INetSharingEveryConnectionCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetSharingEveryConnectionCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetSharingEveryConnectionCollection {
     fn clone(&self) -> Self {
@@ -4298,41 +3254,7 @@ impl INetSharingManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetSharingManager> for ::windows::core::IUnknown {
-    fn from(value: INetSharingManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetSharingManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetSharingManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetSharingManager> for ::windows::core::IUnknown {
-    fn from(value: &INetSharingManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetSharingManager> for super::super::System::Com::IDispatch {
-    fn from(value: INetSharingManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetSharingManager> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetSharingManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetSharingManager> for super::super::System::Com::IDispatch {
-    fn from(value: &INetSharingManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetSharingManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetSharingManager {
     fn clone(&self) -> Self {
@@ -4411,41 +3333,7 @@ impl INetSharingPortMapping {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetSharingPortMapping> for ::windows::core::IUnknown {
-    fn from(value: INetSharingPortMapping) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetSharingPortMapping> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetSharingPortMapping) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetSharingPortMapping> for ::windows::core::IUnknown {
-    fn from(value: &INetSharingPortMapping) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetSharingPortMapping> for super::super::System::Com::IDispatch {
-    fn from(value: INetSharingPortMapping) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetSharingPortMapping> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetSharingPortMapping) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetSharingPortMapping> for super::super::System::Com::IDispatch {
-    fn from(value: &INetSharingPortMapping) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetSharingPortMapping, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetSharingPortMapping {
     fn clone(&self) -> Self {
@@ -4503,41 +3391,7 @@ impl INetSharingPortMappingCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetSharingPortMappingCollection> for ::windows::core::IUnknown {
-    fn from(value: INetSharingPortMappingCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetSharingPortMappingCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetSharingPortMappingCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetSharingPortMappingCollection> for ::windows::core::IUnknown {
-    fn from(value: &INetSharingPortMappingCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetSharingPortMappingCollection> for super::super::System::Com::IDispatch {
-    fn from(value: INetSharingPortMappingCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetSharingPortMappingCollection> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetSharingPortMappingCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetSharingPortMappingCollection> for super::super::System::Com::IDispatch {
-    fn from(value: &INetSharingPortMappingCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetSharingPortMappingCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetSharingPortMappingCollection {
     fn clone(&self) -> Self {
@@ -4614,41 +3468,7 @@ impl INetSharingPortMappingProps {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetSharingPortMappingProps> for ::windows::core::IUnknown {
-    fn from(value: INetSharingPortMappingProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetSharingPortMappingProps> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetSharingPortMappingProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetSharingPortMappingProps> for ::windows::core::IUnknown {
-    fn from(value: &INetSharingPortMappingProps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetSharingPortMappingProps> for super::super::System::Com::IDispatch {
-    fn from(value: INetSharingPortMappingProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetSharingPortMappingProps> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetSharingPortMappingProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetSharingPortMappingProps> for super::super::System::Com::IDispatch {
-    fn from(value: &INetSharingPortMappingProps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetSharingPortMappingProps, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetSharingPortMappingProps {
     fn clone(&self) -> Self {
@@ -4707,41 +3527,7 @@ impl INetSharingPrivateConnectionCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetSharingPrivateConnectionCollection> for ::windows::core::IUnknown {
-    fn from(value: INetSharingPrivateConnectionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetSharingPrivateConnectionCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetSharingPrivateConnectionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetSharingPrivateConnectionCollection> for ::windows::core::IUnknown {
-    fn from(value: &INetSharingPrivateConnectionCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetSharingPrivateConnectionCollection> for super::super::System::Com::IDispatch {
-    fn from(value: INetSharingPrivateConnectionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetSharingPrivateConnectionCollection> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetSharingPrivateConnectionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetSharingPrivateConnectionCollection> for super::super::System::Com::IDispatch {
-    fn from(value: &INetSharingPrivateConnectionCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetSharingPrivateConnectionCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetSharingPrivateConnectionCollection {
     fn clone(&self) -> Self {
@@ -4794,41 +3580,7 @@ impl INetSharingPublicConnectionCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetSharingPublicConnectionCollection> for ::windows::core::IUnknown {
-    fn from(value: INetSharingPublicConnectionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetSharingPublicConnectionCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetSharingPublicConnectionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetSharingPublicConnectionCollection> for ::windows::core::IUnknown {
-    fn from(value: &INetSharingPublicConnectionCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetSharingPublicConnectionCollection> for super::super::System::Com::IDispatch {
-    fn from(value: INetSharingPublicConnectionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetSharingPublicConnectionCollection> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetSharingPublicConnectionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetSharingPublicConnectionCollection> for super::super::System::Com::IDispatch {
-    fn from(value: &INetSharingPublicConnectionCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetSharingPublicConnectionCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetSharingPublicConnectionCollection {
     fn clone(&self) -> Self {
@@ -4913,41 +3665,7 @@ impl IStaticPortMapping {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IStaticPortMapping> for ::windows::core::IUnknown {
-    fn from(value: IStaticPortMapping) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IStaticPortMapping> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStaticPortMapping) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IStaticPortMapping> for ::windows::core::IUnknown {
-    fn from(value: &IStaticPortMapping) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IStaticPortMapping> for super::super::System::Com::IDispatch {
-    fn from(value: IStaticPortMapping) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IStaticPortMapping> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IStaticPortMapping) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IStaticPortMapping> for super::super::System::Com::IDispatch {
-    fn from(value: &IStaticPortMapping) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStaticPortMapping, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IStaticPortMapping {
     fn clone(&self) -> Self {
@@ -5024,41 +3742,7 @@ impl IStaticPortMappingCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IStaticPortMappingCollection> for ::windows::core::IUnknown {
-    fn from(value: IStaticPortMappingCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IStaticPortMappingCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStaticPortMappingCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IStaticPortMappingCollection> for ::windows::core::IUnknown {
-    fn from(value: &IStaticPortMappingCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IStaticPortMappingCollection> for super::super::System::Com::IDispatch {
-    fn from(value: IStaticPortMappingCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IStaticPortMappingCollection> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IStaticPortMappingCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IStaticPortMappingCollection> for super::super::System::Com::IDispatch {
-    fn from(value: &IStaticPortMappingCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStaticPortMappingCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IStaticPortMappingCollection {
     fn clone(&self) -> Self {
@@ -5130,41 +3814,7 @@ impl IUPnPNAT {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUPnPNAT> for ::windows::core::IUnknown {
-    fn from(value: IUPnPNAT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUPnPNAT> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPNAT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUPnPNAT> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPNAT) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUPnPNAT> for super::super::System::Com::IDispatch {
-    fn from(value: IUPnPNAT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUPnPNAT> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IUPnPNAT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUPnPNAT> for super::super::System::Com::IDispatch {
-    fn from(value: &IUPnPNAT) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPNAT, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUPnPNAT {
     fn clone(&self) -> Self {

@@ -495,41 +495,7 @@ impl ::windows::core::RuntimeName for SecondaryAuthenticationFactorAuthenticatio
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthentication";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SecondaryAuthenticationFactorAuthentication> for ::windows::core::IUnknown {
-    fn from(value: SecondaryAuthenticationFactorAuthentication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorAuthentication> for ::windows::core::IUnknown {
-    fn from(value: &SecondaryAuthenticationFactorAuthentication) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorAuthentication> for &::windows::core::IUnknown {
-    fn from(value: &SecondaryAuthenticationFactorAuthentication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SecondaryAuthenticationFactorAuthentication> for ::windows::core::IInspectable {
-    fn from(value: SecondaryAuthenticationFactorAuthentication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorAuthentication> for ::windows::core::IInspectable {
-    fn from(value: &SecondaryAuthenticationFactorAuthentication) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorAuthentication> for &::windows::core::IInspectable {
-    fn from(value: &SecondaryAuthenticationFactorAuthentication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SecondaryAuthenticationFactorAuthentication, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorAuthentication {}
 #[cfg(feature = "deprecated")]
@@ -600,41 +566,7 @@ impl ::windows::core::RuntimeName for SecondaryAuthenticationFactorAuthenticatio
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationResult";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SecondaryAuthenticationFactorAuthenticationResult> for ::windows::core::IUnknown {
-    fn from(value: SecondaryAuthenticationFactorAuthenticationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationResult> for ::windows::core::IUnknown {
-    fn from(value: &SecondaryAuthenticationFactorAuthenticationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationResult> for &::windows::core::IUnknown {
-    fn from(value: &SecondaryAuthenticationFactorAuthenticationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SecondaryAuthenticationFactorAuthenticationResult> for ::windows::core::IInspectable {
-    fn from(value: SecondaryAuthenticationFactorAuthenticationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationResult> for ::windows::core::IInspectable {
-    fn from(value: &SecondaryAuthenticationFactorAuthenticationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationResult> for &::windows::core::IInspectable {
-    fn from(value: &SecondaryAuthenticationFactorAuthenticationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SecondaryAuthenticationFactorAuthenticationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorAuthenticationResult {}
 #[cfg(feature = "deprecated")]
@@ -696,41 +628,7 @@ impl ::windows::core::RuntimeName for SecondaryAuthenticationFactorAuthenticatio
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -810,41 +708,7 @@ impl ::windows::core::RuntimeName for SecondaryAuthenticationFactorAuthenticatio
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStageInfo";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SecondaryAuthenticationFactorAuthenticationStageInfo> for ::windows::core::IUnknown {
-    fn from(value: SecondaryAuthenticationFactorAuthenticationStageInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationStageInfo> for ::windows::core::IUnknown {
-    fn from(value: &SecondaryAuthenticationFactorAuthenticationStageInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationStageInfo> for &::windows::core::IUnknown {
-    fn from(value: &SecondaryAuthenticationFactorAuthenticationStageInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SecondaryAuthenticationFactorAuthenticationStageInfo> for ::windows::core::IInspectable {
-    fn from(value: SecondaryAuthenticationFactorAuthenticationStageInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationStageInfo> for ::windows::core::IInspectable {
-    fn from(value: &SecondaryAuthenticationFactorAuthenticationStageInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationStageInfo> for &::windows::core::IInspectable {
-    fn from(value: &SecondaryAuthenticationFactorAuthenticationStageInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SecondaryAuthenticationFactorAuthenticationStageInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorAuthenticationStageInfo {}
 #[cfg(feature = "deprecated")]
@@ -960,41 +824,7 @@ impl ::windows::core::RuntimeName for SecondaryAuthenticationFactorInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorInfo";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SecondaryAuthenticationFactorInfo> for ::windows::core::IUnknown {
-    fn from(value: SecondaryAuthenticationFactorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorInfo> for ::windows::core::IUnknown {
-    fn from(value: &SecondaryAuthenticationFactorInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorInfo> for &::windows::core::IUnknown {
-    fn from(value: &SecondaryAuthenticationFactorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SecondaryAuthenticationFactorInfo> for ::windows::core::IInspectable {
-    fn from(value: SecondaryAuthenticationFactorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorInfo> for ::windows::core::IInspectable {
-    fn from(value: &SecondaryAuthenticationFactorInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorInfo> for &::windows::core::IInspectable {
-    fn from(value: &SecondaryAuthenticationFactorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SecondaryAuthenticationFactorInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorInfo {}
 #[cfg(feature = "deprecated")]
@@ -1159,41 +989,7 @@ impl ::windows::core::RuntimeName for SecondaryAuthenticationFactorRegistration 
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistration";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SecondaryAuthenticationFactorRegistration> for ::windows::core::IUnknown {
-    fn from(value: SecondaryAuthenticationFactorRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorRegistration> for ::windows::core::IUnknown {
-    fn from(value: &SecondaryAuthenticationFactorRegistration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorRegistration> for &::windows::core::IUnknown {
-    fn from(value: &SecondaryAuthenticationFactorRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SecondaryAuthenticationFactorRegistration> for ::windows::core::IInspectable {
-    fn from(value: SecondaryAuthenticationFactorRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorRegistration> for ::windows::core::IInspectable {
-    fn from(value: &SecondaryAuthenticationFactorRegistration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorRegistration> for &::windows::core::IInspectable {
-    fn from(value: &SecondaryAuthenticationFactorRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SecondaryAuthenticationFactorRegistration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorRegistration {}
 #[cfg(feature = "deprecated")]
@@ -1264,41 +1060,7 @@ impl ::windows::core::RuntimeName for SecondaryAuthenticationFactorRegistrationR
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistrationResult";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SecondaryAuthenticationFactorRegistrationResult> for ::windows::core::IUnknown {
-    fn from(value: SecondaryAuthenticationFactorRegistrationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorRegistrationResult> for ::windows::core::IUnknown {
-    fn from(value: &SecondaryAuthenticationFactorRegistrationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorRegistrationResult> for &::windows::core::IUnknown {
-    fn from(value: &SecondaryAuthenticationFactorRegistrationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SecondaryAuthenticationFactorRegistrationResult> for ::windows::core::IInspectable {
-    fn from(value: SecondaryAuthenticationFactorRegistrationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorRegistrationResult> for ::windows::core::IInspectable {
-    fn from(value: &SecondaryAuthenticationFactorRegistrationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorRegistrationResult> for &::windows::core::IInspectable {
-    fn from(value: &SecondaryAuthenticationFactorRegistrationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SecondaryAuthenticationFactorRegistrationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorRegistrationResult {}
 #[cfg(feature = "deprecated")]

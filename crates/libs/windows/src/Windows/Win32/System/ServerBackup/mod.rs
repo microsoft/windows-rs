@@ -10,21 +10,7 @@ impl IWsbApplicationAsync {
         (::windows::core::Vtable::vtable(self).Abort)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWsbApplicationAsync> for ::windows::core::IUnknown {
-    fn from(value: IWsbApplicationAsync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWsbApplicationAsync> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWsbApplicationAsync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWsbApplicationAsync> for ::windows::core::IUnknown {
-    fn from(value: &IWsbApplicationAsync) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWsbApplicationAsync, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWsbApplicationAsync {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -68,21 +54,7 @@ impl IWsbApplicationBackupSupport {
         (::windows::core::Vtable::vtable(self).CheckConsistency)(::windows::core::Vtable::as_raw(self), wszwritermetadata.into(), wszcomponentname.into(), wszcomponentlogicalpath.into(), cvolumes, ::core::mem::transmute(rgwszsourcevolumepath), ::core::mem::transmute(rgwszsnapshotvolumepath), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWsbApplicationAsync>(result__)
     }
 }
-impl ::core::convert::From<IWsbApplicationBackupSupport> for ::windows::core::IUnknown {
-    fn from(value: IWsbApplicationBackupSupport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWsbApplicationBackupSupport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWsbApplicationBackupSupport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWsbApplicationBackupSupport> for ::windows::core::IUnknown {
-    fn from(value: &IWsbApplicationBackupSupport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWsbApplicationBackupSupport, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWsbApplicationBackupSupport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -145,21 +117,7 @@ impl IWsbApplicationRestoreSupport {
         (::windows::core::Vtable::vtable(self).IsRollForwardSupported)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
     }
 }
-impl ::core::convert::From<IWsbApplicationRestoreSupport> for ::windows::core::IUnknown {
-    fn from(value: IWsbApplicationRestoreSupport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWsbApplicationRestoreSupport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWsbApplicationRestoreSupport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWsbApplicationRestoreSupport> for ::windows::core::IUnknown {
-    fn from(value: &IWsbApplicationRestoreSupport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWsbApplicationRestoreSupport, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWsbApplicationRestoreSupport {
     fn clone(&self) -> Self {
         Self(self.0.clone())

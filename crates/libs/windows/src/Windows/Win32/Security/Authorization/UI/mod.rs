@@ -55,21 +55,7 @@ impl IEffectivePermission {
         (::windows::core::Vtable::vtable(self).GetEffectivePermission)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pguidobjecttype), pusersid.into(), pszservername.into(), psd.into(), ::core::mem::transmute(ppobjecttypelist), ::core::mem::transmute(pcobjecttypelistlength), ::core::mem::transmute(ppgrantedaccesslist), ::core::mem::transmute(pcgrantedaccesslistlength)).ok()
     }
 }
-impl ::core::convert::From<IEffectivePermission> for ::windows::core::IUnknown {
-    fn from(value: IEffectivePermission) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEffectivePermission> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEffectivePermission) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEffectivePermission> for ::windows::core::IUnknown {
-    fn from(value: &IEffectivePermission) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEffectivePermission, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEffectivePermission {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -149,21 +135,7 @@ impl IEffectivePermission2 {
         .ok()
     }
 }
-impl ::core::convert::From<IEffectivePermission2> for ::windows::core::IUnknown {
-    fn from(value: IEffectivePermission2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEffectivePermission2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEffectivePermission2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEffectivePermission2> for ::windows::core::IUnknown {
-    fn from(value: &IEffectivePermission2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEffectivePermission2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEffectivePermission2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -252,21 +224,7 @@ impl ISecurityInformation {
         (::windows::core::Vtable::vtable(self).PropertySheetPageCallback)(::windows::core::Vtable::as_raw(self), hwnd.into(), umsg, upage).ok()
     }
 }
-impl ::core::convert::From<ISecurityInformation> for ::windows::core::IUnknown {
-    fn from(value: ISecurityInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISecurityInformation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISecurityInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISecurityInformation> for ::windows::core::IUnknown {
-    fn from(value: &ISecurityInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISecurityInformation, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISecurityInformation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -325,21 +283,7 @@ impl ISecurityInformation2 {
         (::windows::core::Vtable::vtable(self).LookupSids)(::windows::core::Vtable::as_raw(self), csids, ::core::mem::transmute(rgpsids), ::core::mem::transmute(ppdo)).ok()
     }
 }
-impl ::core::convert::From<ISecurityInformation2> for ::windows::core::IUnknown {
-    fn from(value: ISecurityInformation2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISecurityInformation2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISecurityInformation2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISecurityInformation2> for ::windows::core::IUnknown {
-    fn from(value: &ISecurityInformation2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISecurityInformation2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISecurityInformation2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -392,21 +336,7 @@ impl ISecurityInformation3 {
         (::windows::core::Vtable::vtable(self).OpenElevatedEditor)(::windows::core::Vtable::as_raw(self), hwnd.into(), upage).ok()
     }
 }
-impl ::core::convert::From<ISecurityInformation3> for ::windows::core::IUnknown {
-    fn from(value: ISecurityInformation3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISecurityInformation3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISecurityInformation3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISecurityInformation3> for ::windows::core::IUnknown {
-    fn from(value: &ISecurityInformation3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISecurityInformation3, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISecurityInformation3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -449,21 +379,7 @@ impl ISecurityInformation4 {
         (::windows::core::Vtable::vtable(self).GetSecondarySecurity)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psecurityobjects), ::core::mem::transmute(psecurityobjectcount)).ok()
     }
 }
-impl ::core::convert::From<ISecurityInformation4> for ::windows::core::IUnknown {
-    fn from(value: ISecurityInformation4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISecurityInformation4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISecurityInformation4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISecurityInformation4> for ::windows::core::IUnknown {
-    fn from(value: &ISecurityInformation4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISecurityInformation4, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISecurityInformation4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -503,21 +419,7 @@ impl ISecurityObjectTypeInfo {
         (::windows::core::Vtable::vtable(self).GetInheritSource)(::windows::core::Vtable::as_raw(self), si, ::core::mem::transmute(pacl), ::core::mem::transmute(ppinheritarray)).ok()
     }
 }
-impl ::core::convert::From<ISecurityObjectTypeInfo> for ::windows::core::IUnknown {
-    fn from(value: ISecurityObjectTypeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISecurityObjectTypeInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISecurityObjectTypeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISecurityObjectTypeInfo> for ::windows::core::IUnknown {
-    fn from(value: &ISecurityObjectTypeInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISecurityObjectTypeInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISecurityObjectTypeInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())

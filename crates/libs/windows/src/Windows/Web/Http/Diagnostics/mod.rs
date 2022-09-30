@@ -303,36 +303,7 @@ unsafe impl ::windows::core::Interface for HttpDiagnosticProvider {
 impl ::windows::core::RuntimeName for HttpDiagnosticProvider {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProvider";
 }
-impl ::core::convert::From<HttpDiagnosticProvider> for ::windows::core::IUnknown {
-    fn from(value: HttpDiagnosticProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticProvider> for ::windows::core::IUnknown {
-    fn from(value: &HttpDiagnosticProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticProvider> for &::windows::core::IUnknown {
-    fn from(value: &HttpDiagnosticProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpDiagnosticProvider> for ::windows::core::IInspectable {
-    fn from(value: HttpDiagnosticProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticProvider> for ::windows::core::IInspectable {
-    fn from(value: &HttpDiagnosticProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticProvider> for &::windows::core::IInspectable {
-    fn from(value: &HttpDiagnosticProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpDiagnosticProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HttpDiagnosticProvider {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProvider {}
 #[doc = "*Required features: `\"Web_Http_Diagnostics\"`*"]
@@ -425,36 +396,7 @@ unsafe impl ::windows::core::Interface for HttpDiagnosticProviderRequestResponse
 impl ::windows::core::RuntimeName for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseCompletedEventArgs";
 }
-impl ::core::convert::From<HttpDiagnosticProviderRequestResponseCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: HttpDiagnosticProviderRequestResponseCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticProviderRequestResponseCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &HttpDiagnosticProviderRequestResponseCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticProviderRequestResponseCompletedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &HttpDiagnosticProviderRequestResponseCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpDiagnosticProviderRequestResponseCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: HttpDiagnosticProviderRequestResponseCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticProviderRequestResponseCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &HttpDiagnosticProviderRequestResponseCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticProviderRequestResponseCompletedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &HttpDiagnosticProviderRequestResponseCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpDiagnosticProviderRequestResponseCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HttpDiagnosticProviderRequestResponseCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderRequestResponseCompletedEventArgs {}
 #[doc = "*Required features: `\"Web_Http_Diagnostics\"`*"]
@@ -575,36 +517,7 @@ unsafe impl ::windows::core::Interface for HttpDiagnosticProviderRequestResponse
 impl ::windows::core::RuntimeName for HttpDiagnosticProviderRequestResponseTimestamps {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseTimestamps";
 }
-impl ::core::convert::From<HttpDiagnosticProviderRequestResponseTimestamps> for ::windows::core::IUnknown {
-    fn from(value: HttpDiagnosticProviderRequestResponseTimestamps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticProviderRequestResponseTimestamps> for ::windows::core::IUnknown {
-    fn from(value: &HttpDiagnosticProviderRequestResponseTimestamps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticProviderRequestResponseTimestamps> for &::windows::core::IUnknown {
-    fn from(value: &HttpDiagnosticProviderRequestResponseTimestamps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpDiagnosticProviderRequestResponseTimestamps> for ::windows::core::IInspectable {
-    fn from(value: HttpDiagnosticProviderRequestResponseTimestamps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticProviderRequestResponseTimestamps> for ::windows::core::IInspectable {
-    fn from(value: &HttpDiagnosticProviderRequestResponseTimestamps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticProviderRequestResponseTimestamps> for &::windows::core::IInspectable {
-    fn from(value: &HttpDiagnosticProviderRequestResponseTimestamps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpDiagnosticProviderRequestResponseTimestamps, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HttpDiagnosticProviderRequestResponseTimestamps {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderRequestResponseTimestamps {}
 #[doc = "*Required features: `\"Web_Http_Diagnostics\"`*"]
@@ -697,36 +610,7 @@ unsafe impl ::windows::core::Interface for HttpDiagnosticProviderRequestSentEven
 impl ::windows::core::RuntimeName for HttpDiagnosticProviderRequestSentEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestSentEventArgs";
 }
-impl ::core::convert::From<HttpDiagnosticProviderRequestSentEventArgs> for ::windows::core::IUnknown {
-    fn from(value: HttpDiagnosticProviderRequestSentEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticProviderRequestSentEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &HttpDiagnosticProviderRequestSentEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticProviderRequestSentEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &HttpDiagnosticProviderRequestSentEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpDiagnosticProviderRequestSentEventArgs> for ::windows::core::IInspectable {
-    fn from(value: HttpDiagnosticProviderRequestSentEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticProviderRequestSentEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &HttpDiagnosticProviderRequestSentEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticProviderRequestSentEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &HttpDiagnosticProviderRequestSentEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpDiagnosticProviderRequestSentEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HttpDiagnosticProviderRequestSentEventArgs {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderRequestSentEventArgs {}
 #[doc = "*Required features: `\"Web_Http_Diagnostics\"`*"]
@@ -789,36 +673,7 @@ unsafe impl ::windows::core::Interface for HttpDiagnosticProviderResponseReceive
 impl ::windows::core::RuntimeName for HttpDiagnosticProviderResponseReceivedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderResponseReceivedEventArgs";
 }
-impl ::core::convert::From<HttpDiagnosticProviderResponseReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: HttpDiagnosticProviderResponseReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticProviderResponseReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &HttpDiagnosticProviderResponseReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticProviderResponseReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &HttpDiagnosticProviderResponseReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpDiagnosticProviderResponseReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: HttpDiagnosticProviderResponseReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticProviderResponseReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &HttpDiagnosticProviderResponseReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticProviderResponseReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &HttpDiagnosticProviderResponseReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpDiagnosticProviderResponseReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HttpDiagnosticProviderResponseReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderResponseReceivedEventArgs {}
 #[doc = "*Required features: `\"Web_Http_Diagnostics\"`*"]
@@ -881,36 +736,7 @@ unsafe impl ::windows::core::Interface for HttpDiagnosticSourceLocation {
 impl ::windows::core::RuntimeName for HttpDiagnosticSourceLocation {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticSourceLocation";
 }
-impl ::core::convert::From<HttpDiagnosticSourceLocation> for ::windows::core::IUnknown {
-    fn from(value: HttpDiagnosticSourceLocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticSourceLocation> for ::windows::core::IUnknown {
-    fn from(value: &HttpDiagnosticSourceLocation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticSourceLocation> for &::windows::core::IUnknown {
-    fn from(value: &HttpDiagnosticSourceLocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpDiagnosticSourceLocation> for ::windows::core::IInspectable {
-    fn from(value: HttpDiagnosticSourceLocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticSourceLocation> for ::windows::core::IInspectable {
-    fn from(value: &HttpDiagnosticSourceLocation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpDiagnosticSourceLocation> for &::windows::core::IInspectable {
-    fn from(value: &HttpDiagnosticSourceLocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpDiagnosticSourceLocation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HttpDiagnosticSourceLocation {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticSourceLocation {}
 #[doc = "*Required features: `\"Web_Http_Diagnostics\"`*"]

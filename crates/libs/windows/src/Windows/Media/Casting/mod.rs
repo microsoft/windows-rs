@@ -329,36 +329,7 @@ unsafe impl ::windows::core::Interface for CastingConnection {
 impl ::windows::core::RuntimeName for CastingConnection {
     const NAME: &'static str = "Windows.Media.Casting.CastingConnection";
 }
-impl ::core::convert::From<CastingConnection> for ::windows::core::IUnknown {
-    fn from(value: CastingConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CastingConnection> for ::windows::core::IUnknown {
-    fn from(value: &CastingConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CastingConnection> for &::windows::core::IUnknown {
-    fn from(value: &CastingConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CastingConnection> for ::windows::core::IInspectable {
-    fn from(value: CastingConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CastingConnection> for ::windows::core::IInspectable {
-    fn from(value: &CastingConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CastingConnection> for &::windows::core::IInspectable {
-    fn from(value: &CastingConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CastingConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<CastingConnection> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -434,36 +405,7 @@ unsafe impl ::windows::core::Interface for CastingConnectionErrorOccurredEventAr
 impl ::windows::core::RuntimeName for CastingConnectionErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.Media.Casting.CastingConnectionErrorOccurredEventArgs";
 }
-impl ::core::convert::From<CastingConnectionErrorOccurredEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CastingConnectionErrorOccurredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CastingConnectionErrorOccurredEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CastingConnectionErrorOccurredEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CastingConnectionErrorOccurredEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CastingConnectionErrorOccurredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CastingConnectionErrorOccurredEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CastingConnectionErrorOccurredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CastingConnectionErrorOccurredEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CastingConnectionErrorOccurredEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CastingConnectionErrorOccurredEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CastingConnectionErrorOccurredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CastingConnectionErrorOccurredEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CastingConnectionErrorOccurredEventArgs {}
 unsafe impl ::core::marker::Sync for CastingConnectionErrorOccurredEventArgs {}
 #[doc = "*Required features: `\"Media_Casting\"`*"]
@@ -577,36 +519,7 @@ unsafe impl ::windows::core::Interface for CastingDevice {
 impl ::windows::core::RuntimeName for CastingDevice {
     const NAME: &'static str = "Windows.Media.Casting.CastingDevice";
 }
-impl ::core::convert::From<CastingDevice> for ::windows::core::IUnknown {
-    fn from(value: CastingDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CastingDevice> for ::windows::core::IUnknown {
-    fn from(value: &CastingDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CastingDevice> for &::windows::core::IUnknown {
-    fn from(value: &CastingDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CastingDevice> for ::windows::core::IInspectable {
-    fn from(value: CastingDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CastingDevice> for ::windows::core::IInspectable {
-    fn from(value: &CastingDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CastingDevice> for &::windows::core::IInspectable {
-    fn from(value: &CastingDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CastingDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CastingDevice {}
 unsafe impl ::core::marker::Sync for CastingDevice {}
 #[doc = "*Required features: `\"Media_Casting\"`*"]
@@ -715,36 +628,7 @@ unsafe impl ::windows::core::Interface for CastingDevicePicker {
 impl ::windows::core::RuntimeName for CastingDevicePicker {
     const NAME: &'static str = "Windows.Media.Casting.CastingDevicePicker";
 }
-impl ::core::convert::From<CastingDevicePicker> for ::windows::core::IUnknown {
-    fn from(value: CastingDevicePicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CastingDevicePicker> for ::windows::core::IUnknown {
-    fn from(value: &CastingDevicePicker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CastingDevicePicker> for &::windows::core::IUnknown {
-    fn from(value: &CastingDevicePicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CastingDevicePicker> for ::windows::core::IInspectable {
-    fn from(value: CastingDevicePicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CastingDevicePicker> for ::windows::core::IInspectable {
-    fn from(value: &CastingDevicePicker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CastingDevicePicker> for &::windows::core::IInspectable {
-    fn from(value: &CastingDevicePicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CastingDevicePicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CastingDevicePicker {}
 unsafe impl ::core::marker::Sync for CastingDevicePicker {}
 #[doc = "*Required features: `\"Media_Casting\"`*"]
@@ -826,36 +710,7 @@ unsafe impl ::windows::core::Interface for CastingDevicePickerFilter {
 impl ::windows::core::RuntimeName for CastingDevicePickerFilter {
     const NAME: &'static str = "Windows.Media.Casting.CastingDevicePickerFilter";
 }
-impl ::core::convert::From<CastingDevicePickerFilter> for ::windows::core::IUnknown {
-    fn from(value: CastingDevicePickerFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CastingDevicePickerFilter> for ::windows::core::IUnknown {
-    fn from(value: &CastingDevicePickerFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CastingDevicePickerFilter> for &::windows::core::IUnknown {
-    fn from(value: &CastingDevicePickerFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CastingDevicePickerFilter> for ::windows::core::IInspectable {
-    fn from(value: CastingDevicePickerFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CastingDevicePickerFilter> for ::windows::core::IInspectable {
-    fn from(value: &CastingDevicePickerFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CastingDevicePickerFilter> for &::windows::core::IInspectable {
-    fn from(value: &CastingDevicePickerFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CastingDevicePickerFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CastingDevicePickerFilter {}
 unsafe impl ::core::marker::Sync for CastingDevicePickerFilter {}
 #[doc = "*Required features: `\"Media_Casting\"`*"]
@@ -902,36 +757,7 @@ unsafe impl ::windows::core::Interface for CastingDeviceSelectedEventArgs {
 impl ::windows::core::RuntimeName for CastingDeviceSelectedEventArgs {
     const NAME: &'static str = "Windows.Media.Casting.CastingDeviceSelectedEventArgs";
 }
-impl ::core::convert::From<CastingDeviceSelectedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CastingDeviceSelectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CastingDeviceSelectedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CastingDeviceSelectedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CastingDeviceSelectedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CastingDeviceSelectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CastingDeviceSelectedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CastingDeviceSelectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CastingDeviceSelectedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CastingDeviceSelectedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CastingDeviceSelectedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CastingDeviceSelectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CastingDeviceSelectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CastingDeviceSelectedEventArgs {}
 unsafe impl ::core::marker::Sync for CastingDeviceSelectedEventArgs {}
 #[doc = "*Required features: `\"Media_Casting\"`*"]
@@ -986,36 +812,7 @@ unsafe impl ::windows::core::Interface for CastingSource {
 impl ::windows::core::RuntimeName for CastingSource {
     const NAME: &'static str = "Windows.Media.Casting.CastingSource";
 }
-impl ::core::convert::From<CastingSource> for ::windows::core::IUnknown {
-    fn from(value: CastingSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CastingSource> for ::windows::core::IUnknown {
-    fn from(value: &CastingSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CastingSource> for &::windows::core::IUnknown {
-    fn from(value: &CastingSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CastingSource> for ::windows::core::IInspectable {
-    fn from(value: CastingSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CastingSource> for ::windows::core::IInspectable {
-    fn from(value: &CastingSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CastingSource> for &::windows::core::IInspectable {
-    fn from(value: &CastingSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CastingSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CastingSource {}
 unsafe impl ::core::marker::Sync for CastingSource {}
 #[doc = "*Required features: `\"Media_Casting\"`*"]

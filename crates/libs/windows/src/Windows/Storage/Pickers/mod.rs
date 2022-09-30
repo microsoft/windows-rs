@@ -488,41 +488,7 @@ impl ::core::iter::IntoIterator for &FileExtensionVector {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<FileExtensionVector> for ::windows::core::IUnknown {
-    fn from(value: FileExtensionVector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&FileExtensionVector> for ::windows::core::IUnknown {
-    fn from(value: &FileExtensionVector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&FileExtensionVector> for &::windows::core::IUnknown {
-    fn from(value: &FileExtensionVector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<FileExtensionVector> for ::windows::core::IInspectable {
-    fn from(value: FileExtensionVector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&FileExtensionVector> for ::windows::core::IInspectable {
-    fn from(value: &FileExtensionVector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&FileExtensionVector> for &::windows::core::IInspectable {
-    fn from(value: &FileExtensionVector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FileExtensionVector, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<FileExtensionVector> for super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> {
     type Error = ::windows::core::Error;
@@ -751,36 +717,7 @@ unsafe impl ::windows::core::Interface for FileOpenPicker {
 impl ::windows::core::RuntimeName for FileOpenPicker {
     const NAME: &'static str = "Windows.Storage.Pickers.FileOpenPicker";
 }
-impl ::core::convert::From<FileOpenPicker> for ::windows::core::IUnknown {
-    fn from(value: FileOpenPicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileOpenPicker> for ::windows::core::IUnknown {
-    fn from(value: &FileOpenPicker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileOpenPicker> for &::windows::core::IUnknown {
-    fn from(value: &FileOpenPicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileOpenPicker> for ::windows::core::IInspectable {
-    fn from(value: FileOpenPicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileOpenPicker> for ::windows::core::IInspectable {
-    fn from(value: &FileOpenPicker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileOpenPicker> for &::windows::core::IInspectable {
-    fn from(value: &FileOpenPicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FileOpenPicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FileOpenPicker {}
 unsafe impl ::core::marker::Sync for FileOpenPicker {}
 #[doc = "*Required features: `\"Storage_Pickers\"`, `\"Foundation_Collections\"`*"]
@@ -917,41 +854,7 @@ impl ::core::iter::IntoIterator for &FilePickerFileTypesOrderedMap {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<FilePickerFileTypesOrderedMap> for ::windows::core::IUnknown {
-    fn from(value: FilePickerFileTypesOrderedMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&FilePickerFileTypesOrderedMap> for ::windows::core::IUnknown {
-    fn from(value: &FilePickerFileTypesOrderedMap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&FilePickerFileTypesOrderedMap> for &::windows::core::IUnknown {
-    fn from(value: &FilePickerFileTypesOrderedMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<FilePickerFileTypesOrderedMap> for ::windows::core::IInspectable {
-    fn from(value: FilePickerFileTypesOrderedMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&FilePickerFileTypesOrderedMap> for ::windows::core::IInspectable {
-    fn from(value: &FilePickerFileTypesOrderedMap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&FilePickerFileTypesOrderedMap> for &::windows::core::IInspectable {
-    fn from(value: &FilePickerFileTypesOrderedMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FilePickerFileTypesOrderedMap, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<FilePickerFileTypesOrderedMap> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>> {
     type Error = ::windows::core::Error;
@@ -1109,41 +1012,7 @@ impl ::core::iter::IntoIterator for &FilePickerSelectedFilesArray {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<FilePickerSelectedFilesArray> for ::windows::core::IUnknown {
-    fn from(value: FilePickerSelectedFilesArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&FilePickerSelectedFilesArray> for ::windows::core::IUnknown {
-    fn from(value: &FilePickerSelectedFilesArray) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&FilePickerSelectedFilesArray> for &::windows::core::IUnknown {
-    fn from(value: &FilePickerSelectedFilesArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<FilePickerSelectedFilesArray> for ::windows::core::IInspectable {
-    fn from(value: FilePickerSelectedFilesArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&FilePickerSelectedFilesArray> for ::windows::core::IInspectable {
-    fn from(value: &FilePickerSelectedFilesArray) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&FilePickerSelectedFilesArray> for &::windows::core::IInspectable {
-    fn from(value: &FilePickerSelectedFilesArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FilePickerSelectedFilesArray, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<FilePickerSelectedFilesArray> for super::super::Foundation::Collections::IIterable<super::StorageFile> {
     type Error = ::windows::core::Error;
@@ -1368,36 +1237,7 @@ unsafe impl ::windows::core::Interface for FileSavePicker {
 impl ::windows::core::RuntimeName for FileSavePicker {
     const NAME: &'static str = "Windows.Storage.Pickers.FileSavePicker";
 }
-impl ::core::convert::From<FileSavePicker> for ::windows::core::IUnknown {
-    fn from(value: FileSavePicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileSavePicker> for ::windows::core::IUnknown {
-    fn from(value: &FileSavePicker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileSavePicker> for &::windows::core::IUnknown {
-    fn from(value: &FileSavePicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileSavePicker> for ::windows::core::IInspectable {
-    fn from(value: FileSavePicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileSavePicker> for ::windows::core::IInspectable {
-    fn from(value: &FileSavePicker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileSavePicker> for &::windows::core::IInspectable {
-    fn from(value: &FileSavePicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FileSavePicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FileSavePicker {}
 unsafe impl ::core::marker::Sync for FileSavePicker {}
 #[doc = "*Required features: `\"Storage_Pickers\"`*"]
@@ -1543,36 +1383,7 @@ unsafe impl ::windows::core::Interface for FolderPicker {
 impl ::windows::core::RuntimeName for FolderPicker {
     const NAME: &'static str = "Windows.Storage.Pickers.FolderPicker";
 }
-impl ::core::convert::From<FolderPicker> for ::windows::core::IUnknown {
-    fn from(value: FolderPicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FolderPicker> for ::windows::core::IUnknown {
-    fn from(value: &FolderPicker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FolderPicker> for &::windows::core::IUnknown {
-    fn from(value: &FolderPicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FolderPicker> for ::windows::core::IInspectable {
-    fn from(value: FolderPicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FolderPicker> for ::windows::core::IInspectable {
-    fn from(value: &FolderPicker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FolderPicker> for &::windows::core::IInspectable {
-    fn from(value: &FolderPicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FolderPicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FolderPicker {}
 unsafe impl ::core::marker::Sync for FolderPicker {}
 #[doc = "*Required features: `\"Storage_Pickers\"`*"]

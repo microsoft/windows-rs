@@ -28,21 +28,7 @@ impl IPhotoAcquire {
         (::windows::core::Vtable::vtable(self).EnumResults)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IEnumString>(result__)
     }
 }
-impl ::core::convert::From<IPhotoAcquire> for ::windows::core::IUnknown {
-    fn from(value: IPhotoAcquire) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPhotoAcquire> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPhotoAcquire) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPhotoAcquire> for ::windows::core::IUnknown {
-    fn from(value: &IPhotoAcquire) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPhotoAcquire, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPhotoAcquire {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -104,21 +90,7 @@ impl IPhotoAcquireDeviceSelectionDialog {
         (::windows::core::Vtable::vtable(self).DoModal)(::windows::core::Vtable::as_raw(self), hwndparent.into(), dwdeviceflags, ::core::mem::transmute(pbstrdeviceid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pndevicetype.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IPhotoAcquireDeviceSelectionDialog> for ::windows::core::IUnknown {
-    fn from(value: IPhotoAcquireDeviceSelectionDialog) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPhotoAcquireDeviceSelectionDialog> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPhotoAcquireDeviceSelectionDialog) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPhotoAcquireDeviceSelectionDialog> for ::windows::core::IUnknown {
-    fn from(value: &IPhotoAcquireDeviceSelectionDialog) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPhotoAcquireDeviceSelectionDialog, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPhotoAcquireDeviceSelectionDialog {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -201,21 +173,7 @@ impl IPhotoAcquireItem {
         (::windows::core::Vtable::vtable(self).GetSubItemAt)(::windows::core::Vtable::as_raw(self), nitemindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPhotoAcquireItem>(result__)
     }
 }
-impl ::core::convert::From<IPhotoAcquireItem> for ::windows::core::IUnknown {
-    fn from(value: IPhotoAcquireItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPhotoAcquireItem> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPhotoAcquireItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPhotoAcquireItem> for ::windows::core::IUnknown {
-    fn from(value: &IPhotoAcquireItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPhotoAcquireItem, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPhotoAcquireItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -301,21 +259,7 @@ impl IPhotoAcquireOptionsDialog {
         (::windows::core::Vtable::vtable(self).SaveData)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IPhotoAcquireOptionsDialog> for ::windows::core::IUnknown {
-    fn from(value: IPhotoAcquireOptionsDialog) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPhotoAcquireOptionsDialog> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPhotoAcquireOptionsDialog) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPhotoAcquireOptionsDialog> for ::windows::core::IUnknown {
-    fn from(value: &IPhotoAcquireOptionsDialog) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPhotoAcquireOptionsDialog, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPhotoAcquireOptionsDialog {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -388,21 +332,7 @@ impl IPhotoAcquirePlugin {
         (::windows::core::Vtable::vtable(self).DisplayConfigureDialog)(::windows::core::Vtable::as_raw(self), hwndparent.into()).ok()
     }
 }
-impl ::core::convert::From<IPhotoAcquirePlugin> for ::windows::core::IUnknown {
-    fn from(value: IPhotoAcquirePlugin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPhotoAcquirePlugin> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPhotoAcquirePlugin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPhotoAcquirePlugin> for ::windows::core::IUnknown {
-    fn from(value: &IPhotoAcquirePlugin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPhotoAcquirePlugin, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPhotoAcquirePlugin {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -549,21 +479,7 @@ impl IPhotoAcquireProgressCB {
         (::windows::core::Vtable::vtable(self).GetUserInput)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riidtype), punknown.into().abi(), ::core::mem::transmute(ppropvarresult), ::core::mem::transmute(ppropvardefault.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<IPhotoAcquireProgressCB> for ::windows::core::IUnknown {
-    fn from(value: IPhotoAcquireProgressCB) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPhotoAcquireProgressCB> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPhotoAcquireProgressCB) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPhotoAcquireProgressCB> for ::windows::core::IUnknown {
-    fn from(value: &IPhotoAcquireProgressCB) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPhotoAcquireProgressCB, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPhotoAcquireProgressCB {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -692,21 +608,7 @@ impl IPhotoAcquireSettings {
         (::windows::core::Vtable::vtable(self).GetAcquisitionTime)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
 }
-impl ::core::convert::From<IPhotoAcquireSettings> for ::windows::core::IUnknown {
-    fn from(value: IPhotoAcquireSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPhotoAcquireSettings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPhotoAcquireSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPhotoAcquireSettings> for ::windows::core::IUnknown {
-    fn from(value: &IPhotoAcquireSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPhotoAcquireSettings, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPhotoAcquireSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -801,21 +703,7 @@ impl IPhotoAcquireSource {
         (::windows::core::Vtable::vtable(self).BindToObject)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
 }
-impl ::core::convert::From<IPhotoAcquireSource> for ::windows::core::IUnknown {
-    fn from(value: IPhotoAcquireSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPhotoAcquireSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPhotoAcquireSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPhotoAcquireSource> for ::windows::core::IUnknown {
-    fn from(value: &IPhotoAcquireSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPhotoAcquireSource, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPhotoAcquireSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -870,21 +758,7 @@ impl IPhotoProgressActionCB {
         (::windows::core::Vtable::vtable(self).DoAction)(::windows::core::Vtable::as_raw(self), hwndparent.into()).ok()
     }
 }
-impl ::core::convert::From<IPhotoProgressActionCB> for ::windows::core::IUnknown {
-    fn from(value: IPhotoProgressActionCB) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPhotoProgressActionCB> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPhotoProgressActionCB) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPhotoProgressActionCB> for ::windows::core::IUnknown {
-    fn from(value: &IPhotoProgressActionCB) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPhotoProgressActionCB, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPhotoProgressActionCB {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1036,21 +910,7 @@ impl IPhotoProgressDialog {
         (::windows::core::Vtable::vtable(self).GetUserInput)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riidtype), punknown.into().abi(), ::core::mem::transmute(ppropvarresult), ::core::mem::transmute(ppropvardefault.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<IPhotoProgressDialog> for ::windows::core::IUnknown {
-    fn from(value: IPhotoProgressDialog) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPhotoProgressDialog> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPhotoProgressDialog) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPhotoProgressDialog> for ::windows::core::IUnknown {
-    fn from(value: &IPhotoProgressDialog) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPhotoProgressDialog, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPhotoProgressDialog {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1169,21 +1029,7 @@ impl IUserInputString {
         (::windows::core::Vtable::vtable(self).GetImage)(::windows::core::Vtable::as_raw(self), nsize, ::core::mem::transmute(phbitmap.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(phicon.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IUserInputString> for ::windows::core::IUnknown {
-    fn from(value: IUserInputString) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUserInputString> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUserInputString) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUserInputString> for ::windows::core::IUnknown {
-    fn from(value: &IUserInputString) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUserInputString, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUserInputString {
     fn clone(&self) -> Self {
         Self(self.0.clone())

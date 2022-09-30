@@ -10,36 +10,7 @@ impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
         (::windows::core::Vtable::vtable(self).CreateFromWin32Handle)(::windows::core::Vtable::as_raw(self), win32handle, enableaboutdata, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IWindowsDevicesAllJoynBusAttachmentFactoryInterop> for ::windows::core::IUnknown {
-    fn from(value: IWindowsDevicesAllJoynBusAttachmentFactoryInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWindowsDevicesAllJoynBusAttachmentFactoryInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWindowsDevicesAllJoynBusAttachmentFactoryInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWindowsDevicesAllJoynBusAttachmentFactoryInterop> for ::windows::core::IUnknown {
-    fn from(value: &IWindowsDevicesAllJoynBusAttachmentFactoryInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWindowsDevicesAllJoynBusAttachmentFactoryInterop> for ::windows::core::IInspectable {
-    fn from(value: IWindowsDevicesAllJoynBusAttachmentFactoryInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWindowsDevicesAllJoynBusAttachmentFactoryInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWindowsDevicesAllJoynBusAttachmentFactoryInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWindowsDevicesAllJoynBusAttachmentFactoryInterop> for ::windows::core::IInspectable {
-    fn from(value: &IWindowsDevicesAllJoynBusAttachmentFactoryInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWindowsDevicesAllJoynBusAttachmentFactoryInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -77,36 +48,7 @@ impl IWindowsDevicesAllJoynBusAttachmentInterop {
         (::windows::core::Vtable::vtable(self).Win32Handle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
-impl ::core::convert::From<IWindowsDevicesAllJoynBusAttachmentInterop> for ::windows::core::IUnknown {
-    fn from(value: IWindowsDevicesAllJoynBusAttachmentInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWindowsDevicesAllJoynBusAttachmentInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWindowsDevicesAllJoynBusAttachmentInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWindowsDevicesAllJoynBusAttachmentInterop> for ::windows::core::IUnknown {
-    fn from(value: &IWindowsDevicesAllJoynBusAttachmentInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWindowsDevicesAllJoynBusAttachmentInterop> for ::windows::core::IInspectable {
-    fn from(value: IWindowsDevicesAllJoynBusAttachmentInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWindowsDevicesAllJoynBusAttachmentInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWindowsDevicesAllJoynBusAttachmentInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWindowsDevicesAllJoynBusAttachmentInterop> for ::windows::core::IInspectable {
-    fn from(value: &IWindowsDevicesAllJoynBusAttachmentInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWindowsDevicesAllJoynBusAttachmentInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IWindowsDevicesAllJoynBusAttachmentInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -147,36 +89,7 @@ impl IWindowsDevicesAllJoynBusObjectFactoryInterop {
         (::windows::core::Vtable::vtable(self).CreateFromWin32Handle)(::windows::core::Vtable::as_raw(self), win32handle, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IWindowsDevicesAllJoynBusObjectFactoryInterop> for ::windows::core::IUnknown {
-    fn from(value: IWindowsDevicesAllJoynBusObjectFactoryInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWindowsDevicesAllJoynBusObjectFactoryInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWindowsDevicesAllJoynBusObjectFactoryInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWindowsDevicesAllJoynBusObjectFactoryInterop> for ::windows::core::IUnknown {
-    fn from(value: &IWindowsDevicesAllJoynBusObjectFactoryInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWindowsDevicesAllJoynBusObjectFactoryInterop> for ::windows::core::IInspectable {
-    fn from(value: IWindowsDevicesAllJoynBusObjectFactoryInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWindowsDevicesAllJoynBusObjectFactoryInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWindowsDevicesAllJoynBusObjectFactoryInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWindowsDevicesAllJoynBusObjectFactoryInterop> for ::windows::core::IInspectable {
-    fn from(value: &IWindowsDevicesAllJoynBusObjectFactoryInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWindowsDevicesAllJoynBusObjectFactoryInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IWindowsDevicesAllJoynBusObjectFactoryInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -220,36 +133,7 @@ impl IWindowsDevicesAllJoynBusObjectInterop {
         (::windows::core::Vtable::vtable(self).Win32Handle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
-impl ::core::convert::From<IWindowsDevicesAllJoynBusObjectInterop> for ::windows::core::IUnknown {
-    fn from(value: IWindowsDevicesAllJoynBusObjectInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWindowsDevicesAllJoynBusObjectInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWindowsDevicesAllJoynBusObjectInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWindowsDevicesAllJoynBusObjectInterop> for ::windows::core::IUnknown {
-    fn from(value: &IWindowsDevicesAllJoynBusObjectInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWindowsDevicesAllJoynBusObjectInterop> for ::windows::core::IInspectable {
-    fn from(value: IWindowsDevicesAllJoynBusObjectInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWindowsDevicesAllJoynBusObjectInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWindowsDevicesAllJoynBusObjectInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWindowsDevicesAllJoynBusObjectInterop> for ::windows::core::IInspectable {
-    fn from(value: &IWindowsDevicesAllJoynBusObjectInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWindowsDevicesAllJoynBusObjectInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IWindowsDevicesAllJoynBusObjectInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())

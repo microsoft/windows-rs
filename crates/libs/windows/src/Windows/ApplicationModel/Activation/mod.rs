@@ -24,36 +24,7 @@ impl IActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -126,36 +97,7 @@ impl IActivatedEventArgsWithUser {
         }
     }
 }
-impl ::core::convert::From<IActivatedEventArgsWithUser> for ::windows::core::IUnknown {
-    fn from(value: IActivatedEventArgsWithUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IActivatedEventArgsWithUser> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IActivatedEventArgsWithUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IActivatedEventArgsWithUser> for ::windows::core::IUnknown {
-    fn from(value: &IActivatedEventArgsWithUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IActivatedEventArgsWithUser> for ::windows::core::IInspectable {
-    fn from(value: IActivatedEventArgsWithUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IActivatedEventArgsWithUser> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IActivatedEventArgsWithUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IActivatedEventArgsWithUser> for ::windows::core::IInspectable {
-    fn from(value: &IActivatedEventArgsWithUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IActivatedEventArgsWithUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IActivatedEventArgsWithUser> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IActivatedEventArgsWithUser) -> ::windows::core::Result<Self> {
@@ -246,36 +188,7 @@ impl IApplicationViewActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IApplicationViewActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IApplicationViewActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IApplicationViewActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IApplicationViewActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IApplicationViewActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IApplicationViewActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IApplicationViewActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IApplicationViewActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IApplicationViewActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IApplicationViewActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IApplicationViewActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IApplicationViewActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IApplicationViewActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IApplicationViewActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IApplicationViewActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -363,36 +276,7 @@ impl IAppointmentsProviderActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IAppointmentsProviderActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IAppointmentsProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppointmentsProviderActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppointmentsProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppointmentsProviderActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IAppointmentsProviderActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAppointmentsProviderActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IAppointmentsProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppointmentsProviderActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAppointmentsProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppointmentsProviderActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IAppointmentsProviderActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppointmentsProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IAppointmentsProviderActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IAppointmentsProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -489,36 +373,7 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IAppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppointmentsProviderAddAppointmentActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IAppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IAppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppointmentsProviderAddAppointmentActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IAppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppointmentsProviderAddAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IAppointmentsProviderAddAppointmentActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IAppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -637,36 +492,7 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppointmentsProviderRemoveAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -785,36 +611,7 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppointmentsProviderReplaceAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -947,36 +744,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -1106,36 +874,7 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IAppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppointmentsProviderShowTimeFrameActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IAppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IAppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppointmentsProviderShowTimeFrameActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IAppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppointmentsProviderShowTimeFrameActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IAppointmentsProviderShowTimeFrameActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IAppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -1230,36 +969,7 @@ impl IBackgroundActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IBackgroundActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IBackgroundActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IBackgroundActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1331,36 +1041,7 @@ impl IBarcodeScannerPreviewActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IBarcodeScannerPreviewActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IBarcodeScannerPreviewActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBarcodeScannerPreviewActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBarcodeScannerPreviewActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBarcodeScannerPreviewActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IBarcodeScannerPreviewActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBarcodeScannerPreviewActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IBarcodeScannerPreviewActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBarcodeScannerPreviewActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IBarcodeScannerPreviewActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBarcodeScannerPreviewActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IBarcodeScannerPreviewActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBarcodeScannerPreviewActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IBarcodeScannerPreviewActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IBarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -1450,36 +1131,7 @@ impl ICachedFileUpdaterActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<ICachedFileUpdaterActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ICachedFileUpdaterActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICachedFileUpdaterActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICachedFileUpdaterActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICachedFileUpdaterActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ICachedFileUpdaterActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICachedFileUpdaterActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ICachedFileUpdaterActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICachedFileUpdaterActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ICachedFileUpdaterActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICachedFileUpdaterActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ICachedFileUpdaterActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICachedFileUpdaterActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ICachedFileUpdaterActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ICachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -1577,36 +1229,7 @@ impl ICameraSettingsActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<ICameraSettingsActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ICameraSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICameraSettingsActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICameraSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICameraSettingsActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ICameraSettingsActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICameraSettingsActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ICameraSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICameraSettingsActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ICameraSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICameraSettingsActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ICameraSettingsActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICameraSettingsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ICameraSettingsActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ICameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -1695,36 +1318,7 @@ impl ICommandLineActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<ICommandLineActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ICommandLineActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICommandLineActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICommandLineActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICommandLineActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ICommandLineActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICommandLineActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ICommandLineActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICommandLineActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ICommandLineActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICommandLineActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ICommandLineActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICommandLineActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ICommandLineActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ICommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -1834,36 +1428,7 @@ impl IContactActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IContactActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IContactActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IContactActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IContactActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IContactActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IContactActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IContactActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IContactActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IContactActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -1974,36 +1539,7 @@ impl IContactCallActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IContactCallActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IContactCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactCallActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactCallActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IContactCallActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IContactCallActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IContactCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactCallActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IContactCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactCallActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IContactCallActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IContactCallActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -2133,36 +1669,7 @@ impl IContactMapActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IContactMapActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IContactMapActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactMapActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactMapActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactMapActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IContactMapActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IContactMapActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IContactMapActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactMapActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IContactMapActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactMapActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IContactMapActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactMapActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IContactMapActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -2299,36 +1806,7 @@ impl IContactMessageActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IContactMessageActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IContactMessageActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactMessageActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactMessageActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactMessageActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IContactMessageActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IContactMessageActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IContactMessageActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactMessageActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IContactMessageActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactMessageActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IContactMessageActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactMessageActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IContactMessageActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -2430,36 +1908,7 @@ impl IContactPanelActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IContactPanelActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IContactPanelActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactPanelActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactPanelActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactPanelActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IContactPanelActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IContactPanelActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IContactPanelActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactPanelActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IContactPanelActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactPanelActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IContactPanelActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactPanelActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IContactPanelActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2537,36 +1986,7 @@ impl IContactPickerActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IContactPickerActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IContactPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactPickerActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactPickerActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IContactPickerActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IContactPickerActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IContactPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactPickerActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IContactPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactPickerActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IContactPickerActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactPickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IContactPickerActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -2680,36 +2100,7 @@ impl IContactPostActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IContactPostActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IContactPostActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactPostActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactPostActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactPostActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IContactPostActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IContactPostActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IContactPostActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactPostActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IContactPostActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactPostActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IContactPostActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactPostActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IContactPostActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -2844,36 +2235,7 @@ impl IContactVideoCallActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IContactVideoCallActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IContactVideoCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactVideoCallActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactVideoCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactVideoCallActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IContactVideoCallActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IContactVideoCallActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IContactVideoCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactVideoCallActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IContactVideoCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactVideoCallActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IContactVideoCallActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactVideoCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IContactVideoCallActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -2985,36 +2347,7 @@ impl IContactsProviderActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IContactsProviderActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IContactsProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactsProviderActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactsProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactsProviderActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IContactsProviderActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IContactsProviderActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IContactsProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactsProviderActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IContactsProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactsProviderActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IContactsProviderActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactsProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IContactsProviderActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IContactsProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -3104,36 +2437,7 @@ impl IContinuationActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IContinuationActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IContinuationActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContinuationActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContinuationActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContinuationActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IContinuationActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IContinuationActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IContinuationActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContinuationActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IContinuationActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContinuationActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IContinuationActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContinuationActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IContinuationActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IContinuationActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -3231,36 +2535,7 @@ impl IDeviceActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IDeviceActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IDeviceActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDeviceActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDeviceActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDeviceActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IDeviceActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDeviceActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IDeviceActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDeviceActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IDeviceActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDeviceActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IDeviceActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDeviceActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IDeviceActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IDeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -3351,36 +2626,7 @@ impl IDevicePairingActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IDevicePairingActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IDevicePairingActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDevicePairingActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDevicePairingActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDevicePairingActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IDevicePairingActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDevicePairingActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IDevicePairingActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDevicePairingActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IDevicePairingActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDevicePairingActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IDevicePairingActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDevicePairingActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IDevicePairingActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IDevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -3485,36 +2731,7 @@ impl IDialReceiverActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IDialReceiverActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IDialReceiverActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDialReceiverActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDialReceiverActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDialReceiverActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IDialReceiverActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDialReceiverActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IDialReceiverActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDialReceiverActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IDialReceiverActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDialReceiverActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IDialReceiverActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDialReceiverActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IDialReceiverActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IDialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -3630,36 +2847,7 @@ impl IFileActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IFileActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IFileActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFileActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFileActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFileActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IFileActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IFileActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IFileActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFileActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IFileActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFileActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IFileActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFileActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IFileActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IFileActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -3751,36 +2939,7 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName {
         }
     }
 }
-impl ::core::convert::From<IFileActivatedEventArgsWithCallerPackageFamilyName> for ::windows::core::IUnknown {
-    fn from(value: IFileActivatedEventArgsWithCallerPackageFamilyName) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFileActivatedEventArgsWithCallerPackageFamilyName> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFileActivatedEventArgsWithCallerPackageFamilyName) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFileActivatedEventArgsWithCallerPackageFamilyName> for ::windows::core::IUnknown {
-    fn from(value: &IFileActivatedEventArgsWithCallerPackageFamilyName) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IFileActivatedEventArgsWithCallerPackageFamilyName> for ::windows::core::IInspectable {
-    fn from(value: IFileActivatedEventArgsWithCallerPackageFamilyName) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFileActivatedEventArgsWithCallerPackageFamilyName> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IFileActivatedEventArgsWithCallerPackageFamilyName) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFileActivatedEventArgsWithCallerPackageFamilyName> for ::windows::core::IInspectable {
-    fn from(value: &IFileActivatedEventArgsWithCallerPackageFamilyName) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFileActivatedEventArgsWithCallerPackageFamilyName, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IFileActivatedEventArgsWithCallerPackageFamilyName> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IFileActivatedEventArgsWithCallerPackageFamilyName) -> ::windows::core::Result<Self> {
@@ -3886,36 +3045,7 @@ impl IFileActivatedEventArgsWithNeighboringFiles {
         }
     }
 }
-impl ::core::convert::From<IFileActivatedEventArgsWithNeighboringFiles> for ::windows::core::IUnknown {
-    fn from(value: IFileActivatedEventArgsWithNeighboringFiles) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFileActivatedEventArgsWithNeighboringFiles> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFileActivatedEventArgsWithNeighboringFiles) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFileActivatedEventArgsWithNeighboringFiles> for ::windows::core::IUnknown {
-    fn from(value: &IFileActivatedEventArgsWithNeighboringFiles) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IFileActivatedEventArgsWithNeighboringFiles> for ::windows::core::IInspectable {
-    fn from(value: IFileActivatedEventArgsWithNeighboringFiles) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFileActivatedEventArgsWithNeighboringFiles> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IFileActivatedEventArgsWithNeighboringFiles) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFileActivatedEventArgsWithNeighboringFiles> for ::windows::core::IInspectable {
-    fn from(value: &IFileActivatedEventArgsWithNeighboringFiles) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFileActivatedEventArgsWithNeighboringFiles, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IFileActivatedEventArgsWithNeighboringFiles> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IFileActivatedEventArgsWithNeighboringFiles) -> ::windows::core::Result<Self> {
@@ -4027,36 +3157,7 @@ impl IFileOpenPickerActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IFileOpenPickerActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IFileOpenPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFileOpenPickerActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFileOpenPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFileOpenPickerActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IFileOpenPickerActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IFileOpenPickerActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IFileOpenPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFileOpenPickerActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IFileOpenPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFileOpenPickerActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IFileOpenPickerActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFileOpenPickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IFileOpenPickerActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IFileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -4126,36 +3227,7 @@ impl IFileOpenPickerActivatedEventArgs2 {
         }
     }
 }
-impl ::core::convert::From<IFileOpenPickerActivatedEventArgs2> for ::windows::core::IUnknown {
-    fn from(value: IFileOpenPickerActivatedEventArgs2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFileOpenPickerActivatedEventArgs2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFileOpenPickerActivatedEventArgs2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFileOpenPickerActivatedEventArgs2> for ::windows::core::IUnknown {
-    fn from(value: &IFileOpenPickerActivatedEventArgs2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IFileOpenPickerActivatedEventArgs2> for ::windows::core::IInspectable {
-    fn from(value: IFileOpenPickerActivatedEventArgs2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFileOpenPickerActivatedEventArgs2> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IFileOpenPickerActivatedEventArgs2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFileOpenPickerActivatedEventArgs2> for ::windows::core::IInspectable {
-    fn from(value: &IFileOpenPickerActivatedEventArgs2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFileOpenPickerActivatedEventArgs2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IFileOpenPickerActivatedEventArgs2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4238,41 +3310,7 @@ impl IFileOpenPickerContinuationEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<IFileOpenPickerContinuationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IFileOpenPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a IFileOpenPickerContinuationEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFileOpenPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&IFileOpenPickerContinuationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IFileOpenPickerContinuationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<IFileOpenPickerContinuationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IFileOpenPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a IFileOpenPickerContinuationEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IFileOpenPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&IFileOpenPickerContinuationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IFileOpenPickerContinuationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFileOpenPickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<IFileOpenPickerContinuationEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -4398,36 +3436,7 @@ impl IFileSavePickerActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IFileSavePickerActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IFileSavePickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFileSavePickerActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFileSavePickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFileSavePickerActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IFileSavePickerActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IFileSavePickerActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IFileSavePickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFileSavePickerActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IFileSavePickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFileSavePickerActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IFileSavePickerActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFileSavePickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IFileSavePickerActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IFileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -4504,36 +3513,7 @@ impl IFileSavePickerActivatedEventArgs2 {
         }
     }
 }
-impl ::core::convert::From<IFileSavePickerActivatedEventArgs2> for ::windows::core::IUnknown {
-    fn from(value: IFileSavePickerActivatedEventArgs2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFileSavePickerActivatedEventArgs2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFileSavePickerActivatedEventArgs2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFileSavePickerActivatedEventArgs2> for ::windows::core::IUnknown {
-    fn from(value: &IFileSavePickerActivatedEventArgs2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IFileSavePickerActivatedEventArgs2> for ::windows::core::IInspectable {
-    fn from(value: IFileSavePickerActivatedEventArgs2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFileSavePickerActivatedEventArgs2> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IFileSavePickerActivatedEventArgs2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFileSavePickerActivatedEventArgs2> for ::windows::core::IInspectable {
-    fn from(value: &IFileSavePickerActivatedEventArgs2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFileSavePickerActivatedEventArgs2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IFileSavePickerActivatedEventArgs2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4617,41 +3597,7 @@ impl IFileSavePickerContinuationEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<IFileSavePickerContinuationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IFileSavePickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a IFileSavePickerContinuationEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFileSavePickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&IFileSavePickerContinuationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IFileSavePickerContinuationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<IFileSavePickerContinuationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IFileSavePickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a IFileSavePickerContinuationEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IFileSavePickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&IFileSavePickerContinuationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IFileSavePickerContinuationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFileSavePickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<IFileSavePickerContinuationEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -4789,41 +3735,7 @@ impl IFolderPickerContinuationEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<IFolderPickerContinuationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IFolderPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a IFolderPickerContinuationEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFolderPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&IFolderPickerContinuationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IFolderPickerContinuationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<IFolderPickerContinuationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IFolderPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a IFolderPickerContinuationEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IFolderPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&IFolderPickerContinuationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IFolderPickerContinuationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFolderPickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<IFolderPickerContinuationEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -4954,36 +3866,7 @@ impl ILaunchActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<ILaunchActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ILaunchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILaunchActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILaunchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILaunchActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ILaunchActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ILaunchActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ILaunchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILaunchActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ILaunchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILaunchActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ILaunchActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILaunchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ILaunchActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ILaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -5086,36 +3969,7 @@ impl ILaunchActivatedEventArgs2 {
         }
     }
 }
-impl ::core::convert::From<ILaunchActivatedEventArgs2> for ::windows::core::IUnknown {
-    fn from(value: ILaunchActivatedEventArgs2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILaunchActivatedEventArgs2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILaunchActivatedEventArgs2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILaunchActivatedEventArgs2> for ::windows::core::IUnknown {
-    fn from(value: &ILaunchActivatedEventArgs2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ILaunchActivatedEventArgs2> for ::windows::core::IInspectable {
-    fn from(value: ILaunchActivatedEventArgs2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILaunchActivatedEventArgs2> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ILaunchActivatedEventArgs2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILaunchActivatedEventArgs2> for ::windows::core::IInspectable {
-    fn from(value: &ILaunchActivatedEventArgs2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILaunchActivatedEventArgs2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ILaunchActivatedEventArgs2> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ILaunchActivatedEventArgs2) -> ::windows::core::Result<Self> {
@@ -5222,36 +4076,7 @@ impl ILockScreenActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<ILockScreenActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ILockScreenActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILockScreenActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILockScreenActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILockScreenActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ILockScreenActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ILockScreenActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ILockScreenActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILockScreenActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ILockScreenActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILockScreenActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ILockScreenActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILockScreenActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ILockScreenActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ILockScreenActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -5355,36 +4180,7 @@ impl ILockScreenCallActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<ILockScreenCallActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ILockScreenCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILockScreenCallActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILockScreenCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILockScreenCallActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ILockScreenCallActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ILockScreenCallActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ILockScreenCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILockScreenCallActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ILockScreenCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILockScreenCallActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ILockScreenCallActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILockScreenCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ILockScreenCallActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ILockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -5494,36 +4290,7 @@ impl IPhoneCallActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IPhoneCallActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IPhoneCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPhoneCallActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPhoneCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPhoneCallActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IPhoneCallActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPhoneCallActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IPhoneCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPhoneCallActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPhoneCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPhoneCallActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IPhoneCallActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPhoneCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPhoneCallActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IPhoneCallActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -5611,36 +4378,7 @@ impl IPickerReturnedActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IPickerReturnedActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IPickerReturnedActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPickerReturnedActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPickerReturnedActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPickerReturnedActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IPickerReturnedActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPickerReturnedActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IPickerReturnedActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPickerReturnedActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPickerReturnedActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPickerReturnedActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IPickerReturnedActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPickerReturnedActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPickerReturnedActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IPickerReturnedActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -5728,36 +4466,7 @@ impl IPrelaunchActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IPrelaunchActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IPrelaunchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrelaunchActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrelaunchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrelaunchActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IPrelaunchActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPrelaunchActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IPrelaunchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrelaunchActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPrelaunchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrelaunchActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IPrelaunchActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrelaunchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPrelaunchActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IPrelaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -5847,36 +4556,7 @@ impl IPrint3DWorkflowActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IPrint3DWorkflowActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IPrint3DWorkflowActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrint3DWorkflowActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrint3DWorkflowActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrint3DWorkflowActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IPrint3DWorkflowActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPrint3DWorkflowActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IPrint3DWorkflowActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrint3DWorkflowActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPrint3DWorkflowActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrint3DWorkflowActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IPrint3DWorkflowActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrint3DWorkflowActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPrint3DWorkflowActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IPrint3DWorkflowActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -5969,36 +4649,7 @@ impl IPrintTaskSettingsActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IPrintTaskSettingsActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IPrintTaskSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintTaskSettingsActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintTaskSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintTaskSettingsActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IPrintTaskSettingsActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPrintTaskSettingsActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IPrintTaskSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintTaskSettingsActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPrintTaskSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintTaskSettingsActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IPrintTaskSettingsActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrintTaskSettingsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPrintTaskSettingsActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IPrintTaskSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -6091,36 +4742,7 @@ impl IProtocolActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IProtocolActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IProtocolActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProtocolActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IProtocolActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProtocolActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IProtocolActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IProtocolActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IProtocolActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProtocolActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IProtocolActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProtocolActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IProtocolActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IProtocolActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IProtocolActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -6220,36 +4842,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
         }
     }
 }
-impl ::core::convert::From<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for ::windows::core::IUnknown {
-    fn from(value: IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for ::windows::core::IUnknown {
-    fn from(value: &IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for ::windows::core::IInspectable {
-    fn from(value: IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for ::windows::core::IInspectable {
-    fn from(value: &IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData) -> ::windows::core::Result<Self> {
@@ -6343,36 +4936,7 @@ impl IProtocolForResultsActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IProtocolForResultsActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IProtocolForResultsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProtocolForResultsActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IProtocolForResultsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProtocolForResultsActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IProtocolForResultsActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IProtocolForResultsActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IProtocolForResultsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProtocolForResultsActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IProtocolForResultsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProtocolForResultsActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IProtocolForResultsActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IProtocolForResultsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IProtocolForResultsActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -6463,36 +5027,7 @@ impl IRestrictedLaunchActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IRestrictedLaunchActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IRestrictedLaunchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRestrictedLaunchActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRestrictedLaunchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRestrictedLaunchActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IRestrictedLaunchActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IRestrictedLaunchActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IRestrictedLaunchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRestrictedLaunchActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IRestrictedLaunchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRestrictedLaunchActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IRestrictedLaunchActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRestrictedLaunchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IRestrictedLaunchActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IRestrictedLaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -6587,36 +5122,7 @@ impl ISearchActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<ISearchActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ISearchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISearchActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISearchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISearchActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ISearchActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISearchActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ISearchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISearchActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISearchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISearchActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ISearchActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISearchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ISearchActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ISearchActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -6686,36 +5192,7 @@ impl ISearchActivatedEventArgsWithLinguisticDetails {
         }
     }
 }
-impl ::core::convert::From<ISearchActivatedEventArgsWithLinguisticDetails> for ::windows::core::IUnknown {
-    fn from(value: ISearchActivatedEventArgsWithLinguisticDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISearchActivatedEventArgsWithLinguisticDetails> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISearchActivatedEventArgsWithLinguisticDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISearchActivatedEventArgsWithLinguisticDetails> for ::windows::core::IUnknown {
-    fn from(value: &ISearchActivatedEventArgsWithLinguisticDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISearchActivatedEventArgsWithLinguisticDetails> for ::windows::core::IInspectable {
-    fn from(value: ISearchActivatedEventArgsWithLinguisticDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISearchActivatedEventArgsWithLinguisticDetails> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISearchActivatedEventArgsWithLinguisticDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISearchActivatedEventArgsWithLinguisticDetails> for ::windows::core::IInspectable {
-    fn from(value: &ISearchActivatedEventArgsWithLinguisticDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISearchActivatedEventArgsWithLinguisticDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ISearchActivatedEventArgsWithLinguisticDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6789,36 +5266,7 @@ impl IShareTargetActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IShareTargetActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IShareTargetActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IShareTargetActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IShareTargetActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IShareTargetActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IShareTargetActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IShareTargetActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IShareTargetActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IShareTargetActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IShareTargetActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IShareTargetActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IShareTargetActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IShareTargetActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IShareTargetActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IShareTargetActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -6935,36 +5383,7 @@ impl IStartupTaskActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IStartupTaskActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IStartupTaskActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStartupTaskActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStartupTaskActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStartupTaskActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IStartupTaskActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IStartupTaskActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IStartupTaskActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStartupTaskActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IStartupTaskActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStartupTaskActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IStartupTaskActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStartupTaskActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IStartupTaskActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IStartupTaskActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -7079,36 +5498,7 @@ impl IToastNotificationActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IToastNotificationActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IToastNotificationActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IToastNotificationActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IToastNotificationActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IToastNotificationActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IToastNotificationActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IToastNotificationActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IToastNotificationActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IToastNotificationActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IToastNotificationActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IToastNotificationActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IToastNotificationActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IToastNotificationActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IToastNotificationActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IToastNotificationActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -7202,36 +5592,7 @@ impl IUserDataAccountProviderActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IUserDataAccountProviderActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IUserDataAccountProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUserDataAccountProviderActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUserDataAccountProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUserDataAccountProviderActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IUserDataAccountProviderActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IUserDataAccountProviderActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IUserDataAccountProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUserDataAccountProviderActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IUserDataAccountProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUserDataAccountProviderActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IUserDataAccountProviderActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUserDataAccountProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IUserDataAccountProviderActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IUserDataAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -7324,36 +5685,7 @@ impl IViewSwitcherProvider {
         }
     }
 }
-impl ::core::convert::From<IViewSwitcherProvider> for ::windows::core::IUnknown {
-    fn from(value: IViewSwitcherProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IViewSwitcherProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IViewSwitcherProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IViewSwitcherProvider> for ::windows::core::IUnknown {
-    fn from(value: &IViewSwitcherProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IViewSwitcherProvider> for ::windows::core::IInspectable {
-    fn from(value: IViewSwitcherProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IViewSwitcherProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IViewSwitcherProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IViewSwitcherProvider> for ::windows::core::IInspectable {
-    fn from(value: &IViewSwitcherProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IViewSwitcherProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IViewSwitcherProvider> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IViewSwitcherProvider) -> ::windows::core::Result<Self> {
@@ -7446,36 +5778,7 @@ impl IVoiceCommandActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IVoiceCommandActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IVoiceCommandActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVoiceCommandActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVoiceCommandActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVoiceCommandActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IVoiceCommandActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVoiceCommandActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IVoiceCommandActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVoiceCommandActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IVoiceCommandActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVoiceCommandActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IVoiceCommandActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVoiceCommandActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IVoiceCommandActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IVoiceCommandActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -7582,36 +5885,7 @@ impl IWalletActionActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IWalletActionActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IWalletActionActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWalletActionActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWalletActionActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWalletActionActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IWalletActionActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWalletActionActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IWalletActionActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWalletActionActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWalletActionActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWalletActionActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IWalletActionActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWalletActionActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IWalletActionActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IWalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -7706,36 +5980,7 @@ impl IWebAccountProviderActivatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IWebAccountProviderActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IWebAccountProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebAccountProviderActivatedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWebAccountProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IWebAccountProviderActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWebAccountProviderActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IWebAccountProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebAccountProviderActivatedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWebAccountProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IWebAccountProviderActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWebAccountProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IWebAccountProviderActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IWebAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -7837,36 +6082,7 @@ impl IWebAuthenticationBrokerContinuationEventArgs {
         }
     }
 }
-impl ::core::convert::From<IWebAuthenticationBrokerContinuationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IWebAuthenticationBrokerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebAuthenticationBrokerContinuationEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWebAuthenticationBrokerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAuthenticationBrokerContinuationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IWebAuthenticationBrokerContinuationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWebAuthenticationBrokerContinuationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IWebAuthenticationBrokerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebAuthenticationBrokerContinuationEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWebAuthenticationBrokerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAuthenticationBrokerContinuationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IWebAuthenticationBrokerContinuationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWebAuthenticationBrokerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IWebAuthenticationBrokerContinuationEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IWebAuthenticationBrokerContinuationEventArgs) -> ::windows::core::Result<Self> {
@@ -8026,36 +6242,7 @@ unsafe impl ::windows::core::Interface for AppointmentsProviderAddAppointmentAct
 impl ::windows::core::RuntimeName for AppointmentsProviderAddAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderAddAppointmentActivatedEventArgs";
 }
-impl ::core::convert::From<AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderAddAppointmentActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderAddAppointmentActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppointmentsProviderAddAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AppointmentsProviderAddAppointmentActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -8217,36 +6404,7 @@ unsafe impl ::windows::core::Interface for AppointmentsProviderRemoveAppointment
 impl ::windows::core::RuntimeName for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderRemoveAppointmentActivatedEventArgs";
 }
-impl ::core::convert::From<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppointmentsProviderRemoveAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -8408,36 +6566,7 @@ unsafe impl ::windows::core::Interface for AppointmentsProviderReplaceAppointmen
 impl ::windows::core::RuntimeName for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderReplaceAppointmentActivatedEventArgs";
 }
-impl ::core::convert::From<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppointmentsProviderReplaceAppointmentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -8613,36 +6742,7 @@ unsafe impl ::windows::core::Interface for AppointmentsProviderShowAppointmentDe
 impl ::windows::core::RuntimeName for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderShowAppointmentDetailsActivatedEventArgs";
 }
-impl ::core::convert::From<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppointmentsProviderShowAppointmentDetailsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -8813,36 +6913,7 @@ unsafe impl ::windows::core::Interface for AppointmentsProviderShowTimeFrameActi
 impl ::windows::core::RuntimeName for AppointmentsProviderShowTimeFrameActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderShowTimeFrameActivatedEventArgs";
 }
-impl ::core::convert::From<AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppointmentsProviderShowTimeFrameActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AppointmentsProviderShowTimeFrameActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -8967,36 +7038,7 @@ unsafe impl ::windows::core::Interface for BackgroundActivatedEventArgs {
 impl ::windows::core::RuntimeName for BackgroundActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.BackgroundActivatedEventArgs";
 }
-impl ::core::convert::From<BackgroundActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BackgroundActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BackgroundActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BackgroundActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BackgroundActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BackgroundActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BackgroundActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BackgroundActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BackgroundActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BackgroundActivatedEventArgs> for IBackgroundActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: BackgroundActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -9092,36 +7134,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerPreviewActivatedEventAr
 impl ::windows::core::RuntimeName for BarcodeScannerPreviewActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.BarcodeScannerPreviewActivatedEventArgs";
 }
-impl ::core::convert::From<BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerPreviewActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerPreviewActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerPreviewActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerPreviewActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerPreviewActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerPreviewActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerPreviewActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerPreviewActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerPreviewActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BarcodeScannerPreviewActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -9257,36 +7270,7 @@ unsafe impl ::windows::core::Interface for CachedFileUpdaterActivatedEventArgs {
 impl ::windows::core::RuntimeName for CachedFileUpdaterActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CachedFileUpdaterActivatedEventArgs";
 }
-impl ::core::convert::From<CachedFileUpdaterActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CachedFileUpdaterActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CachedFileUpdaterActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CachedFileUpdaterActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CachedFileUpdaterActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CachedFileUpdaterActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CachedFileUpdaterActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CachedFileUpdaterActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CachedFileUpdaterActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CachedFileUpdaterActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -9418,36 +7402,7 @@ unsafe impl ::windows::core::Interface for CameraSettingsActivatedEventArgs {
 impl ::windows::core::RuntimeName for CameraSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CameraSettingsActivatedEventArgs";
 }
-impl ::core::convert::From<CameraSettingsActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CameraSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CameraSettingsActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CameraSettingsActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CameraSettingsActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CameraSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CameraSettingsActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CameraSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CameraSettingsActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CameraSettingsActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CameraSettingsActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CameraSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CameraSettingsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CameraSettingsActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: CameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -9562,36 +7517,7 @@ unsafe impl ::windows::core::Interface for CommandLineActivatedEventArgs {
 impl ::windows::core::RuntimeName for CommandLineActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CommandLineActivatedEventArgs";
 }
-impl ::core::convert::From<CommandLineActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CommandLineActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CommandLineActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CommandLineActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CommandLineActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CommandLineActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CommandLineActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CommandLineActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CommandLineActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CommandLineActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CommandLineActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CommandLineActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CommandLineActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CommandLineActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -9722,36 +7648,7 @@ unsafe impl ::windows::core::Interface for CommandLineActivationOperation {
 impl ::windows::core::RuntimeName for CommandLineActivationOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CommandLineActivationOperation";
 }
-impl ::core::convert::From<CommandLineActivationOperation> for ::windows::core::IUnknown {
-    fn from(value: CommandLineActivationOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CommandLineActivationOperation> for ::windows::core::IUnknown {
-    fn from(value: &CommandLineActivationOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CommandLineActivationOperation> for &::windows::core::IUnknown {
-    fn from(value: &CommandLineActivationOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CommandLineActivationOperation> for ::windows::core::IInspectable {
-    fn from(value: CommandLineActivationOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CommandLineActivationOperation> for ::windows::core::IInspectable {
-    fn from(value: &CommandLineActivationOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CommandLineActivationOperation> for &::windows::core::IInspectable {
-    fn from(value: &CommandLineActivationOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CommandLineActivationOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CommandLineActivationOperation {}
 unsafe impl ::core::marker::Sync for CommandLineActivationOperation {}
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9842,36 +7739,7 @@ unsafe impl ::windows::core::Interface for ContactCallActivatedEventArgs {
 impl ::windows::core::RuntimeName for ContactCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactCallActivatedEventArgs";
 }
-impl ::core::convert::From<ContactCallActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ContactCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactCallActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ContactCallActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactCallActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ContactCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactCallActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ContactCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactCallActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ContactCallActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactCallActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ContactCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContactCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContactCallActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -10014,36 +7882,7 @@ unsafe impl ::windows::core::Interface for ContactMapActivatedEventArgs {
 impl ::windows::core::RuntimeName for ContactMapActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactMapActivatedEventArgs";
 }
-impl ::core::convert::From<ContactMapActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ContactMapActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactMapActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ContactMapActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactMapActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ContactMapActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactMapActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ContactMapActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactMapActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ContactMapActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactMapActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ContactMapActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContactMapActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContactMapActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -10191,36 +8030,7 @@ unsafe impl ::windows::core::Interface for ContactMessageActivatedEventArgs {
 impl ::windows::core::RuntimeName for ContactMessageActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactMessageActivatedEventArgs";
 }
-impl ::core::convert::From<ContactMessageActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ContactMessageActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactMessageActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ContactMessageActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactMessageActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ContactMessageActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactMessageActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ContactMessageActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactMessageActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ContactMessageActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactMessageActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ContactMessageActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContactMessageActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContactMessageActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -10365,36 +8175,7 @@ unsafe impl ::windows::core::Interface for ContactPanelActivatedEventArgs {
 impl ::windows::core::RuntimeName for ContactPanelActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPanelActivatedEventArgs";
 }
-impl ::core::convert::From<ContactPanelActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ContactPanelActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactPanelActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ContactPanelActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactPanelActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ContactPanelActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactPanelActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ContactPanelActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactPanelActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ContactPanelActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactPanelActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ContactPanelActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContactPanelActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContactPanelActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -10521,36 +8302,7 @@ unsafe impl ::windows::core::Interface for ContactPickerActivatedEventArgs {
 impl ::windows::core::RuntimeName for ContactPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPickerActivatedEventArgs";
 }
-impl ::core::convert::From<ContactPickerActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ContactPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactPickerActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ContactPickerActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactPickerActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ContactPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactPickerActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ContactPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactPickerActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ContactPickerActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactPickerActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ContactPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContactPickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContactPickerActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -10679,36 +8431,7 @@ unsafe impl ::windows::core::Interface for ContactPostActivatedEventArgs {
 impl ::windows::core::RuntimeName for ContactPostActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPostActivatedEventArgs";
 }
-impl ::core::convert::From<ContactPostActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ContactPostActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactPostActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ContactPostActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactPostActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ContactPostActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactPostActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ContactPostActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactPostActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ContactPostActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactPostActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ContactPostActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContactPostActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContactPostActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -10856,36 +8579,7 @@ unsafe impl ::windows::core::Interface for ContactVideoCallActivatedEventArgs {
 impl ::windows::core::RuntimeName for ContactVideoCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactVideoCallActivatedEventArgs";
 }
-impl ::core::convert::From<ContactVideoCallActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ContactVideoCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactVideoCallActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ContactVideoCallActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactVideoCallActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ContactVideoCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactVideoCallActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ContactVideoCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactVideoCallActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ContactVideoCallActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactVideoCallActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ContactVideoCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContactVideoCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContactVideoCallActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -11042,36 +8736,7 @@ unsafe impl ::windows::core::Interface for DeviceActivatedEventArgs {
 impl ::windows::core::RuntimeName for DeviceActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DeviceActivatedEventArgs";
 }
-impl ::core::convert::From<DeviceActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DeviceActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DeviceActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DeviceActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DeviceActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DeviceActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DeviceActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DeviceActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -11245,36 +8910,7 @@ unsafe impl ::windows::core::Interface for DevicePairingActivatedEventArgs {
 impl ::windows::core::RuntimeName for DevicePairingActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DevicePairingActivatedEventArgs";
 }
-impl ::core::convert::From<DevicePairingActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DevicePairingActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DevicePairingActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DevicePairingActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DevicePairingActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DevicePairingActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DevicePairingActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DevicePairingActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DevicePairingActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DevicePairingActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DevicePairingActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DevicePairingActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DevicePairingActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DevicePairingActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -11438,36 +9074,7 @@ unsafe impl ::windows::core::Interface for DialReceiverActivatedEventArgs {
 impl ::windows::core::RuntimeName for DialReceiverActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DialReceiverActivatedEventArgs";
 }
-impl ::core::convert::From<DialReceiverActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DialReceiverActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DialReceiverActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DialReceiverActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DialReceiverActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DialReceiverActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DialReceiverActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DialReceiverActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DialReceiverActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DialReceiverActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DialReceiverActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DialReceiverActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DialReceiverActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DialReceiverActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -11699,36 +9306,7 @@ unsafe impl ::windows::core::Interface for FileActivatedEventArgs {
 impl ::windows::core::RuntimeName for FileActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileActivatedEventArgs";
 }
-impl ::core::convert::From<FileActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: FileActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &FileActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &FileActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: FileActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &FileActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &FileActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FileActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<FileActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: FileActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -11947,36 +9525,7 @@ unsafe impl ::windows::core::Interface for FileOpenPickerActivatedEventArgs {
 impl ::windows::core::RuntimeName for FileOpenPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileOpenPickerActivatedEventArgs";
 }
-impl ::core::convert::From<FileOpenPickerActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: FileOpenPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileOpenPickerActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &FileOpenPickerActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileOpenPickerActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &FileOpenPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileOpenPickerActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: FileOpenPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileOpenPickerActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &FileOpenPickerActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileOpenPickerActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &FileOpenPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FileOpenPickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<FileOpenPickerActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -12151,41 +9700,7 @@ impl ::windows::core::RuntimeName for FileOpenPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileOpenPickerContinuationEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<FileOpenPickerContinuationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: FileOpenPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FileOpenPickerContinuationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &FileOpenPickerContinuationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FileOpenPickerContinuationEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &FileOpenPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<FileOpenPickerContinuationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: FileOpenPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FileOpenPickerContinuationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &FileOpenPickerContinuationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FileOpenPickerContinuationEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &FileOpenPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FileOpenPickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<FileOpenPickerContinuationEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -12368,36 +9883,7 @@ unsafe impl ::windows::core::Interface for FileSavePickerActivatedEventArgs {
 impl ::windows::core::RuntimeName for FileSavePickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileSavePickerActivatedEventArgs";
 }
-impl ::core::convert::From<FileSavePickerActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: FileSavePickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileSavePickerActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &FileSavePickerActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileSavePickerActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &FileSavePickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileSavePickerActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: FileSavePickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileSavePickerActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &FileSavePickerActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileSavePickerActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &FileSavePickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FileSavePickerActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<FileSavePickerActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -12572,41 +10058,7 @@ impl ::windows::core::RuntimeName for FileSavePickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileSavePickerContinuationEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<FileSavePickerContinuationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: FileSavePickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FileSavePickerContinuationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &FileSavePickerContinuationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FileSavePickerContinuationEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &FileSavePickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<FileSavePickerContinuationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: FileSavePickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FileSavePickerContinuationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &FileSavePickerContinuationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FileSavePickerContinuationEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &FileSavePickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FileSavePickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<FileSavePickerContinuationEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -12795,41 +10247,7 @@ impl ::windows::core::RuntimeName for FolderPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FolderPickerContinuationEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<FolderPickerContinuationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: FolderPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FolderPickerContinuationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &FolderPickerContinuationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FolderPickerContinuationEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &FolderPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<FolderPickerContinuationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: FolderPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FolderPickerContinuationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &FolderPickerContinuationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FolderPickerContinuationEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &FolderPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FolderPickerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<FolderPickerContinuationEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -13033,36 +10451,7 @@ unsafe impl ::windows::core::Interface for LaunchActivatedEventArgs {
 impl ::windows::core::RuntimeName for LaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LaunchActivatedEventArgs";
 }
-impl ::core::convert::From<LaunchActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: LaunchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LaunchActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &LaunchActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LaunchActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &LaunchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LaunchActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: LaunchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LaunchActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &LaunchActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LaunchActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &LaunchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LaunchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LaunchActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: LaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -13272,36 +10661,7 @@ unsafe impl ::windows::core::Interface for LockScreenActivatedEventArgs {
 impl ::windows::core::RuntimeName for LockScreenActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenActivatedEventArgs";
 }
-impl ::core::convert::From<LockScreenActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: LockScreenActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LockScreenActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &LockScreenActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LockScreenActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &LockScreenActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LockScreenActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: LockScreenActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LockScreenActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &LockScreenActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LockScreenActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &LockScreenActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LockScreenActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LockScreenActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: LockScreenActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -13458,36 +10818,7 @@ unsafe impl ::windows::core::Interface for LockScreenCallActivatedEventArgs {
 impl ::windows::core::RuntimeName for LockScreenCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenCallActivatedEventArgs";
 }
-impl ::core::convert::From<LockScreenCallActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: LockScreenCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LockScreenCallActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &LockScreenCallActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LockScreenCallActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &LockScreenCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LockScreenCallActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: LockScreenCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LockScreenCallActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &LockScreenCallActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LockScreenCallActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &LockScreenCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LockScreenCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LockScreenCallActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: LockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -13643,36 +10974,7 @@ unsafe impl ::windows::core::Interface for LockScreenComponentActivatedEventArgs
 impl ::windows::core::RuntimeName for LockScreenComponentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenComponentActivatedEventArgs";
 }
-impl ::core::convert::From<LockScreenComponentActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: LockScreenComponentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LockScreenComponentActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &LockScreenComponentActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LockScreenComponentActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &LockScreenComponentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LockScreenComponentActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: LockScreenComponentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LockScreenComponentActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &LockScreenComponentActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LockScreenComponentActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &LockScreenComponentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LockScreenComponentActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LockScreenComponentActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: LockScreenComponentActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -13768,36 +11070,7 @@ unsafe impl ::windows::core::Interface for PhoneCallActivatedEventArgs {
 impl ::windows::core::RuntimeName for PhoneCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs";
 }
-impl ::core::convert::From<PhoneCallActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PhoneCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneCallActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PhoneCallActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneCallActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PhoneCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhoneCallActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PhoneCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneCallActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PhoneCallActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneCallActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PhoneCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhoneCallActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PhoneCallActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: PhoneCallActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -13922,36 +11195,7 @@ unsafe impl ::windows::core::Interface for PickerReturnedActivatedEventArgs {
 impl ::windows::core::RuntimeName for PickerReturnedActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PickerReturnedActivatedEventArgs";
 }
-impl ::core::convert::From<PickerReturnedActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PickerReturnedActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PickerReturnedActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PickerReturnedActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PickerReturnedActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PickerReturnedActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PickerReturnedActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PickerReturnedActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PickerReturnedActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PickerReturnedActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PickerReturnedActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PickerReturnedActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PickerReturnedActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PickerReturnedActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: PickerReturnedActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -14059,36 +11303,7 @@ unsafe impl ::windows::core::Interface for Print3DWorkflowActivatedEventArgs {
 impl ::windows::core::RuntimeName for Print3DWorkflowActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.Print3DWorkflowActivatedEventArgs";
 }
-impl ::core::convert::From<Print3DWorkflowActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: Print3DWorkflowActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Print3DWorkflowActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &Print3DWorkflowActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Print3DWorkflowActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &Print3DWorkflowActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Print3DWorkflowActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: Print3DWorkflowActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Print3DWorkflowActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &Print3DWorkflowActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Print3DWorkflowActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &Print3DWorkflowActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Print3DWorkflowActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Print3DWorkflowActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: Print3DWorkflowActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -14196,36 +11411,7 @@ unsafe impl ::windows::core::Interface for PrintTaskSettingsActivatedEventArgs {
 impl ::windows::core::RuntimeName for PrintTaskSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PrintTaskSettingsActivatedEventArgs";
 }
-impl ::core::convert::From<PrintTaskSettingsActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PrintTaskSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTaskSettingsActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PrintTaskSettingsActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTaskSettingsActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PrintTaskSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintTaskSettingsActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PrintTaskSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTaskSettingsActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PrintTaskSettingsActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTaskSettingsActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PrintTaskSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintTaskSettingsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintTaskSettingsActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintTaskSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -14374,36 +11560,7 @@ unsafe impl ::windows::core::Interface for ProtocolActivatedEventArgs {
 impl ::windows::core::RuntimeName for ProtocolActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs";
 }
-impl ::core::convert::From<ProtocolActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ProtocolActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtocolActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ProtocolActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtocolActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ProtocolActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProtocolActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ProtocolActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtocolActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ProtocolActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtocolActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ProtocolActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProtocolActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ProtocolActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -14637,36 +11794,7 @@ unsafe impl ::windows::core::Interface for ProtocolForResultsActivatedEventArgs 
 impl ::windows::core::RuntimeName for ProtocolForResultsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ProtocolForResultsActivatedEventArgs";
 }
-impl ::core::convert::From<ProtocolForResultsActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ProtocolForResultsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtocolForResultsActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ProtocolForResultsActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtocolForResultsActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ProtocolForResultsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProtocolForResultsActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ProtocolForResultsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtocolForResultsActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ProtocolForResultsActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtocolForResultsActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ProtocolForResultsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProtocolForResultsActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ProtocolForResultsActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -14876,36 +12004,7 @@ unsafe impl ::windows::core::Interface for RestrictedLaunchActivatedEventArgs {
 impl ::windows::core::RuntimeName for RestrictedLaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.RestrictedLaunchActivatedEventArgs";
 }
-impl ::core::convert::From<RestrictedLaunchActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: RestrictedLaunchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RestrictedLaunchActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &RestrictedLaunchActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RestrictedLaunchActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &RestrictedLaunchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RestrictedLaunchActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: RestrictedLaunchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RestrictedLaunchActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &RestrictedLaunchActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RestrictedLaunchActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &RestrictedLaunchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RestrictedLaunchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RestrictedLaunchActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: RestrictedLaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -15071,36 +12170,7 @@ unsafe impl ::windows::core::Interface for SearchActivatedEventArgs {
 impl ::windows::core::RuntimeName for SearchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.SearchActivatedEventArgs";
 }
-impl ::core::convert::From<SearchActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SearchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SearchActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SearchActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SearchActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SearchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SearchActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SearchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SearchActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SearchActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SearchActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SearchActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SearchActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SearchActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: SearchActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -15293,36 +12363,7 @@ unsafe impl ::windows::core::Interface for ShareTargetActivatedEventArgs {
 impl ::windows::core::RuntimeName for ShareTargetActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ShareTargetActivatedEventArgs";
 }
-impl ::core::convert::From<ShareTargetActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ShareTargetActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ShareTargetActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ShareTargetActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ShareTargetActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ShareTargetActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ShareTargetActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ShareTargetActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ShareTargetActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ShareTargetActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ShareTargetActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ShareTargetActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ShareTargetActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ShareTargetActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ShareTargetActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -15443,36 +12484,7 @@ unsafe impl ::windows::core::Interface for SplashScreen {
 impl ::windows::core::RuntimeName for SplashScreen {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.SplashScreen";
 }
-impl ::core::convert::From<SplashScreen> for ::windows::core::IUnknown {
-    fn from(value: SplashScreen) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SplashScreen> for ::windows::core::IUnknown {
-    fn from(value: &SplashScreen) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SplashScreen> for &::windows::core::IUnknown {
-    fn from(value: &SplashScreen) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SplashScreen> for ::windows::core::IInspectable {
-    fn from(value: SplashScreen) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SplashScreen> for ::windows::core::IInspectable {
-    fn from(value: &SplashScreen) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SplashScreen> for &::windows::core::IInspectable {
-    fn from(value: &SplashScreen) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SplashScreen, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
 #[repr(transparent)]
 pub struct StartupTaskActivatedEventArgs(::windows::core::IUnknown);
@@ -15547,36 +12559,7 @@ unsafe impl ::windows::core::Interface for StartupTaskActivatedEventArgs {
 impl ::windows::core::RuntimeName for StartupTaskActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.StartupTaskActivatedEventArgs";
 }
-impl ::core::convert::From<StartupTaskActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: StartupTaskActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StartupTaskActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &StartupTaskActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StartupTaskActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &StartupTaskActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StartupTaskActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: StartupTaskActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StartupTaskActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &StartupTaskActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StartupTaskActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &StartupTaskActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StartupTaskActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StartupTaskActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: StartupTaskActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -15682,36 +12665,7 @@ unsafe impl ::windows::core::Interface for TileActivatedInfo {
 impl ::windows::core::RuntimeName for TileActivatedInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.TileActivatedInfo";
 }
-impl ::core::convert::From<TileActivatedInfo> for ::windows::core::IUnknown {
-    fn from(value: TileActivatedInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TileActivatedInfo> for ::windows::core::IUnknown {
-    fn from(value: &TileActivatedInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TileActivatedInfo> for &::windows::core::IUnknown {
-    fn from(value: &TileActivatedInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TileActivatedInfo> for ::windows::core::IInspectable {
-    fn from(value: TileActivatedInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TileActivatedInfo> for ::windows::core::IInspectable {
-    fn from(value: &TileActivatedInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TileActivatedInfo> for &::windows::core::IInspectable {
-    fn from(value: &TileActivatedInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TileActivatedInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TileActivatedInfo {}
 unsafe impl ::core::marker::Sync for TileActivatedInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -15804,36 +12758,7 @@ unsafe impl ::windows::core::Interface for ToastNotificationActivatedEventArgs {
 impl ::windows::core::RuntimeName for ToastNotificationActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ToastNotificationActivatedEventArgs";
 }
-impl ::core::convert::From<ToastNotificationActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ToastNotificationActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastNotificationActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ToastNotificationActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastNotificationActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ToastNotificationActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ToastNotificationActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ToastNotificationActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastNotificationActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ToastNotificationActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastNotificationActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ToastNotificationActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ToastNotificationActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ToastNotificationActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: ToastNotificationActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -15979,36 +12904,7 @@ unsafe impl ::windows::core::Interface for UserDataAccountProviderActivatedEvent
 impl ::windows::core::RuntimeName for UserDataAccountProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.UserDataAccountProviderActivatedEventArgs";
 }
-impl ::core::convert::From<UserDataAccountProviderActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: UserDataAccountProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataAccountProviderActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &UserDataAccountProviderActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataAccountProviderActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &UserDataAccountProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataAccountProviderActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: UserDataAccountProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataAccountProviderActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &UserDataAccountProviderActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataAccountProviderActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &UserDataAccountProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataAccountProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<UserDataAccountProviderActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: UserDataAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -16125,36 +13021,7 @@ unsafe impl ::windows::core::Interface for VoiceCommandActivatedEventArgs {
 impl ::windows::core::RuntimeName for VoiceCommandActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.VoiceCommandActivatedEventArgs";
 }
-impl ::core::convert::From<VoiceCommandActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: VoiceCommandActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceCommandActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &VoiceCommandActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceCommandActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &VoiceCommandActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VoiceCommandActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: VoiceCommandActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceCommandActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &VoiceCommandActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceCommandActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &VoiceCommandActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VoiceCommandActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VoiceCommandActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: VoiceCommandActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -16295,36 +13162,7 @@ unsafe impl ::windows::core::Interface for WalletActionActivatedEventArgs {
 impl ::windows::core::RuntimeName for WalletActionActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WalletActionActivatedEventArgs";
 }
-impl ::core::convert::From<WalletActionActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: WalletActionActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WalletActionActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &WalletActionActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WalletActionActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &WalletActionActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WalletActionActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: WalletActionActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WalletActionActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &WalletActionActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WalletActionActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &WalletActionActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WalletActionActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WalletActionActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: WalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -16441,36 +13279,7 @@ unsafe impl ::windows::core::Interface for WebAccountProviderActivatedEventArgs 
 impl ::windows::core::RuntimeName for WebAccountProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WebAccountProviderActivatedEventArgs";
 }
-impl ::core::convert::From<WebAccountProviderActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: WebAccountProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountProviderActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &WebAccountProviderActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountProviderActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &WebAccountProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebAccountProviderActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: WebAccountProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountProviderActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &WebAccountProviderActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountProviderActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &WebAccountProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebAccountProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebAccountProviderActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: WebAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -16606,36 +13415,7 @@ unsafe impl ::windows::core::Interface for WebAuthenticationBrokerContinuationEv
 impl ::windows::core::RuntimeName for WebAuthenticationBrokerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WebAuthenticationBrokerContinuationEventArgs";
 }
-impl ::core::convert::From<WebAuthenticationBrokerContinuationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: WebAuthenticationBrokerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAuthenticationBrokerContinuationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &WebAuthenticationBrokerContinuationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAuthenticationBrokerContinuationEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &WebAuthenticationBrokerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebAuthenticationBrokerContinuationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: WebAuthenticationBrokerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAuthenticationBrokerContinuationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &WebAuthenticationBrokerContinuationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAuthenticationBrokerContinuationEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &WebAuthenticationBrokerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebAuthenticationBrokerContinuationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebAuthenticationBrokerContinuationEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: WebAuthenticationBrokerContinuationEventArgs) -> ::windows::core::Result<Self> {

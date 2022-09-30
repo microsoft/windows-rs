@@ -859,36 +859,7 @@ unsafe impl ::windows::core::Interface for ActivationSignalDetectionConfiguratio
 impl ::windows::core::RuntimeName for ActivationSignalDetectionConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration";
 }
-impl ::core::convert::From<ActivationSignalDetectionConfiguration> for ::windows::core::IUnknown {
-    fn from(value: ActivationSignalDetectionConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivationSignalDetectionConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &ActivationSignalDetectionConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivationSignalDetectionConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &ActivationSignalDetectionConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ActivationSignalDetectionConfiguration> for ::windows::core::IInspectable {
-    fn from(value: ActivationSignalDetectionConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivationSignalDetectionConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &ActivationSignalDetectionConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivationSignalDetectionConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &ActivationSignalDetectionConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ActivationSignalDetectionConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ActivationSignalDetectionConfiguration> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -964,36 +935,7 @@ unsafe impl ::windows::core::Interface for ActivationSignalDetectionConfiguratio
 impl ::windows::core::RuntimeName for ActivationSignalDetectionConfigurationCreationResult {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationResult";
 }
-impl ::core::convert::From<ActivationSignalDetectionConfigurationCreationResult> for ::windows::core::IUnknown {
-    fn from(value: ActivationSignalDetectionConfigurationCreationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivationSignalDetectionConfigurationCreationResult> for ::windows::core::IUnknown {
-    fn from(value: &ActivationSignalDetectionConfigurationCreationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivationSignalDetectionConfigurationCreationResult> for &::windows::core::IUnknown {
-    fn from(value: &ActivationSignalDetectionConfigurationCreationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ActivationSignalDetectionConfigurationCreationResult> for ::windows::core::IInspectable {
-    fn from(value: ActivationSignalDetectionConfigurationCreationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivationSignalDetectionConfigurationCreationResult> for ::windows::core::IInspectable {
-    fn from(value: &ActivationSignalDetectionConfigurationCreationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivationSignalDetectionConfigurationCreationResult> for &::windows::core::IInspectable {
-    fn from(value: &ActivationSignalDetectionConfigurationCreationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ActivationSignalDetectionConfigurationCreationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ActivationSignalDetectionConfigurationCreationResult {}
 unsafe impl ::core::marker::Sync for ActivationSignalDetectionConfigurationCreationResult {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1216,36 +1158,7 @@ unsafe impl ::windows::core::Interface for ActivationSignalDetector {
 impl ::windows::core::RuntimeName for ActivationSignalDetector {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector";
 }
-impl ::core::convert::From<ActivationSignalDetector> for ::windows::core::IUnknown {
-    fn from(value: ActivationSignalDetector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivationSignalDetector> for ::windows::core::IUnknown {
-    fn from(value: &ActivationSignalDetector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivationSignalDetector> for &::windows::core::IUnknown {
-    fn from(value: &ActivationSignalDetector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ActivationSignalDetector> for ::windows::core::IInspectable {
-    fn from(value: ActivationSignalDetector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivationSignalDetector> for ::windows::core::IInspectable {
-    fn from(value: &ActivationSignalDetector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivationSignalDetector> for &::windows::core::IInspectable {
-    fn from(value: &ActivationSignalDetector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ActivationSignalDetector, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ActivationSignalDetector {}
 unsafe impl ::core::marker::Sync for ActivationSignalDetector {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1348,36 +1261,7 @@ unsafe impl ::windows::core::Interface for ConversationalAgentDetectorManager {
 impl ::windows::core::RuntimeName for ConversationalAgentDetectorManager {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentDetectorManager";
 }
-impl ::core::convert::From<ConversationalAgentDetectorManager> for ::windows::core::IUnknown {
-    fn from(value: ConversationalAgentDetectorManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConversationalAgentDetectorManager> for ::windows::core::IUnknown {
-    fn from(value: &ConversationalAgentDetectorManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConversationalAgentDetectorManager> for &::windows::core::IUnknown {
-    fn from(value: &ConversationalAgentDetectorManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ConversationalAgentDetectorManager> for ::windows::core::IInspectable {
-    fn from(value: ConversationalAgentDetectorManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConversationalAgentDetectorManager> for ::windows::core::IInspectable {
-    fn from(value: &ConversationalAgentDetectorManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConversationalAgentDetectorManager> for &::windows::core::IInspectable {
-    fn from(value: &ConversationalAgentDetectorManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ConversationalAgentDetectorManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ConversationalAgentDetectorManager {}
 unsafe impl ::core::marker::Sync for ConversationalAgentDetectorManager {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1754,36 +1638,7 @@ unsafe impl ::windows::core::Interface for ConversationalAgentSession {
 impl ::windows::core::RuntimeName for ConversationalAgentSession {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSession";
 }
-impl ::core::convert::From<ConversationalAgentSession> for ::windows::core::IUnknown {
-    fn from(value: ConversationalAgentSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConversationalAgentSession> for ::windows::core::IUnknown {
-    fn from(value: &ConversationalAgentSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConversationalAgentSession> for &::windows::core::IUnknown {
-    fn from(value: &ConversationalAgentSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ConversationalAgentSession> for ::windows::core::IInspectable {
-    fn from(value: ConversationalAgentSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConversationalAgentSession> for ::windows::core::IInspectable {
-    fn from(value: &ConversationalAgentSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConversationalAgentSession> for &::windows::core::IInspectable {
-    fn from(value: &ConversationalAgentSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ConversationalAgentSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ConversationalAgentSession> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1844,36 +1699,7 @@ unsafe impl ::windows::core::Interface for ConversationalAgentSessionInterrupted
 impl ::windows::core::RuntimeName for ConversationalAgentSessionInterruptedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionInterruptedEventArgs";
 }
-impl ::core::convert::From<ConversationalAgentSessionInterruptedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ConversationalAgentSessionInterruptedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConversationalAgentSessionInterruptedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ConversationalAgentSessionInterruptedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConversationalAgentSessionInterruptedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ConversationalAgentSessionInterruptedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ConversationalAgentSessionInterruptedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ConversationalAgentSessionInterruptedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConversationalAgentSessionInterruptedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ConversationalAgentSessionInterruptedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConversationalAgentSessionInterruptedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ConversationalAgentSessionInterruptedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ConversationalAgentSessionInterruptedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ConversationalAgentSessionInterruptedEventArgs {}
 unsafe impl ::core::marker::Sync for ConversationalAgentSessionInterruptedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -2004,36 +1830,7 @@ unsafe impl ::windows::core::Interface for ConversationalAgentSignal {
 impl ::windows::core::RuntimeName for ConversationalAgentSignal {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignal";
 }
-impl ::core::convert::From<ConversationalAgentSignal> for ::windows::core::IUnknown {
-    fn from(value: ConversationalAgentSignal) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConversationalAgentSignal> for ::windows::core::IUnknown {
-    fn from(value: &ConversationalAgentSignal) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConversationalAgentSignal> for &::windows::core::IUnknown {
-    fn from(value: &ConversationalAgentSignal) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ConversationalAgentSignal> for ::windows::core::IInspectable {
-    fn from(value: ConversationalAgentSignal) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConversationalAgentSignal> for ::windows::core::IInspectable {
-    fn from(value: &ConversationalAgentSignal) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConversationalAgentSignal> for &::windows::core::IInspectable {
-    fn from(value: &ConversationalAgentSignal) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ConversationalAgentSignal, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ConversationalAgentSignal {}
 unsafe impl ::core::marker::Sync for ConversationalAgentSignal {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -2072,36 +1869,7 @@ unsafe impl ::windows::core::Interface for ConversationalAgentSignalDetectedEven
 impl ::windows::core::RuntimeName for ConversationalAgentSignalDetectedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignalDetectedEventArgs";
 }
-impl ::core::convert::From<ConversationalAgentSignalDetectedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ConversationalAgentSignalDetectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConversationalAgentSignalDetectedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ConversationalAgentSignalDetectedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConversationalAgentSignalDetectedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ConversationalAgentSignalDetectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ConversationalAgentSignalDetectedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ConversationalAgentSignalDetectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConversationalAgentSignalDetectedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ConversationalAgentSignalDetectedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConversationalAgentSignalDetectedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ConversationalAgentSignalDetectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ConversationalAgentSignalDetectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ConversationalAgentSignalDetectedEventArgs {}
 unsafe impl ::core::marker::Sync for ConversationalAgentSignalDetectedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -2148,36 +1916,7 @@ unsafe impl ::windows::core::Interface for ConversationalAgentSystemStateChanged
 impl ::windows::core::RuntimeName for ConversationalAgentSystemStateChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangedEventArgs";
 }
-impl ::core::convert::From<ConversationalAgentSystemStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ConversationalAgentSystemStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConversationalAgentSystemStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ConversationalAgentSystemStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConversationalAgentSystemStateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ConversationalAgentSystemStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ConversationalAgentSystemStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ConversationalAgentSystemStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConversationalAgentSystemStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ConversationalAgentSystemStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConversationalAgentSystemStateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ConversationalAgentSystemStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ConversationalAgentSystemStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ConversationalAgentSystemStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ConversationalAgentSystemStateChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -2224,36 +1963,7 @@ unsafe impl ::windows::core::Interface for DetectionConfigurationAvailabilityCha
 impl ::windows::core::RuntimeName for DetectionConfigurationAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangedEventArgs";
 }
-impl ::core::convert::From<DetectionConfigurationAvailabilityChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DetectionConfigurationAvailabilityChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DetectionConfigurationAvailabilityChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DetectionConfigurationAvailabilityChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DetectionConfigurationAvailabilityChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DetectionConfigurationAvailabilityChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DetectionConfigurationAvailabilityChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DetectionConfigurationAvailabilityChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DetectionConfigurationAvailabilityChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DetectionConfigurationAvailabilityChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DetectionConfigurationAvailabilityChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DetectionConfigurationAvailabilityChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DetectionConfigurationAvailabilityChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DetectionConfigurationAvailabilityChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DetectionConfigurationAvailabilityChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -2330,36 +2040,7 @@ unsafe impl ::windows::core::Interface for DetectionConfigurationAvailabilityInf
 impl ::windows::core::RuntimeName for DetectionConfigurationAvailabilityInfo {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityInfo";
 }
-impl ::core::convert::From<DetectionConfigurationAvailabilityInfo> for ::windows::core::IUnknown {
-    fn from(value: DetectionConfigurationAvailabilityInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DetectionConfigurationAvailabilityInfo> for ::windows::core::IUnknown {
-    fn from(value: &DetectionConfigurationAvailabilityInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DetectionConfigurationAvailabilityInfo> for &::windows::core::IUnknown {
-    fn from(value: &DetectionConfigurationAvailabilityInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DetectionConfigurationAvailabilityInfo> for ::windows::core::IInspectable {
-    fn from(value: DetectionConfigurationAvailabilityInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DetectionConfigurationAvailabilityInfo> for ::windows::core::IInspectable {
-    fn from(value: &DetectionConfigurationAvailabilityInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DetectionConfigurationAvailabilityInfo> for &::windows::core::IInspectable {
-    fn from(value: &DetectionConfigurationAvailabilityInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DetectionConfigurationAvailabilityInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DetectionConfigurationAvailabilityInfo {}
 unsafe impl ::core::marker::Sync for DetectionConfigurationAvailabilityInfo {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]

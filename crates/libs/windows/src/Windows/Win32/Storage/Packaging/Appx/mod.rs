@@ -760,21 +760,7 @@ impl IAppxBlockMapBlock {
         (::windows::core::Vtable::vtable(self).GetCompressedSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IAppxBlockMapBlock> for ::windows::core::IUnknown {
-    fn from(value: IAppxBlockMapBlock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxBlockMapBlock> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxBlockMapBlock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxBlockMapBlock> for ::windows::core::IUnknown {
-    fn from(value: &IAppxBlockMapBlock) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxBlockMapBlock, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxBlockMapBlock {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -825,21 +811,7 @@ impl IAppxBlockMapBlocksEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxBlockMapBlocksEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IAppxBlockMapBlocksEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxBlockMapBlocksEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxBlockMapBlocksEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxBlockMapBlocksEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IAppxBlockMapBlocksEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxBlockMapBlocksEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxBlockMapBlocksEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -906,21 +878,7 @@ impl IAppxBlockMapFile {
         (::windows::core::Vtable::vtable(self).ValidateFileHash)(::windows::core::Vtable::as_raw(self), filestream.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxBlockMapFile> for ::windows::core::IUnknown {
-    fn from(value: IAppxBlockMapFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxBlockMapFile> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxBlockMapFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxBlockMapFile> for ::windows::core::IUnknown {
-    fn from(value: &IAppxBlockMapFile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxBlockMapFile, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxBlockMapFile {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -977,21 +935,7 @@ impl IAppxBlockMapFilesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxBlockMapFilesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IAppxBlockMapFilesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxBlockMapFilesEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxBlockMapFilesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxBlockMapFilesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IAppxBlockMapFilesEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxBlockMapFilesEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxBlockMapFilesEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1056,21 +1000,7 @@ impl IAppxBlockMapReader {
         (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::IStream>(result__)
     }
 }
-impl ::core::convert::From<IAppxBlockMapReader> for ::windows::core::IUnknown {
-    fn from(value: IAppxBlockMapReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxBlockMapReader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxBlockMapReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxBlockMapReader> for ::windows::core::IUnknown {
-    fn from(value: &IAppxBlockMapReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxBlockMapReader, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxBlockMapReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1140,21 +1070,7 @@ impl IAppxBundleFactory {
         (::windows::core::Vtable::vtable(self).CreateBundleManifestReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAppxBundleManifestReader>(result__)
     }
 }
-impl ::core::convert::From<IAppxBundleFactory> for ::windows::core::IUnknown {
-    fn from(value: IAppxBundleFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxBundleFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxBundleFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxBundleFactory> for ::windows::core::IUnknown {
-    fn from(value: &IAppxBundleFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxBundleFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxBundleFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1211,21 +1127,7 @@ impl IAppxBundleManifestOptionalBundleInfo {
         (::windows::core::Vtable::vtable(self).GetPackageInfoItems)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAppxBundleManifestPackageInfoEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IAppxBundleManifestOptionalBundleInfo> for ::windows::core::IUnknown {
-    fn from(value: IAppxBundleManifestOptionalBundleInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxBundleManifestOptionalBundleInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxBundleManifestOptionalBundleInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxBundleManifestOptionalBundleInfo> for ::windows::core::IUnknown {
-    fn from(value: &IAppxBundleManifestOptionalBundleInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxBundleManifestOptionalBundleInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxBundleManifestOptionalBundleInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1277,21 +1179,7 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxBundleManifestOptionalBundleInfoEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IAppxBundleManifestOptionalBundleInfoEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxBundleManifestOptionalBundleInfoEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxBundleManifestOptionalBundleInfoEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxBundleManifestOptionalBundleInfoEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IAppxBundleManifestOptionalBundleInfoEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxBundleManifestOptionalBundleInfoEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxBundleManifestOptionalBundleInfoEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1357,21 +1245,7 @@ impl IAppxBundleManifestPackageInfo {
         (::windows::core::Vtable::vtable(self).GetResources)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAppxManifestQualifiedResourcesEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IAppxBundleManifestPackageInfo> for ::windows::core::IUnknown {
-    fn from(value: IAppxBundleManifestPackageInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxBundleManifestPackageInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxBundleManifestPackageInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxBundleManifestPackageInfo> for ::windows::core::IUnknown {
-    fn from(value: &IAppxBundleManifestPackageInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxBundleManifestPackageInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxBundleManifestPackageInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1428,21 +1302,7 @@ impl IAppxBundleManifestPackageInfo2 {
         (::windows::core::Vtable::vtable(self).GetIsDefaultApplicablePackage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxBundleManifestPackageInfo2> for ::windows::core::IUnknown {
-    fn from(value: IAppxBundleManifestPackageInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxBundleManifestPackageInfo2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxBundleManifestPackageInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxBundleManifestPackageInfo2> for ::windows::core::IUnknown {
-    fn from(value: &IAppxBundleManifestPackageInfo2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxBundleManifestPackageInfo2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxBundleManifestPackageInfo2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1491,21 +1351,7 @@ impl IAppxBundleManifestPackageInfo3 {
         (::windows::core::Vtable::vtable(self).GetTargetDeviceFamilies)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAppxManifestTargetDeviceFamiliesEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IAppxBundleManifestPackageInfo3> for ::windows::core::IUnknown {
-    fn from(value: IAppxBundleManifestPackageInfo3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxBundleManifestPackageInfo3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxBundleManifestPackageInfo3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxBundleManifestPackageInfo3> for ::windows::core::IUnknown {
-    fn from(value: &IAppxBundleManifestPackageInfo3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxBundleManifestPackageInfo3, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxBundleManifestPackageInfo3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1545,21 +1391,7 @@ impl IAppxBundleManifestPackageInfo4 {
         (::windows::core::Vtable::vtable(self).GetIsStub)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxBundleManifestPackageInfo4> for ::windows::core::IUnknown {
-    fn from(value: IAppxBundleManifestPackageInfo4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxBundleManifestPackageInfo4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxBundleManifestPackageInfo4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxBundleManifestPackageInfo4> for ::windows::core::IUnknown {
-    fn from(value: &IAppxBundleManifestPackageInfo4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxBundleManifestPackageInfo4, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxBundleManifestPackageInfo4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1612,21 +1444,7 @@ impl IAppxBundleManifestPackageInfoEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxBundleManifestPackageInfoEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IAppxBundleManifestPackageInfoEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxBundleManifestPackageInfoEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxBundleManifestPackageInfoEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxBundleManifestPackageInfoEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IAppxBundleManifestPackageInfoEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxBundleManifestPackageInfoEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxBundleManifestPackageInfoEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1682,21 +1500,7 @@ impl IAppxBundleManifestReader {
         (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::IStream>(result__)
     }
 }
-impl ::core::convert::From<IAppxBundleManifestReader> for ::windows::core::IUnknown {
-    fn from(value: IAppxBundleManifestReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxBundleManifestReader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxBundleManifestReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxBundleManifestReader> for ::windows::core::IUnknown {
-    fn from(value: &IAppxBundleManifestReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxBundleManifestReader, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxBundleManifestReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1739,21 +1543,7 @@ impl IAppxBundleManifestReader2 {
         (::windows::core::Vtable::vtable(self).GetOptionalBundles)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAppxBundleManifestOptionalBundleInfoEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IAppxBundleManifestReader2> for ::windows::core::IUnknown {
-    fn from(value: IAppxBundleManifestReader2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxBundleManifestReader2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxBundleManifestReader2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxBundleManifestReader2> for ::windows::core::IUnknown {
-    fn from(value: &IAppxBundleManifestReader2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxBundleManifestReader2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxBundleManifestReader2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1810,21 +1600,7 @@ impl IAppxBundleReader {
         (::windows::core::Vtable::vtable(self).GetPayloadPackage)(::windows::core::Vtable::as_raw(self), filename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAppxFile>(result__)
     }
 }
-impl ::core::convert::From<IAppxBundleReader> for ::windows::core::IUnknown {
-    fn from(value: IAppxBundleReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxBundleReader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxBundleReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxBundleReader> for ::windows::core::IUnknown {
-    fn from(value: &IAppxBundleReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxBundleReader, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxBundleReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1874,21 +1650,7 @@ impl IAppxBundleWriter {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IAppxBundleWriter> for ::windows::core::IUnknown {
-    fn from(value: IAppxBundleWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxBundleWriter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxBundleWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxBundleWriter> for ::windows::core::IUnknown {
-    fn from(value: &IAppxBundleWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxBundleWriter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxBundleWriter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1935,21 +1697,7 @@ impl IAppxBundleWriter2 {
         (::windows::core::Vtable::vtable(self).AddExternalPackageReference)(::windows::core::Vtable::as_raw(self), filename.into(), inputstream.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IAppxBundleWriter2> for ::windows::core::IUnknown {
-    fn from(value: IAppxBundleWriter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxBundleWriter2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxBundleWriter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxBundleWriter2> for ::windows::core::IUnknown {
-    fn from(value: &IAppxBundleWriter2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxBundleWriter2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxBundleWriter2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2001,21 +1749,7 @@ impl IAppxBundleWriter3 {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self), hashmethodstring.into()).ok()
     }
 }
-impl ::core::convert::From<IAppxBundleWriter3> for ::windows::core::IUnknown {
-    fn from(value: IAppxBundleWriter3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxBundleWriter3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxBundleWriter3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxBundleWriter3> for ::windows::core::IUnknown {
-    fn from(value: &IAppxBundleWriter3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxBundleWriter3, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxBundleWriter3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2083,21 +1817,7 @@ impl IAppxBundleWriter4 {
         (::windows::core::Vtable::vtable(self).AddExternalPackageReference)(::windows::core::Vtable::as_raw(self), filename.into(), inputstream.into().abi(), isdefaultapplicablepackage.into()).ok()
     }
 }
-impl ::core::convert::From<IAppxBundleWriter4> for ::windows::core::IUnknown {
-    fn from(value: IAppxBundleWriter4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxBundleWriter4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxBundleWriter4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxBundleWriter4> for ::windows::core::IUnknown {
-    fn from(value: &IAppxBundleWriter4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxBundleWriter4, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxBundleWriter4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2150,21 +1870,7 @@ impl IAppxContentGroup {
         (::windows::core::Vtable::vtable(self).GetFiles)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAppxContentGroupFilesEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IAppxContentGroup> for ::windows::core::IUnknown {
-    fn from(value: IAppxContentGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxContentGroup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxContentGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxContentGroup> for ::windows::core::IUnknown {
-    fn from(value: &IAppxContentGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxContentGroup, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxContentGroup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2215,21 +1921,7 @@ impl IAppxContentGroupFilesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxContentGroupFilesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IAppxContentGroupFilesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxContentGroupFilesEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxContentGroupFilesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxContentGroupFilesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IAppxContentGroupFilesEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxContentGroupFilesEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxContentGroupFilesEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2279,21 +1971,7 @@ impl IAppxContentGroupMapReader {
         (::windows::core::Vtable::vtable(self).GetAutomaticGroups)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAppxContentGroupsEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IAppxContentGroupMapReader> for ::windows::core::IUnknown {
-    fn from(value: IAppxContentGroupMapReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxContentGroupMapReader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxContentGroupMapReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxContentGroupMapReader> for ::windows::core::IUnknown {
-    fn from(value: &IAppxContentGroupMapReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxContentGroupMapReader, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxContentGroupMapReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2343,21 +2021,7 @@ impl IAppxContentGroupMapWriter {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IAppxContentGroupMapWriter> for ::windows::core::IUnknown {
-    fn from(value: IAppxContentGroupMapWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxContentGroupMapWriter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxContentGroupMapWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxContentGroupMapWriter> for ::windows::core::IUnknown {
-    fn from(value: &IAppxContentGroupMapWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxContentGroupMapWriter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxContentGroupMapWriter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2409,21 +2073,7 @@ impl IAppxContentGroupsEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxContentGroupsEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IAppxContentGroupsEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxContentGroupsEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxContentGroupsEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxContentGroupsEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IAppxContentGroupsEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxContentGroupsEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxContentGroupsEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2477,21 +2127,7 @@ impl IAppxEncryptedBundleWriter {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IAppxEncryptedBundleWriter> for ::windows::core::IUnknown {
-    fn from(value: IAppxEncryptedBundleWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxEncryptedBundleWriter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxEncryptedBundleWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxEncryptedBundleWriter> for ::windows::core::IUnknown {
-    fn from(value: &IAppxEncryptedBundleWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxEncryptedBundleWriter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxEncryptedBundleWriter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2538,21 +2174,7 @@ impl IAppxEncryptedBundleWriter2 {
         (::windows::core::Vtable::vtable(self).AddExternalPackageReference)(::windows::core::Vtable::as_raw(self), filename.into(), inputstream.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IAppxEncryptedBundleWriter2> for ::windows::core::IUnknown {
-    fn from(value: IAppxEncryptedBundleWriter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxEncryptedBundleWriter2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxEncryptedBundleWriter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxEncryptedBundleWriter2> for ::windows::core::IUnknown {
-    fn from(value: &IAppxEncryptedBundleWriter2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxEncryptedBundleWriter2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxEncryptedBundleWriter2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2609,21 +2231,7 @@ impl IAppxEncryptedBundleWriter3 {
         (::windows::core::Vtable::vtable(self).AddExternalPackageReference)(::windows::core::Vtable::as_raw(self), filename.into(), inputstream.into().abi(), isdefaultapplicablepackage.into()).ok()
     }
 }
-impl ::core::convert::From<IAppxEncryptedBundleWriter3> for ::windows::core::IUnknown {
-    fn from(value: IAppxEncryptedBundleWriter3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxEncryptedBundleWriter3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxEncryptedBundleWriter3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxEncryptedBundleWriter3> for ::windows::core::IUnknown {
-    fn from(value: &IAppxEncryptedBundleWriter3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxEncryptedBundleWriter3, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxEncryptedBundleWriter3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2676,21 +2284,7 @@ impl IAppxEncryptedPackageWriter {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IAppxEncryptedPackageWriter> for ::windows::core::IUnknown {
-    fn from(value: IAppxEncryptedPackageWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxEncryptedPackageWriter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxEncryptedPackageWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxEncryptedPackageWriter> for ::windows::core::IUnknown {
-    fn from(value: &IAppxEncryptedPackageWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxEncryptedPackageWriter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxEncryptedPackageWriter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2733,21 +2327,7 @@ impl IAppxEncryptedPackageWriter2 {
         (::windows::core::Vtable::vtable(self).AddPayloadFilesEncrypted)(::windows::core::Vtable::as_raw(self), payloadfiles.len() as _, ::core::mem::transmute(payloadfiles.as_ptr()), memorylimit).ok()
     }
 }
-impl ::core::convert::From<IAppxEncryptedPackageWriter2> for ::windows::core::IUnknown {
-    fn from(value: IAppxEncryptedPackageWriter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxEncryptedPackageWriter2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxEncryptedPackageWriter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxEncryptedPackageWriter2> for ::windows::core::IUnknown {
-    fn from(value: &IAppxEncryptedPackageWriter2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxEncryptedPackageWriter2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxEncryptedPackageWriter2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2857,21 +2437,7 @@ impl IAppxEncryptionFactory {
         (::windows::core::Vtable::vtable(self).CreateEncryptedBundleReader)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), ::core::mem::transmute(keyinfo), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAppxBundleReader>(result__)
     }
 }
-impl ::core::convert::From<IAppxEncryptionFactory> for ::windows::core::IUnknown {
-    fn from(value: IAppxEncryptionFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxEncryptionFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxEncryptionFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxEncryptionFactory> for ::windows::core::IUnknown {
-    fn from(value: &IAppxEncryptionFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxEncryptionFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxEncryptionFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2947,21 +2513,7 @@ impl IAppxEncryptionFactory2 {
         (::windows::core::Vtable::vtable(self).CreateEncryptedPackageWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), manifeststream.into().abi(), contentgroupmapstream.into().abi(), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAppxEncryptedPackageWriter>(result__)
     }
 }
-impl ::core::convert::From<IAppxEncryptionFactory2> for ::windows::core::IUnknown {
-    fn from(value: IAppxEncryptionFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxEncryptionFactory2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxEncryptionFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxEncryptionFactory2> for ::windows::core::IUnknown {
-    fn from(value: &IAppxEncryptionFactory2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxEncryptionFactory2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxEncryptionFactory2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3036,21 +2588,7 @@ impl IAppxEncryptionFactory3 {
         (::windows::core::Vtable::vtable(self).CreateEncryptedBundleWriter)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), bundleversion, ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAppxEncryptedBundleWriter>(result__)
     }
 }
-impl ::core::convert::From<IAppxEncryptionFactory3> for ::windows::core::IUnknown {
-    fn from(value: IAppxEncryptionFactory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxEncryptionFactory3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxEncryptionFactory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxEncryptionFactory3> for ::windows::core::IUnknown {
-    fn from(value: &IAppxEncryptionFactory3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxEncryptionFactory3, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxEncryptionFactory3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3108,21 +2646,7 @@ impl IAppxEncryptionFactory4 {
         (::windows::core::Vtable::vtable(self).EncryptPackage)(::windows::core::Vtable::as_raw(self), inputstream.into().abi(), outputstream.into().abi(), ::core::mem::transmute(settings), ::core::mem::transmute(keyinfo), ::core::mem::transmute(exemptedfiles), memorylimit).ok()
     }
 }
-impl ::core::convert::From<IAppxEncryptionFactory4> for ::windows::core::IUnknown {
-    fn from(value: IAppxEncryptionFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxEncryptionFactory4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxEncryptionFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxEncryptionFactory4> for ::windows::core::IUnknown {
-    fn from(value: &IAppxEncryptionFactory4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxEncryptionFactory4, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxEncryptionFactory4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3205,21 +2729,7 @@ impl IAppxFactory {
         (::windows::core::Vtable::vtable(self).CreateValidatedBlockMapReader)(::windows::core::Vtable::as_raw(self), blockmapstream.into().abi(), signaturefilename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAppxBlockMapReader>(result__)
     }
 }
-impl ::core::convert::From<IAppxFactory> for ::windows::core::IUnknown {
-    fn from(value: IAppxFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxFactory> for ::windows::core::IUnknown {
-    fn from(value: &IAppxFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3299,21 +2809,7 @@ impl IAppxFactory2 {
         (::windows::core::Vtable::vtable(self).CreateContentGroupMapWriter)(::windows::core::Vtable::as_raw(self), stream.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAppxContentGroupMapWriter>(result__)
     }
 }
-impl ::core::convert::From<IAppxFactory2> for ::windows::core::IUnknown {
-    fn from(value: IAppxFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxFactory2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxFactory2> for ::windows::core::IUnknown {
-    fn from(value: &IAppxFactory2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxFactory2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxFactory2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3380,21 +2876,7 @@ impl IAppxFile {
         (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::IStream>(result__)
     }
 }
-impl ::core::convert::From<IAppxFile> for ::windows::core::IUnknown {
-    fn from(value: IAppxFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxFile> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxFile> for ::windows::core::IUnknown {
-    fn from(value: &IAppxFile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxFile, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxFile {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3451,21 +2933,7 @@ impl IAppxFilesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxFilesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IAppxFilesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxFilesEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxFilesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxFilesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IAppxFilesEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxFilesEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxFilesEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3518,21 +2986,7 @@ impl IAppxManifestApplication {
         (::windows::core::Vtable::vtable(self).GetAppUserModelId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestApplication> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestApplication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestApplication> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestApplication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestApplication> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestApplication) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestApplication, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestApplication {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3583,21 +3037,7 @@ impl IAppxManifestApplicationsEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestApplicationsEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestApplicationsEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestApplicationsEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestApplicationsEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestApplicationsEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestApplicationsEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestApplicationsEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestApplicationsEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3655,21 +3095,7 @@ impl IAppxManifestCapabilitiesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestCapabilitiesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestCapabilitiesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestCapabilitiesEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestCapabilitiesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestCapabilitiesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestCapabilitiesEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestCapabilitiesEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestCapabilitiesEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3727,21 +3153,7 @@ impl IAppxManifestDeviceCapabilitiesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestDeviceCapabilitiesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestDeviceCapabilitiesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestDeviceCapabilitiesEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestDeviceCapabilitiesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestDeviceCapabilitiesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestDeviceCapabilitiesEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestDeviceCapabilitiesEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestDeviceCapabilitiesEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3795,21 +3207,7 @@ impl IAppxManifestDriverConstraint {
         (::windows::core::Vtable::vtable(self).GetMinDate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestDriverConstraint> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestDriverConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestDriverConstraint> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestDriverConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestDriverConstraint> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestDriverConstraint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestDriverConstraint, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestDriverConstraint {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3861,21 +3259,7 @@ impl IAppxManifestDriverConstraintsEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestDriverConstraintsEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestDriverConstraintsEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestDriverConstraintsEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestDriverConstraintsEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestDriverConstraintsEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestDriverConstraintsEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestDriverConstraintsEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestDriverConstraintsEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3933,21 +3317,7 @@ impl IAppxManifestDriverDependenciesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestDriverDependenciesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestDriverDependenciesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestDriverDependenciesEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestDriverDependenciesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestDriverDependenciesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestDriverDependenciesEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestDriverDependenciesEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestDriverDependenciesEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3993,21 +3363,7 @@ impl IAppxManifestDriverDependency {
         (::windows::core::Vtable::vtable(self).GetDriverConstraints)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAppxManifestDriverConstraintsEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestDriverDependency> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestDriverDependency) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestDriverDependency> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestDriverDependency) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestDriverDependency> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestDriverDependency) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestDriverDependency, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestDriverDependency {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4057,21 +3413,7 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestHostRuntimeDependenciesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestHostRuntimeDependenciesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestHostRuntimeDependenciesEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestHostRuntimeDependenciesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestHostRuntimeDependenciesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestHostRuntimeDependenciesEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestHostRuntimeDependenciesEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestHostRuntimeDependenciesEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4125,21 +3467,7 @@ impl IAppxManifestHostRuntimeDependency {
         (::windows::core::Vtable::vtable(self).GetMinVersion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestHostRuntimeDependency> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestHostRuntimeDependency) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestHostRuntimeDependency> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestHostRuntimeDependency) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestHostRuntimeDependency> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestHostRuntimeDependency) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestHostRuntimeDependency, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestHostRuntimeDependency {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4179,21 +3507,7 @@ impl IAppxManifestHostRuntimeDependency2 {
         (::windows::core::Vtable::vtable(self).GetPackageFamilyName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestHostRuntimeDependency2> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestHostRuntimeDependency2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestHostRuntimeDependency2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestHostRuntimeDependency2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestHostRuntimeDependency2> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestHostRuntimeDependency2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestHostRuntimeDependency2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestHostRuntimeDependency2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4243,21 +3557,7 @@ impl IAppxManifestMainPackageDependenciesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestMainPackageDependenciesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestMainPackageDependenciesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestMainPackageDependenciesEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestMainPackageDependenciesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestMainPackageDependenciesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestMainPackageDependenciesEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestMainPackageDependenciesEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestMainPackageDependenciesEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4311,21 +3611,7 @@ impl IAppxManifestMainPackageDependency {
         (::windows::core::Vtable::vtable(self).GetPackageFamilyName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestMainPackageDependency> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestMainPackageDependency) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestMainPackageDependency> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestMainPackageDependency) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestMainPackageDependency> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestMainPackageDependency) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestMainPackageDependency, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestMainPackageDependency {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4377,21 +3663,7 @@ impl IAppxManifestOSPackageDependenciesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestOSPackageDependenciesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestOSPackageDependenciesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestOSPackageDependenciesEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestOSPackageDependenciesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestOSPackageDependenciesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestOSPackageDependenciesEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestOSPackageDependenciesEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestOSPackageDependenciesEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4441,21 +3713,7 @@ impl IAppxManifestOSPackageDependency {
         (::windows::core::Vtable::vtable(self).GetVersion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestOSPackageDependency> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestOSPackageDependency) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestOSPackageDependency> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestOSPackageDependency) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestOSPackageDependency> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestOSPackageDependency) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestOSPackageDependency, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestOSPackageDependency {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4500,21 +3758,7 @@ impl IAppxManifestOptionalPackageInfo {
         (::windows::core::Vtable::vtable(self).GetMainPackageName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestOptionalPackageInfo> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestOptionalPackageInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestOptionalPackageInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestOptionalPackageInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestOptionalPackageInfo> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestOptionalPackageInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestOptionalPackageInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestOptionalPackageInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4568,21 +3812,7 @@ impl IAppxManifestPackageDependenciesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestPackageDependenciesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestPackageDependenciesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestPackageDependenciesEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestPackageDependenciesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestPackageDependenciesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestPackageDependenciesEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestPackageDependenciesEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestPackageDependenciesEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4636,21 +3866,7 @@ impl IAppxManifestPackageDependency {
         (::windows::core::Vtable::vtable(self).GetMinVersion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestPackageDependency> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestPackageDependency) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestPackageDependency> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestPackageDependency) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestPackageDependency> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestPackageDependency) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestPackageDependency, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestPackageDependency {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4702,36 +3918,7 @@ impl IAppxManifestPackageDependency2 {
         (::windows::core::Vtable::vtable(self).GetMaxMajorVersionTested)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestPackageDependency2> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestPackageDependency2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestPackageDependency2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestPackageDependency2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestPackageDependency2> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestPackageDependency2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAppxManifestPackageDependency2> for IAppxManifestPackageDependency {
-    fn from(value: IAppxManifestPackageDependency2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestPackageDependency2> for &'a IAppxManifestPackageDependency {
-    fn from(value: &'a IAppxManifestPackageDependency2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestPackageDependency2> for IAppxManifestPackageDependency {
-    fn from(value: &IAppxManifestPackageDependency2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestPackageDependency2, ::windows::core::IUnknown, IAppxManifestPackageDependency);
 impl ::core::clone::Clone for IAppxManifestPackageDependency2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4771,21 +3958,7 @@ impl IAppxManifestPackageDependency3 {
         (::windows::core::Vtable::vtable(self).GetIsOptional)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestPackageDependency3> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestPackageDependency3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestPackageDependency3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestPackageDependency3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestPackageDependency3> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestPackageDependency3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestPackageDependency3, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestPackageDependency3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4859,21 +4032,7 @@ impl IAppxManifestPackageId {
         (::windows::core::Vtable::vtable(self).GetPackageFamilyName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestPackageId> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestPackageId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestPackageId> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestPackageId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestPackageId> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestPackageId) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestPackageId, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestPackageId {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4958,36 +4117,7 @@ impl IAppxManifestPackageId2 {
         (::windows::core::Vtable::vtable(self).GetArchitecture2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<APPX_PACKAGE_ARCHITECTURE2>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestPackageId2> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestPackageId2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestPackageId2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestPackageId2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestPackageId2> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestPackageId2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAppxManifestPackageId2> for IAppxManifestPackageId {
-    fn from(value: IAppxManifestPackageId2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestPackageId2> for &'a IAppxManifestPackageId {
-    fn from(value: &'a IAppxManifestPackageId2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestPackageId2> for IAppxManifestPackageId {
-    fn from(value: &IAppxManifestPackageId2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestPackageId2, ::windows::core::IUnknown, IAppxManifestPackageId);
 impl ::core::clone::Clone for IAppxManifestPackageId2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5037,21 +4167,7 @@ impl IAppxManifestProperties {
         (::windows::core::Vtable::vtable(self).GetStringValue)(::windows::core::Vtable::as_raw(self), name.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestProperties> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestProperties> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestProperties> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestProperties, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5101,21 +4217,7 @@ impl IAppxManifestQualifiedResource {
         (::windows::core::Vtable::vtable(self).GetDXFeatureLevel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DX_FEATURE_LEVEL>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestQualifiedResource> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestQualifiedResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestQualifiedResource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestQualifiedResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestQualifiedResource> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestQualifiedResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestQualifiedResource, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestQualifiedResource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5167,21 +4269,7 @@ impl IAppxManifestQualifiedResourcesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestQualifiedResourcesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestQualifiedResourcesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestQualifiedResourcesEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestQualifiedResourcesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestQualifiedResourcesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestQualifiedResourcesEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestQualifiedResourcesEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestQualifiedResourcesEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5264,21 +4352,7 @@ impl IAppxManifestReader {
         (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::IStream>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestReader> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestReader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestReader> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestReader, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5368,36 +4442,7 @@ impl IAppxManifestReader2 {
         (::windows::core::Vtable::vtable(self).GetQualifiedResources)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAppxManifestQualifiedResourcesEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestReader2> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestReader2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestReader2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestReader2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestReader2> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestReader2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAppxManifestReader2> for IAppxManifestReader {
-    fn from(value: IAppxManifestReader2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestReader2> for &'a IAppxManifestReader {
-    fn from(value: &'a IAppxManifestReader2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestReader2> for IAppxManifestReader {
-    fn from(value: &IAppxManifestReader2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestReader2, ::windows::core::IUnknown, IAppxManifestReader);
 impl ::core::clone::Clone for IAppxManifestReader2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5484,51 +4529,7 @@ impl IAppxManifestReader3 {
         (::windows::core::Vtable::vtable(self).GetTargetDeviceFamilies)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAppxManifestTargetDeviceFamiliesEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestReader3> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestReader3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestReader3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestReader3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestReader3> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestReader3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAppxManifestReader3> for IAppxManifestReader {
-    fn from(value: IAppxManifestReader3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestReader3> for &'a IAppxManifestReader {
-    fn from(value: &'a IAppxManifestReader3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestReader3> for IAppxManifestReader {
-    fn from(value: &IAppxManifestReader3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAppxManifestReader3> for IAppxManifestReader2 {
-    fn from(value: IAppxManifestReader3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestReader3> for &'a IAppxManifestReader2 {
-    fn from(value: &'a IAppxManifestReader3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestReader3> for IAppxManifestReader2 {
-    fn from(value: &IAppxManifestReader3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestReader3, ::windows::core::IUnknown, IAppxManifestReader, IAppxManifestReader2);
 impl ::core::clone::Clone for IAppxManifestReader3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5620,66 +4621,7 @@ impl IAppxManifestReader4 {
         (::windows::core::Vtable::vtable(self).GetOptionalPackageInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAppxManifestOptionalPackageInfo>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestReader4> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestReader4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestReader4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestReader4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestReader4> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestReader4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAppxManifestReader4> for IAppxManifestReader {
-    fn from(value: IAppxManifestReader4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestReader4> for &'a IAppxManifestReader {
-    fn from(value: &'a IAppxManifestReader4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestReader4> for IAppxManifestReader {
-    fn from(value: &IAppxManifestReader4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAppxManifestReader4> for IAppxManifestReader2 {
-    fn from(value: IAppxManifestReader4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestReader4> for &'a IAppxManifestReader2 {
-    fn from(value: &'a IAppxManifestReader4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestReader4> for IAppxManifestReader2 {
-    fn from(value: &IAppxManifestReader4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAppxManifestReader4> for IAppxManifestReader3 {
-    fn from(value: IAppxManifestReader4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestReader4> for &'a IAppxManifestReader3 {
-    fn from(value: &'a IAppxManifestReader4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestReader4> for IAppxManifestReader3 {
-    fn from(value: &IAppxManifestReader4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestReader4, ::windows::core::IUnknown, IAppxManifestReader, IAppxManifestReader2, IAppxManifestReader3);
 impl ::core::clone::Clone for IAppxManifestReader4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5717,21 +4659,7 @@ impl IAppxManifestReader5 {
         (::windows::core::Vtable::vtable(self).GetMainPackageDependencies)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAppxManifestMainPackageDependenciesEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestReader5> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestReader5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestReader5> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestReader5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestReader5> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestReader5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestReader5, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestReader5 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5771,21 +4699,7 @@ impl IAppxManifestReader6 {
         (::windows::core::Vtable::vtable(self).GetIsNonQualifiedResourcePackage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestReader6> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestReader6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestReader6> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestReader6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestReader6> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestReader6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestReader6, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestReader6 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5834,21 +4748,7 @@ impl IAppxManifestReader7 {
         (::windows::core::Vtable::vtable(self).GetHostRuntimeDependencies)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAppxManifestHostRuntimeDependenciesEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestReader7> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestReader7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestReader7> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestReader7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestReader7> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestReader7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestReader7, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestReader7 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5900,21 +4800,7 @@ impl IAppxManifestResourcesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestResourcesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestResourcesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestResourcesEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestResourcesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestResourcesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestResourcesEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestResourcesEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestResourcesEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5972,21 +4858,7 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator {
         (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestTargetDeviceFamiliesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestTargetDeviceFamiliesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestTargetDeviceFamiliesEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestTargetDeviceFamiliesEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestTargetDeviceFamiliesEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestTargetDeviceFamiliesEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestTargetDeviceFamiliesEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestTargetDeviceFamiliesEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6040,21 +4912,7 @@ impl IAppxManifestTargetDeviceFamily {
         (::windows::core::Vtable::vtable(self).GetMaxVersionTested)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
-impl ::core::convert::From<IAppxManifestTargetDeviceFamily> for ::windows::core::IUnknown {
-    fn from(value: IAppxManifestTargetDeviceFamily) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxManifestTargetDeviceFamily> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxManifestTargetDeviceFamily) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxManifestTargetDeviceFamily> for ::windows::core::IUnknown {
-    fn from(value: &IAppxManifestTargetDeviceFamily) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxManifestTargetDeviceFamily, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxManifestTargetDeviceFamily {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6145,21 +5003,7 @@ impl IAppxPackageEditor {
         (::windows::core::Vtable::vtable(self).UpdatePackageManifest)(::windows::core::Vtable::as_raw(self), packagestream.into().abi(), updatedmanifeststream.into().abi(), ispackageencrypted.into(), options).ok()
     }
 }
-impl ::core::convert::From<IAppxPackageEditor> for ::windows::core::IUnknown {
-    fn from(value: IAppxPackageEditor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxPackageEditor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxPackageEditor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxPackageEditor> for ::windows::core::IUnknown {
-    fn from(value: &IAppxPackageEditor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxPackageEditor, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxPackageEditor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6236,21 +5080,7 @@ impl IAppxPackageReader {
         (::windows::core::Vtable::vtable(self).GetManifest)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAppxManifestReader>(result__)
     }
 }
-impl ::core::convert::From<IAppxPackageReader> for ::windows::core::IUnknown {
-    fn from(value: IAppxPackageReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxPackageReader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxPackageReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxPackageReader> for ::windows::core::IUnknown {
-    fn from(value: &IAppxPackageReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxPackageReader, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxPackageReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6306,21 +5136,7 @@ impl IAppxPackageWriter {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self), manifest.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IAppxPackageWriter> for ::windows::core::IUnknown {
-    fn from(value: IAppxPackageWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxPackageWriter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxPackageWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxPackageWriter> for ::windows::core::IUnknown {
-    fn from(value: &IAppxPackageWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxPackageWriter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxPackageWriter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6370,21 +5186,7 @@ impl IAppxPackageWriter2 {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self), manifest.into().abi(), contentgroupmap.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IAppxPackageWriter2> for ::windows::core::IUnknown {
-    fn from(value: IAppxPackageWriter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxPackageWriter2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxPackageWriter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxPackageWriter2> for ::windows::core::IUnknown {
-    fn from(value: &IAppxPackageWriter2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxPackageWriter2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxPackageWriter2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6426,21 +5228,7 @@ impl IAppxPackageWriter3 {
         (::windows::core::Vtable::vtable(self).AddPayloadFiles)(::windows::core::Vtable::as_raw(self), payloadfiles.len() as _, ::core::mem::transmute(payloadfiles.as_ptr()), memorylimit).ok()
     }
 }
-impl ::core::convert::From<IAppxPackageWriter3> for ::windows::core::IUnknown {
-    fn from(value: IAppxPackageWriter3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxPackageWriter3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxPackageWriter3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxPackageWriter3> for ::windows::core::IUnknown {
-    fn from(value: &IAppxPackageWriter3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxPackageWriter3, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxPackageWriter3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6491,21 +5279,7 @@ impl IAppxPackagingDiagnosticEventSink {
         (::windows::core::Vtable::vtable(self).ReportError)(::windows::core::Vtable::as_raw(self), errormessage.into()).ok()
     }
 }
-impl ::core::convert::From<IAppxPackagingDiagnosticEventSink> for ::windows::core::IUnknown {
-    fn from(value: IAppxPackagingDiagnosticEventSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxPackagingDiagnosticEventSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxPackagingDiagnosticEventSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxPackagingDiagnosticEventSink> for ::windows::core::IUnknown {
-    fn from(value: &IAppxPackagingDiagnosticEventSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxPackagingDiagnosticEventSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxPackagingDiagnosticEventSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6546,21 +5320,7 @@ impl IAppxPackagingDiagnosticEventSinkManager {
         (::windows::core::Vtable::vtable(self).SetSinkForProcess)(::windows::core::Vtable::as_raw(self), sink.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IAppxPackagingDiagnosticEventSinkManager> for ::windows::core::IUnknown {
-    fn from(value: IAppxPackagingDiagnosticEventSinkManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxPackagingDiagnosticEventSinkManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxPackagingDiagnosticEventSinkManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxPackagingDiagnosticEventSinkManager> for ::windows::core::IUnknown {
-    fn from(value: &IAppxPackagingDiagnosticEventSinkManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxPackagingDiagnosticEventSinkManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxPackagingDiagnosticEventSinkManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6602,21 +5362,7 @@ impl IAppxSourceContentGroupMapReader {
         (::windows::core::Vtable::vtable(self).GetAutomaticGroups)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAppxContentGroupsEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IAppxSourceContentGroupMapReader> for ::windows::core::IUnknown {
-    fn from(value: IAppxSourceContentGroupMapReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppxSourceContentGroupMapReader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppxSourceContentGroupMapReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppxSourceContentGroupMapReader> for ::windows::core::IUnknown {
-    fn from(value: &IAppxSourceContentGroupMapReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppxSourceContentGroupMapReader, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppxSourceContentGroupMapReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())

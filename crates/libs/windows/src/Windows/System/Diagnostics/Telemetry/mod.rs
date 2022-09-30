@@ -115,36 +115,7 @@ unsafe impl ::windows::core::Interface for PlatformTelemetryRegistrationResult {
 impl ::windows::core::RuntimeName for PlatformTelemetryRegistrationResult {
     const NAME: &'static str = "Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationResult";
 }
-impl ::core::convert::From<PlatformTelemetryRegistrationResult> for ::windows::core::IUnknown {
-    fn from(value: PlatformTelemetryRegistrationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlatformTelemetryRegistrationResult> for ::windows::core::IUnknown {
-    fn from(value: &PlatformTelemetryRegistrationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlatformTelemetryRegistrationResult> for &::windows::core::IUnknown {
-    fn from(value: &PlatformTelemetryRegistrationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlatformTelemetryRegistrationResult> for ::windows::core::IInspectable {
-    fn from(value: PlatformTelemetryRegistrationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlatformTelemetryRegistrationResult> for ::windows::core::IInspectable {
-    fn from(value: &PlatformTelemetryRegistrationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlatformTelemetryRegistrationResult> for &::windows::core::IInspectable {
-    fn from(value: &PlatformTelemetryRegistrationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlatformTelemetryRegistrationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PlatformTelemetryRegistrationResult {}
 unsafe impl ::core::marker::Sync for PlatformTelemetryRegistrationResult {}
 #[doc = "*Required features: `\"System_Diagnostics_Telemetry\"`*"]
@@ -213,36 +184,7 @@ unsafe impl ::windows::core::Interface for PlatformTelemetryRegistrationSettings
 impl ::windows::core::RuntimeName for PlatformTelemetryRegistrationSettings {
     const NAME: &'static str = "Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationSettings";
 }
-impl ::core::convert::From<PlatformTelemetryRegistrationSettings> for ::windows::core::IUnknown {
-    fn from(value: PlatformTelemetryRegistrationSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlatformTelemetryRegistrationSettings> for ::windows::core::IUnknown {
-    fn from(value: &PlatformTelemetryRegistrationSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlatformTelemetryRegistrationSettings> for &::windows::core::IUnknown {
-    fn from(value: &PlatformTelemetryRegistrationSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlatformTelemetryRegistrationSettings> for ::windows::core::IInspectable {
-    fn from(value: PlatformTelemetryRegistrationSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlatformTelemetryRegistrationSettings> for ::windows::core::IInspectable {
-    fn from(value: &PlatformTelemetryRegistrationSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlatformTelemetryRegistrationSettings> for &::windows::core::IInspectable {
-    fn from(value: &PlatformTelemetryRegistrationSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlatformTelemetryRegistrationSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PlatformTelemetryRegistrationSettings {}
 unsafe impl ::core::marker::Sync for PlatformTelemetryRegistrationSettings {}
 #[doc = "*Required features: `\"System_Diagnostics_Telemetry\"`*"]

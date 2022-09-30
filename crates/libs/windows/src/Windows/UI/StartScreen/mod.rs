@@ -684,36 +684,7 @@ unsafe impl ::windows::core::Interface for JumpList {
 impl ::windows::core::RuntimeName for JumpList {
     const NAME: &'static str = "Windows.UI.StartScreen.JumpList";
 }
-impl ::core::convert::From<JumpList> for ::windows::core::IUnknown {
-    fn from(value: JumpList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&JumpList> for ::windows::core::IUnknown {
-    fn from(value: &JumpList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&JumpList> for &::windows::core::IUnknown {
-    fn from(value: &JumpList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<JumpList> for ::windows::core::IInspectable {
-    fn from(value: JumpList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&JumpList> for ::windows::core::IInspectable {
-    fn from(value: &JumpList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&JumpList> for &::windows::core::IInspectable {
-    fn from(value: &JumpList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(JumpList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for JumpList {}
 unsafe impl ::core::marker::Sync for JumpList {}
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
@@ -839,36 +810,7 @@ unsafe impl ::windows::core::Interface for JumpListItem {
 impl ::windows::core::RuntimeName for JumpListItem {
     const NAME: &'static str = "Windows.UI.StartScreen.JumpListItem";
 }
-impl ::core::convert::From<JumpListItem> for ::windows::core::IUnknown {
-    fn from(value: JumpListItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&JumpListItem> for ::windows::core::IUnknown {
-    fn from(value: &JumpListItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&JumpListItem> for &::windows::core::IUnknown {
-    fn from(value: &JumpListItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<JumpListItem> for ::windows::core::IInspectable {
-    fn from(value: JumpListItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&JumpListItem> for ::windows::core::IInspectable {
-    fn from(value: &JumpListItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&JumpListItem> for &::windows::core::IInspectable {
-    fn from(value: &JumpListItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(JumpListItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for JumpListItem {}
 unsafe impl ::core::marker::Sync for JumpListItem {}
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
@@ -1279,36 +1221,7 @@ unsafe impl ::windows::core::Interface for SecondaryTile {
 impl ::windows::core::RuntimeName for SecondaryTile {
     const NAME: &'static str = "Windows.UI.StartScreen.SecondaryTile";
 }
-impl ::core::convert::From<SecondaryTile> for ::windows::core::IUnknown {
-    fn from(value: SecondaryTile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SecondaryTile> for ::windows::core::IUnknown {
-    fn from(value: &SecondaryTile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SecondaryTile> for &::windows::core::IUnknown {
-    fn from(value: &SecondaryTile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SecondaryTile> for ::windows::core::IInspectable {
-    fn from(value: SecondaryTile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SecondaryTile> for ::windows::core::IInspectable {
-    fn from(value: &SecondaryTile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SecondaryTile> for &::windows::core::IInspectable {
-    fn from(value: &SecondaryTile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SecondaryTile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SecondaryTile {}
 unsafe impl ::core::marker::Sync for SecondaryTile {}
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
@@ -1515,36 +1428,7 @@ unsafe impl ::windows::core::Interface for SecondaryTileVisualElements {
 impl ::windows::core::RuntimeName for SecondaryTileVisualElements {
     const NAME: &'static str = "Windows.UI.StartScreen.SecondaryTileVisualElements";
 }
-impl ::core::convert::From<SecondaryTileVisualElements> for ::windows::core::IUnknown {
-    fn from(value: SecondaryTileVisualElements) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SecondaryTileVisualElements> for ::windows::core::IUnknown {
-    fn from(value: &SecondaryTileVisualElements) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SecondaryTileVisualElements> for &::windows::core::IUnknown {
-    fn from(value: &SecondaryTileVisualElements) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SecondaryTileVisualElements> for ::windows::core::IInspectable {
-    fn from(value: SecondaryTileVisualElements) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SecondaryTileVisualElements> for ::windows::core::IInspectable {
-    fn from(value: &SecondaryTileVisualElements) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SecondaryTileVisualElements> for &::windows::core::IInspectable {
-    fn from(value: &SecondaryTileVisualElements) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SecondaryTileVisualElements, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SecondaryTileVisualElements {}
 unsafe impl ::core::marker::Sync for SecondaryTileVisualElements {}
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
@@ -1657,36 +1541,7 @@ unsafe impl ::windows::core::Interface for StartScreenManager {
 impl ::windows::core::RuntimeName for StartScreenManager {
     const NAME: &'static str = "Windows.UI.StartScreen.StartScreenManager";
 }
-impl ::core::convert::From<StartScreenManager> for ::windows::core::IUnknown {
-    fn from(value: StartScreenManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StartScreenManager> for ::windows::core::IUnknown {
-    fn from(value: &StartScreenManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StartScreenManager> for &::windows::core::IUnknown {
-    fn from(value: &StartScreenManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StartScreenManager> for ::windows::core::IInspectable {
-    fn from(value: StartScreenManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StartScreenManager> for ::windows::core::IInspectable {
-    fn from(value: &StartScreenManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StartScreenManager> for &::windows::core::IInspectable {
-    fn from(value: &StartScreenManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StartScreenManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StartScreenManager {}
 unsafe impl ::core::marker::Sync for StartScreenManager {}
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
@@ -1771,36 +1626,7 @@ unsafe impl ::windows::core::Interface for TileMixedRealityModel {
 impl ::windows::core::RuntimeName for TileMixedRealityModel {
     const NAME: &'static str = "Windows.UI.StartScreen.TileMixedRealityModel";
 }
-impl ::core::convert::From<TileMixedRealityModel> for ::windows::core::IUnknown {
-    fn from(value: TileMixedRealityModel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TileMixedRealityModel> for ::windows::core::IUnknown {
-    fn from(value: &TileMixedRealityModel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TileMixedRealityModel> for &::windows::core::IUnknown {
-    fn from(value: &TileMixedRealityModel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TileMixedRealityModel> for ::windows::core::IInspectable {
-    fn from(value: TileMixedRealityModel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TileMixedRealityModel> for ::windows::core::IInspectable {
-    fn from(value: &TileMixedRealityModel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TileMixedRealityModel> for &::windows::core::IInspectable {
-    fn from(value: &TileMixedRealityModel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TileMixedRealityModel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TileMixedRealityModel {}
 unsafe impl ::core::marker::Sync for TileMixedRealityModel {}
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
@@ -1872,36 +1698,7 @@ unsafe impl ::windows::core::Interface for VisualElementsRequest {
 impl ::windows::core::RuntimeName for VisualElementsRequest {
     const NAME: &'static str = "Windows.UI.StartScreen.VisualElementsRequest";
 }
-impl ::core::convert::From<VisualElementsRequest> for ::windows::core::IUnknown {
-    fn from(value: VisualElementsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VisualElementsRequest> for ::windows::core::IUnknown {
-    fn from(value: &VisualElementsRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VisualElementsRequest> for &::windows::core::IUnknown {
-    fn from(value: &VisualElementsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VisualElementsRequest> for ::windows::core::IInspectable {
-    fn from(value: VisualElementsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VisualElementsRequest> for ::windows::core::IInspectable {
-    fn from(value: &VisualElementsRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VisualElementsRequest> for &::windows::core::IInspectable {
-    fn from(value: &VisualElementsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VisualElementsRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VisualElementsRequest {}
 unsafe impl ::core::marker::Sync for VisualElementsRequest {}
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
@@ -1945,36 +1742,7 @@ unsafe impl ::windows::core::Interface for VisualElementsRequestDeferral {
 impl ::windows::core::RuntimeName for VisualElementsRequestDeferral {
     const NAME: &'static str = "Windows.UI.StartScreen.VisualElementsRequestDeferral";
 }
-impl ::core::convert::From<VisualElementsRequestDeferral> for ::windows::core::IUnknown {
-    fn from(value: VisualElementsRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VisualElementsRequestDeferral> for ::windows::core::IUnknown {
-    fn from(value: &VisualElementsRequestDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VisualElementsRequestDeferral> for &::windows::core::IUnknown {
-    fn from(value: &VisualElementsRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VisualElementsRequestDeferral> for ::windows::core::IInspectable {
-    fn from(value: VisualElementsRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VisualElementsRequestDeferral> for ::windows::core::IInspectable {
-    fn from(value: &VisualElementsRequestDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VisualElementsRequestDeferral> for &::windows::core::IInspectable {
-    fn from(value: &VisualElementsRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VisualElementsRequestDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VisualElementsRequestDeferral {}
 unsafe impl ::core::marker::Sync for VisualElementsRequestDeferral {}
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
@@ -2021,36 +1789,7 @@ unsafe impl ::windows::core::Interface for VisualElementsRequestedEventArgs {
 impl ::windows::core::RuntimeName for VisualElementsRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.StartScreen.VisualElementsRequestedEventArgs";
 }
-impl ::core::convert::From<VisualElementsRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: VisualElementsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VisualElementsRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &VisualElementsRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VisualElementsRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &VisualElementsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VisualElementsRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: VisualElementsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VisualElementsRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &VisualElementsRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VisualElementsRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &VisualElementsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VisualElementsRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VisualElementsRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for VisualElementsRequestedEventArgs {}
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]

@@ -829,36 +829,7 @@ unsafe impl ::windows::core::Interface for PaymentAddress {
 impl ::windows::core::RuntimeName for PaymentAddress {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentAddress";
 }
-impl ::core::convert::From<PaymentAddress> for ::windows::core::IUnknown {
-    fn from(value: PaymentAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentAddress> for ::windows::core::IUnknown {
-    fn from(value: &PaymentAddress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentAddress> for &::windows::core::IUnknown {
-    fn from(value: &PaymentAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PaymentAddress> for ::windows::core::IInspectable {
-    fn from(value: PaymentAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentAddress> for ::windows::core::IInspectable {
-    fn from(value: &PaymentAddress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentAddress> for &::windows::core::IInspectable {
-    fn from(value: &PaymentAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PaymentAddress, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentAddress {}
 unsafe impl ::core::marker::Sync for PaymentAddress {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -916,36 +887,7 @@ unsafe impl ::windows::core::Interface for PaymentCanMakePaymentResult {
 impl ::windows::core::RuntimeName for PaymentCanMakePaymentResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentCanMakePaymentResult";
 }
-impl ::core::convert::From<PaymentCanMakePaymentResult> for ::windows::core::IUnknown {
-    fn from(value: PaymentCanMakePaymentResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentCanMakePaymentResult> for ::windows::core::IUnknown {
-    fn from(value: &PaymentCanMakePaymentResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentCanMakePaymentResult> for &::windows::core::IUnknown {
-    fn from(value: &PaymentCanMakePaymentResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PaymentCanMakePaymentResult> for ::windows::core::IInspectable {
-    fn from(value: PaymentCanMakePaymentResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentCanMakePaymentResult> for ::windows::core::IInspectable {
-    fn from(value: &PaymentCanMakePaymentResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentCanMakePaymentResult> for &::windows::core::IInspectable {
-    fn from(value: &PaymentCanMakePaymentResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PaymentCanMakePaymentResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentCanMakePaymentResult {}
 unsafe impl ::core::marker::Sync for PaymentCanMakePaymentResult {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -1035,36 +977,7 @@ unsafe impl ::windows::core::Interface for PaymentCurrencyAmount {
 impl ::windows::core::RuntimeName for PaymentCurrencyAmount {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentCurrencyAmount";
 }
-impl ::core::convert::From<PaymentCurrencyAmount> for ::windows::core::IUnknown {
-    fn from(value: PaymentCurrencyAmount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentCurrencyAmount> for ::windows::core::IUnknown {
-    fn from(value: &PaymentCurrencyAmount) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentCurrencyAmount> for &::windows::core::IUnknown {
-    fn from(value: &PaymentCurrencyAmount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PaymentCurrencyAmount> for ::windows::core::IInspectable {
-    fn from(value: PaymentCurrencyAmount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentCurrencyAmount> for ::windows::core::IInspectable {
-    fn from(value: &PaymentCurrencyAmount) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentCurrencyAmount> for &::windows::core::IInspectable {
-    fn from(value: &PaymentCurrencyAmount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PaymentCurrencyAmount, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentCurrencyAmount {}
 unsafe impl ::core::marker::Sync for PaymentCurrencyAmount {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -1202,36 +1115,7 @@ unsafe impl ::windows::core::Interface for PaymentDetails {
 impl ::windows::core::RuntimeName for PaymentDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentDetails";
 }
-impl ::core::convert::From<PaymentDetails> for ::windows::core::IUnknown {
-    fn from(value: PaymentDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentDetails> for ::windows::core::IUnknown {
-    fn from(value: &PaymentDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentDetails> for &::windows::core::IUnknown {
-    fn from(value: &PaymentDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PaymentDetails> for ::windows::core::IInspectable {
-    fn from(value: PaymentDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentDetails> for ::windows::core::IInspectable {
-    fn from(value: &PaymentDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentDetails> for &::windows::core::IInspectable {
-    fn from(value: &PaymentDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PaymentDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentDetails {}
 unsafe impl ::core::marker::Sync for PaymentDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -1348,36 +1232,7 @@ unsafe impl ::windows::core::Interface for PaymentDetailsModifier {
 impl ::windows::core::RuntimeName for PaymentDetailsModifier {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentDetailsModifier";
 }
-impl ::core::convert::From<PaymentDetailsModifier> for ::windows::core::IUnknown {
-    fn from(value: PaymentDetailsModifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentDetailsModifier> for ::windows::core::IUnknown {
-    fn from(value: &PaymentDetailsModifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentDetailsModifier> for &::windows::core::IUnknown {
-    fn from(value: &PaymentDetailsModifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PaymentDetailsModifier> for ::windows::core::IInspectable {
-    fn from(value: PaymentDetailsModifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentDetailsModifier> for ::windows::core::IInspectable {
-    fn from(value: &PaymentDetailsModifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentDetailsModifier> for &::windows::core::IInspectable {
-    fn from(value: &PaymentDetailsModifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PaymentDetailsModifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentDetailsModifier {}
 unsafe impl ::core::marker::Sync for PaymentDetailsModifier {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -1461,36 +1316,7 @@ unsafe impl ::windows::core::Interface for PaymentItem {
 impl ::windows::core::RuntimeName for PaymentItem {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentItem";
 }
-impl ::core::convert::From<PaymentItem> for ::windows::core::IUnknown {
-    fn from(value: PaymentItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentItem> for ::windows::core::IUnknown {
-    fn from(value: &PaymentItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentItem> for &::windows::core::IUnknown {
-    fn from(value: &PaymentItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PaymentItem> for ::windows::core::IInspectable {
-    fn from(value: PaymentItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentItem> for ::windows::core::IInspectable {
-    fn from(value: &PaymentItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentItem> for &::windows::core::IInspectable {
-    fn from(value: &PaymentItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PaymentItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentItem {}
 unsafe impl ::core::marker::Sync for PaymentItem {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -1573,36 +1399,7 @@ unsafe impl ::windows::core::Interface for PaymentMediator {
 impl ::windows::core::RuntimeName for PaymentMediator {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentMediator";
 }
-impl ::core::convert::From<PaymentMediator> for ::windows::core::IUnknown {
-    fn from(value: PaymentMediator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentMediator> for ::windows::core::IUnknown {
-    fn from(value: &PaymentMediator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentMediator> for &::windows::core::IUnknown {
-    fn from(value: &PaymentMediator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PaymentMediator> for ::windows::core::IInspectable {
-    fn from(value: PaymentMediator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentMediator> for ::windows::core::IInspectable {
-    fn from(value: &PaymentMediator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentMediator> for &::windows::core::IInspectable {
-    fn from(value: &PaymentMediator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PaymentMediator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentMediator {}
 unsafe impl ::core::marker::Sync for PaymentMediator {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -1678,36 +1475,7 @@ unsafe impl ::windows::core::Interface for PaymentMerchantInfo {
 impl ::windows::core::RuntimeName for PaymentMerchantInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentMerchantInfo";
 }
-impl ::core::convert::From<PaymentMerchantInfo> for ::windows::core::IUnknown {
-    fn from(value: PaymentMerchantInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentMerchantInfo> for ::windows::core::IUnknown {
-    fn from(value: &PaymentMerchantInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentMerchantInfo> for &::windows::core::IUnknown {
-    fn from(value: &PaymentMerchantInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PaymentMerchantInfo> for ::windows::core::IInspectable {
-    fn from(value: PaymentMerchantInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentMerchantInfo> for ::windows::core::IInspectable {
-    fn from(value: &PaymentMerchantInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentMerchantInfo> for &::windows::core::IInspectable {
-    fn from(value: &PaymentMerchantInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PaymentMerchantInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentMerchantInfo {}
 unsafe impl ::core::marker::Sync for PaymentMerchantInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -1792,36 +1560,7 @@ unsafe impl ::windows::core::Interface for PaymentMethodData {
 impl ::windows::core::RuntimeName for PaymentMethodData {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentMethodData";
 }
-impl ::core::convert::From<PaymentMethodData> for ::windows::core::IUnknown {
-    fn from(value: PaymentMethodData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentMethodData> for ::windows::core::IUnknown {
-    fn from(value: &PaymentMethodData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentMethodData> for &::windows::core::IUnknown {
-    fn from(value: &PaymentMethodData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PaymentMethodData> for ::windows::core::IInspectable {
-    fn from(value: PaymentMethodData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentMethodData> for ::windows::core::IInspectable {
-    fn from(value: &PaymentMethodData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentMethodData> for &::windows::core::IInspectable {
-    fn from(value: &PaymentMethodData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PaymentMethodData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentMethodData {}
 unsafe impl ::core::marker::Sync for PaymentMethodData {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -1923,36 +1662,7 @@ unsafe impl ::windows::core::Interface for PaymentOptions {
 impl ::windows::core::RuntimeName for PaymentOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentOptions";
 }
-impl ::core::convert::From<PaymentOptions> for ::windows::core::IUnknown {
-    fn from(value: PaymentOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentOptions> for ::windows::core::IUnknown {
-    fn from(value: &PaymentOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentOptions> for &::windows::core::IUnknown {
-    fn from(value: &PaymentOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PaymentOptions> for ::windows::core::IInspectable {
-    fn from(value: PaymentOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentOptions> for ::windows::core::IInspectable {
-    fn from(value: &PaymentOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentOptions> for &::windows::core::IInspectable {
-    fn from(value: &PaymentOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PaymentOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentOptions {}
 unsafe impl ::core::marker::Sync for PaymentOptions {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -2087,36 +1797,7 @@ unsafe impl ::windows::core::Interface for PaymentRequest {
 impl ::windows::core::RuntimeName for PaymentRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequest";
 }
-impl ::core::convert::From<PaymentRequest> for ::windows::core::IUnknown {
-    fn from(value: PaymentRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentRequest> for ::windows::core::IUnknown {
-    fn from(value: &PaymentRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentRequest> for &::windows::core::IUnknown {
-    fn from(value: &PaymentRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PaymentRequest> for ::windows::core::IInspectable {
-    fn from(value: PaymentRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentRequest> for ::windows::core::IInspectable {
-    fn from(value: &PaymentRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentRequest> for &::windows::core::IInspectable {
-    fn from(value: &PaymentRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PaymentRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentRequest {}
 unsafe impl ::core::marker::Sync for PaymentRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -2181,36 +1862,7 @@ unsafe impl ::windows::core::Interface for PaymentRequestChangedArgs {
 impl ::windows::core::RuntimeName for PaymentRequestChangedArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequestChangedArgs";
 }
-impl ::core::convert::From<PaymentRequestChangedArgs> for ::windows::core::IUnknown {
-    fn from(value: PaymentRequestChangedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentRequestChangedArgs> for ::windows::core::IUnknown {
-    fn from(value: &PaymentRequestChangedArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentRequestChangedArgs> for &::windows::core::IUnknown {
-    fn from(value: &PaymentRequestChangedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PaymentRequestChangedArgs> for ::windows::core::IInspectable {
-    fn from(value: PaymentRequestChangedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentRequestChangedArgs> for ::windows::core::IInspectable {
-    fn from(value: &PaymentRequestChangedArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentRequestChangedArgs> for &::windows::core::IInspectable {
-    fn from(value: &PaymentRequestChangedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PaymentRequestChangedArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentRequestChangedArgs {}
 unsafe impl ::core::marker::Sync for PaymentRequestChangedArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -2300,36 +1952,7 @@ unsafe impl ::windows::core::Interface for PaymentRequestChangedResult {
 impl ::windows::core::RuntimeName for PaymentRequestChangedResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequestChangedResult";
 }
-impl ::core::convert::From<PaymentRequestChangedResult> for ::windows::core::IUnknown {
-    fn from(value: PaymentRequestChangedResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentRequestChangedResult> for ::windows::core::IUnknown {
-    fn from(value: &PaymentRequestChangedResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentRequestChangedResult> for &::windows::core::IUnknown {
-    fn from(value: &PaymentRequestChangedResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PaymentRequestChangedResult> for ::windows::core::IInspectable {
-    fn from(value: PaymentRequestChangedResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentRequestChangedResult> for ::windows::core::IInspectable {
-    fn from(value: &PaymentRequestChangedResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentRequestChangedResult> for &::windows::core::IInspectable {
-    fn from(value: &PaymentRequestChangedResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PaymentRequestChangedResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentRequestChangedResult {}
 unsafe impl ::core::marker::Sync for PaymentRequestChangedResult {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -2383,36 +2006,7 @@ unsafe impl ::windows::core::Interface for PaymentRequestSubmitResult {
 impl ::windows::core::RuntimeName for PaymentRequestSubmitResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequestSubmitResult";
 }
-impl ::core::convert::From<PaymentRequestSubmitResult> for ::windows::core::IUnknown {
-    fn from(value: PaymentRequestSubmitResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentRequestSubmitResult> for ::windows::core::IUnknown {
-    fn from(value: &PaymentRequestSubmitResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentRequestSubmitResult> for &::windows::core::IUnknown {
-    fn from(value: &PaymentRequestSubmitResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PaymentRequestSubmitResult> for ::windows::core::IInspectable {
-    fn from(value: PaymentRequestSubmitResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentRequestSubmitResult> for ::windows::core::IInspectable {
-    fn from(value: &PaymentRequestSubmitResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentRequestSubmitResult> for &::windows::core::IInspectable {
-    fn from(value: &PaymentRequestSubmitResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PaymentRequestSubmitResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentRequestSubmitResult {}
 unsafe impl ::core::marker::Sync for PaymentRequestSubmitResult {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -2503,36 +2097,7 @@ unsafe impl ::windows::core::Interface for PaymentResponse {
 impl ::windows::core::RuntimeName for PaymentResponse {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentResponse";
 }
-impl ::core::convert::From<PaymentResponse> for ::windows::core::IUnknown {
-    fn from(value: PaymentResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentResponse> for ::windows::core::IUnknown {
-    fn from(value: &PaymentResponse) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentResponse> for &::windows::core::IUnknown {
-    fn from(value: &PaymentResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PaymentResponse> for ::windows::core::IInspectable {
-    fn from(value: PaymentResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentResponse> for ::windows::core::IInspectable {
-    fn from(value: &PaymentResponse) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentResponse> for &::windows::core::IInspectable {
-    fn from(value: &PaymentResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PaymentResponse, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentResponse {}
 unsafe impl ::core::marker::Sync for PaymentResponse {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -2639,36 +2204,7 @@ unsafe impl ::windows::core::Interface for PaymentShippingOption {
 impl ::windows::core::RuntimeName for PaymentShippingOption {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentShippingOption";
 }
-impl ::core::convert::From<PaymentShippingOption> for ::windows::core::IUnknown {
-    fn from(value: PaymentShippingOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentShippingOption> for ::windows::core::IUnknown {
-    fn from(value: &PaymentShippingOption) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentShippingOption> for &::windows::core::IUnknown {
-    fn from(value: &PaymentShippingOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PaymentShippingOption> for ::windows::core::IInspectable {
-    fn from(value: PaymentShippingOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentShippingOption> for ::windows::core::IInspectable {
-    fn from(value: &PaymentShippingOption) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentShippingOption> for &::windows::core::IInspectable {
-    fn from(value: &PaymentShippingOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PaymentShippingOption, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentShippingOption {}
 unsafe impl ::core::marker::Sync for PaymentShippingOption {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
@@ -2739,36 +2275,7 @@ unsafe impl ::windows::core::Interface for PaymentToken {
 impl ::windows::core::RuntimeName for PaymentToken {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentToken";
 }
-impl ::core::convert::From<PaymentToken> for ::windows::core::IUnknown {
-    fn from(value: PaymentToken) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentToken> for ::windows::core::IUnknown {
-    fn from(value: &PaymentToken) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentToken> for &::windows::core::IUnknown {
-    fn from(value: &PaymentToken) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PaymentToken> for ::windows::core::IInspectable {
-    fn from(value: PaymentToken) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentToken> for ::windows::core::IInspectable {
-    fn from(value: &PaymentToken) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentToken> for &::windows::core::IInspectable {
-    fn from(value: &PaymentToken) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PaymentToken, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentToken {}
 unsafe impl ::core::marker::Sync for PaymentToken {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]

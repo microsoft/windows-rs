@@ -796,36 +796,7 @@ impl IAccountsSettingsPaneInterop {
         (::windows::core::Vtable::vtable(self).ShowAddAccountForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IAccountsSettingsPaneInterop> for ::windows::core::IUnknown {
-    fn from(value: IAccountsSettingsPaneInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAccountsSettingsPaneInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAccountsSettingsPaneInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAccountsSettingsPaneInterop> for ::windows::core::IUnknown {
-    fn from(value: &IAccountsSettingsPaneInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAccountsSettingsPaneInterop> for ::windows::core::IInspectable {
-    fn from(value: IAccountsSettingsPaneInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAccountsSettingsPaneInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAccountsSettingsPaneInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAccountsSettingsPaneInterop> for ::windows::core::IInspectable {
-    fn from(value: &IAccountsSettingsPaneInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAccountsSettingsPaneInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IAccountsSettingsPaneInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -874,36 +845,7 @@ impl IActivationFactory {
         (::windows::core::Vtable::vtable(self).ActivateInstance)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IInspectable>(result__)
     }
 }
-impl ::core::convert::From<IActivationFactory> for ::windows::core::IUnknown {
-    fn from(value: IActivationFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IActivationFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IActivationFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IActivationFactory> for ::windows::core::IUnknown {
-    fn from(value: &IActivationFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IActivationFactory> for ::windows::core::IInspectable {
-    fn from(value: IActivationFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IActivationFactory> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IActivationFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IActivationFactory> for ::windows::core::IInspectable {
-    fn from(value: &IActivationFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IActivationFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IActivationFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -944,21 +886,7 @@ impl IAgileReference {
         (::windows::core::Vtable::vtable(self).Resolve)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IAgileReference> for ::windows::core::IUnknown {
-    fn from(value: IAgileReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAgileReference> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAgileReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAgileReference> for ::windows::core::IUnknown {
-    fn from(value: &IAgileReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAgileReference, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAgileReference {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -995,21 +923,7 @@ impl IApartmentShutdown {
         (::windows::core::Vtable::vtable(self).OnUninitialize)(::windows::core::Vtable::as_raw(self), ui64apartmentidentifier)
     }
 }
-impl ::core::convert::From<IApartmentShutdown> for ::windows::core::IUnknown {
-    fn from(value: IApartmentShutdown) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IApartmentShutdown> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IApartmentShutdown) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IApartmentShutdown> for ::windows::core::IUnknown {
-    fn from(value: &IApartmentShutdown) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IApartmentShutdown, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IApartmentShutdown {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1050,21 +964,7 @@ impl IAppServiceConnectionExtendedExecution {
         (::windows::core::Vtable::vtable(self).OpenForExtendedExecutionAsync)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IAppServiceConnectionExtendedExecution> for ::windows::core::IUnknown {
-    fn from(value: IAppServiceConnectionExtendedExecution) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAppServiceConnectionExtendedExecution> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAppServiceConnectionExtendedExecution) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAppServiceConnectionExtendedExecution> for ::windows::core::IUnknown {
-    fn from(value: &IAppServiceConnectionExtendedExecution) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAppServiceConnectionExtendedExecution, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAppServiceConnectionExtendedExecution {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1102,21 +1002,7 @@ impl IBufferByteAccess {
         (::windows::core::Vtable::vtable(self).Buffer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u8>(result__)
     }
 }
-impl ::core::convert::From<IBufferByteAccess> for ::windows::core::IUnknown {
-    fn from(value: IBufferByteAccess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBufferByteAccess> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBufferByteAccess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBufferByteAccess> for ::windows::core::IUnknown {
-    fn from(value: &IBufferByteAccess) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBufferByteAccess, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IBufferByteAccess {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1173,21 +1059,7 @@ impl ICastingController {
         (::windows::core::Vtable::vtable(self).UnAdvise)(::windows::core::Vtable::as_raw(self), cookie).ok()
     }
 }
-impl ::core::convert::From<ICastingController> for ::windows::core::IUnknown {
-    fn from(value: ICastingController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICastingController> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICastingController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICastingController> for ::windows::core::IUnknown {
-    fn from(value: &ICastingController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICastingController, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICastingController {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1234,21 +1106,7 @@ impl ICastingEventHandler {
         (::windows::core::Vtable::vtable(self).OnError)(::windows::core::Vtable::as_raw(self), errorstatus, errormessage.into()).ok()
     }
 }
-impl ::core::convert::From<ICastingEventHandler> for ::windows::core::IUnknown {
-    fn from(value: ICastingEventHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICastingEventHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICastingEventHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICastingEventHandler> for ::windows::core::IUnknown {
-    fn from(value: &ICastingEventHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICastingEventHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICastingEventHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1293,21 +1151,7 @@ impl ICastingSourceInfo {
         (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Shell::PropertiesSystem::INamedPropertyStore>(result__)
     }
 }
-impl ::core::convert::From<ICastingSourceInfo> for ::windows::core::IUnknown {
-    fn from(value: ICastingSourceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICastingSourceInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICastingSourceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICastingSourceInfo> for ::windows::core::IUnknown {
-    fn from(value: &ICastingSourceInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICastingSourceInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICastingSourceInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1354,21 +1198,7 @@ impl ICoreInputInterop {
         (::windows::core::Vtable::vtable(self).SetMessageHandled)(::windows::core::Vtable::as_raw(self), value).ok()
     }
 }
-impl ::core::convert::From<ICoreInputInterop> for ::windows::core::IUnknown {
-    fn from(value: ICoreInputInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICoreInputInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICoreInputInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICoreInputInterop> for ::windows::core::IUnknown {
-    fn from(value: &ICoreInputInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICoreInputInterop, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICoreInputInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1437,36 +1267,7 @@ impl ICoreWindowAdapterInterop {
         (::windows::core::Vtable::vtable(self).SetWindowClientAdapter)(::windows::core::Vtable::as_raw(self), value.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ICoreWindowAdapterInterop> for ::windows::core::IUnknown {
-    fn from(value: ICoreWindowAdapterInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICoreWindowAdapterInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICoreWindowAdapterInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICoreWindowAdapterInterop> for ::windows::core::IUnknown {
-    fn from(value: &ICoreWindowAdapterInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICoreWindowAdapterInterop> for ::windows::core::IInspectable {
-    fn from(value: ICoreWindowAdapterInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICoreWindowAdapterInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ICoreWindowAdapterInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICoreWindowAdapterInterop> for ::windows::core::IInspectable {
-    fn from(value: &ICoreWindowAdapterInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICoreWindowAdapterInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ICoreWindowAdapterInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1520,21 +1321,7 @@ impl ICoreWindowComponentInterop {
         (::windows::core::Vtable::vtable(self).GetViewInstanceId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<ICoreWindowComponentInterop> for ::windows::core::IUnknown {
-    fn from(value: ICoreWindowComponentInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICoreWindowComponentInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICoreWindowComponentInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICoreWindowComponentInterop> for ::windows::core::IUnknown {
-    fn from(value: &ICoreWindowComponentInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICoreWindowComponentInterop, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICoreWindowComponentInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1581,21 +1368,7 @@ impl ICoreWindowInterop {
         (::windows::core::Vtable::vtable(self).SetMessageHandled)(::windows::core::Vtable::as_raw(self), value).ok()
     }
 }
-impl ::core::convert::From<ICoreWindowInterop> for ::windows::core::IUnknown {
-    fn from(value: ICoreWindowInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICoreWindowInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICoreWindowInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICoreWindowInterop> for ::windows::core::IUnknown {
-    fn from(value: &ICoreWindowInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICoreWindowInterop, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICoreWindowInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1644,36 +1417,7 @@ impl ICorrelationVectorInformation {
         (::windows::core::Vtable::vtable(self).SetNextCorrelationVectorForThread)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(cv)).ok()
     }
 }
-impl ::core::convert::From<ICorrelationVectorInformation> for ::windows::core::IUnknown {
-    fn from(value: ICorrelationVectorInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICorrelationVectorInformation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICorrelationVectorInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICorrelationVectorInformation> for ::windows::core::IUnknown {
-    fn from(value: &ICorrelationVectorInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICorrelationVectorInformation> for ::windows::core::IInspectable {
-    fn from(value: ICorrelationVectorInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICorrelationVectorInformation> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ICorrelationVectorInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICorrelationVectorInformation> for ::windows::core::IInspectable {
-    fn from(value: &ICorrelationVectorInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICorrelationVectorInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ICorrelationVectorInformation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1713,21 +1457,7 @@ impl ICorrelationVectorSource {
         (::windows::core::Vtable::vtable(self).CorrelationVector)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
     }
 }
-impl ::core::convert::From<ICorrelationVectorSource> for ::windows::core::IUnknown {
-    fn from(value: ICorrelationVectorSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICorrelationVectorSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICorrelationVectorSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICorrelationVectorSource> for ::windows::core::IUnknown {
-    fn from(value: &ICorrelationVectorSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICorrelationVectorSource, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICorrelationVectorSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1771,36 +1501,7 @@ impl IDragDropManagerInterop {
         (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), hwnd.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IDragDropManagerInterop> for ::windows::core::IUnknown {
-    fn from(value: IDragDropManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDragDropManagerInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDragDropManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDragDropManagerInterop> for ::windows::core::IUnknown {
-    fn from(value: &IDragDropManagerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDragDropManagerInterop> for ::windows::core::IInspectable {
-    fn from(value: IDragDropManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDragDropManagerInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IDragDropManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDragDropManagerInterop> for ::windows::core::IInspectable {
-    fn from(value: &IDragDropManagerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDragDropManagerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IDragDropManagerInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1847,36 +1548,7 @@ impl IHolographicSpaceInterop {
         (::windows::core::Vtable::vtable(self).CreateForWindow)(::windows::core::Vtable::as_raw(self), window.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IHolographicSpaceInterop> for ::windows::core::IUnknown {
-    fn from(value: IHolographicSpaceInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHolographicSpaceInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IHolographicSpaceInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHolographicSpaceInterop> for ::windows::core::IUnknown {
-    fn from(value: &IHolographicSpaceInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IHolographicSpaceInterop> for ::windows::core::IInspectable {
-    fn from(value: IHolographicSpaceInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHolographicSpaceInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IHolographicSpaceInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHolographicSpaceInterop> for ::windows::core::IInspectable {
-    fn from(value: &IHolographicSpaceInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IHolographicSpaceInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IHolographicSpaceInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1923,36 +1595,7 @@ impl IInputPaneInterop {
         (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IInputPaneInterop> for ::windows::core::IUnknown {
-    fn from(value: IInputPaneInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInputPaneInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInputPaneInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInputPaneInterop> for ::windows::core::IUnknown {
-    fn from(value: &IInputPaneInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IInputPaneInterop> for ::windows::core::IInspectable {
-    fn from(value: IInputPaneInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInputPaneInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IInputPaneInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInputPaneInterop> for ::windows::core::IInspectable {
-    fn from(value: &IInputPaneInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInputPaneInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IInputPaneInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1993,21 +1636,7 @@ impl ILanguageExceptionErrorInfo {
         (::windows::core::Vtable::vtable(self).GetLanguageException)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
-impl ::core::convert::From<ILanguageExceptionErrorInfo> for ::windows::core::IUnknown {
-    fn from(value: ILanguageExceptionErrorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILanguageExceptionErrorInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILanguageExceptionErrorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILanguageExceptionErrorInfo> for ::windows::core::IUnknown {
-    fn from(value: &ILanguageExceptionErrorInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILanguageExceptionErrorInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ILanguageExceptionErrorInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2059,36 +1688,7 @@ impl ILanguageExceptionErrorInfo2 {
         (::windows::core::Vtable::vtable(self).GetPropagationContextHead)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ILanguageExceptionErrorInfo2>(result__)
     }
 }
-impl ::core::convert::From<ILanguageExceptionErrorInfo2> for ::windows::core::IUnknown {
-    fn from(value: ILanguageExceptionErrorInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILanguageExceptionErrorInfo2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILanguageExceptionErrorInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILanguageExceptionErrorInfo2> for ::windows::core::IUnknown {
-    fn from(value: &ILanguageExceptionErrorInfo2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ILanguageExceptionErrorInfo2> for ILanguageExceptionErrorInfo {
-    fn from(value: ILanguageExceptionErrorInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILanguageExceptionErrorInfo2> for &'a ILanguageExceptionErrorInfo {
-    fn from(value: &'a ILanguageExceptionErrorInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILanguageExceptionErrorInfo2> for ILanguageExceptionErrorInfo {
-    fn from(value: &ILanguageExceptionErrorInfo2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILanguageExceptionErrorInfo2, ::windows::core::IUnknown, ILanguageExceptionErrorInfo);
 impl ::core::clone::Clone for ILanguageExceptionErrorInfo2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2127,21 +1727,7 @@ impl ILanguageExceptionStackBackTrace {
         (::windows::core::Vtable::vtable(self).GetStackBackTrace)(::windows::core::Vtable::as_raw(self), maxframestocapture, ::core::mem::transmute(stackbacktrace), ::core::mem::transmute(framescaptured)).ok()
     }
 }
-impl ::core::convert::From<ILanguageExceptionStackBackTrace> for ::windows::core::IUnknown {
-    fn from(value: ILanguageExceptionStackBackTrace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILanguageExceptionStackBackTrace> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILanguageExceptionStackBackTrace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILanguageExceptionStackBackTrace> for ::windows::core::IUnknown {
-    fn from(value: &ILanguageExceptionStackBackTrace) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILanguageExceptionStackBackTrace, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ILanguageExceptionStackBackTrace {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2179,21 +1765,7 @@ impl ILanguageExceptionTransform {
         (::windows::core::Vtable::vtable(self).GetTransformedRestrictedErrorInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRestrictedErrorInfo>(result__)
     }
 }
-impl ::core::convert::From<ILanguageExceptionTransform> for ::windows::core::IUnknown {
-    fn from(value: ILanguageExceptionTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILanguageExceptionTransform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILanguageExceptionTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILanguageExceptionTransform> for ::windows::core::IUnknown {
-    fn from(value: &ILanguageExceptionTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILanguageExceptionTransform, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ILanguageExceptionTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2230,21 +1802,7 @@ impl IMemoryBufferByteAccess {
         (::windows::core::Vtable::vtable(self).GetBuffer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value), ::core::mem::transmute(capacity)).ok()
     }
 }
-impl ::core::convert::From<IMemoryBufferByteAccess> for ::windows::core::IUnknown {
-    fn from(value: IMemoryBufferByteAccess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMemoryBufferByteAccess> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMemoryBufferByteAccess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMemoryBufferByteAccess> for ::windows::core::IUnknown {
-    fn from(value: &IMemoryBufferByteAccess) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMemoryBufferByteAccess, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMemoryBufferByteAccess {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2281,36 +1839,7 @@ impl IMessageDispatcher {
         (::windows::core::Vtable::vtable(self).PumpMessages)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMessageDispatcher> for ::windows::core::IUnknown {
-    fn from(value: IMessageDispatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMessageDispatcher> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMessageDispatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMessageDispatcher> for ::windows::core::IUnknown {
-    fn from(value: &IMessageDispatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMessageDispatcher> for ::windows::core::IInspectable {
-    fn from(value: IMessageDispatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMessageDispatcher> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IMessageDispatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMessageDispatcher> for ::windows::core::IInspectable {
-    fn from(value: &IMessageDispatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMessageDispatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IMessageDispatcher {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2362,36 +1891,7 @@ impl IPlayToManagerInterop {
         (::windows::core::Vtable::vtable(self).ShowPlayToUIForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into()).ok()
     }
 }
-impl ::core::convert::From<IPlayToManagerInterop> for ::windows::core::IUnknown {
-    fn from(value: IPlayToManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPlayToManagerInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPlayToManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPlayToManagerInterop> for ::windows::core::IUnknown {
-    fn from(value: &IPlayToManagerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPlayToManagerInterop> for ::windows::core::IInspectable {
-    fn from(value: IPlayToManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPlayToManagerInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPlayToManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPlayToManagerInterop> for ::windows::core::IInspectable {
-    fn from(value: &IPlayToManagerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPlayToManagerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IPlayToManagerInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2439,21 +1939,7 @@ impl IRestrictedErrorInfo {
         (::windows::core::Vtable::vtable(self).GetReference)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
-impl ::core::convert::From<IRestrictedErrorInfo> for ::windows::core::IUnknown {
-    fn from(value: IRestrictedErrorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRestrictedErrorInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRestrictedErrorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRestrictedErrorInfo> for ::windows::core::IUnknown {
-    fn from(value: &IRestrictedErrorInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRestrictedErrorInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRestrictedErrorInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2639,21 +2125,7 @@ impl IShareWindowCommandEventArgsInterop {
         (::windows::core::Vtable::vtable(self).GetWindow)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HWND>(result__)
     }
 }
-impl ::core::convert::From<IShareWindowCommandEventArgsInterop> for ::windows::core::IUnknown {
-    fn from(value: IShareWindowCommandEventArgsInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IShareWindowCommandEventArgsInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IShareWindowCommandEventArgsInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IShareWindowCommandEventArgsInterop> for ::windows::core::IUnknown {
-    fn from(value: &IShareWindowCommandEventArgsInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IShareWindowCommandEventArgsInterop, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IShareWindowCommandEventArgsInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2700,21 +2172,7 @@ impl IShareWindowCommandSourceInterop {
         (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IShareWindowCommandSourceInterop> for ::windows::core::IUnknown {
-    fn from(value: IShareWindowCommandSourceInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IShareWindowCommandSourceInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IShareWindowCommandSourceInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IShareWindowCommandSourceInterop> for ::windows::core::IUnknown {
-    fn from(value: &IShareWindowCommandSourceInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IShareWindowCommandSourceInterop, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IShareWindowCommandSourceInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2761,36 +2219,7 @@ impl ISpatialInteractionManagerInterop {
         (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), window.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<ISpatialInteractionManagerInterop> for ::windows::core::IUnknown {
-    fn from(value: ISpatialInteractionManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialInteractionManagerInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpatialInteractionManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialInteractionManagerInterop> for ::windows::core::IUnknown {
-    fn from(value: &ISpatialInteractionManagerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpatialInteractionManagerInterop> for ::windows::core::IInspectable {
-    fn from(value: ISpatialInteractionManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialInteractionManagerInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISpatialInteractionManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialInteractionManagerInterop> for ::windows::core::IInspectable {
-    fn from(value: &ISpatialInteractionManagerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpatialInteractionManagerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ISpatialInteractionManagerInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2837,36 +2266,7 @@ impl ISystemMediaTransportControlsInterop {
         (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<ISystemMediaTransportControlsInterop> for ::windows::core::IUnknown {
-    fn from(value: ISystemMediaTransportControlsInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISystemMediaTransportControlsInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISystemMediaTransportControlsInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISystemMediaTransportControlsInterop> for ::windows::core::IUnknown {
-    fn from(value: &ISystemMediaTransportControlsInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISystemMediaTransportControlsInterop> for ::windows::core::IInspectable {
-    fn from(value: ISystemMediaTransportControlsInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISystemMediaTransportControlsInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISystemMediaTransportControlsInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISystemMediaTransportControlsInterop> for ::windows::core::IInspectable {
-    fn from(value: &ISystemMediaTransportControlsInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISystemMediaTransportControlsInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ISystemMediaTransportControlsInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2913,36 +2313,7 @@ impl IUIViewSettingsInterop {
         (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), hwnd.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IUIViewSettingsInterop> for ::windows::core::IUnknown {
-    fn from(value: IUIViewSettingsInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIViewSettingsInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIViewSettingsInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIViewSettingsInterop> for ::windows::core::IUnknown {
-    fn from(value: &IUIViewSettingsInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IUIViewSettingsInterop> for ::windows::core::IInspectable {
-    fn from(value: IUIViewSettingsInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIViewSettingsInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IUIViewSettingsInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIViewSettingsInterop> for ::windows::core::IInspectable {
-    fn from(value: &IUIViewSettingsInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIViewSettingsInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IUIViewSettingsInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2989,36 +2360,7 @@ impl IUserActivityInterop {
         (::windows::core::Vtable::vtable(self).CreateSessionForWindow)(::windows::core::Vtable::as_raw(self), window.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IUserActivityInterop> for ::windows::core::IUnknown {
-    fn from(value: IUserActivityInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUserActivityInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUserActivityInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUserActivityInterop> for ::windows::core::IUnknown {
-    fn from(value: &IUserActivityInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IUserActivityInterop> for ::windows::core::IInspectable {
-    fn from(value: IUserActivityInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUserActivityInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IUserActivityInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUserActivityInterop> for ::windows::core::IInspectable {
-    fn from(value: &IUserActivityInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUserActivityInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IUserActivityInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3065,36 +2407,7 @@ impl IUserActivityRequestManagerInterop {
         (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), window.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IUserActivityRequestManagerInterop> for ::windows::core::IUnknown {
-    fn from(value: IUserActivityRequestManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUserActivityRequestManagerInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUserActivityRequestManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUserActivityRequestManagerInterop> for ::windows::core::IUnknown {
-    fn from(value: &IUserActivityRequestManagerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IUserActivityRequestManagerInterop> for ::windows::core::IInspectable {
-    fn from(value: IUserActivityRequestManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUserActivityRequestManagerInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IUserActivityRequestManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUserActivityRequestManagerInterop> for ::windows::core::IInspectable {
-    fn from(value: &IUserActivityRequestManagerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUserActivityRequestManagerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IUserActivityRequestManagerInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3134,36 +2447,7 @@ impl IUserActivitySourceHostInterop {
         (::windows::core::Vtable::vtable(self).SetActivitySourceHost)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(activitysourcehost)).ok()
     }
 }
-impl ::core::convert::From<IUserActivitySourceHostInterop> for ::windows::core::IUnknown {
-    fn from(value: IUserActivitySourceHostInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUserActivitySourceHostInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUserActivitySourceHostInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUserActivitySourceHostInterop> for ::windows::core::IUnknown {
-    fn from(value: &IUserActivitySourceHostInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IUserActivitySourceHostInterop> for ::windows::core::IInspectable {
-    fn from(value: IUserActivitySourceHostInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUserActivitySourceHostInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IUserActivitySourceHostInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUserActivitySourceHostInterop> for ::windows::core::IInspectable {
-    fn from(value: &IUserActivitySourceHostInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUserActivitySourceHostInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IUserActivitySourceHostInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3207,36 +2491,7 @@ impl IUserConsentVerifierInterop {
         (::windows::core::Vtable::vtable(self).RequestVerificationForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), ::core::mem::transmute_copy(message), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IUserConsentVerifierInterop> for ::windows::core::IUnknown {
-    fn from(value: IUserConsentVerifierInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUserConsentVerifierInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUserConsentVerifierInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUserConsentVerifierInterop> for ::windows::core::IUnknown {
-    fn from(value: &IUserConsentVerifierInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IUserConsentVerifierInterop> for ::windows::core::IInspectable {
-    fn from(value: IUserConsentVerifierInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUserConsentVerifierInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IUserConsentVerifierInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUserConsentVerifierInterop> for ::windows::core::IInspectable {
-    fn from(value: &IUserConsentVerifierInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUserConsentVerifierInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IUserConsentVerifierInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3280,21 +2535,7 @@ impl IWeakReference {
         (::windows::core::Vtable::vtable(self).Resolve)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IWeakReference> for ::windows::core::IUnknown {
-    fn from(value: IWeakReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWeakReference> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWeakReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWeakReference> for ::windows::core::IUnknown {
-    fn from(value: &IWeakReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWeakReference, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWeakReference {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3332,21 +2573,7 @@ impl IWeakReferenceSource {
         (::windows::core::Vtable::vtable(self).GetWeakReference)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWeakReference>(result__)
     }
 }
-impl ::core::convert::From<IWeakReferenceSource> for ::windows::core::IUnknown {
-    fn from(value: IWeakReferenceSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWeakReferenceSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWeakReferenceSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWeakReferenceSource> for ::windows::core::IUnknown {
-    fn from(value: &IWeakReferenceSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWeakReferenceSource, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWeakReferenceSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3403,36 +2630,7 @@ impl IWebAuthenticationCoreManagerInterop {
         (::windows::core::Vtable::vtable(self).RequestTokenWithWebAccountForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), request.into().abi(), webaccount.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IWebAuthenticationCoreManagerInterop> for ::windows::core::IUnknown {
-    fn from(value: IWebAuthenticationCoreManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebAuthenticationCoreManagerInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWebAuthenticationCoreManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAuthenticationCoreManagerInterop> for ::windows::core::IUnknown {
-    fn from(value: &IWebAuthenticationCoreManagerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWebAuthenticationCoreManagerInterop> for ::windows::core::IInspectable {
-    fn from(value: IWebAuthenticationCoreManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebAuthenticationCoreManagerInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWebAuthenticationCoreManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAuthenticationCoreManagerInterop> for ::windows::core::IInspectable {
-    fn from(value: &IWebAuthenticationCoreManagerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWebAuthenticationCoreManagerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IWebAuthenticationCoreManagerInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())

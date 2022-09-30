@@ -93,36 +93,7 @@ unsafe impl ::windows::core::Interface for ScreenReaderPositionChangedEventArgs 
 impl ::windows::core::RuntimeName for ScreenReaderPositionChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Accessibility.ScreenReaderPositionChangedEventArgs";
 }
-impl ::core::convert::From<ScreenReaderPositionChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ScreenReaderPositionChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ScreenReaderPositionChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ScreenReaderPositionChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ScreenReaderPositionChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ScreenReaderPositionChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ScreenReaderPositionChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ScreenReaderPositionChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ScreenReaderPositionChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ScreenReaderPositionChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ScreenReaderPositionChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ScreenReaderPositionChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ScreenReaderPositionChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ScreenReaderPositionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ScreenReaderPositionChangedEventArgs {}
 #[doc = "*Required features: `\"UI_Accessibility\"`*"]
@@ -191,36 +162,7 @@ unsafe impl ::windows::core::Interface for ScreenReaderService {
 impl ::windows::core::RuntimeName for ScreenReaderService {
     const NAME: &'static str = "Windows.UI.Accessibility.ScreenReaderService";
 }
-impl ::core::convert::From<ScreenReaderService> for ::windows::core::IUnknown {
-    fn from(value: ScreenReaderService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ScreenReaderService> for ::windows::core::IUnknown {
-    fn from(value: &ScreenReaderService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ScreenReaderService> for &::windows::core::IUnknown {
-    fn from(value: &ScreenReaderService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ScreenReaderService> for ::windows::core::IInspectable {
-    fn from(value: ScreenReaderService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ScreenReaderService> for ::windows::core::IInspectable {
-    fn from(value: &ScreenReaderService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ScreenReaderService> for &::windows::core::IInspectable {
-    fn from(value: &ScreenReaderService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ScreenReaderService, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ScreenReaderService {}
 unsafe impl ::core::marker::Sync for ScreenReaderService {}
 #[cfg(feature = "implement")]

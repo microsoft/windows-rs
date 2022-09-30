@@ -117,21 +117,7 @@ impl IReferenceClock {
         (::windows::core::Vtable::vtable(self).Unadvise)(::windows::core::Vtable::as_raw(self), dwadvisecookie).ok()
     }
 }
-impl ::core::convert::From<IReferenceClock> for ::windows::core::IUnknown {
-    fn from(value: IReferenceClock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IReferenceClock> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IReferenceClock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IReferenceClock> for ::windows::core::IUnknown {
-    fn from(value: &IReferenceClock) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IReferenceClock, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IReferenceClock {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -199,36 +185,7 @@ impl IReferenceClock2 {
         (::windows::core::Vtable::vtable(self).base__.Unadvise)(::windows::core::Vtable::as_raw(self), dwadvisecookie).ok()
     }
 }
-impl ::core::convert::From<IReferenceClock2> for ::windows::core::IUnknown {
-    fn from(value: IReferenceClock2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IReferenceClock2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IReferenceClock2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IReferenceClock2> for ::windows::core::IUnknown {
-    fn from(value: &IReferenceClock2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IReferenceClock2> for IReferenceClock {
-    fn from(value: IReferenceClock2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IReferenceClock2> for &'a IReferenceClock {
-    fn from(value: &'a IReferenceClock2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IReferenceClock2> for IReferenceClock {
-    fn from(value: &IReferenceClock2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IReferenceClock2, ::windows::core::IUnknown, IReferenceClock);
 impl ::core::clone::Clone for IReferenceClock2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -268,21 +225,7 @@ impl IReferenceClockTimerControl {
         (::windows::core::Vtable::vtable(self).GetDefaultTimerResolution)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
     }
 }
-impl ::core::convert::From<IReferenceClockTimerControl> for ::windows::core::IUnknown {
-    fn from(value: IReferenceClockTimerControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IReferenceClockTimerControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IReferenceClockTimerControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IReferenceClockTimerControl> for ::windows::core::IUnknown {
-    fn from(value: &IReferenceClockTimerControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IReferenceClockTimerControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IReferenceClockTimerControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())

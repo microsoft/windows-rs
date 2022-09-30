@@ -520,36 +520,7 @@ unsafe impl ::windows::core::Interface for UserDataAccount {
 impl ::windows::core::RuntimeName for UserDataAccount {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.UserDataAccount";
 }
-impl ::core::convert::From<UserDataAccount> for ::windows::core::IUnknown {
-    fn from(value: UserDataAccount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataAccount> for ::windows::core::IUnknown {
-    fn from(value: &UserDataAccount) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataAccount> for &::windows::core::IUnknown {
-    fn from(value: &UserDataAccount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataAccount> for ::windows::core::IInspectable {
-    fn from(value: UserDataAccount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataAccount> for ::windows::core::IInspectable {
-    fn from(value: &UserDataAccount) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataAccount> for &::windows::core::IInspectable {
-    fn from(value: &UserDataAccount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataAccount, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataAccount {}
 unsafe impl ::core::marker::Sync for UserDataAccount {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`*"]
@@ -664,36 +635,7 @@ unsafe impl ::windows::core::Interface for UserDataAccountManagerForUser {
 impl ::windows::core::RuntimeName for UserDataAccountManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.UserDataAccountManagerForUser";
 }
-impl ::core::convert::From<UserDataAccountManagerForUser> for ::windows::core::IUnknown {
-    fn from(value: UserDataAccountManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataAccountManagerForUser> for ::windows::core::IUnknown {
-    fn from(value: &UserDataAccountManagerForUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataAccountManagerForUser> for &::windows::core::IUnknown {
-    fn from(value: &UserDataAccountManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataAccountManagerForUser> for ::windows::core::IInspectable {
-    fn from(value: UserDataAccountManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataAccountManagerForUser> for ::windows::core::IInspectable {
-    fn from(value: &UserDataAccountManagerForUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataAccountManagerForUser> for &::windows::core::IInspectable {
-    fn from(value: &UserDataAccountManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataAccountManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataAccountManagerForUser {}
 unsafe impl ::core::marker::Sync for UserDataAccountManagerForUser {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`*"]
@@ -793,36 +735,7 @@ unsafe impl ::windows::core::Interface for UserDataAccountStore {
 impl ::windows::core::RuntimeName for UserDataAccountStore {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.UserDataAccountStore";
 }
-impl ::core::convert::From<UserDataAccountStore> for ::windows::core::IUnknown {
-    fn from(value: UserDataAccountStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataAccountStore> for ::windows::core::IUnknown {
-    fn from(value: &UserDataAccountStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataAccountStore> for &::windows::core::IUnknown {
-    fn from(value: &UserDataAccountStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataAccountStore> for ::windows::core::IInspectable {
-    fn from(value: UserDataAccountStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataAccountStore> for ::windows::core::IInspectable {
-    fn from(value: &UserDataAccountStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataAccountStore> for &::windows::core::IInspectable {
-    fn from(value: &UserDataAccountStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataAccountStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataAccountStore {}
 unsafe impl ::core::marker::Sync for UserDataAccountStore {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`*"]
@@ -871,36 +784,7 @@ unsafe impl ::windows::core::Interface for UserDataAccountStoreChangedEventArgs 
 impl ::windows::core::RuntimeName for UserDataAccountStoreChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.UserDataAccountStoreChangedEventArgs";
 }
-impl ::core::convert::From<UserDataAccountStoreChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: UserDataAccountStoreChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataAccountStoreChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &UserDataAccountStoreChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataAccountStoreChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &UserDataAccountStoreChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataAccountStoreChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: UserDataAccountStoreChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataAccountStoreChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &UserDataAccountStoreChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataAccountStoreChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &UserDataAccountStoreChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataAccountStoreChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataAccountStoreChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UserDataAccountStoreChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`*"]

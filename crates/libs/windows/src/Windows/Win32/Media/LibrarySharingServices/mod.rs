@@ -23,41 +23,7 @@ impl IWindowsMediaLibrarySharingDevice {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsMediaLibrarySharingDevice> for ::windows::core::IUnknown {
-    fn from(value: IWindowsMediaLibrarySharingDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsMediaLibrarySharingDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWindowsMediaLibrarySharingDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsMediaLibrarySharingDevice> for ::windows::core::IUnknown {
-    fn from(value: &IWindowsMediaLibrarySharingDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsMediaLibrarySharingDevice> for super::super::System::Com::IDispatch {
-    fn from(value: IWindowsMediaLibrarySharingDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsMediaLibrarySharingDevice> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IWindowsMediaLibrarySharingDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsMediaLibrarySharingDevice> for super::super::System::Com::IDispatch {
-    fn from(value: &IWindowsMediaLibrarySharingDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWindowsMediaLibrarySharingDevice, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWindowsMediaLibrarySharingDevice {
     fn clone(&self) -> Self {
@@ -123,41 +89,7 @@ impl IWindowsMediaLibrarySharingDeviceProperties {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsMediaLibrarySharingDeviceProperties> for ::windows::core::IUnknown {
-    fn from(value: IWindowsMediaLibrarySharingDeviceProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsMediaLibrarySharingDeviceProperties> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWindowsMediaLibrarySharingDeviceProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsMediaLibrarySharingDeviceProperties> for ::windows::core::IUnknown {
-    fn from(value: &IWindowsMediaLibrarySharingDeviceProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsMediaLibrarySharingDeviceProperties> for super::super::System::Com::IDispatch {
-    fn from(value: IWindowsMediaLibrarySharingDeviceProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsMediaLibrarySharingDeviceProperties> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IWindowsMediaLibrarySharingDeviceProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsMediaLibrarySharingDeviceProperties> for super::super::System::Com::IDispatch {
-    fn from(value: &IWindowsMediaLibrarySharingDeviceProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWindowsMediaLibrarySharingDeviceProperties, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWindowsMediaLibrarySharingDeviceProperties {
     fn clone(&self) -> Self {
@@ -219,41 +151,7 @@ impl IWindowsMediaLibrarySharingDeviceProperty {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsMediaLibrarySharingDeviceProperty> for ::windows::core::IUnknown {
-    fn from(value: IWindowsMediaLibrarySharingDeviceProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsMediaLibrarySharingDeviceProperty> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWindowsMediaLibrarySharingDeviceProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsMediaLibrarySharingDeviceProperty> for ::windows::core::IUnknown {
-    fn from(value: &IWindowsMediaLibrarySharingDeviceProperty) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsMediaLibrarySharingDeviceProperty> for super::super::System::Com::IDispatch {
-    fn from(value: IWindowsMediaLibrarySharingDeviceProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsMediaLibrarySharingDeviceProperty> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IWindowsMediaLibrarySharingDeviceProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsMediaLibrarySharingDeviceProperty> for super::super::System::Com::IDispatch {
-    fn from(value: &IWindowsMediaLibrarySharingDeviceProperty) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWindowsMediaLibrarySharingDeviceProperty, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWindowsMediaLibrarySharingDeviceProperty {
     fn clone(&self) -> Self {
@@ -317,41 +215,7 @@ impl IWindowsMediaLibrarySharingDevices {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsMediaLibrarySharingDevices> for ::windows::core::IUnknown {
-    fn from(value: IWindowsMediaLibrarySharingDevices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsMediaLibrarySharingDevices> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWindowsMediaLibrarySharingDevices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsMediaLibrarySharingDevices> for ::windows::core::IUnknown {
-    fn from(value: &IWindowsMediaLibrarySharingDevices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsMediaLibrarySharingDevices> for super::super::System::Com::IDispatch {
-    fn from(value: IWindowsMediaLibrarySharingDevices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsMediaLibrarySharingDevices> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IWindowsMediaLibrarySharingDevices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsMediaLibrarySharingDevices> for super::super::System::Com::IDispatch {
-    fn from(value: &IWindowsMediaLibrarySharingDevices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWindowsMediaLibrarySharingDevices, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWindowsMediaLibrarySharingDevices {
     fn clone(&self) -> Self {
@@ -471,41 +335,7 @@ impl IWindowsMediaLibrarySharingServices {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsMediaLibrarySharingServices> for ::windows::core::IUnknown {
-    fn from(value: IWindowsMediaLibrarySharingServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsMediaLibrarySharingServices> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWindowsMediaLibrarySharingServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsMediaLibrarySharingServices> for ::windows::core::IUnknown {
-    fn from(value: &IWindowsMediaLibrarySharingServices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWindowsMediaLibrarySharingServices> for super::super::System::Com::IDispatch {
-    fn from(value: IWindowsMediaLibrarySharingServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWindowsMediaLibrarySharingServices> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IWindowsMediaLibrarySharingServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWindowsMediaLibrarySharingServices> for super::super::System::Com::IDispatch {
-    fn from(value: &IWindowsMediaLibrarySharingServices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWindowsMediaLibrarySharingServices, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWindowsMediaLibrarySharingServices {
     fn clone(&self) -> Self {

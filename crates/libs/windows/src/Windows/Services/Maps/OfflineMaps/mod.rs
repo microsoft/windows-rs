@@ -206,36 +206,7 @@ unsafe impl ::windows::core::Interface for OfflineMapPackage {
 impl ::windows::core::RuntimeName for OfflineMapPackage {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.OfflineMapPackage";
 }
-impl ::core::convert::From<OfflineMapPackage> for ::windows::core::IUnknown {
-    fn from(value: OfflineMapPackage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OfflineMapPackage> for ::windows::core::IUnknown {
-    fn from(value: &OfflineMapPackage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OfflineMapPackage> for &::windows::core::IUnknown {
-    fn from(value: &OfflineMapPackage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<OfflineMapPackage> for ::windows::core::IInspectable {
-    fn from(value: OfflineMapPackage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OfflineMapPackage> for ::windows::core::IInspectable {
-    fn from(value: &OfflineMapPackage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OfflineMapPackage> for &::windows::core::IInspectable {
-    fn from(value: &OfflineMapPackage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(OfflineMapPackage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OfflineMapPackage {}
 unsafe impl ::core::marker::Sync for OfflineMapPackage {}
 #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`*"]
@@ -291,36 +262,7 @@ unsafe impl ::windows::core::Interface for OfflineMapPackageQueryResult {
 impl ::windows::core::RuntimeName for OfflineMapPackageQueryResult {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryResult";
 }
-impl ::core::convert::From<OfflineMapPackageQueryResult> for ::windows::core::IUnknown {
-    fn from(value: OfflineMapPackageQueryResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OfflineMapPackageQueryResult> for ::windows::core::IUnknown {
-    fn from(value: &OfflineMapPackageQueryResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OfflineMapPackageQueryResult> for &::windows::core::IUnknown {
-    fn from(value: &OfflineMapPackageQueryResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<OfflineMapPackageQueryResult> for ::windows::core::IInspectable {
-    fn from(value: OfflineMapPackageQueryResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OfflineMapPackageQueryResult> for ::windows::core::IInspectable {
-    fn from(value: &OfflineMapPackageQueryResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OfflineMapPackageQueryResult> for &::windows::core::IInspectable {
-    fn from(value: &OfflineMapPackageQueryResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(OfflineMapPackageQueryResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OfflineMapPackageQueryResult {}
 unsafe impl ::core::marker::Sync for OfflineMapPackageQueryResult {}
 #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`*"]
@@ -367,36 +309,7 @@ unsafe impl ::windows::core::Interface for OfflineMapPackageStartDownloadResult 
 impl ::windows::core::RuntimeName for OfflineMapPackageStartDownloadResult {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadResult";
 }
-impl ::core::convert::From<OfflineMapPackageStartDownloadResult> for ::windows::core::IUnknown {
-    fn from(value: OfflineMapPackageStartDownloadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OfflineMapPackageStartDownloadResult> for ::windows::core::IUnknown {
-    fn from(value: &OfflineMapPackageStartDownloadResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OfflineMapPackageStartDownloadResult> for &::windows::core::IUnknown {
-    fn from(value: &OfflineMapPackageStartDownloadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<OfflineMapPackageStartDownloadResult> for ::windows::core::IInspectable {
-    fn from(value: OfflineMapPackageStartDownloadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OfflineMapPackageStartDownloadResult> for ::windows::core::IInspectable {
-    fn from(value: &OfflineMapPackageStartDownloadResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OfflineMapPackageStartDownloadResult> for &::windows::core::IInspectable {
-    fn from(value: &OfflineMapPackageStartDownloadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(OfflineMapPackageStartDownloadResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OfflineMapPackageStartDownloadResult {}
 unsafe impl ::core::marker::Sync for OfflineMapPackageStartDownloadResult {}
 #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`*"]

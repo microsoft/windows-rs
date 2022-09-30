@@ -89,36 +89,7 @@ impl IAnimationObject {
         unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute_copy(propertyinfo)).ok() }
     }
 }
-impl ::core::convert::From<IAnimationObject> for ::windows::core::IUnknown {
-    fn from(value: IAnimationObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAnimationObject> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAnimationObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAnimationObject> for ::windows::core::IUnknown {
-    fn from(value: &IAnimationObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAnimationObject> for ::windows::core::IInspectable {
-    fn from(value: IAnimationObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAnimationObject> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAnimationObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAnimationObject> for ::windows::core::IInspectable {
-    fn from(value: &IAnimationObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAnimationObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IAnimationObject {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -418,36 +389,7 @@ pub struct ICompositionAnimation4_Vtbl {
 #[repr(transparent)]
 pub struct ICompositionAnimationBase(::windows::core::IUnknown);
 impl ICompositionAnimationBase {}
-impl ::core::convert::From<ICompositionAnimationBase> for ::windows::core::IUnknown {
-    fn from(value: ICompositionAnimationBase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICompositionAnimationBase> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICompositionAnimationBase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionAnimationBase> for ::windows::core::IUnknown {
-    fn from(value: &ICompositionAnimationBase) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICompositionAnimationBase> for ::windows::core::IInspectable {
-    fn from(value: ICompositionAnimationBase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICompositionAnimationBase> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ICompositionAnimationBase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionAnimationBase> for ::windows::core::IInspectable {
-    fn from(value: &ICompositionAnimationBase) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICompositionAnimationBase, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ICompositionAnimationBase {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2077,36 +2019,7 @@ impl ICompositionSupportsSystemBackdrop {
         unsafe { (::windows::core::Vtable::vtable(this).SetSystemBackdrop)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
     }
 }
-impl ::core::convert::From<ICompositionSupportsSystemBackdrop> for ::windows::core::IUnknown {
-    fn from(value: ICompositionSupportsSystemBackdrop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICompositionSupportsSystemBackdrop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICompositionSupportsSystemBackdrop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionSupportsSystemBackdrop> for ::windows::core::IUnknown {
-    fn from(value: &ICompositionSupportsSystemBackdrop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICompositionSupportsSystemBackdrop> for ::windows::core::IInspectable {
-    fn from(value: ICompositionSupportsSystemBackdrop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICompositionSupportsSystemBackdrop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ICompositionSupportsSystemBackdrop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionSupportsSystemBackdrop> for ::windows::core::IInspectable {
-    fn from(value: &ICompositionSupportsSystemBackdrop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICompositionSupportsSystemBackdrop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ICompositionSupportsSystemBackdrop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2147,36 +2060,7 @@ pub struct ICompositionSupportsSystemBackdrop_Vtbl {
 #[repr(transparent)]
 pub struct ICompositionSurface(::windows::core::IUnknown);
 impl ICompositionSurface {}
-impl ::core::convert::From<ICompositionSurface> for ::windows::core::IUnknown {
-    fn from(value: ICompositionSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICompositionSurface> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICompositionSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionSurface> for ::windows::core::IUnknown {
-    fn from(value: &ICompositionSurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICompositionSurface> for ::windows::core::IInspectable {
-    fn from(value: ICompositionSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICompositionSurface> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ICompositionSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionSurface> for ::windows::core::IInspectable {
-    fn from(value: &ICompositionSurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICompositionSurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ICompositionSurface {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2321,36 +2205,7 @@ impl ICompositionSurfaceFacade {
         }
     }
 }
-impl ::core::convert::From<ICompositionSurfaceFacade> for ::windows::core::IUnknown {
-    fn from(value: ICompositionSurfaceFacade) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICompositionSurfaceFacade> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICompositionSurfaceFacade) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionSurfaceFacade> for ::windows::core::IUnknown {
-    fn from(value: &ICompositionSurfaceFacade) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICompositionSurfaceFacade> for ::windows::core::IInspectable {
-    fn from(value: ICompositionSurfaceFacade) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICompositionSurfaceFacade> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ICompositionSurfaceFacade) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionSurfaceFacade> for ::windows::core::IInspectable {
-    fn from(value: &ICompositionSurfaceFacade) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICompositionSurfaceFacade, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ICompositionSurfaceFacade {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4117,36 +3972,7 @@ pub struct IVisualCollection_Vtbl {
 #[repr(transparent)]
 pub struct IVisualElement(::windows::core::IUnknown);
 impl IVisualElement {}
-impl ::core::convert::From<IVisualElement> for ::windows::core::IUnknown {
-    fn from(value: IVisualElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVisualElement> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVisualElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVisualElement> for ::windows::core::IUnknown {
-    fn from(value: &IVisualElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVisualElement> for ::windows::core::IInspectable {
-    fn from(value: IVisualElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVisualElement> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IVisualElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVisualElement> for ::windows::core::IInspectable {
-    fn from(value: &IVisualElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVisualElement, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IVisualElement {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4193,36 +4019,7 @@ impl IVisualElement2 {
         }
     }
 }
-impl ::core::convert::From<IVisualElement2> for ::windows::core::IUnknown {
-    fn from(value: IVisualElement2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVisualElement2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVisualElement2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVisualElement2> for ::windows::core::IUnknown {
-    fn from(value: &IVisualElement2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVisualElement2> for ::windows::core::IInspectable {
-    fn from(value: IVisualElement2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVisualElement2> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IVisualElement2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVisualElement2> for ::windows::core::IInspectable {
-    fn from(value: &IVisualElement2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVisualElement2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IVisualElement2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4472,36 +4269,7 @@ unsafe impl ::windows::core::Interface for AmbientLight {
 impl ::windows::core::RuntimeName for AmbientLight {
     const NAME: &'static str = "Windows.UI.Composition.AmbientLight";
 }
-impl ::core::convert::From<AmbientLight> for ::windows::core::IUnknown {
-    fn from(value: AmbientLight) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AmbientLight> for ::windows::core::IUnknown {
-    fn from(value: &AmbientLight) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AmbientLight> for &::windows::core::IUnknown {
-    fn from(value: &AmbientLight) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AmbientLight> for ::windows::core::IInspectable {
-    fn from(value: AmbientLight) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AmbientLight> for ::windows::core::IInspectable {
-    fn from(value: &AmbientLight) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AmbientLight> for &::windows::core::IInspectable {
-    fn from(value: &AmbientLight) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AmbientLight, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AmbientLight> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: AmbientLight) -> ::windows::core::Result<Self> {
@@ -4768,36 +4536,7 @@ unsafe impl ::windows::core::Interface for AnimationController {
 impl ::windows::core::RuntimeName for AnimationController {
     const NAME: &'static str = "Windows.UI.Composition.AnimationController";
 }
-impl ::core::convert::From<AnimationController> for ::windows::core::IUnknown {
-    fn from(value: AnimationController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AnimationController> for ::windows::core::IUnknown {
-    fn from(value: &AnimationController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AnimationController> for &::windows::core::IUnknown {
-    fn from(value: &AnimationController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AnimationController> for ::windows::core::IInspectable {
-    fn from(value: AnimationController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AnimationController> for ::windows::core::IInspectable {
-    fn from(value: &AnimationController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AnimationController> for &::windows::core::IInspectable {
-    fn from(value: &AnimationController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AnimationController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AnimationController> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: AnimationController) -> ::windows::core::Result<Self> {
@@ -5016,36 +4755,7 @@ unsafe impl ::windows::core::Interface for AnimationPropertyInfo {
 impl ::windows::core::RuntimeName for AnimationPropertyInfo {
     const NAME: &'static str = "Windows.UI.Composition.AnimationPropertyInfo";
 }
-impl ::core::convert::From<AnimationPropertyInfo> for ::windows::core::IUnknown {
-    fn from(value: AnimationPropertyInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AnimationPropertyInfo> for ::windows::core::IUnknown {
-    fn from(value: &AnimationPropertyInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AnimationPropertyInfo> for &::windows::core::IUnknown {
-    fn from(value: &AnimationPropertyInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AnimationPropertyInfo> for ::windows::core::IInspectable {
-    fn from(value: AnimationPropertyInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AnimationPropertyInfo> for ::windows::core::IInspectable {
-    fn from(value: &AnimationPropertyInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AnimationPropertyInfo> for &::windows::core::IInspectable {
-    fn from(value: &AnimationPropertyInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AnimationPropertyInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AnimationPropertyInfo> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: AnimationPropertyInfo) -> ::windows::core::Result<Self> {
@@ -5253,36 +4963,7 @@ unsafe impl ::windows::core::Interface for BackEasingFunction {
 impl ::windows::core::RuntimeName for BackEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.BackEasingFunction";
 }
-impl ::core::convert::From<BackEasingFunction> for ::windows::core::IUnknown {
-    fn from(value: BackEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackEasingFunction> for ::windows::core::IUnknown {
-    fn from(value: &BackEasingFunction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackEasingFunction> for &::windows::core::IUnknown {
-    fn from(value: &BackEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BackEasingFunction> for ::windows::core::IInspectable {
-    fn from(value: BackEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackEasingFunction> for ::windows::core::IInspectable {
-    fn from(value: &BackEasingFunction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackEasingFunction> for &::windows::core::IInspectable {
-    fn from(value: &BackEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BackEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BackEasingFunction> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: BackEasingFunction) -> ::windows::core::Result<Self> {
@@ -5689,36 +5370,7 @@ unsafe impl ::windows::core::Interface for BooleanKeyFrameAnimation {
 impl ::windows::core::RuntimeName for BooleanKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BooleanKeyFrameAnimation";
 }
-impl ::core::convert::From<BooleanKeyFrameAnimation> for ::windows::core::IUnknown {
-    fn from(value: BooleanKeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BooleanKeyFrameAnimation> for ::windows::core::IUnknown {
-    fn from(value: &BooleanKeyFrameAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BooleanKeyFrameAnimation> for &::windows::core::IUnknown {
-    fn from(value: &BooleanKeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BooleanKeyFrameAnimation> for ::windows::core::IInspectable {
-    fn from(value: BooleanKeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BooleanKeyFrameAnimation> for ::windows::core::IInspectable {
-    fn from(value: &BooleanKeyFrameAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BooleanKeyFrameAnimation> for &::windows::core::IInspectable {
-    fn from(value: &BooleanKeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BooleanKeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BooleanKeyFrameAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: BooleanKeyFrameAnimation) -> ::windows::core::Result<Self> {
@@ -5982,36 +5634,7 @@ unsafe impl ::windows::core::Interface for BounceEasingFunction {
 impl ::windows::core::RuntimeName for BounceEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.BounceEasingFunction";
 }
-impl ::core::convert::From<BounceEasingFunction> for ::windows::core::IUnknown {
-    fn from(value: BounceEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BounceEasingFunction> for ::windows::core::IUnknown {
-    fn from(value: &BounceEasingFunction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BounceEasingFunction> for &::windows::core::IUnknown {
-    fn from(value: &BounceEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BounceEasingFunction> for ::windows::core::IInspectable {
-    fn from(value: BounceEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BounceEasingFunction> for ::windows::core::IInspectable {
-    fn from(value: &BounceEasingFunction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BounceEasingFunction> for &::windows::core::IInspectable {
-    fn from(value: &BounceEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BounceEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BounceEasingFunction> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: BounceEasingFunction) -> ::windows::core::Result<Self> {
@@ -6419,36 +6042,7 @@ unsafe impl ::windows::core::Interface for BounceScalarNaturalMotionAnimation {
 impl ::windows::core::RuntimeName for BounceScalarNaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BounceScalarNaturalMotionAnimation";
 }
-impl ::core::convert::From<BounceScalarNaturalMotionAnimation> for ::windows::core::IUnknown {
-    fn from(value: BounceScalarNaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BounceScalarNaturalMotionAnimation> for ::windows::core::IUnknown {
-    fn from(value: &BounceScalarNaturalMotionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BounceScalarNaturalMotionAnimation> for &::windows::core::IUnknown {
-    fn from(value: &BounceScalarNaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BounceScalarNaturalMotionAnimation> for ::windows::core::IInspectable {
-    fn from(value: BounceScalarNaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BounceScalarNaturalMotionAnimation> for ::windows::core::IInspectable {
-    fn from(value: &BounceScalarNaturalMotionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BounceScalarNaturalMotionAnimation> for &::windows::core::IInspectable {
-    fn from(value: &BounceScalarNaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BounceScalarNaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BounceScalarNaturalMotionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: BounceScalarNaturalMotionAnimation) -> ::windows::core::Result<Self> {
@@ -6909,36 +6503,7 @@ unsafe impl ::windows::core::Interface for BounceVector2NaturalMotionAnimation {
 impl ::windows::core::RuntimeName for BounceVector2NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BounceVector2NaturalMotionAnimation";
 }
-impl ::core::convert::From<BounceVector2NaturalMotionAnimation> for ::windows::core::IUnknown {
-    fn from(value: BounceVector2NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BounceVector2NaturalMotionAnimation> for ::windows::core::IUnknown {
-    fn from(value: &BounceVector2NaturalMotionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BounceVector2NaturalMotionAnimation> for &::windows::core::IUnknown {
-    fn from(value: &BounceVector2NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BounceVector2NaturalMotionAnimation> for ::windows::core::IInspectable {
-    fn from(value: BounceVector2NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BounceVector2NaturalMotionAnimation> for ::windows::core::IInspectable {
-    fn from(value: &BounceVector2NaturalMotionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BounceVector2NaturalMotionAnimation> for &::windows::core::IInspectable {
-    fn from(value: &BounceVector2NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BounceVector2NaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BounceVector2NaturalMotionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: BounceVector2NaturalMotionAnimation) -> ::windows::core::Result<Self> {
@@ -7399,36 +6964,7 @@ unsafe impl ::windows::core::Interface for BounceVector3NaturalMotionAnimation {
 impl ::windows::core::RuntimeName for BounceVector3NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BounceVector3NaturalMotionAnimation";
 }
-impl ::core::convert::From<BounceVector3NaturalMotionAnimation> for ::windows::core::IUnknown {
-    fn from(value: BounceVector3NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BounceVector3NaturalMotionAnimation> for ::windows::core::IUnknown {
-    fn from(value: &BounceVector3NaturalMotionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BounceVector3NaturalMotionAnimation> for &::windows::core::IUnknown {
-    fn from(value: &BounceVector3NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BounceVector3NaturalMotionAnimation> for ::windows::core::IInspectable {
-    fn from(value: BounceVector3NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BounceVector3NaturalMotionAnimation> for ::windows::core::IInspectable {
-    fn from(value: &BounceVector3NaturalMotionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BounceVector3NaturalMotionAnimation> for &::windows::core::IInspectable {
-    fn from(value: &BounceVector3NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BounceVector3NaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BounceVector3NaturalMotionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: BounceVector3NaturalMotionAnimation) -> ::windows::core::Result<Self> {
@@ -7693,36 +7229,7 @@ unsafe impl ::windows::core::Interface for CircleEasingFunction {
 impl ::windows::core::RuntimeName for CircleEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.CircleEasingFunction";
 }
-impl ::core::convert::From<CircleEasingFunction> for ::windows::core::IUnknown {
-    fn from(value: CircleEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CircleEasingFunction> for ::windows::core::IUnknown {
-    fn from(value: &CircleEasingFunction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CircleEasingFunction> for &::windows::core::IUnknown {
-    fn from(value: &CircleEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CircleEasingFunction> for ::windows::core::IInspectable {
-    fn from(value: CircleEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CircleEasingFunction> for ::windows::core::IInspectable {
-    fn from(value: &CircleEasingFunction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CircleEasingFunction> for &::windows::core::IInspectable {
-    fn from(value: &CircleEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CircleEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CircleEasingFunction> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CircleEasingFunction) -> ::windows::core::Result<Self> {
@@ -8147,36 +7654,7 @@ unsafe impl ::windows::core::Interface for ColorKeyFrameAnimation {
 impl ::windows::core::RuntimeName for ColorKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ColorKeyFrameAnimation";
 }
-impl ::core::convert::From<ColorKeyFrameAnimation> for ::windows::core::IUnknown {
-    fn from(value: ColorKeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ColorKeyFrameAnimation> for ::windows::core::IUnknown {
-    fn from(value: &ColorKeyFrameAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ColorKeyFrameAnimation> for &::windows::core::IUnknown {
-    fn from(value: &ColorKeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ColorKeyFrameAnimation> for ::windows::core::IInspectable {
-    fn from(value: ColorKeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ColorKeyFrameAnimation> for ::windows::core::IInspectable {
-    fn from(value: &ColorKeyFrameAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ColorKeyFrameAnimation> for &::windows::core::IInspectable {
-    fn from(value: &ColorKeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ColorKeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ColorKeyFrameAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: ColorKeyFrameAnimation) -> ::windows::core::Result<Self> {
@@ -8510,36 +7988,7 @@ unsafe impl ::windows::core::Interface for CompositionAnimation {
 impl ::windows::core::RuntimeName for CompositionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.CompositionAnimation";
 }
-impl ::core::convert::From<CompositionAnimation> for ::windows::core::IUnknown {
-    fn from(value: CompositionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionAnimation> for ::windows::core::IUnknown {
-    fn from(value: &CompositionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionAnimation> for &::windows::core::IUnknown {
-    fn from(value: &CompositionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionAnimation> for ::windows::core::IInspectable {
-    fn from(value: CompositionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionAnimation> for ::windows::core::IInspectable {
-    fn from(value: &CompositionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionAnimation> for &::windows::core::IInspectable {
-    fn from(value: &CompositionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionAnimation) -> ::windows::core::Result<Self> {
@@ -8802,36 +8251,7 @@ impl ::core::iter::IntoIterator for &CompositionAnimationGroup {
         self.First().unwrap()
     }
 }
-impl ::core::convert::From<CompositionAnimationGroup> for ::windows::core::IUnknown {
-    fn from(value: CompositionAnimationGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionAnimationGroup> for ::windows::core::IUnknown {
-    fn from(value: &CompositionAnimationGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionAnimationGroup> for &::windows::core::IUnknown {
-    fn from(value: &CompositionAnimationGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionAnimationGroup> for ::windows::core::IInspectable {
-    fn from(value: CompositionAnimationGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionAnimationGroup> for ::windows::core::IInspectable {
-    fn from(value: &CompositionAnimationGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionAnimationGroup> for &::windows::core::IInspectable {
-    fn from(value: &CompositionAnimationGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionAnimationGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionAnimationGroup> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionAnimationGroup) -> ::windows::core::Result<Self> {
@@ -9066,36 +8486,7 @@ unsafe impl ::windows::core::Interface for CompositionBackdropBrush {
 impl ::windows::core::RuntimeName for CompositionBackdropBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionBackdropBrush";
 }
-impl ::core::convert::From<CompositionBackdropBrush> for ::windows::core::IUnknown {
-    fn from(value: CompositionBackdropBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionBackdropBrush> for ::windows::core::IUnknown {
-    fn from(value: &CompositionBackdropBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionBackdropBrush> for &::windows::core::IUnknown {
-    fn from(value: &CompositionBackdropBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionBackdropBrush> for ::windows::core::IInspectable {
-    fn from(value: CompositionBackdropBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionBackdropBrush> for ::windows::core::IInspectable {
-    fn from(value: &CompositionBackdropBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionBackdropBrush> for &::windows::core::IInspectable {
-    fn from(value: &CompositionBackdropBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionBackdropBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionBackdropBrush> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionBackdropBrush) -> ::windows::core::Result<Self> {
@@ -9304,36 +8695,7 @@ unsafe impl ::windows::core::Interface for CompositionBatchCompletedEventArgs {
 impl ::windows::core::RuntimeName for CompositionBatchCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Composition.CompositionBatchCompletedEventArgs";
 }
-impl ::core::convert::From<CompositionBatchCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CompositionBatchCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionBatchCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CompositionBatchCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionBatchCompletedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CompositionBatchCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionBatchCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CompositionBatchCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionBatchCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CompositionBatchCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionBatchCompletedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CompositionBatchCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionBatchCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionBatchCompletedEventArgs> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionBatchCompletedEventArgs) -> ::windows::core::Result<Self> {
@@ -9527,36 +8889,7 @@ unsafe impl ::windows::core::Interface for CompositionBrush {
 impl ::windows::core::RuntimeName for CompositionBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionBrush";
 }
-impl ::core::convert::From<CompositionBrush> for ::windows::core::IUnknown {
-    fn from(value: CompositionBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionBrush> for ::windows::core::IUnknown {
-    fn from(value: &CompositionBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionBrush> for &::windows::core::IUnknown {
-    fn from(value: &CompositionBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionBrush> for ::windows::core::IInspectable {
-    fn from(value: CompositionBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionBrush> for ::windows::core::IInspectable {
-    fn from(value: &CompositionBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionBrush> for &::windows::core::IInspectable {
-    fn from(value: &CompositionBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionBrush> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionBrush) -> ::windows::core::Result<Self> {
@@ -9692,36 +9025,7 @@ unsafe impl ::windows::core::Interface for CompositionCapabilities {
 impl ::windows::core::RuntimeName for CompositionCapabilities {
     const NAME: &'static str = "Windows.UI.Composition.CompositionCapabilities";
 }
-impl ::core::convert::From<CompositionCapabilities> for ::windows::core::IUnknown {
-    fn from(value: CompositionCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &CompositionCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionCapabilities> for &::windows::core::IUnknown {
-    fn from(value: &CompositionCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionCapabilities> for ::windows::core::IInspectable {
-    fn from(value: CompositionCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &CompositionCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionCapabilities> for &::windows::core::IInspectable {
-    fn from(value: &CompositionCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CompositionCapabilities {}
 unsafe impl ::core::marker::Sync for CompositionCapabilities {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
@@ -9956,36 +9260,7 @@ unsafe impl ::windows::core::Interface for CompositionClip {
 impl ::windows::core::RuntimeName for CompositionClip {
     const NAME: &'static str = "Windows.UI.Composition.CompositionClip";
 }
-impl ::core::convert::From<CompositionClip> for ::windows::core::IUnknown {
-    fn from(value: CompositionClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionClip> for ::windows::core::IUnknown {
-    fn from(value: &CompositionClip) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionClip> for &::windows::core::IUnknown {
-    fn from(value: &CompositionClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionClip> for ::windows::core::IInspectable {
-    fn from(value: CompositionClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionClip> for ::windows::core::IInspectable {
-    fn from(value: &CompositionClip) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionClip> for &::windows::core::IInspectable {
-    fn from(value: &CompositionClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionClip, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionClip> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionClip) -> ::windows::core::Result<Self> {
@@ -10190,36 +9465,7 @@ unsafe impl ::windows::core::Interface for CompositionColorBrush {
 impl ::windows::core::RuntimeName for CompositionColorBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionColorBrush";
 }
-impl ::core::convert::From<CompositionColorBrush> for ::windows::core::IUnknown {
-    fn from(value: CompositionColorBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionColorBrush> for ::windows::core::IUnknown {
-    fn from(value: &CompositionColorBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionColorBrush> for &::windows::core::IUnknown {
-    fn from(value: &CompositionColorBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionColorBrush> for ::windows::core::IInspectable {
-    fn from(value: CompositionColorBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionColorBrush> for ::windows::core::IInspectable {
-    fn from(value: &CompositionColorBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionColorBrush> for &::windows::core::IInspectable {
-    fn from(value: &CompositionColorBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionColorBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionColorBrush> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionColorBrush) -> ::windows::core::Result<Self> {
@@ -10450,36 +9696,7 @@ unsafe impl ::windows::core::Interface for CompositionColorGradientStop {
 impl ::windows::core::RuntimeName for CompositionColorGradientStop {
     const NAME: &'static str = "Windows.UI.Composition.CompositionColorGradientStop";
 }
-impl ::core::convert::From<CompositionColorGradientStop> for ::windows::core::IUnknown {
-    fn from(value: CompositionColorGradientStop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionColorGradientStop> for ::windows::core::IUnknown {
-    fn from(value: &CompositionColorGradientStop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionColorGradientStop> for &::windows::core::IUnknown {
-    fn from(value: &CompositionColorGradientStop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionColorGradientStop> for ::windows::core::IInspectable {
-    fn from(value: CompositionColorGradientStop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionColorGradientStop> for ::windows::core::IInspectable {
-    fn from(value: &CompositionColorGradientStop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionColorGradientStop> for &::windows::core::IInspectable {
-    fn from(value: &CompositionColorGradientStop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionColorGradientStop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionColorGradientStop> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionColorGradientStop) -> ::windows::core::Result<Self> {
@@ -10687,36 +9904,7 @@ impl ::core::iter::IntoIterator for &CompositionColorGradientStopCollection {
         super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-impl ::core::convert::From<CompositionColorGradientStopCollection> for ::windows::core::IUnknown {
-    fn from(value: CompositionColorGradientStopCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionColorGradientStopCollection> for ::windows::core::IUnknown {
-    fn from(value: &CompositionColorGradientStopCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionColorGradientStopCollection> for &::windows::core::IUnknown {
-    fn from(value: &CompositionColorGradientStopCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionColorGradientStopCollection> for ::windows::core::IInspectable {
-    fn from(value: CompositionColorGradientStopCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionColorGradientStopCollection> for ::windows::core::IInspectable {
-    fn from(value: &CompositionColorGradientStopCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionColorGradientStopCollection> for &::windows::core::IInspectable {
-    fn from(value: &CompositionColorGradientStopCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionColorGradientStopCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<CompositionColorGradientStopCollection> for super::super::Foundation::Collections::IIterable<CompositionColorGradientStop> {
     type Error = ::windows::core::Error;
@@ -10927,36 +10115,7 @@ unsafe impl ::windows::core::Interface for CompositionCommitBatch {
 impl ::windows::core::RuntimeName for CompositionCommitBatch {
     const NAME: &'static str = "Windows.UI.Composition.CompositionCommitBatch";
 }
-impl ::core::convert::From<CompositionCommitBatch> for ::windows::core::IUnknown {
-    fn from(value: CompositionCommitBatch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionCommitBatch> for ::windows::core::IUnknown {
-    fn from(value: &CompositionCommitBatch) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionCommitBatch> for &::windows::core::IUnknown {
-    fn from(value: &CompositionCommitBatch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionCommitBatch> for ::windows::core::IInspectable {
-    fn from(value: CompositionCommitBatch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionCommitBatch> for ::windows::core::IInspectable {
-    fn from(value: &CompositionCommitBatch) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionCommitBatch> for &::windows::core::IInspectable {
-    fn from(value: &CompositionCommitBatch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionCommitBatch, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionCommitBatch> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionCommitBatch) -> ::windows::core::Result<Self> {
@@ -11241,36 +10400,7 @@ unsafe impl ::windows::core::Interface for CompositionContainerShape {
 impl ::windows::core::RuntimeName for CompositionContainerShape {
     const NAME: &'static str = "Windows.UI.Composition.CompositionContainerShape";
 }
-impl ::core::convert::From<CompositionContainerShape> for ::windows::core::IUnknown {
-    fn from(value: CompositionContainerShape) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionContainerShape> for ::windows::core::IUnknown {
-    fn from(value: &CompositionContainerShape) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionContainerShape> for &::windows::core::IUnknown {
-    fn from(value: &CompositionContainerShape) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionContainerShape> for ::windows::core::IInspectable {
-    fn from(value: CompositionContainerShape) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionContainerShape> for ::windows::core::IInspectable {
-    fn from(value: &CompositionContainerShape) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionContainerShape> for &::windows::core::IInspectable {
-    fn from(value: &CompositionContainerShape) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionContainerShape, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionContainerShape> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionContainerShape) -> ::windows::core::Result<Self> {
@@ -11545,36 +10675,7 @@ unsafe impl ::windows::core::Interface for CompositionDrawingSurface {
 impl ::windows::core::RuntimeName for CompositionDrawingSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionDrawingSurface";
 }
-impl ::core::convert::From<CompositionDrawingSurface> for ::windows::core::IUnknown {
-    fn from(value: CompositionDrawingSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionDrawingSurface> for ::windows::core::IUnknown {
-    fn from(value: &CompositionDrawingSurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionDrawingSurface> for &::windows::core::IUnknown {
-    fn from(value: &CompositionDrawingSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionDrawingSurface> for ::windows::core::IInspectable {
-    fn from(value: CompositionDrawingSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionDrawingSurface> for ::windows::core::IInspectable {
-    fn from(value: &CompositionDrawingSurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionDrawingSurface> for &::windows::core::IInspectable {
-    fn from(value: &CompositionDrawingSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionDrawingSurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionDrawingSurface> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionDrawingSurface) -> ::windows::core::Result<Self> {
@@ -11860,36 +10961,7 @@ unsafe impl ::windows::core::Interface for CompositionEasingFunction {
 impl ::windows::core::RuntimeName for CompositionEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEasingFunction";
 }
-impl ::core::convert::From<CompositionEasingFunction> for ::windows::core::IUnknown {
-    fn from(value: CompositionEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionEasingFunction> for ::windows::core::IUnknown {
-    fn from(value: &CompositionEasingFunction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionEasingFunction> for &::windows::core::IUnknown {
-    fn from(value: &CompositionEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionEasingFunction> for ::windows::core::IInspectable {
-    fn from(value: CompositionEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionEasingFunction> for ::windows::core::IInspectable {
-    fn from(value: &CompositionEasingFunction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionEasingFunction> for &::windows::core::IInspectable {
-    fn from(value: &CompositionEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionEasingFunction> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionEasingFunction) -> ::windows::core::Result<Self> {
@@ -12097,36 +11169,7 @@ unsafe impl ::windows::core::Interface for CompositionEffectBrush {
 impl ::windows::core::RuntimeName for CompositionEffectBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEffectBrush";
 }
-impl ::core::convert::From<CompositionEffectBrush> for ::windows::core::IUnknown {
-    fn from(value: CompositionEffectBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionEffectBrush> for ::windows::core::IUnknown {
-    fn from(value: &CompositionEffectBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionEffectBrush> for &::windows::core::IUnknown {
-    fn from(value: &CompositionEffectBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionEffectBrush> for ::windows::core::IInspectable {
-    fn from(value: CompositionEffectBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionEffectBrush> for ::windows::core::IInspectable {
-    fn from(value: &CompositionEffectBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionEffectBrush> for &::windows::core::IInspectable {
-    fn from(value: &CompositionEffectBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionEffectBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionEffectBrush> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionEffectBrush) -> ::windows::core::Result<Self> {
@@ -12356,36 +11399,7 @@ unsafe impl ::windows::core::Interface for CompositionEffectFactory {
 impl ::windows::core::RuntimeName for CompositionEffectFactory {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEffectFactory";
 }
-impl ::core::convert::From<CompositionEffectFactory> for ::windows::core::IUnknown {
-    fn from(value: CompositionEffectFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionEffectFactory> for ::windows::core::IUnknown {
-    fn from(value: &CompositionEffectFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionEffectFactory> for &::windows::core::IUnknown {
-    fn from(value: &CompositionEffectFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionEffectFactory> for ::windows::core::IInspectable {
-    fn from(value: CompositionEffectFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionEffectFactory> for ::windows::core::IInspectable {
-    fn from(value: &CompositionEffectFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionEffectFactory> for &::windows::core::IInspectable {
-    fn from(value: &CompositionEffectFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionEffectFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionEffectFactory> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionEffectFactory) -> ::windows::core::Result<Self> {
@@ -12499,36 +11513,7 @@ unsafe impl ::windows::core::Interface for CompositionEffectSourceParameter {
 impl ::windows::core::RuntimeName for CompositionEffectSourceParameter {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEffectSourceParameter";
 }
-impl ::core::convert::From<CompositionEffectSourceParameter> for ::windows::core::IUnknown {
-    fn from(value: CompositionEffectSourceParameter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionEffectSourceParameter> for ::windows::core::IUnknown {
-    fn from(value: &CompositionEffectSourceParameter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionEffectSourceParameter> for &::windows::core::IUnknown {
-    fn from(value: &CompositionEffectSourceParameter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionEffectSourceParameter> for ::windows::core::IInspectable {
-    fn from(value: CompositionEffectSourceParameter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionEffectSourceParameter> for ::windows::core::IInspectable {
-    fn from(value: &CompositionEffectSourceParameter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionEffectSourceParameter> for &::windows::core::IInspectable {
-    fn from(value: &CompositionEffectSourceParameter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionEffectSourceParameter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Graphics_Effects")]
 impl ::core::convert::TryFrom<CompositionEffectSourceParameter> for super::super::Graphics::Effects::IGraphicsEffectSource {
     type Error = ::windows::core::Error;
@@ -12751,36 +11736,7 @@ unsafe impl ::windows::core::Interface for CompositionEllipseGeometry {
 impl ::windows::core::RuntimeName for CompositionEllipseGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEllipseGeometry";
 }
-impl ::core::convert::From<CompositionEllipseGeometry> for ::windows::core::IUnknown {
-    fn from(value: CompositionEllipseGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionEllipseGeometry> for ::windows::core::IUnknown {
-    fn from(value: &CompositionEllipseGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionEllipseGeometry> for &::windows::core::IUnknown {
-    fn from(value: &CompositionEllipseGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionEllipseGeometry> for ::windows::core::IInspectable {
-    fn from(value: CompositionEllipseGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionEllipseGeometry> for ::windows::core::IInspectable {
-    fn from(value: &CompositionEllipseGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionEllipseGeometry> for &::windows::core::IInspectable {
-    fn from(value: &CompositionEllipseGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionEllipseGeometry, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionEllipseGeometry> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionEllipseGeometry) -> ::windows::core::Result<Self> {
@@ -13111,36 +12067,7 @@ unsafe impl ::windows::core::Interface for CompositionGeometricClip {
 impl ::windows::core::RuntimeName for CompositionGeometricClip {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGeometricClip";
 }
-impl ::core::convert::From<CompositionGeometricClip> for ::windows::core::IUnknown {
-    fn from(value: CompositionGeometricClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionGeometricClip> for ::windows::core::IUnknown {
-    fn from(value: &CompositionGeometricClip) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionGeometricClip> for &::windows::core::IUnknown {
-    fn from(value: &CompositionGeometricClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionGeometricClip> for ::windows::core::IInspectable {
-    fn from(value: CompositionGeometricClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionGeometricClip> for ::windows::core::IInspectable {
-    fn from(value: &CompositionGeometricClip) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionGeometricClip> for &::windows::core::IInspectable {
-    fn from(value: &CompositionGeometricClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionGeometricClip, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionGeometricClip> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionGeometricClip) -> ::windows::core::Result<Self> {
@@ -13382,36 +12309,7 @@ unsafe impl ::windows::core::Interface for CompositionGeometry {
 impl ::windows::core::RuntimeName for CompositionGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGeometry";
 }
-impl ::core::convert::From<CompositionGeometry> for ::windows::core::IUnknown {
-    fn from(value: CompositionGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionGeometry> for ::windows::core::IUnknown {
-    fn from(value: &CompositionGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionGeometry> for &::windows::core::IUnknown {
-    fn from(value: &CompositionGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionGeometry> for ::windows::core::IInspectable {
-    fn from(value: CompositionGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionGeometry> for ::windows::core::IInspectable {
-    fn from(value: &CompositionGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionGeometry> for &::windows::core::IInspectable {
-    fn from(value: &CompositionGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionGeometry, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionGeometry> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionGeometry) -> ::windows::core::Result<Self> {
@@ -13742,36 +12640,7 @@ unsafe impl ::windows::core::Interface for CompositionGradientBrush {
 impl ::windows::core::RuntimeName for CompositionGradientBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGradientBrush";
 }
-impl ::core::convert::From<CompositionGradientBrush> for ::windows::core::IUnknown {
-    fn from(value: CompositionGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionGradientBrush> for ::windows::core::IUnknown {
-    fn from(value: &CompositionGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionGradientBrush> for &::windows::core::IUnknown {
-    fn from(value: &CompositionGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionGradientBrush> for ::windows::core::IInspectable {
-    fn from(value: CompositionGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionGradientBrush> for ::windows::core::IInspectable {
-    fn from(value: &CompositionGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionGradientBrush> for &::windows::core::IInspectable {
-    fn from(value: &CompositionGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionGradientBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionGradientBrush> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionGradientBrush) -> ::windows::core::Result<Self> {
@@ -14047,36 +12916,7 @@ unsafe impl ::windows::core::Interface for CompositionGraphicsDevice {
 impl ::windows::core::RuntimeName for CompositionGraphicsDevice {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGraphicsDevice";
 }
-impl ::core::convert::From<CompositionGraphicsDevice> for ::windows::core::IUnknown {
-    fn from(value: CompositionGraphicsDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionGraphicsDevice> for ::windows::core::IUnknown {
-    fn from(value: &CompositionGraphicsDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionGraphicsDevice> for &::windows::core::IUnknown {
-    fn from(value: &CompositionGraphicsDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionGraphicsDevice> for ::windows::core::IInspectable {
-    fn from(value: CompositionGraphicsDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionGraphicsDevice> for ::windows::core::IInspectable {
-    fn from(value: &CompositionGraphicsDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionGraphicsDevice> for &::windows::core::IInspectable {
-    fn from(value: &CompositionGraphicsDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionGraphicsDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionGraphicsDevice> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionGraphicsDevice) -> ::windows::core::Result<Self> {
@@ -14295,36 +13135,7 @@ unsafe impl ::windows::core::Interface for CompositionLight {
 impl ::windows::core::RuntimeName for CompositionLight {
     const NAME: &'static str = "Windows.UI.Composition.CompositionLight";
 }
-impl ::core::convert::From<CompositionLight> for ::windows::core::IUnknown {
-    fn from(value: CompositionLight) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionLight> for ::windows::core::IUnknown {
-    fn from(value: &CompositionLight) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionLight> for &::windows::core::IUnknown {
-    fn from(value: &CompositionLight) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionLight> for ::windows::core::IInspectable {
-    fn from(value: CompositionLight) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionLight> for ::windows::core::IInspectable {
-    fn from(value: &CompositionLight) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionLight> for &::windows::core::IInspectable {
-    fn from(value: &CompositionLight) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionLight, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionLight> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionLight) -> ::windows::core::Result<Self> {
@@ -14581,36 +13392,7 @@ unsafe impl ::windows::core::Interface for CompositionLineGeometry {
 impl ::windows::core::RuntimeName for CompositionLineGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionLineGeometry";
 }
-impl ::core::convert::From<CompositionLineGeometry> for ::windows::core::IUnknown {
-    fn from(value: CompositionLineGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionLineGeometry> for ::windows::core::IUnknown {
-    fn from(value: &CompositionLineGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionLineGeometry> for &::windows::core::IUnknown {
-    fn from(value: &CompositionLineGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionLineGeometry> for ::windows::core::IInspectable {
-    fn from(value: CompositionLineGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionLineGeometry> for ::windows::core::IInspectable {
-    fn from(value: &CompositionLineGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionLineGeometry> for &::windows::core::IInspectable {
-    fn from(value: &CompositionLineGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionLineGeometry, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionLineGeometry> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionLineGeometry) -> ::windows::core::Result<Self> {
@@ -14986,36 +13768,7 @@ unsafe impl ::windows::core::Interface for CompositionLinearGradientBrush {
 impl ::windows::core::RuntimeName for CompositionLinearGradientBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionLinearGradientBrush";
 }
-impl ::core::convert::From<CompositionLinearGradientBrush> for ::windows::core::IUnknown {
-    fn from(value: CompositionLinearGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionLinearGradientBrush> for ::windows::core::IUnknown {
-    fn from(value: &CompositionLinearGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionLinearGradientBrush> for &::windows::core::IUnknown {
-    fn from(value: &CompositionLinearGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionLinearGradientBrush> for ::windows::core::IInspectable {
-    fn from(value: CompositionLinearGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionLinearGradientBrush> for ::windows::core::IInspectable {
-    fn from(value: &CompositionLinearGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionLinearGradientBrush> for &::windows::core::IInspectable {
-    fn from(value: &CompositionLinearGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionLinearGradientBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionLinearGradientBrush> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionLinearGradientBrush) -> ::windows::core::Result<Self> {
@@ -15267,36 +14020,7 @@ unsafe impl ::windows::core::Interface for CompositionMaskBrush {
 impl ::windows::core::RuntimeName for CompositionMaskBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionMaskBrush";
 }
-impl ::core::convert::From<CompositionMaskBrush> for ::windows::core::IUnknown {
-    fn from(value: CompositionMaskBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionMaskBrush> for ::windows::core::IUnknown {
-    fn from(value: &CompositionMaskBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionMaskBrush> for &::windows::core::IUnknown {
-    fn from(value: &CompositionMaskBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionMaskBrush> for ::windows::core::IInspectable {
-    fn from(value: CompositionMaskBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionMaskBrush> for ::windows::core::IInspectable {
-    fn from(value: &CompositionMaskBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionMaskBrush> for &::windows::core::IInspectable {
-    fn from(value: &CompositionMaskBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionMaskBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionMaskBrush> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionMaskBrush) -> ::windows::core::Result<Self> {
@@ -15546,36 +14270,7 @@ unsafe impl ::windows::core::Interface for CompositionMipmapSurface {
 impl ::windows::core::RuntimeName for CompositionMipmapSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionMipmapSurface";
 }
-impl ::core::convert::From<CompositionMipmapSurface> for ::windows::core::IUnknown {
-    fn from(value: CompositionMipmapSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionMipmapSurface> for ::windows::core::IUnknown {
-    fn from(value: &CompositionMipmapSurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionMipmapSurface> for &::windows::core::IUnknown {
-    fn from(value: &CompositionMipmapSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionMipmapSurface> for ::windows::core::IInspectable {
-    fn from(value: CompositionMipmapSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionMipmapSurface> for ::windows::core::IInspectable {
-    fn from(value: &CompositionMipmapSurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionMipmapSurface> for &::windows::core::IInspectable {
-    fn from(value: &CompositionMipmapSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionMipmapSurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionMipmapSurface> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionMipmapSurface) -> ::windows::core::Result<Self> {
@@ -15917,36 +14612,7 @@ unsafe impl ::windows::core::Interface for CompositionNineGridBrush {
 impl ::windows::core::RuntimeName for CompositionNineGridBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionNineGridBrush";
 }
-impl ::core::convert::From<CompositionNineGridBrush> for ::windows::core::IUnknown {
-    fn from(value: CompositionNineGridBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionNineGridBrush> for ::windows::core::IUnknown {
-    fn from(value: &CompositionNineGridBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionNineGridBrush> for &::windows::core::IUnknown {
-    fn from(value: &CompositionNineGridBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionNineGridBrush> for ::windows::core::IInspectable {
-    fn from(value: CompositionNineGridBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionNineGridBrush> for ::windows::core::IInspectable {
-    fn from(value: &CompositionNineGridBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionNineGridBrush> for &::windows::core::IInspectable {
-    fn from(value: &CompositionNineGridBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionNineGridBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionNineGridBrush> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionNineGridBrush) -> ::windows::core::Result<Self> {
@@ -16177,36 +14843,7 @@ unsafe impl ::windows::core::Interface for CompositionObject {
 impl ::windows::core::RuntimeName for CompositionObject {
     const NAME: &'static str = "Windows.UI.Composition.CompositionObject";
 }
-impl ::core::convert::From<CompositionObject> for ::windows::core::IUnknown {
-    fn from(value: CompositionObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionObject> for ::windows::core::IUnknown {
-    fn from(value: &CompositionObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionObject> for &::windows::core::IUnknown {
-    fn from(value: &CompositionObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionObject> for ::windows::core::IInspectable {
-    fn from(value: CompositionObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionObject> for ::windows::core::IInspectable {
-    fn from(value: &CompositionObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionObject> for &::windows::core::IInspectable {
-    fn from(value: &CompositionObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionObject> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionObject) -> ::windows::core::Result<Self> {
@@ -16304,36 +14941,7 @@ unsafe impl ::windows::core::Interface for CompositionPath {
 impl ::windows::core::RuntimeName for CompositionPath {
     const NAME: &'static str = "Windows.UI.Composition.CompositionPath";
 }
-impl ::core::convert::From<CompositionPath> for ::windows::core::IUnknown {
-    fn from(value: CompositionPath) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionPath> for ::windows::core::IUnknown {
-    fn from(value: &CompositionPath) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionPath> for &::windows::core::IUnknown {
-    fn from(value: &CompositionPath) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionPath> for ::windows::core::IInspectable {
-    fn from(value: CompositionPath) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionPath> for ::windows::core::IInspectable {
-    fn from(value: &CompositionPath) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionPath> for &::windows::core::IInspectable {
-    fn from(value: &CompositionPath) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionPath, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Graphics")]
 impl ::core::convert::TryFrom<CompositionPath> for super::super::Graphics::IGeometrySource2D {
     type Error = ::windows::core::Error;
@@ -16537,36 +15145,7 @@ unsafe impl ::windows::core::Interface for CompositionPathGeometry {
 impl ::windows::core::RuntimeName for CompositionPathGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionPathGeometry";
 }
-impl ::core::convert::From<CompositionPathGeometry> for ::windows::core::IUnknown {
-    fn from(value: CompositionPathGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionPathGeometry> for ::windows::core::IUnknown {
-    fn from(value: &CompositionPathGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionPathGeometry> for &::windows::core::IUnknown {
-    fn from(value: &CompositionPathGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionPathGeometry> for ::windows::core::IInspectable {
-    fn from(value: CompositionPathGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionPathGeometry> for ::windows::core::IInspectable {
-    fn from(value: &CompositionPathGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionPathGeometry> for &::windows::core::IInspectable {
-    fn from(value: &CompositionPathGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionPathGeometry, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionPathGeometry> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionPathGeometry) -> ::windows::core::Result<Self> {
@@ -16836,36 +15415,7 @@ unsafe impl ::windows::core::Interface for CompositionProjectedShadow {
 impl ::windows::core::RuntimeName for CompositionProjectedShadow {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadow";
 }
-impl ::core::convert::From<CompositionProjectedShadow> for ::windows::core::IUnknown {
-    fn from(value: CompositionProjectedShadow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionProjectedShadow> for ::windows::core::IUnknown {
-    fn from(value: &CompositionProjectedShadow) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionProjectedShadow> for &::windows::core::IUnknown {
-    fn from(value: &CompositionProjectedShadow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionProjectedShadow> for ::windows::core::IInspectable {
-    fn from(value: CompositionProjectedShadow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionProjectedShadow> for ::windows::core::IInspectable {
-    fn from(value: &CompositionProjectedShadow) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionProjectedShadow> for &::windows::core::IInspectable {
-    fn from(value: &CompositionProjectedShadow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionProjectedShadow, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionProjectedShadow> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionProjectedShadow) -> ::windows::core::Result<Self> {
@@ -17087,36 +15637,7 @@ unsafe impl ::windows::core::Interface for CompositionProjectedShadowCaster {
 impl ::windows::core::RuntimeName for CompositionProjectedShadowCaster {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadowCaster";
 }
-impl ::core::convert::From<CompositionProjectedShadowCaster> for ::windows::core::IUnknown {
-    fn from(value: CompositionProjectedShadowCaster) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionProjectedShadowCaster> for ::windows::core::IUnknown {
-    fn from(value: &CompositionProjectedShadowCaster) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionProjectedShadowCaster> for &::windows::core::IUnknown {
-    fn from(value: &CompositionProjectedShadowCaster) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionProjectedShadowCaster> for ::windows::core::IInspectable {
-    fn from(value: CompositionProjectedShadowCaster) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionProjectedShadowCaster> for ::windows::core::IInspectable {
-    fn from(value: &CompositionProjectedShadowCaster) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionProjectedShadowCaster> for &::windows::core::IInspectable {
-    fn from(value: &CompositionProjectedShadowCaster) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionProjectedShadowCaster, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionProjectedShadowCaster> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionProjectedShadowCaster) -> ::windows::core::Result<Self> {
@@ -17377,36 +15898,7 @@ impl ::core::iter::IntoIterator for &CompositionProjectedShadowCasterCollection 
         self.First().unwrap()
     }
 }
-impl ::core::convert::From<CompositionProjectedShadowCasterCollection> for ::windows::core::IUnknown {
-    fn from(value: CompositionProjectedShadowCasterCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionProjectedShadowCasterCollection> for ::windows::core::IUnknown {
-    fn from(value: &CompositionProjectedShadowCasterCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionProjectedShadowCasterCollection> for &::windows::core::IUnknown {
-    fn from(value: &CompositionProjectedShadowCasterCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionProjectedShadowCasterCollection> for ::windows::core::IInspectable {
-    fn from(value: CompositionProjectedShadowCasterCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionProjectedShadowCasterCollection> for ::windows::core::IInspectable {
-    fn from(value: &CompositionProjectedShadowCasterCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionProjectedShadowCasterCollection> for &::windows::core::IInspectable {
-    fn from(value: &CompositionProjectedShadowCasterCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionProjectedShadowCasterCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionProjectedShadowCasterCollection> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionProjectedShadowCasterCollection) -> ::windows::core::Result<Self> {
@@ -17636,36 +16128,7 @@ unsafe impl ::windows::core::Interface for CompositionProjectedShadowReceiver {
 impl ::windows::core::RuntimeName for CompositionProjectedShadowReceiver {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadowReceiver";
 }
-impl ::core::convert::From<CompositionProjectedShadowReceiver> for ::windows::core::IUnknown {
-    fn from(value: CompositionProjectedShadowReceiver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionProjectedShadowReceiver> for ::windows::core::IUnknown {
-    fn from(value: &CompositionProjectedShadowReceiver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionProjectedShadowReceiver> for &::windows::core::IUnknown {
-    fn from(value: &CompositionProjectedShadowReceiver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionProjectedShadowReceiver> for ::windows::core::IInspectable {
-    fn from(value: CompositionProjectedShadowReceiver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionProjectedShadowReceiver> for ::windows::core::IInspectable {
-    fn from(value: &CompositionProjectedShadowReceiver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionProjectedShadowReceiver> for &::windows::core::IInspectable {
-    fn from(value: &CompositionProjectedShadowReceiver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionProjectedShadowReceiver, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionProjectedShadowReceiver> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionProjectedShadowReceiver) -> ::windows::core::Result<Self> {
@@ -17903,36 +16366,7 @@ impl ::core::iter::IntoIterator for &CompositionProjectedShadowReceiverUnordered
         self.First().unwrap()
     }
 }
-impl ::core::convert::From<CompositionProjectedShadowReceiverUnorderedCollection> for ::windows::core::IUnknown {
-    fn from(value: CompositionProjectedShadowReceiverUnorderedCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionProjectedShadowReceiverUnorderedCollection> for ::windows::core::IUnknown {
-    fn from(value: &CompositionProjectedShadowReceiverUnorderedCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionProjectedShadowReceiverUnorderedCollection> for &::windows::core::IUnknown {
-    fn from(value: &CompositionProjectedShadowReceiverUnorderedCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionProjectedShadowReceiverUnorderedCollection> for ::windows::core::IInspectable {
-    fn from(value: CompositionProjectedShadowReceiverUnorderedCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionProjectedShadowReceiverUnorderedCollection> for ::windows::core::IInspectable {
-    fn from(value: &CompositionProjectedShadowReceiverUnorderedCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionProjectedShadowReceiverUnorderedCollection> for &::windows::core::IInspectable {
-    fn from(value: &CompositionProjectedShadowReceiverUnorderedCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionProjectedShadowReceiverUnorderedCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionProjectedShadowReceiverUnorderedCollection> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionProjectedShadowReceiverUnorderedCollection) -> ::windows::core::Result<Self> {
@@ -18271,36 +16705,7 @@ unsafe impl ::windows::core::Interface for CompositionPropertySet {
 impl ::windows::core::RuntimeName for CompositionPropertySet {
     const NAME: &'static str = "Windows.UI.Composition.CompositionPropertySet";
 }
-impl ::core::convert::From<CompositionPropertySet> for ::windows::core::IUnknown {
-    fn from(value: CompositionPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionPropertySet> for ::windows::core::IUnknown {
-    fn from(value: &CompositionPropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionPropertySet> for &::windows::core::IUnknown {
-    fn from(value: &CompositionPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionPropertySet> for ::windows::core::IInspectable {
-    fn from(value: CompositionPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionPropertySet> for ::windows::core::IInspectable {
-    fn from(value: &CompositionPropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionPropertySet> for &::windows::core::IInspectable {
-    fn from(value: &CompositionPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionPropertySet, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionPropertySet> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionPropertySet) -> ::windows::core::Result<Self> {
@@ -18676,36 +17081,7 @@ unsafe impl ::windows::core::Interface for CompositionRadialGradientBrush {
 impl ::windows::core::RuntimeName for CompositionRadialGradientBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionRadialGradientBrush";
 }
-impl ::core::convert::From<CompositionRadialGradientBrush> for ::windows::core::IUnknown {
-    fn from(value: CompositionRadialGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionRadialGradientBrush> for ::windows::core::IUnknown {
-    fn from(value: &CompositionRadialGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionRadialGradientBrush> for &::windows::core::IUnknown {
-    fn from(value: &CompositionRadialGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionRadialGradientBrush> for ::windows::core::IInspectable {
-    fn from(value: CompositionRadialGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionRadialGradientBrush> for ::windows::core::IInspectable {
-    fn from(value: &CompositionRadialGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionRadialGradientBrush> for &::windows::core::IInspectable {
-    fn from(value: &CompositionRadialGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionRadialGradientBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionRadialGradientBrush> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionRadialGradientBrush) -> ::windows::core::Result<Self> {
@@ -18992,36 +17368,7 @@ unsafe impl ::windows::core::Interface for CompositionRectangleGeometry {
 impl ::windows::core::RuntimeName for CompositionRectangleGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionRectangleGeometry";
 }
-impl ::core::convert::From<CompositionRectangleGeometry> for ::windows::core::IUnknown {
-    fn from(value: CompositionRectangleGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionRectangleGeometry> for ::windows::core::IUnknown {
-    fn from(value: &CompositionRectangleGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionRectangleGeometry> for &::windows::core::IUnknown {
-    fn from(value: &CompositionRectangleGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionRectangleGeometry> for ::windows::core::IInspectable {
-    fn from(value: CompositionRectangleGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionRectangleGeometry> for ::windows::core::IInspectable {
-    fn from(value: &CompositionRectangleGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionRectangleGeometry> for &::windows::core::IInspectable {
-    fn from(value: &CompositionRectangleGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionRectangleGeometry, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionRectangleGeometry> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionRectangleGeometry) -> ::windows::core::Result<Self> {
@@ -19308,36 +17655,7 @@ unsafe impl ::windows::core::Interface for CompositionRoundedRectangleGeometry {
 impl ::windows::core::RuntimeName for CompositionRoundedRectangleGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionRoundedRectangleGeometry";
 }
-impl ::core::convert::From<CompositionRoundedRectangleGeometry> for ::windows::core::IUnknown {
-    fn from(value: CompositionRoundedRectangleGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionRoundedRectangleGeometry> for ::windows::core::IUnknown {
-    fn from(value: &CompositionRoundedRectangleGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionRoundedRectangleGeometry> for &::windows::core::IUnknown {
-    fn from(value: &CompositionRoundedRectangleGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionRoundedRectangleGeometry> for ::windows::core::IInspectable {
-    fn from(value: CompositionRoundedRectangleGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionRoundedRectangleGeometry> for ::windows::core::IInspectable {
-    fn from(value: &CompositionRoundedRectangleGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionRoundedRectangleGeometry> for &::windows::core::IInspectable {
-    fn from(value: &CompositionRoundedRectangleGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionRoundedRectangleGeometry, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionRoundedRectangleGeometry> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionRoundedRectangleGeometry) -> ::windows::core::Result<Self> {
@@ -19587,36 +17905,7 @@ unsafe impl ::windows::core::Interface for CompositionScopedBatch {
 impl ::windows::core::RuntimeName for CompositionScopedBatch {
     const NAME: &'static str = "Windows.UI.Composition.CompositionScopedBatch";
 }
-impl ::core::convert::From<CompositionScopedBatch> for ::windows::core::IUnknown {
-    fn from(value: CompositionScopedBatch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionScopedBatch> for ::windows::core::IUnknown {
-    fn from(value: &CompositionScopedBatch) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionScopedBatch> for &::windows::core::IUnknown {
-    fn from(value: &CompositionScopedBatch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionScopedBatch> for ::windows::core::IInspectable {
-    fn from(value: CompositionScopedBatch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionScopedBatch> for ::windows::core::IInspectable {
-    fn from(value: &CompositionScopedBatch) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionScopedBatch> for &::windows::core::IInspectable {
-    fn from(value: &CompositionScopedBatch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionScopedBatch, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionScopedBatch> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionScopedBatch) -> ::windows::core::Result<Self> {
@@ -19810,36 +18099,7 @@ unsafe impl ::windows::core::Interface for CompositionShadow {
 impl ::windows::core::RuntimeName for CompositionShadow {
     const NAME: &'static str = "Windows.UI.Composition.CompositionShadow";
 }
-impl ::core::convert::From<CompositionShadow> for ::windows::core::IUnknown {
-    fn from(value: CompositionShadow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionShadow> for ::windows::core::IUnknown {
-    fn from(value: &CompositionShadow) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionShadow> for &::windows::core::IUnknown {
-    fn from(value: &CompositionShadow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionShadow> for ::windows::core::IInspectable {
-    fn from(value: CompositionShadow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionShadow> for ::windows::core::IInspectable {
-    fn from(value: &CompositionShadow) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionShadow> for &::windows::core::IInspectable {
-    fn from(value: &CompositionShadow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionShadow, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionShadow> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionShadow) -> ::windows::core::Result<Self> {
@@ -20115,36 +18375,7 @@ unsafe impl ::windows::core::Interface for CompositionShape {
 impl ::windows::core::RuntimeName for CompositionShape {
     const NAME: &'static str = "Windows.UI.Composition.CompositionShape";
 }
-impl ::core::convert::From<CompositionShape> for ::windows::core::IUnknown {
-    fn from(value: CompositionShape) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionShape> for ::windows::core::IUnknown {
-    fn from(value: &CompositionShape) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionShape> for &::windows::core::IUnknown {
-    fn from(value: &CompositionShape) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionShape> for ::windows::core::IInspectable {
-    fn from(value: CompositionShape) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionShape> for ::windows::core::IInspectable {
-    fn from(value: &CompositionShape) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionShape> for &::windows::core::IInspectable {
-    fn from(value: &CompositionShape) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionShape, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionShape> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionShape) -> ::windows::core::Result<Self> {
@@ -20473,41 +18704,7 @@ impl ::core::iter::IntoIterator for &CompositionShapeCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<CompositionShapeCollection> for ::windows::core::IUnknown {
-    fn from(value: CompositionShapeCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&CompositionShapeCollection> for ::windows::core::IUnknown {
-    fn from(value: &CompositionShapeCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&CompositionShapeCollection> for &::windows::core::IUnknown {
-    fn from(value: &CompositionShapeCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<CompositionShapeCollection> for ::windows::core::IInspectable {
-    fn from(value: CompositionShapeCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&CompositionShapeCollection> for ::windows::core::IInspectable {
-    fn from(value: &CompositionShapeCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&CompositionShapeCollection> for &::windows::core::IInspectable {
-    fn from(value: &CompositionShapeCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionShapeCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<CompositionShapeCollection> for IAnimationObject {
     type Error = ::windows::core::Error;
@@ -20974,36 +19171,7 @@ unsafe impl ::windows::core::Interface for CompositionSpriteShape {
 impl ::windows::core::RuntimeName for CompositionSpriteShape {
     const NAME: &'static str = "Windows.UI.Composition.CompositionSpriteShape";
 }
-impl ::core::convert::From<CompositionSpriteShape> for ::windows::core::IUnknown {
-    fn from(value: CompositionSpriteShape) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionSpriteShape> for ::windows::core::IUnknown {
-    fn from(value: &CompositionSpriteShape) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionSpriteShape> for &::windows::core::IUnknown {
-    fn from(value: &CompositionSpriteShape) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionSpriteShape> for ::windows::core::IInspectable {
-    fn from(value: CompositionSpriteShape) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionSpriteShape> for ::windows::core::IInspectable {
-    fn from(value: &CompositionSpriteShape) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionSpriteShape> for &::windows::core::IInspectable {
-    fn from(value: &CompositionSpriteShape) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionSpriteShape, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionSpriteShape> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionSpriteShape) -> ::windows::core::Result<Self> {
@@ -21335,41 +19503,7 @@ impl ::core::iter::IntoIterator for &CompositionStrokeDashArray {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<CompositionStrokeDashArray> for ::windows::core::IUnknown {
-    fn from(value: CompositionStrokeDashArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&CompositionStrokeDashArray> for ::windows::core::IUnknown {
-    fn from(value: &CompositionStrokeDashArray) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&CompositionStrokeDashArray> for &::windows::core::IUnknown {
-    fn from(value: &CompositionStrokeDashArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<CompositionStrokeDashArray> for ::windows::core::IInspectable {
-    fn from(value: CompositionStrokeDashArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&CompositionStrokeDashArray> for ::windows::core::IInspectable {
-    fn from(value: &CompositionStrokeDashArray) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&CompositionStrokeDashArray> for &::windows::core::IInspectable {
-    fn from(value: &CompositionStrokeDashArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionStrokeDashArray, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<CompositionStrokeDashArray> for IAnimationObject {
     type Error = ::windows::core::Error;
@@ -21782,36 +19916,7 @@ unsafe impl ::windows::core::Interface for CompositionSurfaceBrush {
 impl ::windows::core::RuntimeName for CompositionSurfaceBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionSurfaceBrush";
 }
-impl ::core::convert::From<CompositionSurfaceBrush> for ::windows::core::IUnknown {
-    fn from(value: CompositionSurfaceBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionSurfaceBrush> for ::windows::core::IUnknown {
-    fn from(value: &CompositionSurfaceBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionSurfaceBrush> for &::windows::core::IUnknown {
-    fn from(value: &CompositionSurfaceBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionSurfaceBrush> for ::windows::core::IInspectable {
-    fn from(value: CompositionSurfaceBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionSurfaceBrush> for ::windows::core::IInspectable {
-    fn from(value: &CompositionSurfaceBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionSurfaceBrush> for &::windows::core::IInspectable {
-    fn from(value: &CompositionSurfaceBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionSurfaceBrush, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionSurfaceBrush> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionSurfaceBrush) -> ::windows::core::Result<Self> {
@@ -22034,36 +20139,7 @@ unsafe impl ::windows::core::Interface for CompositionTarget {
 impl ::windows::core::RuntimeName for CompositionTarget {
     const NAME: &'static str = "Windows.UI.Composition.CompositionTarget";
 }
-impl ::core::convert::From<CompositionTarget> for ::windows::core::IUnknown {
-    fn from(value: CompositionTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionTarget> for ::windows::core::IUnknown {
-    fn from(value: &CompositionTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionTarget> for &::windows::core::IUnknown {
-    fn from(value: &CompositionTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionTarget> for ::windows::core::IInspectable {
-    fn from(value: CompositionTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionTarget> for ::windows::core::IInspectable {
-    fn from(value: &CompositionTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionTarget> for &::windows::core::IInspectable {
-    fn from(value: &CompositionTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionTarget> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionTarget) -> ::windows::core::Result<Self> {
@@ -22257,36 +20333,7 @@ unsafe impl ::windows::core::Interface for CompositionTransform {
 impl ::windows::core::RuntimeName for CompositionTransform {
     const NAME: &'static str = "Windows.UI.Composition.CompositionTransform";
 }
-impl ::core::convert::From<CompositionTransform> for ::windows::core::IUnknown {
-    fn from(value: CompositionTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionTransform> for ::windows::core::IUnknown {
-    fn from(value: &CompositionTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionTransform> for &::windows::core::IUnknown {
-    fn from(value: &CompositionTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionTransform> for ::windows::core::IInspectable {
-    fn from(value: CompositionTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionTransform> for ::windows::core::IInspectable {
-    fn from(value: &CompositionTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionTransform> for &::windows::core::IInspectable {
-    fn from(value: &CompositionTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionTransform, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionTransform> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionTransform) -> ::windows::core::Result<Self> {
@@ -22543,36 +20590,7 @@ unsafe impl ::windows::core::Interface for CompositionViewBox {
 impl ::windows::core::RuntimeName for CompositionViewBox {
     const NAME: &'static str = "Windows.UI.Composition.CompositionViewBox";
 }
-impl ::core::convert::From<CompositionViewBox> for ::windows::core::IUnknown {
-    fn from(value: CompositionViewBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionViewBox> for ::windows::core::IUnknown {
-    fn from(value: &CompositionViewBox) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionViewBox> for &::windows::core::IUnknown {
-    fn from(value: &CompositionViewBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionViewBox> for ::windows::core::IInspectable {
-    fn from(value: CompositionViewBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionViewBox> for ::windows::core::IInspectable {
-    fn from(value: &CompositionViewBox) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionViewBox> for &::windows::core::IInspectable {
-    fn from(value: &CompositionViewBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionViewBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionViewBox> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionViewBox) -> ::windows::core::Result<Self> {
@@ -22838,36 +20856,7 @@ unsafe impl ::windows::core::Interface for CompositionVirtualDrawingSurface {
 impl ::windows::core::RuntimeName for CompositionVirtualDrawingSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionVirtualDrawingSurface";
 }
-impl ::core::convert::From<CompositionVirtualDrawingSurface> for ::windows::core::IUnknown {
-    fn from(value: CompositionVirtualDrawingSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionVirtualDrawingSurface> for ::windows::core::IUnknown {
-    fn from(value: &CompositionVirtualDrawingSurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionVirtualDrawingSurface> for &::windows::core::IUnknown {
-    fn from(value: &CompositionVirtualDrawingSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionVirtualDrawingSurface> for ::windows::core::IInspectable {
-    fn from(value: CompositionVirtualDrawingSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionVirtualDrawingSurface> for ::windows::core::IInspectable {
-    fn from(value: &CompositionVirtualDrawingSurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionVirtualDrawingSurface> for &::windows::core::IInspectable {
-    fn from(value: &CompositionVirtualDrawingSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionVirtualDrawingSurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionVirtualDrawingSurface> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionVirtualDrawingSurface) -> ::windows::core::Result<Self> {
@@ -23139,36 +21128,7 @@ unsafe impl ::windows::core::Interface for CompositionVisualSurface {
 impl ::windows::core::RuntimeName for CompositionVisualSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionVisualSurface";
 }
-impl ::core::convert::From<CompositionVisualSurface> for ::windows::core::IUnknown {
-    fn from(value: CompositionVisualSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionVisualSurface> for ::windows::core::IUnknown {
-    fn from(value: &CompositionVisualSurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionVisualSurface> for &::windows::core::IUnknown {
-    fn from(value: &CompositionVisualSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionVisualSurface> for ::windows::core::IInspectable {
-    fn from(value: CompositionVisualSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionVisualSurface> for ::windows::core::IInspectable {
-    fn from(value: &CompositionVisualSurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionVisualSurface> for &::windows::core::IInspectable {
-    fn from(value: &CompositionVisualSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionVisualSurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionVisualSurface> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionVisualSurface) -> ::windows::core::Result<Self> {
@@ -23902,36 +21862,7 @@ unsafe impl ::windows::core::Interface for Compositor {
 impl ::windows::core::RuntimeName for Compositor {
     const NAME: &'static str = "Windows.UI.Composition.Compositor";
 }
-impl ::core::convert::From<Compositor> for ::windows::core::IUnknown {
-    fn from(value: Compositor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Compositor> for ::windows::core::IUnknown {
-    fn from(value: &Compositor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Compositor> for &::windows::core::IUnknown {
-    fn from(value: &Compositor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Compositor> for ::windows::core::IInspectable {
-    fn from(value: Compositor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Compositor> for ::windows::core::IInspectable {
-    fn from(value: &Compositor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Compositor> for &::windows::core::IInspectable {
-    fn from(value: &Compositor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Compositor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<Compositor> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -24382,36 +22313,7 @@ unsafe impl ::windows::core::Interface for ContainerVisual {
 impl ::windows::core::RuntimeName for ContainerVisual {
     const NAME: &'static str = "Windows.UI.Composition.ContainerVisual";
 }
-impl ::core::convert::From<ContainerVisual> for ::windows::core::IUnknown {
-    fn from(value: ContainerVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContainerVisual> for ::windows::core::IUnknown {
-    fn from(value: &ContainerVisual) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContainerVisual> for &::windows::core::IUnknown {
-    fn from(value: &ContainerVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContainerVisual> for ::windows::core::IInspectable {
-    fn from(value: ContainerVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContainerVisual> for ::windows::core::IInspectable {
-    fn from(value: &ContainerVisual) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContainerVisual> for &::windows::core::IInspectable {
-    fn from(value: &ContainerVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContainerVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContainerVisual> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: ContainerVisual) -> ::windows::core::Result<Self> {
@@ -24638,36 +22540,7 @@ unsafe impl ::windows::core::Interface for CubicBezierEasingFunction {
 impl ::windows::core::RuntimeName for CubicBezierEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.CubicBezierEasingFunction";
 }
-impl ::core::convert::From<CubicBezierEasingFunction> for ::windows::core::IUnknown {
-    fn from(value: CubicBezierEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CubicBezierEasingFunction> for ::windows::core::IUnknown {
-    fn from(value: &CubicBezierEasingFunction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CubicBezierEasingFunction> for &::windows::core::IUnknown {
-    fn from(value: &CubicBezierEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CubicBezierEasingFunction> for ::windows::core::IInspectable {
-    fn from(value: CubicBezierEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CubicBezierEasingFunction> for ::windows::core::IInspectable {
-    fn from(value: &CubicBezierEasingFunction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CubicBezierEasingFunction> for &::windows::core::IInspectable {
-    fn from(value: &CubicBezierEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CubicBezierEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CubicBezierEasingFunction> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CubicBezierEasingFunction) -> ::windows::core::Result<Self> {
@@ -25207,36 +23080,7 @@ unsafe impl ::windows::core::Interface for DelegatedInkTrailVisual {
 impl ::windows::core::RuntimeName for DelegatedInkTrailVisual {
     const NAME: &'static str = "Windows.UI.Composition.DelegatedInkTrailVisual";
 }
-impl ::core::convert::From<DelegatedInkTrailVisual> for ::windows::core::IUnknown {
-    fn from(value: DelegatedInkTrailVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DelegatedInkTrailVisual> for ::windows::core::IUnknown {
-    fn from(value: &DelegatedInkTrailVisual) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DelegatedInkTrailVisual> for &::windows::core::IUnknown {
-    fn from(value: &DelegatedInkTrailVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DelegatedInkTrailVisual> for ::windows::core::IInspectable {
-    fn from(value: DelegatedInkTrailVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DelegatedInkTrailVisual> for ::windows::core::IInspectable {
-    fn from(value: &DelegatedInkTrailVisual) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DelegatedInkTrailVisual> for &::windows::core::IInspectable {
-    fn from(value: &DelegatedInkTrailVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DelegatedInkTrailVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DelegatedInkTrailVisual> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: DelegatedInkTrailVisual) -> ::windows::core::Result<Self> {
@@ -25521,36 +23365,7 @@ unsafe impl ::windows::core::Interface for DistantLight {
 impl ::windows::core::RuntimeName for DistantLight {
     const NAME: &'static str = "Windows.UI.Composition.DistantLight";
 }
-impl ::core::convert::From<DistantLight> for ::windows::core::IUnknown {
-    fn from(value: DistantLight) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DistantLight> for ::windows::core::IUnknown {
-    fn from(value: &DistantLight) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DistantLight> for &::windows::core::IUnknown {
-    fn from(value: &DistantLight) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DistantLight> for ::windows::core::IInspectable {
-    fn from(value: DistantLight) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DistantLight> for ::windows::core::IInspectable {
-    fn from(value: &DistantLight) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DistantLight> for &::windows::core::IInspectable {
-    fn from(value: &DistantLight) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DistantLight, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DistantLight> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: DistantLight) -> ::windows::core::Result<Self> {
@@ -25832,36 +23647,7 @@ unsafe impl ::windows::core::Interface for DropShadow {
 impl ::windows::core::RuntimeName for DropShadow {
     const NAME: &'static str = "Windows.UI.Composition.DropShadow";
 }
-impl ::core::convert::From<DropShadow> for ::windows::core::IUnknown {
-    fn from(value: DropShadow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DropShadow> for ::windows::core::IUnknown {
-    fn from(value: &DropShadow) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DropShadow> for &::windows::core::IUnknown {
-    fn from(value: &DropShadow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DropShadow> for ::windows::core::IInspectable {
-    fn from(value: DropShadow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DropShadow> for ::windows::core::IInspectable {
-    fn from(value: &DropShadow) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DropShadow> for &::windows::core::IInspectable {
-    fn from(value: &DropShadow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DropShadow, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DropShadow> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: DropShadow) -> ::windows::core::Result<Self> {
@@ -26091,36 +23877,7 @@ unsafe impl ::windows::core::Interface for ElasticEasingFunction {
 impl ::windows::core::RuntimeName for ElasticEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.ElasticEasingFunction";
 }
-impl ::core::convert::From<ElasticEasingFunction> for ::windows::core::IUnknown {
-    fn from(value: ElasticEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ElasticEasingFunction> for ::windows::core::IUnknown {
-    fn from(value: &ElasticEasingFunction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ElasticEasingFunction> for &::windows::core::IUnknown {
-    fn from(value: &ElasticEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ElasticEasingFunction> for ::windows::core::IInspectable {
-    fn from(value: ElasticEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ElasticEasingFunction> for ::windows::core::IInspectable {
-    fn from(value: &ElasticEasingFunction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ElasticEasingFunction> for &::windows::core::IInspectable {
-    fn from(value: &ElasticEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ElasticEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ElasticEasingFunction> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: ElasticEasingFunction) -> ::windows::core::Result<Self> {
@@ -26343,36 +24100,7 @@ unsafe impl ::windows::core::Interface for ExponentialEasingFunction {
 impl ::windows::core::RuntimeName for ExponentialEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.ExponentialEasingFunction";
 }
-impl ::core::convert::From<ExponentialEasingFunction> for ::windows::core::IUnknown {
-    fn from(value: ExponentialEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ExponentialEasingFunction> for ::windows::core::IUnknown {
-    fn from(value: &ExponentialEasingFunction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ExponentialEasingFunction> for &::windows::core::IUnknown {
-    fn from(value: &ExponentialEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ExponentialEasingFunction> for ::windows::core::IInspectable {
-    fn from(value: ExponentialEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ExponentialEasingFunction> for ::windows::core::IInspectable {
-    fn from(value: &ExponentialEasingFunction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ExponentialEasingFunction> for &::windows::core::IInspectable {
-    fn from(value: &ExponentialEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ExponentialEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ExponentialEasingFunction> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: ExponentialEasingFunction) -> ::windows::core::Result<Self> {
@@ -26683,36 +24411,7 @@ unsafe impl ::windows::core::Interface for ExpressionAnimation {
 impl ::windows::core::RuntimeName for ExpressionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ExpressionAnimation";
 }
-impl ::core::convert::From<ExpressionAnimation> for ::windows::core::IUnknown {
-    fn from(value: ExpressionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ExpressionAnimation> for ::windows::core::IUnknown {
-    fn from(value: &ExpressionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ExpressionAnimation> for &::windows::core::IUnknown {
-    fn from(value: &ExpressionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ExpressionAnimation> for ::windows::core::IInspectable {
-    fn from(value: ExpressionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ExpressionAnimation> for ::windows::core::IInspectable {
-    fn from(value: &ExpressionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ExpressionAnimation> for &::windows::core::IInspectable {
-    fn from(value: &ExpressionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ExpressionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ExpressionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: ExpressionAnimation) -> ::windows::core::Result<Self> {
@@ -27026,36 +24725,7 @@ impl ::core::iter::IntoIterator for &ImplicitAnimationCollection {
         self.First().unwrap()
     }
 }
-impl ::core::convert::From<ImplicitAnimationCollection> for ::windows::core::IUnknown {
-    fn from(value: ImplicitAnimationCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ImplicitAnimationCollection> for ::windows::core::IUnknown {
-    fn from(value: &ImplicitAnimationCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ImplicitAnimationCollection> for &::windows::core::IUnknown {
-    fn from(value: &ImplicitAnimationCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ImplicitAnimationCollection> for ::windows::core::IInspectable {
-    fn from(value: ImplicitAnimationCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ImplicitAnimationCollection> for ::windows::core::IInspectable {
-    fn from(value: &ImplicitAnimationCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ImplicitAnimationCollection> for &::windows::core::IInspectable {
-    fn from(value: &ImplicitAnimationCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ImplicitAnimationCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ImplicitAnimationCollection> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: ImplicitAnimationCollection) -> ::windows::core::Result<Self> {
@@ -27386,41 +25056,7 @@ impl ::core::iter::IntoIterator for &InitialValueExpressionCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<InitialValueExpressionCollection> for ::windows::core::IUnknown {
-    fn from(value: InitialValueExpressionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&InitialValueExpressionCollection> for ::windows::core::IUnknown {
-    fn from(value: &InitialValueExpressionCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&InitialValueExpressionCollection> for &::windows::core::IUnknown {
-    fn from(value: &InitialValueExpressionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<InitialValueExpressionCollection> for ::windows::core::IInspectable {
-    fn from(value: InitialValueExpressionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&InitialValueExpressionCollection> for ::windows::core::IInspectable {
-    fn from(value: &InitialValueExpressionCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&InitialValueExpressionCollection> for &::windows::core::IInspectable {
-    fn from(value: &InitialValueExpressionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InitialValueExpressionCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<InitialValueExpressionCollection> for IAnimationObject {
     type Error = ::windows::core::Error;
@@ -27807,36 +25443,7 @@ unsafe impl ::windows::core::Interface for InsetClip {
 impl ::windows::core::RuntimeName for InsetClip {
     const NAME: &'static str = "Windows.UI.Composition.InsetClip";
 }
-impl ::core::convert::From<InsetClip> for ::windows::core::IUnknown {
-    fn from(value: InsetClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InsetClip> for ::windows::core::IUnknown {
-    fn from(value: &InsetClip) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InsetClip> for &::windows::core::IUnknown {
-    fn from(value: &InsetClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InsetClip> for ::windows::core::IInspectable {
-    fn from(value: InsetClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InsetClip> for ::windows::core::IInspectable {
-    fn from(value: &InsetClip) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InsetClip> for &::windows::core::IInspectable {
-    fn from(value: &InsetClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InsetClip, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InsetClip> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: InsetClip) -> ::windows::core::Result<Self> {
@@ -28239,36 +25846,7 @@ unsafe impl ::windows::core::Interface for KeyFrameAnimation {
 impl ::windows::core::RuntimeName for KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.KeyFrameAnimation";
 }
-impl ::core::convert::From<KeyFrameAnimation> for ::windows::core::IUnknown {
-    fn from(value: KeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&KeyFrameAnimation> for ::windows::core::IUnknown {
-    fn from(value: &KeyFrameAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&KeyFrameAnimation> for &::windows::core::IUnknown {
-    fn from(value: &KeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<KeyFrameAnimation> for ::windows::core::IInspectable {
-    fn from(value: KeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&KeyFrameAnimation> for ::windows::core::IInspectable {
-    fn from(value: &KeyFrameAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&KeyFrameAnimation> for &::windows::core::IInspectable {
-    fn from(value: &KeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(KeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<KeyFrameAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: KeyFrameAnimation) -> ::windows::core::Result<Self> {
@@ -28812,36 +26390,7 @@ unsafe impl ::windows::core::Interface for LayerVisual {
 impl ::windows::core::RuntimeName for LayerVisual {
     const NAME: &'static str = "Windows.UI.Composition.LayerVisual";
 }
-impl ::core::convert::From<LayerVisual> for ::windows::core::IUnknown {
-    fn from(value: LayerVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LayerVisual> for ::windows::core::IUnknown {
-    fn from(value: &LayerVisual) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LayerVisual> for &::windows::core::IUnknown {
-    fn from(value: &LayerVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LayerVisual> for ::windows::core::IInspectable {
-    fn from(value: LayerVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LayerVisual> for ::windows::core::IInspectable {
-    fn from(value: &LayerVisual) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LayerVisual> for &::windows::core::IInspectable {
-    fn from(value: &LayerVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LayerVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LayerVisual> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: LayerVisual) -> ::windows::core::Result<Self> {
@@ -29065,36 +26614,7 @@ unsafe impl ::windows::core::Interface for LinearEasingFunction {
 impl ::windows::core::RuntimeName for LinearEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.LinearEasingFunction";
 }
-impl ::core::convert::From<LinearEasingFunction> for ::windows::core::IUnknown {
-    fn from(value: LinearEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LinearEasingFunction> for ::windows::core::IUnknown {
-    fn from(value: &LinearEasingFunction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LinearEasingFunction> for &::windows::core::IUnknown {
-    fn from(value: &LinearEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LinearEasingFunction> for ::windows::core::IInspectable {
-    fn from(value: LinearEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LinearEasingFunction> for ::windows::core::IInspectable {
-    fn from(value: &LinearEasingFunction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LinearEasingFunction> for &::windows::core::IInspectable {
-    fn from(value: &LinearEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LinearEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LinearEasingFunction> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: LinearEasingFunction) -> ::windows::core::Result<Self> {
@@ -29431,36 +26951,7 @@ unsafe impl ::windows::core::Interface for NaturalMotionAnimation {
 impl ::windows::core::RuntimeName for NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.NaturalMotionAnimation";
 }
-impl ::core::convert::From<NaturalMotionAnimation> for ::windows::core::IUnknown {
-    fn from(value: NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NaturalMotionAnimation> for ::windows::core::IUnknown {
-    fn from(value: &NaturalMotionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NaturalMotionAnimation> for &::windows::core::IUnknown {
-    fn from(value: &NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NaturalMotionAnimation> for ::windows::core::IInspectable {
-    fn from(value: NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NaturalMotionAnimation> for ::windows::core::IInspectable {
-    fn from(value: &NaturalMotionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NaturalMotionAnimation> for &::windows::core::IInspectable {
-    fn from(value: &NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<NaturalMotionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: NaturalMotionAnimation) -> ::windows::core::Result<Self> {
@@ -29893,36 +27384,7 @@ unsafe impl ::windows::core::Interface for PathKeyFrameAnimation {
 impl ::windows::core::RuntimeName for PathKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.PathKeyFrameAnimation";
 }
-impl ::core::convert::From<PathKeyFrameAnimation> for ::windows::core::IUnknown {
-    fn from(value: PathKeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PathKeyFrameAnimation> for ::windows::core::IUnknown {
-    fn from(value: &PathKeyFrameAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PathKeyFrameAnimation> for &::windows::core::IUnknown {
-    fn from(value: &PathKeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PathKeyFrameAnimation> for ::windows::core::IInspectable {
-    fn from(value: PathKeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PathKeyFrameAnimation> for ::windows::core::IInspectable {
-    fn from(value: &PathKeyFrameAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PathKeyFrameAnimation> for &::windows::core::IInspectable {
-    fn from(value: &PathKeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PathKeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PathKeyFrameAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: PathKeyFrameAnimation) -> ::windows::core::Result<Self> {
@@ -30296,36 +27758,7 @@ unsafe impl ::windows::core::Interface for PointLight {
 impl ::windows::core::RuntimeName for PointLight {
     const NAME: &'static str = "Windows.UI.Composition.PointLight";
 }
-impl ::core::convert::From<PointLight> for ::windows::core::IUnknown {
-    fn from(value: PointLight) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PointLight> for ::windows::core::IUnknown {
-    fn from(value: &PointLight) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PointLight> for &::windows::core::IUnknown {
-    fn from(value: &PointLight) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PointLight> for ::windows::core::IInspectable {
-    fn from(value: PointLight) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PointLight> for ::windows::core::IInspectable {
-    fn from(value: &PointLight) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PointLight> for &::windows::core::IInspectable {
-    fn from(value: &PointLight) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PointLight, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PointLight> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: PointLight) -> ::windows::core::Result<Self> {
@@ -30548,36 +27981,7 @@ unsafe impl ::windows::core::Interface for PowerEasingFunction {
 impl ::windows::core::RuntimeName for PowerEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.PowerEasingFunction";
 }
-impl ::core::convert::From<PowerEasingFunction> for ::windows::core::IUnknown {
-    fn from(value: PowerEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PowerEasingFunction> for ::windows::core::IUnknown {
-    fn from(value: &PowerEasingFunction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PowerEasingFunction> for &::windows::core::IUnknown {
-    fn from(value: &PowerEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PowerEasingFunction> for ::windows::core::IInspectable {
-    fn from(value: PowerEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PowerEasingFunction> for ::windows::core::IInspectable {
-    fn from(value: &PowerEasingFunction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PowerEasingFunction> for &::windows::core::IInspectable {
-    fn from(value: &PowerEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PowerEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PowerEasingFunction> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: PowerEasingFunction) -> ::windows::core::Result<Self> {
@@ -30995,36 +28399,7 @@ unsafe impl ::windows::core::Interface for QuaternionKeyFrameAnimation {
 impl ::windows::core::RuntimeName for QuaternionKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.QuaternionKeyFrameAnimation";
 }
-impl ::core::convert::From<QuaternionKeyFrameAnimation> for ::windows::core::IUnknown {
-    fn from(value: QuaternionKeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&QuaternionKeyFrameAnimation> for ::windows::core::IUnknown {
-    fn from(value: &QuaternionKeyFrameAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&QuaternionKeyFrameAnimation> for &::windows::core::IUnknown {
-    fn from(value: &QuaternionKeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<QuaternionKeyFrameAnimation> for ::windows::core::IInspectable {
-    fn from(value: QuaternionKeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&QuaternionKeyFrameAnimation> for ::windows::core::IInspectable {
-    fn from(value: &QuaternionKeyFrameAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&QuaternionKeyFrameAnimation> for &::windows::core::IInspectable {
-    fn from(value: &QuaternionKeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(QuaternionKeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<QuaternionKeyFrameAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: QuaternionKeyFrameAnimation) -> ::windows::core::Result<Self> {
@@ -31468,36 +28843,7 @@ unsafe impl ::windows::core::Interface for RectangleClip {
 impl ::windows::core::RuntimeName for RectangleClip {
     const NAME: &'static str = "Windows.UI.Composition.RectangleClip";
 }
-impl ::core::convert::From<RectangleClip> for ::windows::core::IUnknown {
-    fn from(value: RectangleClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RectangleClip> for ::windows::core::IUnknown {
-    fn from(value: &RectangleClip) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RectangleClip> for &::windows::core::IUnknown {
-    fn from(value: &RectangleClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RectangleClip> for ::windows::core::IInspectable {
-    fn from(value: RectangleClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RectangleClip> for ::windows::core::IInspectable {
-    fn from(value: &RectangleClip) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RectangleClip> for &::windows::core::IInspectable {
-    fn from(value: &RectangleClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RectangleClip, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RectangleClip> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: RectangleClip) -> ::windows::core::Result<Self> {
@@ -32011,36 +29357,7 @@ unsafe impl ::windows::core::Interface for RedirectVisual {
 impl ::windows::core::RuntimeName for RedirectVisual {
     const NAME: &'static str = "Windows.UI.Composition.RedirectVisual";
 }
-impl ::core::convert::From<RedirectVisual> for ::windows::core::IUnknown {
-    fn from(value: RedirectVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RedirectVisual> for ::windows::core::IUnknown {
-    fn from(value: &RedirectVisual) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RedirectVisual> for &::windows::core::IUnknown {
-    fn from(value: &RedirectVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RedirectVisual> for ::windows::core::IInspectable {
-    fn from(value: RedirectVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RedirectVisual> for ::windows::core::IInspectable {
-    fn from(value: &RedirectVisual) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RedirectVisual> for &::windows::core::IInspectable {
-    fn from(value: &RedirectVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RedirectVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RedirectVisual> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: RedirectVisual) -> ::windows::core::Result<Self> {
@@ -32271,36 +29588,7 @@ unsafe impl ::windows::core::Interface for RenderingDeviceReplacedEventArgs {
 impl ::windows::core::RuntimeName for RenderingDeviceReplacedEventArgs {
     const NAME: &'static str = "Windows.UI.Composition.RenderingDeviceReplacedEventArgs";
 }
-impl ::core::convert::From<RenderingDeviceReplacedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: RenderingDeviceReplacedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RenderingDeviceReplacedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &RenderingDeviceReplacedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RenderingDeviceReplacedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &RenderingDeviceReplacedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RenderingDeviceReplacedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: RenderingDeviceReplacedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RenderingDeviceReplacedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &RenderingDeviceReplacedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RenderingDeviceReplacedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &RenderingDeviceReplacedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RenderingDeviceReplacedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RenderingDeviceReplacedEventArgs> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: RenderingDeviceReplacedEventArgs) -> ::windows::core::Result<Self> {
@@ -32699,36 +29987,7 @@ unsafe impl ::windows::core::Interface for ScalarKeyFrameAnimation {
 impl ::windows::core::RuntimeName for ScalarKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ScalarKeyFrameAnimation";
 }
-impl ::core::convert::From<ScalarKeyFrameAnimation> for ::windows::core::IUnknown {
-    fn from(value: ScalarKeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ScalarKeyFrameAnimation> for ::windows::core::IUnknown {
-    fn from(value: &ScalarKeyFrameAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ScalarKeyFrameAnimation> for &::windows::core::IUnknown {
-    fn from(value: &ScalarKeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ScalarKeyFrameAnimation> for ::windows::core::IInspectable {
-    fn from(value: ScalarKeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ScalarKeyFrameAnimation> for ::windows::core::IInspectable {
-    fn from(value: &ScalarKeyFrameAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ScalarKeyFrameAnimation> for &::windows::core::IInspectable {
-    fn from(value: &ScalarKeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ScalarKeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ScalarKeyFrameAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: ScalarKeyFrameAnimation) -> ::windows::core::Result<Self> {
@@ -33148,36 +30407,7 @@ unsafe impl ::windows::core::Interface for ScalarNaturalMotionAnimation {
 impl ::windows::core::RuntimeName for ScalarNaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ScalarNaturalMotionAnimation";
 }
-impl ::core::convert::From<ScalarNaturalMotionAnimation> for ::windows::core::IUnknown {
-    fn from(value: ScalarNaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ScalarNaturalMotionAnimation> for ::windows::core::IUnknown {
-    fn from(value: &ScalarNaturalMotionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ScalarNaturalMotionAnimation> for &::windows::core::IUnknown {
-    fn from(value: &ScalarNaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ScalarNaturalMotionAnimation> for ::windows::core::IInspectable {
-    fn from(value: ScalarNaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ScalarNaturalMotionAnimation> for ::windows::core::IInspectable {
-    fn from(value: &ScalarNaturalMotionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ScalarNaturalMotionAnimation> for &::windows::core::IInspectable {
-    fn from(value: &ScalarNaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ScalarNaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ScalarNaturalMotionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: ScalarNaturalMotionAnimation) -> ::windows::core::Result<Self> {
@@ -33731,36 +30961,7 @@ unsafe impl ::windows::core::Interface for ShapeVisual {
 impl ::windows::core::RuntimeName for ShapeVisual {
     const NAME: &'static str = "Windows.UI.Composition.ShapeVisual";
 }
-impl ::core::convert::From<ShapeVisual> for ::windows::core::IUnknown {
-    fn from(value: ShapeVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ShapeVisual> for ::windows::core::IUnknown {
-    fn from(value: &ShapeVisual) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ShapeVisual> for &::windows::core::IUnknown {
-    fn from(value: &ShapeVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ShapeVisual> for ::windows::core::IInspectable {
-    fn from(value: ShapeVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ShapeVisual> for ::windows::core::IInspectable {
-    fn from(value: &ShapeVisual) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ShapeVisual> for &::windows::core::IInspectable {
-    fn from(value: &ShapeVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ShapeVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ShapeVisual> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: ShapeVisual) -> ::windows::core::Result<Self> {
@@ -33991,36 +31192,7 @@ unsafe impl ::windows::core::Interface for SineEasingFunction {
 impl ::windows::core::RuntimeName for SineEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.SineEasingFunction";
 }
-impl ::core::convert::From<SineEasingFunction> for ::windows::core::IUnknown {
-    fn from(value: SineEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SineEasingFunction> for ::windows::core::IUnknown {
-    fn from(value: &SineEasingFunction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SineEasingFunction> for &::windows::core::IUnknown {
-    fn from(value: &SineEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SineEasingFunction> for ::windows::core::IInspectable {
-    fn from(value: SineEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SineEasingFunction> for ::windows::core::IInspectable {
-    fn from(value: &SineEasingFunction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SineEasingFunction> for &::windows::core::IInspectable {
-    fn from(value: &SineEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SineEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SineEasingFunction> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SineEasingFunction) -> ::windows::core::Result<Self> {
@@ -34441,36 +31613,7 @@ unsafe impl ::windows::core::Interface for SpotLight {
 impl ::windows::core::RuntimeName for SpotLight {
     const NAME: &'static str = "Windows.UI.Composition.SpotLight";
 }
-impl ::core::convert::From<SpotLight> for ::windows::core::IUnknown {
-    fn from(value: SpotLight) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpotLight> for ::windows::core::IUnknown {
-    fn from(value: &SpotLight) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpotLight> for &::windows::core::IUnknown {
-    fn from(value: &SpotLight) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpotLight> for ::windows::core::IInspectable {
-    fn from(value: SpotLight) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpotLight> for ::windows::core::IInspectable {
-    fn from(value: &SpotLight) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpotLight> for &::windows::core::IInspectable {
-    fn from(value: &SpotLight) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpotLight, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SpotLight> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SpotLight) -> ::windows::core::Result<Self> {
@@ -34882,36 +32025,7 @@ unsafe impl ::windows::core::Interface for SpringScalarNaturalMotionAnimation {
 impl ::windows::core::RuntimeName for SpringScalarNaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.SpringScalarNaturalMotionAnimation";
 }
-impl ::core::convert::From<SpringScalarNaturalMotionAnimation> for ::windows::core::IUnknown {
-    fn from(value: SpringScalarNaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpringScalarNaturalMotionAnimation> for ::windows::core::IUnknown {
-    fn from(value: &SpringScalarNaturalMotionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpringScalarNaturalMotionAnimation> for &::windows::core::IUnknown {
-    fn from(value: &SpringScalarNaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpringScalarNaturalMotionAnimation> for ::windows::core::IInspectable {
-    fn from(value: SpringScalarNaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpringScalarNaturalMotionAnimation> for ::windows::core::IInspectable {
-    fn from(value: &SpringScalarNaturalMotionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpringScalarNaturalMotionAnimation> for &::windows::core::IInspectable {
-    fn from(value: &SpringScalarNaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpringScalarNaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SpringScalarNaturalMotionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SpringScalarNaturalMotionAnimation) -> ::windows::core::Result<Self> {
@@ -35376,36 +32490,7 @@ unsafe impl ::windows::core::Interface for SpringVector2NaturalMotionAnimation {
 impl ::windows::core::RuntimeName for SpringVector2NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.SpringVector2NaturalMotionAnimation";
 }
-impl ::core::convert::From<SpringVector2NaturalMotionAnimation> for ::windows::core::IUnknown {
-    fn from(value: SpringVector2NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpringVector2NaturalMotionAnimation> for ::windows::core::IUnknown {
-    fn from(value: &SpringVector2NaturalMotionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpringVector2NaturalMotionAnimation> for &::windows::core::IUnknown {
-    fn from(value: &SpringVector2NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpringVector2NaturalMotionAnimation> for ::windows::core::IInspectable {
-    fn from(value: SpringVector2NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpringVector2NaturalMotionAnimation> for ::windows::core::IInspectable {
-    fn from(value: &SpringVector2NaturalMotionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpringVector2NaturalMotionAnimation> for &::windows::core::IInspectable {
-    fn from(value: &SpringVector2NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpringVector2NaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SpringVector2NaturalMotionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SpringVector2NaturalMotionAnimation) -> ::windows::core::Result<Self> {
@@ -35870,36 +32955,7 @@ unsafe impl ::windows::core::Interface for SpringVector3NaturalMotionAnimation {
 impl ::windows::core::RuntimeName for SpringVector3NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.SpringVector3NaturalMotionAnimation";
 }
-impl ::core::convert::From<SpringVector3NaturalMotionAnimation> for ::windows::core::IUnknown {
-    fn from(value: SpringVector3NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpringVector3NaturalMotionAnimation> for ::windows::core::IUnknown {
-    fn from(value: &SpringVector3NaturalMotionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpringVector3NaturalMotionAnimation> for &::windows::core::IUnknown {
-    fn from(value: &SpringVector3NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpringVector3NaturalMotionAnimation> for ::windows::core::IInspectable {
-    fn from(value: SpringVector3NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpringVector3NaturalMotionAnimation> for ::windows::core::IInspectable {
-    fn from(value: &SpringVector3NaturalMotionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpringVector3NaturalMotionAnimation> for &::windows::core::IInspectable {
-    fn from(value: &SpringVector3NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpringVector3NaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SpringVector3NaturalMotionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SpringVector3NaturalMotionAnimation) -> ::windows::core::Result<Self> {
@@ -36476,36 +33532,7 @@ unsafe impl ::windows::core::Interface for SpriteVisual {
 impl ::windows::core::RuntimeName for SpriteVisual {
     const NAME: &'static str = "Windows.UI.Composition.SpriteVisual";
 }
-impl ::core::convert::From<SpriteVisual> for ::windows::core::IUnknown {
-    fn from(value: SpriteVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpriteVisual> for ::windows::core::IUnknown {
-    fn from(value: &SpriteVisual) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpriteVisual> for &::windows::core::IUnknown {
-    fn from(value: &SpriteVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpriteVisual> for ::windows::core::IInspectable {
-    fn from(value: SpriteVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpriteVisual> for ::windows::core::IInspectable {
-    fn from(value: &SpriteVisual) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpriteVisual> for &::windows::core::IInspectable {
-    fn from(value: &SpriteVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpriteVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SpriteVisual> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SpriteVisual) -> ::windows::core::Result<Self> {
@@ -36784,36 +33811,7 @@ unsafe impl ::windows::core::Interface for StepEasingFunction {
 impl ::windows::core::RuntimeName for StepEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.StepEasingFunction";
 }
-impl ::core::convert::From<StepEasingFunction> for ::windows::core::IUnknown {
-    fn from(value: StepEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StepEasingFunction> for ::windows::core::IUnknown {
-    fn from(value: &StepEasingFunction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StepEasingFunction> for &::windows::core::IUnknown {
-    fn from(value: &StepEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StepEasingFunction> for ::windows::core::IInspectable {
-    fn from(value: StepEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StepEasingFunction> for ::windows::core::IInspectable {
-    fn from(value: &StepEasingFunction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StepEasingFunction> for &::windows::core::IInspectable {
-    fn from(value: &StepEasingFunction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StepEasingFunction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StepEasingFunction> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: StepEasingFunction) -> ::windows::core::Result<Self> {
@@ -37231,36 +34229,7 @@ unsafe impl ::windows::core::Interface for Vector2KeyFrameAnimation {
 impl ::windows::core::RuntimeName for Vector2KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector2KeyFrameAnimation";
 }
-impl ::core::convert::From<Vector2KeyFrameAnimation> for ::windows::core::IUnknown {
-    fn from(value: Vector2KeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Vector2KeyFrameAnimation> for ::windows::core::IUnknown {
-    fn from(value: &Vector2KeyFrameAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Vector2KeyFrameAnimation> for &::windows::core::IUnknown {
-    fn from(value: &Vector2KeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Vector2KeyFrameAnimation> for ::windows::core::IInspectable {
-    fn from(value: Vector2KeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Vector2KeyFrameAnimation> for ::windows::core::IInspectable {
-    fn from(value: &Vector2KeyFrameAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Vector2KeyFrameAnimation> for &::windows::core::IInspectable {
-    fn from(value: &Vector2KeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Vector2KeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Vector2KeyFrameAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: Vector2KeyFrameAnimation) -> ::windows::core::Result<Self> {
@@ -37684,36 +34653,7 @@ unsafe impl ::windows::core::Interface for Vector2NaturalMotionAnimation {
 impl ::windows::core::RuntimeName for Vector2NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector2NaturalMotionAnimation";
 }
-impl ::core::convert::From<Vector2NaturalMotionAnimation> for ::windows::core::IUnknown {
-    fn from(value: Vector2NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Vector2NaturalMotionAnimation> for ::windows::core::IUnknown {
-    fn from(value: &Vector2NaturalMotionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Vector2NaturalMotionAnimation> for &::windows::core::IUnknown {
-    fn from(value: &Vector2NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Vector2NaturalMotionAnimation> for ::windows::core::IInspectable {
-    fn from(value: Vector2NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Vector2NaturalMotionAnimation> for ::windows::core::IInspectable {
-    fn from(value: &Vector2NaturalMotionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Vector2NaturalMotionAnimation> for &::windows::core::IInspectable {
-    fn from(value: &Vector2NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Vector2NaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Vector2NaturalMotionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: Vector2NaturalMotionAnimation) -> ::windows::core::Result<Self> {
@@ -38165,36 +35105,7 @@ unsafe impl ::windows::core::Interface for Vector3KeyFrameAnimation {
 impl ::windows::core::RuntimeName for Vector3KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector3KeyFrameAnimation";
 }
-impl ::core::convert::From<Vector3KeyFrameAnimation> for ::windows::core::IUnknown {
-    fn from(value: Vector3KeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Vector3KeyFrameAnimation> for ::windows::core::IUnknown {
-    fn from(value: &Vector3KeyFrameAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Vector3KeyFrameAnimation> for &::windows::core::IUnknown {
-    fn from(value: &Vector3KeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Vector3KeyFrameAnimation> for ::windows::core::IInspectable {
-    fn from(value: Vector3KeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Vector3KeyFrameAnimation> for ::windows::core::IInspectable {
-    fn from(value: &Vector3KeyFrameAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Vector3KeyFrameAnimation> for &::windows::core::IInspectable {
-    fn from(value: &Vector3KeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Vector3KeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Vector3KeyFrameAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: Vector3KeyFrameAnimation) -> ::windows::core::Result<Self> {
@@ -38618,36 +35529,7 @@ unsafe impl ::windows::core::Interface for Vector3NaturalMotionAnimation {
 impl ::windows::core::RuntimeName for Vector3NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector3NaturalMotionAnimation";
 }
-impl ::core::convert::From<Vector3NaturalMotionAnimation> for ::windows::core::IUnknown {
-    fn from(value: Vector3NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Vector3NaturalMotionAnimation> for ::windows::core::IUnknown {
-    fn from(value: &Vector3NaturalMotionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Vector3NaturalMotionAnimation> for &::windows::core::IUnknown {
-    fn from(value: &Vector3NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Vector3NaturalMotionAnimation> for ::windows::core::IInspectable {
-    fn from(value: Vector3NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Vector3NaturalMotionAnimation> for ::windows::core::IInspectable {
-    fn from(value: &Vector3NaturalMotionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Vector3NaturalMotionAnimation> for &::windows::core::IInspectable {
-    fn from(value: &Vector3NaturalMotionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Vector3NaturalMotionAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Vector3NaturalMotionAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: Vector3NaturalMotionAnimation) -> ::windows::core::Result<Self> {
@@ -39099,36 +35981,7 @@ unsafe impl ::windows::core::Interface for Vector4KeyFrameAnimation {
 impl ::windows::core::RuntimeName for Vector4KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector4KeyFrameAnimation";
 }
-impl ::core::convert::From<Vector4KeyFrameAnimation> for ::windows::core::IUnknown {
-    fn from(value: Vector4KeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Vector4KeyFrameAnimation> for ::windows::core::IUnknown {
-    fn from(value: &Vector4KeyFrameAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Vector4KeyFrameAnimation> for &::windows::core::IUnknown {
-    fn from(value: &Vector4KeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Vector4KeyFrameAnimation> for ::windows::core::IInspectable {
-    fn from(value: Vector4KeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Vector4KeyFrameAnimation> for ::windows::core::IInspectable {
-    fn from(value: &Vector4KeyFrameAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Vector4KeyFrameAnimation> for &::windows::core::IInspectable {
-    fn from(value: &Vector4KeyFrameAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Vector4KeyFrameAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Vector4KeyFrameAnimation> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: Vector4KeyFrameAnimation) -> ::windows::core::Result<Self> {
@@ -39655,36 +36508,7 @@ unsafe impl ::windows::core::Interface for Visual {
 impl ::windows::core::RuntimeName for Visual {
     const NAME: &'static str = "Windows.UI.Composition.Visual";
 }
-impl ::core::convert::From<Visual> for ::windows::core::IUnknown {
-    fn from(value: Visual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Visual> for ::windows::core::IUnknown {
-    fn from(value: &Visual) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Visual> for &::windows::core::IUnknown {
-    fn from(value: &Visual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Visual> for ::windows::core::IInspectable {
-    fn from(value: Visual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Visual> for ::windows::core::IInspectable {
-    fn from(value: &Visual) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Visual> for &::windows::core::IInspectable {
-    fn from(value: &Visual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Visual, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Visual> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: Visual) -> ::windows::core::Result<Self> {
@@ -39951,36 +36775,7 @@ impl ::core::iter::IntoIterator for &VisualCollection {
         self.First().unwrap()
     }
 }
-impl ::core::convert::From<VisualCollection> for ::windows::core::IUnknown {
-    fn from(value: VisualCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VisualCollection> for ::windows::core::IUnknown {
-    fn from(value: &VisualCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VisualCollection> for &::windows::core::IUnknown {
-    fn from(value: &VisualCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VisualCollection> for ::windows::core::IInspectable {
-    fn from(value: VisualCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VisualCollection> for ::windows::core::IInspectable {
-    fn from(value: &VisualCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VisualCollection> for &::windows::core::IInspectable {
-    fn from(value: &VisualCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VisualCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VisualCollection> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: VisualCollection) -> ::windows::core::Result<Self> {
@@ -40246,36 +37041,7 @@ impl ::core::iter::IntoIterator for &VisualUnorderedCollection {
         self.First().unwrap()
     }
 }
-impl ::core::convert::From<VisualUnorderedCollection> for ::windows::core::IUnknown {
-    fn from(value: VisualUnorderedCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VisualUnorderedCollection> for ::windows::core::IUnknown {
-    fn from(value: &VisualUnorderedCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VisualUnorderedCollection> for &::windows::core::IUnknown {
-    fn from(value: &VisualUnorderedCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VisualUnorderedCollection> for ::windows::core::IInspectable {
-    fn from(value: VisualUnorderedCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VisualUnorderedCollection> for ::windows::core::IInspectable {
-    fn from(value: &VisualUnorderedCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VisualUnorderedCollection> for &::windows::core::IInspectable {
-    fn from(value: &VisualUnorderedCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VisualUnorderedCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VisualUnorderedCollection> for IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: VisualUnorderedCollection) -> ::windows::core::Result<Self> {

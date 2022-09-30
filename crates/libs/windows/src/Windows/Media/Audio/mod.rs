@@ -585,36 +585,7 @@ impl IAudioInputNode {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<IAudioInputNode> for ::windows::core::IUnknown {
-    fn from(value: IAudioInputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioInputNode> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioInputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioInputNode> for ::windows::core::IUnknown {
-    fn from(value: &IAudioInputNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAudioInputNode> for ::windows::core::IInspectable {
-    fn from(value: IAudioInputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioInputNode> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAudioInputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioInputNode> for ::windows::core::IInspectable {
-    fn from(value: &IAudioInputNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioInputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IAudioInputNode> for IAudioNode {
     type Error = ::windows::core::Error;
     fn try_from(value: IAudioInputNode) -> ::windows::core::Result<Self> {
@@ -820,36 +791,7 @@ impl IAudioInputNode2 {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<IAudioInputNode2> for ::windows::core::IUnknown {
-    fn from(value: IAudioInputNode2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioInputNode2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioInputNode2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioInputNode2> for ::windows::core::IUnknown {
-    fn from(value: &IAudioInputNode2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAudioInputNode2> for ::windows::core::IInspectable {
-    fn from(value: IAudioInputNode2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioInputNode2> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAudioInputNode2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioInputNode2> for ::windows::core::IInspectable {
-    fn from(value: &IAudioInputNode2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioInputNode2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IAudioInputNode2> for IAudioInputNode {
     type Error = ::windows::core::Error;
     fn try_from(value: IAudioInputNode2) -> ::windows::core::Result<Self> {
@@ -1028,36 +970,7 @@ impl IAudioNode {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<IAudioNode> for ::windows::core::IUnknown {
-    fn from(value: IAudioNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioNode> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioNode> for ::windows::core::IUnknown {
-    fn from(value: &IAudioNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAudioNode> for ::windows::core::IInspectable {
-    fn from(value: IAudioNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioNode> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAudioNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioNode> for ::windows::core::IInspectable {
-    fn from(value: &IAudioNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IAudioNode> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1448,36 +1361,7 @@ impl IAudioNodeWithListener {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<IAudioNodeWithListener> for ::windows::core::IUnknown {
-    fn from(value: IAudioNodeWithListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioNodeWithListener> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioNodeWithListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioNodeWithListener> for ::windows::core::IUnknown {
-    fn from(value: &IAudioNodeWithListener) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAudioNodeWithListener> for ::windows::core::IInspectable {
-    fn from(value: IAudioNodeWithListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioNodeWithListener> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAudioNodeWithListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioNodeWithListener> for ::windows::core::IInspectable {
-    fn from(value: &IAudioNodeWithListener) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioNodeWithListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IAudioNodeWithListener> for IAudioNode {
     type Error = ::windows::core::Error;
     fn try_from(value: IAudioNodeWithListener) -> ::windows::core::Result<Self> {
@@ -2444,36 +2328,7 @@ unsafe impl ::windows::core::Interface for AudioDeviceInputNode {
 impl ::windows::core::RuntimeName for AudioDeviceInputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioDeviceInputNode";
 }
-impl ::core::convert::From<AudioDeviceInputNode> for ::windows::core::IUnknown {
-    fn from(value: AudioDeviceInputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioDeviceInputNode> for ::windows::core::IUnknown {
-    fn from(value: &AudioDeviceInputNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioDeviceInputNode> for &::windows::core::IUnknown {
-    fn from(value: &AudioDeviceInputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioDeviceInputNode> for ::windows::core::IInspectable {
-    fn from(value: AudioDeviceInputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioDeviceInputNode> for ::windows::core::IInspectable {
-    fn from(value: &AudioDeviceInputNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioDeviceInputNode> for &::windows::core::IInspectable {
-    fn from(value: &AudioDeviceInputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioDeviceInputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AudioDeviceInputNode> for IAudioInputNode {
     type Error = ::windows::core::Error;
     fn try_from(value: AudioDeviceInputNode) -> ::windows::core::Result<Self> {
@@ -2690,36 +2545,7 @@ unsafe impl ::windows::core::Interface for AudioDeviceOutputNode {
 impl ::windows::core::RuntimeName for AudioDeviceOutputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioDeviceOutputNode";
 }
-impl ::core::convert::From<AudioDeviceOutputNode> for ::windows::core::IUnknown {
-    fn from(value: AudioDeviceOutputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioDeviceOutputNode> for ::windows::core::IUnknown {
-    fn from(value: &AudioDeviceOutputNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioDeviceOutputNode> for &::windows::core::IUnknown {
-    fn from(value: &AudioDeviceOutputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioDeviceOutputNode> for ::windows::core::IInspectable {
-    fn from(value: AudioDeviceOutputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioDeviceOutputNode> for ::windows::core::IInspectable {
-    fn from(value: &AudioDeviceOutputNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioDeviceOutputNode> for &::windows::core::IInspectable {
-    fn from(value: &AudioDeviceOutputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioDeviceOutputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AudioDeviceOutputNode> for IAudioNode {
     type Error = ::windows::core::Error;
     fn try_from(value: AudioDeviceOutputNode) -> ::windows::core::Result<Self> {
@@ -3053,36 +2879,7 @@ unsafe impl ::windows::core::Interface for AudioFileInputNode {
 impl ::windows::core::RuntimeName for AudioFileInputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioFileInputNode";
 }
-impl ::core::convert::From<AudioFileInputNode> for ::windows::core::IUnknown {
-    fn from(value: AudioFileInputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioFileInputNode> for ::windows::core::IUnknown {
-    fn from(value: &AudioFileInputNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioFileInputNode> for &::windows::core::IUnknown {
-    fn from(value: &AudioFileInputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioFileInputNode> for ::windows::core::IInspectable {
-    fn from(value: AudioFileInputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioFileInputNode> for ::windows::core::IInspectable {
-    fn from(value: &AudioFileInputNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioFileInputNode> for &::windows::core::IInspectable {
-    fn from(value: &AudioFileInputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioFileInputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AudioFileInputNode> for IAudioInputNode {
     type Error = ::windows::core::Error;
     fn try_from(value: AudioFileInputNode) -> ::windows::core::Result<Self> {
@@ -3306,36 +3103,7 @@ unsafe impl ::windows::core::Interface for AudioFileOutputNode {
 impl ::windows::core::RuntimeName for AudioFileOutputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioFileOutputNode";
 }
-impl ::core::convert::From<AudioFileOutputNode> for ::windows::core::IUnknown {
-    fn from(value: AudioFileOutputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioFileOutputNode> for ::windows::core::IUnknown {
-    fn from(value: &AudioFileOutputNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioFileOutputNode> for &::windows::core::IUnknown {
-    fn from(value: &AudioFileOutputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioFileOutputNode> for ::windows::core::IInspectable {
-    fn from(value: AudioFileOutputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioFileOutputNode> for ::windows::core::IInspectable {
-    fn from(value: &AudioFileOutputNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioFileOutputNode> for &::windows::core::IInspectable {
-    fn from(value: &AudioFileOutputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioFileOutputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AudioFileOutputNode> for IAudioNode {
     type Error = ::windows::core::Error;
     fn try_from(value: AudioFileOutputNode) -> ::windows::core::Result<Self> {
@@ -3423,36 +3191,7 @@ unsafe impl ::windows::core::Interface for AudioFrameCompletedEventArgs {
 impl ::windows::core::RuntimeName for AudioFrameCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Audio.AudioFrameCompletedEventArgs";
 }
-impl ::core::convert::From<AudioFrameCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AudioFrameCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioFrameCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AudioFrameCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioFrameCompletedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AudioFrameCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioFrameCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AudioFrameCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioFrameCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AudioFrameCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioFrameCompletedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AudioFrameCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioFrameCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioFrameCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for AudioFrameCompletedEventArgs {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -3666,36 +3405,7 @@ unsafe impl ::windows::core::Interface for AudioFrameInputNode {
 impl ::windows::core::RuntimeName for AudioFrameInputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioFrameInputNode";
 }
-impl ::core::convert::From<AudioFrameInputNode> for ::windows::core::IUnknown {
-    fn from(value: AudioFrameInputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioFrameInputNode> for ::windows::core::IUnknown {
-    fn from(value: &AudioFrameInputNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioFrameInputNode> for &::windows::core::IUnknown {
-    fn from(value: &AudioFrameInputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioFrameInputNode> for ::windows::core::IInspectable {
-    fn from(value: AudioFrameInputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioFrameInputNode> for ::windows::core::IInspectable {
-    fn from(value: &AudioFrameInputNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioFrameInputNode> for &::windows::core::IInspectable {
-    fn from(value: &AudioFrameInputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioFrameInputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AudioFrameInputNode> for IAudioInputNode {
     type Error = ::windows::core::Error;
     fn try_from(value: AudioFrameInputNode) -> ::windows::core::Result<Self> {
@@ -3899,36 +3609,7 @@ unsafe impl ::windows::core::Interface for AudioFrameOutputNode {
 impl ::windows::core::RuntimeName for AudioFrameOutputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioFrameOutputNode";
 }
-impl ::core::convert::From<AudioFrameOutputNode> for ::windows::core::IUnknown {
-    fn from(value: AudioFrameOutputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioFrameOutputNode> for ::windows::core::IUnknown {
-    fn from(value: &AudioFrameOutputNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioFrameOutputNode> for &::windows::core::IUnknown {
-    fn from(value: &AudioFrameOutputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioFrameOutputNode> for ::windows::core::IInspectable {
-    fn from(value: AudioFrameOutputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioFrameOutputNode> for ::windows::core::IInspectable {
-    fn from(value: &AudioFrameOutputNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioFrameOutputNode> for &::windows::core::IInspectable {
-    fn from(value: &AudioFrameOutputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioFrameOutputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AudioFrameOutputNode> for IAudioNode {
     type Error = ::windows::core::Error;
     fn try_from(value: AudioFrameOutputNode) -> ::windows::core::Result<Self> {
@@ -4321,36 +4002,7 @@ unsafe impl ::windows::core::Interface for AudioGraph {
 impl ::windows::core::RuntimeName for AudioGraph {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraph";
 }
-impl ::core::convert::From<AudioGraph> for ::windows::core::IUnknown {
-    fn from(value: AudioGraph) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioGraph> for ::windows::core::IUnknown {
-    fn from(value: &AudioGraph) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioGraph> for &::windows::core::IUnknown {
-    fn from(value: &AudioGraph) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioGraph> for ::windows::core::IInspectable {
-    fn from(value: AudioGraph) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioGraph> for ::windows::core::IInspectable {
-    fn from(value: &AudioGraph) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioGraph> for &::windows::core::IInspectable {
-    fn from(value: &AudioGraph) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioGraph, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<AudioGraph> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4429,41 +4081,7 @@ impl ::windows::core::RuntimeName for AudioGraphBatchUpdater {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraphBatchUpdater";
 }
 #[cfg(feature = "Foundation")]
-impl ::core::convert::From<AudioGraphBatchUpdater> for ::windows::core::IUnknown {
-    fn from(value: AudioGraphBatchUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&AudioGraphBatchUpdater> for ::windows::core::IUnknown {
-    fn from(value: &AudioGraphBatchUpdater) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&AudioGraphBatchUpdater> for &::windows::core::IUnknown {
-    fn from(value: &AudioGraphBatchUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<AudioGraphBatchUpdater> for ::windows::core::IInspectable {
-    fn from(value: AudioGraphBatchUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&AudioGraphBatchUpdater> for ::windows::core::IInspectable {
-    fn from(value: &AudioGraphBatchUpdater) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&AudioGraphBatchUpdater> for &::windows::core::IInspectable {
-    fn from(value: &AudioGraphBatchUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioGraphBatchUpdater, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<AudioGraphBatchUpdater> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4545,36 +4163,7 @@ unsafe impl ::windows::core::Interface for AudioGraphConnection {
 impl ::windows::core::RuntimeName for AudioGraphConnection {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraphConnection";
 }
-impl ::core::convert::From<AudioGraphConnection> for ::windows::core::IUnknown {
-    fn from(value: AudioGraphConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioGraphConnection> for ::windows::core::IUnknown {
-    fn from(value: &AudioGraphConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioGraphConnection> for &::windows::core::IUnknown {
-    fn from(value: &AudioGraphConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioGraphConnection> for ::windows::core::IInspectable {
-    fn from(value: AudioGraphConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioGraphConnection> for ::windows::core::IInspectable {
-    fn from(value: &AudioGraphConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioGraphConnection> for &::windows::core::IInspectable {
-    fn from(value: &AudioGraphConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioGraphConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioGraphConnection {}
 unsafe impl ::core::marker::Sync for AudioGraphConnection {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -4716,36 +4305,7 @@ unsafe impl ::windows::core::Interface for AudioGraphSettings {
 impl ::windows::core::RuntimeName for AudioGraphSettings {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraphSettings";
 }
-impl ::core::convert::From<AudioGraphSettings> for ::windows::core::IUnknown {
-    fn from(value: AudioGraphSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioGraphSettings> for ::windows::core::IUnknown {
-    fn from(value: &AudioGraphSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioGraphSettings> for &::windows::core::IUnknown {
-    fn from(value: &AudioGraphSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioGraphSettings> for ::windows::core::IInspectable {
-    fn from(value: AudioGraphSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioGraphSettings> for ::windows::core::IInspectable {
-    fn from(value: &AudioGraphSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioGraphSettings> for &::windows::core::IInspectable {
-    fn from(value: &AudioGraphSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioGraphSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioGraphSettings {}
 unsafe impl ::core::marker::Sync for AudioGraphSettings {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -4792,36 +4352,7 @@ unsafe impl ::windows::core::Interface for AudioGraphUnrecoverableErrorOccurredE
 impl ::windows::core::RuntimeName for AudioGraphUnrecoverableErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraphUnrecoverableErrorOccurredEventArgs";
 }
-impl ::core::convert::From<AudioGraphUnrecoverableErrorOccurredEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AudioGraphUnrecoverableErrorOccurredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioGraphUnrecoverableErrorOccurredEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AudioGraphUnrecoverableErrorOccurredEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioGraphUnrecoverableErrorOccurredEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AudioGraphUnrecoverableErrorOccurredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioGraphUnrecoverableErrorOccurredEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AudioGraphUnrecoverableErrorOccurredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioGraphUnrecoverableErrorOccurredEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AudioGraphUnrecoverableErrorOccurredEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioGraphUnrecoverableErrorOccurredEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AudioGraphUnrecoverableErrorOccurredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioGraphUnrecoverableErrorOccurredEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioGraphUnrecoverableErrorOccurredEventArgs {}
 unsafe impl ::core::marker::Sync for AudioGraphUnrecoverableErrorOccurredEventArgs {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -4989,36 +4520,7 @@ unsafe impl ::windows::core::Interface for AudioNodeEmitter {
 impl ::windows::core::RuntimeName for AudioNodeEmitter {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitter";
 }
-impl ::core::convert::From<AudioNodeEmitter> for ::windows::core::IUnknown {
-    fn from(value: AudioNodeEmitter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioNodeEmitter> for ::windows::core::IUnknown {
-    fn from(value: &AudioNodeEmitter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioNodeEmitter> for &::windows::core::IUnknown {
-    fn from(value: &AudioNodeEmitter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioNodeEmitter> for ::windows::core::IInspectable {
-    fn from(value: AudioNodeEmitter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioNodeEmitter> for ::windows::core::IInspectable {
-    fn from(value: &AudioNodeEmitter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioNodeEmitter> for &::windows::core::IInspectable {
-    fn from(value: &AudioNodeEmitter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioNodeEmitter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioNodeEmitter {}
 unsafe impl ::core::marker::Sync for AudioNodeEmitter {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -5079,36 +4581,7 @@ unsafe impl ::windows::core::Interface for AudioNodeEmitterConeProperties {
 impl ::windows::core::RuntimeName for AudioNodeEmitterConeProperties {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitterConeProperties";
 }
-impl ::core::convert::From<AudioNodeEmitterConeProperties> for ::windows::core::IUnknown {
-    fn from(value: AudioNodeEmitterConeProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioNodeEmitterConeProperties> for ::windows::core::IUnknown {
-    fn from(value: &AudioNodeEmitterConeProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioNodeEmitterConeProperties> for &::windows::core::IUnknown {
-    fn from(value: &AudioNodeEmitterConeProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioNodeEmitterConeProperties> for ::windows::core::IInspectable {
-    fn from(value: AudioNodeEmitterConeProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioNodeEmitterConeProperties> for ::windows::core::IInspectable {
-    fn from(value: &AudioNodeEmitterConeProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioNodeEmitterConeProperties> for &::windows::core::IInspectable {
-    fn from(value: &AudioNodeEmitterConeProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioNodeEmitterConeProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioNodeEmitterConeProperties {}
 unsafe impl ::core::marker::Sync for AudioNodeEmitterConeProperties {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -5193,36 +4666,7 @@ unsafe impl ::windows::core::Interface for AudioNodeEmitterDecayModel {
 impl ::windows::core::RuntimeName for AudioNodeEmitterDecayModel {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitterDecayModel";
 }
-impl ::core::convert::From<AudioNodeEmitterDecayModel> for ::windows::core::IUnknown {
-    fn from(value: AudioNodeEmitterDecayModel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioNodeEmitterDecayModel> for ::windows::core::IUnknown {
-    fn from(value: &AudioNodeEmitterDecayModel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioNodeEmitterDecayModel> for &::windows::core::IUnknown {
-    fn from(value: &AudioNodeEmitterDecayModel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioNodeEmitterDecayModel> for ::windows::core::IInspectable {
-    fn from(value: AudioNodeEmitterDecayModel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioNodeEmitterDecayModel> for ::windows::core::IInspectable {
-    fn from(value: &AudioNodeEmitterDecayModel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioNodeEmitterDecayModel> for &::windows::core::IInspectable {
-    fn from(value: &AudioNodeEmitterDecayModel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioNodeEmitterDecayModel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioNodeEmitterDecayModel {}
 unsafe impl ::core::marker::Sync for AudioNodeEmitterDecayModel {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -5276,36 +4720,7 @@ unsafe impl ::windows::core::Interface for AudioNodeEmitterNaturalDecayModelProp
 impl ::windows::core::RuntimeName for AudioNodeEmitterNaturalDecayModelProperties {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitterNaturalDecayModelProperties";
 }
-impl ::core::convert::From<AudioNodeEmitterNaturalDecayModelProperties> for ::windows::core::IUnknown {
-    fn from(value: AudioNodeEmitterNaturalDecayModelProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioNodeEmitterNaturalDecayModelProperties> for ::windows::core::IUnknown {
-    fn from(value: &AudioNodeEmitterNaturalDecayModelProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioNodeEmitterNaturalDecayModelProperties> for &::windows::core::IUnknown {
-    fn from(value: &AudioNodeEmitterNaturalDecayModelProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioNodeEmitterNaturalDecayModelProperties> for ::windows::core::IInspectable {
-    fn from(value: AudioNodeEmitterNaturalDecayModelProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioNodeEmitterNaturalDecayModelProperties> for ::windows::core::IInspectable {
-    fn from(value: &AudioNodeEmitterNaturalDecayModelProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioNodeEmitterNaturalDecayModelProperties> for &::windows::core::IInspectable {
-    fn from(value: &AudioNodeEmitterNaturalDecayModelProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioNodeEmitterNaturalDecayModelProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioNodeEmitterNaturalDecayModelProperties {}
 unsafe impl ::core::marker::Sync for AudioNodeEmitterNaturalDecayModelProperties {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -5376,36 +4791,7 @@ unsafe impl ::windows::core::Interface for AudioNodeEmitterShape {
 impl ::windows::core::RuntimeName for AudioNodeEmitterShape {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitterShape";
 }
-impl ::core::convert::From<AudioNodeEmitterShape> for ::windows::core::IUnknown {
-    fn from(value: AudioNodeEmitterShape) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioNodeEmitterShape> for ::windows::core::IUnknown {
-    fn from(value: &AudioNodeEmitterShape) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioNodeEmitterShape> for &::windows::core::IUnknown {
-    fn from(value: &AudioNodeEmitterShape) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioNodeEmitterShape> for ::windows::core::IInspectable {
-    fn from(value: AudioNodeEmitterShape) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioNodeEmitterShape> for ::windows::core::IInspectable {
-    fn from(value: &AudioNodeEmitterShape) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioNodeEmitterShape> for &::windows::core::IInspectable {
-    fn from(value: &AudioNodeEmitterShape) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioNodeEmitterShape, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioNodeEmitterShape {}
 unsafe impl ::core::marker::Sync for AudioNodeEmitterShape {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -5508,36 +4894,7 @@ unsafe impl ::windows::core::Interface for AudioNodeListener {
 impl ::windows::core::RuntimeName for AudioNodeListener {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeListener";
 }
-impl ::core::convert::From<AudioNodeListener> for ::windows::core::IUnknown {
-    fn from(value: AudioNodeListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioNodeListener> for ::windows::core::IUnknown {
-    fn from(value: &AudioNodeListener) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioNodeListener> for &::windows::core::IUnknown {
-    fn from(value: &AudioNodeListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioNodeListener> for ::windows::core::IInspectable {
-    fn from(value: AudioNodeListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioNodeListener> for ::windows::core::IInspectable {
-    fn from(value: &AudioNodeListener) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioNodeListener> for &::windows::core::IInspectable {
-    fn from(value: &AudioNodeListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioNodeListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioNodeListener {}
 unsafe impl ::core::marker::Sync for AudioNodeListener {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -5658,36 +5015,7 @@ unsafe impl ::windows::core::Interface for AudioPlaybackConnection {
 impl ::windows::core::RuntimeName for AudioPlaybackConnection {
     const NAME: &'static str = "Windows.Media.Audio.AudioPlaybackConnection";
 }
-impl ::core::convert::From<AudioPlaybackConnection> for ::windows::core::IUnknown {
-    fn from(value: AudioPlaybackConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioPlaybackConnection> for ::windows::core::IUnknown {
-    fn from(value: &AudioPlaybackConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioPlaybackConnection> for &::windows::core::IUnknown {
-    fn from(value: &AudioPlaybackConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioPlaybackConnection> for ::windows::core::IInspectable {
-    fn from(value: AudioPlaybackConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioPlaybackConnection> for ::windows::core::IInspectable {
-    fn from(value: &AudioPlaybackConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioPlaybackConnection> for &::windows::core::IInspectable {
-    fn from(value: &AudioPlaybackConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioPlaybackConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<AudioPlaybackConnection> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -5763,36 +5091,7 @@ unsafe impl ::windows::core::Interface for AudioPlaybackConnectionOpenResult {
 impl ::windows::core::RuntimeName for AudioPlaybackConnectionOpenResult {
     const NAME: &'static str = "Windows.Media.Audio.AudioPlaybackConnectionOpenResult";
 }
-impl ::core::convert::From<AudioPlaybackConnectionOpenResult> for ::windows::core::IUnknown {
-    fn from(value: AudioPlaybackConnectionOpenResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioPlaybackConnectionOpenResult> for ::windows::core::IUnknown {
-    fn from(value: &AudioPlaybackConnectionOpenResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioPlaybackConnectionOpenResult> for &::windows::core::IUnknown {
-    fn from(value: &AudioPlaybackConnectionOpenResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioPlaybackConnectionOpenResult> for ::windows::core::IInspectable {
-    fn from(value: AudioPlaybackConnectionOpenResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioPlaybackConnectionOpenResult> for ::windows::core::IInspectable {
-    fn from(value: &AudioPlaybackConnectionOpenResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioPlaybackConnectionOpenResult> for &::windows::core::IInspectable {
-    fn from(value: &AudioPlaybackConnectionOpenResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioPlaybackConnectionOpenResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioPlaybackConnectionOpenResult {}
 unsafe impl ::core::marker::Sync for AudioPlaybackConnectionOpenResult {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -5919,36 +5218,7 @@ unsafe impl ::windows::core::Interface for AudioStateMonitor {
 impl ::windows::core::RuntimeName for AudioStateMonitor {
     const NAME: &'static str = "Windows.Media.Audio.AudioStateMonitor";
 }
-impl ::core::convert::From<AudioStateMonitor> for ::windows::core::IUnknown {
-    fn from(value: AudioStateMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioStateMonitor> for ::windows::core::IUnknown {
-    fn from(value: &AudioStateMonitor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioStateMonitor> for &::windows::core::IUnknown {
-    fn from(value: &AudioStateMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioStateMonitor> for ::windows::core::IInspectable {
-    fn from(value: AudioStateMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioStateMonitor> for ::windows::core::IInspectable {
-    fn from(value: &AudioStateMonitor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioStateMonitor> for &::windows::core::IInspectable {
-    fn from(value: &AudioStateMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioStateMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioStateMonitor {}
 unsafe impl ::core::marker::Sync for AudioStateMonitor {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -6106,36 +5376,7 @@ unsafe impl ::windows::core::Interface for AudioSubmixNode {
 impl ::windows::core::RuntimeName for AudioSubmixNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioSubmixNode";
 }
-impl ::core::convert::From<AudioSubmixNode> for ::windows::core::IUnknown {
-    fn from(value: AudioSubmixNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioSubmixNode> for ::windows::core::IUnknown {
-    fn from(value: &AudioSubmixNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioSubmixNode> for &::windows::core::IUnknown {
-    fn from(value: &AudioSubmixNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioSubmixNode> for ::windows::core::IInspectable {
-    fn from(value: AudioSubmixNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioSubmixNode> for ::windows::core::IInspectable {
-    fn from(value: &AudioSubmixNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioSubmixNode> for &::windows::core::IInspectable {
-    fn from(value: &AudioSubmixNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioSubmixNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AudioSubmixNode> for IAudioInputNode {
     type Error = ::windows::core::Error;
     fn try_from(value: AudioSubmixNode) -> ::windows::core::Result<Self> {
@@ -6275,36 +5516,7 @@ unsafe impl ::windows::core::Interface for CreateAudioDeviceInputNodeResult {
 impl ::windows::core::RuntimeName for CreateAudioDeviceInputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioDeviceInputNodeResult";
 }
-impl ::core::convert::From<CreateAudioDeviceInputNodeResult> for ::windows::core::IUnknown {
-    fn from(value: CreateAudioDeviceInputNodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CreateAudioDeviceInputNodeResult> for ::windows::core::IUnknown {
-    fn from(value: &CreateAudioDeviceInputNodeResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CreateAudioDeviceInputNodeResult> for &::windows::core::IUnknown {
-    fn from(value: &CreateAudioDeviceInputNodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CreateAudioDeviceInputNodeResult> for ::windows::core::IInspectable {
-    fn from(value: CreateAudioDeviceInputNodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CreateAudioDeviceInputNodeResult> for ::windows::core::IInspectable {
-    fn from(value: &CreateAudioDeviceInputNodeResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CreateAudioDeviceInputNodeResult> for &::windows::core::IInspectable {
-    fn from(value: &CreateAudioDeviceInputNodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CreateAudioDeviceInputNodeResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CreateAudioDeviceInputNodeResult {}
 unsafe impl ::core::marker::Sync for CreateAudioDeviceInputNodeResult {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -6365,36 +5577,7 @@ unsafe impl ::windows::core::Interface for CreateAudioDeviceOutputNodeResult {
 impl ::windows::core::RuntimeName for CreateAudioDeviceOutputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioDeviceOutputNodeResult";
 }
-impl ::core::convert::From<CreateAudioDeviceOutputNodeResult> for ::windows::core::IUnknown {
-    fn from(value: CreateAudioDeviceOutputNodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CreateAudioDeviceOutputNodeResult> for ::windows::core::IUnknown {
-    fn from(value: &CreateAudioDeviceOutputNodeResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CreateAudioDeviceOutputNodeResult> for &::windows::core::IUnknown {
-    fn from(value: &CreateAudioDeviceOutputNodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CreateAudioDeviceOutputNodeResult> for ::windows::core::IInspectable {
-    fn from(value: CreateAudioDeviceOutputNodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CreateAudioDeviceOutputNodeResult> for ::windows::core::IInspectable {
-    fn from(value: &CreateAudioDeviceOutputNodeResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CreateAudioDeviceOutputNodeResult> for &::windows::core::IInspectable {
-    fn from(value: &CreateAudioDeviceOutputNodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CreateAudioDeviceOutputNodeResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CreateAudioDeviceOutputNodeResult {}
 unsafe impl ::core::marker::Sync for CreateAudioDeviceOutputNodeResult {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -6455,36 +5638,7 @@ unsafe impl ::windows::core::Interface for CreateAudioFileInputNodeResult {
 impl ::windows::core::RuntimeName for CreateAudioFileInputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioFileInputNodeResult";
 }
-impl ::core::convert::From<CreateAudioFileInputNodeResult> for ::windows::core::IUnknown {
-    fn from(value: CreateAudioFileInputNodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CreateAudioFileInputNodeResult> for ::windows::core::IUnknown {
-    fn from(value: &CreateAudioFileInputNodeResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CreateAudioFileInputNodeResult> for &::windows::core::IUnknown {
-    fn from(value: &CreateAudioFileInputNodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CreateAudioFileInputNodeResult> for ::windows::core::IInspectable {
-    fn from(value: CreateAudioFileInputNodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CreateAudioFileInputNodeResult> for ::windows::core::IInspectable {
-    fn from(value: &CreateAudioFileInputNodeResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CreateAudioFileInputNodeResult> for &::windows::core::IInspectable {
-    fn from(value: &CreateAudioFileInputNodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CreateAudioFileInputNodeResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CreateAudioFileInputNodeResult {}
 unsafe impl ::core::marker::Sync for CreateAudioFileInputNodeResult {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -6545,36 +5699,7 @@ unsafe impl ::windows::core::Interface for CreateAudioFileOutputNodeResult {
 impl ::windows::core::RuntimeName for CreateAudioFileOutputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioFileOutputNodeResult";
 }
-impl ::core::convert::From<CreateAudioFileOutputNodeResult> for ::windows::core::IUnknown {
-    fn from(value: CreateAudioFileOutputNodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CreateAudioFileOutputNodeResult> for ::windows::core::IUnknown {
-    fn from(value: &CreateAudioFileOutputNodeResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CreateAudioFileOutputNodeResult> for &::windows::core::IUnknown {
-    fn from(value: &CreateAudioFileOutputNodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CreateAudioFileOutputNodeResult> for ::windows::core::IInspectable {
-    fn from(value: CreateAudioFileOutputNodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CreateAudioFileOutputNodeResult> for ::windows::core::IInspectable {
-    fn from(value: &CreateAudioFileOutputNodeResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CreateAudioFileOutputNodeResult> for &::windows::core::IInspectable {
-    fn from(value: &CreateAudioFileOutputNodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CreateAudioFileOutputNodeResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CreateAudioFileOutputNodeResult {}
 unsafe impl ::core::marker::Sync for CreateAudioFileOutputNodeResult {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -6635,36 +5760,7 @@ unsafe impl ::windows::core::Interface for CreateAudioGraphResult {
 impl ::windows::core::RuntimeName for CreateAudioGraphResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioGraphResult";
 }
-impl ::core::convert::From<CreateAudioGraphResult> for ::windows::core::IUnknown {
-    fn from(value: CreateAudioGraphResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CreateAudioGraphResult> for ::windows::core::IUnknown {
-    fn from(value: &CreateAudioGraphResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CreateAudioGraphResult> for &::windows::core::IUnknown {
-    fn from(value: &CreateAudioGraphResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CreateAudioGraphResult> for ::windows::core::IInspectable {
-    fn from(value: CreateAudioGraphResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CreateAudioGraphResult> for ::windows::core::IInspectable {
-    fn from(value: &CreateAudioGraphResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CreateAudioGraphResult> for &::windows::core::IInspectable {
-    fn from(value: &CreateAudioGraphResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CreateAudioGraphResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CreateAudioGraphResult {}
 unsafe impl ::core::marker::Sync for CreateAudioGraphResult {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -6725,36 +5821,7 @@ unsafe impl ::windows::core::Interface for CreateMediaSourceAudioInputNodeResult
 impl ::windows::core::RuntimeName for CreateMediaSourceAudioInputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateMediaSourceAudioInputNodeResult";
 }
-impl ::core::convert::From<CreateMediaSourceAudioInputNodeResult> for ::windows::core::IUnknown {
-    fn from(value: CreateMediaSourceAudioInputNodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CreateMediaSourceAudioInputNodeResult> for ::windows::core::IUnknown {
-    fn from(value: &CreateMediaSourceAudioInputNodeResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CreateMediaSourceAudioInputNodeResult> for &::windows::core::IUnknown {
-    fn from(value: &CreateMediaSourceAudioInputNodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CreateMediaSourceAudioInputNodeResult> for ::windows::core::IInspectable {
-    fn from(value: CreateMediaSourceAudioInputNodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CreateMediaSourceAudioInputNodeResult> for ::windows::core::IInspectable {
-    fn from(value: &CreateMediaSourceAudioInputNodeResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CreateMediaSourceAudioInputNodeResult> for &::windows::core::IInspectable {
-    fn from(value: &CreateMediaSourceAudioInputNodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CreateMediaSourceAudioInputNodeResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CreateMediaSourceAudioInputNodeResult {}
 unsafe impl ::core::marker::Sync for CreateMediaSourceAudioInputNodeResult {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -6856,36 +5923,7 @@ unsafe impl ::windows::core::Interface for EchoEffectDefinition {
 impl ::windows::core::RuntimeName for EchoEffectDefinition {
     const NAME: &'static str = "Windows.Media.Audio.EchoEffectDefinition";
 }
-impl ::core::convert::From<EchoEffectDefinition> for ::windows::core::IUnknown {
-    fn from(value: EchoEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EchoEffectDefinition> for ::windows::core::IUnknown {
-    fn from(value: &EchoEffectDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EchoEffectDefinition> for &::windows::core::IUnknown {
-    fn from(value: &EchoEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EchoEffectDefinition> for ::windows::core::IInspectable {
-    fn from(value: EchoEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EchoEffectDefinition> for ::windows::core::IInspectable {
-    fn from(value: &EchoEffectDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EchoEffectDefinition> for &::windows::core::IInspectable {
-    fn from(value: &EchoEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EchoEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Media_Effects")]
 impl ::core::convert::TryFrom<EchoEffectDefinition> for super::Effects::IAudioEffectDefinition {
     type Error = ::windows::core::Error;
@@ -6980,36 +6018,7 @@ unsafe impl ::windows::core::Interface for EqualizerBand {
 impl ::windows::core::RuntimeName for EqualizerBand {
     const NAME: &'static str = "Windows.Media.Audio.EqualizerBand";
 }
-impl ::core::convert::From<EqualizerBand> for ::windows::core::IUnknown {
-    fn from(value: EqualizerBand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EqualizerBand> for ::windows::core::IUnknown {
-    fn from(value: &EqualizerBand) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EqualizerBand> for &::windows::core::IUnknown {
-    fn from(value: &EqualizerBand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EqualizerBand> for ::windows::core::IInspectable {
-    fn from(value: EqualizerBand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EqualizerBand> for ::windows::core::IInspectable {
-    fn from(value: &EqualizerBand) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EqualizerBand> for &::windows::core::IInspectable {
-    fn from(value: &EqualizerBand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EqualizerBand, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EqualizerBand {}
 unsafe impl ::core::marker::Sync for EqualizerBand {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -7087,36 +6096,7 @@ unsafe impl ::windows::core::Interface for EqualizerEffectDefinition {
 impl ::windows::core::RuntimeName for EqualizerEffectDefinition {
     const NAME: &'static str = "Windows.Media.Audio.EqualizerEffectDefinition";
 }
-impl ::core::convert::From<EqualizerEffectDefinition> for ::windows::core::IUnknown {
-    fn from(value: EqualizerEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EqualizerEffectDefinition> for ::windows::core::IUnknown {
-    fn from(value: &EqualizerEffectDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EqualizerEffectDefinition> for &::windows::core::IUnknown {
-    fn from(value: &EqualizerEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EqualizerEffectDefinition> for ::windows::core::IInspectable {
-    fn from(value: EqualizerEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EqualizerEffectDefinition> for ::windows::core::IInspectable {
-    fn from(value: &EqualizerEffectDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EqualizerEffectDefinition> for &::windows::core::IInspectable {
-    fn from(value: &EqualizerEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EqualizerEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Media_Effects")]
 impl ::core::convert::TryFrom<EqualizerEffectDefinition> for super::Effects::IAudioEffectDefinition {
     type Error = ::windows::core::Error;
@@ -7185,36 +6165,7 @@ unsafe impl ::windows::core::Interface for FrameInputNodeQuantumStartedEventArgs
 impl ::windows::core::RuntimeName for FrameInputNodeQuantumStartedEventArgs {
     const NAME: &'static str = "Windows.Media.Audio.FrameInputNodeQuantumStartedEventArgs";
 }
-impl ::core::convert::From<FrameInputNodeQuantumStartedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: FrameInputNodeQuantumStartedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameInputNodeQuantumStartedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &FrameInputNodeQuantumStartedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameInputNodeQuantumStartedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &FrameInputNodeQuantumStartedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FrameInputNodeQuantumStartedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: FrameInputNodeQuantumStartedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameInputNodeQuantumStartedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &FrameInputNodeQuantumStartedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameInputNodeQuantumStartedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &FrameInputNodeQuantumStartedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FrameInputNodeQuantumStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FrameInputNodeQuantumStartedEventArgs {}
 unsafe impl ::core::marker::Sync for FrameInputNodeQuantumStartedEventArgs {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -7305,36 +6256,7 @@ unsafe impl ::windows::core::Interface for LimiterEffectDefinition {
 impl ::windows::core::RuntimeName for LimiterEffectDefinition {
     const NAME: &'static str = "Windows.Media.Audio.LimiterEffectDefinition";
 }
-impl ::core::convert::From<LimiterEffectDefinition> for ::windows::core::IUnknown {
-    fn from(value: LimiterEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LimiterEffectDefinition> for ::windows::core::IUnknown {
-    fn from(value: &LimiterEffectDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LimiterEffectDefinition> for &::windows::core::IUnknown {
-    fn from(value: &LimiterEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LimiterEffectDefinition> for ::windows::core::IInspectable {
-    fn from(value: LimiterEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LimiterEffectDefinition> for ::windows::core::IInspectable {
-    fn from(value: &LimiterEffectDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LimiterEffectDefinition> for &::windows::core::IInspectable {
-    fn from(value: &LimiterEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LimiterEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Media_Effects")]
 impl ::core::convert::TryFrom<LimiterEffectDefinition> for super::Effects::IAudioEffectDefinition {
     type Error = ::windows::core::Error;
@@ -7630,36 +6552,7 @@ unsafe impl ::windows::core::Interface for MediaSourceAudioInputNode {
 impl ::windows::core::RuntimeName for MediaSourceAudioInputNode {
     const NAME: &'static str = "Windows.Media.Audio.MediaSourceAudioInputNode";
 }
-impl ::core::convert::From<MediaSourceAudioInputNode> for ::windows::core::IUnknown {
-    fn from(value: MediaSourceAudioInputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaSourceAudioInputNode> for ::windows::core::IUnknown {
-    fn from(value: &MediaSourceAudioInputNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaSourceAudioInputNode> for &::windows::core::IUnknown {
-    fn from(value: &MediaSourceAudioInputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaSourceAudioInputNode> for ::windows::core::IInspectable {
-    fn from(value: MediaSourceAudioInputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaSourceAudioInputNode> for ::windows::core::IInspectable {
-    fn from(value: &MediaSourceAudioInputNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaSourceAudioInputNode> for &::windows::core::IInspectable {
-    fn from(value: &MediaSourceAudioInputNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaSourceAudioInputNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MediaSourceAudioInputNode> for IAudioInputNode {
     type Error = ::windows::core::Error;
     fn try_from(value: MediaSourceAudioInputNode) -> ::windows::core::Result<Self> {
@@ -8060,36 +6953,7 @@ unsafe impl ::windows::core::Interface for ReverbEffectDefinition {
 impl ::windows::core::RuntimeName for ReverbEffectDefinition {
     const NAME: &'static str = "Windows.Media.Audio.ReverbEffectDefinition";
 }
-impl ::core::convert::From<ReverbEffectDefinition> for ::windows::core::IUnknown {
-    fn from(value: ReverbEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ReverbEffectDefinition> for ::windows::core::IUnknown {
-    fn from(value: &ReverbEffectDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ReverbEffectDefinition> for &::windows::core::IUnknown {
-    fn from(value: &ReverbEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ReverbEffectDefinition> for ::windows::core::IInspectable {
-    fn from(value: ReverbEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ReverbEffectDefinition> for ::windows::core::IInspectable {
-    fn from(value: &ReverbEffectDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ReverbEffectDefinition> for &::windows::core::IInspectable {
-    fn from(value: &ReverbEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ReverbEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Media_Effects")]
 impl ::core::convert::TryFrom<ReverbEffectDefinition> for super::Effects::IAudioEffectDefinition {
     type Error = ::windows::core::Error;
@@ -8158,36 +7022,7 @@ unsafe impl ::windows::core::Interface for SetDefaultSpatialAudioFormatResult {
 impl ::windows::core::RuntimeName for SetDefaultSpatialAudioFormatResult {
     const NAME: &'static str = "Windows.Media.Audio.SetDefaultSpatialAudioFormatResult";
 }
-impl ::core::convert::From<SetDefaultSpatialAudioFormatResult> for ::windows::core::IUnknown {
-    fn from(value: SetDefaultSpatialAudioFormatResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SetDefaultSpatialAudioFormatResult> for ::windows::core::IUnknown {
-    fn from(value: &SetDefaultSpatialAudioFormatResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SetDefaultSpatialAudioFormatResult> for &::windows::core::IUnknown {
-    fn from(value: &SetDefaultSpatialAudioFormatResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SetDefaultSpatialAudioFormatResult> for ::windows::core::IInspectable {
-    fn from(value: SetDefaultSpatialAudioFormatResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SetDefaultSpatialAudioFormatResult> for ::windows::core::IInspectable {
-    fn from(value: &SetDefaultSpatialAudioFormatResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SetDefaultSpatialAudioFormatResult> for &::windows::core::IInspectable {
-    fn from(value: &SetDefaultSpatialAudioFormatResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SetDefaultSpatialAudioFormatResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SetDefaultSpatialAudioFormatResult {}
 unsafe impl ::core::marker::Sync for SetDefaultSpatialAudioFormatResult {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -8297,36 +7132,7 @@ unsafe impl ::windows::core::Interface for SpatialAudioDeviceConfiguration {
 impl ::windows::core::RuntimeName for SpatialAudioDeviceConfiguration {
     const NAME: &'static str = "Windows.Media.Audio.SpatialAudioDeviceConfiguration";
 }
-impl ::core::convert::From<SpatialAudioDeviceConfiguration> for ::windows::core::IUnknown {
-    fn from(value: SpatialAudioDeviceConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialAudioDeviceConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &SpatialAudioDeviceConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialAudioDeviceConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &SpatialAudioDeviceConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialAudioDeviceConfiguration> for ::windows::core::IInspectable {
-    fn from(value: SpatialAudioDeviceConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialAudioDeviceConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &SpatialAudioDeviceConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialAudioDeviceConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &SpatialAudioDeviceConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialAudioDeviceConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialAudioDeviceConfiguration {}
 unsafe impl ::core::marker::Sync for SpatialAudioDeviceConfiguration {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -8406,36 +7212,7 @@ unsafe impl ::windows::core::Interface for SpatialAudioFormatConfiguration {
 impl ::windows::core::RuntimeName for SpatialAudioFormatConfiguration {
     const NAME: &'static str = "Windows.Media.Audio.SpatialAudioFormatConfiguration";
 }
-impl ::core::convert::From<SpatialAudioFormatConfiguration> for ::windows::core::IUnknown {
-    fn from(value: SpatialAudioFormatConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialAudioFormatConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &SpatialAudioFormatConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialAudioFormatConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &SpatialAudioFormatConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialAudioFormatConfiguration> for ::windows::core::IInspectable {
-    fn from(value: SpatialAudioFormatConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialAudioFormatConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &SpatialAudioFormatConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialAudioFormatConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &SpatialAudioFormatConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialAudioFormatConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialAudioFormatConfiguration {}
 unsafe impl ::core::marker::Sync for SpatialAudioFormatConfiguration {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]

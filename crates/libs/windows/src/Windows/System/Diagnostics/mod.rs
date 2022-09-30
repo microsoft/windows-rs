@@ -439,36 +439,7 @@ unsafe impl ::windows::core::Interface for DiagnosticActionResult {
 impl ::windows::core::RuntimeName for DiagnosticActionResult {
     const NAME: &'static str = "Windows.System.Diagnostics.DiagnosticActionResult";
 }
-impl ::core::convert::From<DiagnosticActionResult> for ::windows::core::IUnknown {
-    fn from(value: DiagnosticActionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DiagnosticActionResult> for ::windows::core::IUnknown {
-    fn from(value: &DiagnosticActionResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DiagnosticActionResult> for &::windows::core::IUnknown {
-    fn from(value: &DiagnosticActionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DiagnosticActionResult> for ::windows::core::IInspectable {
-    fn from(value: DiagnosticActionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DiagnosticActionResult> for ::windows::core::IInspectable {
-    fn from(value: &DiagnosticActionResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DiagnosticActionResult> for &::windows::core::IInspectable {
-    fn from(value: &DiagnosticActionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DiagnosticActionResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DiagnosticActionResult {}
 unsafe impl ::core::marker::Sync for DiagnosticActionResult {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -549,36 +520,7 @@ unsafe impl ::windows::core::Interface for DiagnosticInvoker {
 impl ::windows::core::RuntimeName for DiagnosticInvoker {
     const NAME: &'static str = "Windows.System.Diagnostics.DiagnosticInvoker";
 }
-impl ::core::convert::From<DiagnosticInvoker> for ::windows::core::IUnknown {
-    fn from(value: DiagnosticInvoker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DiagnosticInvoker> for ::windows::core::IUnknown {
-    fn from(value: &DiagnosticInvoker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DiagnosticInvoker> for &::windows::core::IUnknown {
-    fn from(value: &DiagnosticInvoker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DiagnosticInvoker> for ::windows::core::IInspectable {
-    fn from(value: DiagnosticInvoker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DiagnosticInvoker> for ::windows::core::IInspectable {
-    fn from(value: &DiagnosticInvoker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DiagnosticInvoker> for &::windows::core::IInspectable {
-    fn from(value: &DiagnosticInvoker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DiagnosticInvoker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DiagnosticInvoker {}
 unsafe impl ::core::marker::Sync for DiagnosticInvoker {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -625,36 +567,7 @@ unsafe impl ::windows::core::Interface for ProcessCpuUsage {
 impl ::windows::core::RuntimeName for ProcessCpuUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessCpuUsage";
 }
-impl ::core::convert::From<ProcessCpuUsage> for ::windows::core::IUnknown {
-    fn from(value: ProcessCpuUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessCpuUsage> for ::windows::core::IUnknown {
-    fn from(value: &ProcessCpuUsage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessCpuUsage> for &::windows::core::IUnknown {
-    fn from(value: &ProcessCpuUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProcessCpuUsage> for ::windows::core::IInspectable {
-    fn from(value: ProcessCpuUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessCpuUsage> for ::windows::core::IInspectable {
-    fn from(value: &ProcessCpuUsage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessCpuUsage> for &::windows::core::IInspectable {
-    fn from(value: &ProcessCpuUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProcessCpuUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessCpuUsage {}
 unsafe impl ::core::marker::Sync for ProcessCpuUsage {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -712,36 +625,7 @@ unsafe impl ::windows::core::Interface for ProcessCpuUsageReport {
 impl ::windows::core::RuntimeName for ProcessCpuUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessCpuUsageReport";
 }
-impl ::core::convert::From<ProcessCpuUsageReport> for ::windows::core::IUnknown {
-    fn from(value: ProcessCpuUsageReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessCpuUsageReport> for ::windows::core::IUnknown {
-    fn from(value: &ProcessCpuUsageReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessCpuUsageReport> for &::windows::core::IUnknown {
-    fn from(value: &ProcessCpuUsageReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProcessCpuUsageReport> for ::windows::core::IInspectable {
-    fn from(value: ProcessCpuUsageReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessCpuUsageReport> for ::windows::core::IInspectable {
-    fn from(value: &ProcessCpuUsageReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessCpuUsageReport> for &::windows::core::IInspectable {
-    fn from(value: &ProcessCpuUsageReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProcessCpuUsageReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessCpuUsageReport {}
 unsafe impl ::core::marker::Sync for ProcessCpuUsageReport {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -878,36 +762,7 @@ unsafe impl ::windows::core::Interface for ProcessDiagnosticInfo {
 impl ::windows::core::RuntimeName for ProcessDiagnosticInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessDiagnosticInfo";
 }
-impl ::core::convert::From<ProcessDiagnosticInfo> for ::windows::core::IUnknown {
-    fn from(value: ProcessDiagnosticInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessDiagnosticInfo> for ::windows::core::IUnknown {
-    fn from(value: &ProcessDiagnosticInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessDiagnosticInfo> for &::windows::core::IUnknown {
-    fn from(value: &ProcessDiagnosticInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProcessDiagnosticInfo> for ::windows::core::IInspectable {
-    fn from(value: ProcessDiagnosticInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessDiagnosticInfo> for ::windows::core::IInspectable {
-    fn from(value: &ProcessDiagnosticInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessDiagnosticInfo> for &::windows::core::IInspectable {
-    fn from(value: &ProcessDiagnosticInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProcessDiagnosticInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessDiagnosticInfo {}
 unsafe impl ::core::marker::Sync for ProcessDiagnosticInfo {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -954,36 +809,7 @@ unsafe impl ::windows::core::Interface for ProcessDiskUsage {
 impl ::windows::core::RuntimeName for ProcessDiskUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessDiskUsage";
 }
-impl ::core::convert::From<ProcessDiskUsage> for ::windows::core::IUnknown {
-    fn from(value: ProcessDiskUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessDiskUsage> for ::windows::core::IUnknown {
-    fn from(value: &ProcessDiskUsage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessDiskUsage> for &::windows::core::IUnknown {
-    fn from(value: &ProcessDiskUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProcessDiskUsage> for ::windows::core::IInspectable {
-    fn from(value: ProcessDiskUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessDiskUsage> for ::windows::core::IInspectable {
-    fn from(value: &ProcessDiskUsage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessDiskUsage> for &::windows::core::IInspectable {
-    fn from(value: &ProcessDiskUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProcessDiskUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessDiskUsage {}
 unsafe impl ::core::marker::Sync for ProcessDiskUsage {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1065,36 +891,7 @@ unsafe impl ::windows::core::Interface for ProcessDiskUsageReport {
 impl ::windows::core::RuntimeName for ProcessDiskUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessDiskUsageReport";
 }
-impl ::core::convert::From<ProcessDiskUsageReport> for ::windows::core::IUnknown {
-    fn from(value: ProcessDiskUsageReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessDiskUsageReport> for ::windows::core::IUnknown {
-    fn from(value: &ProcessDiskUsageReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessDiskUsageReport> for &::windows::core::IUnknown {
-    fn from(value: &ProcessDiskUsageReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProcessDiskUsageReport> for ::windows::core::IInspectable {
-    fn from(value: ProcessDiskUsageReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessDiskUsageReport> for ::windows::core::IInspectable {
-    fn from(value: &ProcessDiskUsageReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessDiskUsageReport> for &::windows::core::IInspectable {
-    fn from(value: &ProcessDiskUsageReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProcessDiskUsageReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessDiskUsageReport {}
 unsafe impl ::core::marker::Sync for ProcessDiskUsageReport {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1141,36 +938,7 @@ unsafe impl ::windows::core::Interface for ProcessMemoryUsage {
 impl ::windows::core::RuntimeName for ProcessMemoryUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessMemoryUsage";
 }
-impl ::core::convert::From<ProcessMemoryUsage> for ::windows::core::IUnknown {
-    fn from(value: ProcessMemoryUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessMemoryUsage> for ::windows::core::IUnknown {
-    fn from(value: &ProcessMemoryUsage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessMemoryUsage> for &::windows::core::IUnknown {
-    fn from(value: &ProcessMemoryUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProcessMemoryUsage> for ::windows::core::IInspectable {
-    fn from(value: ProcessMemoryUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessMemoryUsage> for ::windows::core::IInspectable {
-    fn from(value: &ProcessMemoryUsage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessMemoryUsage> for &::windows::core::IInspectable {
-    fn from(value: &ProcessMemoryUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProcessMemoryUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessMemoryUsage {}
 unsafe impl ::core::marker::Sync for ProcessMemoryUsage {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1294,36 +1062,7 @@ unsafe impl ::windows::core::Interface for ProcessMemoryUsageReport {
 impl ::windows::core::RuntimeName for ProcessMemoryUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessMemoryUsageReport";
 }
-impl ::core::convert::From<ProcessMemoryUsageReport> for ::windows::core::IUnknown {
-    fn from(value: ProcessMemoryUsageReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessMemoryUsageReport> for ::windows::core::IUnknown {
-    fn from(value: &ProcessMemoryUsageReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessMemoryUsageReport> for &::windows::core::IUnknown {
-    fn from(value: &ProcessMemoryUsageReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProcessMemoryUsageReport> for ::windows::core::IInspectable {
-    fn from(value: ProcessMemoryUsageReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessMemoryUsageReport> for ::windows::core::IInspectable {
-    fn from(value: &ProcessMemoryUsageReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessMemoryUsageReport> for &::windows::core::IInspectable {
-    fn from(value: &ProcessMemoryUsageReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProcessMemoryUsageReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessMemoryUsageReport {}
 unsafe impl ::core::marker::Sync for ProcessMemoryUsageReport {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1370,36 +1109,7 @@ unsafe impl ::windows::core::Interface for SystemCpuUsage {
 impl ::windows::core::RuntimeName for SystemCpuUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemCpuUsage";
 }
-impl ::core::convert::From<SystemCpuUsage> for ::windows::core::IUnknown {
-    fn from(value: SystemCpuUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemCpuUsage> for ::windows::core::IUnknown {
-    fn from(value: &SystemCpuUsage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemCpuUsage> for &::windows::core::IUnknown {
-    fn from(value: &SystemCpuUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SystemCpuUsage> for ::windows::core::IInspectable {
-    fn from(value: SystemCpuUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemCpuUsage> for ::windows::core::IInspectable {
-    fn from(value: &SystemCpuUsage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemCpuUsage> for &::windows::core::IInspectable {
-    fn from(value: &SystemCpuUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SystemCpuUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemCpuUsage {}
 unsafe impl ::core::marker::Sync for SystemCpuUsage {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1466,36 +1176,7 @@ unsafe impl ::windows::core::Interface for SystemCpuUsageReport {
 impl ::windows::core::RuntimeName for SystemCpuUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemCpuUsageReport";
 }
-impl ::core::convert::From<SystemCpuUsageReport> for ::windows::core::IUnknown {
-    fn from(value: SystemCpuUsageReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemCpuUsageReport> for ::windows::core::IUnknown {
-    fn from(value: &SystemCpuUsageReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemCpuUsageReport> for &::windows::core::IUnknown {
-    fn from(value: &SystemCpuUsageReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SystemCpuUsageReport> for ::windows::core::IInspectable {
-    fn from(value: SystemCpuUsageReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemCpuUsageReport> for ::windows::core::IInspectable {
-    fn from(value: &SystemCpuUsageReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemCpuUsageReport> for &::windows::core::IInspectable {
-    fn from(value: &SystemCpuUsageReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SystemCpuUsageReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemCpuUsageReport {}
 unsafe impl ::core::marker::Sync for SystemCpuUsageReport {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1577,36 +1258,7 @@ unsafe impl ::windows::core::Interface for SystemDiagnosticInfo {
 impl ::windows::core::RuntimeName for SystemDiagnosticInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemDiagnosticInfo";
 }
-impl ::core::convert::From<SystemDiagnosticInfo> for ::windows::core::IUnknown {
-    fn from(value: SystemDiagnosticInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemDiagnosticInfo> for ::windows::core::IUnknown {
-    fn from(value: &SystemDiagnosticInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemDiagnosticInfo> for &::windows::core::IUnknown {
-    fn from(value: &SystemDiagnosticInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SystemDiagnosticInfo> for ::windows::core::IInspectable {
-    fn from(value: SystemDiagnosticInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemDiagnosticInfo> for ::windows::core::IInspectable {
-    fn from(value: &SystemDiagnosticInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemDiagnosticInfo> for &::windows::core::IInspectable {
-    fn from(value: &SystemDiagnosticInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SystemDiagnosticInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemDiagnosticInfo {}
 unsafe impl ::core::marker::Sync for SystemDiagnosticInfo {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1653,36 +1305,7 @@ unsafe impl ::windows::core::Interface for SystemMemoryUsage {
 impl ::windows::core::RuntimeName for SystemMemoryUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemMemoryUsage";
 }
-impl ::core::convert::From<SystemMemoryUsage> for ::windows::core::IUnknown {
-    fn from(value: SystemMemoryUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemMemoryUsage> for ::windows::core::IUnknown {
-    fn from(value: &SystemMemoryUsage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemMemoryUsage> for &::windows::core::IUnknown {
-    fn from(value: &SystemMemoryUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SystemMemoryUsage> for ::windows::core::IInspectable {
-    fn from(value: SystemMemoryUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemMemoryUsage> for ::windows::core::IInspectable {
-    fn from(value: &SystemMemoryUsage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemMemoryUsage> for &::windows::core::IInspectable {
-    fn from(value: &SystemMemoryUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SystemMemoryUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemMemoryUsage {}
 unsafe impl ::core::marker::Sync for SystemMemoryUsage {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1743,36 +1366,7 @@ unsafe impl ::windows::core::Interface for SystemMemoryUsageReport {
 impl ::windows::core::RuntimeName for SystemMemoryUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemMemoryUsageReport";
 }
-impl ::core::convert::From<SystemMemoryUsageReport> for ::windows::core::IUnknown {
-    fn from(value: SystemMemoryUsageReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemMemoryUsageReport> for ::windows::core::IUnknown {
-    fn from(value: &SystemMemoryUsageReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemMemoryUsageReport> for &::windows::core::IUnknown {
-    fn from(value: &SystemMemoryUsageReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SystemMemoryUsageReport> for ::windows::core::IInspectable {
-    fn from(value: SystemMemoryUsageReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemMemoryUsageReport> for ::windows::core::IInspectable {
-    fn from(value: &SystemMemoryUsageReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemMemoryUsageReport> for &::windows::core::IInspectable {
-    fn from(value: &SystemMemoryUsageReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SystemMemoryUsageReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemMemoryUsageReport {}
 unsafe impl ::core::marker::Sync for SystemMemoryUsageReport {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]

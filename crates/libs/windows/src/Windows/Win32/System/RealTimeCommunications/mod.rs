@@ -13,21 +13,7 @@ impl INetworkTransportSettings {
         (::windows::core::Vtable::vtable(self).QuerySetting)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(settingid), valuein.len() as _, ::core::mem::transmute(valuein.as_ptr()), ::core::mem::transmute(lengthout), ::core::mem::transmute(valueout)).ok()
     }
 }
-impl ::core::convert::From<INetworkTransportSettings> for ::windows::core::IUnknown {
-    fn from(value: INetworkTransportSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetworkTransportSettings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetworkTransportSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetworkTransportSettings> for ::windows::core::IUnknown {
-    fn from(value: &INetworkTransportSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetworkTransportSettings, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetworkTransportSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -74,21 +60,7 @@ impl INotificationTransportSync {
         (::windows::core::Vtable::vtable(self).Flush)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<INotificationTransportSync> for ::windows::core::IUnknown {
-    fn from(value: INotificationTransportSync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INotificationTransportSync> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INotificationTransportSync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INotificationTransportSync> for ::windows::core::IUnknown {
-    fn from(value: &INotificationTransportSync) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INotificationTransportSync, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INotificationTransportSync {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -159,36 +131,7 @@ impl IRTCBuddy {
         (::windows::core::Vtable::vtable(self).Notes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
-impl ::core::convert::From<IRTCBuddy> for ::windows::core::IUnknown {
-    fn from(value: IRTCBuddy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCBuddy> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCBuddy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCBuddy> for ::windows::core::IUnknown {
-    fn from(value: &IRTCBuddy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IRTCBuddy> for IRTCPresenceContact {
-    fn from(value: IRTCBuddy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCBuddy> for &'a IRTCPresenceContact {
-    fn from(value: &'a IRTCBuddy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCBuddy> for IRTCPresenceContact {
-    fn from(value: &IRTCBuddy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCBuddy, ::windows::core::IUnknown, IRTCPresenceContact);
 impl ::core::clone::Clone for IRTCBuddy {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -294,51 +237,7 @@ impl IRTCBuddy2 {
         (::windows::core::Vtable::vtable(self).SubscriptionType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_BUDDY_SUBSCRIPTION_TYPE>(result__)
     }
 }
-impl ::core::convert::From<IRTCBuddy2> for ::windows::core::IUnknown {
-    fn from(value: IRTCBuddy2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCBuddy2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCBuddy2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCBuddy2> for ::windows::core::IUnknown {
-    fn from(value: &IRTCBuddy2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IRTCBuddy2> for IRTCPresenceContact {
-    fn from(value: IRTCBuddy2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCBuddy2> for &'a IRTCPresenceContact {
-    fn from(value: &'a IRTCBuddy2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCBuddy2> for IRTCPresenceContact {
-    fn from(value: &IRTCBuddy2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IRTCBuddy2> for IRTCBuddy {
-    fn from(value: IRTCBuddy2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCBuddy2> for &'a IRTCBuddy {
-    fn from(value: &'a IRTCBuddy2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCBuddy2> for IRTCBuddy {
-    fn from(value: &IRTCBuddy2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCBuddy2, ::windows::core::IUnknown, IRTCPresenceContact, IRTCBuddy);
 impl ::core::clone::Clone for IRTCBuddy2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -392,41 +291,7 @@ impl IRTCBuddyEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCBuddyEvent> for ::windows::core::IUnknown {
-    fn from(value: IRTCBuddyEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCBuddyEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCBuddyEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCBuddyEvent> for ::windows::core::IUnknown {
-    fn from(value: &IRTCBuddyEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCBuddyEvent> for super::Com::IDispatch {
-    fn from(value: IRTCBuddyEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCBuddyEvent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCBuddyEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCBuddyEvent> for super::Com::IDispatch {
-    fn from(value: &IRTCBuddyEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCBuddyEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCBuddyEvent {
     fn clone(&self) -> Self {
@@ -486,59 +351,7 @@ impl IRTCBuddyEvent2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCBuddyEvent2> for ::windows::core::IUnknown {
-    fn from(value: IRTCBuddyEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCBuddyEvent2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCBuddyEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCBuddyEvent2> for ::windows::core::IUnknown {
-    fn from(value: &IRTCBuddyEvent2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCBuddyEvent2> for super::Com::IDispatch {
-    fn from(value: IRTCBuddyEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCBuddyEvent2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCBuddyEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCBuddyEvent2> for super::Com::IDispatch {
-    fn from(value: &IRTCBuddyEvent2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCBuddyEvent2> for IRTCBuddyEvent {
-    fn from(value: IRTCBuddyEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCBuddyEvent2> for &'a IRTCBuddyEvent {
-    fn from(value: &'a IRTCBuddyEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCBuddyEvent2> for IRTCBuddyEvent {
-    fn from(value: &IRTCBuddyEvent2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCBuddyEvent2, ::windows::core::IUnknown, super::Com::IDispatch, IRTCBuddyEvent);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCBuddyEvent2 {
     fn clone(&self) -> Self {
@@ -621,21 +434,7 @@ impl IRTCBuddyGroup {
         (::windows::core::Vtable::vtable(self).Profile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCProfile2>(result__)
     }
 }
-impl ::core::convert::From<IRTCBuddyGroup> for ::windows::core::IUnknown {
-    fn from(value: IRTCBuddyGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCBuddyGroup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCBuddyGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCBuddyGroup> for ::windows::core::IUnknown {
-    fn from(value: &IRTCBuddyGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCBuddyGroup, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCBuddyGroup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -699,41 +498,7 @@ impl IRTCBuddyGroupEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCBuddyGroupEvent> for ::windows::core::IUnknown {
-    fn from(value: IRTCBuddyGroupEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCBuddyGroupEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCBuddyGroupEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCBuddyGroupEvent> for ::windows::core::IUnknown {
-    fn from(value: &IRTCBuddyGroupEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCBuddyGroupEvent> for super::Com::IDispatch {
-    fn from(value: IRTCBuddyGroupEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCBuddyGroupEvent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCBuddyGroupEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCBuddyGroupEvent> for super::Com::IDispatch {
-    fn from(value: &IRTCBuddyGroupEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCBuddyGroupEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCBuddyGroupEvent {
     fn clone(&self) -> Self {
@@ -931,21 +696,7 @@ impl IRTCClient {
         (::windows::core::Vtable::vtable(self).IsTuned)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
 }
-impl ::core::convert::From<IRTCClient> for ::windows::core::IUnknown {
-    fn from(value: IRTCClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCClient> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCClient> for ::windows::core::IUnknown {
-    fn from(value: &IRTCClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCClient, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCClient {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1230,36 +981,7 @@ impl IRTCClient2 {
         (::windows::core::Vtable::vtable(self).get_AllowedPorts)(::windows::core::Vtable::as_raw(self), ltransport, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_LISTEN_MODE>(result__)
     }
 }
-impl ::core::convert::From<IRTCClient2> for ::windows::core::IUnknown {
-    fn from(value: IRTCClient2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCClient2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCClient2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCClient2> for ::windows::core::IUnknown {
-    fn from(value: &IRTCClient2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IRTCClient2> for IRTCClient {
-    fn from(value: IRTCClient2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCClient2> for &'a IRTCClient {
-    fn from(value: &'a IRTCClient2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCClient2> for IRTCClient {
-    fn from(value: &IRTCClient2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCClient2, ::windows::core::IUnknown, IRTCClient);
 impl ::core::clone::Clone for IRTCClient2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1316,41 +1038,7 @@ impl IRTCClientEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCClientEvent> for ::windows::core::IUnknown {
-    fn from(value: IRTCClientEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCClientEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCClientEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCClientEvent> for ::windows::core::IUnknown {
-    fn from(value: &IRTCClientEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCClientEvent> for super::Com::IDispatch {
-    fn from(value: IRTCClientEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCClientEvent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCClientEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCClientEvent> for super::Com::IDispatch {
-    fn from(value: &IRTCClientEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCClientEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCClientEvent {
     fn clone(&self) -> Self {
@@ -1401,21 +1089,7 @@ impl IRTCClientPortManagement {
         (::windows::core::Vtable::vtable(self).GetPortRange)(::windows::core::Vtable::as_raw(self), enporttype, ::core::mem::transmute(plminvalue), ::core::mem::transmute(plmaxvalue)).ok()
     }
 }
-impl ::core::convert::From<IRTCClientPortManagement> for ::windows::core::IUnknown {
-    fn from(value: IRTCClientPortManagement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCClientPortManagement> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCClientPortManagement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCClientPortManagement> for ::windows::core::IUnknown {
-    fn from(value: &IRTCClientPortManagement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCClientPortManagement, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCClientPortManagement {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1543,21 +1217,7 @@ impl IRTCClientPresence {
         (::windows::core::Vtable::vtable(self).SetPrivacyMode)(::windows::core::Vtable::as_raw(self), enmode).ok()
     }
 }
-impl ::core::convert::From<IRTCClientPresence> for ::windows::core::IUnknown {
-    fn from(value: IRTCClientPresence) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCClientPresence> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCClientPresence) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCClientPresence> for ::windows::core::IUnknown {
-    fn from(value: &IRTCClientPresence) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCClientPresence, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCClientPresence {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1788,36 +1448,7 @@ impl IRTCClientPresence2 {
         (::windows::core::Vtable::vtable(self).AddBuddyEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpresentityuri), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrdata), fpersistent, ensubscriptiontype, pprofile.into().abi(), lflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddy2>(result__)
     }
 }
-impl ::core::convert::From<IRTCClientPresence2> for ::windows::core::IUnknown {
-    fn from(value: IRTCClientPresence2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCClientPresence2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCClientPresence2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCClientPresence2> for ::windows::core::IUnknown {
-    fn from(value: &IRTCClientPresence2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IRTCClientPresence2> for IRTCClientPresence {
-    fn from(value: IRTCClientPresence2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCClientPresence2> for &'a IRTCClientPresence {
-    fn from(value: &'a IRTCClientPresence2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCClientPresence2> for IRTCClientPresence {
-    fn from(value: &IRTCClientPresence2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCClientPresence2, ::windows::core::IUnknown, IRTCClientPresence);
 impl ::core::clone::Clone for IRTCClientPresence2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1904,21 +1535,7 @@ impl IRTCClientProvisioning {
         (::windows::core::Vtable::vtable(self).SessionCapabilities)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
-impl ::core::convert::From<IRTCClientProvisioning> for ::windows::core::IUnknown {
-    fn from(value: IRTCClientProvisioning) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCClientProvisioning> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCClientProvisioning) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCClientProvisioning> for ::windows::core::IUnknown {
-    fn from(value: &IRTCClientProvisioning) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCClientProvisioning, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCClientProvisioning {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2000,36 +1617,7 @@ impl IRTCClientProvisioning2 {
         (::windows::core::Vtable::vtable(self).EnableProfileEx)(::windows::core::Vtable::as_raw(self), pprofile.into().abi(), lregisterflags, lroamingflags).ok()
     }
 }
-impl ::core::convert::From<IRTCClientProvisioning2> for ::windows::core::IUnknown {
-    fn from(value: IRTCClientProvisioning2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCClientProvisioning2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCClientProvisioning2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCClientProvisioning2> for ::windows::core::IUnknown {
-    fn from(value: &IRTCClientProvisioning2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IRTCClientProvisioning2> for IRTCClientProvisioning {
-    fn from(value: IRTCClientProvisioning2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCClientProvisioning2> for &'a IRTCClientProvisioning {
-    fn from(value: &'a IRTCClientProvisioning2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCClientProvisioning2> for IRTCClientProvisioning {
-    fn from(value: &IRTCClientProvisioning2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCClientProvisioning2, ::windows::core::IUnknown, IRTCClientProvisioning);
 impl ::core::clone::Clone for IRTCClientProvisioning2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2080,41 +1668,7 @@ impl IRTCCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCCollection> for ::windows::core::IUnknown {
-    fn from(value: IRTCCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCCollection> for ::windows::core::IUnknown {
-    fn from(value: &IRTCCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCCollection> for super::Com::IDispatch {
-    fn from(value: IRTCCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCCollection> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCCollection> for super::Com::IDispatch {
-    fn from(value: &IRTCCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCCollection {
     fn clone(&self) -> Self {
@@ -2162,41 +1716,7 @@ pub struct IRTCDispatchEventNotification(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCDispatchEventNotification {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCDispatchEventNotification> for ::windows::core::IUnknown {
-    fn from(value: IRTCDispatchEventNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCDispatchEventNotification> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCDispatchEventNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCDispatchEventNotification> for ::windows::core::IUnknown {
-    fn from(value: &IRTCDispatchEventNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCDispatchEventNotification> for super::Com::IDispatch {
-    fn from(value: IRTCDispatchEventNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCDispatchEventNotification> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCDispatchEventNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCDispatchEventNotification> for super::Com::IDispatch {
-    fn from(value: &IRTCDispatchEventNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCDispatchEventNotification, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCDispatchEventNotification {
     fn clone(&self) -> Self {
@@ -2249,21 +1769,7 @@ impl IRTCEnumBuddies {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCEnumBuddies>(result__)
     }
 }
-impl ::core::convert::From<IRTCEnumBuddies> for ::windows::core::IUnknown {
-    fn from(value: IRTCEnumBuddies) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCEnumBuddies> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCEnumBuddies) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCEnumBuddies> for ::windows::core::IUnknown {
-    fn from(value: &IRTCEnumBuddies) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCEnumBuddies, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCEnumBuddies {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2313,21 +1819,7 @@ impl IRTCEnumGroups {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCEnumGroups>(result__)
     }
 }
-impl ::core::convert::From<IRTCEnumGroups> for ::windows::core::IUnknown {
-    fn from(value: IRTCEnumGroups) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCEnumGroups> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCEnumGroups) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCEnumGroups> for ::windows::core::IUnknown {
-    fn from(value: &IRTCEnumGroups) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCEnumGroups, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCEnumGroups {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2377,21 +1869,7 @@ impl IRTCEnumParticipants {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCEnumParticipants>(result__)
     }
 }
-impl ::core::convert::From<IRTCEnumParticipants> for ::windows::core::IUnknown {
-    fn from(value: IRTCEnumParticipants) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCEnumParticipants> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCEnumParticipants) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCEnumParticipants> for ::windows::core::IUnknown {
-    fn from(value: &IRTCEnumParticipants) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCEnumParticipants, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCEnumParticipants {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2441,21 +1919,7 @@ impl IRTCEnumPresenceDevices {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCEnumPresenceDevices>(result__)
     }
 }
-impl ::core::convert::From<IRTCEnumPresenceDevices> for ::windows::core::IUnknown {
-    fn from(value: IRTCEnumPresenceDevices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCEnumPresenceDevices> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCEnumPresenceDevices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCEnumPresenceDevices> for ::windows::core::IUnknown {
-    fn from(value: &IRTCEnumPresenceDevices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCEnumPresenceDevices, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCEnumPresenceDevices {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2505,21 +1969,7 @@ impl IRTCEnumProfiles {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCEnumProfiles>(result__)
     }
 }
-impl ::core::convert::From<IRTCEnumProfiles> for ::windows::core::IUnknown {
-    fn from(value: IRTCEnumProfiles) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCEnumProfiles> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCEnumProfiles) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCEnumProfiles> for ::windows::core::IUnknown {
-    fn from(value: &IRTCEnumProfiles) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCEnumProfiles, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCEnumProfiles {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2569,21 +2019,7 @@ impl IRTCEnumUserSearchResults {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCEnumUserSearchResults>(result__)
     }
 }
-impl ::core::convert::From<IRTCEnumUserSearchResults> for ::windows::core::IUnknown {
-    fn from(value: IRTCEnumUserSearchResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCEnumUserSearchResults> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCEnumUserSearchResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCEnumUserSearchResults> for ::windows::core::IUnknown {
-    fn from(value: &IRTCEnumUserSearchResults) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCEnumUserSearchResults, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCEnumUserSearchResults {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2633,21 +2069,7 @@ impl IRTCEnumWatchers {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCEnumWatchers>(result__)
     }
 }
-impl ::core::convert::From<IRTCEnumWatchers> for ::windows::core::IUnknown {
-    fn from(value: IRTCEnumWatchers) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCEnumWatchers> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCEnumWatchers) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCEnumWatchers> for ::windows::core::IUnknown {
-    fn from(value: &IRTCEnumWatchers) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCEnumWatchers, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCEnumWatchers {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2692,21 +2114,7 @@ impl IRTCEventNotification {
         (::windows::core::Vtable::vtable(self).Event)(::windows::core::Vtable::as_raw(self), rtcevent, pevent.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IRTCEventNotification> for ::windows::core::IUnknown {
-    fn from(value: IRTCEventNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCEventNotification> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCEventNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCEventNotification> for ::windows::core::IUnknown {
-    fn from(value: &IRTCEventNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCEventNotification, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCEventNotification {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2762,41 +2170,7 @@ impl IRTCInfoEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCInfoEvent> for ::windows::core::IUnknown {
-    fn from(value: IRTCInfoEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCInfoEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCInfoEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCInfoEvent> for ::windows::core::IUnknown {
-    fn from(value: &IRTCInfoEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCInfoEvent> for super::Com::IDispatch {
-    fn from(value: IRTCInfoEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCInfoEvent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCInfoEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCInfoEvent> for super::Com::IDispatch {
-    fn from(value: &IRTCInfoEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCInfoEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCInfoEvent {
     fn clone(&self) -> Self {
@@ -2859,41 +2233,7 @@ impl IRTCIntensityEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCIntensityEvent> for ::windows::core::IUnknown {
-    fn from(value: IRTCIntensityEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCIntensityEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCIntensityEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCIntensityEvent> for ::windows::core::IUnknown {
-    fn from(value: &IRTCIntensityEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCIntensityEvent> for super::Com::IDispatch {
-    fn from(value: IRTCIntensityEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCIntensityEvent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCIntensityEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCIntensityEvent> for super::Com::IDispatch {
-    fn from(value: &IRTCIntensityEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCIntensityEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCIntensityEvent {
     fn clone(&self) -> Self {
@@ -2952,41 +2292,7 @@ impl IRTCMediaEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCMediaEvent> for ::windows::core::IUnknown {
-    fn from(value: IRTCMediaEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCMediaEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCMediaEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCMediaEvent> for ::windows::core::IUnknown {
-    fn from(value: &IRTCMediaEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCMediaEvent> for super::Com::IDispatch {
-    fn from(value: IRTCMediaEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCMediaEvent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCMediaEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCMediaEvent> for super::Com::IDispatch {
-    fn from(value: &IRTCMediaEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCMediaEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCMediaEvent {
     fn clone(&self) -> Self {
@@ -3058,41 +2364,7 @@ impl IRTCMediaRequestEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCMediaRequestEvent> for ::windows::core::IUnknown {
-    fn from(value: IRTCMediaRequestEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCMediaRequestEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCMediaRequestEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCMediaRequestEvent> for ::windows::core::IUnknown {
-    fn from(value: &IRTCMediaRequestEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCMediaRequestEvent> for super::Com::IDispatch {
-    fn from(value: IRTCMediaRequestEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCMediaRequestEvent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCMediaRequestEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCMediaRequestEvent> for super::Com::IDispatch {
-    fn from(value: &IRTCMediaRequestEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCMediaRequestEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCMediaRequestEvent {
     fn clone(&self) -> Self {
@@ -3166,41 +2438,7 @@ impl IRTCMessagingEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCMessagingEvent> for ::windows::core::IUnknown {
-    fn from(value: IRTCMessagingEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCMessagingEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCMessagingEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCMessagingEvent> for ::windows::core::IUnknown {
-    fn from(value: &IRTCMessagingEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCMessagingEvent> for super::Com::IDispatch {
-    fn from(value: IRTCMessagingEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCMessagingEvent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCMessagingEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCMessagingEvent> for super::Com::IDispatch {
-    fn from(value: &IRTCMessagingEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCMessagingEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCMessagingEvent {
     fn clone(&self) -> Self {
@@ -3266,21 +2504,7 @@ impl IRTCParticipant {
         (::windows::core::Vtable::vtable(self).Session)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCSession>(result__)
     }
 }
-impl ::core::convert::From<IRTCParticipant> for ::windows::core::IUnknown {
-    fn from(value: IRTCParticipant) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCParticipant> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCParticipant) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCParticipant> for ::windows::core::IUnknown {
-    fn from(value: &IRTCParticipant) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCParticipant, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCParticipant {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3333,41 +2557,7 @@ impl IRTCParticipantStateChangeEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCParticipantStateChangeEvent> for ::windows::core::IUnknown {
-    fn from(value: IRTCParticipantStateChangeEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCParticipantStateChangeEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCParticipantStateChangeEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCParticipantStateChangeEvent> for ::windows::core::IUnknown {
-    fn from(value: &IRTCParticipantStateChangeEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCParticipantStateChangeEvent> for super::Com::IDispatch {
-    fn from(value: IRTCParticipantStateChangeEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCParticipantStateChangeEvent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCParticipantStateChangeEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCParticipantStateChangeEvent> for super::Com::IDispatch {
-    fn from(value: &IRTCParticipantStateChangeEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCParticipantStateChangeEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCParticipantStateChangeEvent {
     fn clone(&self) -> Self {
@@ -3419,21 +2609,7 @@ impl IRTCPortManager {
         (::windows::core::Vtable::vtable(self).ReleaseMapping)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrinternallocaladdress), linternallocalport, ::core::mem::transmute_copy(bstrexternallocaladdress), lexternallocaladdress).ok()
     }
 }
-impl ::core::convert::From<IRTCPortManager> for ::windows::core::IUnknown {
-    fn from(value: IRTCPortManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCPortManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCPortManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCPortManager> for ::windows::core::IUnknown {
-    fn from(value: &IRTCPortManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCPortManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCPortManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3497,21 +2673,7 @@ impl IRTCPresenceContact {
         (::windows::core::Vtable::vtable(self).SetPersistent)(::windows::core::Vtable::as_raw(self), fpersistent).ok()
     }
 }
-impl ::core::convert::From<IRTCPresenceContact> for ::windows::core::IUnknown {
-    fn from(value: IRTCPresenceContact) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCPresenceContact> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCPresenceContact) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCPresenceContact> for ::windows::core::IUnknown {
-    fn from(value: &IRTCPresenceContact) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCPresenceContact, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCPresenceContact {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3566,41 +2728,7 @@ impl IRTCPresenceDataEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCPresenceDataEvent> for ::windows::core::IUnknown {
-    fn from(value: IRTCPresenceDataEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCPresenceDataEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCPresenceDataEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCPresenceDataEvent> for ::windows::core::IUnknown {
-    fn from(value: &IRTCPresenceDataEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCPresenceDataEvent> for super::Com::IDispatch {
-    fn from(value: IRTCPresenceDataEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCPresenceDataEvent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCPresenceDataEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCPresenceDataEvent> for super::Com::IDispatch {
-    fn from(value: &IRTCPresenceDataEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCPresenceDataEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCPresenceDataEvent {
     fn clone(&self) -> Self {
@@ -3658,21 +2786,7 @@ impl IRTCPresenceDevice {
         (::windows::core::Vtable::vtable(self).GetPresenceData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrnamespace), ::core::mem::transmute(pbstrdata)).ok()
     }
 }
-impl ::core::convert::From<IRTCPresenceDevice> for ::windows::core::IUnknown {
-    fn from(value: IRTCPresenceDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCPresenceDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCPresenceDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCPresenceDevice> for ::windows::core::IUnknown {
-    fn from(value: &IRTCPresenceDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCPresenceDevice, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCPresenceDevice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3728,41 +2842,7 @@ impl IRTCPresencePropertyEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCPresencePropertyEvent> for ::windows::core::IUnknown {
-    fn from(value: IRTCPresencePropertyEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCPresencePropertyEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCPresencePropertyEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCPresencePropertyEvent> for ::windows::core::IUnknown {
-    fn from(value: &IRTCPresencePropertyEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCPresencePropertyEvent> for super::Com::IDispatch {
-    fn from(value: IRTCPresencePropertyEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCPresencePropertyEvent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCPresencePropertyEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCPresencePropertyEvent> for super::Com::IDispatch {
-    fn from(value: &IRTCPresencePropertyEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCPresencePropertyEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCPresencePropertyEvent {
     fn clone(&self) -> Self {
@@ -3820,41 +2900,7 @@ impl IRTCPresenceStatusEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCPresenceStatusEvent> for ::windows::core::IUnknown {
-    fn from(value: IRTCPresenceStatusEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCPresenceStatusEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCPresenceStatusEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCPresenceStatusEvent> for ::windows::core::IUnknown {
-    fn from(value: &IRTCPresenceStatusEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCPresenceStatusEvent> for super::Com::IDispatch {
-    fn from(value: IRTCPresenceStatusEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCPresenceStatusEvent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCPresenceStatusEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCPresenceStatusEvent> for super::Com::IDispatch {
-    fn from(value: &IRTCPresenceStatusEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCPresenceStatusEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCPresenceStatusEvent {
     fn clone(&self) -> Self {
@@ -3968,21 +3014,7 @@ impl IRTCProfile {
         (::windows::core::Vtable::vtable(self).State)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_REGISTRATION_STATE>(result__)
     }
 }
-impl ::core::convert::From<IRTCProfile> for ::windows::core::IUnknown {
-    fn from(value: IRTCProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCProfile> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCProfile> for ::windows::core::IUnknown {
-    fn from(value: &IRTCProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCProfile, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCProfile {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4118,36 +3150,7 @@ impl IRTCProfile2 {
         (::windows::core::Vtable::vtable(self).SetAllowedAuth)(::windows::core::Vtable::as_raw(self), lallowedauth).ok()
     }
 }
-impl ::core::convert::From<IRTCProfile2> for ::windows::core::IUnknown {
-    fn from(value: IRTCProfile2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCProfile2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCProfile2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCProfile2> for ::windows::core::IUnknown {
-    fn from(value: &IRTCProfile2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IRTCProfile2> for IRTCProfile {
-    fn from(value: IRTCProfile2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCProfile2> for &'a IRTCProfile {
-    fn from(value: &'a IRTCProfile2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCProfile2> for IRTCProfile {
-    fn from(value: &IRTCProfile2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCProfile2, ::windows::core::IUnknown, IRTCProfile);
 impl ::core::clone::Clone for IRTCProfile2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4199,41 +3202,7 @@ impl IRTCProfileEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCProfileEvent> for ::windows::core::IUnknown {
-    fn from(value: IRTCProfileEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCProfileEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCProfileEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCProfileEvent> for ::windows::core::IUnknown {
-    fn from(value: &IRTCProfileEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCProfileEvent> for super::Com::IDispatch {
-    fn from(value: IRTCProfileEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCProfileEvent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCProfileEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCProfileEvent> for super::Com::IDispatch {
-    fn from(value: &IRTCProfileEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCProfileEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCProfileEvent {
     fn clone(&self) -> Self {
@@ -4295,59 +3264,7 @@ impl IRTCProfileEvent2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCProfileEvent2> for ::windows::core::IUnknown {
-    fn from(value: IRTCProfileEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCProfileEvent2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCProfileEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCProfileEvent2> for ::windows::core::IUnknown {
-    fn from(value: &IRTCProfileEvent2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCProfileEvent2> for super::Com::IDispatch {
-    fn from(value: IRTCProfileEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCProfileEvent2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCProfileEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCProfileEvent2> for super::Com::IDispatch {
-    fn from(value: &IRTCProfileEvent2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCProfileEvent2> for IRTCProfileEvent {
-    fn from(value: IRTCProfileEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCProfileEvent2> for &'a IRTCProfileEvent {
-    fn from(value: &'a IRTCProfileEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCProfileEvent2> for IRTCProfileEvent {
-    fn from(value: &IRTCProfileEvent2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCProfileEvent2, ::windows::core::IUnknown, super::Com::IDispatch, IRTCProfileEvent);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCProfileEvent2 {
     fn clone(&self) -> Self {
@@ -4408,41 +3325,7 @@ impl IRTCReInviteEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCReInviteEvent> for ::windows::core::IUnknown {
-    fn from(value: IRTCReInviteEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCReInviteEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCReInviteEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCReInviteEvent> for ::windows::core::IUnknown {
-    fn from(value: &IRTCReInviteEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCReInviteEvent> for super::Com::IDispatch {
-    fn from(value: IRTCReInviteEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCReInviteEvent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCReInviteEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCReInviteEvent> for super::Com::IDispatch {
-    fn from(value: &IRTCReInviteEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCReInviteEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCReInviteEvent {
     fn clone(&self) -> Self {
@@ -4506,41 +3389,7 @@ impl IRTCRegistrationStateChangeEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCRegistrationStateChangeEvent> for ::windows::core::IUnknown {
-    fn from(value: IRTCRegistrationStateChangeEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCRegistrationStateChangeEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCRegistrationStateChangeEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCRegistrationStateChangeEvent> for ::windows::core::IUnknown {
-    fn from(value: &IRTCRegistrationStateChangeEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCRegistrationStateChangeEvent> for super::Com::IDispatch {
-    fn from(value: IRTCRegistrationStateChangeEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCRegistrationStateChangeEvent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCRegistrationStateChangeEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCRegistrationStateChangeEvent> for super::Com::IDispatch {
-    fn from(value: &IRTCRegistrationStateChangeEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCRegistrationStateChangeEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCRegistrationStateChangeEvent {
     fn clone(&self) -> Self {
@@ -4603,41 +3452,7 @@ impl IRTCRoamingEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCRoamingEvent> for ::windows::core::IUnknown {
-    fn from(value: IRTCRoamingEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCRoamingEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCRoamingEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCRoamingEvent> for ::windows::core::IUnknown {
-    fn from(value: &IRTCRoamingEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCRoamingEvent> for super::Com::IDispatch {
-    fn from(value: IRTCRoamingEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCRoamingEvent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCRoamingEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCRoamingEvent> for super::Com::IDispatch {
-    fn from(value: &IRTCRoamingEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCRoamingEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCRoamingEvent {
     fn clone(&self) -> Self {
@@ -4759,21 +3574,7 @@ impl IRTCSession {
         (::windows::core::Vtable::vtable(self).put_EncryptionKey)(::windows::core::Vtable::as_raw(self), lmediatype, ::core::mem::transmute_copy(encryptionkey)).ok()
     }
 }
-impl ::core::convert::From<IRTCSession> for ::windows::core::IUnknown {
-    fn from(value: IRTCSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCSession> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCSession> for ::windows::core::IUnknown {
-    fn from(value: &IRTCSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCSession, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCSession {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4927,36 +3728,7 @@ impl IRTCSession2 {
         (::windows::core::Vtable::vtable(self).ReInviteWithSessionDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrcontenttype), ::core::mem::transmute_copy(bstrsessiondescription), lcookie).ok()
     }
 }
-impl ::core::convert::From<IRTCSession2> for ::windows::core::IUnknown {
-    fn from(value: IRTCSession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCSession2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCSession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCSession2> for ::windows::core::IUnknown {
-    fn from(value: &IRTCSession2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IRTCSession2> for IRTCSession {
-    fn from(value: IRTCSession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCSession2> for &'a IRTCSession {
-    fn from(value: &'a IRTCSession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCSession2> for IRTCSession {
-    fn from(value: &IRTCSession2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCSession2, ::windows::core::IUnknown, IRTCSession);
 impl ::core::clone::Clone for IRTCSession2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5025,21 +3797,7 @@ impl IRTCSessionCallControl {
         (::windows::core::Vtable::vtable(self).IsReferred)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
 }
-impl ::core::convert::From<IRTCSessionCallControl> for ::windows::core::IUnknown {
-    fn from(value: IRTCSessionCallControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCSessionCallControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCSessionCallControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCSessionCallControl> for ::windows::core::IUnknown {
-    fn from(value: &IRTCSessionCallControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCSessionCallControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCSessionCallControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5084,21 +3842,7 @@ impl IRTCSessionDescriptionManager {
         (::windows::core::Vtable::vtable(self).EvaluateSessionDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrcontenttype), ::core::mem::transmute_copy(bstrsessiondescription), ::core::mem::transmute(pfapplicationsession)).ok()
     }
 }
-impl ::core::convert::From<IRTCSessionDescriptionManager> for ::windows::core::IUnknown {
-    fn from(value: IRTCSessionDescriptionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCSessionDescriptionManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCSessionDescriptionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCSessionDescriptionManager> for ::windows::core::IUnknown {
-    fn from(value: &IRTCSessionDescriptionManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCSessionDescriptionManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCSessionDescriptionManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5151,41 +3895,7 @@ impl IRTCSessionOperationCompleteEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCSessionOperationCompleteEvent> for ::windows::core::IUnknown {
-    fn from(value: IRTCSessionOperationCompleteEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCSessionOperationCompleteEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCSessionOperationCompleteEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCSessionOperationCompleteEvent> for ::windows::core::IUnknown {
-    fn from(value: &IRTCSessionOperationCompleteEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCSessionOperationCompleteEvent> for super::Com::IDispatch {
-    fn from(value: IRTCSessionOperationCompleteEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCSessionOperationCompleteEvent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCSessionOperationCompleteEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCSessionOperationCompleteEvent> for super::Com::IDispatch {
-    fn from(value: &IRTCSessionOperationCompleteEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCSessionOperationCompleteEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCSessionOperationCompleteEvent {
     fn clone(&self) -> Self {
@@ -5255,59 +3965,7 @@ impl IRTCSessionOperationCompleteEvent2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCSessionOperationCompleteEvent2> for ::windows::core::IUnknown {
-    fn from(value: IRTCSessionOperationCompleteEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCSessionOperationCompleteEvent2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCSessionOperationCompleteEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCSessionOperationCompleteEvent2> for ::windows::core::IUnknown {
-    fn from(value: &IRTCSessionOperationCompleteEvent2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCSessionOperationCompleteEvent2> for super::Com::IDispatch {
-    fn from(value: IRTCSessionOperationCompleteEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCSessionOperationCompleteEvent2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCSessionOperationCompleteEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCSessionOperationCompleteEvent2> for super::Com::IDispatch {
-    fn from(value: &IRTCSessionOperationCompleteEvent2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCSessionOperationCompleteEvent2> for IRTCSessionOperationCompleteEvent {
-    fn from(value: IRTCSessionOperationCompleteEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCSessionOperationCompleteEvent2> for &'a IRTCSessionOperationCompleteEvent {
-    fn from(value: &'a IRTCSessionOperationCompleteEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCSessionOperationCompleteEvent2> for IRTCSessionOperationCompleteEvent {
-    fn from(value: &IRTCSessionOperationCompleteEvent2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCSessionOperationCompleteEvent2, ::windows::core::IUnknown, super::Com::IDispatch, IRTCSessionOperationCompleteEvent);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCSessionOperationCompleteEvent2 {
     fn clone(&self) -> Self {
@@ -5355,21 +4013,7 @@ impl IRTCSessionPortManagement {
         (::windows::core::Vtable::vtable(self).SetPortManager)(::windows::core::Vtable::as_raw(self), pportmanager.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IRTCSessionPortManagement> for ::windows::core::IUnknown {
-    fn from(value: IRTCSessionPortManagement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCSessionPortManagement> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCSessionPortManagement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCSessionPortManagement> for ::windows::core::IUnknown {
-    fn from(value: &IRTCSessionPortManagement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCSessionPortManagement, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCSessionPortManagement {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5422,41 +4066,7 @@ impl IRTCSessionReferStatusEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCSessionReferStatusEvent> for ::windows::core::IUnknown {
-    fn from(value: IRTCSessionReferStatusEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCSessionReferStatusEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCSessionReferStatusEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCSessionReferStatusEvent> for ::windows::core::IUnknown {
-    fn from(value: &IRTCSessionReferStatusEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCSessionReferStatusEvent> for super::Com::IDispatch {
-    fn from(value: IRTCSessionReferStatusEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCSessionReferStatusEvent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCSessionReferStatusEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCSessionReferStatusEvent> for super::Com::IDispatch {
-    fn from(value: &IRTCSessionReferStatusEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCSessionReferStatusEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCSessionReferStatusEvent {
     fn clone(&self) -> Self {
@@ -5528,41 +4138,7 @@ impl IRTCSessionReferredEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCSessionReferredEvent> for ::windows::core::IUnknown {
-    fn from(value: IRTCSessionReferredEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCSessionReferredEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCSessionReferredEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCSessionReferredEvent> for ::windows::core::IUnknown {
-    fn from(value: &IRTCSessionReferredEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCSessionReferredEvent> for super::Com::IDispatch {
-    fn from(value: IRTCSessionReferredEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCSessionReferredEvent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCSessionReferredEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCSessionReferredEvent> for super::Com::IDispatch {
-    fn from(value: &IRTCSessionReferredEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCSessionReferredEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCSessionReferredEvent {
     fn clone(&self) -> Self {
@@ -5628,41 +4204,7 @@ impl IRTCSessionStateChangeEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCSessionStateChangeEvent> for ::windows::core::IUnknown {
-    fn from(value: IRTCSessionStateChangeEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCSessionStateChangeEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCSessionStateChangeEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCSessionStateChangeEvent> for ::windows::core::IUnknown {
-    fn from(value: &IRTCSessionStateChangeEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCSessionStateChangeEvent> for super::Com::IDispatch {
-    fn from(value: IRTCSessionStateChangeEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCSessionStateChangeEvent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCSessionStateChangeEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCSessionStateChangeEvent> for super::Com::IDispatch {
-    fn from(value: &IRTCSessionStateChangeEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCSessionStateChangeEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCSessionStateChangeEvent {
     fn clone(&self) -> Self {
@@ -5740,59 +4282,7 @@ impl IRTCSessionStateChangeEvent2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCSessionStateChangeEvent2> for ::windows::core::IUnknown {
-    fn from(value: IRTCSessionStateChangeEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCSessionStateChangeEvent2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCSessionStateChangeEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCSessionStateChangeEvent2> for ::windows::core::IUnknown {
-    fn from(value: &IRTCSessionStateChangeEvent2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCSessionStateChangeEvent2> for super::Com::IDispatch {
-    fn from(value: IRTCSessionStateChangeEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCSessionStateChangeEvent2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCSessionStateChangeEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCSessionStateChangeEvent2> for super::Com::IDispatch {
-    fn from(value: &IRTCSessionStateChangeEvent2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCSessionStateChangeEvent2> for IRTCSessionStateChangeEvent {
-    fn from(value: IRTCSessionStateChangeEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCSessionStateChangeEvent2> for &'a IRTCSessionStateChangeEvent {
-    fn from(value: &'a IRTCSessionStateChangeEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCSessionStateChangeEvent2> for IRTCSessionStateChangeEvent {
-    fn from(value: &IRTCSessionStateChangeEvent2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCSessionStateChangeEvent2, ::windows::core::IUnknown, super::Com::IDispatch, IRTCSessionStateChangeEvent);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCSessionStateChangeEvent2 {
     fn clone(&self) -> Self {
@@ -5847,21 +4337,7 @@ impl IRTCUserSearch {
         (::windows::core::Vtable::vtable(self).ExecuteSearch)(::windows::core::Vtable::as_raw(self), pquery.into().abi(), pprofile.into().abi(), lcookie).ok()
     }
 }
-impl ::core::convert::From<IRTCUserSearch> for ::windows::core::IUnknown {
-    fn from(value: IRTCUserSearch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCUserSearch> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCUserSearch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCUserSearch> for ::windows::core::IUnknown {
-    fn from(value: &IRTCUserSearch) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCUserSearch, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCUserSearch {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5921,21 +4397,7 @@ impl IRTCUserSearchQuery {
         (::windows::core::Vtable::vtable(self).SearchDomain)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
-impl ::core::convert::From<IRTCUserSearchQuery> for ::windows::core::IUnknown {
-    fn from(value: IRTCUserSearchQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCUserSearchQuery> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCUserSearchQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCUserSearchQuery> for ::windows::core::IUnknown {
-    fn from(value: &IRTCUserSearchQuery) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCUserSearchQuery, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCUserSearchQuery {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5979,21 +4441,7 @@ impl IRTCUserSearchResult {
         (::windows::core::Vtable::vtable(self).get_Value)(::windows::core::Vtable::as_raw(self), encolumn, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
-impl ::core::convert::From<IRTCUserSearchResult> for ::windows::core::IUnknown {
-    fn from(value: IRTCUserSearchResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCUserSearchResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCUserSearchResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCUserSearchResult> for ::windows::core::IUnknown {
-    fn from(value: &IRTCUserSearchResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCUserSearchResult, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRTCUserSearchResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6060,41 +4508,7 @@ impl IRTCUserSearchResultsEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCUserSearchResultsEvent> for ::windows::core::IUnknown {
-    fn from(value: IRTCUserSearchResultsEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCUserSearchResultsEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCUserSearchResultsEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCUserSearchResultsEvent> for ::windows::core::IUnknown {
-    fn from(value: &IRTCUserSearchResultsEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCUserSearchResultsEvent> for super::Com::IDispatch {
-    fn from(value: IRTCUserSearchResultsEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCUserSearchResultsEvent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCUserSearchResultsEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCUserSearchResultsEvent> for super::Com::IDispatch {
-    fn from(value: &IRTCUserSearchResultsEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCUserSearchResultsEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCUserSearchResultsEvent {
     fn clone(&self) -> Self {
@@ -6179,36 +4593,7 @@ impl IRTCWatcher {
         (::windows::core::Vtable::vtable(self).SetState)(::windows::core::Vtable::as_raw(self), enstate).ok()
     }
 }
-impl ::core::convert::From<IRTCWatcher> for ::windows::core::IUnknown {
-    fn from(value: IRTCWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCWatcher> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCWatcher> for ::windows::core::IUnknown {
-    fn from(value: &IRTCWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IRTCWatcher> for IRTCPresenceContact {
-    fn from(value: IRTCWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCWatcher> for &'a IRTCPresenceContact {
-    fn from(value: &'a IRTCWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCWatcher> for IRTCPresenceContact {
-    fn from(value: &IRTCWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCWatcher, ::windows::core::IUnknown, IRTCPresenceContact);
 impl ::core::clone::Clone for IRTCWatcher {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6286,51 +4671,7 @@ impl IRTCWatcher2 {
         (::windows::core::Vtable::vtable(self).Scope)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_ACE_SCOPE>(result__)
     }
 }
-impl ::core::convert::From<IRTCWatcher2> for ::windows::core::IUnknown {
-    fn from(value: IRTCWatcher2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCWatcher2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCWatcher2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCWatcher2> for ::windows::core::IUnknown {
-    fn from(value: &IRTCWatcher2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IRTCWatcher2> for IRTCPresenceContact {
-    fn from(value: IRTCWatcher2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCWatcher2> for &'a IRTCPresenceContact {
-    fn from(value: &'a IRTCWatcher2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCWatcher2> for IRTCPresenceContact {
-    fn from(value: &IRTCWatcher2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IRTCWatcher2> for IRTCWatcher {
-    fn from(value: IRTCWatcher2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRTCWatcher2> for &'a IRTCWatcher {
-    fn from(value: &'a IRTCWatcher2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRTCWatcher2> for IRTCWatcher {
-    fn from(value: &IRTCWatcher2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCWatcher2, ::windows::core::IUnknown, IRTCPresenceContact, IRTCWatcher);
 impl ::core::clone::Clone for IRTCWatcher2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6372,41 +4713,7 @@ impl IRTCWatcherEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCWatcherEvent> for ::windows::core::IUnknown {
-    fn from(value: IRTCWatcherEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCWatcherEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCWatcherEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCWatcherEvent> for ::windows::core::IUnknown {
-    fn from(value: &IRTCWatcherEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCWatcherEvent> for super::Com::IDispatch {
-    fn from(value: IRTCWatcherEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCWatcherEvent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCWatcherEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCWatcherEvent> for super::Com::IDispatch {
-    fn from(value: &IRTCWatcherEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCWatcherEvent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCWatcherEvent {
     fn clone(&self) -> Self {
@@ -6462,59 +4769,7 @@ impl IRTCWatcherEvent2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCWatcherEvent2> for ::windows::core::IUnknown {
-    fn from(value: IRTCWatcherEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCWatcherEvent2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRTCWatcherEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCWatcherEvent2> for ::windows::core::IUnknown {
-    fn from(value: &IRTCWatcherEvent2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCWatcherEvent2> for super::Com::IDispatch {
-    fn from(value: IRTCWatcherEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCWatcherEvent2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRTCWatcherEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCWatcherEvent2> for super::Com::IDispatch {
-    fn from(value: &IRTCWatcherEvent2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRTCWatcherEvent2> for IRTCWatcherEvent {
-    fn from(value: IRTCWatcherEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRTCWatcherEvent2> for &'a IRTCWatcherEvent {
-    fn from(value: &'a IRTCWatcherEvent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRTCWatcherEvent2> for IRTCWatcherEvent {
-    fn from(value: &IRTCWatcherEvent2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRTCWatcherEvent2, ::windows::core::IUnknown, super::Com::IDispatch, IRTCWatcherEvent);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRTCWatcherEvent2 {
     fn clone(&self) -> Self {
@@ -6566,21 +4821,7 @@ impl ITransportSettingsInternal {
         (::windows::core::Vtable::vtable(self).QuerySetting)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(setting)).ok()
     }
 }
-impl ::core::convert::From<ITransportSettingsInternal> for ::windows::core::IUnknown {
-    fn from(value: ITransportSettingsInternal) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransportSettingsInternal> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransportSettingsInternal) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransportSettingsInternal> for ::windows::core::IUnknown {
-    fn from(value: &ITransportSettingsInternal) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransportSettingsInternal, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransportSettingsInternal {
     fn clone(&self) -> Self {
         Self(self.0.clone())

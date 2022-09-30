@@ -2853,21 +2853,7 @@ impl IAdvancedMediaCapture {
         (::windows::core::Vtable::vtable(self).GetAdvancedMediaCaptureSettings)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAdvancedMediaCaptureSettings>(result__)
     }
 }
-impl ::core::convert::From<IAdvancedMediaCapture> for ::windows::core::IUnknown {
-    fn from(value: IAdvancedMediaCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAdvancedMediaCapture> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAdvancedMediaCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAdvancedMediaCapture> for ::windows::core::IUnknown {
-    fn from(value: &IAdvancedMediaCapture) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAdvancedMediaCapture, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAdvancedMediaCapture {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2907,21 +2893,7 @@ impl IAdvancedMediaCaptureInitializationSettings {
         (::windows::core::Vtable::vtable(self).SetDirectxDeviceManager)(::windows::core::Vtable::as_raw(self), value.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IAdvancedMediaCaptureInitializationSettings> for ::windows::core::IUnknown {
-    fn from(value: IAdvancedMediaCaptureInitializationSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAdvancedMediaCaptureInitializationSettings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAdvancedMediaCaptureInitializationSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAdvancedMediaCaptureInitializationSettings> for ::windows::core::IUnknown {
-    fn from(value: &IAdvancedMediaCaptureInitializationSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAdvancedMediaCaptureInitializationSettings, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAdvancedMediaCaptureInitializationSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2959,21 +2931,7 @@ impl IAdvancedMediaCaptureSettings {
         (::windows::core::Vtable::vtable(self).GetDirectxDeviceManager)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFDXGIDeviceManager>(result__)
     }
 }
-impl ::core::convert::From<IAdvancedMediaCaptureSettings> for ::windows::core::IUnknown {
-    fn from(value: IAdvancedMediaCaptureSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAdvancedMediaCaptureSettings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAdvancedMediaCaptureSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAdvancedMediaCaptureSettings> for ::windows::core::IUnknown {
-    fn from(value: &IAdvancedMediaCaptureSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAdvancedMediaCaptureSettings, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAdvancedMediaCaptureSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3010,21 +2968,7 @@ impl IAudioSourceProvider {
         (::windows::core::Vtable::vtable(self).ProvideInput)(::windows::core::Vtable::as_raw(self), dwsamplecount, ::core::mem::transmute(pdwchannelcount), ::core::mem::transmute(pinterleavedaudiodata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IAudioSourceProvider> for ::windows::core::IUnknown {
-    fn from(value: IAudioSourceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioSourceProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioSourceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioSourceProvider> for ::windows::core::IUnknown {
-    fn from(value: &IAudioSourceProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioSourceProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioSourceProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3068,21 +3012,7 @@ impl IClusterDetector {
         (::windows::core::Vtable::vtable(self).Detect)(::windows::core::Vtable::as_raw(self), dwmaxnumclusters, fminclusterduration, fmaxclusterduration, psrctoc.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IToc>(result__)
     }
 }
-impl ::core::convert::From<IClusterDetector> for ::windows::core::IUnknown {
-    fn from(value: IClusterDetector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IClusterDetector> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IClusterDetector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IClusterDetector> for ::windows::core::IUnknown {
-    fn from(value: &IClusterDetector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IClusterDetector, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IClusterDetector {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3191,21 +3121,7 @@ impl ICodecAPI {
         (::windows::core::Vtable::vtable(self).SetAllSettingsWithNotify)(::windows::core::Vtable::as_raw(self), __midl__icodecapi0002.into().abi(), ::core::mem::transmute(changedparam), ::core::mem::transmute(changedparamcount)).ok()
     }
 }
-impl ::core::convert::From<ICodecAPI> for ::windows::core::IUnknown {
-    fn from(value: ICodecAPI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICodecAPI> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICodecAPI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICodecAPI> for ::windows::core::IUnknown {
-    fn from(value: &ICodecAPI) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICodecAPI, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICodecAPI {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3404,77 +3320,7 @@ impl ID3D12VideoDecodeCommandList {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecodeCommandList> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoDecodeCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecodeCommandList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoDecodeCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecodeCommandList> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoDecodeCommandList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecodeCommandList> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: ID3D12VideoDecodeCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecodeCommandList> for &'a super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &'a ID3D12VideoDecodeCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecodeCommandList> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &ID3D12VideoDecodeCommandList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecodeCommandList> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: ID3D12VideoDecodeCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecodeCommandList> for &'a super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &'a ID3D12VideoDecodeCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecodeCommandList> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &ID3D12VideoDecodeCommandList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecodeCommandList> for super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: ID3D12VideoDecodeCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecodeCommandList> for &'a super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: &'a ID3D12VideoDecodeCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecodeCommandList> for super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: &ID3D12VideoDecodeCommandList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoDecodeCommandList, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoDecodeCommandList {
     fn clone(&self) -> Self {
@@ -3691,95 +3537,7 @@ impl ID3D12VideoDecodeCommandList1 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecodeCommandList1> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoDecodeCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecodeCommandList1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoDecodeCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecodeCommandList1> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoDecodeCommandList1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecodeCommandList1> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: ID3D12VideoDecodeCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecodeCommandList1> for &'a super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &'a ID3D12VideoDecodeCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecodeCommandList1> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &ID3D12VideoDecodeCommandList1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecodeCommandList1> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: ID3D12VideoDecodeCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecodeCommandList1> for &'a super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &'a ID3D12VideoDecodeCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecodeCommandList1> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &ID3D12VideoDecodeCommandList1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecodeCommandList1> for super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: ID3D12VideoDecodeCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecodeCommandList1> for &'a super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: &'a ID3D12VideoDecodeCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecodeCommandList1> for super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: &ID3D12VideoDecodeCommandList1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecodeCommandList1> for ID3D12VideoDecodeCommandList {
-    fn from(value: ID3D12VideoDecodeCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecodeCommandList1> for &'a ID3D12VideoDecodeCommandList {
-    fn from(value: &'a ID3D12VideoDecodeCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecodeCommandList1> for ID3D12VideoDecodeCommandList {
-    fn from(value: &ID3D12VideoDecodeCommandList1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoDecodeCommandList1, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoDecodeCommandList);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoDecodeCommandList1 {
     fn clone(&self) -> Self {
@@ -3983,113 +3741,7 @@ impl ID3D12VideoDecodeCommandList2 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecodeCommandList2> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoDecodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecodeCommandList2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoDecodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecodeCommandList2> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoDecodeCommandList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecodeCommandList2> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: ID3D12VideoDecodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecodeCommandList2> for &'a super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &'a ID3D12VideoDecodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecodeCommandList2> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &ID3D12VideoDecodeCommandList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecodeCommandList2> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: ID3D12VideoDecodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecodeCommandList2> for &'a super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &'a ID3D12VideoDecodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecodeCommandList2> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &ID3D12VideoDecodeCommandList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecodeCommandList2> for super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: ID3D12VideoDecodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecodeCommandList2> for &'a super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: &'a ID3D12VideoDecodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecodeCommandList2> for super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: &ID3D12VideoDecodeCommandList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecodeCommandList2> for ID3D12VideoDecodeCommandList {
-    fn from(value: ID3D12VideoDecodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecodeCommandList2> for &'a ID3D12VideoDecodeCommandList {
-    fn from(value: &'a ID3D12VideoDecodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecodeCommandList2> for ID3D12VideoDecodeCommandList {
-    fn from(value: &ID3D12VideoDecodeCommandList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecodeCommandList2> for ID3D12VideoDecodeCommandList1 {
-    fn from(value: ID3D12VideoDecodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecodeCommandList2> for &'a ID3D12VideoDecodeCommandList1 {
-    fn from(value: &'a ID3D12VideoDecodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecodeCommandList2> for ID3D12VideoDecodeCommandList1 {
-    fn from(value: &ID3D12VideoDecodeCommandList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoDecodeCommandList2, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoDecodeCommandList, ID3D12VideoDecodeCommandList1);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoDecodeCommandList2 {
     fn clone(&self) -> Self {
@@ -4187,77 +3839,7 @@ impl ID3D12VideoDecoder {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecoder> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecoder> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecoder> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoDecoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecoder> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: ID3D12VideoDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecoder> for &'a super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &'a ID3D12VideoDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecoder> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &ID3D12VideoDecoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecoder> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: ID3D12VideoDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecoder> for &'a super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &'a ID3D12VideoDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecoder> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &ID3D12VideoDecoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecoder> for super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: ID3D12VideoDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecoder> for &'a super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: &'a ID3D12VideoDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecoder> for super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: &ID3D12VideoDecoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoDecoder, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoDecoder {
     fn clone(&self) -> Self {
@@ -4350,95 +3932,7 @@ impl ID3D12VideoDecoder1 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecoder1> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoDecoder1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecoder1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoDecoder1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecoder1> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoDecoder1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecoder1> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: ID3D12VideoDecoder1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecoder1> for &'a super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &'a ID3D12VideoDecoder1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecoder1> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &ID3D12VideoDecoder1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecoder1> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: ID3D12VideoDecoder1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecoder1> for &'a super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &'a ID3D12VideoDecoder1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecoder1> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &ID3D12VideoDecoder1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecoder1> for super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: ID3D12VideoDecoder1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecoder1> for &'a super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: &'a ID3D12VideoDecoder1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecoder1> for super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: &ID3D12VideoDecoder1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecoder1> for ID3D12VideoDecoder {
-    fn from(value: ID3D12VideoDecoder1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecoder1> for &'a ID3D12VideoDecoder {
-    fn from(value: &'a ID3D12VideoDecoder1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecoder1> for ID3D12VideoDecoder {
-    fn from(value: &ID3D12VideoDecoder1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoDecoder1, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable, ID3D12VideoDecoder);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoDecoder1 {
     fn clone(&self) -> Self {
@@ -4527,77 +4021,7 @@ impl ID3D12VideoDecoderHeap {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecoderHeap> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoDecoderHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecoderHeap> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoDecoderHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecoderHeap> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoDecoderHeap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecoderHeap> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: ID3D12VideoDecoderHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecoderHeap> for &'a super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &'a ID3D12VideoDecoderHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecoderHeap> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &ID3D12VideoDecoderHeap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecoderHeap> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: ID3D12VideoDecoderHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecoderHeap> for &'a super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &'a ID3D12VideoDecoderHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecoderHeap> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &ID3D12VideoDecoderHeap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecoderHeap> for super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: ID3D12VideoDecoderHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecoderHeap> for &'a super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: &'a ID3D12VideoDecoderHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecoderHeap> for super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: &ID3D12VideoDecoderHeap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoDecoderHeap, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoDecoderHeap {
     fn clone(&self) -> Self {
@@ -4695,95 +4119,7 @@ impl ID3D12VideoDecoderHeap1 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecoderHeap1> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoDecoderHeap1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecoderHeap1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoDecoderHeap1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecoderHeap1> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoDecoderHeap1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecoderHeap1> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: ID3D12VideoDecoderHeap1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecoderHeap1> for &'a super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &'a ID3D12VideoDecoderHeap1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecoderHeap1> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &ID3D12VideoDecoderHeap1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecoderHeap1> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: ID3D12VideoDecoderHeap1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecoderHeap1> for &'a super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &'a ID3D12VideoDecoderHeap1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecoderHeap1> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &ID3D12VideoDecoderHeap1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecoderHeap1> for super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: ID3D12VideoDecoderHeap1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecoderHeap1> for &'a super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: &'a ID3D12VideoDecoderHeap1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecoderHeap1> for super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: &ID3D12VideoDecoderHeap1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoDecoderHeap1> for ID3D12VideoDecoderHeap {
-    fn from(value: ID3D12VideoDecoderHeap1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoDecoderHeap1> for &'a ID3D12VideoDecoderHeap {
-    fn from(value: &'a ID3D12VideoDecoderHeap1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoDecoderHeap1> for ID3D12VideoDecoderHeap {
-    fn from(value: &ID3D12VideoDecoderHeap1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoDecoderHeap1, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable, ID3D12VideoDecoderHeap);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoDecoderHeap1 {
     fn clone(&self) -> Self {
@@ -4856,21 +4192,7 @@ impl ID3D12VideoDevice {
         (::windows::core::Vtable::vtable(self).CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), nodemask, ::core::mem::transmute(poutputstreamdesc), pinputstreamdescs.len() as _, ::core::mem::transmute(pinputstreamdescs.as_ptr()), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<ID3D12VideoDevice> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D12VideoDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D12VideoDevice> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoDevice, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID3D12VideoDevice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4963,36 +4285,7 @@ impl ID3D12VideoDevice1 {
         (::windows::core::Vtable::vtable(self).CreateVideoMotionVectorHeap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<ID3D12VideoDevice1> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoDevice1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D12VideoDevice1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoDevice1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D12VideoDevice1> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoDevice1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D12VideoDevice1> for ID3D12VideoDevice {
-    fn from(value: ID3D12VideoDevice1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D12VideoDevice1> for &'a ID3D12VideoDevice {
-    fn from(value: &'a ID3D12VideoDevice1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D12VideoDevice1> for ID3D12VideoDevice {
-    fn from(value: &ID3D12VideoDevice1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoDevice1, ::windows::core::IUnknown, ID3D12VideoDevice);
 impl ::core::clone::Clone for ID3D12VideoDevice1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5131,51 +4424,7 @@ impl ID3D12VideoDevice2 {
         (::windows::core::Vtable::vtable(self).ExecuteExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pexecutionparameters), executionparameterssizeinbytes, ::core::mem::transmute(poutputdata), outputdatasizeinbytes).ok()
     }
 }
-impl ::core::convert::From<ID3D12VideoDevice2> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D12VideoDevice2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D12VideoDevice2> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoDevice2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D12VideoDevice2> for ID3D12VideoDevice {
-    fn from(value: ID3D12VideoDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D12VideoDevice2> for &'a ID3D12VideoDevice {
-    fn from(value: &'a ID3D12VideoDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D12VideoDevice2> for ID3D12VideoDevice {
-    fn from(value: &ID3D12VideoDevice2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D12VideoDevice2> for ID3D12VideoDevice1 {
-    fn from(value: ID3D12VideoDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D12VideoDevice2> for &'a ID3D12VideoDevice1 {
-    fn from(value: &'a ID3D12VideoDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D12VideoDevice2> for ID3D12VideoDevice1 {
-    fn from(value: &ID3D12VideoDevice2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoDevice2, ::windows::core::IUnknown, ID3D12VideoDevice, ID3D12VideoDevice1);
 impl ::core::clone::Clone for ID3D12VideoDevice2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5342,66 +4591,7 @@ impl ID3D12VideoDevice3 {
         (::windows::core::Vtable::vtable(self).CreateVideoEncoderHeap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<ID3D12VideoDevice3> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D12VideoDevice3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D12VideoDevice3> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoDevice3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D12VideoDevice3> for ID3D12VideoDevice {
-    fn from(value: ID3D12VideoDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D12VideoDevice3> for &'a ID3D12VideoDevice {
-    fn from(value: &'a ID3D12VideoDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D12VideoDevice3> for ID3D12VideoDevice {
-    fn from(value: &ID3D12VideoDevice3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D12VideoDevice3> for ID3D12VideoDevice1 {
-    fn from(value: ID3D12VideoDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D12VideoDevice3> for &'a ID3D12VideoDevice1 {
-    fn from(value: &'a ID3D12VideoDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D12VideoDevice3> for ID3D12VideoDevice1 {
-    fn from(value: &ID3D12VideoDevice3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D12VideoDevice3> for ID3D12VideoDevice2 {
-    fn from(value: ID3D12VideoDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D12VideoDevice3> for &'a ID3D12VideoDevice2 {
-    fn from(value: &'a ID3D12VideoDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D12VideoDevice3> for ID3D12VideoDevice2 {
-    fn from(value: &ID3D12VideoDevice3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoDevice3, ::windows::core::IUnknown, ID3D12VideoDevice, ID3D12VideoDevice1, ID3D12VideoDevice2);
 impl ::core::clone::Clone for ID3D12VideoDevice3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5578,77 +4768,7 @@ impl ID3D12VideoEncodeCommandList {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncodeCommandList> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoEncodeCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncodeCommandList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoEncodeCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncodeCommandList> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoEncodeCommandList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncodeCommandList> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: ID3D12VideoEncodeCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncodeCommandList> for &'a super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &'a ID3D12VideoEncodeCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncodeCommandList> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &ID3D12VideoEncodeCommandList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncodeCommandList> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: ID3D12VideoEncodeCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncodeCommandList> for &'a super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &'a ID3D12VideoEncodeCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncodeCommandList> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &ID3D12VideoEncodeCommandList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncodeCommandList> for super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: ID3D12VideoEncodeCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncodeCommandList> for &'a super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: &'a ID3D12VideoEncodeCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncodeCommandList> for super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: &ID3D12VideoEncodeCommandList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoEncodeCommandList, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoEncodeCommandList {
     fn clone(&self) -> Self {
@@ -5894,95 +5014,7 @@ impl ID3D12VideoEncodeCommandList1 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncodeCommandList1> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoEncodeCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncodeCommandList1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoEncodeCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncodeCommandList1> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoEncodeCommandList1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncodeCommandList1> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: ID3D12VideoEncodeCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncodeCommandList1> for &'a super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &'a ID3D12VideoEncodeCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncodeCommandList1> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &ID3D12VideoEncodeCommandList1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncodeCommandList1> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: ID3D12VideoEncodeCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncodeCommandList1> for &'a super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &'a ID3D12VideoEncodeCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncodeCommandList1> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &ID3D12VideoEncodeCommandList1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncodeCommandList1> for super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: ID3D12VideoEncodeCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncodeCommandList1> for &'a super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: &'a ID3D12VideoEncodeCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncodeCommandList1> for super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: &ID3D12VideoEncodeCommandList1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncodeCommandList1> for ID3D12VideoEncodeCommandList {
-    fn from(value: ID3D12VideoEncodeCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncodeCommandList1> for &'a ID3D12VideoEncodeCommandList {
-    fn from(value: &'a ID3D12VideoEncodeCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncodeCommandList1> for ID3D12VideoEncodeCommandList {
-    fn from(value: &ID3D12VideoEncodeCommandList1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoEncodeCommandList1, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoEncodeCommandList);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoEncodeCommandList1 {
     fn clone(&self) -> Self {
@@ -6201,113 +5233,7 @@ impl ID3D12VideoEncodeCommandList2 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncodeCommandList2> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoEncodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncodeCommandList2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoEncodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncodeCommandList2> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoEncodeCommandList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncodeCommandList2> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: ID3D12VideoEncodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncodeCommandList2> for &'a super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &'a ID3D12VideoEncodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncodeCommandList2> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &ID3D12VideoEncodeCommandList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncodeCommandList2> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: ID3D12VideoEncodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncodeCommandList2> for &'a super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &'a ID3D12VideoEncodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncodeCommandList2> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &ID3D12VideoEncodeCommandList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncodeCommandList2> for super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: ID3D12VideoEncodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncodeCommandList2> for &'a super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: &'a ID3D12VideoEncodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncodeCommandList2> for super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: &ID3D12VideoEncodeCommandList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncodeCommandList2> for ID3D12VideoEncodeCommandList {
-    fn from(value: ID3D12VideoEncodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncodeCommandList2> for &'a ID3D12VideoEncodeCommandList {
-    fn from(value: &'a ID3D12VideoEncodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncodeCommandList2> for ID3D12VideoEncodeCommandList {
-    fn from(value: &ID3D12VideoEncodeCommandList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncodeCommandList2> for ID3D12VideoEncodeCommandList1 {
-    fn from(value: ID3D12VideoEncodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncodeCommandList2> for &'a ID3D12VideoEncodeCommandList1 {
-    fn from(value: &'a ID3D12VideoEncodeCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncodeCommandList2> for ID3D12VideoEncodeCommandList1 {
-    fn from(value: &ID3D12VideoEncodeCommandList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoEncodeCommandList2, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoEncodeCommandList, ID3D12VideoEncodeCommandList1);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoEncodeCommandList2 {
     fn clone(&self) -> Self {
@@ -6419,77 +5345,7 @@ impl ID3D12VideoEncoder {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncoder> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoEncoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncoder> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoEncoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncoder> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoEncoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncoder> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: ID3D12VideoEncoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncoder> for &'a super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &'a ID3D12VideoEncoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncoder> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &ID3D12VideoEncoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncoder> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: ID3D12VideoEncoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncoder> for &'a super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &'a ID3D12VideoEncoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncoder> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &ID3D12VideoEncoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncoder> for super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: ID3D12VideoEncoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncoder> for &'a super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: &'a ID3D12VideoEncoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncoder> for super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: &ID3D12VideoEncoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoEncoder, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoEncoder {
     fn clone(&self) -> Self {
@@ -6601,77 +5457,7 @@ impl ID3D12VideoEncoderHeap {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncoderHeap> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoEncoderHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncoderHeap> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoEncoderHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncoderHeap> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoEncoderHeap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncoderHeap> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: ID3D12VideoEncoderHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncoderHeap> for &'a super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &'a ID3D12VideoEncoderHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncoderHeap> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &ID3D12VideoEncoderHeap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncoderHeap> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: ID3D12VideoEncoderHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncoderHeap> for &'a super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &'a ID3D12VideoEncoderHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncoderHeap> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &ID3D12VideoEncoderHeap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoEncoderHeap> for super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: ID3D12VideoEncoderHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoEncoderHeap> for &'a super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: &'a ID3D12VideoEncoderHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoEncoderHeap> for super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: &ID3D12VideoEncoderHeap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoEncoderHeap, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoEncoderHeap {
     fn clone(&self) -> Self {
@@ -6770,77 +5556,7 @@ impl ID3D12VideoExtensionCommand {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoExtensionCommand> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoExtensionCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoExtensionCommand> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoExtensionCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoExtensionCommand> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoExtensionCommand) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoExtensionCommand> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: ID3D12VideoExtensionCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoExtensionCommand> for &'a super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &'a ID3D12VideoExtensionCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoExtensionCommand> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &ID3D12VideoExtensionCommand) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoExtensionCommand> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: ID3D12VideoExtensionCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoExtensionCommand> for &'a super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &'a ID3D12VideoExtensionCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoExtensionCommand> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &ID3D12VideoExtensionCommand) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoExtensionCommand> for super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: ID3D12VideoExtensionCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoExtensionCommand> for &'a super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: &'a ID3D12VideoExtensionCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoExtensionCommand> for super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: &ID3D12VideoExtensionCommand) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoExtensionCommand, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoExtensionCommand {
     fn clone(&self) -> Self {
@@ -6936,77 +5652,7 @@ impl ID3D12VideoMotionEstimator {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoMotionEstimator> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoMotionEstimator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoMotionEstimator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoMotionEstimator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoMotionEstimator> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoMotionEstimator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoMotionEstimator> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: ID3D12VideoMotionEstimator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoMotionEstimator> for &'a super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &'a ID3D12VideoMotionEstimator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoMotionEstimator> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &ID3D12VideoMotionEstimator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoMotionEstimator> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: ID3D12VideoMotionEstimator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoMotionEstimator> for &'a super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &'a ID3D12VideoMotionEstimator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoMotionEstimator> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &ID3D12VideoMotionEstimator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoMotionEstimator> for super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: ID3D12VideoMotionEstimator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoMotionEstimator> for &'a super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: &'a ID3D12VideoMotionEstimator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoMotionEstimator> for super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: &ID3D12VideoMotionEstimator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoMotionEstimator, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoMotionEstimator {
     fn clone(&self) -> Self {
@@ -7105,77 +5751,7 @@ impl ID3D12VideoMotionVectorHeap {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoMotionVectorHeap> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoMotionVectorHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoMotionVectorHeap> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoMotionVectorHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoMotionVectorHeap> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoMotionVectorHeap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoMotionVectorHeap> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: ID3D12VideoMotionVectorHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoMotionVectorHeap> for &'a super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &'a ID3D12VideoMotionVectorHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoMotionVectorHeap> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &ID3D12VideoMotionVectorHeap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoMotionVectorHeap> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: ID3D12VideoMotionVectorHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoMotionVectorHeap> for &'a super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &'a ID3D12VideoMotionVectorHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoMotionVectorHeap> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &ID3D12VideoMotionVectorHeap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoMotionVectorHeap> for super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: ID3D12VideoMotionVectorHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoMotionVectorHeap> for &'a super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: &'a ID3D12VideoMotionVectorHeap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoMotionVectorHeap> for super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: &ID3D12VideoMotionVectorHeap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoMotionVectorHeap, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoMotionVectorHeap {
     fn clone(&self) -> Self {
@@ -7348,77 +5924,7 @@ impl ID3D12VideoProcessCommandList {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessCommandList> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoProcessCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessCommandList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoProcessCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessCommandList> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoProcessCommandList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessCommandList> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: ID3D12VideoProcessCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessCommandList> for &'a super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &'a ID3D12VideoProcessCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessCommandList> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &ID3D12VideoProcessCommandList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessCommandList> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: ID3D12VideoProcessCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessCommandList> for &'a super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &'a ID3D12VideoProcessCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessCommandList> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &ID3D12VideoProcessCommandList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessCommandList> for super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: ID3D12VideoProcessCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessCommandList> for &'a super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: &'a ID3D12VideoProcessCommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessCommandList> for super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: &ID3D12VideoProcessCommandList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoProcessCommandList, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoProcessCommandList {
     fn clone(&self) -> Self {
@@ -7635,95 +6141,7 @@ impl ID3D12VideoProcessCommandList1 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessCommandList1> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoProcessCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessCommandList1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoProcessCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessCommandList1> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoProcessCommandList1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessCommandList1> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: ID3D12VideoProcessCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessCommandList1> for &'a super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &'a ID3D12VideoProcessCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessCommandList1> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &ID3D12VideoProcessCommandList1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessCommandList1> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: ID3D12VideoProcessCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessCommandList1> for &'a super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &'a ID3D12VideoProcessCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessCommandList1> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &ID3D12VideoProcessCommandList1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessCommandList1> for super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: ID3D12VideoProcessCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessCommandList1> for &'a super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: &'a ID3D12VideoProcessCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessCommandList1> for super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: &ID3D12VideoProcessCommandList1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessCommandList1> for ID3D12VideoProcessCommandList {
-    fn from(value: ID3D12VideoProcessCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessCommandList1> for &'a ID3D12VideoProcessCommandList {
-    fn from(value: &'a ID3D12VideoProcessCommandList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessCommandList1> for ID3D12VideoProcessCommandList {
-    fn from(value: &ID3D12VideoProcessCommandList1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoProcessCommandList1, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoProcessCommandList);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoProcessCommandList1 {
     fn clone(&self) -> Self {
@@ -7927,113 +6345,7 @@ impl ID3D12VideoProcessCommandList2 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessCommandList2> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoProcessCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessCommandList2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoProcessCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessCommandList2> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoProcessCommandList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessCommandList2> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: ID3D12VideoProcessCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessCommandList2> for &'a super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &'a ID3D12VideoProcessCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessCommandList2> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &ID3D12VideoProcessCommandList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessCommandList2> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: ID3D12VideoProcessCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessCommandList2> for &'a super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &'a ID3D12VideoProcessCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessCommandList2> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &ID3D12VideoProcessCommandList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessCommandList2> for super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: ID3D12VideoProcessCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessCommandList2> for &'a super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: &'a ID3D12VideoProcessCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessCommandList2> for super::super::Graphics::Direct3D12::ID3D12CommandList {
-    fn from(value: &ID3D12VideoProcessCommandList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessCommandList2> for ID3D12VideoProcessCommandList {
-    fn from(value: ID3D12VideoProcessCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessCommandList2> for &'a ID3D12VideoProcessCommandList {
-    fn from(value: &'a ID3D12VideoProcessCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessCommandList2> for ID3D12VideoProcessCommandList {
-    fn from(value: &ID3D12VideoProcessCommandList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessCommandList2> for ID3D12VideoProcessCommandList1 {
-    fn from(value: ID3D12VideoProcessCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessCommandList2> for &'a ID3D12VideoProcessCommandList1 {
-    fn from(value: &'a ID3D12VideoProcessCommandList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessCommandList2> for ID3D12VideoProcessCommandList1 {
-    fn from(value: &ID3D12VideoProcessCommandList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoProcessCommandList2, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoProcessCommandList, ID3D12VideoProcessCommandList1);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoProcessCommandList2 {
     fn clone(&self) -> Self {
@@ -8144,77 +6456,7 @@ impl ID3D12VideoProcessor {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessor> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessor> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoProcessor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessor> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: ID3D12VideoProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessor> for &'a super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &'a ID3D12VideoProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessor> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &ID3D12VideoProcessor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessor> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: ID3D12VideoProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessor> for &'a super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &'a ID3D12VideoProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessor> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &ID3D12VideoProcessor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessor> for super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: ID3D12VideoProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessor> for &'a super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: &'a ID3D12VideoProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessor> for super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: &ID3D12VideoProcessor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoProcessor, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoProcessor {
     fn clone(&self) -> Self {
@@ -8329,95 +6571,7 @@ impl ID3D12VideoProcessor1 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessor1> for ::windows::core::IUnknown {
-    fn from(value: ID3D12VideoProcessor1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessor1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D12VideoProcessor1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessor1> for ::windows::core::IUnknown {
-    fn from(value: &ID3D12VideoProcessor1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessor1> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: ID3D12VideoProcessor1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessor1> for &'a super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &'a ID3D12VideoProcessor1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessor1> for super::super::Graphics::Direct3D12::ID3D12Object {
-    fn from(value: &ID3D12VideoProcessor1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessor1> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: ID3D12VideoProcessor1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessor1> for &'a super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &'a ID3D12VideoProcessor1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessor1> for super::super::Graphics::Direct3D12::ID3D12DeviceChild {
-    fn from(value: &ID3D12VideoProcessor1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessor1> for super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: ID3D12VideoProcessor1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessor1> for &'a super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: &'a ID3D12VideoProcessor1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessor1> for super::super::Graphics::Direct3D12::ID3D12Pageable {
-    fn from(value: &ID3D12VideoProcessor1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<ID3D12VideoProcessor1> for ID3D12VideoProcessor {
-    fn from(value: ID3D12VideoProcessor1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::core::convert::From<&'a ID3D12VideoProcessor1> for &'a ID3D12VideoProcessor {
-    fn from(value: &'a ID3D12VideoProcessor1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::convert::From<&ID3D12VideoProcessor1> for ID3D12VideoProcessor {
-    fn from(value: &ID3D12VideoProcessor1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D12VideoProcessor1, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable, ID3D12VideoProcessor);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for ID3D12VideoProcessor1 {
     fn clone(&self) -> Self {
@@ -8499,21 +6653,7 @@ impl IDXVAHD_Device {
         (::windows::core::Vtable::vtable(self).CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvpguid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDXVAHD_VideoProcessor>(result__)
     }
 }
-impl ::core::convert::From<IDXVAHD_Device> for ::windows::core::IUnknown {
-    fn from(value: IDXVAHD_Device) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXVAHD_Device> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXVAHD_Device) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXVAHD_Device> for ::windows::core::IUnknown {
-    fn from(value: &IDXVAHD_Device) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXVAHD_Device, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDXVAHD_Device {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8589,21 +6729,7 @@ impl IDXVAHD_VideoProcessor {
         (::windows::core::Vtable::vtable(self).VideoProcessBltHD)(::windows::core::Vtable::as_raw(self), poutputsurface.into().abi(), outputframe, pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IDXVAHD_VideoProcessor> for ::windows::core::IUnknown {
-    fn from(value: IDXVAHD_VideoProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXVAHD_VideoProcessor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXVAHD_VideoProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXVAHD_VideoProcessor> for ::windows::core::IUnknown {
-    fn from(value: &IDXVAHD_VideoProcessor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXVAHD_VideoProcessor, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDXVAHD_VideoProcessor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8649,21 +6775,7 @@ impl IDirect3D9ExOverlayExtension {
         (::windows::core::Vtable::vtable(self).CheckDeviceOverlayType)(::windows::core::Vtable::as_raw(self), adapter, devtype, overlaywidth, overlayheight, overlayformat, ::core::mem::transmute(pdisplaymode), displayrotation, ::core::mem::transmute(poverlaycaps)).ok()
     }
 }
-impl ::core::convert::From<IDirect3D9ExOverlayExtension> for ::windows::core::IUnknown {
-    fn from(value: IDirect3D9ExOverlayExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3D9ExOverlayExtension> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3D9ExOverlayExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3D9ExOverlayExtension> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3D9ExOverlayExtension) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3D9ExOverlayExtension, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirect3D9ExOverlayExtension {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8717,21 +6829,7 @@ impl IDirect3DAuthenticatedChannel9 {
         (::windows::core::Vtable::vtable(self).Configure)(::windows::core::Vtable::as_raw(self), inputsize, ::core::mem::transmute(pinput), ::core::mem::transmute(poutput)).ok()
     }
 }
-impl ::core::convert::From<IDirect3DAuthenticatedChannel9> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DAuthenticatedChannel9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DAuthenticatedChannel9> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DAuthenticatedChannel9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DAuthenticatedChannel9> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DAuthenticatedChannel9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DAuthenticatedChannel9, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirect3DAuthenticatedChannel9 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8816,21 +6914,7 @@ impl IDirect3DCryptoSession9 {
         (::windows::core::Vtable::vtable(self).GetEncryptionBltKey)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(preadbackkey), keysize).ok()
     }
 }
-impl ::core::convert::From<IDirect3DCryptoSession9> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DCryptoSession9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DCryptoSession9> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DCryptoSession9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DCryptoSession9> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DCryptoSession9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DCryptoSession9, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirect3DCryptoSession9 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8894,21 +6978,7 @@ impl IDirect3DDevice9Video {
         (::windows::core::Vtable::vtable(self).CreateCryptoSession)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcryptotype), ::core::mem::transmute(pdecodeprofile), ::core::mem::transmute(ppcryptosession), ::core::mem::transmute(pcryptohandle)).ok()
     }
 }
-impl ::core::convert::From<IDirect3DDevice9Video> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DDevice9Video) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DDevice9Video> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DDevice9Video) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DDevice9Video> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DDevice9Video) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DDevice9Video, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirect3DDevice9Video {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9006,21 +7076,7 @@ impl IDirect3DDeviceManager9 {
         (::windows::core::Vtable::vtable(self).GetVideoService)(::windows::core::Vtable::as_raw(self), hdevice.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppservice)).ok()
     }
 }
-impl ::core::convert::From<IDirect3DDeviceManager9> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DDeviceManager9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DDeviceManager9> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DDeviceManager9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DDeviceManager9> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DDeviceManager9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DDeviceManager9, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirect3DDeviceManager9 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9086,21 +7142,7 @@ impl IDirectXVideoAccelerationService {
         (::windows::core::Vtable::vtable(self).CreateSurface)(::windows::core::Vtable::as_raw(self), width, height, backbuffers, format, pool, usage, dxvatype, ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IDirectXVideoAccelerationService> for ::windows::core::IUnknown {
-    fn from(value: IDirectXVideoAccelerationService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectXVideoAccelerationService> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectXVideoAccelerationService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectXVideoAccelerationService> for ::windows::core::IUnknown {
-    fn from(value: &IDirectXVideoAccelerationService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectXVideoAccelerationService, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectXVideoAccelerationService {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9168,21 +7210,7 @@ impl IDirectXVideoDecoder {
         (::windows::core::Vtable::vtable(self).Execute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pexecuteparams)).ok()
     }
 }
-impl ::core::convert::From<IDirectXVideoDecoder> for ::windows::core::IUnknown {
-    fn from(value: IDirectXVideoDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectXVideoDecoder> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectXVideoDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectXVideoDecoder> for ::windows::core::IUnknown {
-    fn from(value: &IDirectXVideoDecoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectXVideoDecoder, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectXVideoDecoder {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9255,36 +7283,7 @@ impl IDirectXVideoDecoderService {
         (::windows::core::Vtable::vtable(self).CreateVideoDecoder)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pvideodesc), ::core::mem::transmute(pconfig), ::core::mem::transmute(ppdecoderrendertargets.as_ptr()), ppdecoderrendertargets.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectXVideoDecoder>(result__)
     }
 }
-impl ::core::convert::From<IDirectXVideoDecoderService> for ::windows::core::IUnknown {
-    fn from(value: IDirectXVideoDecoderService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectXVideoDecoderService> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectXVideoDecoderService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectXVideoDecoderService> for ::windows::core::IUnknown {
-    fn from(value: &IDirectXVideoDecoderService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectXVideoDecoderService> for IDirectXVideoAccelerationService {
-    fn from(value: IDirectXVideoDecoderService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectXVideoDecoderService> for &'a IDirectXVideoAccelerationService {
-    fn from(value: &'a IDirectXVideoDecoderService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectXVideoDecoderService> for IDirectXVideoAccelerationService {
-    fn from(value: &IDirectXVideoDecoderService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectXVideoDecoderService, ::windows::core::IUnknown, IDirectXVideoAccelerationService);
 impl ::core::clone::Clone for IDirectXVideoDecoderService {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9337,21 +7336,7 @@ impl IDirectXVideoMemoryConfiguration {
         (::windows::core::Vtable::vtable(self).SetSurfaceType)(::windows::core::Vtable::as_raw(self), dwtype).ok()
     }
 }
-impl ::core::convert::From<IDirectXVideoMemoryConfiguration> for ::windows::core::IUnknown {
-    fn from(value: IDirectXVideoMemoryConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectXVideoMemoryConfiguration> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectXVideoMemoryConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectXVideoMemoryConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &IDirectXVideoMemoryConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectXVideoMemoryConfiguration, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectXVideoMemoryConfiguration {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9417,21 +7402,7 @@ impl IDirectXVideoProcessor {
         (::windows::core::Vtable::vtable(self).VideoProcessBlt)(::windows::core::Vtable::as_raw(self), prendertarget.into().abi(), ::core::mem::transmute(pbltparams), ::core::mem::transmute(psamples.as_ptr()), psamples.len() as _, ::core::mem::transmute(phandlecomplete.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IDirectXVideoProcessor> for ::windows::core::IUnknown {
-    fn from(value: IDirectXVideoProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectXVideoProcessor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectXVideoProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectXVideoProcessor> for ::windows::core::IUnknown {
-    fn from(value: &IDirectXVideoProcessor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectXVideoProcessor, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectXVideoProcessor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9526,36 +7497,7 @@ impl IDirectXVideoProcessorService {
         (::windows::core::Vtable::vtable(self).CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(videoprocdeviceguid), ::core::mem::transmute(pvideodesc), rendertargetformat, maxnumsubstreams, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectXVideoProcessor>(result__)
     }
 }
-impl ::core::convert::From<IDirectXVideoProcessorService> for ::windows::core::IUnknown {
-    fn from(value: IDirectXVideoProcessorService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectXVideoProcessorService> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectXVideoProcessorService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectXVideoProcessorService> for ::windows::core::IUnknown {
-    fn from(value: &IDirectXVideoProcessorService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectXVideoProcessorService> for IDirectXVideoAccelerationService {
-    fn from(value: IDirectXVideoProcessorService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectXVideoProcessorService> for &'a IDirectXVideoAccelerationService {
-    fn from(value: &'a IDirectXVideoProcessorService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectXVideoProcessorService> for IDirectXVideoAccelerationService {
-    fn from(value: &IDirectXVideoProcessorService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectXVideoProcessorService, ::windows::core::IUnknown, IDirectXVideoAccelerationService);
 impl ::core::clone::Clone for IDirectXVideoProcessorService {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9624,21 +7566,7 @@ impl IEVRFilterConfig {
         (::windows::core::Vtable::vtable(self).GetNumberOfStreams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IEVRFilterConfig> for ::windows::core::IUnknown {
-    fn from(value: IEVRFilterConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEVRFilterConfig> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEVRFilterConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEVRFilterConfig> for ::windows::core::IUnknown {
-    fn from(value: &IEVRFilterConfig) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEVRFilterConfig, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEVRFilterConfig {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9687,36 +7615,7 @@ impl IEVRFilterConfigEx {
         (::windows::core::Vtable::vtable(self).GetConfigPrefs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IEVRFilterConfigEx> for ::windows::core::IUnknown {
-    fn from(value: IEVRFilterConfigEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEVRFilterConfigEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEVRFilterConfigEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEVRFilterConfigEx> for ::windows::core::IUnknown {
-    fn from(value: &IEVRFilterConfigEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IEVRFilterConfigEx> for IEVRFilterConfig {
-    fn from(value: IEVRFilterConfigEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEVRFilterConfigEx> for &'a IEVRFilterConfig {
-    fn from(value: &'a IEVRFilterConfigEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEVRFilterConfigEx> for IEVRFilterConfig {
-    fn from(value: &IEVRFilterConfigEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEVRFilterConfigEx, ::windows::core::IUnknown, IEVRFilterConfig);
 impl ::core::clone::Clone for IEVRFilterConfigEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9774,21 +7673,7 @@ impl IEVRTrustedVideoPlugin {
         (::windows::core::Vtable::vtable(self).DisableImageExport)(::windows::core::Vtable::as_raw(self), bdisable.into()).ok()
     }
 }
-impl ::core::convert::From<IEVRTrustedVideoPlugin> for ::windows::core::IUnknown {
-    fn from(value: IEVRTrustedVideoPlugin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEVRTrustedVideoPlugin> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEVRTrustedVideoPlugin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEVRTrustedVideoPlugin> for ::windows::core::IUnknown {
-    fn from(value: &IEVRTrustedVideoPlugin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEVRTrustedVideoPlugin, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEVRTrustedVideoPlugin {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9848,21 +7733,7 @@ impl IEVRVideoStreamControl {
         (::windows::core::Vtable::vtable(self).GetStreamActiveState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IEVRVideoStreamControl> for ::windows::core::IUnknown {
-    fn from(value: IEVRVideoStreamControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEVRVideoStreamControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEVRVideoStreamControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEVRVideoStreamControl> for ::windows::core::IUnknown {
-    fn from(value: &IEVRVideoStreamControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEVRVideoStreamControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEVRVideoStreamControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9918,21 +7789,7 @@ impl IFileClient {
         (::windows::core::Vtable::vtable(self).Read)(::windows::core::Vtable::as_raw(self), pfio.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IFileClient> for ::windows::core::IUnknown {
-    fn from(value: IFileClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFileClient> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFileClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFileClient> for ::windows::core::IUnknown {
-    fn from(value: &IFileClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFileClient, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFileClient {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10003,21 +7860,7 @@ impl IFileIo {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IFileIo> for ::windows::core::IUnknown {
-    fn from(value: IFileIo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFileIo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFileIo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFileIo> for ::windows::core::IUnknown {
-    fn from(value: &IFileIo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFileIo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFileIo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10088,21 +7931,7 @@ impl IMF2DBuffer {
         (::windows::core::Vtable::vtable(self).ContiguousCopyFrom)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbsrcbuffer.as_ptr()), pbsrcbuffer.len() as _).ok()
     }
 }
-impl ::core::convert::From<IMF2DBuffer> for ::windows::core::IUnknown {
-    fn from(value: IMF2DBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMF2DBuffer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMF2DBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMF2DBuffer> for ::windows::core::IUnknown {
-    fn from(value: &IMF2DBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMF2DBuffer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMF2DBuffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10179,36 +8008,7 @@ impl IMF2DBuffer2 {
         (::windows::core::Vtable::vtable(self).Copy2DTo)(::windows::core::Vtable::as_raw(self), pdestbuffer.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMF2DBuffer2> for ::windows::core::IUnknown {
-    fn from(value: IMF2DBuffer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMF2DBuffer2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMF2DBuffer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMF2DBuffer2> for ::windows::core::IUnknown {
-    fn from(value: &IMF2DBuffer2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMF2DBuffer2> for IMF2DBuffer {
-    fn from(value: IMF2DBuffer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMF2DBuffer2> for &'a IMF2DBuffer {
-    fn from(value: &'a IMF2DBuffer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMF2DBuffer2> for IMF2DBuffer {
-    fn from(value: &IMF2DBuffer2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMF2DBuffer2, ::windows::core::IUnknown, IMF2DBuffer);
 impl ::core::clone::Clone for IMF2DBuffer2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10283,21 +8083,7 @@ impl IMFASFContentInfo {
         (::windows::core::Vtable::vtable(self).GetEncodingConfigurationPropertyStore)(::windows::core::Vtable::as_raw(self), wstreamnumber, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
     }
 }
-impl ::core::convert::From<IMFASFContentInfo> for ::windows::core::IUnknown {
-    fn from(value: IMFASFContentInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFASFContentInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFASFContentInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFASFContentInfo> for ::windows::core::IUnknown {
-    fn from(value: &IMFASFContentInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFASFContentInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFASFContentInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10407,21 +8193,7 @@ impl IMFASFIndexer {
         (::windows::core::Vtable::vtable(self).GetCompletedIndex)(::windows::core::Vtable::as_raw(self), piindexbuffer.into().abi(), cboffsetwithinindex).ok()
     }
 }
-impl ::core::convert::From<IMFASFIndexer> for ::windows::core::IUnknown {
-    fn from(value: IMFASFIndexer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFASFIndexer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFASFIndexer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFASFIndexer> for ::windows::core::IUnknown {
-    fn from(value: &IMFASFIndexer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFASFIndexer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFASFIndexer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10514,21 +8286,7 @@ impl IMFASFMultiplexer {
         (::windows::core::Vtable::vtable(self).SetSyncTolerance)(::windows::core::Vtable::as_raw(self), mssynctolerance).ok()
     }
 }
-impl ::core::convert::From<IMFASFMultiplexer> for ::windows::core::IUnknown {
-    fn from(value: IMFASFMultiplexer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFASFMultiplexer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFASFMultiplexer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFASFMultiplexer> for ::windows::core::IUnknown {
-    fn from(value: &IMFASFMultiplexer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFASFMultiplexer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFASFMultiplexer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10601,21 +8359,7 @@ impl IMFASFMutualExclusion {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFASFMutualExclusion>(result__)
     }
 }
-impl ::core::convert::From<IMFASFMutualExclusion> for ::windows::core::IUnknown {
-    fn from(value: IMFASFMutualExclusion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFASFMutualExclusion> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFASFMutualExclusion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFASFMutualExclusion> for ::windows::core::IUnknown {
-    fn from(value: &IMFASFMutualExclusion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFASFMutualExclusion, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFASFMutualExclusion {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10852,36 +8596,7 @@ impl IMFASFProfile {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFASFProfile>(result__)
     }
 }
-impl ::core::convert::From<IMFASFProfile> for ::windows::core::IUnknown {
-    fn from(value: IMFASFProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFASFProfile> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFASFProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFASFProfile> for ::windows::core::IUnknown {
-    fn from(value: &IMFASFProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFASFProfile> for IMFAttributes {
-    fn from(value: IMFASFProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFASFProfile> for &'a IMFAttributes {
-    fn from(value: &'a IMFASFProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFASFProfile> for IMFAttributes {
-    fn from(value: &IMFASFProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFASFProfile, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::clone::Clone for IMFASFProfile {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10965,21 +8680,7 @@ impl IMFASFSplitter {
         (::windows::core::Vtable::vtable(self).GetLastSendTime)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMFASFSplitter> for ::windows::core::IUnknown {
-    fn from(value: IMFASFSplitter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFASFSplitter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFASFSplitter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFASFSplitter> for ::windows::core::IUnknown {
-    fn from(value: &IMFASFSplitter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFASFSplitter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFASFSplitter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11184,36 +8885,7 @@ impl IMFASFStreamConfig {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFASFStreamConfig>(result__)
     }
 }
-impl ::core::convert::From<IMFASFStreamConfig> for ::windows::core::IUnknown {
-    fn from(value: IMFASFStreamConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFASFStreamConfig> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFASFStreamConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFASFStreamConfig> for ::windows::core::IUnknown {
-    fn from(value: &IMFASFStreamConfig) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFASFStreamConfig> for IMFAttributes {
-    fn from(value: IMFASFStreamConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFASFStreamConfig> for &'a IMFAttributes {
-    fn from(value: &'a IMFASFStreamConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFASFStreamConfig> for IMFAttributes {
-    fn from(value: &IMFASFStreamConfig) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFASFStreamConfig, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::clone::Clone for IMFASFStreamConfig {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11273,21 +8945,7 @@ impl IMFASFStreamPrioritization {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFASFStreamPrioritization>(result__)
     }
 }
-impl ::core::convert::From<IMFASFStreamPrioritization> for ::windows::core::IUnknown {
-    fn from(value: IMFASFStreamPrioritization) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFASFStreamPrioritization> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFASFStreamPrioritization) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFASFStreamPrioritization> for ::windows::core::IUnknown {
-    fn from(value: &IMFASFStreamPrioritization) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFASFStreamPrioritization, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFASFStreamPrioritization {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11377,21 +9035,7 @@ impl IMFASFStreamSelector {
         (::windows::core::Vtable::vtable(self).SetStreamSelectorFlags)(::windows::core::Vtable::as_raw(self), dwstreamselectorflags).ok()
     }
 }
-impl ::core::convert::From<IMFASFStreamSelector> for ::windows::core::IUnknown {
-    fn from(value: IMFASFStreamSelector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFASFStreamSelector> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFASFStreamSelector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFASFStreamSelector> for ::windows::core::IUnknown {
-    fn from(value: &IMFASFStreamSelector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFASFStreamSelector, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFASFStreamSelector {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11577,36 +9221,7 @@ impl IMFActivate {
         (::windows::core::Vtable::vtable(self).DetachObject)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFActivate> for ::windows::core::IUnknown {
-    fn from(value: IMFActivate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFActivate> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFActivate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFActivate> for ::windows::core::IUnknown {
-    fn from(value: &IMFActivate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFActivate> for IMFAttributes {
-    fn from(value: IMFActivate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFActivate> for &'a IMFAttributes {
-    fn from(value: &'a IMFActivate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFActivate> for IMFAttributes {
-    fn from(value: &IMFActivate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFActivate, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::clone::Clone for IMFActivate {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11651,21 +9266,7 @@ impl IMFAsyncCallback {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self), pasyncresult.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFAsyncCallback> for ::windows::core::IUnknown {
-    fn from(value: IMFAsyncCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFAsyncCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFAsyncCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFAsyncCallback> for ::windows::core::IUnknown {
-    fn from(value: &IMFAsyncCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFAsyncCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFAsyncCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11715,36 +9316,7 @@ impl IMFAsyncCallbackLogging {
         (::windows::core::Vtable::vtable(self).GetObjectTag)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IMFAsyncCallbackLogging> for ::windows::core::IUnknown {
-    fn from(value: IMFAsyncCallbackLogging) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFAsyncCallbackLogging> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFAsyncCallbackLogging) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFAsyncCallbackLogging> for ::windows::core::IUnknown {
-    fn from(value: &IMFAsyncCallbackLogging) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFAsyncCallbackLogging> for IMFAsyncCallback {
-    fn from(value: IMFAsyncCallbackLogging) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFAsyncCallbackLogging> for &'a IMFAsyncCallback {
-    fn from(value: &'a IMFAsyncCallbackLogging) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFAsyncCallbackLogging> for IMFAsyncCallback {
-    fn from(value: &IMFAsyncCallbackLogging) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFAsyncCallbackLogging, ::windows::core::IUnknown, IMFAsyncCallback);
 impl ::core::clone::Clone for IMFAsyncCallbackLogging {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11796,21 +9368,7 @@ impl IMFAsyncResult {
         (::windows::core::Vtable::vtable(self).GetStateNoAddRef)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IMFAsyncResult> for ::windows::core::IUnknown {
-    fn from(value: IMFAsyncResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFAsyncResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFAsyncResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFAsyncResult> for ::windows::core::IUnknown {
-    fn from(value: &IMFAsyncResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFAsyncResult, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFAsyncResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11974,21 +9532,7 @@ impl IMFAttributes {
         (::windows::core::Vtable::vtable(self).CopyAllItems)(::windows::core::Vtable::as_raw(self), pdest.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFAttributes> for ::windows::core::IUnknown {
-    fn from(value: IMFAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFAttributes> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFAttributes> for ::windows::core::IUnknown {
-    fn from(value: &IMFAttributes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFAttributes, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFAttributes {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12220,51 +9764,7 @@ impl IMFAudioMediaType {
         (::windows::core::Vtable::vtable(self).GetAudioFormat)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IMFAudioMediaType> for ::windows::core::IUnknown {
-    fn from(value: IMFAudioMediaType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFAudioMediaType> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFAudioMediaType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFAudioMediaType> for ::windows::core::IUnknown {
-    fn from(value: &IMFAudioMediaType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFAudioMediaType> for IMFAttributes {
-    fn from(value: IMFAudioMediaType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFAudioMediaType> for &'a IMFAttributes {
-    fn from(value: &'a IMFAudioMediaType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFAudioMediaType> for IMFAttributes {
-    fn from(value: &IMFAudioMediaType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFAudioMediaType> for IMFMediaType {
-    fn from(value: IMFAudioMediaType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFAudioMediaType> for &'a IMFMediaType {
-    fn from(value: &'a IMFAudioMediaType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFAudioMediaType> for IMFMediaType {
-    fn from(value: &IMFAudioMediaType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFAudioMediaType, ::windows::core::IUnknown, IMFAttributes, IMFMediaType);
 impl ::core::clone::Clone for IMFAudioMediaType {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12328,21 +9828,7 @@ impl IMFAudioPolicy {
         (::windows::core::Vtable::vtable(self).GetIconPath)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IMFAudioPolicy> for ::windows::core::IUnknown {
-    fn from(value: IMFAudioPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFAudioPolicy> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFAudioPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFAudioPolicy> for ::windows::core::IUnknown {
-    fn from(value: &IMFAudioPolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFAudioPolicy, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFAudioPolicy {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12398,21 +9884,7 @@ impl IMFAudioStreamVolume {
         (::windows::core::Vtable::vtable(self).GetAllVolumes)(::windows::core::Vtable::as_raw(self), pfvolumes.len() as _, ::core::mem::transmute(pfvolumes.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IMFAudioStreamVolume> for ::windows::core::IUnknown {
-    fn from(value: IMFAudioStreamVolume) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFAudioStreamVolume> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFAudioStreamVolume) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFAudioStreamVolume> for ::windows::core::IUnknown {
-    fn from(value: &IMFAudioStreamVolume) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFAudioStreamVolume, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFAudioStreamVolume {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12456,21 +9928,7 @@ impl IMFBufferListNotify {
         (::windows::core::Vtable::vtable(self).OnRemoveSourceBuffer)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IMFBufferListNotify> for ::windows::core::IUnknown {
-    fn from(value: IMFBufferListNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFBufferListNotify> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFBufferListNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFBufferListNotify> for ::windows::core::IUnknown {
-    fn from(value: &IMFBufferListNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFBufferListNotify, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFBufferListNotify {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12574,21 +10032,7 @@ impl IMFByteStream {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFByteStream> for ::windows::core::IUnknown {
-    fn from(value: IMFByteStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFByteStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFByteStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFByteStream> for ::windows::core::IUnknown {
-    fn from(value: &IMFByteStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFByteStream, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFByteStream {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12653,21 +10097,7 @@ impl IMFByteStreamBuffering {
         (::windows::core::Vtable::vtable(self).StopBuffering)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFByteStreamBuffering> for ::windows::core::IUnknown {
-    fn from(value: IMFByteStreamBuffering) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFByteStreamBuffering> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFByteStreamBuffering) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFByteStreamBuffering> for ::windows::core::IUnknown {
-    fn from(value: &IMFByteStreamBuffering) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFByteStreamBuffering, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFByteStreamBuffering {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12709,21 +10139,7 @@ impl IMFByteStreamCacheControl {
         (::windows::core::Vtable::vtable(self).StopBackgroundTransfer)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFByteStreamCacheControl> for ::windows::core::IUnknown {
-    fn from(value: IMFByteStreamCacheControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFByteStreamCacheControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFByteStreamCacheControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFByteStreamCacheControl> for ::windows::core::IUnknown {
-    fn from(value: &IMFByteStreamCacheControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFByteStreamCacheControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFByteStreamCacheControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12772,36 +10188,7 @@ impl IMFByteStreamCacheControl2 {
         (::windows::core::Vtable::vtable(self).IsBackgroundTransferActive)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IMFByteStreamCacheControl2> for ::windows::core::IUnknown {
-    fn from(value: IMFByteStreamCacheControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFByteStreamCacheControl2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFByteStreamCacheControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFByteStreamCacheControl2> for ::windows::core::IUnknown {
-    fn from(value: &IMFByteStreamCacheControl2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFByteStreamCacheControl2> for IMFByteStreamCacheControl {
-    fn from(value: IMFByteStreamCacheControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFByteStreamCacheControl2> for &'a IMFByteStreamCacheControl {
-    fn from(value: &'a IMFByteStreamCacheControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFByteStreamCacheControl2> for IMFByteStreamCacheControl {
-    fn from(value: &IMFByteStreamCacheControl2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFByteStreamCacheControl2, ::windows::core::IUnknown, IMFByteStreamCacheControl);
 impl ::core::clone::Clone for IMFByteStreamCacheControl2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12868,21 +10255,7 @@ impl IMFByteStreamHandler {
         (::windows::core::Vtable::vtable(self).GetMaxNumberOfBytesRequiredForResolution)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
-impl ::core::convert::From<IMFByteStreamHandler> for ::windows::core::IUnknown {
-    fn from(value: IMFByteStreamHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFByteStreamHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFByteStreamHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFByteStreamHandler> for ::windows::core::IUnknown {
-    fn from(value: &IMFByteStreamHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFByteStreamHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFByteStreamHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12931,21 +10304,7 @@ impl IMFByteStreamProxyClassFactory {
         (::windows::core::Vtable::vtable(self).CreateByteStreamProxy)(::windows::core::Vtable::as_raw(self), pbytestream.into().abi(), pattributes.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IMFByteStreamProxyClassFactory> for ::windows::core::IUnknown {
-    fn from(value: IMFByteStreamProxyClassFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFByteStreamProxyClassFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFByteStreamProxyClassFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFByteStreamProxyClassFactory> for ::windows::core::IUnknown {
-    fn from(value: &IMFByteStreamProxyClassFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFByteStreamProxyClassFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFByteStreamProxyClassFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12991,21 +10350,7 @@ impl IMFByteStreamTimeSeek {
         (::windows::core::Vtable::vtable(self).GetTimeSeekResult)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pqwstarttime), ::core::mem::transmute(pqwstoptime), ::core::mem::transmute(pqwduration)).ok()
     }
 }
-impl ::core::convert::From<IMFByteStreamTimeSeek> for ::windows::core::IUnknown {
-    fn from(value: IMFByteStreamTimeSeek) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFByteStreamTimeSeek> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFByteStreamTimeSeek) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFByteStreamTimeSeek> for ::windows::core::IUnknown {
-    fn from(value: &IMFByteStreamTimeSeek) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFByteStreamTimeSeek, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFByteStreamTimeSeek {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13053,21 +10398,7 @@ impl IMFCameraOcclusionStateMonitor {
         (::windows::core::Vtable::vtable(self).GetSupportedStates)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IMFCameraOcclusionStateMonitor> for ::windows::core::IUnknown {
-    fn from(value: IMFCameraOcclusionStateMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCameraOcclusionStateMonitor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFCameraOcclusionStateMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCameraOcclusionStateMonitor> for ::windows::core::IUnknown {
-    fn from(value: &IMFCameraOcclusionStateMonitor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFCameraOcclusionStateMonitor, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFCameraOcclusionStateMonitor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13107,21 +10438,7 @@ impl IMFCameraOcclusionStateReport {
         (::windows::core::Vtable::vtable(self).GetOcclusionState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMFCameraOcclusionStateReport> for ::windows::core::IUnknown {
-    fn from(value: IMFCameraOcclusionStateReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCameraOcclusionStateReport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFCameraOcclusionStateReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCameraOcclusionStateReport> for ::windows::core::IUnknown {
-    fn from(value: &IMFCameraOcclusionStateReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFCameraOcclusionStateReport, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFCameraOcclusionStateReport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13161,21 +10478,7 @@ impl IMFCameraOcclusionStateReportCallback {
         (::windows::core::Vtable::vtable(self).OnOcclusionStateReport)(::windows::core::Vtable::as_raw(self), occlusionstatereport.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFCameraOcclusionStateReportCallback> for ::windows::core::IUnknown {
-    fn from(value: IMFCameraOcclusionStateReportCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCameraOcclusionStateReportCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFCameraOcclusionStateReportCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCameraOcclusionStateReportCallback> for ::windows::core::IUnknown {
-    fn from(value: &IMFCameraOcclusionStateReportCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFCameraOcclusionStateReportCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFCameraOcclusionStateReportCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13215,21 +10518,7 @@ impl IMFCameraSyncObject {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IMFCameraSyncObject> for ::windows::core::IUnknown {
-    fn from(value: IMFCameraSyncObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCameraSyncObject> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFCameraSyncObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCameraSyncObject> for ::windows::core::IUnknown {
-    fn from(value: &IMFCameraSyncObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFCameraSyncObject, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFCameraSyncObject {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13302,21 +10591,7 @@ impl IMFCaptureEngine {
         (::windows::core::Vtable::vtable(self).GetSource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFCaptureSource>(result__)
     }
 }
-impl ::core::convert::From<IMFCaptureEngine> for ::windows::core::IUnknown {
-    fn from(value: IMFCaptureEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCaptureEngine> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFCaptureEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCaptureEngine> for ::windows::core::IUnknown {
-    fn from(value: &IMFCaptureEngine) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFCaptureEngine, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFCaptureEngine {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13367,21 +10642,7 @@ impl IMFCaptureEngineClassFactory {
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clsid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IMFCaptureEngineClassFactory> for ::windows::core::IUnknown {
-    fn from(value: IMFCaptureEngineClassFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCaptureEngineClassFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFCaptureEngineClassFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCaptureEngineClassFactory> for ::windows::core::IUnknown {
-    fn from(value: &IMFCaptureEngineClassFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFCaptureEngineClassFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFCaptureEngineClassFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13421,21 +10682,7 @@ impl IMFCaptureEngineOnEventCallback {
         (::windows::core::Vtable::vtable(self).OnEvent)(::windows::core::Vtable::as_raw(self), pevent.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFCaptureEngineOnEventCallback> for ::windows::core::IUnknown {
-    fn from(value: IMFCaptureEngineOnEventCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCaptureEngineOnEventCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFCaptureEngineOnEventCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCaptureEngineOnEventCallback> for ::windows::core::IUnknown {
-    fn from(value: &IMFCaptureEngineOnEventCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFCaptureEngineOnEventCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFCaptureEngineOnEventCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13475,21 +10722,7 @@ impl IMFCaptureEngineOnSampleCallback {
         (::windows::core::Vtable::vtable(self).OnSample)(::windows::core::Vtable::as_raw(self), psample.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFCaptureEngineOnSampleCallback> for ::windows::core::IUnknown {
-    fn from(value: IMFCaptureEngineOnSampleCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCaptureEngineOnSampleCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFCaptureEngineOnSampleCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCaptureEngineOnSampleCallback> for ::windows::core::IUnknown {
-    fn from(value: &IMFCaptureEngineOnSampleCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFCaptureEngineOnSampleCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFCaptureEngineOnSampleCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13535,36 +10768,7 @@ impl IMFCaptureEngineOnSampleCallback2 {
         (::windows::core::Vtable::vtable(self).OnSynchronizedEvent)(::windows::core::Vtable::as_raw(self), pevent.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFCaptureEngineOnSampleCallback2> for ::windows::core::IUnknown {
-    fn from(value: IMFCaptureEngineOnSampleCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCaptureEngineOnSampleCallback2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFCaptureEngineOnSampleCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCaptureEngineOnSampleCallback2> for ::windows::core::IUnknown {
-    fn from(value: &IMFCaptureEngineOnSampleCallback2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFCaptureEngineOnSampleCallback2> for IMFCaptureEngineOnSampleCallback {
-    fn from(value: IMFCaptureEngineOnSampleCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCaptureEngineOnSampleCallback2> for &'a IMFCaptureEngineOnSampleCallback {
-    fn from(value: &'a IMFCaptureEngineOnSampleCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCaptureEngineOnSampleCallback2> for IMFCaptureEngineOnSampleCallback {
-    fn from(value: &IMFCaptureEngineOnSampleCallback2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFCaptureEngineOnSampleCallback2, ::windows::core::IUnknown, IMFCaptureEngineOnSampleCallback);
 impl ::core::clone::Clone for IMFCaptureEngineOnSampleCallback2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13611,21 +10815,7 @@ impl IMFCapturePhotoConfirmation {
         (::windows::core::Vtable::vtable(self).GetPixelFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
 }
-impl ::core::convert::From<IMFCapturePhotoConfirmation> for ::windows::core::IUnknown {
-    fn from(value: IMFCapturePhotoConfirmation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCapturePhotoConfirmation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFCapturePhotoConfirmation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCapturePhotoConfirmation> for ::windows::core::IUnknown {
-    fn from(value: &IMFCapturePhotoConfirmation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFCapturePhotoConfirmation, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFCapturePhotoConfirmation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13701,36 +10891,7 @@ impl IMFCapturePhotoSink {
         (::windows::core::Vtable::vtable(self).SetOutputByteStream)(::windows::core::Vtable::as_raw(self), pbytestream.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFCapturePhotoSink> for ::windows::core::IUnknown {
-    fn from(value: IMFCapturePhotoSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCapturePhotoSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFCapturePhotoSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCapturePhotoSink> for ::windows::core::IUnknown {
-    fn from(value: &IMFCapturePhotoSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFCapturePhotoSink> for IMFCaptureSink {
-    fn from(value: IMFCapturePhotoSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCapturePhotoSink> for &'a IMFCaptureSink {
-    fn from(value: &'a IMFCapturePhotoSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCapturePhotoSink> for IMFCaptureSink {
-    fn from(value: &IMFCapturePhotoSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFCapturePhotoSink, ::windows::core::IUnknown, IMFCaptureSink);
 impl ::core::clone::Clone for IMFCapturePhotoSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13840,36 +11001,7 @@ impl IMFCapturePreviewSink {
         (::windows::core::Vtable::vtable(self).SetCustomSink)(::windows::core::Vtable::as_raw(self), pmediasink.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFCapturePreviewSink> for ::windows::core::IUnknown {
-    fn from(value: IMFCapturePreviewSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCapturePreviewSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFCapturePreviewSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCapturePreviewSink> for ::windows::core::IUnknown {
-    fn from(value: &IMFCapturePreviewSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFCapturePreviewSink> for IMFCaptureSink {
-    fn from(value: IMFCapturePreviewSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCapturePreviewSink> for &'a IMFCaptureSink {
-    fn from(value: &'a IMFCapturePreviewSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCapturePreviewSink> for IMFCaptureSink {
-    fn from(value: &IMFCapturePreviewSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFCapturePreviewSink, ::windows::core::IUnknown, IMFCaptureSink);
 impl ::core::clone::Clone for IMFCapturePreviewSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13976,36 +11108,7 @@ impl IMFCaptureRecordSink {
         (::windows::core::Vtable::vtable(self).SetRotation)(::windows::core::Vtable::as_raw(self), dwstreamindex, dwrotationvalue).ok()
     }
 }
-impl ::core::convert::From<IMFCaptureRecordSink> for ::windows::core::IUnknown {
-    fn from(value: IMFCaptureRecordSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCaptureRecordSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFCaptureRecordSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCaptureRecordSink> for ::windows::core::IUnknown {
-    fn from(value: &IMFCaptureRecordSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFCaptureRecordSink> for IMFCaptureSink {
-    fn from(value: IMFCaptureRecordSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCaptureRecordSink> for &'a IMFCaptureSink {
-    fn from(value: &'a IMFCaptureRecordSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCaptureRecordSink> for IMFCaptureSink {
-    fn from(value: &IMFCaptureRecordSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFCaptureRecordSink, ::windows::core::IUnknown, IMFCaptureSink);
 impl ::core::clone::Clone for IMFCaptureRecordSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14066,21 +11169,7 @@ impl IMFCaptureSink {
         (::windows::core::Vtable::vtable(self).RemoveAllStreams)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFCaptureSink> for ::windows::core::IUnknown {
-    fn from(value: IMFCaptureSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCaptureSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFCaptureSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCaptureSink> for ::windows::core::IUnknown {
-    fn from(value: &IMFCaptureSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFCaptureSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFCaptureSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14147,36 +11236,7 @@ impl IMFCaptureSink2 {
         (::windows::core::Vtable::vtable(self).SetOutputMediaType)(::windows::core::Vtable::as_raw(self), dwstreamindex, pmediatype.into().abi(), pencodingattributes.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFCaptureSink2> for ::windows::core::IUnknown {
-    fn from(value: IMFCaptureSink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCaptureSink2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFCaptureSink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCaptureSink2> for ::windows::core::IUnknown {
-    fn from(value: &IMFCaptureSink2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFCaptureSink2> for IMFCaptureSink {
-    fn from(value: IMFCaptureSink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCaptureSink2> for &'a IMFCaptureSink {
-    fn from(value: &'a IMFCaptureSink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCaptureSink2> for IMFCaptureSink {
-    fn from(value: &IMFCaptureSink2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFCaptureSink2, ::windows::core::IUnknown, IMFCaptureSink);
 impl ::core::clone::Clone for IMFCaptureSink2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14277,21 +11337,7 @@ impl IMFCaptureSource {
         (::windows::core::Vtable::vtable(self).GetStreamIndexFromFriendlyName)(::windows::core::Vtable::as_raw(self), uifriendlyname, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMFCaptureSource> for ::windows::core::IUnknown {
-    fn from(value: IMFCaptureSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCaptureSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFCaptureSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCaptureSource> for ::windows::core::IUnknown {
-    fn from(value: &IMFCaptureSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFCaptureSource, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFCaptureSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14350,21 +11396,7 @@ impl IMFCdmSuspendNotify {
         (::windows::core::Vtable::vtable(self).End)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFCdmSuspendNotify> for ::windows::core::IUnknown {
-    fn from(value: IMFCdmSuspendNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCdmSuspendNotify> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFCdmSuspendNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCdmSuspendNotify> for ::windows::core::IUnknown {
-    fn from(value: &IMFCdmSuspendNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFCdmSuspendNotify, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFCdmSuspendNotify {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14418,21 +11450,7 @@ impl IMFClock {
         (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MFCLOCK_PROPERTIES>(result__)
     }
 }
-impl ::core::convert::From<IMFClock> for ::windows::core::IUnknown {
-    fn from(value: IMFClock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFClock> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFClock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFClock> for ::windows::core::IUnknown {
-    fn from(value: &IMFClock) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFClock, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFClock {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14480,21 +11498,7 @@ impl IMFClockConsumer {
         (::windows::core::Vtable::vtable(self).GetPresentationClock)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFPresentationClock>(result__)
     }
 }
-impl ::core::convert::From<IMFClockConsumer> for ::windows::core::IUnknown {
-    fn from(value: IMFClockConsumer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFClockConsumer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFClockConsumer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFClockConsumer> for ::windows::core::IUnknown {
-    fn from(value: &IMFClockConsumer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFClockConsumer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFClockConsumer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14544,21 +11548,7 @@ impl IMFClockStateSink {
         (::windows::core::Vtable::vtable(self).OnClockSetRate)(::windows::core::Vtable::as_raw(self), hnssystemtime, flrate).ok()
     }
 }
-impl ::core::convert::From<IMFClockStateSink> for ::windows::core::IUnknown {
-    fn from(value: IMFClockStateSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFClockStateSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFClockStateSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFClockStateSink> for ::windows::core::IUnknown {
-    fn from(value: &IMFClockStateSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFClockStateSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFClockStateSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14623,21 +11613,7 @@ impl IMFCollection {
         (::windows::core::Vtable::vtable(self).RemoveAllElements)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFCollection> for ::windows::core::IUnknown {
-    fn from(value: IMFCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFCollection> for ::windows::core::IUnknown {
-    fn from(value: &IMFCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14710,21 +11686,7 @@ impl IMFContentDecryptionModule {
         (::windows::core::Vtable::vtable(self).GetProtectionSystemIds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(systemids), ::core::mem::transmute(count)).ok()
     }
 }
-impl ::core::convert::From<IMFContentDecryptionModule> for ::windows::core::IUnknown {
-    fn from(value: IMFContentDecryptionModule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFContentDecryptionModule> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFContentDecryptionModule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFContentDecryptionModule> for ::windows::core::IUnknown {
-    fn from(value: &IMFContentDecryptionModule) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFContentDecryptionModule, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFContentDecryptionModule {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14783,21 +11745,7 @@ impl IMFContentDecryptionModuleAccess {
         (::windows::core::Vtable::vtable(self).GetKeySystem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IMFContentDecryptionModuleAccess> for ::windows::core::IUnknown {
-    fn from(value: IMFContentDecryptionModuleAccess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFContentDecryptionModuleAccess> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFContentDecryptionModuleAccess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFContentDecryptionModuleAccess> for ::windows::core::IUnknown {
-    fn from(value: &IMFContentDecryptionModuleAccess) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFContentDecryptionModuleAccess, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFContentDecryptionModuleAccess {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14857,21 +11805,7 @@ impl IMFContentDecryptionModuleFactory {
         (::windows::core::Vtable::vtable(self).CreateContentDecryptionModuleAccess)(::windows::core::Vtable::as_raw(self), keysystem.into(), ::core::mem::transmute(configurations.as_ptr()), configurations.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFContentDecryptionModuleAccess>(result__)
     }
 }
-impl ::core::convert::From<IMFContentDecryptionModuleFactory> for ::windows::core::IUnknown {
-    fn from(value: IMFContentDecryptionModuleFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFContentDecryptionModuleFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFContentDecryptionModuleFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFContentDecryptionModuleFactory> for ::windows::core::IUnknown {
-    fn from(value: &IMFContentDecryptionModuleFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFContentDecryptionModuleFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFContentDecryptionModuleFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14947,21 +11881,7 @@ impl IMFContentDecryptionModuleSession {
         (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFContentDecryptionModuleSession> for ::windows::core::IUnknown {
-    fn from(value: IMFContentDecryptionModuleSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFContentDecryptionModuleSession> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFContentDecryptionModuleSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFContentDecryptionModuleSession> for ::windows::core::IUnknown {
-    fn from(value: &IMFContentDecryptionModuleSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFContentDecryptionModuleSession, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFContentDecryptionModuleSession {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -15014,21 +11934,7 @@ impl IMFContentDecryptionModuleSessionCallbacks {
         (::windows::core::Vtable::vtable(self).KeyStatusChanged)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFContentDecryptionModuleSessionCallbacks> for ::windows::core::IUnknown {
-    fn from(value: IMFContentDecryptionModuleSessionCallbacks) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFContentDecryptionModuleSessionCallbacks> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFContentDecryptionModuleSessionCallbacks) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFContentDecryptionModuleSessionCallbacks> for ::windows::core::IUnknown {
-    fn from(value: &IMFContentDecryptionModuleSessionCallbacks) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFContentDecryptionModuleSessionCallbacks, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFContentDecryptionModuleSessionCallbacks {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -15067,21 +11973,7 @@ impl IMFContentDecryptorContext {
         (::windows::core::Vtable::vtable(self).InitializeHardwareKey)(::windows::core::Vtable::as_raw(self), inputprivatedata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(inputprivatedata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
-impl ::core::convert::From<IMFContentDecryptorContext> for ::windows::core::IUnknown {
-    fn from(value: IMFContentDecryptorContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFContentDecryptorContext> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFContentDecryptorContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFContentDecryptorContext> for ::windows::core::IUnknown {
-    fn from(value: &IMFContentDecryptorContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFContentDecryptorContext, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFContentDecryptorContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -15140,21 +12032,7 @@ impl IMFContentEnabler {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFContentEnabler> for ::windows::core::IUnknown {
-    fn from(value: IMFContentEnabler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFContentEnabler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFContentEnabler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFContentEnabler> for ::windows::core::IUnknown {
-    fn from(value: &IMFContentEnabler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFContentEnabler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFContentEnabler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -15203,21 +12081,7 @@ impl IMFContentProtectionDevice {
         (::windows::core::Vtable::vtable(self).GetPrivateDataByteCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(privateinputbytecount), ::core::mem::transmute(privateoutputbytecount)).ok()
     }
 }
-impl ::core::convert::From<IMFContentProtectionDevice> for ::windows::core::IUnknown {
-    fn from(value: IMFContentProtectionDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFContentProtectionDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFContentProtectionDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFContentProtectionDevice> for ::windows::core::IUnknown {
-    fn from(value: &IMFContentProtectionDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFContentProtectionDevice, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFContentProtectionDevice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -15267,21 +12131,7 @@ impl IMFContentProtectionManager {
         (::windows::core::Vtable::vtable(self).EndEnableContent)(::windows::core::Vtable::as_raw(self), presult.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFContentProtectionManager> for ::windows::core::IUnknown {
-    fn from(value: IMFContentProtectionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFContentProtectionManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFContentProtectionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFContentProtectionManager> for ::windows::core::IUnknown {
-    fn from(value: &IMFContentProtectionManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFContentProtectionManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFContentProtectionManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -15327,21 +12177,7 @@ impl IMFD3D12SynchronizationObject {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFD3D12SynchronizationObject> for ::windows::core::IUnknown {
-    fn from(value: IMFD3D12SynchronizationObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFD3D12SynchronizationObject> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFD3D12SynchronizationObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFD3D12SynchronizationObject> for ::windows::core::IUnknown {
-    fn from(value: &IMFD3D12SynchronizationObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFD3D12SynchronizationObject, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFD3D12SynchronizationObject {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -15411,21 +12247,7 @@ impl IMFD3D12SynchronizationObjectCommands {
         (::windows::core::Vtable::vtable(self).EnqueueResourceRelease)(::windows::core::Vtable::as_raw(self), pconsumercommandqueue.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFD3D12SynchronizationObjectCommands> for ::windows::core::IUnknown {
-    fn from(value: IMFD3D12SynchronizationObjectCommands) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFD3D12SynchronizationObjectCommands> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFD3D12SynchronizationObjectCommands) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFD3D12SynchronizationObjectCommands> for ::windows::core::IUnknown {
-    fn from(value: &IMFD3D12SynchronizationObjectCommands) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFD3D12SynchronizationObjectCommands, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFD3D12SynchronizationObjectCommands {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -15483,21 +12305,7 @@ impl IMFDLNASinkInit {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pbytestream.into().abi(), fpal.into()).ok()
     }
 }
-impl ::core::convert::From<IMFDLNASinkInit> for ::windows::core::IUnknown {
-    fn from(value: IMFDLNASinkInit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFDLNASinkInit> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFDLNASinkInit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFDLNASinkInit> for ::windows::core::IUnknown {
-    fn from(value: &IMFDLNASinkInit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFDLNASinkInit, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFDLNASinkInit {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -15540,21 +12348,7 @@ impl IMFDRMNetHelper {
         (::windows::core::Vtable::vtable(self).GetChainedLicenseResponse)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pplicenseresponse), ::core::mem::transmute(pcblicenseresponse)).ok()
     }
 }
-impl ::core::convert::From<IMFDRMNetHelper> for ::windows::core::IUnknown {
-    fn from(value: IMFDRMNetHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFDRMNetHelper> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFDRMNetHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFDRMNetHelper> for ::windows::core::IUnknown {
-    fn from(value: &IMFDRMNetHelper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFDRMNetHelper, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFDRMNetHelper {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -15605,21 +12399,7 @@ impl IMFDXGIBuffer {
         (::windows::core::Vtable::vtable(self).SetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), punkdata.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFDXGIBuffer> for ::windows::core::IUnknown {
-    fn from(value: IMFDXGIBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFDXGIBuffer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFDXGIBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFDXGIBuffer> for ::windows::core::IUnknown {
-    fn from(value: &IMFDXGIBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFDXGIBuffer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFDXGIBuffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -15710,21 +12490,7 @@ impl IMFDXGIDeviceManager {
         (::windows::core::Vtable::vtable(self).UnlockDevice)(::windows::core::Vtable::as_raw(self), hdevice.into(), fsavestate.into()).ok()
     }
 }
-impl ::core::convert::From<IMFDXGIDeviceManager> for ::windows::core::IUnknown {
-    fn from(value: IMFDXGIDeviceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFDXGIDeviceManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFDXGIDeviceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFDXGIDeviceManager> for ::windows::core::IUnknown {
-    fn from(value: &IMFDXGIDeviceManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFDXGIDeviceManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFDXGIDeviceManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -15786,21 +12552,7 @@ impl IMFDXGIDeviceManagerSource {
         (::windows::core::Vtable::vtable(self).GetManager)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFDXGIDeviceManager>(result__)
     }
 }
-impl ::core::convert::From<IMFDXGIDeviceManagerSource> for ::windows::core::IUnknown {
-    fn from(value: IMFDXGIDeviceManagerSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFDXGIDeviceManagerSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFDXGIDeviceManagerSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFDXGIDeviceManagerSource> for ::windows::core::IUnknown {
-    fn from(value: &IMFDXGIDeviceManagerSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFDXGIDeviceManagerSource, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFDXGIDeviceManagerSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -15843,21 +12595,7 @@ impl IMFDesiredSample {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IMFDesiredSample> for ::windows::core::IUnknown {
-    fn from(value: IMFDesiredSample) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFDesiredSample> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFDesiredSample) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFDesiredSample> for ::windows::core::IUnknown {
-    fn from(value: &IMFDesiredSample) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFDesiredSample, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFDesiredSample {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -15976,21 +12714,7 @@ impl IMFDeviceTransform {
         (::windows::core::Vtable::vtable(self).FlushOutputStream)(::windows::core::Vtable::as_raw(self), dwstreamindex, dwflags).ok()
     }
 }
-impl ::core::convert::From<IMFDeviceTransform> for ::windows::core::IUnknown {
-    fn from(value: IMFDeviceTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFDeviceTransform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFDeviceTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFDeviceTransform> for ::windows::core::IUnknown {
-    fn from(value: &IMFDeviceTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFDeviceTransform, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFDeviceTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -16049,21 +12773,7 @@ impl IMFDeviceTransformCallback {
         (::windows::core::Vtable::vtable(self).OnBufferSent)(::windows::core::Vtable::as_raw(self), pcallbackattributes.into().abi(), pinid).ok()
     }
 }
-impl ::core::convert::From<IMFDeviceTransformCallback> for ::windows::core::IUnknown {
-    fn from(value: IMFDeviceTransformCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFDeviceTransformCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFDeviceTransformCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFDeviceTransformCallback> for ::windows::core::IUnknown {
-    fn from(value: &IMFDeviceTransformCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFDeviceTransformCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFDeviceTransformCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -16115,21 +12825,7 @@ impl IMFExtendedCameraControl {
         (::windows::core::Vtable::vtable(self).CommitSettings)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFExtendedCameraControl> for ::windows::core::IUnknown {
-    fn from(value: IMFExtendedCameraControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFExtendedCameraControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFExtendedCameraControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFExtendedCameraControl> for ::windows::core::IUnknown {
-    fn from(value: &IMFExtendedCameraControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFExtendedCameraControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFExtendedCameraControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -16172,21 +12868,7 @@ impl IMFExtendedCameraController {
         (::windows::core::Vtable::vtable(self).GetExtendedCameraControl)(::windows::core::Vtable::as_raw(self), dwstreamindex, ulpropertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFExtendedCameraControl>(result__)
     }
 }
-impl ::core::convert::From<IMFExtendedCameraController> for ::windows::core::IUnknown {
-    fn from(value: IMFExtendedCameraController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFExtendedCameraController> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFExtendedCameraController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFExtendedCameraController> for ::windows::core::IUnknown {
-    fn from(value: &IMFExtendedCameraController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFExtendedCameraController, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFExtendedCameraController {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -16231,21 +12913,7 @@ impl IMFExtendedCameraIntrinsicModel {
         (::windows::core::Vtable::vtable(self).GetDistortionModelType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MFCameraIntrinsic_DistortionModelType>(result__)
     }
 }
-impl ::core::convert::From<IMFExtendedCameraIntrinsicModel> for ::windows::core::IUnknown {
-    fn from(value: IMFExtendedCameraIntrinsicModel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFExtendedCameraIntrinsicModel> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFExtendedCameraIntrinsicModel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFExtendedCameraIntrinsicModel> for ::windows::core::IUnknown {
-    fn from(value: &IMFExtendedCameraIntrinsicModel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFExtendedCameraIntrinsicModel, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFExtendedCameraIntrinsicModel {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -16305,21 +12973,7 @@ impl IMFExtendedCameraIntrinsics {
         (::windows::core::Vtable::vtable(self).AddIntrinsicModel)(::windows::core::Vtable::as_raw(self), pintrinsicmodel.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFExtendedCameraIntrinsics> for ::windows::core::IUnknown {
-    fn from(value: IMFExtendedCameraIntrinsics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFExtendedCameraIntrinsics> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFExtendedCameraIntrinsics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFExtendedCameraIntrinsics> for ::windows::core::IUnknown {
-    fn from(value: &IMFExtendedCameraIntrinsics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFExtendedCameraIntrinsics, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFExtendedCameraIntrinsics {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -16365,21 +13019,7 @@ impl IMFExtendedCameraIntrinsicsDistortionModel6KT {
         (::windows::core::Vtable::vtable(self).SetDistortionModel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdistortionmodel)).ok()
     }
 }
-impl ::core::convert::From<IMFExtendedCameraIntrinsicsDistortionModel6KT> for ::windows::core::IUnknown {
-    fn from(value: IMFExtendedCameraIntrinsicsDistortionModel6KT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFExtendedCameraIntrinsicsDistortionModel6KT> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFExtendedCameraIntrinsicsDistortionModel6KT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFExtendedCameraIntrinsicsDistortionModel6KT> for ::windows::core::IUnknown {
-    fn from(value: &IMFExtendedCameraIntrinsicsDistortionModel6KT) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFExtendedCameraIntrinsicsDistortionModel6KT, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFExtendedCameraIntrinsicsDistortionModel6KT {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -16421,21 +13061,7 @@ impl IMFExtendedCameraIntrinsicsDistortionModelArcTan {
         (::windows::core::Vtable::vtable(self).SetDistortionModel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdistortionmodel)).ok()
     }
 }
-impl ::core::convert::From<IMFExtendedCameraIntrinsicsDistortionModelArcTan> for ::windows::core::IUnknown {
-    fn from(value: IMFExtendedCameraIntrinsicsDistortionModelArcTan) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFExtendedCameraIntrinsicsDistortionModelArcTan> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFExtendedCameraIntrinsicsDistortionModelArcTan) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFExtendedCameraIntrinsicsDistortionModelArcTan> for ::windows::core::IUnknown {
-    fn from(value: &IMFExtendedCameraIntrinsicsDistortionModelArcTan) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFExtendedCameraIntrinsicsDistortionModelArcTan, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFExtendedCameraIntrinsicsDistortionModelArcTan {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -16474,21 +13100,7 @@ impl IMFExtendedDRMTypeSupport {
         (::windows::core::Vtable::vtable(self).IsTypeSupportedEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(r#type), ::core::mem::transmute_copy(keysystem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MF_MEDIA_ENGINE_CANPLAY>(result__)
     }
 }
-impl ::core::convert::From<IMFExtendedDRMTypeSupport> for ::windows::core::IUnknown {
-    fn from(value: IMFExtendedDRMTypeSupport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFExtendedDRMTypeSupport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFExtendedDRMTypeSupport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFExtendedDRMTypeSupport> for ::windows::core::IUnknown {
-    fn from(value: &IMFExtendedDRMTypeSupport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFExtendedDRMTypeSupport, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFExtendedDRMTypeSupport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -16528,21 +13140,7 @@ impl IMFFieldOfUseMFTUnlock {
         (::windows::core::Vtable::vtable(self).Unlock)(::windows::core::Vtable::as_raw(self), punkmft.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFFieldOfUseMFTUnlock> for ::windows::core::IUnknown {
-    fn from(value: IMFFieldOfUseMFTUnlock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFFieldOfUseMFTUnlock> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFFieldOfUseMFTUnlock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFFieldOfUseMFTUnlock> for ::windows::core::IUnknown {
-    fn from(value: &IMFFieldOfUseMFTUnlock) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFFieldOfUseMFTUnlock, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFFieldOfUseMFTUnlock {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -16628,36 +13226,7 @@ impl IMFFinalizableMediaSink {
         (::windows::core::Vtable::vtable(self).EndFinalize)(::windows::core::Vtable::as_raw(self), presult.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFFinalizableMediaSink> for ::windows::core::IUnknown {
-    fn from(value: IMFFinalizableMediaSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFFinalizableMediaSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFFinalizableMediaSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFFinalizableMediaSink> for ::windows::core::IUnknown {
-    fn from(value: &IMFFinalizableMediaSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFFinalizableMediaSink> for IMFMediaSink {
-    fn from(value: IMFFinalizableMediaSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFFinalizableMediaSink> for &'a IMFMediaSink {
-    fn from(value: &'a IMFFinalizableMediaSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFFinalizableMediaSink> for IMFMediaSink {
-    fn from(value: &IMFFinalizableMediaSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFFinalizableMediaSink, ::windows::core::IUnknown, IMFMediaSink);
 impl ::core::clone::Clone for IMFFinalizableMediaSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -16699,21 +13268,7 @@ impl IMFGetService {
         (::windows::core::Vtable::vtable(self).GetService)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidservice), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IMFGetService> for ::windows::core::IUnknown {
-    fn from(value: IMFGetService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFGetService> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFGetService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFGetService> for ::windows::core::IUnknown {
-    fn from(value: &IMFGetService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFGetService, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFGetService {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -16755,21 +13310,7 @@ impl IMFHDCPStatus {
         (::windows::core::Vtable::vtable(self).Set)(::windows::core::Vtable::as_raw(self), status).ok()
     }
 }
-impl ::core::convert::From<IMFHDCPStatus> for ::windows::core::IUnknown {
-    fn from(value: IMFHDCPStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFHDCPStatus> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFHDCPStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFHDCPStatus> for ::windows::core::IUnknown {
-    fn from(value: &IMFHDCPStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFHDCPStatus, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFHDCPStatus {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -16893,21 +13434,7 @@ impl IMFHttpDownloadRequest {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFHttpDownloadRequest> for ::windows::core::IUnknown {
-    fn from(value: IMFHttpDownloadRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFHttpDownloadRequest> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFHttpDownloadRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFHttpDownloadRequest> for ::windows::core::IUnknown {
-    fn from(value: &IMFHttpDownloadRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFHttpDownloadRequest, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFHttpDownloadRequest {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -16984,21 +13511,7 @@ impl IMFHttpDownloadSession {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFHttpDownloadSession> for ::windows::core::IUnknown {
-    fn from(value: IMFHttpDownloadSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFHttpDownloadSession> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFHttpDownloadSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFHttpDownloadSession> for ::windows::core::IUnknown {
-    fn from(value: &IMFHttpDownloadSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFHttpDownloadSession, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFHttpDownloadSession {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -17044,21 +13557,7 @@ impl IMFHttpDownloadSessionProvider {
         (::windows::core::Vtable::vtable(self).CreateHttpDownloadSession)(::windows::core::Vtable::as_raw(self), wszscheme.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFHttpDownloadSession>(result__)
     }
 }
-impl ::core::convert::From<IMFHttpDownloadSessionProvider> for ::windows::core::IUnknown {
-    fn from(value: IMFHttpDownloadSessionProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFHttpDownloadSessionProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFHttpDownloadSessionProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFHttpDownloadSessionProvider> for ::windows::core::IUnknown {
-    fn from(value: &IMFHttpDownloadSessionProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFHttpDownloadSessionProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFHttpDownloadSessionProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -17105,21 +13604,7 @@ impl IMFImageSharingEngine {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFImageSharingEngine> for ::windows::core::IUnknown {
-    fn from(value: IMFImageSharingEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFImageSharingEngine> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFImageSharingEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFImageSharingEngine> for ::windows::core::IUnknown {
-    fn from(value: &IMFImageSharingEngine) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFImageSharingEngine, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFImageSharingEngine {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -17159,21 +13644,7 @@ impl IMFImageSharingEngineClassFactory {
         (::windows::core::Vtable::vtable(self).CreateInstanceFromUDN)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(puniquedevicename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFImageSharingEngine>(result__)
     }
 }
-impl ::core::convert::From<IMFImageSharingEngineClassFactory> for ::windows::core::IUnknown {
-    fn from(value: IMFImageSharingEngineClassFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFImageSharingEngineClassFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFImageSharingEngineClassFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFImageSharingEngineClassFactory> for ::windows::core::IUnknown {
-    fn from(value: &IMFImageSharingEngineClassFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFImageSharingEngineClassFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFImageSharingEngineClassFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -17227,21 +13698,7 @@ impl IMFInputTrustAuthority {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFInputTrustAuthority> for ::windows::core::IUnknown {
-    fn from(value: IMFInputTrustAuthority) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFInputTrustAuthority> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFInputTrustAuthority) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFInputTrustAuthority> for ::windows::core::IUnknown {
-    fn from(value: &IMFInputTrustAuthority) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFInputTrustAuthority, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFInputTrustAuthority {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -17283,21 +13740,7 @@ impl IMFLocalMFTRegistration {
         (::windows::core::Vtable::vtable(self).RegisterMFTs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmfts.as_ptr()), pmfts.len() as _).ok()
     }
 }
-impl ::core::convert::From<IMFLocalMFTRegistration> for ::windows::core::IUnknown {
-    fn from(value: IMFLocalMFTRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFLocalMFTRegistration> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFLocalMFTRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFLocalMFTRegistration> for ::windows::core::IUnknown {
-    fn from(value: &IMFLocalMFTRegistration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFLocalMFTRegistration, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFLocalMFTRegistration {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -17348,21 +13791,7 @@ impl IMFMediaBuffer {
         (::windows::core::Vtable::vtable(self).GetMaxLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMFMediaBuffer> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaBuffer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaBuffer> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaBuffer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaBuffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -17572,21 +14001,7 @@ impl IMFMediaEngine {
         (::windows::core::Vtable::vtable(self).OnVideoStreamTick)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
     }
 }
-impl ::core::convert::From<IMFMediaEngine> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngine> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngine> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEngine) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEngine, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaEngine {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -17707,21 +14122,7 @@ impl IMFMediaEngineAudioEndpointId {
         (::windows::core::Vtable::vtable(self).GetAudioEndpointId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IMFMediaEngineAudioEndpointId> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEngineAudioEndpointId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngineAudioEndpointId> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEngineAudioEndpointId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngineAudioEndpointId> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEngineAudioEndpointId) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEngineAudioEndpointId, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaEngineAudioEndpointId {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -17771,21 +14172,7 @@ impl IMFMediaEngineClassFactory {
         (::windows::core::Vtable::vtable(self).CreateError)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaError>(result__)
     }
 }
-impl ::core::convert::From<IMFMediaEngineClassFactory> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEngineClassFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngineClassFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEngineClassFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngineClassFactory> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEngineClassFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEngineClassFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaEngineClassFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -17825,21 +14212,7 @@ impl IMFMediaEngineClassFactory2 {
         (::windows::core::Vtable::vtable(self).CreateMediaKeys2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(keysystem), ::core::mem::transmute_copy(defaultcdmstorepath), ::core::mem::transmute_copy(inprivatecdmstorepath), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaKeys>(result__)
     }
 }
-impl ::core::convert::From<IMFMediaEngineClassFactory2> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEngineClassFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngineClassFactory2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEngineClassFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngineClassFactory2> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEngineClassFactory2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEngineClassFactory2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaEngineClassFactory2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -17879,21 +14252,7 @@ impl IMFMediaEngineClassFactory3 {
         (::windows::core::Vtable::vtable(self).CreateMediaKeySystemAccess)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(keysystem), ::core::mem::transmute(ppsupportedconfigurationsarray.as_ptr()), ppsupportedconfigurationsarray.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaKeySystemAccess>(result__)
     }
 }
-impl ::core::convert::From<IMFMediaEngineClassFactory3> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEngineClassFactory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngineClassFactory3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEngineClassFactory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngineClassFactory3> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEngineClassFactory3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEngineClassFactory3, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaEngineClassFactory3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -17936,21 +14295,7 @@ impl IMFMediaEngineClassFactory4 {
         (::windows::core::Vtable::vtable(self).CreateContentDecryptionModuleFactory)(::windows::core::Vtable::as_raw(self), keysystem.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
 }
-impl ::core::convert::From<IMFMediaEngineClassFactory4> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEngineClassFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngineClassFactory4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEngineClassFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngineClassFactory4> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEngineClassFactory4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEngineClassFactory4, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaEngineClassFactory4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -18016,36 +14361,7 @@ impl IMFMediaEngineClassFactoryEx {
         (::windows::core::Vtable::vtable(self).IsTypeSupported)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(r#type), ::core::mem::transmute_copy(keysystem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IMFMediaEngineClassFactoryEx> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEngineClassFactoryEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngineClassFactoryEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEngineClassFactoryEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngineClassFactoryEx> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEngineClassFactoryEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFMediaEngineClassFactoryEx> for IMFMediaEngineClassFactory {
-    fn from(value: IMFMediaEngineClassFactoryEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngineClassFactoryEx> for &'a IMFMediaEngineClassFactory {
-    fn from(value: &'a IMFMediaEngineClassFactoryEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngineClassFactoryEx> for IMFMediaEngineClassFactory {
-    fn from(value: &IMFMediaEngineClassFactoryEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEngineClassFactoryEx, ::windows::core::IUnknown, IMFMediaEngineClassFactory);
 impl ::core::clone::Clone for IMFMediaEngineClassFactoryEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -18094,21 +14410,7 @@ impl IMFMediaEngineEME {
         (::windows::core::Vtable::vtable(self).SetMediaKeys)(::windows::core::Vtable::as_raw(self), keys.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFMediaEngineEME> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEngineEME) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngineEME> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEngineEME) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngineEME> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEngineEME) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEngineEME, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaEngineEME {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -18149,21 +14451,7 @@ impl IMFMediaEngineEMENotify {
         (::windows::core::Vtable::vtable(self).WaitingForKey)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IMFMediaEngineEMENotify> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEngineEMENotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngineEMENotify> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEngineEMENotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngineEMENotify> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEngineEMENotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEngineEMENotify, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaEngineEMENotify {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -18560,36 +14848,7 @@ impl IMFMediaEngineEx {
         (::windows::core::Vtable::vtable(self).EnableTimeUpdateTimer)(::windows::core::Vtable::as_raw(self), fenabletimer.into()).ok()
     }
 }
-impl ::core::convert::From<IMFMediaEngineEx> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEngineEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngineEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEngineEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngineEx> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEngineEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFMediaEngineEx> for IMFMediaEngine {
-    fn from(value: IMFMediaEngineEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngineEx> for &'a IMFMediaEngine {
-    fn from(value: &'a IMFMediaEngineEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngineEx> for IMFMediaEngine {
-    fn from(value: &IMFMediaEngineEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEngineEx, ::windows::core::IUnknown, IMFMediaEngine);
 impl ::core::clone::Clone for IMFMediaEngineEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -18743,21 +15002,7 @@ impl IMFMediaEngineExtension {
         (::windows::core::Vtable::vtable(self).EndCreateObject)(::windows::core::Vtable::as_raw(self), presult.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
-impl ::core::convert::From<IMFMediaEngineExtension> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEngineExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngineExtension> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEngineExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngineExtension> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEngineExtension) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEngineExtension, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaEngineExtension {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -18800,21 +15045,7 @@ impl IMFMediaEngineNeedKeyNotify {
         (::windows::core::Vtable::vtable(self).NeedKey)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(initdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), initdata.as_deref().map_or(0, |slice| slice.len() as _))
     }
 }
-impl ::core::convert::From<IMFMediaEngineNeedKeyNotify> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEngineNeedKeyNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngineNeedKeyNotify> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEngineNeedKeyNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngineNeedKeyNotify> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEngineNeedKeyNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEngineNeedKeyNotify, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaEngineNeedKeyNotify {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -18851,21 +15082,7 @@ impl IMFMediaEngineNotify {
         (::windows::core::Vtable::vtable(self).EventNotify)(::windows::core::Vtable::as_raw(self), event, param1, param2).ok()
     }
 }
-impl ::core::convert::From<IMFMediaEngineNotify> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEngineNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngineNotify> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEngineNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngineNotify> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEngineNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEngineNotify, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaEngineNotify {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -18904,21 +15121,7 @@ impl IMFMediaEngineOPMInfo {
         (::windows::core::Vtable::vtable(self).GetOPMInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstatus), ::core::mem::transmute(pconstricted)).ok()
     }
 }
-impl ::core::convert::From<IMFMediaEngineOPMInfo> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEngineOPMInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngineOPMInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEngineOPMInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngineOPMInfo> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEngineOPMInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEngineOPMInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaEngineOPMInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -18991,21 +15194,7 @@ impl IMFMediaEngineProtectedContent {
         (::windows::core::Vtable::vtable(self).SetApplicationCertificate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbblob.as_ptr()), pbblob.len() as _).ok()
     }
 }
-impl ::core::convert::From<IMFMediaEngineProtectedContent> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEngineProtectedContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngineProtectedContent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEngineProtectedContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngineProtectedContent> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEngineProtectedContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEngineProtectedContent, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaEngineProtectedContent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -19071,21 +15260,7 @@ impl IMFMediaEngineSrcElements {
         (::windows::core::Vtable::vtable(self).RemoveAllElements)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFMediaEngineSrcElements> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEngineSrcElements) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngineSrcElements> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEngineSrcElements) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngineSrcElements> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEngineSrcElements) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEngineSrcElements, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaEngineSrcElements {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -19152,36 +15327,7 @@ impl IMFMediaEngineSrcElementsEx {
         (::windows::core::Vtable::vtable(self).GetKeySystem)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
-impl ::core::convert::From<IMFMediaEngineSrcElementsEx> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEngineSrcElementsEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngineSrcElementsEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEngineSrcElementsEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngineSrcElementsEx> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEngineSrcElementsEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFMediaEngineSrcElementsEx> for IMFMediaEngineSrcElements {
-    fn from(value: IMFMediaEngineSrcElementsEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngineSrcElementsEx> for &'a IMFMediaEngineSrcElements {
-    fn from(value: &'a IMFMediaEngineSrcElementsEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngineSrcElementsEx> for IMFMediaEngineSrcElements {
-    fn from(value: &IMFMediaEngineSrcElementsEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEngineSrcElementsEx, ::windows::core::IUnknown, IMFMediaEngineSrcElements);
 impl ::core::clone::Clone for IMFMediaEngineSrcElementsEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -19233,21 +15379,7 @@ impl IMFMediaEngineSupportsSourceTransfer {
         (::windows::core::Vtable::vtable(self).AttachMediaSource)(::windows::core::Vtable::as_raw(self), pbytestream.into().abi(), pmediasource.into().abi(), pmse.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFMediaEngineSupportsSourceTransfer> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEngineSupportsSourceTransfer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngineSupportsSourceTransfer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEngineSupportsSourceTransfer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngineSupportsSourceTransfer> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEngineSupportsSourceTransfer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEngineSupportsSourceTransfer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaEngineSupportsSourceTransfer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -19292,21 +15424,7 @@ impl IMFMediaEngineTransferSource {
         (::windows::core::Vtable::vtable(self).TransferSourceToMediaEngine)(::windows::core::Vtable::as_raw(self), destination.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFMediaEngineTransferSource> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEngineTransferSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngineTransferSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEngineTransferSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngineTransferSource> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEngineTransferSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEngineTransferSource, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaEngineTransferSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -19352,21 +15470,7 @@ impl IMFMediaEngineWebSupport {
         (::windows::core::Vtable::vtable(self).DisconnectWebAudio)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFMediaEngineWebSupport> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEngineWebSupport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEngineWebSupport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEngineWebSupport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEngineWebSupport> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEngineWebSupport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEngineWebSupport, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaEngineWebSupport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -19417,21 +15521,7 @@ impl IMFMediaError {
         (::windows::core::Vtable::vtable(self).SetExtendedErrorCode)(::windows::core::Vtable::as_raw(self), error).ok()
     }
 }
-impl ::core::convert::From<IMFMediaError> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaError> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaError> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaError, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaError {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -19612,36 +15702,7 @@ impl IMFMediaEvent {
         (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
 }
-impl ::core::convert::From<IMFMediaEvent> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEvent> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFMediaEvent> for IMFAttributes {
-    fn from(value: IMFMediaEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEvent> for &'a IMFAttributes {
-    fn from(value: &'a IMFMediaEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEvent> for IMFAttributes {
-    fn from(value: &IMFMediaEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEvent, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::clone::Clone for IMFMediaEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -19704,21 +15765,7 @@ impl IMFMediaEventGenerator {
         (::windows::core::Vtable::vtable(self).QueueEvent)(::windows::core::Vtable::as_raw(self), met, ::core::mem::transmute(guidextendedtype), hrstatus, ::core::mem::transmute(pvvalue)).ok()
     }
 }
-impl ::core::convert::From<IMFMediaEventGenerator> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEventGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEventGenerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEventGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEventGenerator> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEventGenerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEventGenerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaEventGenerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -19796,21 +15843,7 @@ impl IMFMediaEventQueue {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFMediaEventQueue> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaEventQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaEventQueue> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaEventQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaEventQueue> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaEventQueue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaEventQueue, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaEventQueue {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -19870,21 +15903,7 @@ impl IMFMediaKeySession {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFMediaKeySession> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaKeySession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaKeySession> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaKeySession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaKeySession> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaKeySession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaKeySession, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaKeySession {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -19961,36 +15980,7 @@ impl IMFMediaKeySession2 {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFMediaKeySession2> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaKeySession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaKeySession2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaKeySession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaKeySession2> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaKeySession2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFMediaKeySession2> for IMFMediaKeySession {
-    fn from(value: IMFMediaKeySession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaKeySession2> for &'a IMFMediaKeySession {
-    fn from(value: &'a IMFMediaKeySession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaKeySession2> for IMFMediaKeySession {
-    fn from(value: &IMFMediaKeySession2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaKeySession2, ::windows::core::IUnknown, IMFMediaKeySession);
 impl ::core::clone::Clone for IMFMediaKeySession2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -20041,21 +16031,7 @@ impl IMFMediaKeySessionNotify {
         (::windows::core::Vtable::vtable(self).KeyError)(::windows::core::Vtable::as_raw(self), code, systemcode)
     }
 }
-impl ::core::convert::From<IMFMediaKeySessionNotify> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaKeySessionNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaKeySessionNotify> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaKeySessionNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaKeySessionNotify> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaKeySessionNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaKeySessionNotify, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaKeySessionNotify {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -20106,36 +16082,7 @@ impl IMFMediaKeySessionNotify2 {
         (::windows::core::Vtable::vtable(self).KeyStatusChange)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IMFMediaKeySessionNotify2> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaKeySessionNotify2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaKeySessionNotify2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaKeySessionNotify2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaKeySessionNotify2> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaKeySessionNotify2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFMediaKeySessionNotify2> for IMFMediaKeySessionNotify {
-    fn from(value: IMFMediaKeySessionNotify2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaKeySessionNotify2> for &'a IMFMediaKeySessionNotify {
-    fn from(value: &'a IMFMediaKeySessionNotify2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaKeySessionNotify2> for IMFMediaKeySessionNotify {
-    fn from(value: &IMFMediaKeySessionNotify2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaKeySessionNotify2, ::windows::core::IUnknown, IMFMediaKeySessionNotify);
 impl ::core::clone::Clone for IMFMediaKeySessionNotify2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -20189,21 +16136,7 @@ impl IMFMediaKeySystemAccess {
         (::windows::core::Vtable::vtable(self).KeySystem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
-impl ::core::convert::From<IMFMediaKeySystemAccess> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaKeySystemAccess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaKeySystemAccess> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaKeySystemAccess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaKeySystemAccess> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaKeySystemAccess) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaKeySystemAccess, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaKeySystemAccess {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -20263,21 +16196,7 @@ impl IMFMediaKeys {
         (::windows::core::Vtable::vtable(self).GetSuspendNotify)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFCdmSuspendNotify>(result__)
     }
 }
-impl ::core::convert::From<IMFMediaKeys> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaKeys) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaKeys> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaKeys) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaKeys> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaKeys) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaKeys, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaKeys {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -20346,36 +16265,7 @@ impl IMFMediaKeys2 {
         (::windows::core::Vtable::vtable(self).GetDOMException)(::windows::core::Vtable::as_raw(self), systemcode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HRESULT>(result__)
     }
 }
-impl ::core::convert::From<IMFMediaKeys2> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaKeys2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaKeys2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaKeys2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaKeys2> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaKeys2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFMediaKeys2> for IMFMediaKeys {
-    fn from(value: IMFMediaKeys2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaKeys2> for &'a IMFMediaKeys {
-    fn from(value: &'a IMFMediaKeys2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaKeys2> for IMFMediaKeys {
-    fn from(value: &IMFMediaKeys2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaKeys2, ::windows::core::IUnknown, IMFMediaKeys);
 impl ::core::clone::Clone for IMFMediaKeys2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -20472,36 +16362,7 @@ impl IMFMediaSession {
         (::windows::core::Vtable::vtable(self).GetFullTopology)(::windows::core::Vtable::as_raw(self), dwgetfulltopologyflags, topoid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFTopology>(result__)
     }
 }
-impl ::core::convert::From<IMFMediaSession> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaSession> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaSession> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFMediaSession> for IMFMediaEventGenerator {
-    fn from(value: IMFMediaSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaSession> for &'a IMFMediaEventGenerator {
-    fn from(value: &'a IMFMediaSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaSession> for IMFMediaEventGenerator {
-    fn from(value: &IMFMediaSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaSession, ::windows::core::IUnknown, IMFMediaEventGenerator);
 impl ::core::clone::Clone for IMFMediaSession {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -20723,36 +16584,7 @@ impl IMFMediaSharingEngine {
         (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEVICE_INFO>(result__)
     }
 }
-impl ::core::convert::From<IMFMediaSharingEngine> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaSharingEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaSharingEngine> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaSharingEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaSharingEngine> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaSharingEngine) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFMediaSharingEngine> for IMFMediaEngine {
-    fn from(value: IMFMediaSharingEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaSharingEngine> for &'a IMFMediaEngine {
-    fn from(value: &'a IMFMediaSharingEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaSharingEngine> for IMFMediaEngine {
-    fn from(value: &IMFMediaSharingEngine) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaSharingEngine, ::windows::core::IUnknown, IMFMediaEngine);
 impl ::core::clone::Clone for IMFMediaSharingEngine {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -20793,21 +16625,7 @@ impl IMFMediaSharingEngineClassFactory {
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), dwflags, pattr.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSharingEngine>(result__)
     }
 }
-impl ::core::convert::From<IMFMediaSharingEngineClassFactory> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaSharingEngineClassFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaSharingEngineClassFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaSharingEngineClassFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaSharingEngineClassFactory> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaSharingEngineClassFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaSharingEngineClassFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaSharingEngineClassFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -20880,21 +16698,7 @@ impl IMFMediaSink {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFMediaSink> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaSink> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -20939,21 +16743,7 @@ impl IMFMediaSinkPreroll {
         (::windows::core::Vtable::vtable(self).NotifyPreroll)(::windows::core::Vtable::as_raw(self), hnsupcomingstarttime).ok()
     }
 }
-impl ::core::convert::From<IMFMediaSinkPreroll> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaSinkPreroll) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaSinkPreroll> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaSinkPreroll) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaSinkPreroll> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaSinkPreroll) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaSinkPreroll, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaSinkPreroll {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -21035,36 +16825,7 @@ impl IMFMediaSource {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFMediaSource> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaSource> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFMediaSource> for IMFMediaEventGenerator {
-    fn from(value: IMFMediaSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaSource> for &'a IMFMediaEventGenerator {
-    fn from(value: &'a IMFMediaSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaSource> for IMFMediaEventGenerator {
-    fn from(value: &IMFMediaSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaSource, ::windows::core::IUnknown, IMFMediaEventGenerator);
 impl ::core::clone::Clone for IMFMediaSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -21174,66 +16935,7 @@ impl IMFMediaSource2 {
         (::windows::core::Vtable::vtable(self).SetMediaType)(::windows::core::Vtable::as_raw(self), dwstreamid, pmediatype.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFMediaSource2> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaSource2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaSource2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaSource2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaSource2> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaSource2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFMediaSource2> for IMFMediaEventGenerator {
-    fn from(value: IMFMediaSource2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaSource2> for &'a IMFMediaEventGenerator {
-    fn from(value: &'a IMFMediaSource2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaSource2> for IMFMediaEventGenerator {
-    fn from(value: &IMFMediaSource2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFMediaSource2> for IMFMediaSource {
-    fn from(value: IMFMediaSource2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaSource2> for &'a IMFMediaSource {
-    fn from(value: &'a IMFMediaSource2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaSource2> for IMFMediaSource {
-    fn from(value: &IMFMediaSource2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFMediaSource2> for IMFMediaSourceEx {
-    fn from(value: IMFMediaSource2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaSource2> for &'a IMFMediaSourceEx {
-    fn from(value: &'a IMFMediaSource2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaSource2> for IMFMediaSourceEx {
-    fn from(value: &IMFMediaSource2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaSource2, ::windows::core::IUnknown, IMFMediaEventGenerator, IMFMediaSource, IMFMediaSourceEx);
 impl ::core::clone::Clone for IMFMediaSource2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -21329,51 +17031,7 @@ impl IMFMediaSourceEx {
         (::windows::core::Vtable::vtable(self).SetD3DManager)(::windows::core::Vtable::as_raw(self), pmanager.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFMediaSourceEx> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaSourceEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaSourceEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaSourceEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaSourceEx> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaSourceEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFMediaSourceEx> for IMFMediaEventGenerator {
-    fn from(value: IMFMediaSourceEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaSourceEx> for &'a IMFMediaEventGenerator {
-    fn from(value: &'a IMFMediaSourceEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaSourceEx> for IMFMediaEventGenerator {
-    fn from(value: &IMFMediaSourceEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFMediaSourceEx> for IMFMediaSource {
-    fn from(value: IMFMediaSourceEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaSourceEx> for &'a IMFMediaSource {
-    fn from(value: &'a IMFMediaSourceEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaSourceEx> for IMFMediaSource {
-    fn from(value: &IMFMediaSourceEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaSourceEx, ::windows::core::IUnknown, IMFMediaEventGenerator, IMFMediaSource);
 impl ::core::clone::Clone for IMFMediaSourceEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -21448,21 +17106,7 @@ impl IMFMediaSourceExtension {
         (::windows::core::Vtable::vtable(self).GetSourceBuffer)(::windows::core::Vtable::as_raw(self), dwstreamindex)
     }
 }
-impl ::core::convert::From<IMFMediaSourceExtension> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaSourceExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaSourceExtension> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaSourceExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaSourceExtension> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaSourceExtension) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaSourceExtension, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaSourceExtension {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -21514,21 +17158,7 @@ impl IMFMediaSourceExtensionLiveSeekableRange {
         (::windows::core::Vtable::vtable(self).ClearLiveSeekableRange)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFMediaSourceExtensionLiveSeekableRange> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaSourceExtensionLiveSeekableRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaSourceExtensionLiveSeekableRange> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaSourceExtensionLiveSeekableRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaSourceExtensionLiveSeekableRange> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaSourceExtensionLiveSeekableRange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaSourceExtensionLiveSeekableRange, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaSourceExtensionLiveSeekableRange {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -21572,21 +17202,7 @@ impl IMFMediaSourceExtensionNotify {
         (::windows::core::Vtable::vtable(self).OnSourceClose)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IMFMediaSourceExtensionNotify> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaSourceExtensionNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaSourceExtensionNotify> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaSourceExtensionNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaSourceExtensionNotify> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaSourceExtensionNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaSourceExtensionNotify, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaSourceExtensionNotify {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -21628,21 +17244,7 @@ impl IMFMediaSourcePresentationProvider {
         (::windows::core::Vtable::vtable(self).ForceEndOfPresentation)(::windows::core::Vtable::as_raw(self), ppresentationdescriptor.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFMediaSourcePresentationProvider> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaSourcePresentationProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaSourcePresentationProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaSourcePresentationProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaSourcePresentationProvider> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaSourcePresentationProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaSourcePresentationProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaSourcePresentationProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -21683,21 +17285,7 @@ impl IMFMediaSourceTopologyProvider {
         (::windows::core::Vtable::vtable(self).GetMediaSourceTopology)(::windows::core::Vtable::as_raw(self), ppresentationdescriptor.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFTopology>(result__)
     }
 }
-impl ::core::convert::From<IMFMediaSourceTopologyProvider> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaSourceTopologyProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaSourceTopologyProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaSourceTopologyProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaSourceTopologyProvider> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaSourceTopologyProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaSourceTopologyProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaSourceTopologyProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -21768,36 +17356,7 @@ impl IMFMediaStream {
         (::windows::core::Vtable::vtable(self).RequestSample)(::windows::core::Vtable::as_raw(self), ptoken.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFMediaStream> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaStream> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFMediaStream> for IMFMediaEventGenerator {
-    fn from(value: IMFMediaStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaStream> for &'a IMFMediaEventGenerator {
-    fn from(value: &'a IMFMediaStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaStream> for IMFMediaEventGenerator {
-    fn from(value: &IMFMediaStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaStream, ::windows::core::IUnknown, IMFMediaEventGenerator);
 impl ::core::clone::Clone for IMFMediaStream {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -21877,51 +17436,7 @@ impl IMFMediaStream2 {
         (::windows::core::Vtable::vtable(self).GetStreamState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MF_STREAM_STATE>(result__)
     }
 }
-impl ::core::convert::From<IMFMediaStream2> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaStream2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaStream2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaStream2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaStream2> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaStream2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFMediaStream2> for IMFMediaEventGenerator {
-    fn from(value: IMFMediaStream2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaStream2> for &'a IMFMediaEventGenerator {
-    fn from(value: &'a IMFMediaStream2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaStream2> for IMFMediaEventGenerator {
-    fn from(value: &IMFMediaStream2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFMediaStream2> for IMFMediaStream {
-    fn from(value: IMFMediaStream2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaStream2> for &'a IMFMediaStream {
-    fn from(value: &'a IMFMediaStream2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaStream2> for IMFMediaStream {
-    fn from(value: &IMFMediaStream2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaStream2, ::windows::core::IUnknown, IMFMediaEventGenerator, IMFMediaStream);
 impl ::core::clone::Clone for IMFMediaStream2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -21962,21 +17477,7 @@ impl IMFMediaStreamSourceSampleRequest {
         (::windows::core::Vtable::vtable(self).SetSample)(::windows::core::Vtable::as_raw(self), value.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFMediaStreamSourceSampleRequest> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaStreamSourceSampleRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaStreamSourceSampleRequest> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaStreamSourceSampleRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaStreamSourceSampleRequest> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaStreamSourceSampleRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaStreamSourceSampleRequest, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaStreamSourceSampleRequest {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -22032,21 +17533,7 @@ impl IMFMediaTimeRange {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFMediaTimeRange> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaTimeRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaTimeRange> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaTimeRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaTimeRange> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaTimeRange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaTimeRange, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaTimeRange {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -22237,36 +17724,7 @@ impl IMFMediaType {
         (::windows::core::Vtable::vtable(self).FreeRepresentation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidrepresentation), ::core::mem::transmute(pvrepresentation)).ok()
     }
 }
-impl ::core::convert::From<IMFMediaType> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaType> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaType> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFMediaType> for IMFAttributes {
-    fn from(value: IMFMediaType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaType> for &'a IMFAttributes {
-    fn from(value: &'a IMFMediaType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaType> for IMFAttributes {
-    fn from(value: &IMFMediaType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaType, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::clone::Clone for IMFMediaType {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -22336,21 +17794,7 @@ impl IMFMediaTypeHandler {
         (::windows::core::Vtable::vtable(self).GetMajorType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
 }
-impl ::core::convert::From<IMFMediaTypeHandler> for ::windows::core::IUnknown {
-    fn from(value: IMFMediaTypeHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMediaTypeHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMediaTypeHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMediaTypeHandler> for ::windows::core::IUnknown {
-    fn from(value: &IMFMediaTypeHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMediaTypeHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMediaTypeHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -22434,21 +17878,7 @@ impl IMFMetadata {
         (::windows::core::Vtable::vtable(self).GetAllPropertyNames)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
 }
-impl ::core::convert::From<IMFMetadata> for ::windows::core::IUnknown {
-    fn from(value: IMFMetadata) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMetadata> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMetadata) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMetadata> for ::windows::core::IUnknown {
-    fn from(value: &IMFMetadata) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMetadata, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMetadata {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -22507,21 +17937,7 @@ impl IMFMetadataProvider {
         (::windows::core::Vtable::vtable(self).GetMFMetadata)(::windows::core::Vtable::as_raw(self), ppresentationdescriptor.into().abi(), dwstreamidentifier, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMetadata>(result__)
     }
 }
-impl ::core::convert::From<IMFMetadataProvider> for ::windows::core::IUnknown {
-    fn from(value: IMFMetadataProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMetadataProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMetadataProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMetadataProvider> for ::windows::core::IUnknown {
-    fn from(value: &IMFMetadataProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMetadataProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMetadataProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -22563,21 +17979,7 @@ impl IMFMuxStreamAttributesManager {
         (::windows::core::Vtable::vtable(self).GetAttributes)(::windows::core::Vtable::as_raw(self), dwmuxstreamindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFAttributes>(result__)
     }
 }
-impl ::core::convert::From<IMFMuxStreamAttributesManager> for ::windows::core::IUnknown {
-    fn from(value: IMFMuxStreamAttributesManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMuxStreamAttributesManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMuxStreamAttributesManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMuxStreamAttributesManager> for ::windows::core::IUnknown {
-    fn from(value: &IMFMuxStreamAttributesManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMuxStreamAttributesManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMuxStreamAttributesManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -22634,21 +18036,7 @@ impl IMFMuxStreamMediaTypeManager {
         (::windows::core::Vtable::vtable(self).GetStreamConfiguration)(::windows::core::Vtable::as_raw(self), ulindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
-impl ::core::convert::From<IMFMuxStreamMediaTypeManager> for ::windows::core::IUnknown {
-    fn from(value: IMFMuxStreamMediaTypeManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMuxStreamMediaTypeManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMuxStreamMediaTypeManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMuxStreamMediaTypeManager> for ::windows::core::IUnknown {
-    fn from(value: &IMFMuxStreamMediaTypeManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMuxStreamMediaTypeManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMuxStreamMediaTypeManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -22698,21 +18086,7 @@ impl IMFMuxStreamSampleManager {
         (::windows::core::Vtable::vtable(self).GetStreamConfiguration)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IMFMuxStreamSampleManager> for ::windows::core::IUnknown {
-    fn from(value: IMFMuxStreamSampleManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFMuxStreamSampleManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFMuxStreamSampleManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFMuxStreamSampleManager> for ::windows::core::IUnknown {
-    fn from(value: &IMFMuxStreamSampleManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFMuxStreamSampleManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFMuxStreamSampleManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -22786,21 +18160,7 @@ impl IMFNetCredential {
         (::windows::core::Vtable::vtable(self).LoggedOnUser)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IMFNetCredential> for ::windows::core::IUnknown {
-    fn from(value: IMFNetCredential) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFNetCredential> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFNetCredential) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFNetCredential> for ::windows::core::IUnknown {
-    fn from(value: &IMFNetCredential) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFNetCredential, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFNetCredential {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -22875,21 +18235,7 @@ impl IMFNetCredentialCache {
         (::windows::core::Vtable::vtable(self).SetUserOptions)(::windows::core::Vtable::as_raw(self), pcred.into().abi(), dwoptionsflags).ok()
     }
 }
-impl ::core::convert::From<IMFNetCredentialCache> for ::windows::core::IUnknown {
-    fn from(value: IMFNetCredentialCache) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFNetCredentialCache> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFNetCredentialCache) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFNetCredentialCache> for ::windows::core::IUnknown {
-    fn from(value: &IMFNetCredentialCache) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFNetCredentialCache, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFNetCredentialCache {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -22953,21 +18299,7 @@ impl IMFNetCredentialManager {
         (::windows::core::Vtable::vtable(self).SetGood)(::windows::core::Vtable::as_raw(self), pcred.into().abi(), fgood.into()).ok()
     }
 }
-impl ::core::convert::From<IMFNetCredentialManager> for ::windows::core::IUnknown {
-    fn from(value: IMFNetCredentialManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFNetCredentialManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFNetCredentialManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFNetCredentialManager> for ::windows::core::IUnknown {
-    fn from(value: &IMFNetCredentialManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFNetCredentialManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFNetCredentialManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -23026,21 +18358,7 @@ impl IMFNetCrossOriginSupport {
         (::windows::core::Vtable::vtable(self).IsSameOrigin)(::windows::core::Vtable::as_raw(self), wszurl.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IMFNetCrossOriginSupport> for ::windows::core::IUnknown {
-    fn from(value: IMFNetCrossOriginSupport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFNetCrossOriginSupport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFNetCrossOriginSupport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFNetCrossOriginSupport> for ::windows::core::IUnknown {
-    fn from(value: &IMFNetCrossOriginSupport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFNetCrossOriginSupport, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFNetCrossOriginSupport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -23102,21 +18420,7 @@ impl IMFNetProxyLocator {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFNetProxyLocator>(result__)
     }
 }
-impl ::core::convert::From<IMFNetProxyLocator> for ::windows::core::IUnknown {
-    fn from(value: IMFNetProxyLocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFNetProxyLocator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFNetProxyLocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFNetProxyLocator> for ::windows::core::IUnknown {
-    fn from(value: &IMFNetProxyLocator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFNetProxyLocator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFNetProxyLocator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -23164,21 +18468,7 @@ impl IMFNetProxyLocatorFactory {
         (::windows::core::Vtable::vtable(self).CreateProxyLocator)(::windows::core::Vtable::as_raw(self), pszprotocol.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFNetProxyLocator>(result__)
     }
 }
-impl ::core::convert::From<IMFNetProxyLocatorFactory> for ::windows::core::IUnknown {
-    fn from(value: IMFNetProxyLocatorFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFNetProxyLocatorFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFNetProxyLocatorFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFNetProxyLocatorFactory> for ::windows::core::IUnknown {
-    fn from(value: &IMFNetProxyLocatorFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFNetProxyLocatorFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFNetProxyLocatorFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -23225,21 +18515,7 @@ impl IMFNetResourceFilter {
         (::windows::core::Vtable::vtable(self).OnSendingRequest)(::windows::core::Vtable::as_raw(self), pszurl.into()).ok()
     }
 }
-impl ::core::convert::From<IMFNetResourceFilter> for ::windows::core::IUnknown {
-    fn from(value: IMFNetResourceFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFNetResourceFilter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFNetResourceFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFNetResourceFilter> for ::windows::core::IUnknown {
-    fn from(value: &IMFNetResourceFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFNetResourceFilter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFNetResourceFilter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -23285,21 +18561,7 @@ impl IMFNetSchemeHandlerConfig {
         (::windows::core::Vtable::vtable(self).ResetProtocolRolloverSettings)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFNetSchemeHandlerConfig> for ::windows::core::IUnknown {
-    fn from(value: IMFNetSchemeHandlerConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFNetSchemeHandlerConfig> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFNetSchemeHandlerConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFNetSchemeHandlerConfig> for ::windows::core::IUnknown {
-    fn from(value: &IMFNetSchemeHandlerConfig) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFNetSchemeHandlerConfig, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFNetSchemeHandlerConfig {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -23344,21 +18606,7 @@ impl IMFObjectReferenceStream {
         (::windows::core::Vtable::vtable(self).LoadReference)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
 }
-impl ::core::convert::From<IMFObjectReferenceStream> for ::windows::core::IUnknown {
-    fn from(value: IMFObjectReferenceStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFObjectReferenceStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFObjectReferenceStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFObjectReferenceStream> for ::windows::core::IUnknown {
-    fn from(value: &IMFObjectReferenceStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFObjectReferenceStream, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFObjectReferenceStream {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -23531,36 +18779,7 @@ impl IMFOutputPolicy {
         (::windows::core::Vtable::vtable(self).GetMinimumGRLVersion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMFOutputPolicy> for ::windows::core::IUnknown {
-    fn from(value: IMFOutputPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFOutputPolicy> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFOutputPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFOutputPolicy> for ::windows::core::IUnknown {
-    fn from(value: &IMFOutputPolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFOutputPolicy> for IMFAttributes {
-    fn from(value: IMFOutputPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFOutputPolicy> for &'a IMFAttributes {
-    fn from(value: &'a IMFOutputPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFOutputPolicy> for IMFAttributes {
-    fn from(value: &IMFOutputPolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFOutputPolicy, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::clone::Clone for IMFOutputPolicy {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -23734,36 +18953,7 @@ impl IMFOutputSchema {
         (::windows::core::Vtable::vtable(self).GetOriginatorID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
 }
-impl ::core::convert::From<IMFOutputSchema> for ::windows::core::IUnknown {
-    fn from(value: IMFOutputSchema) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFOutputSchema> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFOutputSchema) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFOutputSchema> for ::windows::core::IUnknown {
-    fn from(value: &IMFOutputSchema) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFOutputSchema> for IMFAttributes {
-    fn from(value: IMFOutputSchema) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFOutputSchema> for &'a IMFAttributes {
-    fn from(value: &'a IMFOutputSchema) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFOutputSchema> for IMFAttributes {
-    fn from(value: &IMFOutputSchema) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFOutputSchema, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::clone::Clone for IMFOutputSchema {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -23806,21 +18996,7 @@ impl IMFOutputTrustAuthority {
         (::windows::core::Vtable::vtable(self).SetPolicy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pppolicy.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pppolicy.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppbticket.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbticket.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IMFOutputTrustAuthority> for ::windows::core::IUnknown {
-    fn from(value: IMFOutputTrustAuthority) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFOutputTrustAuthority> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFOutputTrustAuthority) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFOutputTrustAuthority> for ::windows::core::IUnknown {
-    fn from(value: &IMFOutputTrustAuthority) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFOutputTrustAuthority, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFOutputTrustAuthority {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -23861,21 +19037,7 @@ impl IMFPMPClient {
         (::windows::core::Vtable::vtable(self).SetPMPHost)(::windows::core::Vtable::as_raw(self), ppmphost.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFPMPClient> for ::windows::core::IUnknown {
-    fn from(value: IMFPMPClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFPMPClient> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFPMPClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFPMPClient> for ::windows::core::IUnknown {
-    fn from(value: &IMFPMPClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFPMPClient, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFPMPClient {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -23915,21 +19077,7 @@ impl IMFPMPClientApp {
         (::windows::core::Vtable::vtable(self).SetPMPHost)(::windows::core::Vtable::as_raw(self), ppmphost.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFPMPClientApp> for ::windows::core::IUnknown {
-    fn from(value: IMFPMPClientApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFPMPClientApp> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFPMPClientApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFPMPClientApp> for ::windows::core::IUnknown {
-    fn from(value: &IMFPMPClientApp) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFPMPClientApp, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFPMPClientApp {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -23979,21 +19127,7 @@ impl IMFPMPHost {
         (::windows::core::Vtable::vtable(self).CreateObjectByCLSID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clsid), pstream.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IMFPMPHost> for ::windows::core::IUnknown {
-    fn from(value: IMFPMPHost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFPMPHost> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFPMPHost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFPMPHost> for ::windows::core::IUnknown {
-    fn from(value: &IMFPMPHost) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFPMPHost, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFPMPHost {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -24049,21 +19183,7 @@ impl IMFPMPHostApp {
         (::windows::core::Vtable::vtable(self).ActivateClassById)(::windows::core::Vtable::as_raw(self), id.into(), pstream.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IMFPMPHostApp> for ::windows::core::IUnknown {
-    fn from(value: IMFPMPHostApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFPMPHostApp> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFPMPHostApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFPMPHostApp> for ::windows::core::IUnknown {
-    fn from(value: &IMFPMPHostApp) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFPMPHostApp, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFPMPHostApp {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -24115,21 +19235,7 @@ impl IMFPMPServer {
         (::windows::core::Vtable::vtable(self).CreateObjectByCLSID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clsid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IMFPMPServer> for ::windows::core::IUnknown {
-    fn from(value: IMFPMPServer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFPMPServer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFPMPServer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFPMPServer> for ::windows::core::IUnknown {
-    fn from(value: &IMFPMPServer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFPMPServer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFPMPServer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -24262,21 +19368,7 @@ impl IMFPMediaItem {
         (::windows::core::Vtable::vtable(self).GetMetadata)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
     }
 }
-impl ::core::convert::From<IMFPMediaItem> for ::windows::core::IUnknown {
-    fn from(value: IMFPMediaItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFPMediaItem> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFPMediaItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFPMediaItem> for ::windows::core::IUnknown {
-    fn from(value: &IMFPMediaItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFPMediaItem, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFPMediaItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -24538,21 +19630,7 @@ impl IMFPMediaPlayer {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFPMediaPlayer> for ::windows::core::IUnknown {
-    fn from(value: IMFPMediaPlayer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFPMediaPlayer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFPMediaPlayer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFPMediaPlayer> for ::windows::core::IUnknown {
-    fn from(value: &IMFPMediaPlayer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFPMediaPlayer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFPMediaPlayer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -24668,21 +19746,7 @@ impl IMFPMediaPlayerCallback {
         (::windows::core::Vtable::vtable(self).OnMediaPlayerEvent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(peventheader))
     }
 }
-impl ::core::convert::From<IMFPMediaPlayerCallback> for ::windows::core::IUnknown {
-    fn from(value: IMFPMediaPlayerCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFPMediaPlayerCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFPMediaPlayerCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFPMediaPlayerCallback> for ::windows::core::IUnknown {
-    fn from(value: &IMFPMediaPlayerCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFPMediaPlayerCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFPMediaPlayerCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -24750,21 +19814,7 @@ impl IMFPluginControl {
         (::windows::core::Vtable::vtable(self).SetDisabled)(::windows::core::Vtable::as_raw(self), plugintype, ::core::mem::transmute(clsid), disabled.into()).ok()
     }
 }
-impl ::core::convert::From<IMFPluginControl> for ::windows::core::IUnknown {
-    fn from(value: IMFPluginControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFPluginControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFPluginControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFPluginControl> for ::windows::core::IUnknown {
-    fn from(value: &IMFPluginControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFPluginControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFPluginControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -24840,36 +19890,7 @@ impl IMFPluginControl2 {
         (::windows::core::Vtable::vtable(self).SetPolicy)(::windows::core::Vtable::as_raw(self), policy).ok()
     }
 }
-impl ::core::convert::From<IMFPluginControl2> for ::windows::core::IUnknown {
-    fn from(value: IMFPluginControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFPluginControl2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFPluginControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFPluginControl2> for ::windows::core::IUnknown {
-    fn from(value: &IMFPluginControl2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFPluginControl2> for IMFPluginControl {
-    fn from(value: IMFPluginControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFPluginControl2> for &'a IMFPluginControl {
-    fn from(value: &'a IMFPluginControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFPluginControl2> for IMFPluginControl {
-    fn from(value: &IMFPluginControl2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFPluginControl2, ::windows::core::IUnknown, IMFPluginControl);
 impl ::core::clone::Clone for IMFPluginControl2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -24957,36 +19978,7 @@ impl IMFPresentationClock {
         (::windows::core::Vtable::vtable(self).Pause)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFPresentationClock> for ::windows::core::IUnknown {
-    fn from(value: IMFPresentationClock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFPresentationClock> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFPresentationClock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFPresentationClock> for ::windows::core::IUnknown {
-    fn from(value: &IMFPresentationClock) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFPresentationClock> for IMFClock {
-    fn from(value: IMFPresentationClock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFPresentationClock> for &'a IMFClock {
-    fn from(value: &'a IMFPresentationClock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFPresentationClock> for IMFClock {
-    fn from(value: &IMFPresentationClock) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFPresentationClock, ::windows::core::IUnknown, IMFClock);
 impl ::core::clone::Clone for IMFPresentationClock {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -25172,36 +20164,7 @@ impl IMFPresentationDescriptor {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFPresentationDescriptor>(result__)
     }
 }
-impl ::core::convert::From<IMFPresentationDescriptor> for ::windows::core::IUnknown {
-    fn from(value: IMFPresentationDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFPresentationDescriptor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFPresentationDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFPresentationDescriptor> for ::windows::core::IUnknown {
-    fn from(value: &IMFPresentationDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFPresentationDescriptor> for IMFAttributes {
-    fn from(value: IMFPresentationDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFPresentationDescriptor> for &'a IMFAttributes {
-    fn from(value: &'a IMFPresentationDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFPresentationDescriptor> for IMFAttributes {
-    fn from(value: &IMFPresentationDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFPresentationDescriptor, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::clone::Clone for IMFPresentationDescriptor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -25265,36 +20228,7 @@ impl IMFPresentationTimeSource {
         (::windows::core::Vtable::vtable(self).GetUnderlyingClock)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFClock>(result__)
     }
 }
-impl ::core::convert::From<IMFPresentationTimeSource> for ::windows::core::IUnknown {
-    fn from(value: IMFPresentationTimeSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFPresentationTimeSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFPresentationTimeSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFPresentationTimeSource> for ::windows::core::IUnknown {
-    fn from(value: &IMFPresentationTimeSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFPresentationTimeSource> for IMFClock {
-    fn from(value: IMFPresentationTimeSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFPresentationTimeSource> for &'a IMFClock {
-    fn from(value: &'a IMFPresentationTimeSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFPresentationTimeSource> for IMFClock {
-    fn from(value: &IMFPresentationTimeSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFPresentationTimeSource, ::windows::core::IUnknown, IMFClock);
 impl ::core::clone::Clone for IMFPresentationTimeSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -25334,21 +20268,7 @@ impl IMFProtectedEnvironmentAccess {
         (::windows::core::Vtable::vtable(self).ReadGRL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(outputlength), ::core::mem::transmute(output)).ok()
     }
 }
-impl ::core::convert::From<IMFProtectedEnvironmentAccess> for ::windows::core::IUnknown {
-    fn from(value: IMFProtectedEnvironmentAccess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFProtectedEnvironmentAccess> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFProtectedEnvironmentAccess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFProtectedEnvironmentAccess> for ::windows::core::IUnknown {
-    fn from(value: &IMFProtectedEnvironmentAccess) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFProtectedEnvironmentAccess, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFProtectedEnvironmentAccess {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -25400,21 +20320,7 @@ impl IMFQualityAdvise {
         (::windows::core::Vtable::vtable(self).DropTime)(::windows::core::Vtable::as_raw(self), hnsamounttodrop).ok()
     }
 }
-impl ::core::convert::From<IMFQualityAdvise> for ::windows::core::IUnknown {
-    fn from(value: IMFQualityAdvise) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFQualityAdvise> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFQualityAdvise) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFQualityAdvise> for ::windows::core::IUnknown {
-    fn from(value: &IMFQualityAdvise) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFQualityAdvise, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFQualityAdvise {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -25476,36 +20382,7 @@ impl IMFQualityAdvise2 {
         (::windows::core::Vtable::vtable(self).NotifyQualityEvent)(::windows::core::Vtable::as_raw(self), pevent.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMFQualityAdvise2> for ::windows::core::IUnknown {
-    fn from(value: IMFQualityAdvise2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFQualityAdvise2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFQualityAdvise2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFQualityAdvise2> for ::windows::core::IUnknown {
-    fn from(value: &IMFQualityAdvise2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFQualityAdvise2> for IMFQualityAdvise {
-    fn from(value: IMFQualityAdvise2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFQualityAdvise2> for &'a IMFQualityAdvise {
-    fn from(value: &'a IMFQualityAdvise2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFQualityAdvise2> for IMFQualityAdvise {
-    fn from(value: &IMFQualityAdvise2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFQualityAdvise2, ::windows::core::IUnknown, IMFQualityAdvise);
 impl ::core::clone::Clone for IMFQualityAdvise2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -25547,21 +20424,7 @@ impl IMFQualityAdviseLimits {
         (::windows::core::Vtable::vtable(self).GetMinimumQualityLevel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MF_QUALITY_LEVEL>(result__)
     }
 }
-impl ::core::convert::From<IMFQualityAdviseLimits> for ::windows::core::IUnknown {
-    fn from(value: IMFQualityAdviseLimits) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFQualityAdviseLimits> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFQualityAdviseLimits) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFQualityAdviseLimits> for ::windows::core::IUnknown {
-    fn from(value: &IMFQualityAdviseLimits) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFQualityAdviseLimits, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFQualityAdviseLimits {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -25632,21 +20495,7 @@ impl IMFQualityManager {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFQualityManager> for ::windows::core::IUnknown {
-    fn from(value: IMFQualityManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFQualityManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFQualityManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFQualityManager> for ::windows::core::IUnknown {
-    fn from(value: &IMFQualityManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFQualityManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFQualityManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -25698,21 +20547,7 @@ impl IMFRateControl {
         (::windows::core::Vtable::vtable(self).GetRate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfthin), ::core::mem::transmute(pflrate)).ok()
     }
 }
-impl ::core::convert::From<IMFRateControl> for ::windows::core::IUnknown {
-    fn from(value: IMFRateControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFRateControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFRateControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFRateControl> for ::windows::core::IUnknown {
-    fn from(value: &IMFRateControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFRateControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFRateControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -25779,21 +20614,7 @@ impl IMFRateSupport {
         (::windows::core::Vtable::vtable(self).IsRateSupported)(::windows::core::Vtable::as_raw(self), fthin.into(), flrate, ::core::mem::transmute(pflnearestsupportedrate)).ok()
     }
 }
-impl ::core::convert::From<IMFRateSupport> for ::windows::core::IUnknown {
-    fn from(value: IMFRateSupport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFRateSupport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFRateSupport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFRateSupport> for ::windows::core::IUnknown {
-    fn from(value: &IMFRateSupport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFRateSupport, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFRateSupport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -25856,21 +20677,7 @@ impl IMFReadWriteClassFactory {
         (::windows::core::Vtable::vtable(self).CreateInstanceFromObject)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clsid), punkobject.into().abi(), pattributes.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IMFReadWriteClassFactory> for ::windows::core::IUnknown {
-    fn from(value: IMFReadWriteClassFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFReadWriteClassFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFReadWriteClassFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFReadWriteClassFactory> for ::windows::core::IUnknown {
-    fn from(value: &IMFReadWriteClassFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFReadWriteClassFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFReadWriteClassFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -25917,21 +20724,7 @@ impl IMFRealTimeClient {
         (::windows::core::Vtable::vtable(self).SetWorkQueue)(::windows::core::Vtable::as_raw(self), dwworkqueueid).ok()
     }
 }
-impl ::core::convert::From<IMFRealTimeClient> for ::windows::core::IUnknown {
-    fn from(value: IMFRealTimeClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFRealTimeClient> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFRealTimeClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFRealTimeClient> for ::windows::core::IUnknown {
-    fn from(value: &IMFRealTimeClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFRealTimeClient, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFRealTimeClient {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -25979,21 +20772,7 @@ impl IMFRealTimeClientEx {
         (::windows::core::Vtable::vtable(self).SetWorkQueueEx)(::windows::core::Vtable::as_raw(self), dwmultithreadedworkqueueid, lworkitembasepriority).ok()
     }
 }
-impl ::core::convert::From<IMFRealTimeClientEx> for ::windows::core::IUnknown {
-    fn from(value: IMFRealTimeClientEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFRealTimeClientEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFRealTimeClientEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFRealTimeClientEx> for ::windows::core::IUnknown {
-    fn from(value: &IMFRealTimeClientEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFRealTimeClientEx, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFRealTimeClientEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -26033,21 +20812,7 @@ impl IMFRelativePanelReport {
         (::windows::core::Vtable::vtable(self).GetRelativePanel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMFRelativePanelReport> for ::windows::core::IUnknown {
-    fn from(value: IMFRelativePanelReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFRelativePanelReport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFRelativePanelReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFRelativePanelReport> for ::windows::core::IUnknown {
-    fn from(value: &IMFRelativePanelReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFRelativePanelReport, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFRelativePanelReport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -26106,36 +20871,7 @@ impl IMFRelativePanelWatcher {
         (::windows::core::Vtable::vtable(self).GetReport)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFRelativePanelReport>(result__)
     }
 }
-impl ::core::convert::From<IMFRelativePanelWatcher> for ::windows::core::IUnknown {
-    fn from(value: IMFRelativePanelWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFRelativePanelWatcher> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFRelativePanelWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFRelativePanelWatcher> for ::windows::core::IUnknown {
-    fn from(value: &IMFRelativePanelWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFRelativePanelWatcher> for IMFShutdown {
-    fn from(value: IMFRelativePanelWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFRelativePanelWatcher> for &'a IMFShutdown {
-    fn from(value: &'a IMFRelativePanelWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFRelativePanelWatcher> for IMFShutdown {
-    fn from(value: &IMFRelativePanelWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFRelativePanelWatcher, ::windows::core::IUnknown, IMFShutdown);
 impl ::core::clone::Clone for IMFRelativePanelWatcher {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -26177,21 +20913,7 @@ impl IMFRemoteAsyncCallback {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self), hr, premoteresult.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFRemoteAsyncCallback> for ::windows::core::IUnknown {
-    fn from(value: IMFRemoteAsyncCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFRemoteAsyncCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFRemoteAsyncCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFRemoteAsyncCallback> for ::windows::core::IUnknown {
-    fn from(value: &IMFRemoteAsyncCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFRemoteAsyncCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFRemoteAsyncCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -26231,21 +20953,7 @@ impl IMFRemoteDesktopPlugin {
         (::windows::core::Vtable::vtable(self).UpdateTopology)(::windows::core::Vtable::as_raw(self), ptopology.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFRemoteDesktopPlugin> for ::windows::core::IUnknown {
-    fn from(value: IMFRemoteDesktopPlugin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFRemoteDesktopPlugin> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFRemoteDesktopPlugin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFRemoteDesktopPlugin> for ::windows::core::IUnknown {
-    fn from(value: &IMFRemoteDesktopPlugin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFRemoteDesktopPlugin, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFRemoteDesktopPlugin {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -26285,21 +20993,7 @@ impl IMFRemoteProxy {
         (::windows::core::Vtable::vtable(self).GetRemoteHost)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
 }
-impl ::core::convert::From<IMFRemoteProxy> for ::windows::core::IUnknown {
-    fn from(value: IMFRemoteProxy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFRemoteProxy> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFRemoteProxy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFRemoteProxy> for ::windows::core::IUnknown {
-    fn from(value: &IMFRemoteProxy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFRemoteProxy, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFRemoteProxy {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -26354,21 +21048,7 @@ impl IMFSAMIStyle {
         (::windows::core::Vtable::vtable(self).GetSelectedStyle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IMFSAMIStyle> for ::windows::core::IUnknown {
-    fn from(value: IMFSAMIStyle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSAMIStyle> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSAMIStyle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSAMIStyle> for ::windows::core::IUnknown {
-    fn from(value: &IMFSAMIStyle) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSAMIStyle, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSAMIStyle {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -26445,21 +21125,7 @@ impl IMFSSLCertificateManager {
         (::windows::core::Vtable::vtable(self).OnServerCertificate)(::windows::core::Vtable::as_raw(self), pszurl.into(), ::core::mem::transmute(pbdata.as_ptr()), pbdata.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IMFSSLCertificateManager> for ::windows::core::IUnknown {
-    fn from(value: IMFSSLCertificateManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSSLCertificateManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSSLCertificateManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSSLCertificateManager> for ::windows::core::IUnknown {
-    fn from(value: &IMFSSLCertificateManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSSLCertificateManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSSLCertificateManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -26684,36 +21350,7 @@ impl IMFSample {
         (::windows::core::Vtable::vtable(self).CopyToBuffer)(::windows::core::Vtable::as_raw(self), pbuffer.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFSample> for ::windows::core::IUnknown {
-    fn from(value: IMFSample) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSample> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSample) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSample> for ::windows::core::IUnknown {
-    fn from(value: &IMFSample) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFSample> for IMFAttributes {
-    fn from(value: IMFSample) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSample> for &'a IMFAttributes {
-    fn from(value: &'a IMFSample) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSample> for IMFAttributes {
-    fn from(value: &IMFSample) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSample, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::clone::Clone for IMFSample {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -26769,21 +21406,7 @@ impl IMFSampleAllocatorControl {
         (::windows::core::Vtable::vtable(self).GetAllocatorUsage)(::windows::core::Vtable::as_raw(self), dwoutputstreamid, ::core::mem::transmute(pdwinputstreamid), ::core::mem::transmute(peusage)).ok()
     }
 }
-impl ::core::convert::From<IMFSampleAllocatorControl> for ::windows::core::IUnknown {
-    fn from(value: IMFSampleAllocatorControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSampleAllocatorControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSampleAllocatorControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSampleAllocatorControl> for ::windows::core::IUnknown {
-    fn from(value: &IMFSampleAllocatorControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSampleAllocatorControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSampleAllocatorControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -26845,36 +21468,7 @@ impl IMFSampleGrabberSinkCallback {
         (::windows::core::Vtable::vtable(self).OnShutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFSampleGrabberSinkCallback> for ::windows::core::IUnknown {
-    fn from(value: IMFSampleGrabberSinkCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSampleGrabberSinkCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSampleGrabberSinkCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSampleGrabberSinkCallback> for ::windows::core::IUnknown {
-    fn from(value: &IMFSampleGrabberSinkCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFSampleGrabberSinkCallback> for IMFClockStateSink {
-    fn from(value: IMFSampleGrabberSinkCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSampleGrabberSinkCallback> for &'a IMFClockStateSink {
-    fn from(value: &'a IMFSampleGrabberSinkCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSampleGrabberSinkCallback> for IMFClockStateSink {
-    fn from(value: &IMFSampleGrabberSinkCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSampleGrabberSinkCallback, ::windows::core::IUnknown, IMFClockStateSink);
 impl ::core::clone::Clone for IMFSampleGrabberSinkCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -26943,51 +21537,7 @@ impl IMFSampleGrabberSinkCallback2 {
         (::windows::core::Vtable::vtable(self).OnProcessSampleEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidmajormediatype), dwsampleflags, llsampletime, llsampleduration, ::core::mem::transmute(psamplebuffer.as_ptr()), psamplebuffer.len() as _, pattributes.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFSampleGrabberSinkCallback2> for ::windows::core::IUnknown {
-    fn from(value: IMFSampleGrabberSinkCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSampleGrabberSinkCallback2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSampleGrabberSinkCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSampleGrabberSinkCallback2> for ::windows::core::IUnknown {
-    fn from(value: &IMFSampleGrabberSinkCallback2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFSampleGrabberSinkCallback2> for IMFClockStateSink {
-    fn from(value: IMFSampleGrabberSinkCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSampleGrabberSinkCallback2> for &'a IMFClockStateSink {
-    fn from(value: &'a IMFSampleGrabberSinkCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSampleGrabberSinkCallback2> for IMFClockStateSink {
-    fn from(value: &IMFSampleGrabberSinkCallback2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFSampleGrabberSinkCallback2> for IMFSampleGrabberSinkCallback {
-    fn from(value: IMFSampleGrabberSinkCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSampleGrabberSinkCallback2> for &'a IMFSampleGrabberSinkCallback {
-    fn from(value: &'a IMFSampleGrabberSinkCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSampleGrabberSinkCallback2> for IMFSampleGrabberSinkCallback {
-    fn from(value: &IMFSampleGrabberSinkCallback2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSampleGrabberSinkCallback2, ::windows::core::IUnknown, IMFClockStateSink, IMFSampleGrabberSinkCallback);
 impl ::core::clone::Clone for IMFSampleGrabberSinkCallback2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -27038,21 +21588,7 @@ impl IMFSampleOutputStream {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFSampleOutputStream> for ::windows::core::IUnknown {
-    fn from(value: IMFSampleOutputStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSampleOutputStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSampleOutputStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSampleOutputStream> for ::windows::core::IUnknown {
-    fn from(value: &IMFSampleOutputStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSampleOutputStream, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSampleOutputStream {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -27105,21 +21641,7 @@ impl IMFSampleProtection {
         (::windows::core::Vtable::vtable(self).InitInputProtection)(::windows::core::Vtable::as_raw(self), dwversion, dwinputid, ::core::mem::transmute(pbseed), cbseed).ok()
     }
 }
-impl ::core::convert::From<IMFSampleProtection> for ::windows::core::IUnknown {
-    fn from(value: IMFSampleProtection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSampleProtection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSampleProtection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSampleProtection> for ::windows::core::IUnknown {
-    fn from(value: &IMFSampleProtection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSampleProtection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSampleProtection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -27178,21 +21700,7 @@ impl IMFSaveJob {
         (::windows::core::Vtable::vtable(self).GetProgress)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMFSaveJob> for ::windows::core::IUnknown {
-    fn from(value: IMFSaveJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSaveJob> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSaveJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSaveJob> for ::windows::core::IUnknown {
-    fn from(value: &IMFSaveJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSaveJob, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSaveJob {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -27252,21 +21760,7 @@ impl IMFSchemeHandler {
         (::windows::core::Vtable::vtable(self).CancelObjectCreation)(::windows::core::Vtable::as_raw(self), piunknowncancelcookie.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFSchemeHandler> for ::windows::core::IUnknown {
-    fn from(value: IMFSchemeHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSchemeHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSchemeHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSchemeHandler> for ::windows::core::IUnknown {
-    fn from(value: &IMFSchemeHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSchemeHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSchemeHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -27309,21 +21803,7 @@ impl IMFSecureBuffer {
         (::windows::core::Vtable::vtable(self).GetIdentifier)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
 }
-impl ::core::convert::From<IMFSecureBuffer> for ::windows::core::IUnknown {
-    fn from(value: IMFSecureBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSecureBuffer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSecureBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSecureBuffer> for ::windows::core::IUnknown {
-    fn from(value: &IMFSecureBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSecureBuffer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSecureBuffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -27363,21 +21843,7 @@ impl IMFSecureChannel {
         (::windows::core::Vtable::vtable(self).SetupSession)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbencryptedsessionkey.as_ptr()), pbencryptedsessionkey.len() as _).ok()
     }
 }
-impl ::core::convert::From<IMFSecureChannel> for ::windows::core::IUnknown {
-    fn from(value: IMFSecureChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSecureChannel> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSecureChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSecureChannel> for ::windows::core::IUnknown {
-    fn from(value: &IMFSecureChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSecureChannel, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSecureChannel {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -27417,21 +21883,7 @@ impl IMFSeekInfo {
         (::windows::core::Vtable::vtable(self).GetNearestKeyFrames)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pguidtimeformat), ::core::mem::transmute(pvarstartposition), ::core::mem::transmute(pvarpreviouskeyframe), ::core::mem::transmute(pvarnextkeyframe)).ok()
     }
 }
-impl ::core::convert::From<IMFSeekInfo> for ::windows::core::IUnknown {
-    fn from(value: IMFSeekInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSeekInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSeekInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSeekInfo> for ::windows::core::IUnknown {
-    fn from(value: &IMFSeekInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSeekInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSeekInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -27483,21 +21935,7 @@ impl IMFSensorActivitiesReport {
         (::windows::core::Vtable::vtable(self).GetActivityReportByDeviceName)(::windows::core::Vtable::as_raw(self), symbolicname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSensorActivityReport>(result__)
     }
 }
-impl ::core::convert::From<IMFSensorActivitiesReport> for ::windows::core::IUnknown {
-    fn from(value: IMFSensorActivitiesReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSensorActivitiesReport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSensorActivitiesReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSensorActivitiesReport> for ::windows::core::IUnknown {
-    fn from(value: &IMFSensorActivitiesReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSensorActivitiesReport, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSensorActivitiesReport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -27539,21 +21977,7 @@ impl IMFSensorActivitiesReportCallback {
         (::windows::core::Vtable::vtable(self).OnActivitiesReport)(::windows::core::Vtable::as_raw(self), sensoractivitiesreport.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFSensorActivitiesReportCallback> for ::windows::core::IUnknown {
-    fn from(value: IMFSensorActivitiesReportCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSensorActivitiesReportCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSensorActivitiesReportCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSensorActivitiesReportCallback> for ::windows::core::IUnknown {
-    fn from(value: &IMFSensorActivitiesReportCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSensorActivitiesReportCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSensorActivitiesReportCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -27593,21 +22017,7 @@ impl IMFSensorActivityMonitor {
         (::windows::core::Vtable::vtable(self).Stop)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFSensorActivityMonitor> for ::windows::core::IUnknown {
-    fn from(value: IMFSensorActivityMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSensorActivityMonitor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSensorActivityMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSensorActivityMonitor> for ::windows::core::IUnknown {
-    fn from(value: &IMFSensorActivityMonitor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSensorActivityMonitor, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSensorActivityMonitor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -27656,21 +22066,7 @@ impl IMFSensorActivityReport {
         (::windows::core::Vtable::vtable(self).GetProcessActivity)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSensorProcessActivity>(result__)
     }
 }
-impl ::core::convert::From<IMFSensorActivityReport> for ::windows::core::IUnknown {
-    fn from(value: IMFSensorActivityReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSensorActivityReport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSensorActivityReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSensorActivityReport> for ::windows::core::IUnknown {
-    fn from(value: &IMFSensorActivityReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSensorActivityReport, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSensorActivityReport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -27741,21 +22137,7 @@ impl IMFSensorDevice {
         (::windows::core::Vtable::vtable(self).GetSensorDeviceMode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MFSensorDeviceMode>(result__)
     }
 }
-impl ::core::convert::From<IMFSensorDevice> for ::windows::core::IUnknown {
-    fn from(value: IMFSensorDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSensorDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSensorDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSensorDevice> for ::windows::core::IUnknown {
-    fn from(value: &IMFSensorDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSensorDevice, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSensorDevice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -27827,21 +22209,7 @@ impl IMFSensorGroup {
         (::windows::core::Vtable::vtable(self).CreateMediaSource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSource>(result__)
     }
 }
-impl ::core::convert::From<IMFSensorGroup> for ::windows::core::IUnknown {
-    fn from(value: IMFSensorGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSensorGroup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSensorGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSensorGroup> for ::windows::core::IUnknown {
-    fn from(value: &IMFSensorGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSensorGroup, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSensorGroup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -27902,21 +22270,7 @@ impl IMFSensorProcessActivity {
         (::windows::core::Vtable::vtable(self).GetReportTime)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
 }
-impl ::core::convert::From<IMFSensorProcessActivity> for ::windows::core::IUnknown {
-    fn from(value: IMFSensorProcessActivity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSensorProcessActivity> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSensorProcessActivity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSensorProcessActivity> for ::windows::core::IUnknown {
-    fn from(value: &IMFSensorProcessActivity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSensorProcessActivity, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSensorProcessActivity {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -27984,21 +22338,7 @@ impl IMFSensorProfile {
         (::windows::core::Vtable::vtable(self).AddBlockedControl)(::windows::core::Vtable::as_raw(self), wzblockedcontrol.into()).ok()
     }
 }
-impl ::core::convert::From<IMFSensorProfile> for ::windows::core::IUnknown {
-    fn from(value: IMFSensorProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSensorProfile> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSensorProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSensorProfile> for ::windows::core::IUnknown {
-    fn from(value: &IMFSensorProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSensorProfile, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSensorProfile {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -28061,21 +22401,7 @@ impl IMFSensorProfileCollection {
         (::windows::core::Vtable::vtable(self).RemoveProfile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(profileid))
     }
 }
-impl ::core::convert::From<IMFSensorProfileCollection> for ::windows::core::IUnknown {
-    fn from(value: IMFSensorProfileCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSensorProfileCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSensorProfileCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSensorProfileCollection> for ::windows::core::IUnknown {
-    fn from(value: &IMFSensorProfileCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSensorProfileCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSensorProfileCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -28252,36 +22578,7 @@ impl IMFSensorStream {
         (::windows::core::Vtable::vtable(self).CloneSensorStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSensorStream>(result__)
     }
 }
-impl ::core::convert::From<IMFSensorStream> for ::windows::core::IUnknown {
-    fn from(value: IMFSensorStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSensorStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSensorStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSensorStream> for ::windows::core::IUnknown {
-    fn from(value: &IMFSensorStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFSensorStream> for IMFAttributes {
-    fn from(value: IMFSensorStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSensorStream> for &'a IMFAttributes {
-    fn from(value: &'a IMFSensorStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSensorStream> for IMFAttributes {
-    fn from(value: &IMFSensorStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSensorStream, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::clone::Clone for IMFSensorStream {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -28342,21 +22639,7 @@ impl IMFSensorTransformFactory {
         (::windows::core::Vtable::vtable(self).CreateTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidsensortransformid), pattributes.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFDeviceTransform>(result__)
     }
 }
-impl ::core::convert::From<IMFSensorTransformFactory> for ::windows::core::IUnknown {
-    fn from(value: IMFSensorTransformFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSensorTransformFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSensorTransformFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSensorTransformFactory> for ::windows::core::IUnknown {
-    fn from(value: &IMFSensorTransformFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSensorTransformFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSensorTransformFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -28419,21 +22702,7 @@ impl IMFSequencerSource {
         (::windows::core::Vtable::vtable(self).UpdateTopologyFlags)(::windows::core::Vtable::as_raw(self), dwid, dwflags).ok()
     }
 }
-impl ::core::convert::From<IMFSequencerSource> for ::windows::core::IUnknown {
-    fn from(value: IMFSequencerSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSequencerSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSequencerSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSequencerSource> for ::windows::core::IUnknown {
-    fn from(value: &IMFSequencerSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSequencerSource, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSequencerSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -28478,21 +22747,7 @@ impl IMFSharingEngineClassFactory {
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), dwflags, pattr.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
-impl ::core::convert::From<IMFSharingEngineClassFactory> for ::windows::core::IUnknown {
-    fn from(value: IMFSharingEngineClassFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSharingEngineClassFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSharingEngineClassFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSharingEngineClassFactory> for ::windows::core::IUnknown {
-    fn from(value: &IMFSharingEngineClassFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSharingEngineClassFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSharingEngineClassFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -28533,21 +22788,7 @@ impl IMFShutdown {
         (::windows::core::Vtable::vtable(self).GetShutdownStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MFSHUTDOWN_STATUS>(result__)
     }
 }
-impl ::core::convert::From<IMFShutdown> for ::windows::core::IUnknown {
-    fn from(value: IMFShutdown) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFShutdown> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFShutdown) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFShutdown> for ::windows::core::IUnknown {
-    fn from(value: &IMFShutdown) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFShutdown, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFShutdown {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -28588,21 +22829,7 @@ impl IMFSignedLibrary {
         (::windows::core::Vtable::vtable(self).GetProcedureAddress)(::windows::core::Vtable::as_raw(self), name.into(), ::core::mem::transmute(address)).ok()
     }
 }
-impl ::core::convert::From<IMFSignedLibrary> for ::windows::core::IUnknown {
-    fn from(value: IMFSignedLibrary) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSignedLibrary> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSignedLibrary) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSignedLibrary> for ::windows::core::IUnknown {
-    fn from(value: &IMFSignedLibrary) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSignedLibrary, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSignedLibrary {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -28657,21 +22884,7 @@ impl IMFSimpleAudioVolume {
         (::windows::core::Vtable::vtable(self).GetMute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IMFSimpleAudioVolume> for ::windows::core::IUnknown {
-    fn from(value: IMFSimpleAudioVolume) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSimpleAudioVolume> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSimpleAudioVolume) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSimpleAudioVolume> for ::windows::core::IUnknown {
-    fn from(value: &IMFSimpleAudioVolume) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSimpleAudioVolume, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSimpleAudioVolume {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -28759,21 +22972,7 @@ impl IMFSinkWriter {
         (::windows::core::Vtable::vtable(self).GetStatistics)(::windows::core::Vtable::as_raw(self), dwstreamindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MF_SINK_WRITER_STATISTICS>(result__)
     }
 }
-impl ::core::convert::From<IMFSinkWriter> for ::windows::core::IUnknown {
-    fn from(value: IMFSinkWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSinkWriter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSinkWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSinkWriter> for ::windows::core::IUnknown {
-    fn from(value: &IMFSinkWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSinkWriter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSinkWriter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -28823,21 +23022,7 @@ impl IMFSinkWriterCallback {
         (::windows::core::Vtable::vtable(self).OnMarker)(::windows::core::Vtable::as_raw(self), dwstreamindex, ::core::mem::transmute(pvcontext)).ok()
     }
 }
-impl ::core::convert::From<IMFSinkWriterCallback> for ::windows::core::IUnknown {
-    fn from(value: IMFSinkWriterCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSinkWriterCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSinkWriterCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSinkWriterCallback> for ::windows::core::IUnknown {
-    fn from(value: &IMFSinkWriterCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSinkWriterCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSinkWriterCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -28884,36 +23069,7 @@ impl IMFSinkWriterCallback2 {
         (::windows::core::Vtable::vtable(self).OnStreamError)(::windows::core::Vtable::as_raw(self), dwstreamindex, hrstatus).ok()
     }
 }
-impl ::core::convert::From<IMFSinkWriterCallback2> for ::windows::core::IUnknown {
-    fn from(value: IMFSinkWriterCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSinkWriterCallback2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSinkWriterCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSinkWriterCallback2> for ::windows::core::IUnknown {
-    fn from(value: &IMFSinkWriterCallback2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFSinkWriterCallback2> for IMFSinkWriterCallback {
-    fn from(value: IMFSinkWriterCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSinkWriterCallback2> for &'a IMFSinkWriterCallback {
-    fn from(value: &'a IMFSinkWriterCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSinkWriterCallback2> for IMFSinkWriterCallback {
-    fn from(value: &IMFSinkWriterCallback2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSinkWriterCallback2, ::windows::core::IUnknown, IMFSinkWriterCallback);
 impl ::core::clone::Clone for IMFSinkWriterCallback2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -28961,21 +23117,7 @@ impl IMFSinkWriterEncoderConfig {
         (::windows::core::Vtable::vtable(self).PlaceEncodingParameters)(::windows::core::Vtable::as_raw(self), dwstreamindex, pencodingparameters.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFSinkWriterEncoderConfig> for ::windows::core::IUnknown {
-    fn from(value: IMFSinkWriterEncoderConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSinkWriterEncoderConfig> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSinkWriterEncoderConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSinkWriterEncoderConfig> for ::windows::core::IUnknown {
-    fn from(value: &IMFSinkWriterEncoderConfig) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSinkWriterEncoderConfig, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSinkWriterEncoderConfig {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -29058,36 +23200,7 @@ impl IMFSinkWriterEx {
         (::windows::core::Vtable::vtable(self).GetTransformForStream)(::windows::core::Vtable::as_raw(self), dwstreamindex, dwtransformindex, ::core::mem::transmute(pguidcategory.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pptransform)).ok()
     }
 }
-impl ::core::convert::From<IMFSinkWriterEx> for ::windows::core::IUnknown {
-    fn from(value: IMFSinkWriterEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSinkWriterEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSinkWriterEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSinkWriterEx> for ::windows::core::IUnknown {
-    fn from(value: &IMFSinkWriterEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFSinkWriterEx> for IMFSinkWriter {
-    fn from(value: IMFSinkWriterEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSinkWriterEx> for &'a IMFSinkWriter {
-    fn from(value: &'a IMFSinkWriterEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSinkWriterEx> for IMFSinkWriter {
-    fn from(value: &IMFSinkWriterEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSinkWriterEx, ::windows::core::IUnknown, IMFSinkWriter);
 impl ::core::clone::Clone for IMFSinkWriterEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -29163,21 +23276,7 @@ impl IMFSourceBuffer {
         (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), start, end).ok()
     }
 }
-impl ::core::convert::From<IMFSourceBuffer> for ::windows::core::IUnknown {
-    fn from(value: IMFSourceBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSourceBuffer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSourceBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSourceBuffer> for ::windows::core::IUnknown {
-    fn from(value: &IMFSourceBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSourceBuffer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSourceBuffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -29231,21 +23330,7 @@ impl IMFSourceBufferAppendMode {
         (::windows::core::Vtable::vtable(self).SetAppendMode)(::windows::core::Vtable::as_raw(self), mode).ok()
     }
 }
-impl ::core::convert::From<IMFSourceBufferAppendMode> for ::windows::core::IUnknown {
-    fn from(value: IMFSourceBufferAppendMode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSourceBufferAppendMode> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSourceBufferAppendMode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSourceBufferAppendMode> for ::windows::core::IUnknown {
-    fn from(value: &IMFSourceBufferAppendMode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSourceBufferAppendMode, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSourceBufferAppendMode {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -29286,21 +23371,7 @@ impl IMFSourceBufferList {
         (::windows::core::Vtable::vtable(self).GetSourceBuffer)(::windows::core::Vtable::as_raw(self), index)
     }
 }
-impl ::core::convert::From<IMFSourceBufferList> for ::windows::core::IUnknown {
-    fn from(value: IMFSourceBufferList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSourceBufferList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSourceBufferList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSourceBufferList> for ::windows::core::IUnknown {
-    fn from(value: &IMFSourceBufferList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSourceBufferList, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSourceBufferList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -29350,21 +23421,7 @@ impl IMFSourceBufferNotify {
         (::windows::core::Vtable::vtable(self).OnUpdateEnd)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IMFSourceBufferNotify> for ::windows::core::IUnknown {
-    fn from(value: IMFSourceBufferNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSourceBufferNotify> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSourceBufferNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSourceBufferNotify> for ::windows::core::IUnknown {
-    fn from(value: &IMFSourceBufferNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSourceBufferNotify, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSourceBufferNotify {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -29408,21 +23465,7 @@ impl IMFSourceOpenMonitor {
         (::windows::core::Vtable::vtable(self).OnSourceEvent)(::windows::core::Vtable::as_raw(self), pevent.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFSourceOpenMonitor> for ::windows::core::IUnknown {
-    fn from(value: IMFSourceOpenMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSourceOpenMonitor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSourceOpenMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSourceOpenMonitor> for ::windows::core::IUnknown {
-    fn from(value: &IMFSourceOpenMonitor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSourceOpenMonitor, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSourceOpenMonitor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -29504,21 +23547,7 @@ impl IMFSourceReader {
         (::windows::core::Vtable::vtable(self).GetPresentationAttribute)(::windows::core::Vtable::as_raw(self), dwstreamindex, ::core::mem::transmute(guidattribute), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
 }
-impl ::core::convert::From<IMFSourceReader> for ::windows::core::IUnknown {
-    fn from(value: IMFSourceReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSourceReader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSourceReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSourceReader> for ::windows::core::IUnknown {
-    fn from(value: &IMFSourceReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSourceReader, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSourceReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -29588,21 +23617,7 @@ impl IMFSourceReaderCallback {
         (::windows::core::Vtable::vtable(self).OnEvent)(::windows::core::Vtable::as_raw(self), dwstreamindex, pevent.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFSourceReaderCallback> for ::windows::core::IUnknown {
-    fn from(value: IMFSourceReaderCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSourceReaderCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSourceReaderCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSourceReaderCallback> for ::windows::core::IUnknown {
-    fn from(value: &IMFSourceReaderCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSourceReaderCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSourceReaderCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -29659,36 +23674,7 @@ impl IMFSourceReaderCallback2 {
         (::windows::core::Vtable::vtable(self).OnStreamError)(::windows::core::Vtable::as_raw(self), dwstreamindex, hrstatus).ok()
     }
 }
-impl ::core::convert::From<IMFSourceReaderCallback2> for ::windows::core::IUnknown {
-    fn from(value: IMFSourceReaderCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSourceReaderCallback2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSourceReaderCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSourceReaderCallback2> for ::windows::core::IUnknown {
-    fn from(value: &IMFSourceReaderCallback2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFSourceReaderCallback2> for IMFSourceReaderCallback {
-    fn from(value: IMFSourceReaderCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSourceReaderCallback2> for &'a IMFSourceReaderCallback {
-    fn from(value: &'a IMFSourceReaderCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSourceReaderCallback2> for IMFSourceReaderCallback {
-    fn from(value: &IMFSourceReaderCallback2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSourceReaderCallback2, ::windows::core::IUnknown, IMFSourceReaderCallback);
 impl ::core::clone::Clone for IMFSourceReaderCallback2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -29790,36 +23776,7 @@ impl IMFSourceReaderEx {
         (::windows::core::Vtable::vtable(self).GetTransformForStream)(::windows::core::Vtable::as_raw(self), dwstreamindex, dwtransformindex, ::core::mem::transmute(pguidcategory.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pptransform)).ok()
     }
 }
-impl ::core::convert::From<IMFSourceReaderEx> for ::windows::core::IUnknown {
-    fn from(value: IMFSourceReaderEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSourceReaderEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSourceReaderEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSourceReaderEx> for ::windows::core::IUnknown {
-    fn from(value: &IMFSourceReaderEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFSourceReaderEx> for IMFSourceReader {
-    fn from(value: IMFSourceReaderEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSourceReaderEx> for &'a IMFSourceReader {
-    fn from(value: &'a IMFSourceReaderEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSourceReaderEx> for IMFSourceReader {
-    fn from(value: &IMFSourceReaderEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSourceReaderEx, ::windows::core::IUnknown, IMFSourceReader);
 impl ::core::clone::Clone for IMFSourceReaderEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -29916,21 +23873,7 @@ impl IMFSourceResolver {
         (::windows::core::Vtable::vtable(self).CancelObjectCreation)(::windows::core::Vtable::as_raw(self), piunknowncancelcookie.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFSourceResolver> for ::windows::core::IUnknown {
-    fn from(value: IMFSourceResolver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSourceResolver> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSourceResolver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSourceResolver> for ::windows::core::IUnknown {
-    fn from(value: &IMFSourceResolver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSourceResolver, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSourceResolver {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -30023,36 +23966,7 @@ impl IMFSpatialAudioObjectBuffer {
         (::windows::core::Vtable::vtable(self).GetMetadataItems)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Audio::ISpatialAudioMetadataItems>(result__)
     }
 }
-impl ::core::convert::From<IMFSpatialAudioObjectBuffer> for ::windows::core::IUnknown {
-    fn from(value: IMFSpatialAudioObjectBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSpatialAudioObjectBuffer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSpatialAudioObjectBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSpatialAudioObjectBuffer> for ::windows::core::IUnknown {
-    fn from(value: &IMFSpatialAudioObjectBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFSpatialAudioObjectBuffer> for IMFMediaBuffer {
-    fn from(value: IMFSpatialAudioObjectBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSpatialAudioObjectBuffer> for &'a IMFMediaBuffer {
-    fn from(value: &'a IMFSpatialAudioObjectBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSpatialAudioObjectBuffer> for IMFMediaBuffer {
-    fn from(value: &IMFSpatialAudioObjectBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSpatialAudioObjectBuffer, ::windows::core::IUnknown, IMFMediaBuffer);
 impl ::core::clone::Clone for IMFSpatialAudioObjectBuffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -30294,51 +24208,7 @@ impl IMFSpatialAudioSample {
         (::windows::core::Vtable::vtable(self).GetSpatialAudioObjectByIndex)(::windows::core::Vtable::as_raw(self), dwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSpatialAudioObjectBuffer>(result__)
     }
 }
-impl ::core::convert::From<IMFSpatialAudioSample> for ::windows::core::IUnknown {
-    fn from(value: IMFSpatialAudioSample) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSpatialAudioSample> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSpatialAudioSample) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSpatialAudioSample> for ::windows::core::IUnknown {
-    fn from(value: &IMFSpatialAudioSample) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFSpatialAudioSample> for IMFAttributes {
-    fn from(value: IMFSpatialAudioSample) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSpatialAudioSample> for &'a IMFAttributes {
-    fn from(value: &'a IMFSpatialAudioSample) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSpatialAudioSample> for IMFAttributes {
-    fn from(value: &IMFSpatialAudioSample) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFSpatialAudioSample> for IMFSample {
-    fn from(value: IMFSpatialAudioSample) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSpatialAudioSample> for &'a IMFSample {
-    fn from(value: &'a IMFSpatialAudioSample) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSpatialAudioSample> for IMFSample {
-    fn from(value: &IMFSpatialAudioSample) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSpatialAudioSample, ::windows::core::IUnknown, IMFAttributes, IMFSample);
 impl ::core::clone::Clone for IMFSpatialAudioSample {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -30508,36 +24378,7 @@ impl IMFStreamDescriptor {
         (::windows::core::Vtable::vtable(self).GetMediaTypeHandler)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaTypeHandler>(result__)
     }
 }
-impl ::core::convert::From<IMFStreamDescriptor> for ::windows::core::IUnknown {
-    fn from(value: IMFStreamDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFStreamDescriptor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFStreamDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFStreamDescriptor> for ::windows::core::IUnknown {
-    fn from(value: &IMFStreamDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFStreamDescriptor> for IMFAttributes {
-    fn from(value: IMFStreamDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFStreamDescriptor> for &'a IMFAttributes {
-    fn from(value: &'a IMFStreamDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFStreamDescriptor> for IMFAttributes {
-    fn from(value: &IMFStreamDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFStreamDescriptor, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::clone::Clone for IMFStreamDescriptor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -30621,36 +24462,7 @@ impl IMFStreamSink {
         (::windows::core::Vtable::vtable(self).Flush)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFStreamSink> for ::windows::core::IUnknown {
-    fn from(value: IMFStreamSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFStreamSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFStreamSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFStreamSink> for ::windows::core::IUnknown {
-    fn from(value: &IMFStreamSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFStreamSink> for IMFMediaEventGenerator {
-    fn from(value: IMFStreamSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFStreamSink> for &'a IMFMediaEventGenerator {
-    fn from(value: &'a IMFStreamSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFStreamSink> for IMFMediaEventGenerator {
-    fn from(value: &IMFStreamSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFStreamSink, ::windows::core::IUnknown, IMFMediaEventGenerator);
 impl ::core::clone::Clone for IMFStreamSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -30700,21 +24512,7 @@ impl IMFStreamingSinkConfig {
         (::windows::core::Vtable::vtable(self).StartStreaming)(::windows::core::Vtable::as_raw(self), fseekoffsetisbyteoffset.into(), qwseekoffset).ok()
     }
 }
-impl ::core::convert::From<IMFStreamingSinkConfig> for ::windows::core::IUnknown {
-    fn from(value: IMFStreamingSinkConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFStreamingSinkConfig> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFStreamingSinkConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFStreamingSinkConfig> for ::windows::core::IUnknown {
-    fn from(value: &IMFStreamingSinkConfig) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFStreamingSinkConfig, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFStreamingSinkConfig {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -30757,21 +24555,7 @@ impl IMFSystemId {
         (::windows::core::Vtable::vtable(self).Setup)(::windows::core::Vtable::as_raw(self), stage, pbin.len() as _, ::core::mem::transmute(pbin.as_ptr()), ::core::mem::transmute(pcbout), ::core::mem::transmute(ppbout)).ok()
     }
 }
-impl ::core::convert::From<IMFSystemId> for ::windows::core::IUnknown {
-    fn from(value: IMFSystemId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFSystemId> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFSystemId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFSystemId> for ::windows::core::IUnknown {
-    fn from(value: &IMFSystemId) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFSystemId, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFSystemId {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -30838,21 +24622,7 @@ impl IMFTimecodeTranslate {
         (::windows::core::Vtable::vtable(self).EndConvertHNSToTimecode)(::windows::core::Vtable::as_raw(self), presult.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
 }
-impl ::core::convert::From<IMFTimecodeTranslate> for ::windows::core::IUnknown {
-    fn from(value: IMFTimecodeTranslate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTimecodeTranslate> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTimecodeTranslate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTimecodeTranslate> for ::windows::core::IUnknown {
-    fn from(value: &IMFTimecodeTranslate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTimecodeTranslate, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTimecodeTranslate {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -30983,21 +24753,7 @@ impl IMFTimedText {
         (::windows::core::Vtable::vtable(self).IsInBandEnabled)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IMFTimedText> for ::windows::core::IUnknown {
-    fn from(value: IMFTimedText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTimedText> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTimedText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTimedText> for ::windows::core::IUnknown {
-    fn from(value: &IMFTimedText) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTimedText, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTimedText {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -31062,21 +24818,7 @@ impl IMFTimedTextBinary {
         (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(data), ::core::mem::transmute(length)).ok()
     }
 }
-impl ::core::convert::From<IMFTimedTextBinary> for ::windows::core::IUnknown {
-    fn from(value: IMFTimedTextBinary) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTimedTextBinary> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTimedTextBinary) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTimedTextBinary> for ::windows::core::IUnknown {
-    fn from(value: &IMFTimedTextBinary) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTimedTextBinary, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTimedTextBinary {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -31122,21 +24864,7 @@ impl IMFTimedTextBouten {
         (::windows::core::Vtable::vtable(self).GetBoutenPosition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MF_TIMED_TEXT_BOUTEN_POSITION>(result__)
     }
 }
-impl ::core::convert::From<IMFTimedTextBouten> for ::windows::core::IUnknown {
-    fn from(value: IMFTimedTextBouten) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTimedTextBouten> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTimedTextBouten) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTimedTextBouten> for ::windows::core::IUnknown {
-    fn from(value: &IMFTimedTextBouten) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTimedTextBouten, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTimedTextBouten {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -31210,21 +24938,7 @@ impl IMFTimedTextCue {
         (::windows::core::Vtable::vtable(self).GetLine)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFTimedTextFormattedText>(result__)
     }
 }
-impl ::core::convert::From<IMFTimedTextCue> for ::windows::core::IUnknown {
-    fn from(value: IMFTimedTextCue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTimedTextCue> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTimedTextCue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTimedTextCue> for ::windows::core::IUnknown {
-    fn from(value: &IMFTimedTextCue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTimedTextCue, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTimedTextCue {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -31303,21 +25017,7 @@ impl IMFTimedTextCueList {
         (::windows::core::Vtable::vtable(self).RemoveCue)(::windows::core::Vtable::as_raw(self), cue.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFTimedTextCueList> for ::windows::core::IUnknown {
-    fn from(value: IMFTimedTextCueList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTimedTextCueList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTimedTextCueList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTimedTextCueList> for ::windows::core::IUnknown {
-    fn from(value: &IMFTimedTextCueList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTimedTextCueList, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTimedTextCueList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -31367,21 +25067,7 @@ impl IMFTimedTextFormattedText {
         (::windows::core::Vtable::vtable(self).GetSubformatting)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(firstchar), ::core::mem::transmute(charlength), ::core::mem::transmute(style.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IMFTimedTextFormattedText> for ::windows::core::IUnknown {
-    fn from(value: IMFTimedTextFormattedText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTimedTextFormattedText> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTimedTextFormattedText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTimedTextFormattedText> for ::windows::core::IUnknown {
-    fn from(value: &IMFTimedTextFormattedText) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTimedTextFormattedText, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTimedTextFormattedText {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -31446,21 +25132,7 @@ impl IMFTimedTextNotify {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IMFTimedTextNotify> for ::windows::core::IUnknown {
-    fn from(value: IMFTimedTextNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTimedTextNotify> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTimedTextNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTimedTextNotify> for ::windows::core::IUnknown {
-    fn from(value: &IMFTimedTextNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTimedTextNotify, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTimedTextNotify {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -31551,21 +25223,7 @@ impl IMFTimedTextRegion {
         (::windows::core::Vtable::vtable(self).GetScrollMode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MF_TIMED_TEXT_SCROLL_MODE>(result__)
     }
 }
-impl ::core::convert::From<IMFTimedTextRegion> for ::windows::core::IUnknown {
-    fn from(value: IMFTimedTextRegion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTimedTextRegion> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTimedTextRegion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTimedTextRegion> for ::windows::core::IUnknown {
-    fn from(value: &IMFTimedTextRegion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTimedTextRegion, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTimedTextRegion {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -31632,21 +25290,7 @@ impl IMFTimedTextRuby {
         (::windows::core::Vtable::vtable(self).GetRubyReserve)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MF_TIMED_TEXT_RUBY_RESERVE>(result__)
     }
 }
-impl ::core::convert::From<IMFTimedTextRuby> for ::windows::core::IUnknown {
-    fn from(value: IMFTimedTextRuby) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTimedTextRuby> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTimedTextRuby) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTimedTextRuby> for ::windows::core::IUnknown {
-    fn from(value: &IMFTimedTextRuby) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTimedTextRuby, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTimedTextRuby {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -31740,21 +25384,7 @@ impl IMFTimedTextStyle {
         (::windows::core::Vtable::vtable(self).GetTextOutline)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(color), ::core::mem::transmute(thickness), ::core::mem::transmute(blurradius), ::core::mem::transmute(unittype)).ok()
     }
 }
-impl ::core::convert::From<IMFTimedTextStyle> for ::windows::core::IUnknown {
-    fn from(value: IMFTimedTextStyle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTimedTextStyle> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTimedTextStyle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTimedTextStyle> for ::windows::core::IUnknown {
-    fn from(value: &IMFTimedTextStyle) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTimedTextStyle, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTimedTextStyle {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -31830,21 +25460,7 @@ impl IMFTimedTextStyle2 {
         (::windows::core::Vtable::vtable(self).GetFontAngleInDegrees)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
 }
-impl ::core::convert::From<IMFTimedTextStyle2> for ::windows::core::IUnknown {
-    fn from(value: IMFTimedTextStyle2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTimedTextStyle2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTimedTextStyle2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTimedTextStyle2> for ::windows::core::IUnknown {
-    fn from(value: &IMFTimedTextStyle2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTimedTextStyle2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTimedTextStyle2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -31935,21 +25551,7 @@ impl IMFTimedTextTrack {
         (::windows::core::Vtable::vtable(self).GetCueList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFTimedTextCueList>(result__)
     }
 }
-impl ::core::convert::From<IMFTimedTextTrack> for ::windows::core::IUnknown {
-    fn from(value: IMFTimedTextTrack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTimedTextTrack> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTimedTextTrack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTimedTextTrack> for ::windows::core::IUnknown {
-    fn from(value: &IMFTimedTextTrack) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTimedTextTrack, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTimedTextTrack {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -32012,21 +25614,7 @@ impl IMFTimedTextTrackList {
         (::windows::core::Vtable::vtable(self).GetTrackById)(::windows::core::Vtable::as_raw(self), trackid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFTimedTextTrack>(result__)
     }
 }
-impl ::core::convert::From<IMFTimedTextTrackList> for ::windows::core::IUnknown {
-    fn from(value: IMFTimedTextTrackList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTimedTextTrackList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTimedTextTrackList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTimedTextTrackList> for ::windows::core::IUnknown {
-    fn from(value: &IMFTimedTextTrackList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTimedTextTrackList, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTimedTextTrackList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -32076,21 +25664,7 @@ impl IMFTimer {
         (::windows::core::Vtable::vtable(self).CancelTimer)(::windows::core::Vtable::as_raw(self), punkkey.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFTimer> for ::windows::core::IUnknown {
-    fn from(value: IMFTimer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTimer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTimer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTimer> for ::windows::core::IUnknown {
-    fn from(value: &IMFTimer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTimer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTimer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -32132,21 +25706,7 @@ impl IMFTopoLoader {
         (::windows::core::Vtable::vtable(self).Load)(::windows::core::Vtable::as_raw(self), pinputtopo.into().abi(), ::core::mem::transmute(ppoutputtopo), pcurrenttopo.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFTopoLoader> for ::windows::core::IUnknown {
-    fn from(value: IMFTopoLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTopoLoader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTopoLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTopoLoader> for ::windows::core::IUnknown {
-    fn from(value: &IMFTopoLoader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTopoLoader, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTopoLoader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -32351,36 +25911,7 @@ impl IMFTopology {
         (::windows::core::Vtable::vtable(self).GetOutputNodeCollection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFCollection>(result__)
     }
 }
-impl ::core::convert::From<IMFTopology> for ::windows::core::IUnknown {
-    fn from(value: IMFTopology) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTopology> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTopology) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTopology> for ::windows::core::IUnknown {
-    fn from(value: &IMFTopology) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFTopology> for IMFAttributes {
-    fn from(value: IMFTopology) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTopology> for &'a IMFAttributes {
-    fn from(value: &'a IMFTopology) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTopology> for IMFAttributes {
-    fn from(value: &IMFTopology) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTopology, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::clone::Clone for IMFTopology {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -32619,36 +26150,7 @@ impl IMFTopologyNode {
         (::windows::core::Vtable::vtable(self).CloneFrom)(::windows::core::Vtable::as_raw(self), pnode.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFTopologyNode> for ::windows::core::IUnknown {
-    fn from(value: IMFTopologyNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTopologyNode> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTopologyNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTopologyNode> for ::windows::core::IUnknown {
-    fn from(value: &IMFTopologyNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFTopologyNode> for IMFAttributes {
-    fn from(value: IMFTopologyNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTopologyNode> for &'a IMFAttributes {
-    fn from(value: &'a IMFTopologyNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTopologyNode> for IMFAttributes {
-    fn from(value: &IMFTopologyNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTopologyNode, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::clone::Clone for IMFTopologyNode {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -32700,21 +26202,7 @@ impl IMFTopologyNodeAttributeEditor {
         (::windows::core::Vtable::vtable(self).UpdateNodeAttributes)(::windows::core::Vtable::as_raw(self), topoid, pupdates.len() as _, ::core::mem::transmute(pupdates.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IMFTopologyNodeAttributeEditor> for ::windows::core::IUnknown {
-    fn from(value: IMFTopologyNodeAttributeEditor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTopologyNodeAttributeEditor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTopologyNodeAttributeEditor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTopologyNodeAttributeEditor> for ::windows::core::IUnknown {
-    fn from(value: &IMFTopologyNodeAttributeEditor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTopologyNodeAttributeEditor, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTopologyNodeAttributeEditor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -32751,21 +26239,7 @@ impl IMFTopologyServiceLookup {
         (::windows::core::Vtable::vtable(self).LookupService)(::windows::core::Vtable::as_raw(self), r#type, dwindex, ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobjects), ::core::mem::transmute(pnobjects)).ok()
     }
 }
-impl ::core::convert::From<IMFTopologyServiceLookup> for ::windows::core::IUnknown {
-    fn from(value: IMFTopologyServiceLookup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTopologyServiceLookup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTopologyServiceLookup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTopologyServiceLookup> for ::windows::core::IUnknown {
-    fn from(value: &IMFTopologyServiceLookup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTopologyServiceLookup, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTopologyServiceLookup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -32808,21 +26282,7 @@ impl IMFTopologyServiceLookupClient {
         (::windows::core::Vtable::vtable(self).ReleaseServicePointers)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFTopologyServiceLookupClient> for ::windows::core::IUnknown {
-    fn from(value: IMFTopologyServiceLookupClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTopologyServiceLookupClient> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTopologyServiceLookupClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTopologyServiceLookupClient> for ::windows::core::IUnknown {
-    fn from(value: &IMFTopologyServiceLookupClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTopologyServiceLookupClient, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTopologyServiceLookupClient {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -32864,21 +26324,7 @@ impl IMFTrackedSample {
         (::windows::core::Vtable::vtable(self).SetAllocator)(::windows::core::Vtable::as_raw(self), psampleallocator.into().abi(), punkstate.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFTrackedSample> for ::windows::core::IUnknown {
-    fn from(value: IMFTrackedSample) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTrackedSample> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTrackedSample) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTrackedSample> for ::windows::core::IUnknown {
-    fn from(value: &IMFTrackedSample) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTrackedSample, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTrackedSample {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -32942,21 +26388,7 @@ impl IMFTranscodeProfile {
         (::windows::core::Vtable::vtable(self).GetContainerAttributes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFAttributes>(result__)
     }
 }
-impl ::core::convert::From<IMFTranscodeProfile> for ::windows::core::IUnknown {
-    fn from(value: IMFTranscodeProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTranscodeProfile> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTranscodeProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTranscodeProfile> for ::windows::core::IUnknown {
-    fn from(value: &IMFTranscodeProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTranscodeProfile, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTranscodeProfile {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -33017,21 +26449,7 @@ impl IMFTranscodeSinkInfoProvider {
         (::windows::core::Vtable::vtable(self).GetSinkInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MF_TRANSCODE_SINK_INFO>(result__)
     }
 }
-impl ::core::convert::From<IMFTranscodeSinkInfoProvider> for ::windows::core::IUnknown {
-    fn from(value: IMFTranscodeSinkInfoProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTranscodeSinkInfoProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTranscodeSinkInfoProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTranscodeSinkInfoProvider> for ::windows::core::IUnknown {
-    fn from(value: &IMFTranscodeSinkInfoProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTranscodeSinkInfoProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTranscodeSinkInfoProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -33160,21 +26578,7 @@ impl IMFTransform {
         (::windows::core::Vtable::vtable(self).ProcessOutput)(::windows::core::Vtable::as_raw(self), dwflags, poutputsamples.len() as _, ::core::mem::transmute(poutputsamples.as_ptr()), ::core::mem::transmute(pdwstatus)).ok()
     }
 }
-impl ::core::convert::From<IMFTransform> for ::windows::core::IUnknown {
-    fn from(value: IMFTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTransform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTransform> for ::windows::core::IUnknown {
-    fn from(value: &IMFTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTransform, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -33234,21 +26638,7 @@ impl IMFTrustedInput {
         (::windows::core::Vtable::vtable(self).GetInputTrustAuthority)(::windows::core::Vtable::as_raw(self), dwstreamid, ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
-impl ::core::convert::From<IMFTrustedInput> for ::windows::core::IUnknown {
-    fn from(value: IMFTrustedInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTrustedInput> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTrustedInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTrustedInput> for ::windows::core::IUnknown {
-    fn from(value: &IMFTrustedInput) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTrustedInput, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTrustedInput {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -33296,21 +26686,7 @@ impl IMFTrustedOutput {
         (::windows::core::Vtable::vtable(self).IsFinal)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IMFTrustedOutput> for ::windows::core::IUnknown {
-    fn from(value: IMFTrustedOutput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFTrustedOutput> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFTrustedOutput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFTrustedOutput> for ::windows::core::IUnknown {
-    fn from(value: &IMFTrustedOutput) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFTrustedOutput, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFTrustedOutput {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -33375,36 +26751,7 @@ impl IMFVideoCaptureSampleAllocator {
         (::windows::core::Vtable::vtable(self).InitializeCaptureSampleAllocator)(::windows::core::Vtable::as_raw(self), cbsamplesize, cbcapturemetadatasize, cbalignment, cminimumsamples, pattributes.into().abi(), pmediatype.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFVideoCaptureSampleAllocator> for ::windows::core::IUnknown {
-    fn from(value: IMFVideoCaptureSampleAllocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoCaptureSampleAllocator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFVideoCaptureSampleAllocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoCaptureSampleAllocator> for ::windows::core::IUnknown {
-    fn from(value: &IMFVideoCaptureSampleAllocator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFVideoCaptureSampleAllocator> for IMFVideoSampleAllocator {
-    fn from(value: IMFVideoCaptureSampleAllocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoCaptureSampleAllocator> for &'a IMFVideoSampleAllocator {
-    fn from(value: &'a IMFVideoCaptureSampleAllocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoCaptureSampleAllocator> for IMFVideoSampleAllocator {
-    fn from(value: &IMFVideoCaptureSampleAllocator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFVideoCaptureSampleAllocator, ::windows::core::IUnknown, IMFVideoSampleAllocator);
 impl ::core::clone::Clone for IMFVideoCaptureSampleAllocator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -33442,21 +26789,7 @@ impl IMFVideoDeviceID {
         (::windows::core::Vtable::vtable(self).GetDeviceID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
 }
-impl ::core::convert::From<IMFVideoDeviceID> for ::windows::core::IUnknown {
-    fn from(value: IMFVideoDeviceID) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoDeviceID> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFVideoDeviceID) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoDeviceID> for ::windows::core::IUnknown {
-    fn from(value: &IMFVideoDeviceID) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFVideoDeviceID, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFVideoDeviceID {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -33574,21 +26907,7 @@ impl IMFVideoDisplayControl {
         (::windows::core::Vtable::vtable(self).GetFullscreen)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IMFVideoDisplayControl> for ::windows::core::IUnknown {
-    fn from(value: IMFVideoDisplayControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoDisplayControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFVideoDisplayControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoDisplayControl> for ::windows::core::IUnknown {
-    fn from(value: &IMFVideoDisplayControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFVideoDisplayControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFVideoDisplayControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -33827,51 +27146,7 @@ impl IMFVideoMediaType {
         (::windows::core::Vtable::vtable(self).GetVideoRepresentation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidrepresentation), ::core::mem::transmute(ppvrepresentation), lstride).ok()
     }
 }
-impl ::core::convert::From<IMFVideoMediaType> for ::windows::core::IUnknown {
-    fn from(value: IMFVideoMediaType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoMediaType> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFVideoMediaType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoMediaType> for ::windows::core::IUnknown {
-    fn from(value: &IMFVideoMediaType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFVideoMediaType> for IMFAttributes {
-    fn from(value: IMFVideoMediaType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoMediaType> for &'a IMFAttributes {
-    fn from(value: &'a IMFVideoMediaType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoMediaType> for IMFAttributes {
-    fn from(value: &IMFVideoMediaType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFVideoMediaType> for IMFMediaType {
-    fn from(value: IMFVideoMediaType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoMediaType> for &'a IMFMediaType {
-    fn from(value: &'a IMFVideoMediaType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoMediaType> for IMFMediaType {
-    fn from(value: &IMFVideoMediaType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFVideoMediaType, ::windows::core::IUnknown, IMFAttributes, IMFMediaType);
 impl ::core::clone::Clone for IMFVideoMediaType {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -33928,21 +27203,7 @@ impl IMFVideoMixerBitmap {
         (::windows::core::Vtable::vtable(self).GetAlphaBitmapParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MFVideoAlphaBitmapParams>(result__)
     }
 }
-impl ::core::convert::From<IMFVideoMixerBitmap> for ::windows::core::IUnknown {
-    fn from(value: IMFVideoMixerBitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoMixerBitmap> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFVideoMixerBitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoMixerBitmap> for ::windows::core::IUnknown {
-    fn from(value: &IMFVideoMixerBitmap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFVideoMixerBitmap, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFVideoMixerBitmap {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -34002,21 +27263,7 @@ impl IMFVideoMixerControl {
         (::windows::core::Vtable::vtable(self).GetStreamOutputRect)(::windows::core::Vtable::as_raw(self), dwstreamid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MFVideoNormalizedRect>(result__)
     }
 }
-impl ::core::convert::From<IMFVideoMixerControl> for ::windows::core::IUnknown {
-    fn from(value: IMFVideoMixerControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoMixerControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFVideoMixerControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoMixerControl> for ::windows::core::IUnknown {
-    fn from(value: &IMFVideoMixerControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFVideoMixerControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFVideoMixerControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -34074,36 +27321,7 @@ impl IMFVideoMixerControl2 {
         (::windows::core::Vtable::vtable(self).GetMixingPrefs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMFVideoMixerControl2> for ::windows::core::IUnknown {
-    fn from(value: IMFVideoMixerControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoMixerControl2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFVideoMixerControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoMixerControl2> for ::windows::core::IUnknown {
-    fn from(value: &IMFVideoMixerControl2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFVideoMixerControl2> for IMFVideoMixerControl {
-    fn from(value: IMFVideoMixerControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoMixerControl2> for &'a IMFVideoMixerControl {
-    fn from(value: &'a IMFVideoMixerControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoMixerControl2> for IMFVideoMixerControl {
-    fn from(value: &IMFVideoMixerControl2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFVideoMixerControl2, ::windows::core::IUnknown, IMFVideoMixerControl);
 impl ::core::clone::Clone for IMFVideoMixerControl2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -34141,21 +27359,7 @@ impl IMFVideoPositionMapper {
         (::windows::core::Vtable::vtable(self).MapOutputCoordinateToInputStream)(::windows::core::Vtable::as_raw(self), xout, yout, dwoutputstreamindex, dwinputstreamindex, ::core::mem::transmute(pxin), ::core::mem::transmute(pyin)).ok()
     }
 }
-impl ::core::convert::From<IMFVideoPositionMapper> for ::windows::core::IUnknown {
-    fn from(value: IMFVideoPositionMapper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoPositionMapper> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFVideoPositionMapper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoPositionMapper> for ::windows::core::IUnknown {
-    fn from(value: &IMFVideoPositionMapper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFVideoPositionMapper, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFVideoPositionMapper {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -34211,36 +27415,7 @@ impl IMFVideoPresenter {
         (::windows::core::Vtable::vtable(self).GetCurrentMediaType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFVideoMediaType>(result__)
     }
 }
-impl ::core::convert::From<IMFVideoPresenter> for ::windows::core::IUnknown {
-    fn from(value: IMFVideoPresenter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoPresenter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFVideoPresenter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoPresenter> for ::windows::core::IUnknown {
-    fn from(value: &IMFVideoPresenter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFVideoPresenter> for IMFClockStateSink {
-    fn from(value: IMFVideoPresenter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoPresenter> for &'a IMFClockStateSink {
-    fn from(value: &'a IMFVideoPresenter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoPresenter> for IMFClockStateSink {
-    fn from(value: &IMFVideoPresenter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFVideoPresenter, ::windows::core::IUnknown, IMFClockStateSink);
 impl ::core::clone::Clone for IMFVideoPresenter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -34327,21 +27502,7 @@ impl IMFVideoProcessor {
         (::windows::core::Vtable::vtable(self).SetBackgroundColor)(::windows::core::Vtable::as_raw(self), clrbkg.into()).ok()
     }
 }
-impl ::core::convert::From<IMFVideoProcessor> for ::windows::core::IUnknown {
-    fn from(value: IMFVideoProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoProcessor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFVideoProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoProcessor> for ::windows::core::IUnknown {
-    fn from(value: &IMFVideoProcessor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFVideoProcessor, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFVideoProcessor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -34419,21 +27580,7 @@ impl IMFVideoProcessorControl {
         (::windows::core::Vtable::vtable(self).SetConstrictionSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pconstrictionsize.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<IMFVideoProcessorControl> for ::windows::core::IUnknown {
-    fn from(value: IMFVideoProcessorControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoProcessorControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFVideoProcessorControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoProcessorControl> for ::windows::core::IUnknown {
-    fn from(value: &IMFVideoProcessorControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFVideoProcessorControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFVideoProcessorControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -34520,36 +27667,7 @@ impl IMFVideoProcessorControl2 {
         (::windows::core::Vtable::vtable(self).GetSupportedHardwareEffects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMFVideoProcessorControl2> for ::windows::core::IUnknown {
-    fn from(value: IMFVideoProcessorControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoProcessorControl2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFVideoProcessorControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoProcessorControl2> for ::windows::core::IUnknown {
-    fn from(value: &IMFVideoProcessorControl2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFVideoProcessorControl2> for IMFVideoProcessorControl {
-    fn from(value: IMFVideoProcessorControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoProcessorControl2> for &'a IMFVideoProcessorControl {
-    fn from(value: &'a IMFVideoProcessorControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoProcessorControl2> for IMFVideoProcessorControl {
-    fn from(value: &IMFVideoProcessorControl2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFVideoProcessorControl2, ::windows::core::IUnknown, IMFVideoProcessorControl);
 impl ::core::clone::Clone for IMFVideoProcessorControl2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -34648,51 +27766,7 @@ impl IMFVideoProcessorControl3 {
         (::windows::core::Vtable::vtable(self).SetOutputDevice)(::windows::core::Vtable::as_raw(self), poutputdevice.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFVideoProcessorControl3> for ::windows::core::IUnknown {
-    fn from(value: IMFVideoProcessorControl3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoProcessorControl3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFVideoProcessorControl3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoProcessorControl3> for ::windows::core::IUnknown {
-    fn from(value: &IMFVideoProcessorControl3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFVideoProcessorControl3> for IMFVideoProcessorControl {
-    fn from(value: IMFVideoProcessorControl3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoProcessorControl3> for &'a IMFVideoProcessorControl {
-    fn from(value: &'a IMFVideoProcessorControl3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoProcessorControl3> for IMFVideoProcessorControl {
-    fn from(value: &IMFVideoProcessorControl3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFVideoProcessorControl3> for IMFVideoProcessorControl2 {
-    fn from(value: IMFVideoProcessorControl3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoProcessorControl3> for &'a IMFVideoProcessorControl2 {
-    fn from(value: &'a IMFVideoProcessorControl3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoProcessorControl3> for IMFVideoProcessorControl2 {
-    fn from(value: &IMFVideoProcessorControl3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFVideoProcessorControl3, ::windows::core::IUnknown, IMFVideoProcessorControl, IMFVideoProcessorControl2);
 impl ::core::clone::Clone for IMFVideoProcessorControl3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -34739,21 +27813,7 @@ impl IMFVideoRenderer {
         (::windows::core::Vtable::vtable(self).InitializeRenderer)(::windows::core::Vtable::as_raw(self), pvideomixer.into().abi(), pvideopresenter.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFVideoRenderer> for ::windows::core::IUnknown {
-    fn from(value: IMFVideoRenderer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoRenderer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFVideoRenderer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoRenderer> for ::windows::core::IUnknown {
-    fn from(value: &IMFVideoRenderer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFVideoRenderer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFVideoRenderer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -34793,21 +27853,7 @@ impl IMFVideoRendererEffectControl {
         (::windows::core::Vtable::vtable(self).OnAppServiceConnectionEstablished)(::windows::core::Vtable::as_raw(self), pappserviceconnection.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFVideoRendererEffectControl> for ::windows::core::IUnknown {
-    fn from(value: IMFVideoRendererEffectControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoRendererEffectControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFVideoRendererEffectControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoRendererEffectControl> for ::windows::core::IUnknown {
-    fn from(value: &IMFVideoRendererEffectControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFVideoRendererEffectControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFVideoRendererEffectControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -34860,21 +27906,7 @@ impl IMFVideoSampleAllocator {
         (::windows::core::Vtable::vtable(self).AllocateSample)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSample>(result__)
     }
 }
-impl ::core::convert::From<IMFVideoSampleAllocator> for ::windows::core::IUnknown {
-    fn from(value: IMFVideoSampleAllocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoSampleAllocator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFVideoSampleAllocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoSampleAllocator> for ::windows::core::IUnknown {
-    fn from(value: &IMFVideoSampleAllocator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFVideoSampleAllocator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFVideoSampleAllocator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -34921,21 +27953,7 @@ impl IMFVideoSampleAllocatorCallback {
         (::windows::core::Vtable::vtable(self).GetFreeSampleCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
-impl ::core::convert::From<IMFVideoSampleAllocatorCallback> for ::windows::core::IUnknown {
-    fn from(value: IMFVideoSampleAllocatorCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoSampleAllocatorCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFVideoSampleAllocatorCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoSampleAllocatorCallback> for ::windows::core::IUnknown {
-    fn from(value: &IMFVideoSampleAllocatorCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFVideoSampleAllocatorCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFVideoSampleAllocatorCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -34996,36 +28014,7 @@ impl IMFVideoSampleAllocatorEx {
         (::windows::core::Vtable::vtable(self).InitializeSampleAllocatorEx)(::windows::core::Vtable::as_raw(self), cinitialsamples, cmaximumsamples, pattributes.into().abi(), pmediatype.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFVideoSampleAllocatorEx> for ::windows::core::IUnknown {
-    fn from(value: IMFVideoSampleAllocatorEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoSampleAllocatorEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFVideoSampleAllocatorEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoSampleAllocatorEx> for ::windows::core::IUnknown {
-    fn from(value: &IMFVideoSampleAllocatorEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFVideoSampleAllocatorEx> for IMFVideoSampleAllocator {
-    fn from(value: IMFVideoSampleAllocatorEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoSampleAllocatorEx> for &'a IMFVideoSampleAllocator {
-    fn from(value: &'a IMFVideoSampleAllocatorEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoSampleAllocatorEx> for IMFVideoSampleAllocator {
-    fn from(value: &IMFVideoSampleAllocatorEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFVideoSampleAllocatorEx, ::windows::core::IUnknown, IMFVideoSampleAllocator);
 impl ::core::clone::Clone for IMFVideoSampleAllocatorEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -35062,21 +28051,7 @@ impl IMFVideoSampleAllocatorNotify {
         (::windows::core::Vtable::vtable(self).NotifyRelease)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFVideoSampleAllocatorNotify> for ::windows::core::IUnknown {
-    fn from(value: IMFVideoSampleAllocatorNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoSampleAllocatorNotify> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFVideoSampleAllocatorNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoSampleAllocatorNotify> for ::windows::core::IUnknown {
-    fn from(value: &IMFVideoSampleAllocatorNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFVideoSampleAllocatorNotify, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFVideoSampleAllocatorNotify {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -35119,36 +28094,7 @@ impl IMFVideoSampleAllocatorNotifyEx {
         (::windows::core::Vtable::vtable(self).NotifyPrune)(::windows::core::Vtable::as_raw(self), __midl__imfvideosampleallocatornotifyex0000.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMFVideoSampleAllocatorNotifyEx> for ::windows::core::IUnknown {
-    fn from(value: IMFVideoSampleAllocatorNotifyEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoSampleAllocatorNotifyEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFVideoSampleAllocatorNotifyEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoSampleAllocatorNotifyEx> for ::windows::core::IUnknown {
-    fn from(value: &IMFVideoSampleAllocatorNotifyEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFVideoSampleAllocatorNotifyEx> for IMFVideoSampleAllocatorNotify {
-    fn from(value: IMFVideoSampleAllocatorNotifyEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVideoSampleAllocatorNotifyEx> for &'a IMFVideoSampleAllocatorNotify {
-    fn from(value: &'a IMFVideoSampleAllocatorNotifyEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVideoSampleAllocatorNotifyEx> for IMFVideoSampleAllocatorNotify {
-    fn from(value: &IMFVideoSampleAllocatorNotifyEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFVideoSampleAllocatorNotifyEx, ::windows::core::IUnknown, IMFVideoSampleAllocatorNotify);
 impl ::core::clone::Clone for IMFVideoSampleAllocatorNotifyEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -35366,36 +28312,7 @@ impl IMFVirtualCamera {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMFVirtualCamera> for ::windows::core::IUnknown {
-    fn from(value: IMFVirtualCamera) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVirtualCamera> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFVirtualCamera) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVirtualCamera> for ::windows::core::IUnknown {
-    fn from(value: &IMFVirtualCamera) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFVirtualCamera> for IMFAttributes {
-    fn from(value: IMFVirtualCamera) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFVirtualCamera> for &'a IMFAttributes {
-    fn from(value: &'a IMFVirtualCamera) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFVirtualCamera> for IMFAttributes {
-    fn from(value: &IMFVirtualCamera) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFVirtualCamera, ::windows::core::IUnknown, IMFAttributes);
 impl ::core::clone::Clone for IMFVirtualCamera {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -35516,21 +28433,7 @@ impl IMFWorkQueueServices {
         (::windows::core::Vtable::vtable(self).GetPlatformWorkQueueMMCSSTaskId)(::windows::core::Vtable::as_raw(self), dwplatformworkqueueid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMFWorkQueueServices> for ::windows::core::IUnknown {
-    fn from(value: IMFWorkQueueServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFWorkQueueServices> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFWorkQueueServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFWorkQueueServices> for ::windows::core::IUnknown {
-    fn from(value: &IMFWorkQueueServices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFWorkQueueServices, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMFWorkQueueServices {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -35659,36 +28562,7 @@ impl IMFWorkQueueServicesEx {
         (::windows::core::Vtable::vtable(self).GetPlatformWorkQueueMMCSSPriority)(::windows::core::Vtable::as_raw(self), dwplatformworkqueueid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
-impl ::core::convert::From<IMFWorkQueueServicesEx> for ::windows::core::IUnknown {
-    fn from(value: IMFWorkQueueServicesEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFWorkQueueServicesEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMFWorkQueueServicesEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFWorkQueueServicesEx> for ::windows::core::IUnknown {
-    fn from(value: &IMFWorkQueueServicesEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMFWorkQueueServicesEx> for IMFWorkQueueServices {
-    fn from(value: IMFWorkQueueServicesEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMFWorkQueueServicesEx> for &'a IMFWorkQueueServices {
-    fn from(value: &'a IMFWorkQueueServicesEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMFWorkQueueServicesEx> for IMFWorkQueueServices {
-    fn from(value: &IMFWorkQueueServicesEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMFWorkQueueServicesEx, ::windows::core::IUnknown, IMFWorkQueueServices);
 impl ::core::clone::Clone for IMFWorkQueueServicesEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -35741,21 +28615,7 @@ impl IOPMVideoOutput {
         (::windows::core::Vtable::vtable(self).Configure)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pparameters), pbadditionalparameters.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbadditionalparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
 }
-impl ::core::convert::From<IOPMVideoOutput> for ::windows::core::IUnknown {
-    fn from(value: IOPMVideoOutput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOPMVideoOutput> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOPMVideoOutput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOPMVideoOutput> for ::windows::core::IUnknown {
-    fn from(value: &IOPMVideoOutput) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOPMVideoOutput, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOPMVideoOutput {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -35802,21 +28662,7 @@ impl IPlayToControl {
         (::windows::core::Vtable::vtable(self).Disconnect)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IPlayToControl> for ::windows::core::IUnknown {
-    fn from(value: IPlayToControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPlayToControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPlayToControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPlayToControl> for ::windows::core::IUnknown {
-    fn from(value: &IPlayToControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPlayToControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPlayToControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -35864,36 +28710,7 @@ impl IPlayToControlWithCapabilities {
         (::windows::core::Vtable::vtable(self).GetCapabilities)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PLAYTO_SOURCE_CREATEFLAGS>(result__)
     }
 }
-impl ::core::convert::From<IPlayToControlWithCapabilities> for ::windows::core::IUnknown {
-    fn from(value: IPlayToControlWithCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPlayToControlWithCapabilities> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPlayToControlWithCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPlayToControlWithCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &IPlayToControlWithCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPlayToControlWithCapabilities> for IPlayToControl {
-    fn from(value: IPlayToControlWithCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPlayToControlWithCapabilities> for &'a IPlayToControl {
-    fn from(value: &'a IPlayToControlWithCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPlayToControlWithCapabilities> for IPlayToControl {
-    fn from(value: &IPlayToControlWithCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPlayToControlWithCapabilities, ::windows::core::IUnknown, IPlayToControl);
 impl ::core::clone::Clone for IPlayToControlWithCapabilities {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -35934,21 +28751,7 @@ impl IPlayToSourceClassFactory {
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), dwflags, pcontrol.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IInspectable>(result__)
     }
 }
-impl ::core::convert::From<IPlayToSourceClassFactory> for ::windows::core::IUnknown {
-    fn from(value: IPlayToSourceClassFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPlayToSourceClassFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPlayToSourceClassFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPlayToSourceClassFactory> for ::windows::core::IUnknown {
-    fn from(value: &IPlayToSourceClassFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPlayToSourceClassFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPlayToSourceClassFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -36025,21 +28828,7 @@ impl IToc {
         (::windows::core::Vtable::vtable(self).RemoveEntryListByIndex)(::windows::core::Vtable::as_raw(self), wentrylistindex).ok()
     }
 }
-impl ::core::convert::From<IToc> for ::windows::core::IUnknown {
-    fn from(value: IToc) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IToc> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IToc) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IToc> for ::windows::core::IUnknown {
-    fn from(value: &IToc) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IToc, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IToc {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -36105,21 +28894,7 @@ impl ITocCollection {
         (::windows::core::Vtable::vtable(self).RemoveEntryByIndex)(::windows::core::Vtable::as_raw(self), dwentryindex).ok()
     }
 }
-impl ::core::convert::From<ITocCollection> for ::windows::core::IUnknown {
-    fn from(value: ITocCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITocCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITocCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITocCollection> for ::windows::core::IUnknown {
-    fn from(value: &ITocCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITocCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITocCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -36184,21 +28959,7 @@ impl ITocEntry {
         (::windows::core::Vtable::vtable(self).GetDescriptionData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwdescriptiondatasize), ::core::mem::transmute(pbtdescriptiondata), ::core::mem::transmute(pguidtype)).ok()
     }
 }
-impl ::core::convert::From<ITocEntry> for ::windows::core::IUnknown {
-    fn from(value: ITocEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITocEntry> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITocEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITocEntry> for ::windows::core::IUnknown {
-    fn from(value: &ITocEntry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITocEntry, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITocEntry {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -36261,21 +29022,7 @@ impl ITocEntryList {
         (::windows::core::Vtable::vtable(self).RemoveEntryByIndex)(::windows::core::Vtable::as_raw(self), dwentryindex).ok()
     }
 }
-impl ::core::convert::From<ITocEntryList> for ::windows::core::IUnknown {
-    fn from(value: ITocEntryList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITocEntryList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITocEntryList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITocEntryList> for ::windows::core::IUnknown {
-    fn from(value: &ITocEntryList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITocEntryList, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITocEntryList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -36345,21 +29092,7 @@ impl ITocParser {
         (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ITocParser> for ::windows::core::IUnknown {
-    fn from(value: ITocParser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITocParser> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITocParser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITocParser> for ::windows::core::IUnknown {
-    fn from(value: &ITocParser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITocParser, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITocParser {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -36403,21 +29136,7 @@ impl IValidateBinding {
         (::windows::core::Vtable::vtable(self).GetIdentifier)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidlicensorid), ::core::mem::transmute(pbephemeron.as_ptr()), pbephemeron.len() as _, ::core::mem::transmute(ppbblobvalidationid), ::core::mem::transmute(pcbblobsize)).ok()
     }
 }
-impl ::core::convert::From<IValidateBinding> for ::windows::core::IUnknown {
-    fn from(value: IValidateBinding) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IValidateBinding> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IValidateBinding) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IValidateBinding> for ::windows::core::IUnknown {
-    fn from(value: &IValidateBinding) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IValidateBinding, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IValidateBinding {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -36463,21 +29182,7 @@ impl IWMCodecLeakyBucket {
         (::windows::core::Vtable::vtable(self).GetBufferFullnessBits)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pulbufferfullness)).ok()
     }
 }
-impl ::core::convert::From<IWMCodecLeakyBucket> for ::windows::core::IUnknown {
-    fn from(value: IWMCodecLeakyBucket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMCodecLeakyBucket> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMCodecLeakyBucket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMCodecLeakyBucket> for ::windows::core::IUnknown {
-    fn from(value: &IWMCodecLeakyBucket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMCodecLeakyBucket, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMCodecLeakyBucket {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -36517,21 +29222,7 @@ impl IWMCodecOutputTimestamp {
         (::windows::core::Vtable::vtable(self).GetNextOutputTime)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prttime)).ok()
     }
 }
-impl ::core::convert::From<IWMCodecOutputTimestamp> for ::windows::core::IUnknown {
-    fn from(value: IWMCodecOutputTimestamp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMCodecOutputTimestamp> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMCodecOutputTimestamp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMCodecOutputTimestamp> for ::windows::core::IUnknown {
-    fn from(value: &IWMCodecOutputTimestamp) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMCodecOutputTimestamp, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMCodecOutputTimestamp {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -36573,21 +29264,7 @@ impl IWMCodecPrivateData {
         (::windows::core::Vtable::vtable(self).GetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbdata), ::core::mem::transmute(pcbdata)).ok()
     }
 }
-impl ::core::convert::From<IWMCodecPrivateData> for ::windows::core::IUnknown {
-    fn from(value: IWMCodecPrivateData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMCodecPrivateData> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMCodecPrivateData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMCodecPrivateData> for ::windows::core::IUnknown {
-    fn from(value: &IWMCodecPrivateData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMCodecPrivateData, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMCodecPrivateData {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -36639,21 +29316,7 @@ impl IWMCodecProps {
         (::windows::core::Vtable::vtable(self).GetCodecProp)(::windows::core::Vtable::as_raw(self), dwformat, pszname.into(), ::core::mem::transmute(ptype), ::core::mem::transmute(pvalue), ::core::mem::transmute(pdwsize)).ok()
     }
 }
-impl ::core::convert::From<IWMCodecProps> for ::windows::core::IUnknown {
-    fn from(value: IWMCodecProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMCodecProps> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMCodecProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMCodecProps> for ::windows::core::IUnknown {
-    fn from(value: &IWMCodecProps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMCodecProps, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMCodecProps {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -36701,21 +29364,7 @@ impl IWMCodecStrings {
         (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmt), szdescription.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(szdescription.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pcchlength)).ok()
     }
 }
-impl ::core::convert::From<IWMCodecStrings> for ::windows::core::IUnknown {
-    fn from(value: IWMCodecStrings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMCodecStrings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMCodecStrings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMCodecStrings> for ::windows::core::IUnknown {
-    fn from(value: &IWMCodecStrings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMCodecStrings, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMCodecStrings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -36762,21 +29411,7 @@ impl IWMColorConvProps {
         (::windows::core::Vtable::vtable(self).SetFullCroppingParam)(::windows::core::Vtable::as_raw(self), lsrccropleft, lsrccroptop, ldstcropleft, ldstcroptop, lcropwidth, lcropheight).ok()
     }
 }
-impl ::core::convert::From<IWMColorConvProps> for ::windows::core::IUnknown {
-    fn from(value: IWMColorConvProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMColorConvProps> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMColorConvProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMColorConvProps> for ::windows::core::IUnknown {
-    fn from(value: &IWMColorConvProps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMColorConvProps, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMColorConvProps {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -36814,21 +29449,7 @@ impl IWMColorLegalizerProps {
         (::windows::core::Vtable::vtable(self).SetColorLegalizerQuality)(::windows::core::Vtable::as_raw(self), lquality).ok()
     }
 }
-impl ::core::convert::From<IWMColorLegalizerProps> for ::windows::core::IUnknown {
-    fn from(value: IWMColorLegalizerProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMColorLegalizerProps> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMColorLegalizerProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMColorLegalizerProps> for ::windows::core::IUnknown {
-    fn from(value: &IWMColorLegalizerProps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMColorLegalizerProps, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMColorLegalizerProps {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -36879,21 +29500,7 @@ impl IWMFrameInterpProps {
         (::windows::core::Vtable::vtable(self).SetComplexityLevel)(::windows::core::Vtable::as_raw(self), icomplexity).ok()
     }
 }
-impl ::core::convert::From<IWMFrameInterpProps> for ::windows::core::IUnknown {
-    fn from(value: IWMFrameInterpProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMFrameInterpProps> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMFrameInterpProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMFrameInterpProps> for ::windows::core::IUnknown {
-    fn from(value: &IWMFrameInterpProps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMFrameInterpProps, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMFrameInterpProps {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -36942,21 +29549,7 @@ impl IWMInterlaceProps {
         (::windows::core::Vtable::vtable(self).SetLastFrame)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMInterlaceProps> for ::windows::core::IUnknown {
-    fn from(value: IWMInterlaceProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMInterlaceProps> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMInterlaceProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMInterlaceProps> for ::windows::core::IUnknown {
-    fn from(value: &IWMInterlaceProps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMInterlaceProps, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMInterlaceProps {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -36998,21 +29591,7 @@ impl IWMResamplerProps {
         (::windows::core::Vtable::vtable(self).SetUserChannelMtx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(userchannelmtx)).ok()
     }
 }
-impl ::core::convert::From<IWMResamplerProps> for ::windows::core::IUnknown {
-    fn from(value: IWMResamplerProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMResamplerProps> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMResamplerProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMResamplerProps> for ::windows::core::IUnknown {
-    fn from(value: &IWMResamplerProps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMResamplerProps, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMResamplerProps {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -37062,21 +29641,7 @@ impl IWMResizerProps {
         (::windows::core::Vtable::vtable(self).GetFullCropRegion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lcliporixsrc), ::core::mem::transmute(lcliporiysrc), ::core::mem::transmute(lclipwidthsrc), ::core::mem::transmute(lclipheightsrc), ::core::mem::transmute(lcliporixdst), ::core::mem::transmute(lcliporiydst), ::core::mem::transmute(lclipwidthdst), ::core::mem::transmute(lclipheightdst)).ok()
     }
 }
-impl ::core::convert::From<IWMResizerProps> for ::windows::core::IUnknown {
-    fn from(value: IWMResizerProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMResizerProps> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMResizerProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMResizerProps> for ::windows::core::IUnknown {
-    fn from(value: &IWMResizerProps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMResizerProps, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMResizerProps {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -37122,21 +29687,7 @@ impl IWMSampleExtensionSupport {
         (::windows::core::Vtable::vtable(self).SetUseSampleExtensions)(::windows::core::Vtable::as_raw(self), fuseextensions.into()).ok()
     }
 }
-impl ::core::convert::From<IWMSampleExtensionSupport> for ::windows::core::IUnknown {
-    fn from(value: IWMSampleExtensionSupport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMSampleExtensionSupport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMSampleExtensionSupport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMSampleExtensionSupport> for ::windows::core::IUnknown {
-    fn from(value: &IWMSampleExtensionSupport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMSampleExtensionSupport, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMSampleExtensionSupport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -37176,21 +29727,7 @@ impl IWMValidate {
         (::windows::core::Vtable::vtable(self).SetIdentifier)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidvalidationid)).ok()
     }
 }
-impl ::core::convert::From<IWMValidate> for ::windows::core::IUnknown {
-    fn from(value: IWMValidate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMValidate> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMValidate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMValidate> for ::windows::core::IUnknown {
-    fn from(value: &IWMValidate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMValidate, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMValidate {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -37230,21 +29767,7 @@ impl IWMVideoDecoderHurryup {
         (::windows::core::Vtable::vtable(self).GetHurryup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plhurryup)).ok()
     }
 }
-impl ::core::convert::From<IWMVideoDecoderHurryup> for ::windows::core::IUnknown {
-    fn from(value: IWMVideoDecoderHurryup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMVideoDecoderHurryup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMVideoDecoderHurryup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMVideoDecoderHurryup> for ::windows::core::IUnknown {
-    fn from(value: &IWMVideoDecoderHurryup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMVideoDecoderHurryup, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMVideoDecoderHurryup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -37298,21 +29821,7 @@ impl IWMVideoDecoderReconBuffer {
         (::windows::core::Vtable::vtable(self).SetReconstructedVideoFrame)(::windows::core::Vtable::as_raw(self), pbuf.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IWMVideoDecoderReconBuffer> for ::windows::core::IUnknown {
-    fn from(value: IWMVideoDecoderReconBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMVideoDecoderReconBuffer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMVideoDecoderReconBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMVideoDecoderReconBuffer> for ::windows::core::IUnknown {
-    fn from(value: &IWMVideoDecoderReconBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMVideoDecoderReconBuffer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMVideoDecoderReconBuffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -37357,21 +29866,7 @@ impl IWMVideoForceKeyFrame {
         (::windows::core::Vtable::vtable(self).SetKeyFrame)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMVideoForceKeyFrame> for ::windows::core::IUnknown {
-    fn from(value: IWMVideoForceKeyFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMVideoForceKeyFrame> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMVideoForceKeyFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMVideoForceKeyFrame> for ::windows::core::IUnknown {
-    fn from(value: &IWMVideoForceKeyFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMVideoForceKeyFrame, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMVideoForceKeyFrame {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -37422,36 +29917,7 @@ impl MFASYNCRESULT {
         (::windows::core::Vtable::vtable(self).base__.GetStateNoAddRef)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<MFASYNCRESULT> for ::windows::core::IUnknown {
-    fn from(value: MFASYNCRESULT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a MFASYNCRESULT> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a MFASYNCRESULT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MFASYNCRESULT> for ::windows::core::IUnknown {
-    fn from(value: &MFASYNCRESULT) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<MFASYNCRESULT> for IMFAsyncResult {
-    fn from(value: MFASYNCRESULT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a MFASYNCRESULT> for &'a IMFAsyncResult {
-    fn from(value: &'a MFASYNCRESULT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MFASYNCRESULT> for IMFAsyncResult {
-    fn from(value: &MFASYNCRESULT) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(MFASYNCRESULT, ::windows::core::IUnknown, IMFAsyncResult);
 impl ::core::clone::Clone for MFASYNCRESULT {
     fn clone(&self) -> Self {
         Self(self.0.clone())

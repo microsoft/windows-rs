@@ -51,21 +51,7 @@ impl IBitmapData {
         (::windows::core::Vtable::vtable(self).GetSourceBitmapDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BitmapDescription>(result__)
     }
 }
-impl ::core::convert::From<IBitmapData> for ::windows::core::IUnknown {
-    fn from(value: IBitmapData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBitmapData> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBitmapData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBitmapData> for ::windows::core::IUnknown {
-    fn from(value: &IBitmapData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBitmapData, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IBitmapData {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -156,21 +142,7 @@ impl IVisualTreeService {
         (::windows::core::Vtable::vtable(self).ClearChildren)(::windows::core::Vtable::as_raw(self), parent).ok()
     }
 }
-impl ::core::convert::From<IVisualTreeService> for ::windows::core::IUnknown {
-    fn from(value: IVisualTreeService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVisualTreeService> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVisualTreeService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVisualTreeService> for ::windows::core::IUnknown {
-    fn from(value: &IVisualTreeService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVisualTreeService, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVisualTreeService {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -287,36 +259,7 @@ impl IVisualTreeService2 {
         (::windows::core::Vtable::vtable(self).RenderTargetBitmap)(::windows::core::Vtable::as_raw(self), handle, options, maxpixelwidth, maxpixelheight, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBitmapData>(result__)
     }
 }
-impl ::core::convert::From<IVisualTreeService2> for ::windows::core::IUnknown {
-    fn from(value: IVisualTreeService2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVisualTreeService2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVisualTreeService2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVisualTreeService2> for ::windows::core::IUnknown {
-    fn from(value: &IVisualTreeService2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVisualTreeService2> for IVisualTreeService {
-    fn from(value: IVisualTreeService2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVisualTreeService2> for &'a IVisualTreeService {
-    fn from(value: &'a IVisualTreeService2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVisualTreeService2> for IVisualTreeService {
-    fn from(value: &IVisualTreeService2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVisualTreeService2, ::windows::core::IUnknown, IVisualTreeService);
 impl ::core::clone::Clone for IVisualTreeService2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -441,51 +384,7 @@ impl IVisualTreeService3 {
         (::windows::core::Vtable::vtable(self).RemoveDictionaryItem)(::windows::core::Vtable::as_raw(self), dictionaryhandle, resourcekey).ok()
     }
 }
-impl ::core::convert::From<IVisualTreeService3> for ::windows::core::IUnknown {
-    fn from(value: IVisualTreeService3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVisualTreeService3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVisualTreeService3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVisualTreeService3> for ::windows::core::IUnknown {
-    fn from(value: &IVisualTreeService3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVisualTreeService3> for IVisualTreeService {
-    fn from(value: IVisualTreeService3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVisualTreeService3> for &'a IVisualTreeService {
-    fn from(value: &'a IVisualTreeService3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVisualTreeService3> for IVisualTreeService {
-    fn from(value: &IVisualTreeService3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVisualTreeService3> for IVisualTreeService2 {
-    fn from(value: IVisualTreeService3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVisualTreeService3> for &'a IVisualTreeService2 {
-    fn from(value: &'a IVisualTreeService3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVisualTreeService3> for IVisualTreeService2 {
-    fn from(value: &IVisualTreeService3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVisualTreeService3, ::windows::core::IUnknown, IVisualTreeService, IVisualTreeService2);
 impl ::core::clone::Clone for IVisualTreeService3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -531,21 +430,7 @@ impl IVisualTreeServiceCallback {
         (::windows::core::Vtable::vtable(self).OnVisualTreeChange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(relation), element.into().abi(), mutationtype).ok()
     }
 }
-impl ::core::convert::From<IVisualTreeServiceCallback> for ::windows::core::IUnknown {
-    fn from(value: IVisualTreeServiceCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVisualTreeServiceCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVisualTreeServiceCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVisualTreeServiceCallback> for ::windows::core::IUnknown {
-    fn from(value: &IVisualTreeServiceCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVisualTreeServiceCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVisualTreeServiceCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -591,36 +476,7 @@ impl IVisualTreeServiceCallback2 {
         (::windows::core::Vtable::vtable(self).OnElementStateChanged)(::windows::core::Vtable::as_raw(self), element, elementstate, context.into()).ok()
     }
 }
-impl ::core::convert::From<IVisualTreeServiceCallback2> for ::windows::core::IUnknown {
-    fn from(value: IVisualTreeServiceCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVisualTreeServiceCallback2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVisualTreeServiceCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVisualTreeServiceCallback2> for ::windows::core::IUnknown {
-    fn from(value: &IVisualTreeServiceCallback2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVisualTreeServiceCallback2> for IVisualTreeServiceCallback {
-    fn from(value: IVisualTreeServiceCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVisualTreeServiceCallback2> for &'a IVisualTreeServiceCallback {
-    fn from(value: &'a IVisualTreeServiceCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVisualTreeServiceCallback2> for IVisualTreeServiceCallback {
-    fn from(value: &IVisualTreeServiceCallback2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVisualTreeServiceCallback2, ::windows::core::IUnknown, IVisualTreeServiceCallback);
 impl ::core::clone::Clone for IVisualTreeServiceCallback2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -693,21 +549,7 @@ impl IXamlDiagnostics {
         (::windows::core::Vtable::vtable(self).GetInitializationData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
-impl ::core::convert::From<IXamlDiagnostics> for ::windows::core::IUnknown {
-    fn from(value: IXamlDiagnostics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXamlDiagnostics> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXamlDiagnostics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXamlDiagnostics> for ::windows::core::IUnknown {
-    fn from(value: &IXamlDiagnostics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXamlDiagnostics, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXamlDiagnostics {
     fn clone(&self) -> Self {
         Self(self.0.clone())

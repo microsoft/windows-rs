@@ -119,36 +119,7 @@ unsafe impl ::windows::core::Interface for AudioRoutingManager {
 impl ::windows::core::RuntimeName for AudioRoutingManager {
     const NAME: &'static str = "Windows.Phone.Media.Devices.AudioRoutingManager";
 }
-impl ::core::convert::From<AudioRoutingManager> for ::windows::core::IUnknown {
-    fn from(value: AudioRoutingManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioRoutingManager> for ::windows::core::IUnknown {
-    fn from(value: &AudioRoutingManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioRoutingManager> for &::windows::core::IUnknown {
-    fn from(value: &AudioRoutingManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioRoutingManager> for ::windows::core::IInspectable {
-    fn from(value: AudioRoutingManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioRoutingManager> for ::windows::core::IInspectable {
-    fn from(value: &AudioRoutingManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioRoutingManager> for &::windows::core::IInspectable {
-    fn from(value: &AudioRoutingManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioRoutingManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioRoutingManager {}
 unsafe impl ::core::marker::Sync for AudioRoutingManager {}
 #[doc = "*Required features: `\"Phone_Media_Devices\"`*"]

@@ -3563,21 +3563,7 @@ impl IDialBranding {
         (::windows::core::Vtable::vtable(self).GetBitmap)(::windows::core::Vtable::as_raw(self), dwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::HBITMAP>(result__)
     }
 }
-impl ::core::convert::From<IDialBranding> for ::windows::core::IUnknown {
-    fn from(value: IDialBranding) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDialBranding> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDialBranding) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDialBranding> for ::windows::core::IUnknown {
-    fn from(value: &IDialBranding) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDialBranding, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDialBranding {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3650,21 +3636,7 @@ impl IDialEngine {
         (::windows::core::Vtable::vtable(self).GetConnectHandle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
     }
 }
-impl ::core::convert::From<IDialEngine> for ::windows::core::IUnknown {
-    fn from(value: IDialEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDialEngine> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDialEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDialEngine> for ::windows::core::IUnknown {
-    fn from(value: &IDialEngine) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDialEngine, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDialEngine {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3707,21 +3679,7 @@ impl IDialEventSink {
         (::windows::core::Vtable::vtable(self).OnEvent)(::windows::core::Vtable::as_raw(self), dwevent, dwstatus).ok()
     }
 }
-impl ::core::convert::From<IDialEventSink> for ::windows::core::IUnknown {
-    fn from(value: IDialEventSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDialEventSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDialEventSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDialEventSink> for ::windows::core::IUnknown {
-    fn from(value: &IDialEventSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDialEventSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDialEventSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3761,21 +3719,7 @@ impl IProofOfPossessionCookieInfoManager {
         (::windows::core::Vtable::vtable(self).GetCookieInfoForUri)(::windows::core::Vtable::as_raw(self), uri.into(), ::core::mem::transmute(cookieinfocount), ::core::mem::transmute(cookieinfo)).ok()
     }
 }
-impl ::core::convert::From<IProofOfPossessionCookieInfoManager> for ::windows::core::IUnknown {
-    fn from(value: IProofOfPossessionCookieInfoManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProofOfPossessionCookieInfoManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IProofOfPossessionCookieInfoManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProofOfPossessionCookieInfoManager> for ::windows::core::IUnknown {
-    fn from(value: &IProofOfPossessionCookieInfoManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IProofOfPossessionCookieInfoManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IProofOfPossessionCookieInfoManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3816,21 +3760,7 @@ impl IProofOfPossessionCookieInfoManager2 {
         (::windows::core::Vtable::vtable(self).GetCookieInfoWithUriForAccount)(::windows::core::Vtable::as_raw(self), webaccount.into().abi(), uri.into(), ::core::mem::transmute(cookieinfocount), ::core::mem::transmute(cookieinfo)).ok()
     }
 }
-impl ::core::convert::From<IProofOfPossessionCookieInfoManager2> for ::windows::core::IUnknown {
-    fn from(value: IProofOfPossessionCookieInfoManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProofOfPossessionCookieInfoManager2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IProofOfPossessionCookieInfoManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProofOfPossessionCookieInfoManager2> for ::windows::core::IUnknown {
-    fn from(value: &IProofOfPossessionCookieInfoManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IProofOfPossessionCookieInfoManager2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IProofOfPossessionCookieInfoManager2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())

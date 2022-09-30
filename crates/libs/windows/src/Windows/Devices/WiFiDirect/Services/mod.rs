@@ -496,36 +496,7 @@ unsafe impl ::windows::core::Interface for WiFiDirectService {
 impl ::windows::core::RuntimeName for WiFiDirectService {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectService";
 }
-impl ::core::convert::From<WiFiDirectService> for ::windows::core::IUnknown {
-    fn from(value: WiFiDirectService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiDirectService> for ::windows::core::IUnknown {
-    fn from(value: &WiFiDirectService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiDirectService> for &::windows::core::IUnknown {
-    fn from(value: &WiFiDirectService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WiFiDirectService> for ::windows::core::IInspectable {
-    fn from(value: WiFiDirectService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiDirectService> for ::windows::core::IInspectable {
-    fn from(value: &WiFiDirectService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiDirectService> for &::windows::core::IInspectable {
-    fn from(value: &WiFiDirectService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WiFiDirectService, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiDirectService {}
 unsafe impl ::core::marker::Sync for WiFiDirectService {}
 #[doc = "*Required features: `\"Devices_WiFiDirect_Services\"`*"]
@@ -768,36 +739,7 @@ unsafe impl ::windows::core::Interface for WiFiDirectServiceAdvertiser {
 impl ::windows::core::RuntimeName for WiFiDirectServiceAdvertiser {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceAdvertiser";
 }
-impl ::core::convert::From<WiFiDirectServiceAdvertiser> for ::windows::core::IUnknown {
-    fn from(value: WiFiDirectServiceAdvertiser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceAdvertiser> for ::windows::core::IUnknown {
-    fn from(value: &WiFiDirectServiceAdvertiser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceAdvertiser> for &::windows::core::IUnknown {
-    fn from(value: &WiFiDirectServiceAdvertiser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WiFiDirectServiceAdvertiser> for ::windows::core::IInspectable {
-    fn from(value: WiFiDirectServiceAdvertiser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceAdvertiser> for ::windows::core::IInspectable {
-    fn from(value: &WiFiDirectServiceAdvertiser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceAdvertiser> for &::windows::core::IInspectable {
-    fn from(value: &WiFiDirectServiceAdvertiser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WiFiDirectServiceAdvertiser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiDirectServiceAdvertiser {}
 unsafe impl ::core::marker::Sync for WiFiDirectServiceAdvertiser {}
 #[doc = "*Required features: `\"Devices_WiFiDirect_Services\"`*"]
@@ -853,36 +795,7 @@ unsafe impl ::windows::core::Interface for WiFiDirectServiceAutoAcceptSessionCon
 impl ::windows::core::RuntimeName for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceAutoAcceptSessionConnectedEventArgs";
 }
-impl ::core::convert::From<WiFiDirectServiceAutoAcceptSessionConnectedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: WiFiDirectServiceAutoAcceptSessionConnectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceAutoAcceptSessionConnectedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &WiFiDirectServiceAutoAcceptSessionConnectedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceAutoAcceptSessionConnectedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &WiFiDirectServiceAutoAcceptSessionConnectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WiFiDirectServiceAutoAcceptSessionConnectedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: WiFiDirectServiceAutoAcceptSessionConnectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceAutoAcceptSessionConnectedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &WiFiDirectServiceAutoAcceptSessionConnectedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceAutoAcceptSessionConnectedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &WiFiDirectServiceAutoAcceptSessionConnectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WiFiDirectServiceAutoAcceptSessionConnectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {}
 unsafe impl ::core::marker::Sync for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {}
 #[doc = "*Required features: `\"Devices_WiFiDirect_Services\"`*"]
@@ -936,36 +849,7 @@ unsafe impl ::windows::core::Interface for WiFiDirectServiceProvisioningInfo {
 impl ::windows::core::RuntimeName for WiFiDirectServiceProvisioningInfo {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceProvisioningInfo";
 }
-impl ::core::convert::From<WiFiDirectServiceProvisioningInfo> for ::windows::core::IUnknown {
-    fn from(value: WiFiDirectServiceProvisioningInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceProvisioningInfo> for ::windows::core::IUnknown {
-    fn from(value: &WiFiDirectServiceProvisioningInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceProvisioningInfo> for &::windows::core::IUnknown {
-    fn from(value: &WiFiDirectServiceProvisioningInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WiFiDirectServiceProvisioningInfo> for ::windows::core::IInspectable {
-    fn from(value: WiFiDirectServiceProvisioningInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceProvisioningInfo> for ::windows::core::IInspectable {
-    fn from(value: &WiFiDirectServiceProvisioningInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceProvisioningInfo> for &::windows::core::IInspectable {
-    fn from(value: &WiFiDirectServiceProvisioningInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WiFiDirectServiceProvisioningInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiDirectServiceProvisioningInfo {}
 unsafe impl ::core::marker::Sync for WiFiDirectServiceProvisioningInfo {}
 #[doc = "*Required features: `\"Devices_WiFiDirect_Services\"`*"]
@@ -1021,36 +905,7 @@ unsafe impl ::windows::core::Interface for WiFiDirectServiceRemotePortAddedEvent
 impl ::windows::core::RuntimeName for WiFiDirectServiceRemotePortAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceRemotePortAddedEventArgs";
 }
-impl ::core::convert::From<WiFiDirectServiceRemotePortAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: WiFiDirectServiceRemotePortAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceRemotePortAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &WiFiDirectServiceRemotePortAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceRemotePortAddedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &WiFiDirectServiceRemotePortAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WiFiDirectServiceRemotePortAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: WiFiDirectServiceRemotePortAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceRemotePortAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &WiFiDirectServiceRemotePortAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceRemotePortAddedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &WiFiDirectServiceRemotePortAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WiFiDirectServiceRemotePortAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiDirectServiceRemotePortAddedEventArgs {}
 unsafe impl ::core::marker::Sync for WiFiDirectServiceRemotePortAddedEventArgs {}
 #[doc = "*Required features: `\"Devices_WiFiDirect_Services\"`*"]
@@ -1202,36 +1057,7 @@ unsafe impl ::windows::core::Interface for WiFiDirectServiceSession {
 impl ::windows::core::RuntimeName for WiFiDirectServiceSession {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSession";
 }
-impl ::core::convert::From<WiFiDirectServiceSession> for ::windows::core::IUnknown {
-    fn from(value: WiFiDirectServiceSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceSession> for ::windows::core::IUnknown {
-    fn from(value: &WiFiDirectServiceSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceSession> for &::windows::core::IUnknown {
-    fn from(value: &WiFiDirectServiceSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WiFiDirectServiceSession> for ::windows::core::IInspectable {
-    fn from(value: WiFiDirectServiceSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceSession> for ::windows::core::IInspectable {
-    fn from(value: &WiFiDirectServiceSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceSession> for &::windows::core::IInspectable {
-    fn from(value: &WiFiDirectServiceSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WiFiDirectServiceSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<WiFiDirectServiceSession> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1302,36 +1128,7 @@ unsafe impl ::windows::core::Interface for WiFiDirectServiceSessionDeferredEvent
 impl ::windows::core::RuntimeName for WiFiDirectServiceSessionDeferredEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionDeferredEventArgs";
 }
-impl ::core::convert::From<WiFiDirectServiceSessionDeferredEventArgs> for ::windows::core::IUnknown {
-    fn from(value: WiFiDirectServiceSessionDeferredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceSessionDeferredEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &WiFiDirectServiceSessionDeferredEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceSessionDeferredEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &WiFiDirectServiceSessionDeferredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WiFiDirectServiceSessionDeferredEventArgs> for ::windows::core::IInspectable {
-    fn from(value: WiFiDirectServiceSessionDeferredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceSessionDeferredEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &WiFiDirectServiceSessionDeferredEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceSessionDeferredEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &WiFiDirectServiceSessionDeferredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WiFiDirectServiceSessionDeferredEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiDirectServiceSessionDeferredEventArgs {}
 unsafe impl ::core::marker::Sync for WiFiDirectServiceSessionDeferredEventArgs {}
 #[doc = "*Required features: `\"Devices_WiFiDirect_Services\"`*"]
@@ -1402,36 +1199,7 @@ unsafe impl ::windows::core::Interface for WiFiDirectServiceSessionRequest {
 impl ::windows::core::RuntimeName for WiFiDirectServiceSessionRequest {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionRequest";
 }
-impl ::core::convert::From<WiFiDirectServiceSessionRequest> for ::windows::core::IUnknown {
-    fn from(value: WiFiDirectServiceSessionRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceSessionRequest> for ::windows::core::IUnknown {
-    fn from(value: &WiFiDirectServiceSessionRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceSessionRequest> for &::windows::core::IUnknown {
-    fn from(value: &WiFiDirectServiceSessionRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WiFiDirectServiceSessionRequest> for ::windows::core::IInspectable {
-    fn from(value: WiFiDirectServiceSessionRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceSessionRequest> for ::windows::core::IInspectable {
-    fn from(value: &WiFiDirectServiceSessionRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceSessionRequest> for &::windows::core::IInspectable {
-    fn from(value: &WiFiDirectServiceSessionRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WiFiDirectServiceSessionRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<WiFiDirectServiceSessionRequest> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1500,36 +1268,7 @@ unsafe impl ::windows::core::Interface for WiFiDirectServiceSessionRequestedEven
 impl ::windows::core::RuntimeName for WiFiDirectServiceSessionRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionRequestedEventArgs";
 }
-impl ::core::convert::From<WiFiDirectServiceSessionRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: WiFiDirectServiceSessionRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceSessionRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &WiFiDirectServiceSessionRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceSessionRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &WiFiDirectServiceSessionRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WiFiDirectServiceSessionRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: WiFiDirectServiceSessionRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceSessionRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &WiFiDirectServiceSessionRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiDirectServiceSessionRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &WiFiDirectServiceSessionRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WiFiDirectServiceSessionRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiDirectServiceSessionRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for WiFiDirectServiceSessionRequestedEventArgs {}
 #[doc = "*Required features: `\"Devices_WiFiDirect_Services\"`*"]

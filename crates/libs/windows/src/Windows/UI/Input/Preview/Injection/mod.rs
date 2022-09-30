@@ -363,36 +363,7 @@ unsafe impl ::windows::core::Interface for InjectedInputGamepadInfo {
 impl ::windows::core::RuntimeName for InjectedInputGamepadInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputGamepadInfo";
 }
-impl ::core::convert::From<InjectedInputGamepadInfo> for ::windows::core::IUnknown {
-    fn from(value: InjectedInputGamepadInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InjectedInputGamepadInfo> for ::windows::core::IUnknown {
-    fn from(value: &InjectedInputGamepadInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InjectedInputGamepadInfo> for &::windows::core::IUnknown {
-    fn from(value: &InjectedInputGamepadInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InjectedInputGamepadInfo> for ::windows::core::IInspectable {
-    fn from(value: InjectedInputGamepadInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InjectedInputGamepadInfo> for ::windows::core::IInspectable {
-    fn from(value: &InjectedInputGamepadInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InjectedInputGamepadInfo> for &::windows::core::IInspectable {
-    fn from(value: &InjectedInputGamepadInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InjectedInputGamepadInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InjectedInputKeyboardInfo(::windows::core::IUnknown);
@@ -470,36 +441,7 @@ unsafe impl ::windows::core::Interface for InjectedInputKeyboardInfo {
 impl ::windows::core::RuntimeName for InjectedInputKeyboardInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputKeyboardInfo";
 }
-impl ::core::convert::From<InjectedInputKeyboardInfo> for ::windows::core::IUnknown {
-    fn from(value: InjectedInputKeyboardInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InjectedInputKeyboardInfo> for ::windows::core::IUnknown {
-    fn from(value: &InjectedInputKeyboardInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InjectedInputKeyboardInfo> for &::windows::core::IUnknown {
-    fn from(value: &InjectedInputKeyboardInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InjectedInputKeyboardInfo> for ::windows::core::IInspectable {
-    fn from(value: InjectedInputKeyboardInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InjectedInputKeyboardInfo> for ::windows::core::IInspectable {
-    fn from(value: &InjectedInputKeyboardInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InjectedInputKeyboardInfo> for &::windows::core::IInspectable {
-    fn from(value: &InjectedInputKeyboardInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InjectedInputKeyboardInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InjectedInputMouseInfo(::windows::core::IUnknown);
@@ -599,36 +541,7 @@ unsafe impl ::windows::core::Interface for InjectedInputMouseInfo {
 impl ::windows::core::RuntimeName for InjectedInputMouseInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputMouseInfo";
 }
-impl ::core::convert::From<InjectedInputMouseInfo> for ::windows::core::IUnknown {
-    fn from(value: InjectedInputMouseInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InjectedInputMouseInfo> for ::windows::core::IUnknown {
-    fn from(value: &InjectedInputMouseInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InjectedInputMouseInfo> for &::windows::core::IUnknown {
-    fn from(value: &InjectedInputMouseInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InjectedInputMouseInfo> for ::windows::core::IInspectable {
-    fn from(value: InjectedInputMouseInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InjectedInputMouseInfo> for ::windows::core::IInspectable {
-    fn from(value: &InjectedInputMouseInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InjectedInputMouseInfo> for &::windows::core::IInspectable {
-    fn from(value: &InjectedInputMouseInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InjectedInputMouseInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InjectedInputPenInfo(::windows::core::IUnknown);
@@ -750,36 +663,7 @@ unsafe impl ::windows::core::Interface for InjectedInputPenInfo {
 impl ::windows::core::RuntimeName for InjectedInputPenInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputPenInfo";
 }
-impl ::core::convert::From<InjectedInputPenInfo> for ::windows::core::IUnknown {
-    fn from(value: InjectedInputPenInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InjectedInputPenInfo> for ::windows::core::IUnknown {
-    fn from(value: &InjectedInputPenInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InjectedInputPenInfo> for &::windows::core::IUnknown {
-    fn from(value: &InjectedInputPenInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InjectedInputPenInfo> for ::windows::core::IInspectable {
-    fn from(value: InjectedInputPenInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InjectedInputPenInfo> for ::windows::core::IInspectable {
-    fn from(value: &InjectedInputPenInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InjectedInputPenInfo> for &::windows::core::IInspectable {
-    fn from(value: &InjectedInputPenInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InjectedInputPenInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InjectedInputTouchInfo(::windows::core::IUnknown);
@@ -879,36 +763,7 @@ unsafe impl ::windows::core::Interface for InjectedInputTouchInfo {
 impl ::windows::core::RuntimeName for InjectedInputTouchInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputTouchInfo";
 }
-impl ::core::convert::From<InjectedInputTouchInfo> for ::windows::core::IUnknown {
-    fn from(value: InjectedInputTouchInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InjectedInputTouchInfo> for ::windows::core::IUnknown {
-    fn from(value: &InjectedInputTouchInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InjectedInputTouchInfo> for &::windows::core::IUnknown {
-    fn from(value: &InjectedInputTouchInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InjectedInputTouchInfo> for ::windows::core::IInspectable {
-    fn from(value: InjectedInputTouchInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InjectedInputTouchInfo> for ::windows::core::IInspectable {
-    fn from(value: &InjectedInputTouchInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InjectedInputTouchInfo> for &::windows::core::IInspectable {
-    fn from(value: &InjectedInputTouchInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InjectedInputTouchInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InputInjector(::windows::core::IUnknown);
@@ -1034,36 +889,7 @@ unsafe impl ::windows::core::Interface for InputInjector {
 impl ::windows::core::RuntimeName for InputInjector {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InputInjector";
 }
-impl ::core::convert::From<InputInjector> for ::windows::core::IUnknown {
-    fn from(value: InputInjector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InputInjector> for ::windows::core::IUnknown {
-    fn from(value: &InputInjector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InputInjector> for &::windows::core::IUnknown {
-    fn from(value: &InputInjector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InputInjector> for ::windows::core::IInspectable {
-    fn from(value: InputInjector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InputInjector> for ::windows::core::IInspectable {
-    fn from(value: &InputInjector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InputInjector> for &::windows::core::IInspectable {
-    fn from(value: &InputInjector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InputInjector, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

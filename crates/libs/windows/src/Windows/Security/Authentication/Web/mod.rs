@@ -209,36 +209,7 @@ unsafe impl ::windows::core::Interface for WebAuthenticationResult {
 impl ::windows::core::RuntimeName for WebAuthenticationResult {
     const NAME: &'static str = "Windows.Security.Authentication.Web.WebAuthenticationResult";
 }
-impl ::core::convert::From<WebAuthenticationResult> for ::windows::core::IUnknown {
-    fn from(value: WebAuthenticationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAuthenticationResult> for ::windows::core::IUnknown {
-    fn from(value: &WebAuthenticationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAuthenticationResult> for &::windows::core::IUnknown {
-    fn from(value: &WebAuthenticationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebAuthenticationResult> for ::windows::core::IInspectable {
-    fn from(value: WebAuthenticationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAuthenticationResult> for ::windows::core::IInspectable {
-    fn from(value: &WebAuthenticationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAuthenticationResult> for &::windows::core::IInspectable {
-    fn from(value: &WebAuthenticationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebAuthenticationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Security_Authentication_Web\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

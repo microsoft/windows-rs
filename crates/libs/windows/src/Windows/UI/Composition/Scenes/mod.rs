@@ -726,36 +726,7 @@ unsafe impl ::windows::core::Interface for SceneBoundingBox {
 impl ::windows::core::RuntimeName for SceneBoundingBox {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneBoundingBox";
 }
-impl ::core::convert::From<SceneBoundingBox> for ::windows::core::IUnknown {
-    fn from(value: SceneBoundingBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneBoundingBox> for ::windows::core::IUnknown {
-    fn from(value: &SceneBoundingBox) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneBoundingBox> for &::windows::core::IUnknown {
-    fn from(value: &SceneBoundingBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SceneBoundingBox> for ::windows::core::IInspectable {
-    fn from(value: SceneBoundingBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneBoundingBox> for ::windows::core::IInspectable {
-    fn from(value: &SceneBoundingBox) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneBoundingBox> for &::windows::core::IInspectable {
-    fn from(value: &SceneBoundingBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SceneBoundingBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneBoundingBox> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneBoundingBox) -> ::windows::core::Result<Self> {
@@ -971,36 +942,7 @@ unsafe impl ::windows::core::Interface for SceneComponent {
 impl ::windows::core::RuntimeName for SceneComponent {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneComponent";
 }
-impl ::core::convert::From<SceneComponent> for ::windows::core::IUnknown {
-    fn from(value: SceneComponent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneComponent> for ::windows::core::IUnknown {
-    fn from(value: &SceneComponent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneComponent> for &::windows::core::IUnknown {
-    fn from(value: &SceneComponent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SceneComponent> for ::windows::core::IInspectable {
-    fn from(value: SceneComponent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneComponent> for ::windows::core::IInspectable {
-    fn from(value: &SceneComponent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneComponent> for &::windows::core::IInspectable {
-    fn from(value: &SceneComponent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SceneComponent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneComponent> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneComponent) -> ::windows::core::Result<Self> {
@@ -1344,41 +1286,7 @@ impl ::core::iter::IntoIterator for &SceneComponentCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<SceneComponentCollection> for ::windows::core::IUnknown {
-    fn from(value: SceneComponentCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&SceneComponentCollection> for ::windows::core::IUnknown {
-    fn from(value: &SceneComponentCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&SceneComponentCollection> for &::windows::core::IUnknown {
-    fn from(value: &SceneComponentCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<SceneComponentCollection> for ::windows::core::IInspectable {
-    fn from(value: SceneComponentCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&SceneComponentCollection> for ::windows::core::IInspectable {
-    fn from(value: &SceneComponentCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&SceneComponentCollection> for &::windows::core::IInspectable {
-    fn from(value: &SceneComponentCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SceneComponentCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<SceneComponentCollection> for super::IAnimationObject {
     type Error = ::windows::core::Error;
@@ -1642,36 +1550,7 @@ unsafe impl ::windows::core::Interface for SceneMaterial {
 impl ::windows::core::RuntimeName for SceneMaterial {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMaterial";
 }
-impl ::core::convert::From<SceneMaterial> for ::windows::core::IUnknown {
-    fn from(value: SceneMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneMaterial> for ::windows::core::IUnknown {
-    fn from(value: &SceneMaterial) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneMaterial> for &::windows::core::IUnknown {
-    fn from(value: &SceneMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SceneMaterial> for ::windows::core::IInspectable {
-    fn from(value: SceneMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneMaterial> for ::windows::core::IInspectable {
-    fn from(value: &SceneMaterial) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneMaterial> for &::windows::core::IInspectable {
-    fn from(value: &SceneMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SceneMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneMaterial> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneMaterial) -> ::windows::core::Result<Self> {
@@ -1880,36 +1759,7 @@ unsafe impl ::windows::core::Interface for SceneMaterialInput {
 impl ::windows::core::RuntimeName for SceneMaterialInput {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMaterialInput";
 }
-impl ::core::convert::From<SceneMaterialInput> for ::windows::core::IUnknown {
-    fn from(value: SceneMaterialInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneMaterialInput> for ::windows::core::IUnknown {
-    fn from(value: &SceneMaterialInput) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneMaterialInput> for &::windows::core::IUnknown {
-    fn from(value: &SceneMaterialInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SceneMaterialInput> for ::windows::core::IInspectable {
-    fn from(value: SceneMaterialInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneMaterialInput> for ::windows::core::IInspectable {
-    fn from(value: &SceneMaterialInput) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneMaterialInput> for &::windows::core::IInspectable {
-    fn from(value: &SceneMaterialInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SceneMaterialInput, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneMaterialInput> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneMaterialInput) -> ::windows::core::Result<Self> {
@@ -2157,36 +2007,7 @@ unsafe impl ::windows::core::Interface for SceneMesh {
 impl ::windows::core::RuntimeName for SceneMesh {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMesh";
 }
-impl ::core::convert::From<SceneMesh> for ::windows::core::IUnknown {
-    fn from(value: SceneMesh) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneMesh> for ::windows::core::IUnknown {
-    fn from(value: &SceneMesh) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneMesh> for &::windows::core::IUnknown {
-    fn from(value: &SceneMesh) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SceneMesh> for ::windows::core::IInspectable {
-    fn from(value: SceneMesh) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneMesh> for ::windows::core::IInspectable {
-    fn from(value: &SceneMesh) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneMesh> for &::windows::core::IInspectable {
-    fn from(value: &SceneMesh) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SceneMesh, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneMesh> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneMesh) -> ::windows::core::Result<Self> {
@@ -2477,36 +2298,7 @@ impl ::core::iter::IntoIterator for &SceneMeshMaterialAttributeMap {
         self.First().unwrap()
     }
 }
-impl ::core::convert::From<SceneMeshMaterialAttributeMap> for ::windows::core::IUnknown {
-    fn from(value: SceneMeshMaterialAttributeMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneMeshMaterialAttributeMap> for ::windows::core::IUnknown {
-    fn from(value: &SceneMeshMaterialAttributeMap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneMeshMaterialAttributeMap> for &::windows::core::IUnknown {
-    fn from(value: &SceneMeshMaterialAttributeMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SceneMeshMaterialAttributeMap> for ::windows::core::IInspectable {
-    fn from(value: SceneMeshMaterialAttributeMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneMeshMaterialAttributeMap> for ::windows::core::IInspectable {
-    fn from(value: &SceneMeshMaterialAttributeMap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneMeshMaterialAttributeMap> for &::windows::core::IInspectable {
-    fn from(value: &SceneMeshMaterialAttributeMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SceneMeshMaterialAttributeMap, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneMeshMaterialAttributeMap> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneMeshMaterialAttributeMap) -> ::windows::core::Result<Self> {
@@ -2809,36 +2601,7 @@ unsafe impl ::windows::core::Interface for SceneMeshRendererComponent {
 impl ::windows::core::RuntimeName for SceneMeshRendererComponent {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMeshRendererComponent";
 }
-impl ::core::convert::From<SceneMeshRendererComponent> for ::windows::core::IUnknown {
-    fn from(value: SceneMeshRendererComponent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneMeshRendererComponent> for ::windows::core::IUnknown {
-    fn from(value: &SceneMeshRendererComponent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneMeshRendererComponent> for &::windows::core::IUnknown {
-    fn from(value: &SceneMeshRendererComponent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SceneMeshRendererComponent> for ::windows::core::IInspectable {
-    fn from(value: SceneMeshRendererComponent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneMeshRendererComponent> for ::windows::core::IInspectable {
-    fn from(value: &SceneMeshRendererComponent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneMeshRendererComponent> for &::windows::core::IInspectable {
-    fn from(value: &SceneMeshRendererComponent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SceneMeshRendererComponent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneMeshRendererComponent> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneMeshRendererComponent) -> ::windows::core::Result<Self> {
@@ -3265,36 +3028,7 @@ unsafe impl ::windows::core::Interface for SceneMetallicRoughnessMaterial {
 impl ::windows::core::RuntimeName for SceneMetallicRoughnessMaterial {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMetallicRoughnessMaterial";
 }
-impl ::core::convert::From<SceneMetallicRoughnessMaterial> for ::windows::core::IUnknown {
-    fn from(value: SceneMetallicRoughnessMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneMetallicRoughnessMaterial> for ::windows::core::IUnknown {
-    fn from(value: &SceneMetallicRoughnessMaterial) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneMetallicRoughnessMaterial> for &::windows::core::IUnknown {
-    fn from(value: &SceneMetallicRoughnessMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SceneMetallicRoughnessMaterial> for ::windows::core::IInspectable {
-    fn from(value: SceneMetallicRoughnessMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneMetallicRoughnessMaterial> for ::windows::core::IInspectable {
-    fn from(value: &SceneMetallicRoughnessMaterial) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneMetallicRoughnessMaterial> for &::windows::core::IInspectable {
-    fn from(value: &SceneMetallicRoughnessMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SceneMetallicRoughnessMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneMetallicRoughnessMaterial> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneMetallicRoughnessMaterial) -> ::windows::core::Result<Self> {
@@ -3615,36 +3349,7 @@ unsafe impl ::windows::core::Interface for SceneModelTransform {
 impl ::windows::core::RuntimeName for SceneModelTransform {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneModelTransform";
 }
-impl ::core::convert::From<SceneModelTransform> for ::windows::core::IUnknown {
-    fn from(value: SceneModelTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneModelTransform> for ::windows::core::IUnknown {
-    fn from(value: &SceneModelTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneModelTransform> for &::windows::core::IUnknown {
-    fn from(value: &SceneModelTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SceneModelTransform> for ::windows::core::IInspectable {
-    fn from(value: SceneModelTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneModelTransform> for ::windows::core::IInspectable {
-    fn from(value: &SceneModelTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneModelTransform> for &::windows::core::IInspectable {
-    fn from(value: &SceneModelTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SceneModelTransform, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneModelTransform> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneModelTransform) -> ::windows::core::Result<Self> {
@@ -3903,36 +3608,7 @@ unsafe impl ::windows::core::Interface for SceneNode {
 impl ::windows::core::RuntimeName for SceneNode {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneNode";
 }
-impl ::core::convert::From<SceneNode> for ::windows::core::IUnknown {
-    fn from(value: SceneNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneNode> for ::windows::core::IUnknown {
-    fn from(value: &SceneNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneNode> for &::windows::core::IUnknown {
-    fn from(value: &SceneNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SceneNode> for ::windows::core::IInspectable {
-    fn from(value: SceneNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneNode> for ::windows::core::IInspectable {
-    fn from(value: &SceneNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneNode> for &::windows::core::IInspectable {
-    fn from(value: &SceneNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SceneNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneNode> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneNode) -> ::windows::core::Result<Self> {
@@ -4264,41 +3940,7 @@ impl ::core::iter::IntoIterator for &SceneNodeCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<SceneNodeCollection> for ::windows::core::IUnknown {
-    fn from(value: SceneNodeCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&SceneNodeCollection> for ::windows::core::IUnknown {
-    fn from(value: &SceneNodeCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&SceneNodeCollection> for &::windows::core::IUnknown {
-    fn from(value: &SceneNodeCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<SceneNodeCollection> for ::windows::core::IInspectable {
-    fn from(value: SceneNodeCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&SceneNodeCollection> for ::windows::core::IInspectable {
-    fn from(value: &SceneNodeCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&SceneNodeCollection> for &::windows::core::IInspectable {
-    fn from(value: &SceneNodeCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SceneNodeCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<SceneNodeCollection> for super::IAnimationObject {
     type Error = ::windows::core::Error;
@@ -4562,36 +4204,7 @@ unsafe impl ::windows::core::Interface for SceneObject {
 impl ::windows::core::RuntimeName for SceneObject {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneObject";
 }
-impl ::core::convert::From<SceneObject> for ::windows::core::IUnknown {
-    fn from(value: SceneObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneObject> for ::windows::core::IUnknown {
-    fn from(value: &SceneObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneObject> for &::windows::core::IUnknown {
-    fn from(value: &SceneObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SceneObject> for ::windows::core::IInspectable {
-    fn from(value: SceneObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneObject> for ::windows::core::IInspectable {
-    fn from(value: &SceneObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneObject> for &::windows::core::IInspectable {
-    fn from(value: &SceneObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SceneObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneObject> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneObject) -> ::windows::core::Result<Self> {
@@ -4897,36 +4510,7 @@ unsafe impl ::windows::core::Interface for ScenePbrMaterial {
 impl ::windows::core::RuntimeName for ScenePbrMaterial {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ScenePbrMaterial";
 }
-impl ::core::convert::From<ScenePbrMaterial> for ::windows::core::IUnknown {
-    fn from(value: ScenePbrMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ScenePbrMaterial> for ::windows::core::IUnknown {
-    fn from(value: &ScenePbrMaterial) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ScenePbrMaterial> for &::windows::core::IUnknown {
-    fn from(value: &ScenePbrMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ScenePbrMaterial> for ::windows::core::IInspectable {
-    fn from(value: ScenePbrMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ScenePbrMaterial> for ::windows::core::IInspectable {
-    fn from(value: &ScenePbrMaterial) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ScenePbrMaterial> for &::windows::core::IInspectable {
-    fn from(value: &ScenePbrMaterial) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ScenePbrMaterial, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ScenePbrMaterial> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: ScenePbrMaterial) -> ::windows::core::Result<Self> {
@@ -5157,36 +4741,7 @@ unsafe impl ::windows::core::Interface for SceneRendererComponent {
 impl ::windows::core::RuntimeName for SceneRendererComponent {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneRendererComponent";
 }
-impl ::core::convert::From<SceneRendererComponent> for ::windows::core::IUnknown {
-    fn from(value: SceneRendererComponent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneRendererComponent> for ::windows::core::IUnknown {
-    fn from(value: &SceneRendererComponent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneRendererComponent> for &::windows::core::IUnknown {
-    fn from(value: &SceneRendererComponent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SceneRendererComponent> for ::windows::core::IInspectable {
-    fn from(value: SceneRendererComponent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneRendererComponent> for ::windows::core::IInspectable {
-    fn from(value: &SceneRendererComponent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneRendererComponent> for &::windows::core::IInspectable {
-    fn from(value: &SceneRendererComponent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SceneRendererComponent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneRendererComponent> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneRendererComponent) -> ::windows::core::Result<Self> {
@@ -5469,36 +5024,7 @@ unsafe impl ::windows::core::Interface for SceneSurfaceMaterialInput {
 impl ::windows::core::RuntimeName for SceneSurfaceMaterialInput {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneSurfaceMaterialInput";
 }
-impl ::core::convert::From<SceneSurfaceMaterialInput> for ::windows::core::IUnknown {
-    fn from(value: SceneSurfaceMaterialInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneSurfaceMaterialInput> for ::windows::core::IUnknown {
-    fn from(value: &SceneSurfaceMaterialInput) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneSurfaceMaterialInput> for &::windows::core::IUnknown {
-    fn from(value: &SceneSurfaceMaterialInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SceneSurfaceMaterialInput> for ::windows::core::IInspectable {
-    fn from(value: SceneSurfaceMaterialInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneSurfaceMaterialInput> for ::windows::core::IInspectable {
-    fn from(value: &SceneSurfaceMaterialInput) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneSurfaceMaterialInput> for &::windows::core::IInspectable {
-    fn from(value: &SceneSurfaceMaterialInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SceneSurfaceMaterialInput, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneSurfaceMaterialInput> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneSurfaceMaterialInput) -> ::windows::core::Result<Self> {
@@ -6035,36 +5561,7 @@ unsafe impl ::windows::core::Interface for SceneVisual {
 impl ::windows::core::RuntimeName for SceneVisual {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneVisual";
 }
-impl ::core::convert::From<SceneVisual> for ::windows::core::IUnknown {
-    fn from(value: SceneVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneVisual> for ::windows::core::IUnknown {
-    fn from(value: &SceneVisual) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneVisual> for &::windows::core::IUnknown {
-    fn from(value: &SceneVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SceneVisual> for ::windows::core::IInspectable {
-    fn from(value: SceneVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneVisual> for ::windows::core::IInspectable {
-    fn from(value: &SceneVisual) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneVisual> for &::windows::core::IInspectable {
-    fn from(value: &SceneVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SceneVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SceneVisual> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneVisual) -> ::windows::core::Result<Self> {

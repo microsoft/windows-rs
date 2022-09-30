@@ -427,36 +427,7 @@ pub struct IDevicePairingResult_Vtbl {
 #[repr(transparent)]
 pub struct IDevicePairingSettings(::windows::core::IUnknown);
 impl IDevicePairingSettings {}
-impl ::core::convert::From<IDevicePairingSettings> for ::windows::core::IUnknown {
-    fn from(value: IDevicePairingSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDevicePairingSettings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDevicePairingSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDevicePairingSettings> for ::windows::core::IUnknown {
-    fn from(value: &IDevicePairingSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDevicePairingSettings> for ::windows::core::IInspectable {
-    fn from(value: IDevicePairingSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDevicePairingSettings> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IDevicePairingSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDevicePairingSettings> for ::windows::core::IInspectable {
-    fn from(value: &IDevicePairingSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDevicePairingSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IDevicePairingSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -862,36 +833,7 @@ unsafe impl ::windows::core::Interface for DeviceAccessChangedEventArgs {
 impl ::windows::core::RuntimeName for DeviceAccessChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceAccessChangedEventArgs";
 }
-impl ::core::convert::From<DeviceAccessChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DeviceAccessChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceAccessChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DeviceAccessChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceAccessChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DeviceAccessChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceAccessChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DeviceAccessChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceAccessChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DeviceAccessChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceAccessChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DeviceAccessChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceAccessChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceAccessChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DeviceAccessChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -976,36 +918,7 @@ unsafe impl ::windows::core::Interface for DeviceAccessInformation {
 impl ::windows::core::RuntimeName for DeviceAccessInformation {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceAccessInformation";
 }
-impl ::core::convert::From<DeviceAccessInformation> for ::windows::core::IUnknown {
-    fn from(value: DeviceAccessInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceAccessInformation> for ::windows::core::IUnknown {
-    fn from(value: &DeviceAccessInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceAccessInformation> for &::windows::core::IUnknown {
-    fn from(value: &DeviceAccessInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceAccessInformation> for ::windows::core::IInspectable {
-    fn from(value: DeviceAccessInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceAccessInformation> for ::windows::core::IInspectable {
-    fn from(value: &DeviceAccessInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceAccessInformation> for &::windows::core::IInspectable {
-    fn from(value: &DeviceAccessInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceAccessInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceAccessInformation {}
 unsafe impl ::core::marker::Sync for DeviceAccessInformation {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -1052,36 +965,7 @@ unsafe impl ::windows::core::Interface for DeviceConnectionChangeTriggerDetails 
 impl ::windows::core::RuntimeName for DeviceConnectionChangeTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceConnectionChangeTriggerDetails";
 }
-impl ::core::convert::From<DeviceConnectionChangeTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: DeviceConnectionChangeTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceConnectionChangeTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &DeviceConnectionChangeTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceConnectionChangeTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &DeviceConnectionChangeTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceConnectionChangeTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: DeviceConnectionChangeTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceConnectionChangeTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &DeviceConnectionChangeTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceConnectionChangeTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &DeviceConnectionChangeTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceConnectionChangeTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceConnectionChangeTriggerDetails {}
 unsafe impl ::core::marker::Sync for DeviceConnectionChangeTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -1128,36 +1012,7 @@ unsafe impl ::windows::core::Interface for DeviceDisconnectButtonClickedEventArg
 impl ::windows::core::RuntimeName for DeviceDisconnectButtonClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceDisconnectButtonClickedEventArgs";
 }
-impl ::core::convert::From<DeviceDisconnectButtonClickedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DeviceDisconnectButtonClickedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceDisconnectButtonClickedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DeviceDisconnectButtonClickedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceDisconnectButtonClickedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DeviceDisconnectButtonClickedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceDisconnectButtonClickedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DeviceDisconnectButtonClickedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceDisconnectButtonClickedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DeviceDisconnectButtonClickedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceDisconnectButtonClickedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DeviceDisconnectButtonClickedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceDisconnectButtonClickedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceDisconnectButtonClickedEventArgs {}
 unsafe impl ::core::marker::Sync for DeviceDisconnectButtonClickedEventArgs {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -1415,36 +1270,7 @@ unsafe impl ::windows::core::Interface for DeviceInformation {
 impl ::windows::core::RuntimeName for DeviceInformation {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformation";
 }
-impl ::core::convert::From<DeviceInformation> for ::windows::core::IUnknown {
-    fn from(value: DeviceInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceInformation> for ::windows::core::IUnknown {
-    fn from(value: &DeviceInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceInformation> for &::windows::core::IUnknown {
-    fn from(value: &DeviceInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceInformation> for ::windows::core::IInspectable {
-    fn from(value: DeviceInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceInformation> for ::windows::core::IInspectable {
-    fn from(value: &DeviceInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceInformation> for &::windows::core::IInspectable {
-    fn from(value: &DeviceInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceInformation {}
 unsafe impl ::core::marker::Sync for DeviceInformation {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation_Collections\"`*"]
@@ -1556,41 +1382,7 @@ impl ::core::iter::IntoIterator for &DeviceInformationCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<DeviceInformationCollection> for ::windows::core::IUnknown {
-    fn from(value: DeviceInformationCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&DeviceInformationCollection> for ::windows::core::IUnknown {
-    fn from(value: &DeviceInformationCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&DeviceInformationCollection> for &::windows::core::IUnknown {
-    fn from(value: &DeviceInformationCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<DeviceInformationCollection> for ::windows::core::IInspectable {
-    fn from(value: DeviceInformationCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&DeviceInformationCollection> for ::windows::core::IInspectable {
-    fn from(value: &DeviceInformationCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&DeviceInformationCollection> for &::windows::core::IInspectable {
-    fn from(value: &DeviceInformationCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceInformationCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<DeviceInformationCollection> for super::super::Foundation::Collections::IIterable<DeviceInformation> {
     type Error = ::windows::core::Error;
@@ -1722,36 +1514,7 @@ unsafe impl ::windows::core::Interface for DeviceInformationCustomPairing {
 impl ::windows::core::RuntimeName for DeviceInformationCustomPairing {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformationCustomPairing";
 }
-impl ::core::convert::From<DeviceInformationCustomPairing> for ::windows::core::IUnknown {
-    fn from(value: DeviceInformationCustomPairing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceInformationCustomPairing> for ::windows::core::IUnknown {
-    fn from(value: &DeviceInformationCustomPairing) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceInformationCustomPairing> for &::windows::core::IUnknown {
-    fn from(value: &DeviceInformationCustomPairing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceInformationCustomPairing> for ::windows::core::IInspectable {
-    fn from(value: DeviceInformationCustomPairing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceInformationCustomPairing> for ::windows::core::IInspectable {
-    fn from(value: &DeviceInformationCustomPairing) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceInformationCustomPairing> for &::windows::core::IInspectable {
-    fn from(value: &DeviceInformationCustomPairing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceInformationCustomPairing, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceInformationCustomPairing {}
 unsafe impl ::core::marker::Sync for DeviceInformationCustomPairing {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -1881,36 +1644,7 @@ unsafe impl ::windows::core::Interface for DeviceInformationPairing {
 impl ::windows::core::RuntimeName for DeviceInformationPairing {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformationPairing";
 }
-impl ::core::convert::From<DeviceInformationPairing> for ::windows::core::IUnknown {
-    fn from(value: DeviceInformationPairing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceInformationPairing> for ::windows::core::IUnknown {
-    fn from(value: &DeviceInformationPairing) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceInformationPairing> for &::windows::core::IUnknown {
-    fn from(value: &DeviceInformationPairing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceInformationPairing> for ::windows::core::IInspectable {
-    fn from(value: DeviceInformationPairing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceInformationPairing> for ::windows::core::IInspectable {
-    fn from(value: &DeviceInformationPairing) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceInformationPairing> for &::windows::core::IInspectable {
-    fn from(value: &DeviceInformationPairing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceInformationPairing, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceInformationPairing {}
 unsafe impl ::core::marker::Sync for DeviceInformationPairing {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -1973,36 +1707,7 @@ unsafe impl ::windows::core::Interface for DeviceInformationUpdate {
 impl ::windows::core::RuntimeName for DeviceInformationUpdate {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformationUpdate";
 }
-impl ::core::convert::From<DeviceInformationUpdate> for ::windows::core::IUnknown {
-    fn from(value: DeviceInformationUpdate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceInformationUpdate> for ::windows::core::IUnknown {
-    fn from(value: &DeviceInformationUpdate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceInformationUpdate> for &::windows::core::IUnknown {
-    fn from(value: &DeviceInformationUpdate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceInformationUpdate> for ::windows::core::IInspectable {
-    fn from(value: DeviceInformationUpdate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceInformationUpdate> for ::windows::core::IInspectable {
-    fn from(value: &DeviceInformationUpdate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceInformationUpdate> for &::windows::core::IInspectable {
-    fn from(value: &DeviceInformationUpdate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceInformationUpdate, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceInformationUpdate {}
 unsafe impl ::core::marker::Sync for DeviceInformationUpdate {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -2086,36 +1791,7 @@ unsafe impl ::windows::core::Interface for DevicePairingRequestedEventArgs {
 impl ::windows::core::RuntimeName for DevicePairingRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePairingRequestedEventArgs";
 }
-impl ::core::convert::From<DevicePairingRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DevicePairingRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DevicePairingRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DevicePairingRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DevicePairingRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DevicePairingRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DevicePairingRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DevicePairingRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DevicePairingRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DevicePairingRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DevicePairingRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DevicePairingRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DevicePairingRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePairingRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for DevicePairingRequestedEventArgs {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -2169,36 +1845,7 @@ unsafe impl ::windows::core::Interface for DevicePairingResult {
 impl ::windows::core::RuntimeName for DevicePairingResult {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePairingResult";
 }
-impl ::core::convert::From<DevicePairingResult> for ::windows::core::IUnknown {
-    fn from(value: DevicePairingResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DevicePairingResult> for ::windows::core::IUnknown {
-    fn from(value: &DevicePairingResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DevicePairingResult> for &::windows::core::IUnknown {
-    fn from(value: &DevicePairingResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DevicePairingResult> for ::windows::core::IInspectable {
-    fn from(value: DevicePairingResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DevicePairingResult> for ::windows::core::IInspectable {
-    fn from(value: &DevicePairingResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DevicePairingResult> for &::windows::core::IInspectable {
-    fn from(value: &DevicePairingResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DevicePairingResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePairingResult {}
 unsafe impl ::core::marker::Sync for DevicePairingResult {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -2351,36 +1998,7 @@ unsafe impl ::windows::core::Interface for DevicePicker {
 impl ::windows::core::RuntimeName for DevicePicker {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePicker";
 }
-impl ::core::convert::From<DevicePicker> for ::windows::core::IUnknown {
-    fn from(value: DevicePicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DevicePicker> for ::windows::core::IUnknown {
-    fn from(value: &DevicePicker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DevicePicker> for &::windows::core::IUnknown {
-    fn from(value: &DevicePicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DevicePicker> for ::windows::core::IInspectable {
-    fn from(value: DevicePicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DevicePicker> for ::windows::core::IInspectable {
-    fn from(value: &DevicePicker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DevicePicker> for &::windows::core::IInspectable {
-    fn from(value: &DevicePicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DevicePicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePicker {}
 unsafe impl ::core::marker::Sync for DevicePicker {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -2521,36 +2139,7 @@ unsafe impl ::windows::core::Interface for DevicePickerAppearance {
 impl ::windows::core::RuntimeName for DevicePickerAppearance {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePickerAppearance";
 }
-impl ::core::convert::From<DevicePickerAppearance> for ::windows::core::IUnknown {
-    fn from(value: DevicePickerAppearance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DevicePickerAppearance> for ::windows::core::IUnknown {
-    fn from(value: &DevicePickerAppearance) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DevicePickerAppearance> for &::windows::core::IUnknown {
-    fn from(value: &DevicePickerAppearance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DevicePickerAppearance> for ::windows::core::IInspectable {
-    fn from(value: DevicePickerAppearance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DevicePickerAppearance> for ::windows::core::IInspectable {
-    fn from(value: &DevicePickerAppearance) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DevicePickerAppearance> for &::windows::core::IInspectable {
-    fn from(value: &DevicePickerAppearance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DevicePickerAppearance, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePickerAppearance {}
 unsafe impl ::core::marker::Sync for DevicePickerAppearance {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -2608,36 +2197,7 @@ unsafe impl ::windows::core::Interface for DevicePickerFilter {
 impl ::windows::core::RuntimeName for DevicePickerFilter {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePickerFilter";
 }
-impl ::core::convert::From<DevicePickerFilter> for ::windows::core::IUnknown {
-    fn from(value: DevicePickerFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DevicePickerFilter> for ::windows::core::IUnknown {
-    fn from(value: &DevicePickerFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DevicePickerFilter> for &::windows::core::IUnknown {
-    fn from(value: &DevicePickerFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DevicePickerFilter> for ::windows::core::IInspectable {
-    fn from(value: DevicePickerFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DevicePickerFilter> for ::windows::core::IInspectable {
-    fn from(value: &DevicePickerFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DevicePickerFilter> for &::windows::core::IInspectable {
-    fn from(value: &DevicePickerFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DevicePickerFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePickerFilter {}
 unsafe impl ::core::marker::Sync for DevicePickerFilter {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -2684,36 +2244,7 @@ unsafe impl ::windows::core::Interface for DeviceSelectedEventArgs {
 impl ::windows::core::RuntimeName for DeviceSelectedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceSelectedEventArgs";
 }
-impl ::core::convert::From<DeviceSelectedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DeviceSelectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceSelectedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DeviceSelectedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceSelectedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DeviceSelectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceSelectedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DeviceSelectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceSelectedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DeviceSelectedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceSelectedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DeviceSelectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceSelectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceSelectedEventArgs {}
 unsafe impl ::core::marker::Sync for DeviceSelectedEventArgs {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Storage_Streams\"`*"]
@@ -2889,41 +2420,7 @@ impl ::windows::core::RuntimeName for DeviceThumbnail {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceThumbnail";
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<DeviceThumbnail> for ::windows::core::IUnknown {
-    fn from(value: DeviceThumbnail) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<&DeviceThumbnail> for ::windows::core::IUnknown {
-    fn from(value: &DeviceThumbnail) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<&DeviceThumbnail> for &::windows::core::IUnknown {
-    fn from(value: &DeviceThumbnail) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<DeviceThumbnail> for ::windows::core::IInspectable {
-    fn from(value: DeviceThumbnail) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<&DeviceThumbnail> for ::windows::core::IInspectable {
-    fn from(value: &DeviceThumbnail) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<&DeviceThumbnail> for &::windows::core::IInspectable {
-    fn from(value: &DeviceThumbnail) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceThumbnail, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::core::convert::TryFrom<DeviceThumbnail> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3104,36 +2601,7 @@ unsafe impl ::windows::core::Interface for DeviceUnpairingResult {
 impl ::windows::core::RuntimeName for DeviceUnpairingResult {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceUnpairingResult";
 }
-impl ::core::convert::From<DeviceUnpairingResult> for ::windows::core::IUnknown {
-    fn from(value: DeviceUnpairingResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceUnpairingResult> for ::windows::core::IUnknown {
-    fn from(value: &DeviceUnpairingResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceUnpairingResult> for &::windows::core::IUnknown {
-    fn from(value: &DeviceUnpairingResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceUnpairingResult> for ::windows::core::IInspectable {
-    fn from(value: DeviceUnpairingResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceUnpairingResult> for ::windows::core::IInspectable {
-    fn from(value: &DeviceUnpairingResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceUnpairingResult> for &::windows::core::IInspectable {
-    fn from(value: &DeviceUnpairingResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceUnpairingResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceUnpairingResult {}
 unsafe impl ::core::marker::Sync for DeviceUnpairingResult {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -3276,36 +2744,7 @@ unsafe impl ::windows::core::Interface for DeviceWatcher {
 impl ::windows::core::RuntimeName for DeviceWatcher {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceWatcher";
 }
-impl ::core::convert::From<DeviceWatcher> for ::windows::core::IUnknown {
-    fn from(value: DeviceWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceWatcher> for ::windows::core::IUnknown {
-    fn from(value: &DeviceWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceWatcher> for &::windows::core::IUnknown {
-    fn from(value: &DeviceWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceWatcher> for ::windows::core::IInspectable {
-    fn from(value: DeviceWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceWatcher> for ::windows::core::IInspectable {
-    fn from(value: &DeviceWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceWatcher> for &::windows::core::IInspectable {
-    fn from(value: &DeviceWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceWatcher {}
 unsafe impl ::core::marker::Sync for DeviceWatcher {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -3366,36 +2805,7 @@ unsafe impl ::windows::core::Interface for DeviceWatcherEvent {
 impl ::windows::core::RuntimeName for DeviceWatcherEvent {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceWatcherEvent";
 }
-impl ::core::convert::From<DeviceWatcherEvent> for ::windows::core::IUnknown {
-    fn from(value: DeviceWatcherEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceWatcherEvent> for ::windows::core::IUnknown {
-    fn from(value: &DeviceWatcherEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceWatcherEvent> for &::windows::core::IUnknown {
-    fn from(value: &DeviceWatcherEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceWatcherEvent> for ::windows::core::IInspectable {
-    fn from(value: DeviceWatcherEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceWatcherEvent> for ::windows::core::IInspectable {
-    fn from(value: &DeviceWatcherEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceWatcherEvent> for &::windows::core::IInspectable {
-    fn from(value: &DeviceWatcherEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceWatcherEvent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceWatcherEvent {}
 unsafe impl ::core::marker::Sync for DeviceWatcherEvent {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -3444,36 +2854,7 @@ unsafe impl ::windows::core::Interface for DeviceWatcherTriggerDetails {
 impl ::windows::core::RuntimeName for DeviceWatcherTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceWatcherTriggerDetails";
 }
-impl ::core::convert::From<DeviceWatcherTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: DeviceWatcherTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceWatcherTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &DeviceWatcherTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceWatcherTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &DeviceWatcherTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceWatcherTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: DeviceWatcherTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceWatcherTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &DeviceWatcherTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceWatcherTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &DeviceWatcherTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceWatcherTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceWatcherTriggerDetails {}
 unsafe impl ::core::marker::Sync for DeviceWatcherTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -3541,36 +2922,7 @@ unsafe impl ::windows::core::Interface for EnclosureLocation {
 impl ::windows::core::RuntimeName for EnclosureLocation {
     const NAME: &'static str = "Windows.Devices.Enumeration.EnclosureLocation";
 }
-impl ::core::convert::From<EnclosureLocation> for ::windows::core::IUnknown {
-    fn from(value: EnclosureLocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EnclosureLocation> for ::windows::core::IUnknown {
-    fn from(value: &EnclosureLocation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EnclosureLocation> for &::windows::core::IUnknown {
-    fn from(value: &EnclosureLocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EnclosureLocation> for ::windows::core::IInspectable {
-    fn from(value: EnclosureLocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EnclosureLocation> for ::windows::core::IInspectable {
-    fn from(value: &EnclosureLocation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EnclosureLocation> for &::windows::core::IInspectable {
-    fn from(value: &EnclosureLocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EnclosureLocation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EnclosureLocation {}
 unsafe impl ::core::marker::Sync for EnclosureLocation {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]

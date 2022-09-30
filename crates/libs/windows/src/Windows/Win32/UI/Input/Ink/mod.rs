@@ -6,21 +6,7 @@ impl IInkCommitRequestHandler {
         (::windows::core::Vtable::vtable(self).OnCommitRequested)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IInkCommitRequestHandler> for ::windows::core::IUnknown {
-    fn from(value: IInkCommitRequestHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInkCommitRequestHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInkCommitRequestHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInkCommitRequestHandler> for ::windows::core::IUnknown {
-    fn from(value: &IInkCommitRequestHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInkCommitRequestHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInkCommitRequestHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -64,21 +50,7 @@ impl IInkD2DRenderer {
         (::windows::core::Vtable::vtable(self).Draw)(::windows::core::Vtable::as_raw(self), pd2d1devicecontext.into().abi(), pinkstrokeiterable.into().abi(), fhighcontrast.into()).ok()
     }
 }
-impl ::core::convert::From<IInkD2DRenderer> for ::windows::core::IUnknown {
-    fn from(value: IInkD2DRenderer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInkD2DRenderer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInkD2DRenderer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInkD2DRenderer> for ::windows::core::IUnknown {
-    fn from(value: &IInkD2DRenderer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInkD2DRenderer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInkD2DRenderer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -122,21 +94,7 @@ impl IInkD2DRenderer2 {
         (::windows::core::Vtable::vtable(self).Draw)(::windows::core::Vtable::as_raw(self), pd2d1devicecontext.into().abi(), pinkstrokeiterable.into().abi(), highcontrastadjustment).ok()
     }
 }
-impl ::core::convert::From<IInkD2DRenderer2> for ::windows::core::IUnknown {
-    fn from(value: IInkD2DRenderer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInkD2DRenderer2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInkD2DRenderer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInkD2DRenderer2> for ::windows::core::IUnknown {
-    fn from(value: &IInkD2DRenderer2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInkD2DRenderer2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInkD2DRenderer2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -191,21 +149,7 @@ impl IInkDesktopHost {
         (::windows::core::Vtable::vtable(self).CreateAndInitializeInkPresenter)(::windows::core::Vtable::as_raw(self), rootvisual.into().abi(), width, height, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IInkDesktopHost> for ::windows::core::IUnknown {
-    fn from(value: IInkDesktopHost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInkDesktopHost> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInkDesktopHost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInkDesktopHost> for ::windows::core::IUnknown {
-    fn from(value: &IInkDesktopHost) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInkDesktopHost, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInkDesktopHost {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -244,21 +188,7 @@ impl IInkHostWorkItem {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IInkHostWorkItem> for ::windows::core::IUnknown {
-    fn from(value: IInkHostWorkItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInkHostWorkItem> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInkHostWorkItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInkHostWorkItem> for ::windows::core::IUnknown {
-    fn from(value: &IInkHostWorkItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInkHostWorkItem, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInkHostWorkItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -314,21 +244,7 @@ impl IInkPresenterDesktop {
         (::windows::core::Vtable::vtable(self).OnHighContrastChanged)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IInkPresenterDesktop> for ::windows::core::IUnknown {
-    fn from(value: IInkPresenterDesktop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInkPresenterDesktop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInkPresenterDesktop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInkPresenterDesktop> for ::windows::core::IUnknown {
-    fn from(value: &IInkPresenterDesktop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInkPresenterDesktop, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInkPresenterDesktop {
     fn clone(&self) -> Self {
         Self(self.0.clone())

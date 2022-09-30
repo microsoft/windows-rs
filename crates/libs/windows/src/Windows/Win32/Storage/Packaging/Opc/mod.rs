@@ -22,21 +22,7 @@ impl IOpcCertificateEnumerator {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcCertificateEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IOpcCertificateEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IOpcCertificateEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcCertificateEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcCertificateEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcCertificateEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IOpcCertificateEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcCertificateEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcCertificateEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -96,21 +82,7 @@ impl IOpcCertificateSet {
         (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcCertificateEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IOpcCertificateSet> for ::windows::core::IUnknown {
-    fn from(value: IOpcCertificateSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcCertificateSet> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcCertificateSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcCertificateSet> for ::windows::core::IUnknown {
-    fn from(value: &IOpcCertificateSet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcCertificateSet, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcCertificateSet {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -209,21 +181,7 @@ impl IOpcDigitalSignature {
         (::windows::core::Vtable::vtable(self).GetSignatureXml)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(signaturexml), ::core::mem::transmute(count)).ok()
     }
 }
-impl ::core::convert::From<IOpcDigitalSignature> for ::windows::core::IUnknown {
-    fn from(value: IOpcDigitalSignature) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcDigitalSignature> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcDigitalSignature) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcDigitalSignature> for ::windows::core::IUnknown {
-    fn from(value: &IOpcDigitalSignature) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcDigitalSignature, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcDigitalSignature {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -294,21 +252,7 @@ impl IOpcDigitalSignatureEnumerator {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcDigitalSignatureEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IOpcDigitalSignatureEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IOpcDigitalSignatureEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcDigitalSignatureEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcDigitalSignatureEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcDigitalSignatureEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IOpcDigitalSignatureEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcDigitalSignatureEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcDigitalSignatureEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -407,21 +351,7 @@ impl IOpcDigitalSignatureManager {
         (::windows::core::Vtable::vtable(self).ReplaceSignatureXml)(::windows::core::Vtable::as_raw(self), signaturepartname.into().abi(), ::core::mem::transmute(newsignaturexml), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcDigitalSignature>(result__)
     }
 }
-impl ::core::convert::From<IOpcDigitalSignatureManager> for ::windows::core::IUnknown {
-    fn from(value: IOpcDigitalSignatureManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcDigitalSignatureManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcDigitalSignatureManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcDigitalSignatureManager> for ::windows::core::IUnknown {
-    fn from(value: &IOpcDigitalSignatureManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcDigitalSignatureManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcDigitalSignatureManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -533,21 +463,7 @@ impl IOpcFactory {
         (::windows::core::Vtable::vtable(self).CreateDigitalSignatureManager)(::windows::core::Vtable::as_raw(self), package.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcDigitalSignatureManager>(result__)
     }
 }
-impl ::core::convert::From<IOpcFactory> for ::windows::core::IUnknown {
-    fn from(value: IOpcFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcFactory> for ::windows::core::IUnknown {
-    fn from(value: &IOpcFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -610,21 +526,7 @@ impl IOpcPackage {
         (::windows::core::Vtable::vtable(self).GetRelationshipSet)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationshipSet>(result__)
     }
 }
-impl ::core::convert::From<IOpcPackage> for ::windows::core::IUnknown {
-    fn from(value: IOpcPackage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcPackage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcPackage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcPackage> for ::windows::core::IUnknown {
-    fn from(value: &IOpcPackage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcPackage, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcPackage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -683,21 +585,7 @@ impl IOpcPart {
         (::windows::core::Vtable::vtable(self).GetCompressionOptions)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OPC_COMPRESSION_OPTIONS>(result__)
     }
 }
-impl ::core::convert::From<IOpcPart> for ::windows::core::IUnknown {
-    fn from(value: IOpcPart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcPart> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcPart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcPart> for ::windows::core::IUnknown {
-    fn from(value: &IOpcPart) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcPart, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcPart {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -761,21 +649,7 @@ impl IOpcPartEnumerator {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcPartEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IOpcPartEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IOpcPartEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcPartEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcPartEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcPartEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IOpcPartEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcPartEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcPartEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -858,21 +732,7 @@ impl IOpcPartSet {
         (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcPartEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IOpcPartSet> for ::windows::core::IUnknown {
-    fn from(value: IOpcPartSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcPartSet> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcPartSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcPartSet> for ::windows::core::IUnknown {
-    fn from(value: &IOpcPartSet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcPartSet, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcPartSet {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1120,59 +980,7 @@ impl IOpcPartUri {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IOpcPartUri> for ::windows::core::IUnknown {
-    fn from(value: IOpcPartUri) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IOpcPartUri> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcPartUri) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IOpcPartUri> for ::windows::core::IUnknown {
-    fn from(value: &IOpcPartUri) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IOpcPartUri> for super::super::super::System::Com::IUri {
-    fn from(value: IOpcPartUri) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IOpcPartUri> for &'a super::super::super::System::Com::IUri {
-    fn from(value: &'a IOpcPartUri) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IOpcPartUri> for super::super::super::System::Com::IUri {
-    fn from(value: &IOpcPartUri) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IOpcPartUri> for IOpcUri {
-    fn from(value: IOpcPartUri) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IOpcPartUri> for &'a IOpcUri {
-    fn from(value: &'a IOpcPartUri) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IOpcPartUri> for IOpcUri {
-    fn from(value: &IOpcPartUri) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcPartUri, ::windows::core::IUnknown, super::super::super::System::Com::IUri, IOpcUri);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IOpcPartUri {
     fn clone(&self) -> Self {
@@ -1248,21 +1056,7 @@ impl IOpcRelationship {
         (::windows::core::Vtable::vtable(self).GetTargetMode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OPC_URI_TARGET_MODE>(result__)
     }
 }
-impl ::core::convert::From<IOpcRelationship> for ::windows::core::IUnknown {
-    fn from(value: IOpcRelationship) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcRelationship> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcRelationship) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcRelationship> for ::windows::core::IUnknown {
-    fn from(value: &IOpcRelationship) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcRelationship, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcRelationship {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1326,21 +1120,7 @@ impl IOpcRelationshipEnumerator {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationshipEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IOpcRelationshipEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IOpcRelationshipEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcRelationshipEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcRelationshipEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcRelationshipEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IOpcRelationshipEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcRelationshipEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcRelationshipEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1391,21 +1171,7 @@ impl IOpcRelationshipSelector {
         (::windows::core::Vtable::vtable(self).GetSelectionCriterion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IOpcRelationshipSelector> for ::windows::core::IUnknown {
-    fn from(value: IOpcRelationshipSelector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcRelationshipSelector> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcRelationshipSelector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcRelationshipSelector> for ::windows::core::IUnknown {
-    fn from(value: &IOpcRelationshipSelector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcRelationshipSelector, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcRelationshipSelector {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1460,21 +1226,7 @@ impl IOpcRelationshipSelectorEnumerator {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationshipSelectorEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IOpcRelationshipSelectorEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IOpcRelationshipSelectorEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcRelationshipSelectorEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcRelationshipSelectorEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcRelationshipSelectorEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IOpcRelationshipSelectorEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcRelationshipSelectorEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcRelationshipSelectorEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1534,21 +1286,7 @@ impl IOpcRelationshipSelectorSet {
         (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationshipSelectorEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IOpcRelationshipSelectorSet> for ::windows::core::IUnknown {
-    fn from(value: IOpcRelationshipSelectorSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcRelationshipSelectorSet> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcRelationshipSelectorSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcRelationshipSelectorSet> for ::windows::core::IUnknown {
-    fn from(value: &IOpcRelationshipSelectorSet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcRelationshipSelectorSet, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcRelationshipSelectorSet {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1634,21 +1372,7 @@ impl IOpcRelationshipSet {
         (::windows::core::Vtable::vtable(self).GetRelationshipsContentStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::IStream>(result__)
     }
 }
-impl ::core::convert::From<IOpcRelationshipSet> for ::windows::core::IUnknown {
-    fn from(value: IOpcRelationshipSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcRelationshipSet> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcRelationshipSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcRelationshipSet> for ::windows::core::IUnknown {
-    fn from(value: &IOpcRelationshipSet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcRelationshipSet, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcRelationshipSet {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1700,21 +1424,7 @@ impl IOpcSignatureCustomObject {
         (::windows::core::Vtable::vtable(self).GetXml)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(xmlmarkup), ::core::mem::transmute(count)).ok()
     }
 }
-impl ::core::convert::From<IOpcSignatureCustomObject> for ::windows::core::IUnknown {
-    fn from(value: IOpcSignatureCustomObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcSignatureCustomObject> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcSignatureCustomObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcSignatureCustomObject> for ::windows::core::IUnknown {
-    fn from(value: &IOpcSignatureCustomObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcSignatureCustomObject, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcSignatureCustomObject {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1768,21 +1478,7 @@ impl IOpcSignatureCustomObjectEnumerator {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignatureCustomObjectEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IOpcSignatureCustomObjectEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IOpcSignatureCustomObjectEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcSignatureCustomObjectEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcSignatureCustomObjectEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcSignatureCustomObjectEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IOpcSignatureCustomObjectEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcSignatureCustomObjectEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcSignatureCustomObjectEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1839,21 +1535,7 @@ impl IOpcSignatureCustomObjectSet {
         (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignatureCustomObjectEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IOpcSignatureCustomObjectSet> for ::windows::core::IUnknown {
-    fn from(value: IOpcSignatureCustomObjectSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcSignatureCustomObjectSet> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcSignatureCustomObjectSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcSignatureCustomObjectSet> for ::windows::core::IUnknown {
-    fn from(value: &IOpcSignatureCustomObjectSet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcSignatureCustomObjectSet, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcSignatureCustomObjectSet {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1910,21 +1592,7 @@ impl IOpcSignaturePartReference {
         (::windows::core::Vtable::vtable(self).GetTransformMethod)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OPC_CANONICALIZATION_METHOD>(result__)
     }
 }
-impl ::core::convert::From<IOpcSignaturePartReference> for ::windows::core::IUnknown {
-    fn from(value: IOpcSignaturePartReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcSignaturePartReference> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcSignaturePartReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcSignaturePartReference> for ::windows::core::IUnknown {
-    fn from(value: &IOpcSignaturePartReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcSignaturePartReference, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcSignaturePartReference {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1985,21 +1653,7 @@ impl IOpcSignaturePartReferenceEnumerator {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignaturePartReferenceEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IOpcSignaturePartReferenceEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IOpcSignaturePartReferenceEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcSignaturePartReferenceEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcSignaturePartReferenceEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcSignaturePartReferenceEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IOpcSignaturePartReferenceEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcSignaturePartReferenceEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcSignaturePartReferenceEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2062,21 +1716,7 @@ impl IOpcSignaturePartReferenceSet {
         (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignaturePartReferenceEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IOpcSignaturePartReferenceSet> for ::windows::core::IUnknown {
-    fn from(value: IOpcSignaturePartReferenceSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcSignaturePartReferenceSet> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcSignaturePartReferenceSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcSignaturePartReferenceSet> for ::windows::core::IUnknown {
-    fn from(value: &IOpcSignaturePartReferenceSet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcSignaturePartReferenceSet, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcSignaturePartReferenceSet {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2140,21 +1780,7 @@ impl IOpcSignatureReference {
         (::windows::core::Vtable::vtable(self).GetDigestValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(digestvalue), ::core::mem::transmute(count)).ok()
     }
 }
-impl ::core::convert::From<IOpcSignatureReference> for ::windows::core::IUnknown {
-    fn from(value: IOpcSignatureReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcSignatureReference> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcSignatureReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcSignatureReference> for ::windows::core::IUnknown {
-    fn from(value: &IOpcSignatureReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcSignatureReference, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcSignatureReference {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2216,21 +1842,7 @@ impl IOpcSignatureReferenceEnumerator {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignatureReferenceEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IOpcSignatureReferenceEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IOpcSignatureReferenceEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcSignatureReferenceEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcSignatureReferenceEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcSignatureReferenceEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IOpcSignatureReferenceEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcSignatureReferenceEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcSignatureReferenceEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2295,21 +1907,7 @@ impl IOpcSignatureReferenceSet {
         (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignatureReferenceEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IOpcSignatureReferenceSet> for ::windows::core::IUnknown {
-    fn from(value: IOpcSignatureReferenceSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcSignatureReferenceSet> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcSignatureReferenceSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcSignatureReferenceSet> for ::windows::core::IUnknown {
-    fn from(value: &IOpcSignatureReferenceSet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcSignatureReferenceSet, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcSignatureReferenceSet {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2373,21 +1971,7 @@ impl IOpcSignatureRelationshipReference {
         (::windows::core::Vtable::vtable(self).GetRelationshipSelectorEnumerator)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationshipSelectorEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IOpcSignatureRelationshipReference> for ::windows::core::IUnknown {
-    fn from(value: IOpcSignatureRelationshipReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcSignatureRelationshipReference> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcSignatureRelationshipReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcSignatureRelationshipReference> for ::windows::core::IUnknown {
-    fn from(value: &IOpcSignatureRelationshipReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcSignatureRelationshipReference, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcSignatureRelationshipReference {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2449,21 +2033,7 @@ impl IOpcSignatureRelationshipReferenceEnumerator {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignatureRelationshipReferenceEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IOpcSignatureRelationshipReferenceEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IOpcSignatureRelationshipReferenceEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcSignatureRelationshipReferenceEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcSignatureRelationshipReferenceEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcSignatureRelationshipReferenceEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IOpcSignatureRelationshipReferenceEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcSignatureRelationshipReferenceEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcSignatureRelationshipReferenceEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2531,21 +2101,7 @@ impl IOpcSignatureRelationshipReferenceSet {
         (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignatureRelationshipReferenceEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IOpcSignatureRelationshipReferenceSet> for ::windows::core::IUnknown {
-    fn from(value: IOpcSignatureRelationshipReferenceSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcSignatureRelationshipReferenceSet> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcSignatureRelationshipReferenceSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcSignatureRelationshipReferenceSet> for ::windows::core::IUnknown {
-    fn from(value: &IOpcSignatureRelationshipReferenceSet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcSignatureRelationshipReferenceSet, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcSignatureRelationshipReferenceSet {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2663,21 +2219,7 @@ impl IOpcSigningOptions {
         (::windows::core::Vtable::vtable(self).SetSignaturePartName)(::windows::core::Vtable::as_raw(self), signaturepartname.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IOpcSigningOptions> for ::windows::core::IUnknown {
-    fn from(value: IOpcSigningOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOpcSigningOptions> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcSigningOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOpcSigningOptions> for ::windows::core::IUnknown {
-    fn from(value: &IOpcSigningOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcSigningOptions, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOpcSigningOptions {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2910,41 +2452,7 @@ impl IOpcUri {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IOpcUri> for ::windows::core::IUnknown {
-    fn from(value: IOpcUri) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IOpcUri> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOpcUri) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IOpcUri> for ::windows::core::IUnknown {
-    fn from(value: &IOpcUri) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IOpcUri> for super::super::super::System::Com::IUri {
-    fn from(value: IOpcUri) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IOpcUri> for &'a super::super::super::System::Com::IUri {
-    fn from(value: &'a IOpcUri) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IOpcUri> for super::super::super::System::Com::IUri {
-    fn from(value: &IOpcUri) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOpcUri, ::windows::core::IUnknown, super::super::super::System::Com::IUri);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IOpcUri {
     fn clone(&self) -> Self {

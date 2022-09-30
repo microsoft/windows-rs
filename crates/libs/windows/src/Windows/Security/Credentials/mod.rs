@@ -218,36 +218,7 @@ impl IWebAccount {
         }
     }
 }
-impl ::core::convert::From<IWebAccount> for ::windows::core::IUnknown {
-    fn from(value: IWebAccount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebAccount> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWebAccount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccount> for ::windows::core::IUnknown {
-    fn from(value: &IWebAccount) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWebAccount> for ::windows::core::IInspectable {
-    fn from(value: IWebAccount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebAccount> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWebAccount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccount> for ::windows::core::IInspectable {
-    fn from(value: &IWebAccount) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWebAccount, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IWebAccount {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -502,36 +473,7 @@ unsafe impl ::windows::core::Interface for KeyCredential {
 impl ::windows::core::RuntimeName for KeyCredential {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredential";
 }
-impl ::core::convert::From<KeyCredential> for ::windows::core::IUnknown {
-    fn from(value: KeyCredential) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&KeyCredential> for ::windows::core::IUnknown {
-    fn from(value: &KeyCredential) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&KeyCredential> for &::windows::core::IUnknown {
-    fn from(value: &KeyCredential) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<KeyCredential> for ::windows::core::IInspectable {
-    fn from(value: KeyCredential) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&KeyCredential> for ::windows::core::IInspectable {
-    fn from(value: &KeyCredential) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&KeyCredential> for &::windows::core::IInspectable {
-    fn from(value: &KeyCredential) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(KeyCredential, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for KeyCredential {}
 unsafe impl ::core::marker::Sync for KeyCredential {}
 #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -596,36 +538,7 @@ unsafe impl ::windows::core::Interface for KeyCredentialAttestationResult {
 impl ::windows::core::RuntimeName for KeyCredentialAttestationResult {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredentialAttestationResult";
 }
-impl ::core::convert::From<KeyCredentialAttestationResult> for ::windows::core::IUnknown {
-    fn from(value: KeyCredentialAttestationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&KeyCredentialAttestationResult> for ::windows::core::IUnknown {
-    fn from(value: &KeyCredentialAttestationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&KeyCredentialAttestationResult> for &::windows::core::IUnknown {
-    fn from(value: &KeyCredentialAttestationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<KeyCredentialAttestationResult> for ::windows::core::IInspectable {
-    fn from(value: KeyCredentialAttestationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&KeyCredentialAttestationResult> for ::windows::core::IInspectable {
-    fn from(value: &KeyCredentialAttestationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&KeyCredentialAttestationResult> for &::windows::core::IInspectable {
-    fn from(value: &KeyCredentialAttestationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(KeyCredentialAttestationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for KeyCredentialAttestationResult {}
 unsafe impl ::core::marker::Sync for KeyCredentialAttestationResult {}
 #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -733,36 +646,7 @@ unsafe impl ::windows::core::Interface for KeyCredentialOperationResult {
 impl ::windows::core::RuntimeName for KeyCredentialOperationResult {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredentialOperationResult";
 }
-impl ::core::convert::From<KeyCredentialOperationResult> for ::windows::core::IUnknown {
-    fn from(value: KeyCredentialOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&KeyCredentialOperationResult> for ::windows::core::IUnknown {
-    fn from(value: &KeyCredentialOperationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&KeyCredentialOperationResult> for &::windows::core::IUnknown {
-    fn from(value: &KeyCredentialOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<KeyCredentialOperationResult> for ::windows::core::IInspectable {
-    fn from(value: KeyCredentialOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&KeyCredentialOperationResult> for ::windows::core::IInspectable {
-    fn from(value: &KeyCredentialOperationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&KeyCredentialOperationResult> for &::windows::core::IInspectable {
-    fn from(value: &KeyCredentialOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(KeyCredentialOperationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for KeyCredentialOperationResult {}
 unsafe impl ::core::marker::Sync for KeyCredentialOperationResult {}
 #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -816,36 +700,7 @@ unsafe impl ::windows::core::Interface for KeyCredentialRetrievalResult {
 impl ::windows::core::RuntimeName for KeyCredentialRetrievalResult {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredentialRetrievalResult";
 }
-impl ::core::convert::From<KeyCredentialRetrievalResult> for ::windows::core::IUnknown {
-    fn from(value: KeyCredentialRetrievalResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&KeyCredentialRetrievalResult> for ::windows::core::IUnknown {
-    fn from(value: &KeyCredentialRetrievalResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&KeyCredentialRetrievalResult> for &::windows::core::IUnknown {
-    fn from(value: &KeyCredentialRetrievalResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<KeyCredentialRetrievalResult> for ::windows::core::IInspectable {
-    fn from(value: KeyCredentialRetrievalResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&KeyCredentialRetrievalResult> for ::windows::core::IInspectable {
-    fn from(value: &KeyCredentialRetrievalResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&KeyCredentialRetrievalResult> for &::windows::core::IInspectable {
-    fn from(value: &KeyCredentialRetrievalResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(KeyCredentialRetrievalResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for KeyCredentialRetrievalResult {}
 unsafe impl ::core::marker::Sync for KeyCredentialRetrievalResult {}
 #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -949,36 +804,7 @@ unsafe impl ::windows::core::Interface for PasswordCredential {
 impl ::windows::core::RuntimeName for PasswordCredential {
     const NAME: &'static str = "Windows.Security.Credentials.PasswordCredential";
 }
-impl ::core::convert::From<PasswordCredential> for ::windows::core::IUnknown {
-    fn from(value: PasswordCredential) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PasswordCredential> for ::windows::core::IUnknown {
-    fn from(value: &PasswordCredential) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PasswordCredential> for &::windows::core::IUnknown {
-    fn from(value: &PasswordCredential) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PasswordCredential> for ::windows::core::IInspectable {
-    fn from(value: PasswordCredential) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PasswordCredential> for ::windows::core::IInspectable {
-    fn from(value: &PasswordCredential) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PasswordCredential> for &::windows::core::IInspectable {
-    fn from(value: &PasswordCredential) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PasswordCredential, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PasswordCredential {}
 unsafe impl ::core::marker::Sync for PasswordCredential {}
 #[doc = "*Required features: `\"Security_Credentials\"`, `\"Foundation_Collections\"`*"]
@@ -1136,41 +962,7 @@ impl ::core::iter::IntoIterator for &PasswordCredentialPropertyStore {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<PasswordCredentialPropertyStore> for ::windows::core::IUnknown {
-    fn from(value: PasswordCredentialPropertyStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PasswordCredentialPropertyStore> for ::windows::core::IUnknown {
-    fn from(value: &PasswordCredentialPropertyStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PasswordCredentialPropertyStore> for &::windows::core::IUnknown {
-    fn from(value: &PasswordCredentialPropertyStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<PasswordCredentialPropertyStore> for ::windows::core::IInspectable {
-    fn from(value: PasswordCredentialPropertyStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PasswordCredentialPropertyStore> for ::windows::core::IInspectable {
-    fn from(value: &PasswordCredentialPropertyStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PasswordCredentialPropertyStore> for &::windows::core::IInspectable {
-    fn from(value: &PasswordCredentialPropertyStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PasswordCredentialPropertyStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<PasswordCredentialPropertyStore> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
@@ -1349,36 +1141,7 @@ unsafe impl ::windows::core::Interface for PasswordVault {
 impl ::windows::core::RuntimeName for PasswordVault {
     const NAME: &'static str = "Windows.Security.Credentials.PasswordVault";
 }
-impl ::core::convert::From<PasswordVault> for ::windows::core::IUnknown {
-    fn from(value: PasswordVault) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PasswordVault> for ::windows::core::IUnknown {
-    fn from(value: &PasswordVault) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PasswordVault> for &::windows::core::IUnknown {
-    fn from(value: &PasswordVault) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PasswordVault> for ::windows::core::IInspectable {
-    fn from(value: PasswordVault) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PasswordVault> for ::windows::core::IInspectable {
-    fn from(value: &PasswordVault) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PasswordVault> for &::windows::core::IInspectable {
-    fn from(value: &PasswordVault) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PasswordVault, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PasswordVault {}
 unsafe impl ::core::marker::Sync for PasswordVault {}
 #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -1493,36 +1256,7 @@ unsafe impl ::windows::core::Interface for WebAccount {
 impl ::windows::core::RuntimeName for WebAccount {
     const NAME: &'static str = "Windows.Security.Credentials.WebAccount";
 }
-impl ::core::convert::From<WebAccount> for ::windows::core::IUnknown {
-    fn from(value: WebAccount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccount> for ::windows::core::IUnknown {
-    fn from(value: &WebAccount) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccount> for &::windows::core::IUnknown {
-    fn from(value: &WebAccount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebAccount> for ::windows::core::IInspectable {
-    fn from(value: WebAccount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccount> for ::windows::core::IInspectable {
-    fn from(value: &WebAccount) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccount> for &::windows::core::IInspectable {
-    fn from(value: &WebAccount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebAccount, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebAccount> for IWebAccount {
     type Error = ::windows::core::Error;
     fn try_from(value: WebAccount) -> ::windows::core::Result<Self> {
@@ -1647,36 +1381,7 @@ unsafe impl ::windows::core::Interface for WebAccountProvider {
 impl ::windows::core::RuntimeName for WebAccountProvider {
     const NAME: &'static str = "Windows.Security.Credentials.WebAccountProvider";
 }
-impl ::core::convert::From<WebAccountProvider> for ::windows::core::IUnknown {
-    fn from(value: WebAccountProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountProvider> for ::windows::core::IUnknown {
-    fn from(value: &WebAccountProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountProvider> for &::windows::core::IUnknown {
-    fn from(value: &WebAccountProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebAccountProvider> for ::windows::core::IInspectable {
-    fn from(value: WebAccountProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountProvider> for ::windows::core::IInspectable {
-    fn from(value: &WebAccountProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountProvider> for &::windows::core::IInspectable {
-    fn from(value: &WebAccountProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebAccountProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebAccountProvider {}
 unsafe impl ::core::marker::Sync for WebAccountProvider {}
 #[doc = "*Required features: `\"Security_Credentials\"`*"]

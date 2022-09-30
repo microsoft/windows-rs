@@ -272,36 +272,7 @@ impl IVpnChannelStatics {
         unsafe { (::windows::core::Vtable::vtable(this).ProcessEventAsync)(::windows::core::Vtable::as_raw(this), thirdpartyplugin.into().abi(), event.into().abi()).ok() }
     }
 }
-impl ::core::convert::From<IVpnChannelStatics> for ::windows::core::IUnknown {
-    fn from(value: IVpnChannelStatics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVpnChannelStatics> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVpnChannelStatics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVpnChannelStatics> for ::windows::core::IUnknown {
-    fn from(value: &IVpnChannelStatics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVpnChannelStatics> for ::windows::core::IInspectable {
-    fn from(value: IVpnChannelStatics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVpnChannelStatics> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IVpnChannelStatics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVpnChannelStatics> for ::windows::core::IInspectable {
-    fn from(value: &IVpnChannelStatics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVpnChannelStatics, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IVpnChannelStatics {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -376,36 +347,7 @@ impl IVpnCredential {
         }
     }
 }
-impl ::core::convert::From<IVpnCredential> for ::windows::core::IUnknown {
-    fn from(value: IVpnCredential) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVpnCredential> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVpnCredential) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVpnCredential> for ::windows::core::IUnknown {
-    fn from(value: &IVpnCredential) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVpnCredential> for ::windows::core::IInspectable {
-    fn from(value: IVpnCredential) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVpnCredential> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IVpnCredential) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVpnCredential> for ::windows::core::IInspectable {
-    fn from(value: &IVpnCredential) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVpnCredential, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IVpnCredential {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -564,36 +506,7 @@ impl IVpnCustomPrompt {
         }
     }
 }
-impl ::core::convert::From<IVpnCustomPrompt> for ::windows::core::IUnknown {
-    fn from(value: IVpnCustomPrompt) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVpnCustomPrompt> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVpnCustomPrompt) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVpnCustomPrompt> for ::windows::core::IUnknown {
-    fn from(value: &IVpnCustomPrompt) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVpnCustomPrompt> for ::windows::core::IInspectable {
-    fn from(value: IVpnCustomPrompt) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVpnCustomPrompt> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IVpnCustomPrompt) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVpnCustomPrompt> for ::windows::core::IInspectable {
-    fn from(value: &IVpnCustomPrompt) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVpnCustomPrompt, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IVpnCustomPrompt {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -689,36 +602,7 @@ impl IVpnCustomPromptElement {
         }
     }
 }
-impl ::core::convert::From<IVpnCustomPromptElement> for ::windows::core::IUnknown {
-    fn from(value: IVpnCustomPromptElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVpnCustomPromptElement> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVpnCustomPromptElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVpnCustomPromptElement> for ::windows::core::IUnknown {
-    fn from(value: &IVpnCustomPromptElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVpnCustomPromptElement> for ::windows::core::IInspectable {
-    fn from(value: IVpnCustomPromptElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVpnCustomPromptElement> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IVpnCustomPromptElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVpnCustomPromptElement> for ::windows::core::IInspectable {
-    fn from(value: &IVpnCustomPromptElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVpnCustomPromptElement, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IVpnCustomPromptElement {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -919,36 +803,7 @@ impl IVpnDomainNameInfoFactory {
         }
     }
 }
-impl ::core::convert::From<IVpnDomainNameInfoFactory> for ::windows::core::IUnknown {
-    fn from(value: IVpnDomainNameInfoFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVpnDomainNameInfoFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVpnDomainNameInfoFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVpnDomainNameInfoFactory> for ::windows::core::IUnknown {
-    fn from(value: &IVpnDomainNameInfoFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVpnDomainNameInfoFactory> for ::windows::core::IInspectable {
-    fn from(value: IVpnDomainNameInfoFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVpnDomainNameInfoFactory> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IVpnDomainNameInfoFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVpnDomainNameInfoFactory> for ::windows::core::IInspectable {
-    fn from(value: &IVpnDomainNameInfoFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVpnDomainNameInfoFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IVpnDomainNameInfoFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1052,36 +907,7 @@ impl IVpnInterfaceIdFactory {
         }
     }
 }
-impl ::core::convert::From<IVpnInterfaceIdFactory> for ::windows::core::IUnknown {
-    fn from(value: IVpnInterfaceIdFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVpnInterfaceIdFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVpnInterfaceIdFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVpnInterfaceIdFactory> for ::windows::core::IUnknown {
-    fn from(value: &IVpnInterfaceIdFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVpnInterfaceIdFactory> for ::windows::core::IInspectable {
-    fn from(value: IVpnInterfaceIdFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVpnInterfaceIdFactory> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IVpnInterfaceIdFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVpnInterfaceIdFactory> for ::windows::core::IInspectable {
-    fn from(value: &IVpnInterfaceIdFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVpnInterfaceIdFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IVpnInterfaceIdFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1249,36 +1075,7 @@ impl IVpnNamespaceInfoFactory {
         }
     }
 }
-impl ::core::convert::From<IVpnNamespaceInfoFactory> for ::windows::core::IUnknown {
-    fn from(value: IVpnNamespaceInfoFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVpnNamespaceInfoFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVpnNamespaceInfoFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVpnNamespaceInfoFactory> for ::windows::core::IUnknown {
-    fn from(value: &IVpnNamespaceInfoFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVpnNamespaceInfoFactory> for ::windows::core::IInspectable {
-    fn from(value: IVpnNamespaceInfoFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVpnNamespaceInfoFactory> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IVpnNamespaceInfoFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVpnNamespaceInfoFactory> for ::windows::core::IInspectable {
-    fn from(value: &IVpnNamespaceInfoFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVpnNamespaceInfoFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IVpnNamespaceInfoFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1427,36 +1224,7 @@ impl IVpnPacketBufferFactory {
         }
     }
 }
-impl ::core::convert::From<IVpnPacketBufferFactory> for ::windows::core::IUnknown {
-    fn from(value: IVpnPacketBufferFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVpnPacketBufferFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVpnPacketBufferFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVpnPacketBufferFactory> for ::windows::core::IUnknown {
-    fn from(value: &IVpnPacketBufferFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVpnPacketBufferFactory> for ::windows::core::IInspectable {
-    fn from(value: IVpnPacketBufferFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVpnPacketBufferFactory> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IVpnPacketBufferFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVpnPacketBufferFactory> for ::windows::core::IInspectable {
-    fn from(value: &IVpnPacketBufferFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVpnPacketBufferFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IVpnPacketBufferFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1580,36 +1348,7 @@ impl IVpnPlugIn {
         unsafe { (::windows::core::Vtable::vtable(this).Decapsulate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(channel), ::core::mem::transmute_copy(encapbuffer), ::core::mem::transmute_copy(decapsulatedpackets), ::core::mem::transmute_copy(controlpacketstosend)).ok() }
     }
 }
-impl ::core::convert::From<IVpnPlugIn> for ::windows::core::IUnknown {
-    fn from(value: IVpnPlugIn) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVpnPlugIn> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVpnPlugIn) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVpnPlugIn> for ::windows::core::IUnknown {
-    fn from(value: &IVpnPlugIn) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVpnPlugIn> for ::windows::core::IInspectable {
-    fn from(value: IVpnPlugIn) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVpnPlugIn> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IVpnPlugIn) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVpnPlugIn> for ::windows::core::IInspectable {
-    fn from(value: &IVpnPlugIn) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVpnPlugIn, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IVpnPlugIn {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1762,36 +1501,7 @@ impl IVpnProfile {
         unsafe { (::windows::core::Vtable::vtable(this).SetAlwaysOn)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
-impl ::core::convert::From<IVpnProfile> for ::windows::core::IUnknown {
-    fn from(value: IVpnProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVpnProfile> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVpnProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVpnProfile> for ::windows::core::IUnknown {
-    fn from(value: &IVpnProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVpnProfile> for ::windows::core::IInspectable {
-    fn from(value: IVpnProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVpnProfile> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IVpnProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVpnProfile> for ::windows::core::IInspectable {
-    fn from(value: &IVpnProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVpnProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IVpnProfile {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1926,36 +1636,7 @@ impl IVpnRouteFactory {
         }
     }
 }
-impl ::core::convert::From<IVpnRouteFactory> for ::windows::core::IUnknown {
-    fn from(value: IVpnRouteFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVpnRouteFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVpnRouteFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVpnRouteFactory> for ::windows::core::IUnknown {
-    fn from(value: &IVpnRouteFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVpnRouteFactory> for ::windows::core::IInspectable {
-    fn from(value: IVpnRouteFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVpnRouteFactory> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IVpnRouteFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVpnRouteFactory> for ::windows::core::IInspectable {
-    fn from(value: &IVpnRouteFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVpnRouteFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IVpnRouteFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2156,36 +1837,7 @@ unsafe impl ::windows::core::Interface for VpnAppId {
 impl ::windows::core::RuntimeName for VpnAppId {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnAppId";
 }
-impl ::core::convert::From<VpnAppId> for ::windows::core::IUnknown {
-    fn from(value: VpnAppId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnAppId> for ::windows::core::IUnknown {
-    fn from(value: &VpnAppId) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnAppId> for &::windows::core::IUnknown {
-    fn from(value: &VpnAppId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnAppId> for ::windows::core::IInspectable {
-    fn from(value: VpnAppId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnAppId> for ::windows::core::IInspectable {
-    fn from(value: &VpnAppId) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnAppId> for &::windows::core::IInspectable {
-    fn from(value: &VpnAppId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnAppId, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnAppId {}
 unsafe impl ::core::marker::Sync for VpnAppId {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -2545,36 +2197,7 @@ unsafe impl ::windows::core::Interface for VpnChannel {
 impl ::windows::core::RuntimeName for VpnChannel {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannel";
 }
-impl ::core::convert::From<VpnChannel> for ::windows::core::IUnknown {
-    fn from(value: VpnChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnChannel> for ::windows::core::IUnknown {
-    fn from(value: &VpnChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnChannel> for &::windows::core::IUnknown {
-    fn from(value: &VpnChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnChannel> for ::windows::core::IInspectable {
-    fn from(value: VpnChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnChannel> for ::windows::core::IInspectable {
-    fn from(value: &VpnChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnChannel> for &::windows::core::IInspectable {
-    fn from(value: &VpnChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnChannel {}
 unsafe impl ::core::marker::Sync for VpnChannel {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -2621,36 +2244,7 @@ unsafe impl ::windows::core::Interface for VpnChannelActivityEventArgs {
 impl ::windows::core::RuntimeName for VpnChannelActivityEventArgs {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelActivityEventArgs";
 }
-impl ::core::convert::From<VpnChannelActivityEventArgs> for ::windows::core::IUnknown {
-    fn from(value: VpnChannelActivityEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnChannelActivityEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &VpnChannelActivityEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnChannelActivityEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &VpnChannelActivityEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnChannelActivityEventArgs> for ::windows::core::IInspectable {
-    fn from(value: VpnChannelActivityEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnChannelActivityEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &VpnChannelActivityEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnChannelActivityEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &VpnChannelActivityEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnChannelActivityEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnChannelActivityEventArgs {}
 unsafe impl ::core::marker::Sync for VpnChannelActivityEventArgs {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -2697,36 +2291,7 @@ unsafe impl ::windows::core::Interface for VpnChannelActivityStateChangedArgs {
 impl ::windows::core::RuntimeName for VpnChannelActivityStateChangedArgs {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelActivityStateChangedArgs";
 }
-impl ::core::convert::From<VpnChannelActivityStateChangedArgs> for ::windows::core::IUnknown {
-    fn from(value: VpnChannelActivityStateChangedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnChannelActivityStateChangedArgs> for ::windows::core::IUnknown {
-    fn from(value: &VpnChannelActivityStateChangedArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnChannelActivityStateChangedArgs> for &::windows::core::IUnknown {
-    fn from(value: &VpnChannelActivityStateChangedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnChannelActivityStateChangedArgs> for ::windows::core::IInspectable {
-    fn from(value: VpnChannelActivityStateChangedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnChannelActivityStateChangedArgs> for ::windows::core::IInspectable {
-    fn from(value: &VpnChannelActivityStateChangedArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnChannelActivityStateChangedArgs> for &::windows::core::IInspectable {
-    fn from(value: &VpnChannelActivityStateChangedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnChannelActivityStateChangedArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnChannelActivityStateChangedArgs {}
 unsafe impl ::core::marker::Sync for VpnChannelActivityStateChangedArgs {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -2798,36 +2363,7 @@ unsafe impl ::windows::core::Interface for VpnChannelConfiguration {
 impl ::windows::core::RuntimeName for VpnChannelConfiguration {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelConfiguration";
 }
-impl ::core::convert::From<VpnChannelConfiguration> for ::windows::core::IUnknown {
-    fn from(value: VpnChannelConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnChannelConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &VpnChannelConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnChannelConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &VpnChannelConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnChannelConfiguration> for ::windows::core::IInspectable {
-    fn from(value: VpnChannelConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnChannelConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &VpnChannelConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnChannelConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &VpnChannelConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnChannelConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnChannelConfiguration {}
 unsafe impl ::core::marker::Sync for VpnChannelConfiguration {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -2901,36 +2437,7 @@ unsafe impl ::windows::core::Interface for VpnCredential {
 impl ::windows::core::RuntimeName for VpnCredential {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCredential";
 }
-impl ::core::convert::From<VpnCredential> for ::windows::core::IUnknown {
-    fn from(value: VpnCredential) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnCredential> for ::windows::core::IUnknown {
-    fn from(value: &VpnCredential) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnCredential> for &::windows::core::IUnknown {
-    fn from(value: &VpnCredential) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnCredential> for ::windows::core::IInspectable {
-    fn from(value: VpnCredential) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnCredential> for ::windows::core::IInspectable {
-    fn from(value: &VpnCredential) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnCredential> for &::windows::core::IInspectable {
-    fn from(value: &VpnCredential) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnCredential, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnCredential> for IVpnCredential {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnCredential) -> ::windows::core::Result<Self> {
@@ -3047,36 +2554,7 @@ unsafe impl ::windows::core::Interface for VpnCustomCheckBox {
 impl ::windows::core::RuntimeName for VpnCustomCheckBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomCheckBox";
 }
-impl ::core::convert::From<VpnCustomCheckBox> for ::windows::core::IUnknown {
-    fn from(value: VpnCustomCheckBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnCustomCheckBox> for ::windows::core::IUnknown {
-    fn from(value: &VpnCustomCheckBox) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnCustomCheckBox> for &::windows::core::IUnknown {
-    fn from(value: &VpnCustomCheckBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnCustomCheckBox> for ::windows::core::IInspectable {
-    fn from(value: VpnCustomCheckBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnCustomCheckBox> for ::windows::core::IInspectable {
-    fn from(value: &VpnCustomCheckBox) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnCustomCheckBox> for &::windows::core::IInspectable {
-    fn from(value: &VpnCustomCheckBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnCustomCheckBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnCustomCheckBox> for IVpnCustomPrompt {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnCustomCheckBox) -> ::windows::core::Result<Self> {
@@ -3201,36 +2679,7 @@ unsafe impl ::windows::core::Interface for VpnCustomComboBox {
 impl ::windows::core::RuntimeName for VpnCustomComboBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomComboBox";
 }
-impl ::core::convert::From<VpnCustomComboBox> for ::windows::core::IUnknown {
-    fn from(value: VpnCustomComboBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnCustomComboBox> for ::windows::core::IUnknown {
-    fn from(value: &VpnCustomComboBox) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnCustomComboBox> for &::windows::core::IUnknown {
-    fn from(value: &VpnCustomComboBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnCustomComboBox> for ::windows::core::IInspectable {
-    fn from(value: VpnCustomComboBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnCustomComboBox> for ::windows::core::IInspectable {
-    fn from(value: &VpnCustomComboBox) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnCustomComboBox> for &::windows::core::IInspectable {
-    fn from(value: &VpnCustomComboBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnCustomComboBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnCustomComboBox> for IVpnCustomPrompt {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnCustomComboBox) -> ::windows::core::Result<Self> {
@@ -3358,36 +2807,7 @@ unsafe impl ::windows::core::Interface for VpnCustomEditBox {
 impl ::windows::core::RuntimeName for VpnCustomEditBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomEditBox";
 }
-impl ::core::convert::From<VpnCustomEditBox> for ::windows::core::IUnknown {
-    fn from(value: VpnCustomEditBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnCustomEditBox> for ::windows::core::IUnknown {
-    fn from(value: &VpnCustomEditBox) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnCustomEditBox> for &::windows::core::IUnknown {
-    fn from(value: &VpnCustomEditBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnCustomEditBox> for ::windows::core::IInspectable {
-    fn from(value: VpnCustomEditBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnCustomEditBox> for ::windows::core::IInspectable {
-    fn from(value: &VpnCustomEditBox) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnCustomEditBox> for &::windows::core::IInspectable {
-    fn from(value: &VpnCustomEditBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnCustomEditBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnCustomEditBox> for IVpnCustomPrompt {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnCustomEditBox) -> ::windows::core::Result<Self> {
@@ -3486,36 +2906,7 @@ unsafe impl ::windows::core::Interface for VpnCustomErrorBox {
 impl ::windows::core::RuntimeName for VpnCustomErrorBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomErrorBox";
 }
-impl ::core::convert::From<VpnCustomErrorBox> for ::windows::core::IUnknown {
-    fn from(value: VpnCustomErrorBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnCustomErrorBox> for ::windows::core::IUnknown {
-    fn from(value: &VpnCustomErrorBox) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnCustomErrorBox> for &::windows::core::IUnknown {
-    fn from(value: &VpnCustomErrorBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnCustomErrorBox> for ::windows::core::IInspectable {
-    fn from(value: VpnCustomErrorBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnCustomErrorBox> for ::windows::core::IInspectable {
-    fn from(value: &VpnCustomErrorBox) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnCustomErrorBox> for &::windows::core::IInspectable {
-    fn from(value: &VpnCustomErrorBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnCustomErrorBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnCustomErrorBox> for IVpnCustomPrompt {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnCustomErrorBox) -> ::windows::core::Result<Self> {
@@ -3632,36 +3023,7 @@ unsafe impl ::windows::core::Interface for VpnCustomPromptBooleanInput {
 impl ::windows::core::RuntimeName for VpnCustomPromptBooleanInput {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptBooleanInput";
 }
-impl ::core::convert::From<VpnCustomPromptBooleanInput> for ::windows::core::IUnknown {
-    fn from(value: VpnCustomPromptBooleanInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnCustomPromptBooleanInput> for ::windows::core::IUnknown {
-    fn from(value: &VpnCustomPromptBooleanInput) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnCustomPromptBooleanInput> for &::windows::core::IUnknown {
-    fn from(value: &VpnCustomPromptBooleanInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnCustomPromptBooleanInput> for ::windows::core::IInspectable {
-    fn from(value: VpnCustomPromptBooleanInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnCustomPromptBooleanInput> for ::windows::core::IInspectable {
-    fn from(value: &VpnCustomPromptBooleanInput) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnCustomPromptBooleanInput> for &::windows::core::IInspectable {
-    fn from(value: &VpnCustomPromptBooleanInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnCustomPromptBooleanInput, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnCustomPromptBooleanInput> for IVpnCustomPromptElement {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnCustomPromptBooleanInput) -> ::windows::core::Result<Self> {
@@ -3776,36 +3138,7 @@ unsafe impl ::windows::core::Interface for VpnCustomPromptOptionSelector {
 impl ::windows::core::RuntimeName for VpnCustomPromptOptionSelector {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptOptionSelector";
 }
-impl ::core::convert::From<VpnCustomPromptOptionSelector> for ::windows::core::IUnknown {
-    fn from(value: VpnCustomPromptOptionSelector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnCustomPromptOptionSelector> for ::windows::core::IUnknown {
-    fn from(value: &VpnCustomPromptOptionSelector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnCustomPromptOptionSelector> for &::windows::core::IUnknown {
-    fn from(value: &VpnCustomPromptOptionSelector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnCustomPromptOptionSelector> for ::windows::core::IInspectable {
-    fn from(value: VpnCustomPromptOptionSelector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnCustomPromptOptionSelector> for ::windows::core::IInspectable {
-    fn from(value: &VpnCustomPromptOptionSelector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnCustomPromptOptionSelector> for &::windows::core::IInspectable {
-    fn from(value: &VpnCustomPromptOptionSelector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnCustomPromptOptionSelector, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnCustomPromptOptionSelector> for IVpnCustomPromptElement {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnCustomPromptOptionSelector) -> ::windows::core::Result<Self> {
@@ -3915,36 +3248,7 @@ unsafe impl ::windows::core::Interface for VpnCustomPromptText {
 impl ::windows::core::RuntimeName for VpnCustomPromptText {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptText";
 }
-impl ::core::convert::From<VpnCustomPromptText> for ::windows::core::IUnknown {
-    fn from(value: VpnCustomPromptText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnCustomPromptText> for ::windows::core::IUnknown {
-    fn from(value: &VpnCustomPromptText) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnCustomPromptText> for &::windows::core::IUnknown {
-    fn from(value: &VpnCustomPromptText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnCustomPromptText> for ::windows::core::IInspectable {
-    fn from(value: VpnCustomPromptText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnCustomPromptText> for ::windows::core::IInspectable {
-    fn from(value: &VpnCustomPromptText) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnCustomPromptText> for &::windows::core::IInspectable {
-    fn from(value: &VpnCustomPromptText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnCustomPromptText, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnCustomPromptText> for IVpnCustomPromptElement {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnCustomPromptText) -> ::windows::core::Result<Self> {
@@ -4072,36 +3376,7 @@ unsafe impl ::windows::core::Interface for VpnCustomPromptTextInput {
 impl ::windows::core::RuntimeName for VpnCustomPromptTextInput {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptTextInput";
 }
-impl ::core::convert::From<VpnCustomPromptTextInput> for ::windows::core::IUnknown {
-    fn from(value: VpnCustomPromptTextInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnCustomPromptTextInput> for ::windows::core::IUnknown {
-    fn from(value: &VpnCustomPromptTextInput) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnCustomPromptTextInput> for &::windows::core::IUnknown {
-    fn from(value: &VpnCustomPromptTextInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnCustomPromptTextInput> for ::windows::core::IInspectable {
-    fn from(value: VpnCustomPromptTextInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnCustomPromptTextInput> for ::windows::core::IInspectable {
-    fn from(value: &VpnCustomPromptTextInput) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnCustomPromptTextInput> for &::windows::core::IInspectable {
-    fn from(value: &VpnCustomPromptTextInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnCustomPromptTextInput, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnCustomPromptTextInput> for IVpnCustomPromptElement {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnCustomPromptTextInput) -> ::windows::core::Result<Self> {
@@ -4211,36 +3486,7 @@ unsafe impl ::windows::core::Interface for VpnCustomTextBox {
 impl ::windows::core::RuntimeName for VpnCustomTextBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomTextBox";
 }
-impl ::core::convert::From<VpnCustomTextBox> for ::windows::core::IUnknown {
-    fn from(value: VpnCustomTextBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnCustomTextBox> for ::windows::core::IUnknown {
-    fn from(value: &VpnCustomTextBox) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnCustomTextBox> for &::windows::core::IUnknown {
-    fn from(value: &VpnCustomTextBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnCustomTextBox> for ::windows::core::IInspectable {
-    fn from(value: VpnCustomTextBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnCustomTextBox> for ::windows::core::IInspectable {
-    fn from(value: &VpnCustomTextBox) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnCustomTextBox> for &::windows::core::IInspectable {
-    fn from(value: &VpnCustomTextBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnCustomTextBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnCustomTextBox> for IVpnCustomPrompt {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnCustomTextBox) -> ::windows::core::Result<Self> {
@@ -4330,36 +3576,7 @@ unsafe impl ::windows::core::Interface for VpnDomainNameAssignment {
 impl ::windows::core::RuntimeName for VpnDomainNameAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnDomainNameAssignment";
 }
-impl ::core::convert::From<VpnDomainNameAssignment> for ::windows::core::IUnknown {
-    fn from(value: VpnDomainNameAssignment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnDomainNameAssignment> for ::windows::core::IUnknown {
-    fn from(value: &VpnDomainNameAssignment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnDomainNameAssignment> for &::windows::core::IUnknown {
-    fn from(value: &VpnDomainNameAssignment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnDomainNameAssignment> for ::windows::core::IInspectable {
-    fn from(value: VpnDomainNameAssignment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnDomainNameAssignment> for ::windows::core::IInspectable {
-    fn from(value: &VpnDomainNameAssignment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnDomainNameAssignment> for &::windows::core::IInspectable {
-    fn from(value: &VpnDomainNameAssignment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnDomainNameAssignment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnDomainNameAssignment {}
 unsafe impl ::core::marker::Sync for VpnDomainNameAssignment {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -4467,36 +3684,7 @@ unsafe impl ::windows::core::Interface for VpnDomainNameInfo {
 impl ::windows::core::RuntimeName for VpnDomainNameInfo {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnDomainNameInfo";
 }
-impl ::core::convert::From<VpnDomainNameInfo> for ::windows::core::IUnknown {
-    fn from(value: VpnDomainNameInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnDomainNameInfo> for ::windows::core::IUnknown {
-    fn from(value: &VpnDomainNameInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnDomainNameInfo> for &::windows::core::IUnknown {
-    fn from(value: &VpnDomainNameInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnDomainNameInfo> for ::windows::core::IInspectable {
-    fn from(value: VpnDomainNameInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnDomainNameInfo> for ::windows::core::IInspectable {
-    fn from(value: &VpnDomainNameInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnDomainNameInfo> for &::windows::core::IInspectable {
-    fn from(value: &VpnDomainNameInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnDomainNameInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnDomainNameInfo {}
 unsafe impl ::core::marker::Sync for VpnDomainNameInfo {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -4595,36 +3783,7 @@ unsafe impl ::windows::core::Interface for VpnForegroundActivatedEventArgs {
 impl ::windows::core::RuntimeName for VpnForegroundActivatedEventArgs {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnForegroundActivatedEventArgs";
 }
-impl ::core::convert::From<VpnForegroundActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: VpnForegroundActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnForegroundActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &VpnForegroundActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnForegroundActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &VpnForegroundActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnForegroundActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: VpnForegroundActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnForegroundActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &VpnForegroundActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnForegroundActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &VpnForegroundActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnForegroundActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<VpnForegroundActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -4714,36 +3873,7 @@ unsafe impl ::windows::core::Interface for VpnForegroundActivationOperation {
 impl ::windows::core::RuntimeName for VpnForegroundActivationOperation {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnForegroundActivationOperation";
 }
-impl ::core::convert::From<VpnForegroundActivationOperation> for ::windows::core::IUnknown {
-    fn from(value: VpnForegroundActivationOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnForegroundActivationOperation> for ::windows::core::IUnknown {
-    fn from(value: &VpnForegroundActivationOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnForegroundActivationOperation> for &::windows::core::IUnknown {
-    fn from(value: &VpnForegroundActivationOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnForegroundActivationOperation> for ::windows::core::IInspectable {
-    fn from(value: VpnForegroundActivationOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnForegroundActivationOperation> for ::windows::core::IInspectable {
-    fn from(value: &VpnForegroundActivationOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnForegroundActivationOperation> for &::windows::core::IInspectable {
-    fn from(value: &VpnForegroundActivationOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnForegroundActivationOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnForegroundActivationOperation {}
 unsafe impl ::core::marker::Sync for VpnForegroundActivationOperation {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -4798,36 +3928,7 @@ unsafe impl ::windows::core::Interface for VpnInterfaceId {
 impl ::windows::core::RuntimeName for VpnInterfaceId {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnInterfaceId";
 }
-impl ::core::convert::From<VpnInterfaceId> for ::windows::core::IUnknown {
-    fn from(value: VpnInterfaceId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnInterfaceId> for ::windows::core::IUnknown {
-    fn from(value: &VpnInterfaceId) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnInterfaceId> for &::windows::core::IUnknown {
-    fn from(value: &VpnInterfaceId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnInterfaceId> for ::windows::core::IInspectable {
-    fn from(value: VpnInterfaceId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnInterfaceId> for ::windows::core::IInspectable {
-    fn from(value: &VpnInterfaceId) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnInterfaceId> for &::windows::core::IInspectable {
-    fn from(value: &VpnInterfaceId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnInterfaceId, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnInterfaceId {}
 unsafe impl ::core::marker::Sync for VpnInterfaceId {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -4979,36 +4080,7 @@ unsafe impl ::windows::core::Interface for VpnManagementAgent {
 impl ::windows::core::RuntimeName for VpnManagementAgent {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnManagementAgent";
 }
-impl ::core::convert::From<VpnManagementAgent> for ::windows::core::IUnknown {
-    fn from(value: VpnManagementAgent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnManagementAgent> for ::windows::core::IUnknown {
-    fn from(value: &VpnManagementAgent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnManagementAgent> for &::windows::core::IUnknown {
-    fn from(value: &VpnManagementAgent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnManagementAgent> for ::windows::core::IInspectable {
-    fn from(value: VpnManagementAgent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnManagementAgent> for ::windows::core::IInspectable {
-    fn from(value: &VpnManagementAgent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnManagementAgent> for &::windows::core::IInspectable {
-    fn from(value: &VpnManagementAgent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnManagementAgent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnManagementAgent {}
 unsafe impl ::core::marker::Sync for VpnManagementAgent {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -5089,36 +4161,7 @@ unsafe impl ::windows::core::Interface for VpnNamespaceAssignment {
 impl ::windows::core::RuntimeName for VpnNamespaceAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnNamespaceAssignment";
 }
-impl ::core::convert::From<VpnNamespaceAssignment> for ::windows::core::IUnknown {
-    fn from(value: VpnNamespaceAssignment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnNamespaceAssignment> for ::windows::core::IUnknown {
-    fn from(value: &VpnNamespaceAssignment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnNamespaceAssignment> for &::windows::core::IUnknown {
-    fn from(value: &VpnNamespaceAssignment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnNamespaceAssignment> for ::windows::core::IInspectable {
-    fn from(value: VpnNamespaceAssignment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnNamespaceAssignment> for ::windows::core::IInspectable {
-    fn from(value: &VpnNamespaceAssignment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnNamespaceAssignment> for &::windows::core::IInspectable {
-    fn from(value: &VpnNamespaceAssignment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnNamespaceAssignment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnNamespaceAssignment {}
 unsafe impl ::core::marker::Sync for VpnNamespaceAssignment {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -5226,36 +4269,7 @@ unsafe impl ::windows::core::Interface for VpnNamespaceInfo {
 impl ::windows::core::RuntimeName for VpnNamespaceInfo {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnNamespaceInfo";
 }
-impl ::core::convert::From<VpnNamespaceInfo> for ::windows::core::IUnknown {
-    fn from(value: VpnNamespaceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnNamespaceInfo> for ::windows::core::IUnknown {
-    fn from(value: &VpnNamespaceInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnNamespaceInfo> for &::windows::core::IUnknown {
-    fn from(value: &VpnNamespaceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnNamespaceInfo> for ::windows::core::IInspectable {
-    fn from(value: VpnNamespaceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnNamespaceInfo> for ::windows::core::IInspectable {
-    fn from(value: &VpnNamespaceInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnNamespaceInfo> for &::windows::core::IInspectable {
-    fn from(value: &VpnNamespaceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnNamespaceInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnNamespaceInfo {}
 unsafe impl ::core::marker::Sync for VpnNamespaceInfo {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -5453,36 +4467,7 @@ unsafe impl ::windows::core::Interface for VpnNativeProfile {
 impl ::windows::core::RuntimeName for VpnNativeProfile {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnNativeProfile";
 }
-impl ::core::convert::From<VpnNativeProfile> for ::windows::core::IUnknown {
-    fn from(value: VpnNativeProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnNativeProfile> for ::windows::core::IUnknown {
-    fn from(value: &VpnNativeProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnNativeProfile> for &::windows::core::IUnknown {
-    fn from(value: &VpnNativeProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnNativeProfile> for ::windows::core::IInspectable {
-    fn from(value: VpnNativeProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnNativeProfile> for ::windows::core::IInspectable {
-    fn from(value: &VpnNativeProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnNativeProfile> for &::windows::core::IInspectable {
-    fn from(value: &VpnNativeProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnNativeProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnNativeProfile> for IVpnProfile {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnNativeProfile) -> ::windows::core::Result<Self> {
@@ -5604,36 +4589,7 @@ unsafe impl ::windows::core::Interface for VpnPacketBuffer {
 impl ::windows::core::RuntimeName for VpnPacketBuffer {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnPacketBuffer";
 }
-impl ::core::convert::From<VpnPacketBuffer> for ::windows::core::IUnknown {
-    fn from(value: VpnPacketBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnPacketBuffer> for ::windows::core::IUnknown {
-    fn from(value: &VpnPacketBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnPacketBuffer> for &::windows::core::IUnknown {
-    fn from(value: &VpnPacketBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnPacketBuffer> for ::windows::core::IInspectable {
-    fn from(value: VpnPacketBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnPacketBuffer> for ::windows::core::IInspectable {
-    fn from(value: &VpnPacketBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnPacketBuffer> for &::windows::core::IInspectable {
-    fn from(value: &VpnPacketBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnPacketBuffer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnPacketBuffer {}
 unsafe impl ::core::marker::Sync for VpnPacketBuffer {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -5742,36 +4698,7 @@ impl ::core::iter::IntoIterator for &VpnPacketBufferList {
         self.First().unwrap()
     }
 }
-impl ::core::convert::From<VpnPacketBufferList> for ::windows::core::IUnknown {
-    fn from(value: VpnPacketBufferList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnPacketBufferList> for ::windows::core::IUnknown {
-    fn from(value: &VpnPacketBufferList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnPacketBufferList> for &::windows::core::IUnknown {
-    fn from(value: &VpnPacketBufferList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnPacketBufferList> for ::windows::core::IInspectable {
-    fn from(value: VpnPacketBufferList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnPacketBufferList> for ::windows::core::IInspectable {
-    fn from(value: &VpnPacketBufferList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnPacketBufferList> for &::windows::core::IInspectable {
-    fn from(value: &VpnPacketBufferList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnPacketBufferList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<VpnPacketBufferList> for super::super::Foundation::Collections::IIterable<VpnPacketBuffer> {
     type Error = ::windows::core::Error;
@@ -5858,36 +4785,7 @@ unsafe impl ::windows::core::Interface for VpnPickedCredential {
 impl ::windows::core::RuntimeName for VpnPickedCredential {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnPickedCredential";
 }
-impl ::core::convert::From<VpnPickedCredential> for ::windows::core::IUnknown {
-    fn from(value: VpnPickedCredential) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnPickedCredential> for ::windows::core::IUnknown {
-    fn from(value: &VpnPickedCredential) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnPickedCredential> for &::windows::core::IUnknown {
-    fn from(value: &VpnPickedCredential) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnPickedCredential> for ::windows::core::IInspectable {
-    fn from(value: VpnPickedCredential) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnPickedCredential> for ::windows::core::IInspectable {
-    fn from(value: &VpnPickedCredential) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnPickedCredential> for &::windows::core::IInspectable {
-    fn from(value: &VpnPickedCredential) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnPickedCredential, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnPickedCredential {}
 unsafe impl ::core::marker::Sync for VpnPickedCredential {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -6052,36 +4950,7 @@ unsafe impl ::windows::core::Interface for VpnPlugInProfile {
 impl ::windows::core::RuntimeName for VpnPlugInProfile {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnPlugInProfile";
 }
-impl ::core::convert::From<VpnPlugInProfile> for ::windows::core::IUnknown {
-    fn from(value: VpnPlugInProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnPlugInProfile> for ::windows::core::IUnknown {
-    fn from(value: &VpnPlugInProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnPlugInProfile> for &::windows::core::IUnknown {
-    fn from(value: &VpnPlugInProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnPlugInProfile> for ::windows::core::IInspectable {
-    fn from(value: VpnPlugInProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnPlugInProfile> for ::windows::core::IInspectable {
-    fn from(value: &VpnPlugInProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnPlugInProfile> for &::windows::core::IInspectable {
-    fn from(value: &VpnPlugInProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnPlugInProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VpnPlugInProfile> for IVpnProfile {
     type Error = ::windows::core::Error;
     fn try_from(value: VpnPlugInProfile) -> ::windows::core::Result<Self> {
@@ -6173,36 +5042,7 @@ unsafe impl ::windows::core::Interface for VpnRoute {
 impl ::windows::core::RuntimeName for VpnRoute {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnRoute";
 }
-impl ::core::convert::From<VpnRoute> for ::windows::core::IUnknown {
-    fn from(value: VpnRoute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnRoute> for ::windows::core::IUnknown {
-    fn from(value: &VpnRoute) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnRoute> for &::windows::core::IUnknown {
-    fn from(value: &VpnRoute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnRoute> for ::windows::core::IInspectable {
-    fn from(value: VpnRoute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnRoute> for ::windows::core::IInspectable {
-    fn from(value: &VpnRoute) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnRoute> for &::windows::core::IInspectable {
-    fn from(value: &VpnRoute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnRoute, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnRoute {}
 unsafe impl ::core::marker::Sync for VpnRoute {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -6336,36 +5176,7 @@ unsafe impl ::windows::core::Interface for VpnRouteAssignment {
 impl ::windows::core::RuntimeName for VpnRouteAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnRouteAssignment";
 }
-impl ::core::convert::From<VpnRouteAssignment> for ::windows::core::IUnknown {
-    fn from(value: VpnRouteAssignment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnRouteAssignment> for ::windows::core::IUnknown {
-    fn from(value: &VpnRouteAssignment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnRouteAssignment> for &::windows::core::IUnknown {
-    fn from(value: &VpnRouteAssignment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnRouteAssignment> for ::windows::core::IInspectable {
-    fn from(value: VpnRouteAssignment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnRouteAssignment> for ::windows::core::IInspectable {
-    fn from(value: &VpnRouteAssignment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnRouteAssignment> for &::windows::core::IInspectable {
-    fn from(value: &VpnRouteAssignment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnRouteAssignment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnRouteAssignment {}
 unsafe impl ::core::marker::Sync for VpnRouteAssignment {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -6414,36 +5225,7 @@ unsafe impl ::windows::core::Interface for VpnSystemHealth {
 impl ::windows::core::RuntimeName for VpnSystemHealth {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnSystemHealth";
 }
-impl ::core::convert::From<VpnSystemHealth> for ::windows::core::IUnknown {
-    fn from(value: VpnSystemHealth) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnSystemHealth> for ::windows::core::IUnknown {
-    fn from(value: &VpnSystemHealth) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnSystemHealth> for &::windows::core::IUnknown {
-    fn from(value: &VpnSystemHealth) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnSystemHealth> for ::windows::core::IInspectable {
-    fn from(value: VpnSystemHealth) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnSystemHealth> for ::windows::core::IInspectable {
-    fn from(value: &VpnSystemHealth) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnSystemHealth> for &::windows::core::IInspectable {
-    fn from(value: &VpnSystemHealth) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnSystemHealth, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnSystemHealth {}
 unsafe impl ::core::marker::Sync for VpnSystemHealth {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -6572,36 +5354,7 @@ unsafe impl ::windows::core::Interface for VpnTrafficFilter {
 impl ::windows::core::RuntimeName for VpnTrafficFilter {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnTrafficFilter";
 }
-impl ::core::convert::From<VpnTrafficFilter> for ::windows::core::IUnknown {
-    fn from(value: VpnTrafficFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnTrafficFilter> for ::windows::core::IUnknown {
-    fn from(value: &VpnTrafficFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnTrafficFilter> for &::windows::core::IUnknown {
-    fn from(value: &VpnTrafficFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnTrafficFilter> for ::windows::core::IInspectable {
-    fn from(value: VpnTrafficFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnTrafficFilter> for ::windows::core::IInspectable {
-    fn from(value: &VpnTrafficFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnTrafficFilter> for &::windows::core::IInspectable {
-    fn from(value: &VpnTrafficFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnTrafficFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnTrafficFilter {}
 unsafe impl ::core::marker::Sync for VpnTrafficFilter {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -6679,36 +5432,7 @@ unsafe impl ::windows::core::Interface for VpnTrafficFilterAssignment {
 impl ::windows::core::RuntimeName for VpnTrafficFilterAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnTrafficFilterAssignment";
 }
-impl ::core::convert::From<VpnTrafficFilterAssignment> for ::windows::core::IUnknown {
-    fn from(value: VpnTrafficFilterAssignment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnTrafficFilterAssignment> for ::windows::core::IUnknown {
-    fn from(value: &VpnTrafficFilterAssignment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnTrafficFilterAssignment> for &::windows::core::IUnknown {
-    fn from(value: &VpnTrafficFilterAssignment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VpnTrafficFilterAssignment> for ::windows::core::IInspectable {
-    fn from(value: VpnTrafficFilterAssignment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VpnTrafficFilterAssignment> for ::windows::core::IInspectable {
-    fn from(value: &VpnTrafficFilterAssignment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VpnTrafficFilterAssignment> for &::windows::core::IInspectable {
-    fn from(value: &VpnTrafficFilterAssignment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VpnTrafficFilterAssignment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VpnTrafficFilterAssignment {}
 unsafe impl ::core::marker::Sync for VpnTrafficFilterAssignment {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]

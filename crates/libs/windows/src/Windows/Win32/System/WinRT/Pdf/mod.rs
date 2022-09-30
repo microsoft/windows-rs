@@ -35,21 +35,7 @@ impl IPdfRendererNative {
         (::windows::core::Vtable::vtable(self).RenderPageToDeviceContext)(::windows::core::Vtable::as_raw(self), pdfpage.into().abi(), pd2ddevicecontext.into().abi(), ::core::mem::transmute(prenderparams.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<IPdfRendererNative> for ::windows::core::IUnknown {
-    fn from(value: IPdfRendererNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPdfRendererNative> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPdfRendererNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPdfRendererNative> for ::windows::core::IUnknown {
-    fn from(value: &IPdfRendererNative) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPdfRendererNative, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPdfRendererNative {
     fn clone(&self) -> Self {
         Self(self.0.clone())

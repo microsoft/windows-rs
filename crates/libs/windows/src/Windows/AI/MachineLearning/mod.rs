@@ -250,36 +250,7 @@ impl ILearningModelFeatureDescriptor {
         }
     }
 }
-impl ::core::convert::From<ILearningModelFeatureDescriptor> for ::windows::core::IUnknown {
-    fn from(value: ILearningModelFeatureDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILearningModelFeatureDescriptor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILearningModelFeatureDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILearningModelFeatureDescriptor> for ::windows::core::IUnknown {
-    fn from(value: &ILearningModelFeatureDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ILearningModelFeatureDescriptor> for ::windows::core::IInspectable {
-    fn from(value: ILearningModelFeatureDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILearningModelFeatureDescriptor> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ILearningModelFeatureDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILearningModelFeatureDescriptor> for ::windows::core::IInspectable {
-    fn from(value: &ILearningModelFeatureDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILearningModelFeatureDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ILearningModelFeatureDescriptor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -330,36 +301,7 @@ impl ILearningModelFeatureValue {
         }
     }
 }
-impl ::core::convert::From<ILearningModelFeatureValue> for ::windows::core::IUnknown {
-    fn from(value: ILearningModelFeatureValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILearningModelFeatureValue> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILearningModelFeatureValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILearningModelFeatureValue> for ::windows::core::IUnknown {
-    fn from(value: &ILearningModelFeatureValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ILearningModelFeatureValue> for ::windows::core::IInspectable {
-    fn from(value: ILearningModelFeatureValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILearningModelFeatureValue> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ILearningModelFeatureValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILearningModelFeatureValue> for ::windows::core::IInspectable {
-    fn from(value: &ILearningModelFeatureValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILearningModelFeatureValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ILearningModelFeatureValue {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -399,36 +341,7 @@ pub struct ILearningModelFeatureValue_Vtbl {
 #[repr(transparent)]
 pub struct ILearningModelOperatorProvider(::windows::core::IUnknown);
 impl ILearningModelOperatorProvider {}
-impl ::core::convert::From<ILearningModelOperatorProvider> for ::windows::core::IUnknown {
-    fn from(value: ILearningModelOperatorProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILearningModelOperatorProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILearningModelOperatorProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILearningModelOperatorProvider> for ::windows::core::IUnknown {
-    fn from(value: &ILearningModelOperatorProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ILearningModelOperatorProvider> for ::windows::core::IInspectable {
-    fn from(value: ILearningModelOperatorProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILearningModelOperatorProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ILearningModelOperatorProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILearningModelOperatorProvider> for ::windows::core::IInspectable {
-    fn from(value: &ILearningModelOperatorProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILearningModelOperatorProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ILearningModelOperatorProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -673,36 +586,7 @@ impl ITensor {
         }
     }
 }
-impl ::core::convert::From<ITensor> for ::windows::core::IUnknown {
-    fn from(value: ITensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITensor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITensor> for ::windows::core::IUnknown {
-    fn from(value: &ITensor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITensor> for ::windows::core::IInspectable {
-    fn from(value: ITensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITensor> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ITensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITensor> for ::windows::core::IInspectable {
-    fn from(value: &ITensor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ITensor> for ILearningModelFeatureValue {
     type Error = ::windows::core::Error;
     fn try_from(value: ITensor) -> ::windows::core::Result<Self> {
@@ -1712,36 +1596,7 @@ unsafe impl ::windows::core::Interface for ImageFeatureDescriptor {
 impl ::windows::core::RuntimeName for ImageFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.ImageFeatureDescriptor";
 }
-impl ::core::convert::From<ImageFeatureDescriptor> for ::windows::core::IUnknown {
-    fn from(value: ImageFeatureDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ImageFeatureDescriptor> for ::windows::core::IUnknown {
-    fn from(value: &ImageFeatureDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ImageFeatureDescriptor> for &::windows::core::IUnknown {
-    fn from(value: &ImageFeatureDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ImageFeatureDescriptor> for ::windows::core::IInspectable {
-    fn from(value: ImageFeatureDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ImageFeatureDescriptor> for ::windows::core::IInspectable {
-    fn from(value: &ImageFeatureDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ImageFeatureDescriptor> for &::windows::core::IInspectable {
-    fn from(value: &ImageFeatureDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ImageFeatureDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ImageFeatureDescriptor> for ILearningModelFeatureDescriptor {
     type Error = ::windows::core::Error;
     fn try_from(value: ImageFeatureDescriptor) -> ::windows::core::Result<Self> {
@@ -1829,36 +1684,7 @@ unsafe impl ::windows::core::Interface for ImageFeatureValue {
 impl ::windows::core::RuntimeName for ImageFeatureValue {
     const NAME: &'static str = "Windows.AI.MachineLearning.ImageFeatureValue";
 }
-impl ::core::convert::From<ImageFeatureValue> for ::windows::core::IUnknown {
-    fn from(value: ImageFeatureValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ImageFeatureValue> for ::windows::core::IUnknown {
-    fn from(value: &ImageFeatureValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ImageFeatureValue> for &::windows::core::IUnknown {
-    fn from(value: &ImageFeatureValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ImageFeatureValue> for ::windows::core::IInspectable {
-    fn from(value: ImageFeatureValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ImageFeatureValue> for ::windows::core::IInspectable {
-    fn from(value: &ImageFeatureValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ImageFeatureValue> for &::windows::core::IInspectable {
-    fn from(value: &ImageFeatureValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ImageFeatureValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ImageFeatureValue> for ILearningModelFeatureValue {
     type Error = ::windows::core::Error;
     fn try_from(value: ImageFeatureValue) -> ::windows::core::Result<Self> {
@@ -2084,36 +1910,7 @@ unsafe impl ::windows::core::Interface for LearningModel {
 impl ::windows::core::RuntimeName for LearningModel {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModel";
 }
-impl ::core::convert::From<LearningModel> for ::windows::core::IUnknown {
-    fn from(value: LearningModel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LearningModel> for ::windows::core::IUnknown {
-    fn from(value: &LearningModel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LearningModel> for &::windows::core::IUnknown {
-    fn from(value: &LearningModel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LearningModel> for ::windows::core::IInspectable {
-    fn from(value: LearningModel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LearningModel> for ::windows::core::IInspectable {
-    fn from(value: &LearningModel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LearningModel> for &::windows::core::IInspectable {
-    fn from(value: &LearningModel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LearningModel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<LearningModel> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2266,36 +2063,7 @@ impl ::core::iter::IntoIterator for &LearningModelBinding {
         self.First().unwrap()
     }
 }
-impl ::core::convert::From<LearningModelBinding> for ::windows::core::IUnknown {
-    fn from(value: LearningModelBinding) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LearningModelBinding> for ::windows::core::IUnknown {
-    fn from(value: &LearningModelBinding) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LearningModelBinding> for &::windows::core::IUnknown {
-    fn from(value: &LearningModelBinding) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LearningModelBinding> for ::windows::core::IInspectable {
-    fn from(value: LearningModelBinding) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LearningModelBinding> for ::windows::core::IInspectable {
-    fn from(value: &LearningModelBinding) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LearningModelBinding> for &::windows::core::IInspectable {
-    fn from(value: &LearningModelBinding) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LearningModelBinding, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<LearningModelBinding> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
@@ -2425,36 +2193,7 @@ unsafe impl ::windows::core::Interface for LearningModelDevice {
 impl ::windows::core::RuntimeName for LearningModelDevice {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelDevice";
 }
-impl ::core::convert::From<LearningModelDevice> for ::windows::core::IUnknown {
-    fn from(value: LearningModelDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LearningModelDevice> for ::windows::core::IUnknown {
-    fn from(value: &LearningModelDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LearningModelDevice> for &::windows::core::IUnknown {
-    fn from(value: &LearningModelDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LearningModelDevice> for ::windows::core::IInspectable {
-    fn from(value: LearningModelDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LearningModelDevice> for ::windows::core::IInspectable {
-    fn from(value: &LearningModelDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LearningModelDevice> for &::windows::core::IInspectable {
-    fn from(value: &LearningModelDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LearningModelDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LearningModelDevice {}
 unsafe impl ::core::marker::Sync for LearningModelDevice {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
@@ -2524,36 +2263,7 @@ unsafe impl ::windows::core::Interface for LearningModelEvaluationResult {
 impl ::windows::core::RuntimeName for LearningModelEvaluationResult {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelEvaluationResult";
 }
-impl ::core::convert::From<LearningModelEvaluationResult> for ::windows::core::IUnknown {
-    fn from(value: LearningModelEvaluationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LearningModelEvaluationResult> for ::windows::core::IUnknown {
-    fn from(value: &LearningModelEvaluationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LearningModelEvaluationResult> for &::windows::core::IUnknown {
-    fn from(value: &LearningModelEvaluationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LearningModelEvaluationResult> for ::windows::core::IInspectable {
-    fn from(value: LearningModelEvaluationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LearningModelEvaluationResult> for ::windows::core::IInspectable {
-    fn from(value: &LearningModelEvaluationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LearningModelEvaluationResult> for &::windows::core::IInspectable {
-    fn from(value: &LearningModelEvaluationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LearningModelEvaluationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LearningModelEvaluationResult {}
 unsafe impl ::core::marker::Sync for LearningModelEvaluationResult {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
@@ -2692,36 +2402,7 @@ unsafe impl ::windows::core::Interface for LearningModelSession {
 impl ::windows::core::RuntimeName for LearningModelSession {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelSession";
 }
-impl ::core::convert::From<LearningModelSession> for ::windows::core::IUnknown {
-    fn from(value: LearningModelSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LearningModelSession> for ::windows::core::IUnknown {
-    fn from(value: &LearningModelSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LearningModelSession> for &::windows::core::IUnknown {
-    fn from(value: &LearningModelSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LearningModelSession> for ::windows::core::IInspectable {
-    fn from(value: LearningModelSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LearningModelSession> for ::windows::core::IInspectable {
-    fn from(value: &LearningModelSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LearningModelSession> for &::windows::core::IInspectable {
-    fn from(value: &LearningModelSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LearningModelSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<LearningModelSession> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2816,36 +2497,7 @@ unsafe impl ::windows::core::Interface for LearningModelSessionOptions {
 impl ::windows::core::RuntimeName for LearningModelSessionOptions {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelSessionOptions";
 }
-impl ::core::convert::From<LearningModelSessionOptions> for ::windows::core::IUnknown {
-    fn from(value: LearningModelSessionOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LearningModelSessionOptions> for ::windows::core::IUnknown {
-    fn from(value: &LearningModelSessionOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LearningModelSessionOptions> for &::windows::core::IUnknown {
-    fn from(value: &LearningModelSessionOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LearningModelSessionOptions> for ::windows::core::IInspectable {
-    fn from(value: LearningModelSessionOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LearningModelSessionOptions> for ::windows::core::IInspectable {
-    fn from(value: &LearningModelSessionOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LearningModelSessionOptions> for &::windows::core::IInspectable {
-    fn from(value: &LearningModelSessionOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LearningModelSessionOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LearningModelSessionOptions {}
 unsafe impl ::core::marker::Sync for LearningModelSessionOptions {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
@@ -2927,36 +2579,7 @@ unsafe impl ::windows::core::Interface for MapFeatureDescriptor {
 impl ::windows::core::RuntimeName for MapFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.MapFeatureDescriptor";
 }
-impl ::core::convert::From<MapFeatureDescriptor> for ::windows::core::IUnknown {
-    fn from(value: MapFeatureDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MapFeatureDescriptor> for ::windows::core::IUnknown {
-    fn from(value: &MapFeatureDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MapFeatureDescriptor> for &::windows::core::IUnknown {
-    fn from(value: &MapFeatureDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MapFeatureDescriptor> for ::windows::core::IInspectable {
-    fn from(value: MapFeatureDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MapFeatureDescriptor> for ::windows::core::IInspectable {
-    fn from(value: &MapFeatureDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MapFeatureDescriptor> for &::windows::core::IInspectable {
-    fn from(value: &MapFeatureDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MapFeatureDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MapFeatureDescriptor> for ILearningModelFeatureDescriptor {
     type Error = ::windows::core::Error;
     fn try_from(value: MapFeatureDescriptor) -> ::windows::core::Result<Self> {
@@ -3050,36 +2673,7 @@ unsafe impl ::windows::core::Interface for SequenceFeatureDescriptor {
 impl ::windows::core::RuntimeName for SequenceFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.SequenceFeatureDescriptor";
 }
-impl ::core::convert::From<SequenceFeatureDescriptor> for ::windows::core::IUnknown {
-    fn from(value: SequenceFeatureDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SequenceFeatureDescriptor> for ::windows::core::IUnknown {
-    fn from(value: &SequenceFeatureDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SequenceFeatureDescriptor> for &::windows::core::IUnknown {
-    fn from(value: &SequenceFeatureDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SequenceFeatureDescriptor> for ::windows::core::IInspectable {
-    fn from(value: SequenceFeatureDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SequenceFeatureDescriptor> for ::windows::core::IInspectable {
-    fn from(value: &SequenceFeatureDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SequenceFeatureDescriptor> for &::windows::core::IInspectable {
-    fn from(value: &SequenceFeatureDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SequenceFeatureDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SequenceFeatureDescriptor> for ILearningModelFeatureDescriptor {
     type Error = ::windows::core::Error;
     fn try_from(value: SequenceFeatureDescriptor) -> ::windows::core::Result<Self> {
@@ -3257,36 +2851,7 @@ unsafe impl ::windows::core::Interface for TensorBoolean {
 impl ::windows::core::RuntimeName for TensorBoolean {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorBoolean";
 }
-impl ::core::convert::From<TensorBoolean> for ::windows::core::IUnknown {
-    fn from(value: TensorBoolean) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorBoolean> for ::windows::core::IUnknown {
-    fn from(value: &TensorBoolean) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorBoolean> for &::windows::core::IUnknown {
-    fn from(value: &TensorBoolean) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TensorBoolean> for ::windows::core::IInspectable {
-    fn from(value: TensorBoolean) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorBoolean> for ::windows::core::IInspectable {
-    fn from(value: &TensorBoolean) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorBoolean> for &::windows::core::IInspectable {
-    fn from(value: &TensorBoolean) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TensorBoolean, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorBoolean> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3527,36 +3092,7 @@ unsafe impl ::windows::core::Interface for TensorDouble {
 impl ::windows::core::RuntimeName for TensorDouble {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorDouble";
 }
-impl ::core::convert::From<TensorDouble> for ::windows::core::IUnknown {
-    fn from(value: TensorDouble) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorDouble> for ::windows::core::IUnknown {
-    fn from(value: &TensorDouble) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorDouble> for &::windows::core::IUnknown {
-    fn from(value: &TensorDouble) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TensorDouble> for ::windows::core::IInspectable {
-    fn from(value: TensorDouble) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorDouble> for ::windows::core::IInspectable {
-    fn from(value: &TensorDouble) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorDouble> for &::windows::core::IInspectable {
-    fn from(value: &TensorDouble) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TensorDouble, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorDouble> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3722,36 +3258,7 @@ unsafe impl ::windows::core::Interface for TensorFeatureDescriptor {
 impl ::windows::core::RuntimeName for TensorFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorFeatureDescriptor";
 }
-impl ::core::convert::From<TensorFeatureDescriptor> for ::windows::core::IUnknown {
-    fn from(value: TensorFeatureDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorFeatureDescriptor> for ::windows::core::IUnknown {
-    fn from(value: &TensorFeatureDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorFeatureDescriptor> for &::windows::core::IUnknown {
-    fn from(value: &TensorFeatureDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TensorFeatureDescriptor> for ::windows::core::IInspectable {
-    fn from(value: TensorFeatureDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorFeatureDescriptor> for ::windows::core::IInspectable {
-    fn from(value: &TensorFeatureDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorFeatureDescriptor> for &::windows::core::IInspectable {
-    fn from(value: &TensorFeatureDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TensorFeatureDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<TensorFeatureDescriptor> for ILearningModelFeatureDescriptor {
     type Error = ::windows::core::Error;
     fn try_from(value: TensorFeatureDescriptor) -> ::windows::core::Result<Self> {
@@ -3929,36 +3436,7 @@ unsafe impl ::windows::core::Interface for TensorFloat {
 impl ::windows::core::RuntimeName for TensorFloat {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorFloat";
 }
-impl ::core::convert::From<TensorFloat> for ::windows::core::IUnknown {
-    fn from(value: TensorFloat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorFloat> for ::windows::core::IUnknown {
-    fn from(value: &TensorFloat) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorFloat> for &::windows::core::IUnknown {
-    fn from(value: &TensorFloat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TensorFloat> for ::windows::core::IInspectable {
-    fn from(value: TensorFloat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorFloat> for ::windows::core::IInspectable {
-    fn from(value: &TensorFloat) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorFloat> for &::windows::core::IInspectable {
-    fn from(value: &TensorFloat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TensorFloat, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorFloat> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4199,36 +3677,7 @@ unsafe impl ::windows::core::Interface for TensorFloat16Bit {
 impl ::windows::core::RuntimeName for TensorFloat16Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorFloat16Bit";
 }
-impl ::core::convert::From<TensorFloat16Bit> for ::windows::core::IUnknown {
-    fn from(value: TensorFloat16Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorFloat16Bit> for ::windows::core::IUnknown {
-    fn from(value: &TensorFloat16Bit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorFloat16Bit> for &::windows::core::IUnknown {
-    fn from(value: &TensorFloat16Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TensorFloat16Bit> for ::windows::core::IInspectable {
-    fn from(value: TensorFloat16Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorFloat16Bit> for ::windows::core::IInspectable {
-    fn from(value: &TensorFloat16Bit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorFloat16Bit> for &::windows::core::IInspectable {
-    fn from(value: &TensorFloat16Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TensorFloat16Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorFloat16Bit> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4469,36 +3918,7 @@ unsafe impl ::windows::core::Interface for TensorInt16Bit {
 impl ::windows::core::RuntimeName for TensorInt16Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt16Bit";
 }
-impl ::core::convert::From<TensorInt16Bit> for ::windows::core::IUnknown {
-    fn from(value: TensorInt16Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorInt16Bit> for ::windows::core::IUnknown {
-    fn from(value: &TensorInt16Bit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorInt16Bit> for &::windows::core::IUnknown {
-    fn from(value: &TensorInt16Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TensorInt16Bit> for ::windows::core::IInspectable {
-    fn from(value: TensorInt16Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorInt16Bit> for ::windows::core::IInspectable {
-    fn from(value: &TensorInt16Bit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorInt16Bit> for &::windows::core::IInspectable {
-    fn from(value: &TensorInt16Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TensorInt16Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorInt16Bit> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4739,36 +4159,7 @@ unsafe impl ::windows::core::Interface for TensorInt32Bit {
 impl ::windows::core::RuntimeName for TensorInt32Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt32Bit";
 }
-impl ::core::convert::From<TensorInt32Bit> for ::windows::core::IUnknown {
-    fn from(value: TensorInt32Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorInt32Bit> for ::windows::core::IUnknown {
-    fn from(value: &TensorInt32Bit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorInt32Bit> for &::windows::core::IUnknown {
-    fn from(value: &TensorInt32Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TensorInt32Bit> for ::windows::core::IInspectable {
-    fn from(value: TensorInt32Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorInt32Bit> for ::windows::core::IInspectable {
-    fn from(value: &TensorInt32Bit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorInt32Bit> for &::windows::core::IInspectable {
-    fn from(value: &TensorInt32Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TensorInt32Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorInt32Bit> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -5009,36 +4400,7 @@ unsafe impl ::windows::core::Interface for TensorInt64Bit {
 impl ::windows::core::RuntimeName for TensorInt64Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt64Bit";
 }
-impl ::core::convert::From<TensorInt64Bit> for ::windows::core::IUnknown {
-    fn from(value: TensorInt64Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorInt64Bit> for ::windows::core::IUnknown {
-    fn from(value: &TensorInt64Bit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorInt64Bit> for &::windows::core::IUnknown {
-    fn from(value: &TensorInt64Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TensorInt64Bit> for ::windows::core::IInspectable {
-    fn from(value: TensorInt64Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorInt64Bit> for ::windows::core::IInspectable {
-    fn from(value: &TensorInt64Bit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorInt64Bit> for &::windows::core::IInspectable {
-    fn from(value: &TensorInt64Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TensorInt64Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorInt64Bit> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -5279,36 +4641,7 @@ unsafe impl ::windows::core::Interface for TensorInt8Bit {
 impl ::windows::core::RuntimeName for TensorInt8Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt8Bit";
 }
-impl ::core::convert::From<TensorInt8Bit> for ::windows::core::IUnknown {
-    fn from(value: TensorInt8Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorInt8Bit> for ::windows::core::IUnknown {
-    fn from(value: &TensorInt8Bit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorInt8Bit> for &::windows::core::IUnknown {
-    fn from(value: &TensorInt8Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TensorInt8Bit> for ::windows::core::IInspectable {
-    fn from(value: TensorInt8Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorInt8Bit> for ::windows::core::IInspectable {
-    fn from(value: &TensorInt8Bit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorInt8Bit> for &::windows::core::IInspectable {
-    fn from(value: &TensorInt8Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TensorInt8Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorInt8Bit> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -5537,36 +4870,7 @@ unsafe impl ::windows::core::Interface for TensorString {
 impl ::windows::core::RuntimeName for TensorString {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorString";
 }
-impl ::core::convert::From<TensorString> for ::windows::core::IUnknown {
-    fn from(value: TensorString) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorString> for ::windows::core::IUnknown {
-    fn from(value: &TensorString) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorString> for &::windows::core::IUnknown {
-    fn from(value: &TensorString) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TensorString> for ::windows::core::IInspectable {
-    fn from(value: TensorString) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorString> for ::windows::core::IInspectable {
-    fn from(value: &TensorString) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorString> for &::windows::core::IInspectable {
-    fn from(value: &TensorString) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TensorString, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorString> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -5807,36 +5111,7 @@ unsafe impl ::windows::core::Interface for TensorUInt16Bit {
 impl ::windows::core::RuntimeName for TensorUInt16Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt16Bit";
 }
-impl ::core::convert::From<TensorUInt16Bit> for ::windows::core::IUnknown {
-    fn from(value: TensorUInt16Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorUInt16Bit> for ::windows::core::IUnknown {
-    fn from(value: &TensorUInt16Bit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorUInt16Bit> for &::windows::core::IUnknown {
-    fn from(value: &TensorUInt16Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TensorUInt16Bit> for ::windows::core::IInspectable {
-    fn from(value: TensorUInt16Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorUInt16Bit> for ::windows::core::IInspectable {
-    fn from(value: &TensorUInt16Bit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorUInt16Bit> for &::windows::core::IInspectable {
-    fn from(value: &TensorUInt16Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TensorUInt16Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorUInt16Bit> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -6077,36 +5352,7 @@ unsafe impl ::windows::core::Interface for TensorUInt32Bit {
 impl ::windows::core::RuntimeName for TensorUInt32Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt32Bit";
 }
-impl ::core::convert::From<TensorUInt32Bit> for ::windows::core::IUnknown {
-    fn from(value: TensorUInt32Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorUInt32Bit> for ::windows::core::IUnknown {
-    fn from(value: &TensorUInt32Bit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorUInt32Bit> for &::windows::core::IUnknown {
-    fn from(value: &TensorUInt32Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TensorUInt32Bit> for ::windows::core::IInspectable {
-    fn from(value: TensorUInt32Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorUInt32Bit> for ::windows::core::IInspectable {
-    fn from(value: &TensorUInt32Bit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorUInt32Bit> for &::windows::core::IInspectable {
-    fn from(value: &TensorUInt32Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TensorUInt32Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorUInt32Bit> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -6347,36 +5593,7 @@ unsafe impl ::windows::core::Interface for TensorUInt64Bit {
 impl ::windows::core::RuntimeName for TensorUInt64Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt64Bit";
 }
-impl ::core::convert::From<TensorUInt64Bit> for ::windows::core::IUnknown {
-    fn from(value: TensorUInt64Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorUInt64Bit> for ::windows::core::IUnknown {
-    fn from(value: &TensorUInt64Bit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorUInt64Bit> for &::windows::core::IUnknown {
-    fn from(value: &TensorUInt64Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TensorUInt64Bit> for ::windows::core::IInspectable {
-    fn from(value: TensorUInt64Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorUInt64Bit> for ::windows::core::IInspectable {
-    fn from(value: &TensorUInt64Bit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorUInt64Bit> for &::windows::core::IInspectable {
-    fn from(value: &TensorUInt64Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TensorUInt64Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorUInt64Bit> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -6617,36 +5834,7 @@ unsafe impl ::windows::core::Interface for TensorUInt8Bit {
 impl ::windows::core::RuntimeName for TensorUInt8Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt8Bit";
 }
-impl ::core::convert::From<TensorUInt8Bit> for ::windows::core::IUnknown {
-    fn from(value: TensorUInt8Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorUInt8Bit> for ::windows::core::IUnknown {
-    fn from(value: &TensorUInt8Bit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorUInt8Bit> for &::windows::core::IUnknown {
-    fn from(value: &TensorUInt8Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TensorUInt8Bit> for ::windows::core::IInspectable {
-    fn from(value: TensorUInt8Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TensorUInt8Bit> for ::windows::core::IInspectable {
-    fn from(value: &TensorUInt8Bit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TensorUInt8Bit> for &::windows::core::IInspectable {
-    fn from(value: &TensorUInt8Bit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TensorUInt8Bit, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<TensorUInt8Bit> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;

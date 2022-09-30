@@ -126,36 +126,7 @@ unsafe impl ::windows::core::Interface for EnterpriseKeyCredentialRegistrationIn
 impl ::windows::core::RuntimeName for EnterpriseKeyCredentialRegistrationInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationInfo";
 }
-impl ::core::convert::From<EnterpriseKeyCredentialRegistrationInfo> for ::windows::core::IUnknown {
-    fn from(value: EnterpriseKeyCredentialRegistrationInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EnterpriseKeyCredentialRegistrationInfo> for ::windows::core::IUnknown {
-    fn from(value: &EnterpriseKeyCredentialRegistrationInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EnterpriseKeyCredentialRegistrationInfo> for &::windows::core::IUnknown {
-    fn from(value: &EnterpriseKeyCredentialRegistrationInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EnterpriseKeyCredentialRegistrationInfo> for ::windows::core::IInspectable {
-    fn from(value: EnterpriseKeyCredentialRegistrationInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EnterpriseKeyCredentialRegistrationInfo> for ::windows::core::IInspectable {
-    fn from(value: &EnterpriseKeyCredentialRegistrationInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EnterpriseKeyCredentialRegistrationInfo> for &::windows::core::IInspectable {
-    fn from(value: &EnterpriseKeyCredentialRegistrationInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EnterpriseKeyCredentialRegistrationInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EnterpriseKeyCredentialRegistrationInfo {}
 unsafe impl ::core::marker::Sync for EnterpriseKeyCredentialRegistrationInfo {}
 #[doc = "*Required features: `\"Security_Authentication_Identity\"`*"]
@@ -215,36 +186,7 @@ unsafe impl ::windows::core::Interface for EnterpriseKeyCredentialRegistrationMa
 impl ::windows::core::RuntimeName for EnterpriseKeyCredentialRegistrationManager {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationManager";
 }
-impl ::core::convert::From<EnterpriseKeyCredentialRegistrationManager> for ::windows::core::IUnknown {
-    fn from(value: EnterpriseKeyCredentialRegistrationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EnterpriseKeyCredentialRegistrationManager> for ::windows::core::IUnknown {
-    fn from(value: &EnterpriseKeyCredentialRegistrationManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EnterpriseKeyCredentialRegistrationManager> for &::windows::core::IUnknown {
-    fn from(value: &EnterpriseKeyCredentialRegistrationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EnterpriseKeyCredentialRegistrationManager> for ::windows::core::IInspectable {
-    fn from(value: EnterpriseKeyCredentialRegistrationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EnterpriseKeyCredentialRegistrationManager> for ::windows::core::IInspectable {
-    fn from(value: &EnterpriseKeyCredentialRegistrationManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EnterpriseKeyCredentialRegistrationManager> for &::windows::core::IInspectable {
-    fn from(value: &EnterpriseKeyCredentialRegistrationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EnterpriseKeyCredentialRegistrationManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EnterpriseKeyCredentialRegistrationManager {}
 unsafe impl ::core::marker::Sync for EnterpriseKeyCredentialRegistrationManager {}
 #[cfg(feature = "implement")]

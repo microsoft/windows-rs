@@ -828,36 +828,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerDisableScannerRequest {
 impl ::windows::core::RuntimeName for BarcodeScannerDisableScannerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequest";
 }
-impl ::core::convert::From<BarcodeScannerDisableScannerRequest> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerDisableScannerRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerDisableScannerRequest> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerDisableScannerRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerDisableScannerRequest> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerDisableScannerRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerDisableScannerRequest> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerDisableScannerRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerDisableScannerRequest> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerDisableScannerRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerDisableScannerRequest> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerDisableScannerRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerDisableScannerRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerDisableScannerRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerDisableScannerRequest {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -913,36 +884,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerDisableScannerRequestEv
 impl ::windows::core::RuntimeName for BarcodeScannerDisableScannerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequestEventArgs";
 }
-impl ::core::convert::From<BarcodeScannerDisableScannerRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerDisableScannerRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerDisableScannerRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerDisableScannerRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerDisableScannerRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerDisableScannerRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerDisableScannerRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerDisableScannerRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerDisableScannerRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerDisableScannerRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerDisableScannerRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerDisableScannerRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerDisableScannerRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerDisableScannerRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerDisableScannerRequestEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -1018,36 +960,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerEnableScannerRequest {
 impl ::windows::core::RuntimeName for BarcodeScannerEnableScannerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequest";
 }
-impl ::core::convert::From<BarcodeScannerEnableScannerRequest> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerEnableScannerRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerEnableScannerRequest> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerEnableScannerRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerEnableScannerRequest> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerEnableScannerRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerEnableScannerRequest> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerEnableScannerRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerEnableScannerRequest> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerEnableScannerRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerEnableScannerRequest> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerEnableScannerRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerEnableScannerRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerEnableScannerRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerEnableScannerRequest {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -1103,36 +1016,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerEnableScannerRequestEve
 impl ::windows::core::RuntimeName for BarcodeScannerEnableScannerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequestEventArgs";
 }
-impl ::core::convert::From<BarcodeScannerEnableScannerRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerEnableScannerRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerEnableScannerRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerEnableScannerRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerEnableScannerRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerEnableScannerRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerEnableScannerRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerEnableScannerRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerEnableScannerRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerEnableScannerRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerEnableScannerRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerEnableScannerRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerEnableScannerRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerEnableScannerRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerEnableScannerRequestEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -1227,36 +1111,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerFrameReader {
 impl ::windows::core::RuntimeName for BarcodeScannerFrameReader {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReader";
 }
-impl ::core::convert::From<BarcodeScannerFrameReader> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerFrameReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerFrameReader> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerFrameReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerFrameReader> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerFrameReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerFrameReader> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerFrameReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerFrameReader> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerFrameReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerFrameReader> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerFrameReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerFrameReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<BarcodeScannerFrameReader> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1327,36 +1182,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerFrameReaderFrameArrived
 impl ::windows::core::RuntimeName for BarcodeScannerFrameReaderFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReaderFrameArrivedEventArgs";
 }
-impl ::core::convert::From<BarcodeScannerFrameReaderFrameArrivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerFrameReaderFrameArrivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerFrameReaderFrameArrivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerFrameReaderFrameArrivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerFrameReaderFrameArrivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerFrameReaderFrameArrivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerFrameReaderFrameArrivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerFrameReaderFrameArrivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerFrameReaderFrameArrivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerFrameReaderFrameArrivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerFrameReaderFrameArrivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerFrameReaderFrameArrivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerFrameReaderFrameArrivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerFrameReaderFrameArrivedEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerFrameReaderFrameArrivedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -1439,36 +1265,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerGetSymbologyAttributesR
 impl ::windows::core::RuntimeName for BarcodeScannerGetSymbologyAttributesRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequest";
 }
-impl ::core::convert::From<BarcodeScannerGetSymbologyAttributesRequest> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerGetSymbologyAttributesRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerGetSymbologyAttributesRequest> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerGetSymbologyAttributesRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerGetSymbologyAttributesRequest> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerGetSymbologyAttributesRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerGetSymbologyAttributesRequest> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerGetSymbologyAttributesRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerGetSymbologyAttributesRequest> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerGetSymbologyAttributesRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerGetSymbologyAttributesRequest> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerGetSymbologyAttributesRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerGetSymbologyAttributesRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerGetSymbologyAttributesRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerGetSymbologyAttributesRequest {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -1524,36 +1321,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerGetSymbologyAttributesR
 impl ::windows::core::RuntimeName for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequestEventArgs";
 }
-impl ::core::convert::From<BarcodeScannerGetSymbologyAttributesRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerGetSymbologyAttributesRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerGetSymbologyAttributesRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerGetSymbologyAttributesRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerGetSymbologyAttributesRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerGetSymbologyAttributesRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerGetSymbologyAttributesRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerGetSymbologyAttributesRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerGetSymbologyAttributesRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerGetSymbologyAttributesRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerGetSymbologyAttributesRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerGetSymbologyAttributesRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerGetSymbologyAttributesRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerGetSymbologyAttributesRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerGetSymbologyAttributesRequestEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -1629,36 +1397,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerHideVideoPreviewRequest
 impl ::windows::core::RuntimeName for BarcodeScannerHideVideoPreviewRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequest";
 }
-impl ::core::convert::From<BarcodeScannerHideVideoPreviewRequest> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerHideVideoPreviewRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerHideVideoPreviewRequest> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerHideVideoPreviewRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerHideVideoPreviewRequest> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerHideVideoPreviewRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerHideVideoPreviewRequest> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerHideVideoPreviewRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerHideVideoPreviewRequest> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerHideVideoPreviewRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerHideVideoPreviewRequest> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerHideVideoPreviewRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerHideVideoPreviewRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerHideVideoPreviewRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerHideVideoPreviewRequest {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -1714,36 +1453,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerHideVideoPreviewRequest
 impl ::windows::core::RuntimeName for BarcodeScannerHideVideoPreviewRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequestEventArgs";
 }
-impl ::core::convert::From<BarcodeScannerHideVideoPreviewRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerHideVideoPreviewRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerHideVideoPreviewRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerHideVideoPreviewRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerHideVideoPreviewRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerHideVideoPreviewRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerHideVideoPreviewRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerHideVideoPreviewRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerHideVideoPreviewRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerHideVideoPreviewRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerHideVideoPreviewRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerHideVideoPreviewRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerHideVideoPreviewRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerHideVideoPreviewRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerHideVideoPreviewRequestEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -2032,36 +1742,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerProviderConnection {
 impl ::windows::core::RuntimeName for BarcodeScannerProviderConnection {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerProviderConnection";
 }
-impl ::core::convert::From<BarcodeScannerProviderConnection> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerProviderConnection> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerProviderConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerProviderConnection> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerProviderConnection> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerProviderConnection> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerProviderConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerProviderConnection> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerProviderConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<BarcodeScannerProviderConnection> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2130,36 +1811,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerProviderTriggerDetails 
 impl ::windows::core::RuntimeName for BarcodeScannerProviderTriggerDetails {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerProviderTriggerDetails";
 }
-impl ::core::convert::From<BarcodeScannerProviderTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerProviderTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerProviderTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerProviderTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerProviderTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerProviderTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerProviderTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerProviderTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerProviderTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for BarcodeScannerProviderTriggerDetails {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -2244,36 +1896,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerSetActiveSymbologiesReq
 impl ::windows::core::RuntimeName for BarcodeScannerSetActiveSymbologiesRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequest";
 }
-impl ::core::convert::From<BarcodeScannerSetActiveSymbologiesRequest> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerSetActiveSymbologiesRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerSetActiveSymbologiesRequest> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerSetActiveSymbologiesRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerSetActiveSymbologiesRequest> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerSetActiveSymbologiesRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerSetActiveSymbologiesRequest> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerSetActiveSymbologiesRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerSetActiveSymbologiesRequest> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerSetActiveSymbologiesRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerSetActiveSymbologiesRequest> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerSetActiveSymbologiesRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerSetActiveSymbologiesRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerSetActiveSymbologiesRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerSetActiveSymbologiesRequest {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -2329,36 +1952,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerSetActiveSymbologiesReq
 impl ::windows::core::RuntimeName for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequestEventArgs";
 }
-impl ::core::convert::From<BarcodeScannerSetActiveSymbologiesRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerSetActiveSymbologiesRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerSetActiveSymbologiesRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerSetActiveSymbologiesRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerSetActiveSymbologiesRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerSetActiveSymbologiesRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerSetActiveSymbologiesRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerSetActiveSymbologiesRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerSetActiveSymbologiesRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerSetActiveSymbologiesRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerSetActiveSymbologiesRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerSetActiveSymbologiesRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerSetActiveSymbologiesRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerSetActiveSymbologiesRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerSetActiveSymbologiesRequestEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -2448,36 +2042,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerSetSymbologyAttributesR
 impl ::windows::core::RuntimeName for BarcodeScannerSetSymbologyAttributesRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequest";
 }
-impl ::core::convert::From<BarcodeScannerSetSymbologyAttributesRequest> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerSetSymbologyAttributesRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerSetSymbologyAttributesRequest> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerSetSymbologyAttributesRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerSetSymbologyAttributesRequest> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerSetSymbologyAttributesRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerSetSymbologyAttributesRequest> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerSetSymbologyAttributesRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerSetSymbologyAttributesRequest> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerSetSymbologyAttributesRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerSetSymbologyAttributesRequest> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerSetSymbologyAttributesRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerSetSymbologyAttributesRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerSetSymbologyAttributesRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerSetSymbologyAttributesRequest {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -2533,36 +2098,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerSetSymbologyAttributesR
 impl ::windows::core::RuntimeName for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequestEventArgs";
 }
-impl ::core::convert::From<BarcodeScannerSetSymbologyAttributesRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerSetSymbologyAttributesRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerSetSymbologyAttributesRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerSetSymbologyAttributesRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerSetSymbologyAttributesRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerSetSymbologyAttributesRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerSetSymbologyAttributesRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerSetSymbologyAttributesRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerSetSymbologyAttributesRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerSetSymbologyAttributesRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerSetSymbologyAttributesRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerSetSymbologyAttributesRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerSetSymbologyAttributesRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerSetSymbologyAttributesRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerSetSymbologyAttributesRequestEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -2638,36 +2174,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerStartSoftwareTriggerReq
 impl ::windows::core::RuntimeName for BarcodeScannerStartSoftwareTriggerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequest";
 }
-impl ::core::convert::From<BarcodeScannerStartSoftwareTriggerRequest> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerStartSoftwareTriggerRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerStartSoftwareTriggerRequest> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerStartSoftwareTriggerRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerStartSoftwareTriggerRequest> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerStartSoftwareTriggerRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerStartSoftwareTriggerRequest> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerStartSoftwareTriggerRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerStartSoftwareTriggerRequest> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerStartSoftwareTriggerRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerStartSoftwareTriggerRequest> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerStartSoftwareTriggerRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerStartSoftwareTriggerRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerStartSoftwareTriggerRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerStartSoftwareTriggerRequest {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -2723,36 +2230,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerStartSoftwareTriggerReq
 impl ::windows::core::RuntimeName for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequestEventArgs";
 }
-impl ::core::convert::From<BarcodeScannerStartSoftwareTriggerRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerStartSoftwareTriggerRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerStartSoftwareTriggerRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerStartSoftwareTriggerRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerStartSoftwareTriggerRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerStartSoftwareTriggerRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerStartSoftwareTriggerRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerStartSoftwareTriggerRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerStartSoftwareTriggerRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerStartSoftwareTriggerRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerStartSoftwareTriggerRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerStartSoftwareTriggerRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerStartSoftwareTriggerRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerStartSoftwareTriggerRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerStartSoftwareTriggerRequestEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -2828,36 +2306,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerStopSoftwareTriggerRequ
 impl ::windows::core::RuntimeName for BarcodeScannerStopSoftwareTriggerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequest";
 }
-impl ::core::convert::From<BarcodeScannerStopSoftwareTriggerRequest> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerStopSoftwareTriggerRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerStopSoftwareTriggerRequest> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerStopSoftwareTriggerRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerStopSoftwareTriggerRequest> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerStopSoftwareTriggerRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerStopSoftwareTriggerRequest> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerStopSoftwareTriggerRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerStopSoftwareTriggerRequest> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerStopSoftwareTriggerRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerStopSoftwareTriggerRequest> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerStopSoftwareTriggerRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerStopSoftwareTriggerRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerStopSoftwareTriggerRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerStopSoftwareTriggerRequest {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -2913,36 +2362,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerStopSoftwareTriggerRequ
 impl ::windows::core::RuntimeName for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequestEventArgs";
 }
-impl ::core::convert::From<BarcodeScannerStopSoftwareTriggerRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerStopSoftwareTriggerRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerStopSoftwareTriggerRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerStopSoftwareTriggerRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerStopSoftwareTriggerRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerStopSoftwareTriggerRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerStopSoftwareTriggerRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerStopSoftwareTriggerRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerStopSoftwareTriggerRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerStopSoftwareTriggerRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerStopSoftwareTriggerRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerStopSoftwareTriggerRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerStopSoftwareTriggerRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]
@@ -3020,36 +2440,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerVideoFrame {
 impl ::windows::core::RuntimeName for BarcodeScannerVideoFrame {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerVideoFrame";
 }
-impl ::core::convert::From<BarcodeScannerVideoFrame> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerVideoFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerVideoFrame> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerVideoFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerVideoFrame> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerVideoFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerVideoFrame> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerVideoFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerVideoFrame> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerVideoFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerVideoFrame> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerVideoFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerVideoFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<BarcodeScannerVideoFrame> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3158,36 +2549,7 @@ unsafe impl ::windows::core::Interface for BarcodeSymbologyAttributesBuilder {
 impl ::windows::core::RuntimeName for BarcodeSymbologyAttributesBuilder {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeSymbologyAttributesBuilder";
 }
-impl ::core::convert::From<BarcodeSymbologyAttributesBuilder> for ::windows::core::IUnknown {
-    fn from(value: BarcodeSymbologyAttributesBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeSymbologyAttributesBuilder> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeSymbologyAttributesBuilder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeSymbologyAttributesBuilder> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeSymbologyAttributesBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeSymbologyAttributesBuilder> for ::windows::core::IInspectable {
-    fn from(value: BarcodeSymbologyAttributesBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeSymbologyAttributesBuilder> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeSymbologyAttributesBuilder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeSymbologyAttributesBuilder> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeSymbologyAttributesBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeSymbologyAttributesBuilder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeSymbologyAttributesBuilder {}
 unsafe impl ::core::marker::Sync for BarcodeSymbologyAttributesBuilder {}
 #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`*"]

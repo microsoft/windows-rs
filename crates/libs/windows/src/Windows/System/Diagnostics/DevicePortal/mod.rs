@@ -265,36 +265,7 @@ unsafe impl ::windows::core::Interface for DevicePortalConnection {
 impl ::windows::core::RuntimeName for DevicePortalConnection {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnection";
 }
-impl ::core::convert::From<DevicePortalConnection> for ::windows::core::IUnknown {
-    fn from(value: DevicePortalConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DevicePortalConnection> for ::windows::core::IUnknown {
-    fn from(value: &DevicePortalConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DevicePortalConnection> for &::windows::core::IUnknown {
-    fn from(value: &DevicePortalConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DevicePortalConnection> for ::windows::core::IInspectable {
-    fn from(value: DevicePortalConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DevicePortalConnection> for ::windows::core::IInspectable {
-    fn from(value: &DevicePortalConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DevicePortalConnection> for &::windows::core::IInspectable {
-    fn from(value: &DevicePortalConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DevicePortalConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePortalConnection {}
 unsafe impl ::core::marker::Sync for DevicePortalConnection {}
 #[doc = "*Required features: `\"System_Diagnostics_DevicePortal\"`*"]
@@ -341,36 +312,7 @@ unsafe impl ::windows::core::Interface for DevicePortalConnectionClosedEventArgs
 impl ::windows::core::RuntimeName for DevicePortalConnectionClosedEventArgs {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedEventArgs";
 }
-impl ::core::convert::From<DevicePortalConnectionClosedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DevicePortalConnectionClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DevicePortalConnectionClosedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DevicePortalConnectionClosedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DevicePortalConnectionClosedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DevicePortalConnectionClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DevicePortalConnectionClosedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DevicePortalConnectionClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DevicePortalConnectionClosedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DevicePortalConnectionClosedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DevicePortalConnectionClosedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DevicePortalConnectionClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DevicePortalConnectionClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePortalConnectionClosedEventArgs {}
 unsafe impl ::core::marker::Sync for DevicePortalConnectionClosedEventArgs {}
 #[doc = "*Required features: `\"System_Diagnostics_DevicePortal\"`*"]
@@ -453,36 +395,7 @@ unsafe impl ::windows::core::Interface for DevicePortalConnectionRequestReceived
 impl ::windows::core::RuntimeName for DevicePortalConnectionRequestReceivedEventArgs {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionRequestReceivedEventArgs";
 }
-impl ::core::convert::From<DevicePortalConnectionRequestReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DevicePortalConnectionRequestReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DevicePortalConnectionRequestReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DevicePortalConnectionRequestReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DevicePortalConnectionRequestReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DevicePortalConnectionRequestReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DevicePortalConnectionRequestReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DevicePortalConnectionRequestReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DevicePortalConnectionRequestReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DevicePortalConnectionRequestReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DevicePortalConnectionRequestReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DevicePortalConnectionRequestReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DevicePortalConnectionRequestReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePortalConnectionRequestReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for DevicePortalConnectionRequestReceivedEventArgs {}
 #[doc = "*Required features: `\"System_Diagnostics_DevicePortal\"`*"]

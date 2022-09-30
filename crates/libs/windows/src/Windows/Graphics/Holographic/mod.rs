@@ -1060,36 +1060,7 @@ unsafe impl ::windows::core::Interface for HolographicCamera {
 impl ::windows::core::RuntimeName for HolographicCamera {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCamera";
 }
-impl ::core::convert::From<HolographicCamera> for ::windows::core::IUnknown {
-    fn from(value: HolographicCamera) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicCamera> for ::windows::core::IUnknown {
-    fn from(value: &HolographicCamera) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicCamera> for &::windows::core::IUnknown {
-    fn from(value: &HolographicCamera) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HolographicCamera> for ::windows::core::IInspectable {
-    fn from(value: HolographicCamera) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicCamera> for ::windows::core::IInspectable {
-    fn from(value: &HolographicCamera) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicCamera> for &::windows::core::IInspectable {
-    fn from(value: &HolographicCamera) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HolographicCamera, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicCamera {}
 unsafe impl ::core::marker::Sync for HolographicCamera {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -1213,36 +1184,7 @@ unsafe impl ::windows::core::Interface for HolographicCameraPose {
 impl ::windows::core::RuntimeName for HolographicCameraPose {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCameraPose";
 }
-impl ::core::convert::From<HolographicCameraPose> for ::windows::core::IUnknown {
-    fn from(value: HolographicCameraPose) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicCameraPose> for ::windows::core::IUnknown {
-    fn from(value: &HolographicCameraPose) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicCameraPose> for &::windows::core::IUnknown {
-    fn from(value: &HolographicCameraPose) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HolographicCameraPose> for ::windows::core::IInspectable {
-    fn from(value: HolographicCameraPose) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicCameraPose> for ::windows::core::IInspectable {
-    fn from(value: &HolographicCameraPose) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicCameraPose> for &::windows::core::IInspectable {
-    fn from(value: &HolographicCameraPose) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HolographicCameraPose, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicCameraPose {}
 unsafe impl ::core::marker::Sync for HolographicCameraPose {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -1361,36 +1303,7 @@ unsafe impl ::windows::core::Interface for HolographicCameraRenderingParameters 
 impl ::windows::core::RuntimeName for HolographicCameraRenderingParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCameraRenderingParameters";
 }
-impl ::core::convert::From<HolographicCameraRenderingParameters> for ::windows::core::IUnknown {
-    fn from(value: HolographicCameraRenderingParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicCameraRenderingParameters> for ::windows::core::IUnknown {
-    fn from(value: &HolographicCameraRenderingParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicCameraRenderingParameters> for &::windows::core::IUnknown {
-    fn from(value: &HolographicCameraRenderingParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HolographicCameraRenderingParameters> for ::windows::core::IInspectable {
-    fn from(value: HolographicCameraRenderingParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicCameraRenderingParameters> for ::windows::core::IInspectable {
-    fn from(value: &HolographicCameraRenderingParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicCameraRenderingParameters> for &::windows::core::IInspectable {
-    fn from(value: &HolographicCameraRenderingParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HolographicCameraRenderingParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicCameraRenderingParameters {}
 unsafe impl ::core::marker::Sync for HolographicCameraRenderingParameters {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -1448,36 +1361,7 @@ unsafe impl ::windows::core::Interface for HolographicCameraViewportParameters {
 impl ::windows::core::RuntimeName for HolographicCameraViewportParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCameraViewportParameters";
 }
-impl ::core::convert::From<HolographicCameraViewportParameters> for ::windows::core::IUnknown {
-    fn from(value: HolographicCameraViewportParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicCameraViewportParameters> for ::windows::core::IUnknown {
-    fn from(value: &HolographicCameraViewportParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicCameraViewportParameters> for &::windows::core::IUnknown {
-    fn from(value: &HolographicCameraViewportParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HolographicCameraViewportParameters> for ::windows::core::IInspectable {
-    fn from(value: HolographicCameraViewportParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicCameraViewportParameters> for ::windows::core::IInspectable {
-    fn from(value: &HolographicCameraViewportParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicCameraViewportParameters> for &::windows::core::IInspectable {
-    fn from(value: &HolographicCameraViewportParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HolographicCameraViewportParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicCameraViewportParameters {}
 unsafe impl ::core::marker::Sync for HolographicCameraViewportParameters {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -1588,36 +1472,7 @@ unsafe impl ::windows::core::Interface for HolographicDisplay {
 impl ::windows::core::RuntimeName for HolographicDisplay {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicDisplay";
 }
-impl ::core::convert::From<HolographicDisplay> for ::windows::core::IUnknown {
-    fn from(value: HolographicDisplay) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicDisplay> for ::windows::core::IUnknown {
-    fn from(value: &HolographicDisplay) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicDisplay> for &::windows::core::IUnknown {
-    fn from(value: &HolographicDisplay) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HolographicDisplay> for ::windows::core::IInspectable {
-    fn from(value: HolographicDisplay) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicDisplay> for ::windows::core::IInspectable {
-    fn from(value: &HolographicDisplay) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicDisplay> for &::windows::core::IInspectable {
-    fn from(value: &HolographicDisplay) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HolographicDisplay, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicDisplay {}
 unsafe impl ::core::marker::Sync for HolographicDisplay {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -1734,36 +1589,7 @@ unsafe impl ::windows::core::Interface for HolographicFrame {
 impl ::windows::core::RuntimeName for HolographicFrame {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrame";
 }
-impl ::core::convert::From<HolographicFrame> for ::windows::core::IUnknown {
-    fn from(value: HolographicFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicFrame> for ::windows::core::IUnknown {
-    fn from(value: &HolographicFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicFrame> for &::windows::core::IUnknown {
-    fn from(value: &HolographicFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HolographicFrame> for ::windows::core::IInspectable {
-    fn from(value: HolographicFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicFrame> for ::windows::core::IInspectable {
-    fn from(value: &HolographicFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicFrame> for &::windows::core::IInspectable {
-    fn from(value: &HolographicFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HolographicFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicFrame {}
 unsafe impl ::core::marker::Sync for HolographicFrame {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -1821,36 +1647,7 @@ unsafe impl ::windows::core::Interface for HolographicFramePrediction {
 impl ::windows::core::RuntimeName for HolographicFramePrediction {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFramePrediction";
 }
-impl ::core::convert::From<HolographicFramePrediction> for ::windows::core::IUnknown {
-    fn from(value: HolographicFramePrediction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicFramePrediction> for ::windows::core::IUnknown {
-    fn from(value: &HolographicFramePrediction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicFramePrediction> for &::windows::core::IUnknown {
-    fn from(value: &HolographicFramePrediction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HolographicFramePrediction> for ::windows::core::IInspectable {
-    fn from(value: HolographicFramePrediction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicFramePrediction> for ::windows::core::IInspectable {
-    fn from(value: &HolographicFramePrediction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicFramePrediction> for &::windows::core::IInspectable {
-    fn from(value: &HolographicFramePrediction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HolographicFramePrediction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicFramePrediction {}
 unsafe impl ::core::marker::Sync for HolographicFramePrediction {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`, `\"deprecated\"`*"]
@@ -1916,41 +1713,7 @@ impl ::windows::core::RuntimeName for HolographicFramePresentationMonitor {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFramePresentationMonitor";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<HolographicFramePresentationMonitor> for ::windows::core::IUnknown {
-    fn from(value: HolographicFramePresentationMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&HolographicFramePresentationMonitor> for ::windows::core::IUnknown {
-    fn from(value: &HolographicFramePresentationMonitor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&HolographicFramePresentationMonitor> for &::windows::core::IUnknown {
-    fn from(value: &HolographicFramePresentationMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<HolographicFramePresentationMonitor> for ::windows::core::IInspectable {
-    fn from(value: HolographicFramePresentationMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&HolographicFramePresentationMonitor> for ::windows::core::IInspectable {
-    fn from(value: &HolographicFramePresentationMonitor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&HolographicFramePresentationMonitor> for &::windows::core::IInspectable {
-    fn from(value: &HolographicFramePresentationMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HolographicFramePresentationMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<HolographicFramePresentationMonitor> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2070,41 +1833,7 @@ impl ::windows::core::RuntimeName for HolographicFramePresentationReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFramePresentationReport";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<HolographicFramePresentationReport> for ::windows::core::IUnknown {
-    fn from(value: HolographicFramePresentationReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&HolographicFramePresentationReport> for ::windows::core::IUnknown {
-    fn from(value: &HolographicFramePresentationReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&HolographicFramePresentationReport> for &::windows::core::IUnknown {
-    fn from(value: &HolographicFramePresentationReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<HolographicFramePresentationReport> for ::windows::core::IInspectable {
-    fn from(value: HolographicFramePresentationReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&HolographicFramePresentationReport> for ::windows::core::IInspectable {
-    fn from(value: &HolographicFramePresentationReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&HolographicFramePresentationReport> for &::windows::core::IInspectable {
-    fn from(value: &HolographicFramePresentationReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HolographicFramePresentationReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for HolographicFramePresentationReport {}
 #[cfg(feature = "deprecated")]
@@ -2187,36 +1916,7 @@ unsafe impl ::windows::core::Interface for HolographicFrameRenderingReport {
 impl ::windows::core::RuntimeName for HolographicFrameRenderingReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrameRenderingReport";
 }
-impl ::core::convert::From<HolographicFrameRenderingReport> for ::windows::core::IUnknown {
-    fn from(value: HolographicFrameRenderingReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicFrameRenderingReport> for ::windows::core::IUnknown {
-    fn from(value: &HolographicFrameRenderingReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicFrameRenderingReport> for &::windows::core::IUnknown {
-    fn from(value: &HolographicFrameRenderingReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HolographicFrameRenderingReport> for ::windows::core::IInspectable {
-    fn from(value: HolographicFrameRenderingReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicFrameRenderingReport> for ::windows::core::IInspectable {
-    fn from(value: &HolographicFrameRenderingReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicFrameRenderingReport> for &::windows::core::IInspectable {
-    fn from(value: &HolographicFrameRenderingReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HolographicFrameRenderingReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicFrameRenderingReport {}
 unsafe impl ::core::marker::Sync for HolographicFrameRenderingReport {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -2271,36 +1971,7 @@ unsafe impl ::windows::core::Interface for HolographicFrameScanoutMonitor {
 impl ::windows::core::RuntimeName for HolographicFrameScanoutMonitor {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrameScanoutMonitor";
 }
-impl ::core::convert::From<HolographicFrameScanoutMonitor> for ::windows::core::IUnknown {
-    fn from(value: HolographicFrameScanoutMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicFrameScanoutMonitor> for ::windows::core::IUnknown {
-    fn from(value: &HolographicFrameScanoutMonitor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicFrameScanoutMonitor> for &::windows::core::IUnknown {
-    fn from(value: &HolographicFrameScanoutMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HolographicFrameScanoutMonitor> for ::windows::core::IInspectable {
-    fn from(value: HolographicFrameScanoutMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicFrameScanoutMonitor> for ::windows::core::IInspectable {
-    fn from(value: &HolographicFrameScanoutMonitor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicFrameScanoutMonitor> for &::windows::core::IInspectable {
-    fn from(value: &HolographicFrameScanoutMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HolographicFrameScanoutMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HolographicFrameScanoutMonitor> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2403,36 +2074,7 @@ unsafe impl ::windows::core::Interface for HolographicFrameScanoutReport {
 impl ::windows::core::RuntimeName for HolographicFrameScanoutReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrameScanoutReport";
 }
-impl ::core::convert::From<HolographicFrameScanoutReport> for ::windows::core::IUnknown {
-    fn from(value: HolographicFrameScanoutReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicFrameScanoutReport> for ::windows::core::IUnknown {
-    fn from(value: &HolographicFrameScanoutReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicFrameScanoutReport> for &::windows::core::IUnknown {
-    fn from(value: &HolographicFrameScanoutReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HolographicFrameScanoutReport> for ::windows::core::IInspectable {
-    fn from(value: HolographicFrameScanoutReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicFrameScanoutReport> for ::windows::core::IInspectable {
-    fn from(value: &HolographicFrameScanoutReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicFrameScanoutReport> for &::windows::core::IInspectable {
-    fn from(value: &HolographicFrameScanoutReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HolographicFrameScanoutReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicFrameScanoutReport {}
 unsafe impl ::core::marker::Sync for HolographicFrameScanoutReport {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -2517,36 +2159,7 @@ unsafe impl ::windows::core::Interface for HolographicQuadLayer {
 impl ::windows::core::RuntimeName for HolographicQuadLayer {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicQuadLayer";
 }
-impl ::core::convert::From<HolographicQuadLayer> for ::windows::core::IUnknown {
-    fn from(value: HolographicQuadLayer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicQuadLayer> for ::windows::core::IUnknown {
-    fn from(value: &HolographicQuadLayer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicQuadLayer> for &::windows::core::IUnknown {
-    fn from(value: &HolographicQuadLayer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HolographicQuadLayer> for ::windows::core::IInspectable {
-    fn from(value: HolographicQuadLayer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicQuadLayer> for ::windows::core::IInspectable {
-    fn from(value: &HolographicQuadLayer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicQuadLayer> for &::windows::core::IInspectable {
-    fn from(value: &HolographicQuadLayer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HolographicQuadLayer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HolographicQuadLayer> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2661,36 +2274,7 @@ unsafe impl ::windows::core::Interface for HolographicQuadLayerUpdateParameters 
 impl ::windows::core::RuntimeName for HolographicQuadLayerUpdateParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicQuadLayerUpdateParameters";
 }
-impl ::core::convert::From<HolographicQuadLayerUpdateParameters> for ::windows::core::IUnknown {
-    fn from(value: HolographicQuadLayerUpdateParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicQuadLayerUpdateParameters> for ::windows::core::IUnknown {
-    fn from(value: &HolographicQuadLayerUpdateParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicQuadLayerUpdateParameters> for &::windows::core::IUnknown {
-    fn from(value: &HolographicQuadLayerUpdateParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HolographicQuadLayerUpdateParameters> for ::windows::core::IInspectable {
-    fn from(value: HolographicQuadLayerUpdateParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicQuadLayerUpdateParameters> for ::windows::core::IInspectable {
-    fn from(value: &HolographicQuadLayerUpdateParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicQuadLayerUpdateParameters> for &::windows::core::IInspectable {
-    fn from(value: &HolographicQuadLayerUpdateParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HolographicQuadLayerUpdateParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicQuadLayerUpdateParameters {}
 unsafe impl ::core::marker::Sync for HolographicQuadLayerUpdateParameters {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -2886,36 +2470,7 @@ unsafe impl ::windows::core::Interface for HolographicSpace {
 impl ::windows::core::RuntimeName for HolographicSpace {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicSpace";
 }
-impl ::core::convert::From<HolographicSpace> for ::windows::core::IUnknown {
-    fn from(value: HolographicSpace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicSpace> for ::windows::core::IUnknown {
-    fn from(value: &HolographicSpace) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicSpace> for &::windows::core::IUnknown {
-    fn from(value: &HolographicSpace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HolographicSpace> for ::windows::core::IInspectable {
-    fn from(value: HolographicSpace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicSpace> for ::windows::core::IInspectable {
-    fn from(value: &HolographicSpace) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicSpace> for &::windows::core::IInspectable {
-    fn from(value: &HolographicSpace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HolographicSpace, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicSpace {}
 unsafe impl ::core::marker::Sync for HolographicSpace {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -2971,36 +2526,7 @@ unsafe impl ::windows::core::Interface for HolographicSpaceCameraAddedEventArgs 
 impl ::windows::core::RuntimeName for HolographicSpaceCameraAddedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicSpaceCameraAddedEventArgs";
 }
-impl ::core::convert::From<HolographicSpaceCameraAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: HolographicSpaceCameraAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicSpaceCameraAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &HolographicSpaceCameraAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicSpaceCameraAddedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &HolographicSpaceCameraAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HolographicSpaceCameraAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: HolographicSpaceCameraAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicSpaceCameraAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &HolographicSpaceCameraAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicSpaceCameraAddedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &HolographicSpaceCameraAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HolographicSpaceCameraAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicSpaceCameraAddedEventArgs {}
 unsafe impl ::core::marker::Sync for HolographicSpaceCameraAddedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -3047,36 +2573,7 @@ unsafe impl ::windows::core::Interface for HolographicSpaceCameraRemovedEventArg
 impl ::windows::core::RuntimeName for HolographicSpaceCameraRemovedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicSpaceCameraRemovedEventArgs";
 }
-impl ::core::convert::From<HolographicSpaceCameraRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: HolographicSpaceCameraRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicSpaceCameraRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &HolographicSpaceCameraRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicSpaceCameraRemovedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &HolographicSpaceCameraRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HolographicSpaceCameraRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: HolographicSpaceCameraRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicSpaceCameraRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &HolographicSpaceCameraRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicSpaceCameraRemovedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &HolographicSpaceCameraRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HolographicSpaceCameraRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicSpaceCameraRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for HolographicSpaceCameraRemovedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -3215,36 +2712,7 @@ unsafe impl ::windows::core::Interface for HolographicViewConfiguration {
 impl ::windows::core::RuntimeName for HolographicViewConfiguration {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicViewConfiguration";
 }
-impl ::core::convert::From<HolographicViewConfiguration> for ::windows::core::IUnknown {
-    fn from(value: HolographicViewConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicViewConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &HolographicViewConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicViewConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &HolographicViewConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HolographicViewConfiguration> for ::windows::core::IInspectable {
-    fn from(value: HolographicViewConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicViewConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &HolographicViewConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicViewConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &HolographicViewConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HolographicViewConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicViewConfiguration {}
 unsafe impl ::core::marker::Sync for HolographicViewConfiguration {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]

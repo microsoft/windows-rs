@@ -219,36 +219,7 @@ unsafe impl ::windows::core::Interface for EasClientDeviceInformation {
 impl ::windows::core::RuntimeName for EasClientDeviceInformation {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasClientDeviceInformation";
 }
-impl ::core::convert::From<EasClientDeviceInformation> for ::windows::core::IUnknown {
-    fn from(value: EasClientDeviceInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EasClientDeviceInformation> for ::windows::core::IUnknown {
-    fn from(value: &EasClientDeviceInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EasClientDeviceInformation> for &::windows::core::IUnknown {
-    fn from(value: &EasClientDeviceInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EasClientDeviceInformation> for ::windows::core::IInspectable {
-    fn from(value: EasClientDeviceInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EasClientDeviceInformation> for ::windows::core::IInspectable {
-    fn from(value: &EasClientDeviceInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EasClientDeviceInformation> for &::windows::core::IInspectable {
-    fn from(value: &EasClientDeviceInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EasClientDeviceInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 pub struct EasClientSecurityPolicy(::windows::core::IUnknown);
@@ -405,36 +376,7 @@ unsafe impl ::windows::core::Interface for EasClientSecurityPolicy {
 impl ::windows::core::RuntimeName for EasClientSecurityPolicy {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasClientSecurityPolicy";
 }
-impl ::core::convert::From<EasClientSecurityPolicy> for ::windows::core::IUnknown {
-    fn from(value: EasClientSecurityPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EasClientSecurityPolicy> for ::windows::core::IUnknown {
-    fn from(value: &EasClientSecurityPolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EasClientSecurityPolicy> for &::windows::core::IUnknown {
-    fn from(value: &EasClientSecurityPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EasClientSecurityPolicy> for ::windows::core::IInspectable {
-    fn from(value: EasClientSecurityPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EasClientSecurityPolicy> for ::windows::core::IInspectable {
-    fn from(value: &EasClientSecurityPolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EasClientSecurityPolicy> for &::windows::core::IInspectable {
-    fn from(value: &EasClientSecurityPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EasClientSecurityPolicy, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 pub struct EasComplianceResults(::windows::core::IUnknown);
@@ -542,36 +484,7 @@ unsafe impl ::windows::core::Interface for EasComplianceResults {
 impl ::windows::core::RuntimeName for EasComplianceResults {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasComplianceResults";
 }
-impl ::core::convert::From<EasComplianceResults> for ::windows::core::IUnknown {
-    fn from(value: EasComplianceResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EasComplianceResults> for ::windows::core::IUnknown {
-    fn from(value: &EasComplianceResults) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EasComplianceResults> for &::windows::core::IUnknown {
-    fn from(value: &EasComplianceResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EasComplianceResults> for ::windows::core::IInspectable {
-    fn from(value: EasComplianceResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EasComplianceResults> for ::windows::core::IInspectable {
-    fn from(value: &EasComplianceResults) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EasComplianceResults> for &::windows::core::IInspectable {
-    fn from(value: &EasComplianceResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EasComplianceResults, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

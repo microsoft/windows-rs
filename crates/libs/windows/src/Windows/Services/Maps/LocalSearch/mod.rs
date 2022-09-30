@@ -336,36 +336,7 @@ unsafe impl ::windows::core::Interface for LocalLocation {
 impl ::windows::core::RuntimeName for LocalLocation {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocation";
 }
-impl ::core::convert::From<LocalLocation> for ::windows::core::IUnknown {
-    fn from(value: LocalLocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LocalLocation> for ::windows::core::IUnknown {
-    fn from(value: &LocalLocation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LocalLocation> for &::windows::core::IUnknown {
-    fn from(value: &LocalLocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LocalLocation> for ::windows::core::IInspectable {
-    fn from(value: LocalLocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LocalLocation> for ::windows::core::IInspectable {
-    fn from(value: &LocalLocation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LocalLocation> for &::windows::core::IInspectable {
-    fn from(value: &LocalLocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LocalLocation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LocalLocation {}
 unsafe impl ::core::marker::Sync for LocalLocation {}
 #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
@@ -441,36 +412,7 @@ unsafe impl ::windows::core::Interface for LocalLocationFinderResult {
 impl ::windows::core::RuntimeName for LocalLocationFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationFinderResult";
 }
-impl ::core::convert::From<LocalLocationFinderResult> for ::windows::core::IUnknown {
-    fn from(value: LocalLocationFinderResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LocalLocationFinderResult> for ::windows::core::IUnknown {
-    fn from(value: &LocalLocationFinderResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LocalLocationFinderResult> for &::windows::core::IUnknown {
-    fn from(value: &LocalLocationFinderResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LocalLocationFinderResult> for ::windows::core::IInspectable {
-    fn from(value: LocalLocationFinderResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LocalLocationFinderResult> for ::windows::core::IInspectable {
-    fn from(value: &LocalLocationFinderResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LocalLocationFinderResult> for &::windows::core::IInspectable {
-    fn from(value: &LocalLocationFinderResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LocalLocationFinderResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LocalLocationFinderResult {}
 unsafe impl ::core::marker::Sync for LocalLocationFinderResult {}
 #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
@@ -537,36 +479,7 @@ unsafe impl ::windows::core::Interface for LocalLocationHoursOfOperationItem {
 impl ::windows::core::RuntimeName for LocalLocationHoursOfOperationItem {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationHoursOfOperationItem";
 }
-impl ::core::convert::From<LocalLocationHoursOfOperationItem> for ::windows::core::IUnknown {
-    fn from(value: LocalLocationHoursOfOperationItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LocalLocationHoursOfOperationItem> for ::windows::core::IUnknown {
-    fn from(value: &LocalLocationHoursOfOperationItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LocalLocationHoursOfOperationItem> for &::windows::core::IUnknown {
-    fn from(value: &LocalLocationHoursOfOperationItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LocalLocationHoursOfOperationItem> for ::windows::core::IInspectable {
-    fn from(value: LocalLocationHoursOfOperationItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LocalLocationHoursOfOperationItem> for ::windows::core::IInspectable {
-    fn from(value: &LocalLocationHoursOfOperationItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LocalLocationHoursOfOperationItem> for &::windows::core::IInspectable {
-    fn from(value: &LocalLocationHoursOfOperationItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LocalLocationHoursOfOperationItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LocalLocationHoursOfOperationItem {}
 unsafe impl ::core::marker::Sync for LocalLocationHoursOfOperationItem {}
 #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
@@ -631,36 +544,7 @@ unsafe impl ::windows::core::Interface for LocalLocationRatingInfo {
 impl ::windows::core::RuntimeName for LocalLocationRatingInfo {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationRatingInfo";
 }
-impl ::core::convert::From<LocalLocationRatingInfo> for ::windows::core::IUnknown {
-    fn from(value: LocalLocationRatingInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LocalLocationRatingInfo> for ::windows::core::IUnknown {
-    fn from(value: &LocalLocationRatingInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LocalLocationRatingInfo> for &::windows::core::IUnknown {
-    fn from(value: &LocalLocationRatingInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LocalLocationRatingInfo> for ::windows::core::IInspectable {
-    fn from(value: LocalLocationRatingInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LocalLocationRatingInfo> for ::windows::core::IInspectable {
-    fn from(value: &LocalLocationRatingInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LocalLocationRatingInfo> for &::windows::core::IInspectable {
-    fn from(value: &LocalLocationRatingInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LocalLocationRatingInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LocalLocationRatingInfo {}
 unsafe impl ::core::marker::Sync for LocalLocationRatingInfo {}
 #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]

@@ -723,36 +723,7 @@ unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironment {
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironment {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironment";
 }
-impl ::core::convert::From<IsolatedWindowsEnvironment> for ::windows::core::IUnknown {
-    fn from(value: IsolatedWindowsEnvironment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironment> for ::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironment> for &::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IsolatedWindowsEnvironment> for ::windows::core::IInspectable {
-    fn from(value: IsolatedWindowsEnvironment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironment> for ::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironment> for &::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IsolatedWindowsEnvironment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironment {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironment {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
@@ -813,36 +784,7 @@ unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentCreateResul
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentCreateResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateResult";
 }
-impl ::core::convert::From<IsolatedWindowsEnvironmentCreateResult> for ::windows::core::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentCreateResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentCreateResult> for ::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentCreateResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentCreateResult> for &::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentCreateResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IsolatedWindowsEnvironmentCreateResult> for ::windows::core::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentCreateResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentCreateResult> for ::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentCreateResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentCreateResult> for &::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentCreateResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IsolatedWindowsEnvironmentCreateResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentCreateResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentCreateResult {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
@@ -914,36 +856,7 @@ unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentFile {
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentFile {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentFile";
 }
-impl ::core::convert::From<IsolatedWindowsEnvironmentFile> for ::windows::core::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentFile> for ::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentFile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentFile> for &::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IsolatedWindowsEnvironmentFile> for ::windows::core::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentFile> for ::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentFile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentFile> for &::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IsolatedWindowsEnvironmentFile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentFile {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentFile {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
@@ -1030,36 +943,7 @@ unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentLaunchFileR
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentLaunchFileResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileResult";
 }
-impl ::core::convert::From<IsolatedWindowsEnvironmentLaunchFileResult> for ::windows::core::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentLaunchFileResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentLaunchFileResult> for ::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentLaunchFileResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentLaunchFileResult> for &::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentLaunchFileResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IsolatedWindowsEnvironmentLaunchFileResult> for ::windows::core::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentLaunchFileResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentLaunchFileResult> for ::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentLaunchFileResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentLaunchFileResult> for &::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentLaunchFileResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IsolatedWindowsEnvironmentLaunchFileResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentLaunchFileResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentLaunchFileResult {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
@@ -1212,36 +1096,7 @@ unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentOptions {
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOptions";
 }
-impl ::core::convert::From<IsolatedWindowsEnvironmentOptions> for ::windows::core::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentOptions> for ::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentOptions> for &::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IsolatedWindowsEnvironmentOptions> for ::windows::core::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentOptions> for ::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentOptions> for &::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IsolatedWindowsEnvironmentOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentOptions {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOptions {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
@@ -1345,36 +1200,7 @@ unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentOwnerRegist
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistrationData {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationData";
 }
-impl ::core::convert::From<IsolatedWindowsEnvironmentOwnerRegistrationData> for ::windows::core::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentOwnerRegistrationData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentOwnerRegistrationData> for ::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentOwnerRegistrationData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentOwnerRegistrationData> for &::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentOwnerRegistrationData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IsolatedWindowsEnvironmentOwnerRegistrationData> for ::windows::core::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentOwnerRegistrationData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentOwnerRegistrationData> for ::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentOwnerRegistrationData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentOwnerRegistrationData> for &::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentOwnerRegistrationData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IsolatedWindowsEnvironmentOwnerRegistrationData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentOwnerRegistrationData {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOwnerRegistrationData {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
@@ -1428,36 +1254,7 @@ unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentOwnerRegist
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistrationResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationResult";
 }
-impl ::core::convert::From<IsolatedWindowsEnvironmentOwnerRegistrationResult> for ::windows::core::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentOwnerRegistrationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentOwnerRegistrationResult> for ::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentOwnerRegistrationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentOwnerRegistrationResult> for &::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentOwnerRegistrationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IsolatedWindowsEnvironmentOwnerRegistrationResult> for ::windows::core::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentOwnerRegistrationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentOwnerRegistrationResult> for ::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentOwnerRegistrationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentOwnerRegistrationResult> for &::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentOwnerRegistrationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IsolatedWindowsEnvironmentOwnerRegistrationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
@@ -1511,36 +1308,7 @@ unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentPostMessage
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentPostMessageResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult";
 }
-impl ::core::convert::From<IsolatedWindowsEnvironmentPostMessageResult> for ::windows::core::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentPostMessageResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentPostMessageResult> for ::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentPostMessageResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentPostMessageResult> for &::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentPostMessageResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IsolatedWindowsEnvironmentPostMessageResult> for ::windows::core::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentPostMessageResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentPostMessageResult> for ::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentPostMessageResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentPostMessageResult> for &::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentPostMessageResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IsolatedWindowsEnvironmentPostMessageResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentPostMessageResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentPostMessageResult {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
@@ -1611,36 +1379,7 @@ unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentProcess {
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentProcess {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentProcess";
 }
-impl ::core::convert::From<IsolatedWindowsEnvironmentProcess> for ::windows::core::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentProcess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentProcess> for ::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentProcess) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentProcess> for &::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentProcess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IsolatedWindowsEnvironmentProcess> for ::windows::core::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentProcess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentProcess> for ::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentProcess) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentProcess> for &::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentProcess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IsolatedWindowsEnvironmentProcess, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentProcess {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentProcess {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
@@ -1698,36 +1437,7 @@ unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentShareFileRe
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentShareFileRequestOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileRequestOptions";
 }
-impl ::core::convert::From<IsolatedWindowsEnvironmentShareFileRequestOptions> for ::windows::core::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentShareFileRequestOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFileRequestOptions> for ::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentShareFileRequestOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFileRequestOptions> for &::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentShareFileRequestOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IsolatedWindowsEnvironmentShareFileRequestOptions> for ::windows::core::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentShareFileRequestOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFileRequestOptions> for ::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentShareFileRequestOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFileRequestOptions> for &::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentShareFileRequestOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IsolatedWindowsEnvironmentShareFileRequestOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFileRequestOptions {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFileRequestOptions {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
@@ -1788,36 +1498,7 @@ unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentShareFileRe
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentShareFileResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult";
 }
-impl ::core::convert::From<IsolatedWindowsEnvironmentShareFileResult> for ::windows::core::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentShareFileResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFileResult> for ::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentShareFileResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFileResult> for &::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentShareFileResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IsolatedWindowsEnvironmentShareFileResult> for ::windows::core::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentShareFileResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFileResult> for ::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentShareFileResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFileResult> for &::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentShareFileResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IsolatedWindowsEnvironmentShareFileResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFileResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFileResult {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
@@ -1875,36 +1556,7 @@ unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentShareFolder
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentShareFolderRequestOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderRequestOptions";
 }
-impl ::core::convert::From<IsolatedWindowsEnvironmentShareFolderRequestOptions> for ::windows::core::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentShareFolderRequestOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFolderRequestOptions> for ::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentShareFolderRequestOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFolderRequestOptions> for &::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentShareFolderRequestOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IsolatedWindowsEnvironmentShareFolderRequestOptions> for ::windows::core::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentShareFolderRequestOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFolderRequestOptions> for ::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentShareFolderRequestOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFolderRequestOptions> for &::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentShareFolderRequestOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IsolatedWindowsEnvironmentShareFolderRequestOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFolderRequestOptions {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFolderRequestOptions {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
@@ -1958,36 +1610,7 @@ unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentShareFolder
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentShareFolderResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderResult";
 }
-impl ::core::convert::From<IsolatedWindowsEnvironmentShareFolderResult> for ::windows::core::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentShareFolderResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFolderResult> for ::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentShareFolderResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFolderResult> for &::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentShareFolderResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IsolatedWindowsEnvironmentShareFolderResult> for ::windows::core::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentShareFolderResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFolderResult> for ::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentShareFolderResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFolderResult> for &::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentShareFolderResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IsolatedWindowsEnvironmentShareFolderResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFolderResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFolderResult {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
@@ -2048,36 +1671,7 @@ unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentStartProces
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentStartProcessResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessResult";
 }
-impl ::core::convert::From<IsolatedWindowsEnvironmentStartProcessResult> for ::windows::core::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentStartProcessResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentStartProcessResult> for ::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentStartProcessResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentStartProcessResult> for &::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentStartProcessResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IsolatedWindowsEnvironmentStartProcessResult> for ::windows::core::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentStartProcessResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentStartProcessResult> for ::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentStartProcessResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentStartProcessResult> for &::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentStartProcessResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IsolatedWindowsEnvironmentStartProcessResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentStartProcessResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentStartProcessResult {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
@@ -2135,36 +1729,7 @@ unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentTelemetryPa
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentTelemetryParameters {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentTelemetryParameters";
 }
-impl ::core::convert::From<IsolatedWindowsEnvironmentTelemetryParameters> for ::windows::core::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentTelemetryParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentTelemetryParameters> for ::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentTelemetryParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentTelemetryParameters> for &::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentTelemetryParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IsolatedWindowsEnvironmentTelemetryParameters> for ::windows::core::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentTelemetryParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentTelemetryParameters> for ::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentTelemetryParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentTelemetryParameters> for &::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentTelemetryParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IsolatedWindowsEnvironmentTelemetryParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentTelemetryParameters {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentTelemetryParameters {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
@@ -2227,36 +1792,7 @@ unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentUserInfo {
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentUserInfo {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo";
 }
-impl ::core::convert::From<IsolatedWindowsEnvironmentUserInfo> for ::windows::core::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentUserInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentUserInfo> for ::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentUserInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentUserInfo> for &::windows::core::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentUserInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IsolatedWindowsEnvironmentUserInfo> for ::windows::core::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentUserInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentUserInfo> for ::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentUserInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IsolatedWindowsEnvironmentUserInfo> for &::windows::core::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentUserInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IsolatedWindowsEnvironmentUserInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentUserInfo {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentUserInfo {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]

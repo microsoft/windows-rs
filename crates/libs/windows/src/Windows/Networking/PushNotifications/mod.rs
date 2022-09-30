@@ -327,36 +327,7 @@ unsafe impl ::windows::core::Interface for PushNotificationChannel {
 impl ::windows::core::RuntimeName for PushNotificationChannel {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationChannel";
 }
-impl ::core::convert::From<PushNotificationChannel> for ::windows::core::IUnknown {
-    fn from(value: PushNotificationChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PushNotificationChannel> for ::windows::core::IUnknown {
-    fn from(value: &PushNotificationChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PushNotificationChannel> for &::windows::core::IUnknown {
-    fn from(value: &PushNotificationChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PushNotificationChannel> for ::windows::core::IInspectable {
-    fn from(value: PushNotificationChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PushNotificationChannel> for ::windows::core::IInspectable {
-    fn from(value: &PushNotificationChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PushNotificationChannel> for &::windows::core::IInspectable {
-    fn from(value: &PushNotificationChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PushNotificationChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PushNotificationChannel {}
 unsafe impl ::core::marker::Sync for PushNotificationChannel {}
 #[doc = "*Required features: `\"Networking_PushNotifications\"`*"]
@@ -536,36 +507,7 @@ unsafe impl ::windows::core::Interface for PushNotificationChannelManagerForUser
 impl ::windows::core::RuntimeName for PushNotificationChannelManagerForUser {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationChannelManagerForUser";
 }
-impl ::core::convert::From<PushNotificationChannelManagerForUser> for ::windows::core::IUnknown {
-    fn from(value: PushNotificationChannelManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PushNotificationChannelManagerForUser> for ::windows::core::IUnknown {
-    fn from(value: &PushNotificationChannelManagerForUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PushNotificationChannelManagerForUser> for &::windows::core::IUnknown {
-    fn from(value: &PushNotificationChannelManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PushNotificationChannelManagerForUser> for ::windows::core::IInspectable {
-    fn from(value: PushNotificationChannelManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PushNotificationChannelManagerForUser> for ::windows::core::IInspectable {
-    fn from(value: &PushNotificationChannelManagerForUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PushNotificationChannelManagerForUser> for &::windows::core::IInspectable {
-    fn from(value: &PushNotificationChannelManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PushNotificationChannelManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PushNotificationChannelManagerForUser {}
 unsafe impl ::core::marker::Sync for PushNotificationChannelManagerForUser {}
 #[doc = "*Required features: `\"Networking_PushNotifications\"`*"]
@@ -604,36 +546,7 @@ unsafe impl ::windows::core::Interface for PushNotificationChannelsRevokedEventA
 impl ::windows::core::RuntimeName for PushNotificationChannelsRevokedEventArgs {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationChannelsRevokedEventArgs";
 }
-impl ::core::convert::From<PushNotificationChannelsRevokedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PushNotificationChannelsRevokedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PushNotificationChannelsRevokedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PushNotificationChannelsRevokedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PushNotificationChannelsRevokedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PushNotificationChannelsRevokedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PushNotificationChannelsRevokedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PushNotificationChannelsRevokedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PushNotificationChannelsRevokedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PushNotificationChannelsRevokedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PushNotificationChannelsRevokedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PushNotificationChannelsRevokedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PushNotificationChannelsRevokedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PushNotificationChannelsRevokedEventArgs {}
 unsafe impl ::core::marker::Sync for PushNotificationChannelsRevokedEventArgs {}
 #[doc = "*Required features: `\"Networking_PushNotifications\"`*"]
@@ -725,36 +638,7 @@ unsafe impl ::windows::core::Interface for PushNotificationReceivedEventArgs {
 impl ::windows::core::RuntimeName for PushNotificationReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationReceivedEventArgs";
 }
-impl ::core::convert::From<PushNotificationReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PushNotificationReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PushNotificationReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PushNotificationReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PushNotificationReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PushNotificationReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PushNotificationReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PushNotificationReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PushNotificationReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PushNotificationReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PushNotificationReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PushNotificationReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PushNotificationReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PushNotificationReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for PushNotificationReceivedEventArgs {}
 #[doc = "*Required features: `\"Networking_PushNotifications\"`*"]
@@ -826,36 +710,7 @@ unsafe impl ::windows::core::Interface for RawNotification {
 impl ::windows::core::RuntimeName for RawNotification {
     const NAME: &'static str = "Windows.Networking.PushNotifications.RawNotification";
 }
-impl ::core::convert::From<RawNotification> for ::windows::core::IUnknown {
-    fn from(value: RawNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RawNotification> for ::windows::core::IUnknown {
-    fn from(value: &RawNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RawNotification> for &::windows::core::IUnknown {
-    fn from(value: &RawNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RawNotification> for ::windows::core::IInspectable {
-    fn from(value: RawNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RawNotification> for ::windows::core::IInspectable {
-    fn from(value: &RawNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RawNotification> for &::windows::core::IInspectable {
-    fn from(value: &RawNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RawNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RawNotification {}
 unsafe impl ::core::marker::Sync for RawNotification {}
 #[doc = "*Required features: `\"Networking_PushNotifications\"`*"]

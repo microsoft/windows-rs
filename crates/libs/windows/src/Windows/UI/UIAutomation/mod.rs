@@ -121,36 +121,7 @@ unsafe impl ::windows::core::Interface for AutomationConnection {
 impl ::windows::core::RuntimeName for AutomationConnection {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationConnection";
 }
-impl ::core::convert::From<AutomationConnection> for ::windows::core::IUnknown {
-    fn from(value: AutomationConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AutomationConnection> for ::windows::core::IUnknown {
-    fn from(value: &AutomationConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AutomationConnection> for &::windows::core::IUnknown {
-    fn from(value: &AutomationConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AutomationConnection> for ::windows::core::IInspectable {
-    fn from(value: AutomationConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AutomationConnection> for ::windows::core::IInspectable {
-    fn from(value: &AutomationConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AutomationConnection> for &::windows::core::IInspectable {
-    fn from(value: &AutomationConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AutomationConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AutomationConnection {}
 unsafe impl ::core::marker::Sync for AutomationConnection {}
 #[doc = "*Required features: `\"UI_UIAutomation\"`*"]
@@ -197,36 +168,7 @@ unsafe impl ::windows::core::Interface for AutomationConnectionBoundObject {
 impl ::windows::core::RuntimeName for AutomationConnectionBoundObject {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationConnectionBoundObject";
 }
-impl ::core::convert::From<AutomationConnectionBoundObject> for ::windows::core::IUnknown {
-    fn from(value: AutomationConnectionBoundObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AutomationConnectionBoundObject> for ::windows::core::IUnknown {
-    fn from(value: &AutomationConnectionBoundObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AutomationConnectionBoundObject> for &::windows::core::IUnknown {
-    fn from(value: &AutomationConnectionBoundObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AutomationConnectionBoundObject> for ::windows::core::IInspectable {
-    fn from(value: AutomationConnectionBoundObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AutomationConnectionBoundObject> for ::windows::core::IInspectable {
-    fn from(value: &AutomationConnectionBoundObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AutomationConnectionBoundObject> for &::windows::core::IInspectable {
-    fn from(value: &AutomationConnectionBoundObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AutomationConnectionBoundObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AutomationConnectionBoundObject {}
 unsafe impl ::core::marker::Sync for AutomationConnectionBoundObject {}
 #[doc = "*Required features: `\"UI_UIAutomation\"`*"]
@@ -287,36 +229,7 @@ unsafe impl ::windows::core::Interface for AutomationElement {
 impl ::windows::core::RuntimeName for AutomationElement {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationElement";
 }
-impl ::core::convert::From<AutomationElement> for ::windows::core::IUnknown {
-    fn from(value: AutomationElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AutomationElement> for ::windows::core::IUnknown {
-    fn from(value: &AutomationElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AutomationElement> for &::windows::core::IUnknown {
-    fn from(value: &AutomationElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AutomationElement> for ::windows::core::IInspectable {
-    fn from(value: AutomationElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AutomationElement> for ::windows::core::IInspectable {
-    fn from(value: &AutomationElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AutomationElement> for &::windows::core::IInspectable {
-    fn from(value: &AutomationElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AutomationElement, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AutomationElement {}
 unsafe impl ::core::marker::Sync for AutomationElement {}
 #[doc = "*Required features: `\"UI_UIAutomation\"`*"]
@@ -355,36 +268,7 @@ unsafe impl ::windows::core::Interface for AutomationTextRange {
 impl ::windows::core::RuntimeName for AutomationTextRange {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationTextRange";
 }
-impl ::core::convert::From<AutomationTextRange> for ::windows::core::IUnknown {
-    fn from(value: AutomationTextRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AutomationTextRange> for ::windows::core::IUnknown {
-    fn from(value: &AutomationTextRange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AutomationTextRange> for &::windows::core::IUnknown {
-    fn from(value: &AutomationTextRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AutomationTextRange> for ::windows::core::IInspectable {
-    fn from(value: AutomationTextRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AutomationTextRange> for ::windows::core::IInspectable {
-    fn from(value: &AutomationTextRange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AutomationTextRange> for &::windows::core::IInspectable {
-    fn from(value: &AutomationTextRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AutomationTextRange, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AutomationTextRange {}
 unsafe impl ::core::marker::Sync for AutomationTextRange {}
 #[cfg(feature = "implement")]

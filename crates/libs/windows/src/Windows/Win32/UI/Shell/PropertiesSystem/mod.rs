@@ -2622,21 +2622,7 @@ impl ICreateObject {
         (::windows::core::Vtable::vtable(self).CreateObject)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clsid), punkouter.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<ICreateObject> for ::windows::core::IUnknown {
-    fn from(value: ICreateObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICreateObject> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICreateObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICreateObject> for ::windows::core::IUnknown {
-    fn from(value: &ICreateObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICreateObject, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICreateObject {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2692,36 +2678,7 @@ impl IDelayedPropertyStoreFactory {
         (::windows::core::Vtable::vtable(self).GetDelayedPropertyStore)(::windows::core::Vtable::as_raw(self), flags, dwstoreid, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IDelayedPropertyStoreFactory> for ::windows::core::IUnknown {
-    fn from(value: IDelayedPropertyStoreFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDelayedPropertyStoreFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDelayedPropertyStoreFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDelayedPropertyStoreFactory> for ::windows::core::IUnknown {
-    fn from(value: &IDelayedPropertyStoreFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDelayedPropertyStoreFactory> for IPropertyStoreFactory {
-    fn from(value: IDelayedPropertyStoreFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDelayedPropertyStoreFactory> for &'a IPropertyStoreFactory {
-    fn from(value: &'a IDelayedPropertyStoreFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDelayedPropertyStoreFactory> for IPropertyStoreFactory {
-    fn from(value: &IDelayedPropertyStoreFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDelayedPropertyStoreFactory, ::windows::core::IUnknown, IPropertyStoreFactory);
 impl ::core::clone::Clone for IDelayedPropertyStoreFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2761,21 +2718,7 @@ impl IInitializeWithFile {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pszfilepath.into(), grfmode).ok()
     }
 }
-impl ::core::convert::From<IInitializeWithFile> for ::windows::core::IUnknown {
-    fn from(value: IInitializeWithFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInitializeWithFile> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInitializeWithFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInitializeWithFile> for ::windows::core::IUnknown {
-    fn from(value: &IInitializeWithFile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInitializeWithFile, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInitializeWithFile {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2817,21 +2760,7 @@ impl IInitializeWithStream {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pstream.into().abi(), grfmode).ok()
     }
 }
-impl ::core::convert::From<IInitializeWithStream> for ::windows::core::IUnknown {
-    fn from(value: IInitializeWithStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInitializeWithStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInitializeWithStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInitializeWithStream> for ::windows::core::IUnknown {
-    fn from(value: &IInitializeWithStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInitializeWithStream, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInitializeWithStream {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2893,21 +2822,7 @@ impl INamedPropertyStore {
         (::windows::core::Vtable::vtable(self).GetNameAt)(::windows::core::Vtable::as_raw(self), iprop, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
-impl ::core::convert::From<INamedPropertyStore> for ::windows::core::IUnknown {
-    fn from(value: INamedPropertyStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INamedPropertyStore> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INamedPropertyStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INamedPropertyStore> for ::windows::core::IUnknown {
-    fn from(value: &INamedPropertyStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INamedPropertyStore, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INamedPropertyStore {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2957,21 +2872,7 @@ impl IObjectWithPropertyKey {
         (::windows::core::Vtable::vtable(self).GetPropertyKey)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPERTYKEY>(result__)
     }
 }
-impl ::core::convert::From<IObjectWithPropertyKey> for ::windows::core::IUnknown {
-    fn from(value: IObjectWithPropertyKey) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IObjectWithPropertyKey> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IObjectWithPropertyKey) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IObjectWithPropertyKey> for ::windows::core::IUnknown {
-    fn from(value: &IObjectWithPropertyKey) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IObjectWithPropertyKey, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IObjectWithPropertyKey {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3015,21 +2916,7 @@ impl IPersistSerializedPropStorage {
         (::windows::core::Vtable::vtable(self).GetPropertyStorage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppsps), ::core::mem::transmute(pcb)).ok()
     }
 }
-impl ::core::convert::From<IPersistSerializedPropStorage> for ::windows::core::IUnknown {
-    fn from(value: IPersistSerializedPropStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPersistSerializedPropStorage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPersistSerializedPropStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPersistSerializedPropStorage> for ::windows::core::IUnknown {
-    fn from(value: &IPersistSerializedPropStorage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPersistSerializedPropStorage, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPersistSerializedPropStorage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3081,36 +2968,7 @@ impl IPersistSerializedPropStorage2 {
         (::windows::core::Vtable::vtable(self).GetPropertyStorageBuffer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psps), cb, ::core::mem::transmute(pcbwritten)).ok()
     }
 }
-impl ::core::convert::From<IPersistSerializedPropStorage2> for ::windows::core::IUnknown {
-    fn from(value: IPersistSerializedPropStorage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPersistSerializedPropStorage2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPersistSerializedPropStorage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPersistSerializedPropStorage2> for ::windows::core::IUnknown {
-    fn from(value: &IPersistSerializedPropStorage2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPersistSerializedPropStorage2> for IPersistSerializedPropStorage {
-    fn from(value: IPersistSerializedPropStorage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPersistSerializedPropStorage2> for &'a IPersistSerializedPropStorage {
-    fn from(value: &'a IPersistSerializedPropStorage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPersistSerializedPropStorage2> for IPersistSerializedPropStorage {
-    fn from(value: &IPersistSerializedPropStorage2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPersistSerializedPropStorage2, ::windows::core::IUnknown, IPersistSerializedPropStorage);
 impl ::core::clone::Clone for IPersistSerializedPropStorage2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3158,36 +3016,7 @@ impl IPropertyChange {
         (::windows::core::Vtable::vtable(self).ApplyToPropVariant)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
 }
-impl ::core::convert::From<IPropertyChange> for ::windows::core::IUnknown {
-    fn from(value: IPropertyChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyChange> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertyChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyChange> for ::windows::core::IUnknown {
-    fn from(value: &IPropertyChange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPropertyChange> for IObjectWithPropertyKey {
-    fn from(value: IPropertyChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyChange> for &'a IObjectWithPropertyKey {
-    fn from(value: &'a IPropertyChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyChange> for IObjectWithPropertyKey {
-    fn from(value: &IPropertyChange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertyChange, ::windows::core::IUnknown, IObjectWithPropertyKey);
 impl ::core::clone::Clone for IPropertyChange {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3259,21 +3088,7 @@ impl IPropertyChangeArray {
         (::windows::core::Vtable::vtable(self).IsKeyInArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(key)).ok()
     }
 }
-impl ::core::convert::From<IPropertyChangeArray> for ::windows::core::IUnknown {
-    fn from(value: IPropertyChangeArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyChangeArray> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertyChangeArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyChangeArray> for ::windows::core::IUnknown {
-    fn from(value: &IPropertyChangeArray) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertyChangeArray, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPropertyChangeArray {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3411,21 +3226,7 @@ impl IPropertyDescription {
         (::windows::core::Vtable::vtable(self).IsValueCanonical)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propvar)).ok()
     }
 }
-impl ::core::convert::From<IPropertyDescription> for ::windows::core::IUnknown {
-    fn from(value: IPropertyDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyDescription> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertyDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyDescription> for ::windows::core::IUnknown {
-    fn from(value: &IPropertyDescription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertyDescription, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPropertyDescription {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3601,36 +3402,7 @@ impl IPropertyDescription2 {
         (::windows::core::Vtable::vtable(self).GetImageReferenceForValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IPropertyDescription2> for ::windows::core::IUnknown {
-    fn from(value: IPropertyDescription2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyDescription2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertyDescription2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyDescription2> for ::windows::core::IUnknown {
-    fn from(value: &IPropertyDescription2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPropertyDescription2> for IPropertyDescription {
-    fn from(value: IPropertyDescription2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyDescription2> for &'a IPropertyDescription {
-    fn from(value: &'a IPropertyDescription2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyDescription2> for IPropertyDescription {
-    fn from(value: &IPropertyDescription2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertyDescription2, ::windows::core::IUnknown, IPropertyDescription);
 impl ::core::clone::Clone for IPropertyDescription2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3779,36 +3551,7 @@ impl IPropertyDescriptionAliasInfo {
         (::windows::core::Vtable::vtable(self).GetAdditionalSortByAliases)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IPropertyDescriptionAliasInfo> for ::windows::core::IUnknown {
-    fn from(value: IPropertyDescriptionAliasInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyDescriptionAliasInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertyDescriptionAliasInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyDescriptionAliasInfo> for ::windows::core::IUnknown {
-    fn from(value: &IPropertyDescriptionAliasInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPropertyDescriptionAliasInfo> for IPropertyDescription {
-    fn from(value: IPropertyDescriptionAliasInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyDescriptionAliasInfo> for &'a IPropertyDescription {
-    fn from(value: &'a IPropertyDescriptionAliasInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyDescriptionAliasInfo> for IPropertyDescription {
-    fn from(value: &IPropertyDescriptionAliasInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertyDescriptionAliasInfo, ::windows::core::IUnknown, IPropertyDescription);
 impl ::core::clone::Clone for IPropertyDescriptionAliasInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3854,21 +3597,7 @@ impl IPropertyDescriptionList {
         (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), ielem, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IPropertyDescriptionList> for ::windows::core::IUnknown {
-    fn from(value: IPropertyDescriptionList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyDescriptionList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertyDescriptionList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyDescriptionList> for ::windows::core::IUnknown {
-    fn from(value: &IPropertyDescriptionList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertyDescriptionList, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPropertyDescriptionList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4009,36 +3738,7 @@ impl IPropertyDescriptionRelatedPropertyInfo {
         (::windows::core::Vtable::vtable(self).GetRelatedProperty)(::windows::core::Vtable::as_raw(self), pszrelationshipname.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IPropertyDescriptionRelatedPropertyInfo> for ::windows::core::IUnknown {
-    fn from(value: IPropertyDescriptionRelatedPropertyInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyDescriptionRelatedPropertyInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertyDescriptionRelatedPropertyInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyDescriptionRelatedPropertyInfo> for ::windows::core::IUnknown {
-    fn from(value: &IPropertyDescriptionRelatedPropertyInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPropertyDescriptionRelatedPropertyInfo> for IPropertyDescription {
-    fn from(value: IPropertyDescriptionRelatedPropertyInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyDescriptionRelatedPropertyInfo> for &'a IPropertyDescription {
-    fn from(value: &'a IPropertyDescriptionRelatedPropertyInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyDescriptionRelatedPropertyInfo> for IPropertyDescription {
-    fn from(value: &IPropertyDescriptionRelatedPropertyInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertyDescriptionRelatedPropertyInfo, ::windows::core::IUnknown, IPropertyDescription);
 impl ::core::clone::Clone for IPropertyDescriptionRelatedPropertyInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4186,36 +3886,7 @@ impl IPropertyDescriptionSearchInfo {
         (::windows::core::Vtable::vtable(self).GetMaxSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IPropertyDescriptionSearchInfo> for ::windows::core::IUnknown {
-    fn from(value: IPropertyDescriptionSearchInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyDescriptionSearchInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertyDescriptionSearchInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyDescriptionSearchInfo> for ::windows::core::IUnknown {
-    fn from(value: &IPropertyDescriptionSearchInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPropertyDescriptionSearchInfo> for IPropertyDescription {
-    fn from(value: IPropertyDescriptionSearchInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyDescriptionSearchInfo> for &'a IPropertyDescription {
-    fn from(value: &'a IPropertyDescriptionSearchInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyDescriptionSearchInfo> for IPropertyDescription {
-    fn from(value: &IPropertyDescriptionSearchInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertyDescriptionSearchInfo, ::windows::core::IUnknown, IPropertyDescription);
 impl ::core::clone::Clone for IPropertyDescriptionSearchInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4278,21 +3949,7 @@ impl IPropertyEnumType {
         (::windows::core::Vtable::vtable(self).GetDisplayText)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IPropertyEnumType> for ::windows::core::IUnknown {
-    fn from(value: IPropertyEnumType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyEnumType> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertyEnumType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyEnumType> for ::windows::core::IUnknown {
-    fn from(value: &IPropertyEnumType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertyEnumType, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPropertyEnumType {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4369,36 +4026,7 @@ impl IPropertyEnumType2 {
         (::windows::core::Vtable::vtable(self).GetImageReference)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IPropertyEnumType2> for ::windows::core::IUnknown {
-    fn from(value: IPropertyEnumType2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyEnumType2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertyEnumType2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyEnumType2> for ::windows::core::IUnknown {
-    fn from(value: &IPropertyEnumType2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPropertyEnumType2> for IPropertyEnumType {
-    fn from(value: IPropertyEnumType2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyEnumType2> for &'a IPropertyEnumType {
-    fn from(value: &'a IPropertyEnumType2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyEnumType2> for IPropertyEnumType {
-    fn from(value: &IPropertyEnumType2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertyEnumType2, ::windows::core::IUnknown, IPropertyEnumType);
 impl ::core::clone::Clone for IPropertyEnumType2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4456,21 +4084,7 @@ impl IPropertyEnumTypeList {
         (::windows::core::Vtable::vtable(self).FindMatchingIndex)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propvarcmp), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IPropertyEnumTypeList> for ::windows::core::IUnknown {
-    fn from(value: IPropertyEnumTypeList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyEnumTypeList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertyEnumTypeList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyEnumTypeList> for ::windows::core::IUnknown {
-    fn from(value: &IPropertyEnumTypeList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertyEnumTypeList, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPropertyEnumTypeList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4532,21 +4146,7 @@ impl IPropertyStore {
         (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IPropertyStore> for ::windows::core::IUnknown {
-    fn from(value: IPropertyStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyStore> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertyStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyStore> for ::windows::core::IUnknown {
-    fn from(value: &IPropertyStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertyStore, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPropertyStore {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4629,36 +4229,7 @@ impl IPropertyStoreCache {
         (::windows::core::Vtable::vtable(self).SetValueAndState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(ppropvar), state).ok()
     }
 }
-impl ::core::convert::From<IPropertyStoreCache> for ::windows::core::IUnknown {
-    fn from(value: IPropertyStoreCache) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyStoreCache> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertyStoreCache) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyStoreCache> for ::windows::core::IUnknown {
-    fn from(value: &IPropertyStoreCache) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPropertyStoreCache> for IPropertyStore {
-    fn from(value: IPropertyStoreCache) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyStoreCache> for &'a IPropertyStore {
-    fn from(value: &'a IPropertyStoreCache) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyStoreCache> for IPropertyStore {
-    fn from(value: &IPropertyStoreCache) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertyStoreCache, ::windows::core::IUnknown, IPropertyStore);
 impl ::core::clone::Clone for IPropertyStoreCache {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4704,21 +4275,7 @@ impl IPropertyStoreCapabilities {
         (::windows::core::Vtable::vtable(self).IsPropertyWritable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(key)).ok()
     }
 }
-impl ::core::convert::From<IPropertyStoreCapabilities> for ::windows::core::IUnknown {
-    fn from(value: IPropertyStoreCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyStoreCapabilities> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertyStoreCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyStoreCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &IPropertyStoreCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertyStoreCapabilities, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPropertyStoreCapabilities {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4767,21 +4324,7 @@ impl IPropertyStoreFactory {
         (::windows::core::Vtable::vtable(self).GetPropertyStoreForKeys)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rgkeys), ckeys, flags, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IPropertyStoreFactory> for ::windows::core::IUnknown {
-    fn from(value: IPropertyStoreFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyStoreFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertyStoreFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyStoreFactory> for ::windows::core::IUnknown {
-    fn from(value: &IPropertyStoreFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertyStoreFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPropertyStoreFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4872,21 +4415,7 @@ impl IPropertySystem {
         (::windows::core::Vtable::vtable(self).RefreshPropertySchema)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IPropertySystem> for ::windows::core::IUnknown {
-    fn from(value: IPropertySystem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertySystem> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertySystem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertySystem> for ::windows::core::IUnknown {
-    fn from(value: &IPropertySystem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertySystem, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPropertySystem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4937,21 +4466,7 @@ impl IPropertySystemChangeNotify {
         (::windows::core::Vtable::vtable(self).SchemaRefreshed)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IPropertySystemChangeNotify> for ::windows::core::IUnknown {
-    fn from(value: IPropertySystemChangeNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertySystemChangeNotify> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertySystemChangeNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertySystemChangeNotify> for ::windows::core::IUnknown {
-    fn from(value: &IPropertySystemChangeNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertySystemChangeNotify, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPropertySystemChangeNotify {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5016,21 +4531,7 @@ impl IPropertyUI {
         (::windows::core::Vtable::vtable(self).GetHelpInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(fmtid), pid, ::core::mem::transmute(pwszhelpfile.as_ptr()), pwszhelpfile.len() as _, ::core::mem::transmute(puhelpid)).ok()
     }
 }
-impl ::core::convert::From<IPropertyUI> for ::windows::core::IUnknown {
-    fn from(value: IPropertyUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyUI> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertyUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyUI> for ::windows::core::IUnknown {
-    fn from(value: &IPropertyUI) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertyUI, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPropertyUI {
     fn clone(&self) -> Self {
         Self(self.0.clone())

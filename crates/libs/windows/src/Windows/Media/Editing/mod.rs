@@ -582,36 +582,7 @@ unsafe impl ::windows::core::Interface for BackgroundAudioTrack {
 impl ::windows::core::RuntimeName for BackgroundAudioTrack {
     const NAME: &'static str = "Windows.Media.Editing.BackgroundAudioTrack";
 }
-impl ::core::convert::From<BackgroundAudioTrack> for ::windows::core::IUnknown {
-    fn from(value: BackgroundAudioTrack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundAudioTrack> for ::windows::core::IUnknown {
-    fn from(value: &BackgroundAudioTrack) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundAudioTrack> for &::windows::core::IUnknown {
-    fn from(value: &BackgroundAudioTrack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BackgroundAudioTrack> for ::windows::core::IInspectable {
-    fn from(value: BackgroundAudioTrack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundAudioTrack> for ::windows::core::IInspectable {
-    fn from(value: &BackgroundAudioTrack) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundAudioTrack> for &::windows::core::IInspectable {
-    fn from(value: &BackgroundAudioTrack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BackgroundAudioTrack, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundAudioTrack {}
 unsafe impl ::core::marker::Sync for BackgroundAudioTrack {}
 #[doc = "*Required features: `\"Media_Editing\"`*"]
@@ -660,36 +631,7 @@ unsafe impl ::windows::core::Interface for EmbeddedAudioTrack {
 impl ::windows::core::RuntimeName for EmbeddedAudioTrack {
     const NAME: &'static str = "Windows.Media.Editing.EmbeddedAudioTrack";
 }
-impl ::core::convert::From<EmbeddedAudioTrack> for ::windows::core::IUnknown {
-    fn from(value: EmbeddedAudioTrack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmbeddedAudioTrack> for ::windows::core::IUnknown {
-    fn from(value: &EmbeddedAudioTrack) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmbeddedAudioTrack> for &::windows::core::IUnknown {
-    fn from(value: &EmbeddedAudioTrack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmbeddedAudioTrack> for ::windows::core::IInspectable {
-    fn from(value: EmbeddedAudioTrack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmbeddedAudioTrack> for ::windows::core::IInspectable {
-    fn from(value: &EmbeddedAudioTrack) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmbeddedAudioTrack> for &::windows::core::IInspectable {
-    fn from(value: &EmbeddedAudioTrack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmbeddedAudioTrack, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmbeddedAudioTrack {}
 unsafe impl ::core::marker::Sync for EmbeddedAudioTrack {}
 #[doc = "*Required features: `\"Media_Editing\"`*"]
@@ -923,36 +865,7 @@ unsafe impl ::windows::core::Interface for MediaClip {
 impl ::windows::core::RuntimeName for MediaClip {
     const NAME: &'static str = "Windows.Media.Editing.MediaClip";
 }
-impl ::core::convert::From<MediaClip> for ::windows::core::IUnknown {
-    fn from(value: MediaClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaClip> for ::windows::core::IUnknown {
-    fn from(value: &MediaClip) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaClip> for &::windows::core::IUnknown {
-    fn from(value: &MediaClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaClip> for ::windows::core::IInspectable {
-    fn from(value: MediaClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaClip> for ::windows::core::IInspectable {
-    fn from(value: &MediaClip) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaClip> for &::windows::core::IInspectable {
-    fn from(value: &MediaClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaClip, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaClip {}
 unsafe impl ::core::marker::Sync for MediaClip {}
 #[doc = "*Required features: `\"Media_Editing\"`*"]
@@ -1174,36 +1087,7 @@ unsafe impl ::windows::core::Interface for MediaComposition {
 impl ::windows::core::RuntimeName for MediaComposition {
     const NAME: &'static str = "Windows.Media.Editing.MediaComposition";
 }
-impl ::core::convert::From<MediaComposition> for ::windows::core::IUnknown {
-    fn from(value: MediaComposition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaComposition> for ::windows::core::IUnknown {
-    fn from(value: &MediaComposition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaComposition> for &::windows::core::IUnknown {
-    fn from(value: &MediaComposition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaComposition> for ::windows::core::IInspectable {
-    fn from(value: MediaComposition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaComposition> for ::windows::core::IInspectable {
-    fn from(value: &MediaComposition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaComposition> for &::windows::core::IInspectable {
-    fn from(value: &MediaComposition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaComposition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaComposition {}
 unsafe impl ::core::marker::Sync for MediaComposition {}
 #[doc = "*Required features: `\"Media_Editing\"`*"]
@@ -1328,36 +1212,7 @@ unsafe impl ::windows::core::Interface for MediaOverlay {
 impl ::windows::core::RuntimeName for MediaOverlay {
     const NAME: &'static str = "Windows.Media.Editing.MediaOverlay";
 }
-impl ::core::convert::From<MediaOverlay> for ::windows::core::IUnknown {
-    fn from(value: MediaOverlay) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaOverlay> for ::windows::core::IUnknown {
-    fn from(value: &MediaOverlay) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaOverlay> for &::windows::core::IUnknown {
-    fn from(value: &MediaOverlay) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaOverlay> for ::windows::core::IInspectable {
-    fn from(value: MediaOverlay) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaOverlay> for ::windows::core::IInspectable {
-    fn from(value: &MediaOverlay) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaOverlay> for &::windows::core::IInspectable {
-    fn from(value: &MediaOverlay) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaOverlay, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaOverlay {}
 unsafe impl ::core::marker::Sync for MediaOverlay {}
 #[doc = "*Required features: `\"Media_Editing\"`*"]
@@ -1446,36 +1301,7 @@ unsafe impl ::windows::core::Interface for MediaOverlayLayer {
 impl ::windows::core::RuntimeName for MediaOverlayLayer {
     const NAME: &'static str = "Windows.Media.Editing.MediaOverlayLayer";
 }
-impl ::core::convert::From<MediaOverlayLayer> for ::windows::core::IUnknown {
-    fn from(value: MediaOverlayLayer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaOverlayLayer> for ::windows::core::IUnknown {
-    fn from(value: &MediaOverlayLayer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaOverlayLayer> for &::windows::core::IUnknown {
-    fn from(value: &MediaOverlayLayer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaOverlayLayer> for ::windows::core::IInspectable {
-    fn from(value: MediaOverlayLayer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaOverlayLayer> for ::windows::core::IInspectable {
-    fn from(value: &MediaOverlayLayer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaOverlayLayer> for &::windows::core::IInspectable {
-    fn from(value: &MediaOverlayLayer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaOverlayLayer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaOverlayLayer {}
 unsafe impl ::core::marker::Sync for MediaOverlayLayer {}
 #[doc = "*Required features: `\"Media_Editing\"`*"]

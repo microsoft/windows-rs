@@ -539,36 +539,7 @@ unsafe impl ::windows::core::Interface for CoreTextCompositionCompletedEventArgs
 impl ::windows::core::RuntimeName for CoreTextCompositionCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextCompositionCompletedEventArgs";
 }
-impl ::core::convert::From<CoreTextCompositionCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CoreTextCompositionCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextCompositionCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CoreTextCompositionCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextCompositionCompletedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CoreTextCompositionCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreTextCompositionCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CoreTextCompositionCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextCompositionCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CoreTextCompositionCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextCompositionCompletedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CoreTextCompositionCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreTextCompositionCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextCompositionCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextCompositionCompletedEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -622,36 +593,7 @@ unsafe impl ::windows::core::Interface for CoreTextCompositionSegment {
 impl ::windows::core::RuntimeName for CoreTextCompositionSegment {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextCompositionSegment";
 }
-impl ::core::convert::From<CoreTextCompositionSegment> for ::windows::core::IUnknown {
-    fn from(value: CoreTextCompositionSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextCompositionSegment> for ::windows::core::IUnknown {
-    fn from(value: &CoreTextCompositionSegment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextCompositionSegment> for &::windows::core::IUnknown {
-    fn from(value: &CoreTextCompositionSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreTextCompositionSegment> for ::windows::core::IInspectable {
-    fn from(value: CoreTextCompositionSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextCompositionSegment> for ::windows::core::IInspectable {
-    fn from(value: &CoreTextCompositionSegment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextCompositionSegment> for &::windows::core::IInspectable {
-    fn from(value: &CoreTextCompositionSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreTextCompositionSegment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextCompositionSegment {}
 unsafe impl ::core::marker::Sync for CoreTextCompositionSegment {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -707,36 +649,7 @@ unsafe impl ::windows::core::Interface for CoreTextCompositionStartedEventArgs {
 impl ::windows::core::RuntimeName for CoreTextCompositionStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextCompositionStartedEventArgs";
 }
-impl ::core::convert::From<CoreTextCompositionStartedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CoreTextCompositionStartedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextCompositionStartedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CoreTextCompositionStartedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextCompositionStartedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CoreTextCompositionStartedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreTextCompositionStartedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CoreTextCompositionStartedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextCompositionStartedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CoreTextCompositionStartedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextCompositionStartedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CoreTextCompositionStartedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreTextCompositionStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextCompositionStartedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextCompositionStartedEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -990,36 +903,7 @@ unsafe impl ::windows::core::Interface for CoreTextEditContext {
 impl ::windows::core::RuntimeName for CoreTextEditContext {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextEditContext";
 }
-impl ::core::convert::From<CoreTextEditContext> for ::windows::core::IUnknown {
-    fn from(value: CoreTextEditContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextEditContext> for ::windows::core::IUnknown {
-    fn from(value: &CoreTextEditContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextEditContext> for &::windows::core::IUnknown {
-    fn from(value: &CoreTextEditContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreTextEditContext> for ::windows::core::IInspectable {
-    fn from(value: CoreTextEditContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextEditContext> for ::windows::core::IInspectable {
-    fn from(value: &CoreTextEditContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextEditContext> for &::windows::core::IInspectable {
-    fn from(value: &CoreTextEditContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreTextEditContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextEditContext {}
 unsafe impl ::core::marker::Sync for CoreTextEditContext {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -1136,36 +1020,7 @@ unsafe impl ::windows::core::Interface for CoreTextFormatUpdatingEventArgs {
 impl ::windows::core::RuntimeName for CoreTextFormatUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextFormatUpdatingEventArgs";
 }
-impl ::core::convert::From<CoreTextFormatUpdatingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CoreTextFormatUpdatingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextFormatUpdatingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CoreTextFormatUpdatingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextFormatUpdatingEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CoreTextFormatUpdatingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreTextFormatUpdatingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CoreTextFormatUpdatingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextFormatUpdatingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CoreTextFormatUpdatingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextFormatUpdatingEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CoreTextFormatUpdatingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreTextFormatUpdatingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextFormatUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextFormatUpdatingEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -1235,36 +1090,7 @@ unsafe impl ::windows::core::Interface for CoreTextLayoutBounds {
 impl ::windows::core::RuntimeName for CoreTextLayoutBounds {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextLayoutBounds";
 }
-impl ::core::convert::From<CoreTextLayoutBounds> for ::windows::core::IUnknown {
-    fn from(value: CoreTextLayoutBounds) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextLayoutBounds> for ::windows::core::IUnknown {
-    fn from(value: &CoreTextLayoutBounds) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextLayoutBounds> for &::windows::core::IUnknown {
-    fn from(value: &CoreTextLayoutBounds) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreTextLayoutBounds> for ::windows::core::IInspectable {
-    fn from(value: CoreTextLayoutBounds) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextLayoutBounds> for ::windows::core::IInspectable {
-    fn from(value: &CoreTextLayoutBounds) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextLayoutBounds> for &::windows::core::IInspectable {
-    fn from(value: &CoreTextLayoutBounds) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreTextLayoutBounds, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextLayoutBounds {}
 unsafe impl ::core::marker::Sync for CoreTextLayoutBounds {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -1341,36 +1167,7 @@ unsafe impl ::windows::core::Interface for CoreTextLayoutRequest {
 impl ::windows::core::RuntimeName for CoreTextLayoutRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextLayoutRequest";
 }
-impl ::core::convert::From<CoreTextLayoutRequest> for ::windows::core::IUnknown {
-    fn from(value: CoreTextLayoutRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextLayoutRequest> for ::windows::core::IUnknown {
-    fn from(value: &CoreTextLayoutRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextLayoutRequest> for &::windows::core::IUnknown {
-    fn from(value: &CoreTextLayoutRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreTextLayoutRequest> for ::windows::core::IInspectable {
-    fn from(value: CoreTextLayoutRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextLayoutRequest> for ::windows::core::IInspectable {
-    fn from(value: &CoreTextLayoutRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextLayoutRequest> for &::windows::core::IInspectable {
-    fn from(value: &CoreTextLayoutRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreTextLayoutRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextLayoutRequest {}
 unsafe impl ::core::marker::Sync for CoreTextLayoutRequest {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -1417,36 +1214,7 @@ unsafe impl ::windows::core::Interface for CoreTextLayoutRequestedEventArgs {
 impl ::windows::core::RuntimeName for CoreTextLayoutRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextLayoutRequestedEventArgs";
 }
-impl ::core::convert::From<CoreTextLayoutRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CoreTextLayoutRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextLayoutRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CoreTextLayoutRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextLayoutRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CoreTextLayoutRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreTextLayoutRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CoreTextLayoutRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextLayoutRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CoreTextLayoutRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextLayoutRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CoreTextLayoutRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreTextLayoutRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextLayoutRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextLayoutRequestedEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -1513,36 +1281,7 @@ unsafe impl ::windows::core::Interface for CoreTextSelectionRequest {
 impl ::windows::core::RuntimeName for CoreTextSelectionRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextSelectionRequest";
 }
-impl ::core::convert::From<CoreTextSelectionRequest> for ::windows::core::IUnknown {
-    fn from(value: CoreTextSelectionRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextSelectionRequest> for ::windows::core::IUnknown {
-    fn from(value: &CoreTextSelectionRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextSelectionRequest> for &::windows::core::IUnknown {
-    fn from(value: &CoreTextSelectionRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreTextSelectionRequest> for ::windows::core::IInspectable {
-    fn from(value: CoreTextSelectionRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextSelectionRequest> for ::windows::core::IInspectable {
-    fn from(value: &CoreTextSelectionRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextSelectionRequest> for &::windows::core::IInspectable {
-    fn from(value: &CoreTextSelectionRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreTextSelectionRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextSelectionRequest {}
 unsafe impl ::core::marker::Sync for CoreTextSelectionRequest {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -1589,36 +1328,7 @@ unsafe impl ::windows::core::Interface for CoreTextSelectionRequestedEventArgs {
 impl ::windows::core::RuntimeName for CoreTextSelectionRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextSelectionRequestedEventArgs";
 }
-impl ::core::convert::From<CoreTextSelectionRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CoreTextSelectionRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextSelectionRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CoreTextSelectionRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextSelectionRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CoreTextSelectionRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreTextSelectionRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CoreTextSelectionRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextSelectionRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CoreTextSelectionRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextSelectionRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CoreTextSelectionRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreTextSelectionRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextSelectionRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextSelectionRequestedEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -1692,36 +1402,7 @@ unsafe impl ::windows::core::Interface for CoreTextSelectionUpdatingEventArgs {
 impl ::windows::core::RuntimeName for CoreTextSelectionUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextSelectionUpdatingEventArgs";
 }
-impl ::core::convert::From<CoreTextSelectionUpdatingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CoreTextSelectionUpdatingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextSelectionUpdatingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CoreTextSelectionUpdatingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextSelectionUpdatingEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CoreTextSelectionUpdatingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreTextSelectionUpdatingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CoreTextSelectionUpdatingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextSelectionUpdatingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CoreTextSelectionUpdatingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextSelectionUpdatingEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CoreTextSelectionUpdatingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreTextSelectionUpdatingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextSelectionUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextSelectionUpdatingEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -1821,36 +1502,7 @@ unsafe impl ::windows::core::Interface for CoreTextServicesManager {
 impl ::windows::core::RuntimeName for CoreTextServicesManager {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextServicesManager";
 }
-impl ::core::convert::From<CoreTextServicesManager> for ::windows::core::IUnknown {
-    fn from(value: CoreTextServicesManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextServicesManager> for ::windows::core::IUnknown {
-    fn from(value: &CoreTextServicesManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextServicesManager> for &::windows::core::IUnknown {
-    fn from(value: &CoreTextServicesManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreTextServicesManager> for ::windows::core::IInspectable {
-    fn from(value: CoreTextServicesManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextServicesManager> for ::windows::core::IInspectable {
-    fn from(value: &CoreTextServicesManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextServicesManager> for &::windows::core::IInspectable {
-    fn from(value: &CoreTextServicesManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreTextServicesManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextServicesManager {}
 unsafe impl ::core::marker::Sync for CoreTextServicesManager {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -1924,36 +1576,7 @@ unsafe impl ::windows::core::Interface for CoreTextTextRequest {
 impl ::windows::core::RuntimeName for CoreTextTextRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextTextRequest";
 }
-impl ::core::convert::From<CoreTextTextRequest> for ::windows::core::IUnknown {
-    fn from(value: CoreTextTextRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextTextRequest> for ::windows::core::IUnknown {
-    fn from(value: &CoreTextTextRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextTextRequest> for &::windows::core::IUnknown {
-    fn from(value: &CoreTextTextRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreTextTextRequest> for ::windows::core::IInspectable {
-    fn from(value: CoreTextTextRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextTextRequest> for ::windows::core::IInspectable {
-    fn from(value: &CoreTextTextRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextTextRequest> for &::windows::core::IInspectable {
-    fn from(value: &CoreTextTextRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreTextTextRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextTextRequest {}
 unsafe impl ::core::marker::Sync for CoreTextTextRequest {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -2000,36 +1623,7 @@ unsafe impl ::windows::core::Interface for CoreTextTextRequestedEventArgs {
 impl ::windows::core::RuntimeName for CoreTextTextRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextTextRequestedEventArgs";
 }
-impl ::core::convert::From<CoreTextTextRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CoreTextTextRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextTextRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CoreTextTextRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextTextRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CoreTextTextRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreTextTextRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CoreTextTextRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextTextRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CoreTextTextRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextTextRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CoreTextTextRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreTextTextRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextTextRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextTextRequestedEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -2126,36 +1720,7 @@ unsafe impl ::windows::core::Interface for CoreTextTextUpdatingEventArgs {
 impl ::windows::core::RuntimeName for CoreTextTextUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextTextUpdatingEventArgs";
 }
-impl ::core::convert::From<CoreTextTextUpdatingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CoreTextTextUpdatingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextTextUpdatingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CoreTextTextUpdatingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextTextUpdatingEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CoreTextTextUpdatingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreTextTextUpdatingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CoreTextTextUpdatingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreTextTextUpdatingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CoreTextTextUpdatingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreTextTextUpdatingEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CoreTextTextUpdatingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreTextTextUpdatingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextTextUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextTextUpdatingEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]

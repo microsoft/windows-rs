@@ -12,21 +12,7 @@ impl IDummyHICONIncluder {
         (::windows::core::Vtable::vtable(self).Dummy)(::windows::core::Vtable::as_raw(self), h1.into(), h2.into()).ok()
     }
 }
-impl ::core::convert::From<IDummyHICONIncluder> for ::windows::core::IUnknown {
-    fn from(value: IDummyHICONIncluder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDummyHICONIncluder> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDummyHICONIncluder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDummyHICONIncluder> for ::windows::core::IUnknown {
-    fn from(value: &IDummyHICONIncluder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDummyHICONIncluder, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDummyHICONIncluder {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -79,21 +65,7 @@ impl IThumbnailExtractor {
         (::windows::core::Vtable::vtable(self).OnFileUpdated)(::windows::core::Vtable::as_raw(self), pstg.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IThumbnailExtractor> for ::windows::core::IUnknown {
-    fn from(value: IThumbnailExtractor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IThumbnailExtractor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IThumbnailExtractor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IThumbnailExtractor> for ::windows::core::IUnknown {
-    fn from(value: &IThumbnailExtractor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IThumbnailExtractor, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IThumbnailExtractor {
     fn clone(&self) -> Self {
         Self(self.0.clone())

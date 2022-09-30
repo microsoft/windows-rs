@@ -151,36 +151,7 @@ unsafe impl ::windows::core::Interface for VariablePhotoCapturedEventArgs {
 impl ::windows::core::RuntimeName for VariablePhotoCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.Core.VariablePhotoCapturedEventArgs";
 }
-impl ::core::convert::From<VariablePhotoCapturedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: VariablePhotoCapturedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VariablePhotoCapturedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &VariablePhotoCapturedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VariablePhotoCapturedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &VariablePhotoCapturedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VariablePhotoCapturedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: VariablePhotoCapturedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VariablePhotoCapturedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &VariablePhotoCapturedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VariablePhotoCapturedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &VariablePhotoCapturedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VariablePhotoCapturedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VariablePhotoCapturedEventArgs {}
 unsafe impl ::core::marker::Sync for VariablePhotoCapturedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture_Core\"`*"]
@@ -286,35 +257,6 @@ unsafe impl ::windows::core::Interface for VariablePhotoSequenceCapture {
 impl ::windows::core::RuntimeName for VariablePhotoSequenceCapture {
     const NAME: &'static str = "Windows.Media.Capture.Core.VariablePhotoSequenceCapture";
 }
-impl ::core::convert::From<VariablePhotoSequenceCapture> for ::windows::core::IUnknown {
-    fn from(value: VariablePhotoSequenceCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VariablePhotoSequenceCapture> for ::windows::core::IUnknown {
-    fn from(value: &VariablePhotoSequenceCapture) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VariablePhotoSequenceCapture> for &::windows::core::IUnknown {
-    fn from(value: &VariablePhotoSequenceCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VariablePhotoSequenceCapture> for ::windows::core::IInspectable {
-    fn from(value: VariablePhotoSequenceCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VariablePhotoSequenceCapture> for ::windows::core::IInspectable {
-    fn from(value: &VariablePhotoSequenceCapture) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VariablePhotoSequenceCapture> for &::windows::core::IInspectable {
-    fn from(value: &VariablePhotoSequenceCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VariablePhotoSequenceCapture, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

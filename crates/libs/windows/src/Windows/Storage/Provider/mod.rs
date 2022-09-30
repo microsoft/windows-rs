@@ -287,36 +287,7 @@ impl IStorageProviderHandlerFactory {
         }
     }
 }
-impl ::core::convert::From<IStorageProviderHandlerFactory> for ::windows::core::IUnknown {
-    fn from(value: IStorageProviderHandlerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageProviderHandlerFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStorageProviderHandlerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageProviderHandlerFactory> for ::windows::core::IUnknown {
-    fn from(value: &IStorageProviderHandlerFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IStorageProviderHandlerFactory> for ::windows::core::IInspectable {
-    fn from(value: IStorageProviderHandlerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageProviderHandlerFactory> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IStorageProviderHandlerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageProviderHandlerFactory> for ::windows::core::IInspectable {
-    fn from(value: &IStorageProviderHandlerFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStorageProviderHandlerFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IStorageProviderHandlerFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -422,36 +393,7 @@ impl IStorageProviderItemPropertySource {
         }
     }
 }
-impl ::core::convert::From<IStorageProviderItemPropertySource> for ::windows::core::IUnknown {
-    fn from(value: IStorageProviderItemPropertySource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageProviderItemPropertySource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStorageProviderItemPropertySource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageProviderItemPropertySource> for ::windows::core::IUnknown {
-    fn from(value: &IStorageProviderItemPropertySource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IStorageProviderItemPropertySource> for ::windows::core::IInspectable {
-    fn from(value: IStorageProviderItemPropertySource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageProviderItemPropertySource> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IStorageProviderItemPropertySource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageProviderItemPropertySource> for ::windows::core::IInspectable {
-    fn from(value: &IStorageProviderItemPropertySource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStorageProviderItemPropertySource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IStorageProviderItemPropertySource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -502,36 +444,7 @@ impl IStorageProviderPropertyCapabilities {
         }
     }
 }
-impl ::core::convert::From<IStorageProviderPropertyCapabilities> for ::windows::core::IUnknown {
-    fn from(value: IStorageProviderPropertyCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageProviderPropertyCapabilities> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStorageProviderPropertyCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageProviderPropertyCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &IStorageProviderPropertyCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IStorageProviderPropertyCapabilities> for ::windows::core::IInspectable {
-    fn from(value: IStorageProviderPropertyCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageProviderPropertyCapabilities> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IStorageProviderPropertyCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageProviderPropertyCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &IStorageProviderPropertyCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStorageProviderPropertyCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IStorageProviderPropertyCapabilities {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -633,36 +546,7 @@ impl IStorageProviderStatusSource {
         unsafe { (::windows::core::Vtable::vtable(this).RemoveChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
 }
-impl ::core::convert::From<IStorageProviderStatusSource> for ::windows::core::IUnknown {
-    fn from(value: IStorageProviderStatusSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageProviderStatusSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStorageProviderStatusSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageProviderStatusSource> for ::windows::core::IUnknown {
-    fn from(value: &IStorageProviderStatusSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IStorageProviderStatusSource> for ::windows::core::IInspectable {
-    fn from(value: IStorageProviderStatusSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageProviderStatusSource> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IStorageProviderStatusSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageProviderStatusSource> for ::windows::core::IInspectable {
-    fn from(value: &IStorageProviderStatusSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStorageProviderStatusSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IStorageProviderStatusSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -850,36 +734,7 @@ impl IStorageProviderUriSource {
         unsafe { (::windows::core::Vtable::vtable(this).GetContentInfoForPath)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(path), ::core::mem::transmute_copy(result)).ok() }
     }
 }
-impl ::core::convert::From<IStorageProviderUriSource> for ::windows::core::IUnknown {
-    fn from(value: IStorageProviderUriSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageProviderUriSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStorageProviderUriSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageProviderUriSource> for ::windows::core::IUnknown {
-    fn from(value: &IStorageProviderUriSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IStorageProviderUriSource> for ::windows::core::IInspectable {
-    fn from(value: IStorageProviderUriSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageProviderUriSource> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IStorageProviderUriSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageProviderUriSource> for ::windows::core::IInspectable {
-    fn from(value: &IStorageProviderUriSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStorageProviderUriSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IStorageProviderUriSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1041,36 +896,7 @@ unsafe impl ::windows::core::Interface for CachedFileUpdaterUI {
 impl ::windows::core::RuntimeName for CachedFileUpdaterUI {
     const NAME: &'static str = "Windows.Storage.Provider.CachedFileUpdaterUI";
 }
-impl ::core::convert::From<CachedFileUpdaterUI> for ::windows::core::IUnknown {
-    fn from(value: CachedFileUpdaterUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterUI> for ::windows::core::IUnknown {
-    fn from(value: &CachedFileUpdaterUI) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterUI> for &::windows::core::IUnknown {
-    fn from(value: &CachedFileUpdaterUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CachedFileUpdaterUI> for ::windows::core::IInspectable {
-    fn from(value: CachedFileUpdaterUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterUI> for ::windows::core::IInspectable {
-    fn from(value: &CachedFileUpdaterUI) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterUI> for &::windows::core::IInspectable {
-    fn from(value: &CachedFileUpdaterUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CachedFileUpdaterUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct FileUpdateRequest(::windows::core::IUnknown);
@@ -1159,36 +985,7 @@ unsafe impl ::windows::core::Interface for FileUpdateRequest {
 impl ::windows::core::RuntimeName for FileUpdateRequest {
     const NAME: &'static str = "Windows.Storage.Provider.FileUpdateRequest";
 }
-impl ::core::convert::From<FileUpdateRequest> for ::windows::core::IUnknown {
-    fn from(value: FileUpdateRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileUpdateRequest> for ::windows::core::IUnknown {
-    fn from(value: &FileUpdateRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileUpdateRequest> for &::windows::core::IUnknown {
-    fn from(value: &FileUpdateRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileUpdateRequest> for ::windows::core::IInspectable {
-    fn from(value: FileUpdateRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileUpdateRequest> for ::windows::core::IInspectable {
-    fn from(value: &FileUpdateRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileUpdateRequest> for &::windows::core::IInspectable {
-    fn from(value: &FileUpdateRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FileUpdateRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct FileUpdateRequestDeferral(::windows::core::IUnknown);
@@ -1230,36 +1027,7 @@ unsafe impl ::windows::core::Interface for FileUpdateRequestDeferral {
 impl ::windows::core::RuntimeName for FileUpdateRequestDeferral {
     const NAME: &'static str = "Windows.Storage.Provider.FileUpdateRequestDeferral";
 }
-impl ::core::convert::From<FileUpdateRequestDeferral> for ::windows::core::IUnknown {
-    fn from(value: FileUpdateRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileUpdateRequestDeferral> for ::windows::core::IUnknown {
-    fn from(value: &FileUpdateRequestDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileUpdateRequestDeferral> for &::windows::core::IUnknown {
-    fn from(value: &FileUpdateRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileUpdateRequestDeferral> for ::windows::core::IInspectable {
-    fn from(value: FileUpdateRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileUpdateRequestDeferral> for ::windows::core::IInspectable {
-    fn from(value: &FileUpdateRequestDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileUpdateRequestDeferral> for &::windows::core::IInspectable {
-    fn from(value: &FileUpdateRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FileUpdateRequestDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct FileUpdateRequestedEventArgs(::windows::core::IUnknown);
@@ -1304,36 +1072,7 @@ unsafe impl ::windows::core::Interface for FileUpdateRequestedEventArgs {
 impl ::windows::core::RuntimeName for FileUpdateRequestedEventArgs {
     const NAME: &'static str = "Windows.Storage.Provider.FileUpdateRequestedEventArgs";
 }
-impl ::core::convert::From<FileUpdateRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: FileUpdateRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileUpdateRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &FileUpdateRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileUpdateRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &FileUpdateRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileUpdateRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: FileUpdateRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileUpdateRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &FileUpdateRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileUpdateRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &FileUpdateRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FileUpdateRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct StorageProviderError(::windows::core::IUnknown);
@@ -1447,36 +1186,7 @@ unsafe impl ::windows::core::Interface for StorageProviderError {
 impl ::windows::core::RuntimeName for StorageProviderError {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderError";
 }
-impl ::core::convert::From<StorageProviderError> for ::windows::core::IUnknown {
-    fn from(value: StorageProviderError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageProviderError> for ::windows::core::IUnknown {
-    fn from(value: &StorageProviderError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageProviderError> for &::windows::core::IUnknown {
-    fn from(value: &StorageProviderError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageProviderError> for ::windows::core::IInspectable {
-    fn from(value: StorageProviderError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageProviderError> for ::windows::core::IInspectable {
-    fn from(value: &StorageProviderError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageProviderError> for &::windows::core::IInspectable {
-    fn from(value: &StorageProviderError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageProviderError, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageProviderError {}
 unsafe impl ::core::marker::Sync for StorageProviderError {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -1545,36 +1255,7 @@ unsafe impl ::windows::core::Interface for StorageProviderErrorCommand {
 impl ::windows::core::RuntimeName for StorageProviderErrorCommand {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderErrorCommand";
 }
-impl ::core::convert::From<StorageProviderErrorCommand> for ::windows::core::IUnknown {
-    fn from(value: StorageProviderErrorCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageProviderErrorCommand> for ::windows::core::IUnknown {
-    fn from(value: &StorageProviderErrorCommand) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageProviderErrorCommand> for &::windows::core::IUnknown {
-    fn from(value: &StorageProviderErrorCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageProviderErrorCommand> for ::windows::core::IInspectable {
-    fn from(value: StorageProviderErrorCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageProviderErrorCommand> for ::windows::core::IInspectable {
-    fn from(value: &StorageProviderErrorCommand) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageProviderErrorCommand> for &::windows::core::IInspectable {
-    fn from(value: &StorageProviderErrorCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageProviderErrorCommand, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageProviderErrorCommand {}
 unsafe impl ::core::marker::Sync for StorageProviderErrorCommand {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -1639,36 +1320,7 @@ unsafe impl ::windows::core::Interface for StorageProviderFileTypeInfo {
 impl ::windows::core::RuntimeName for StorageProviderFileTypeInfo {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderFileTypeInfo";
 }
-impl ::core::convert::From<StorageProviderFileTypeInfo> for ::windows::core::IUnknown {
-    fn from(value: StorageProviderFileTypeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageProviderFileTypeInfo> for ::windows::core::IUnknown {
-    fn from(value: &StorageProviderFileTypeInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageProviderFileTypeInfo> for &::windows::core::IUnknown {
-    fn from(value: &StorageProviderFileTypeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageProviderFileTypeInfo> for ::windows::core::IInspectable {
-    fn from(value: StorageProviderFileTypeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageProviderFileTypeInfo> for ::windows::core::IInspectable {
-    fn from(value: &StorageProviderFileTypeInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageProviderFileTypeInfo> for &::windows::core::IInspectable {
-    fn from(value: &StorageProviderFileTypeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageProviderFileTypeInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageProviderFileTypeInfo {}
 unsafe impl ::core::marker::Sync for StorageProviderFileTypeInfo {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -1748,36 +1400,7 @@ unsafe impl ::windows::core::Interface for StorageProviderGetContentInfoForPathR
 impl ::windows::core::RuntimeName for StorageProviderGetContentInfoForPathResult {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderGetContentInfoForPathResult";
 }
-impl ::core::convert::From<StorageProviderGetContentInfoForPathResult> for ::windows::core::IUnknown {
-    fn from(value: StorageProviderGetContentInfoForPathResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageProviderGetContentInfoForPathResult> for ::windows::core::IUnknown {
-    fn from(value: &StorageProviderGetContentInfoForPathResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageProviderGetContentInfoForPathResult> for &::windows::core::IUnknown {
-    fn from(value: &StorageProviderGetContentInfoForPathResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageProviderGetContentInfoForPathResult> for ::windows::core::IInspectable {
-    fn from(value: StorageProviderGetContentInfoForPathResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageProviderGetContentInfoForPathResult> for ::windows::core::IInspectable {
-    fn from(value: &StorageProviderGetContentInfoForPathResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageProviderGetContentInfoForPathResult> for &::windows::core::IInspectable {
-    fn from(value: &StorageProviderGetContentInfoForPathResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageProviderGetContentInfoForPathResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageProviderGetContentInfoForPathResult {}
 unsafe impl ::core::marker::Sync for StorageProviderGetContentInfoForPathResult {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -1846,36 +1469,7 @@ unsafe impl ::windows::core::Interface for StorageProviderGetPathForContentUriRe
 impl ::windows::core::RuntimeName for StorageProviderGetPathForContentUriResult {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderGetPathForContentUriResult";
 }
-impl ::core::convert::From<StorageProviderGetPathForContentUriResult> for ::windows::core::IUnknown {
-    fn from(value: StorageProviderGetPathForContentUriResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageProviderGetPathForContentUriResult> for ::windows::core::IUnknown {
-    fn from(value: &StorageProviderGetPathForContentUriResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageProviderGetPathForContentUriResult> for &::windows::core::IUnknown {
-    fn from(value: &StorageProviderGetPathForContentUriResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageProviderGetPathForContentUriResult> for ::windows::core::IInspectable {
-    fn from(value: StorageProviderGetPathForContentUriResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageProviderGetPathForContentUriResult> for ::windows::core::IInspectable {
-    fn from(value: &StorageProviderGetPathForContentUriResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageProviderGetPathForContentUriResult> for &::windows::core::IInspectable {
-    fn from(value: &StorageProviderGetPathForContentUriResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageProviderGetPathForContentUriResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageProviderGetPathForContentUriResult {}
 unsafe impl ::core::marker::Sync for StorageProviderGetPathForContentUriResult {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -1981,36 +1575,7 @@ unsafe impl ::windows::core::Interface for StorageProviderItemProperty {
 impl ::windows::core::RuntimeName for StorageProviderItemProperty {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderItemProperty";
 }
-impl ::core::convert::From<StorageProviderItemProperty> for ::windows::core::IUnknown {
-    fn from(value: StorageProviderItemProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageProviderItemProperty> for ::windows::core::IUnknown {
-    fn from(value: &StorageProviderItemProperty) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageProviderItemProperty> for &::windows::core::IUnknown {
-    fn from(value: &StorageProviderItemProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageProviderItemProperty> for ::windows::core::IInspectable {
-    fn from(value: StorageProviderItemProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageProviderItemProperty> for ::windows::core::IInspectable {
-    fn from(value: &StorageProviderItemProperty) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageProviderItemProperty> for &::windows::core::IInspectable {
-    fn from(value: &StorageProviderItemProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageProviderItemProperty, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageProviderItemProperty {}
 unsafe impl ::core::marker::Sync for StorageProviderItemProperty {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -2079,36 +1644,7 @@ unsafe impl ::windows::core::Interface for StorageProviderItemPropertyDefinition
 impl ::windows::core::RuntimeName for StorageProviderItemPropertyDefinition {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderItemPropertyDefinition";
 }
-impl ::core::convert::From<StorageProviderItemPropertyDefinition> for ::windows::core::IUnknown {
-    fn from(value: StorageProviderItemPropertyDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageProviderItemPropertyDefinition> for ::windows::core::IUnknown {
-    fn from(value: &StorageProviderItemPropertyDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageProviderItemPropertyDefinition> for &::windows::core::IUnknown {
-    fn from(value: &StorageProviderItemPropertyDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageProviderItemPropertyDefinition> for ::windows::core::IInspectable {
-    fn from(value: StorageProviderItemPropertyDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageProviderItemPropertyDefinition> for ::windows::core::IInspectable {
-    fn from(value: &StorageProviderItemPropertyDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageProviderItemPropertyDefinition> for &::windows::core::IInspectable {
-    fn from(value: &StorageProviderItemPropertyDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageProviderItemPropertyDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageProviderItemPropertyDefinition {}
 unsafe impl ::core::marker::Sync for StorageProviderItemPropertyDefinition {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -2194,36 +1730,7 @@ unsafe impl ::windows::core::Interface for StorageProviderStatus {
 impl ::windows::core::RuntimeName for StorageProviderStatus {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderStatus";
 }
-impl ::core::convert::From<StorageProviderStatus> for ::windows::core::IUnknown {
-    fn from(value: StorageProviderStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageProviderStatus> for ::windows::core::IUnknown {
-    fn from(value: &StorageProviderStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageProviderStatus> for &::windows::core::IUnknown {
-    fn from(value: &StorageProviderStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageProviderStatus> for ::windows::core::IInspectable {
-    fn from(value: StorageProviderStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageProviderStatus> for ::windows::core::IInspectable {
-    fn from(value: &StorageProviderStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageProviderStatus> for &::windows::core::IInspectable {
-    fn from(value: &StorageProviderStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageProviderStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageProviderStatus {}
 unsafe impl ::core::marker::Sync for StorageProviderStatus {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -2480,36 +1987,7 @@ unsafe impl ::windows::core::Interface for StorageProviderSyncRootInfo {
 impl ::windows::core::RuntimeName for StorageProviderSyncRootInfo {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderSyncRootInfo";
 }
-impl ::core::convert::From<StorageProviderSyncRootInfo> for ::windows::core::IUnknown {
-    fn from(value: StorageProviderSyncRootInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageProviderSyncRootInfo> for ::windows::core::IUnknown {
-    fn from(value: &StorageProviderSyncRootInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageProviderSyncRootInfo> for &::windows::core::IUnknown {
-    fn from(value: &StorageProviderSyncRootInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageProviderSyncRootInfo> for ::windows::core::IInspectable {
-    fn from(value: StorageProviderSyncRootInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageProviderSyncRootInfo> for ::windows::core::IInspectable {
-    fn from(value: &StorageProviderSyncRootInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageProviderSyncRootInfo> for &::windows::core::IInspectable {
-    fn from(value: &StorageProviderSyncRootInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageProviderSyncRootInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageProviderSyncRootInfo {}
 unsafe impl ::core::marker::Sync for StorageProviderSyncRootInfo {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]

@@ -6,21 +6,7 @@ impl IDirectManipulationAutoScrollBehavior {
         (::windows::core::Vtable::vtable(self).SetConfiguration)(::windows::core::Vtable::as_raw(self), motiontypes, scrollmotion).ok()
     }
 }
-impl ::core::convert::From<IDirectManipulationAutoScrollBehavior> for ::windows::core::IUnknown {
-    fn from(value: IDirectManipulationAutoScrollBehavior) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationAutoScrollBehavior> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectManipulationAutoScrollBehavior) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationAutoScrollBehavior> for ::windows::core::IUnknown {
-    fn from(value: &IDirectManipulationAutoScrollBehavior) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectManipulationAutoScrollBehavior, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectManipulationAutoScrollBehavior {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -78,21 +64,7 @@ impl IDirectManipulationCompositor {
         (::windows::core::Vtable::vtable(self).Flush)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDirectManipulationCompositor> for ::windows::core::IUnknown {
-    fn from(value: IDirectManipulationCompositor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationCompositor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectManipulationCompositor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationCompositor> for ::windows::core::IUnknown {
-    fn from(value: &IDirectManipulationCompositor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectManipulationCompositor, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectManipulationCompositor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -162,36 +134,7 @@ impl IDirectManipulationCompositor2 {
         (::windows::core::Vtable::vtable(self).AddContentWithCrossProcessChaining)(::windows::core::Vtable::as_raw(self), content.into().abi(), device.into().abi(), parentvisual.into().abi(), childvisual.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IDirectManipulationCompositor2> for ::windows::core::IUnknown {
-    fn from(value: IDirectManipulationCompositor2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationCompositor2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectManipulationCompositor2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationCompositor2> for ::windows::core::IUnknown {
-    fn from(value: &IDirectManipulationCompositor2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectManipulationCompositor2> for IDirectManipulationCompositor {
-    fn from(value: IDirectManipulationCompositor2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationCompositor2> for &'a IDirectManipulationCompositor {
-    fn from(value: &'a IDirectManipulationCompositor2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationCompositor2> for IDirectManipulationCompositor {
-    fn from(value: &IDirectManipulationCompositor2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectManipulationCompositor2, ::windows::core::IUnknown, IDirectManipulationCompositor);
 impl ::core::clone::Clone for IDirectManipulationCompositor2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -264,21 +207,7 @@ impl IDirectManipulationContent {
         (::windows::core::Vtable::vtable(self).SyncContentTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(matrix.as_ptr()), matrix.len() as _).ok()
     }
 }
-impl ::core::convert::From<IDirectManipulationContent> for ::windows::core::IUnknown {
-    fn from(value: IDirectManipulationContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationContent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectManipulationContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationContent> for ::windows::core::IUnknown {
-    fn from(value: &IDirectManipulationContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectManipulationContent, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectManipulationContent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -334,21 +263,7 @@ impl IDirectManipulationDeferContactService {
         (::windows::core::Vtable::vtable(self).CancelDeferral)(::windows::core::Vtable::as_raw(self), pointerid).ok()
     }
 }
-impl ::core::convert::From<IDirectManipulationDeferContactService> for ::windows::core::IUnknown {
-    fn from(value: IDirectManipulationDeferContactService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationDeferContactService> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectManipulationDeferContactService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationDeferContactService> for ::windows::core::IUnknown {
-    fn from(value: &IDirectManipulationDeferContactService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectManipulationDeferContactService, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectManipulationDeferContactService {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -391,21 +306,7 @@ impl IDirectManipulationDragDropBehavior {
         (::windows::core::Vtable::vtable(self).GetStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIRECTMANIPULATION_DRAG_DROP_STATUS>(result__)
     }
 }
-impl ::core::convert::From<IDirectManipulationDragDropBehavior> for ::windows::core::IUnknown {
-    fn from(value: IDirectManipulationDragDropBehavior) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationDragDropBehavior> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectManipulationDragDropBehavior) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationDragDropBehavior> for ::windows::core::IUnknown {
-    fn from(value: &IDirectManipulationDragDropBehavior) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectManipulationDragDropBehavior, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectManipulationDragDropBehavior {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -446,21 +347,7 @@ impl IDirectManipulationDragDropEventHandler {
         (::windows::core::Vtable::vtable(self).OnDragDropStatusChange)(::windows::core::Vtable::as_raw(self), viewport.into().abi(), current, previous).ok()
     }
 }
-impl ::core::convert::From<IDirectManipulationDragDropEventHandler> for ::windows::core::IUnknown {
-    fn from(value: IDirectManipulationDragDropEventHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationDragDropEventHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectManipulationDragDropEventHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationDragDropEventHandler> for ::windows::core::IUnknown {
-    fn from(value: &IDirectManipulationDragDropEventHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectManipulationDragDropEventHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectManipulationDragDropEventHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -497,21 +384,7 @@ impl IDirectManipulationFrameInfoProvider {
         (::windows::core::Vtable::vtable(self).GetNextFrameInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(time), ::core::mem::transmute(processtime), ::core::mem::transmute(compositiontime)).ok()
     }
 }
-impl ::core::convert::From<IDirectManipulationFrameInfoProvider> for ::windows::core::IUnknown {
-    fn from(value: IDirectManipulationFrameInfoProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationFrameInfoProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectManipulationFrameInfoProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationFrameInfoProvider> for ::windows::core::IUnknown {
-    fn from(value: &IDirectManipulationFrameInfoProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectManipulationFrameInfoProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectManipulationFrameInfoProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -551,21 +424,7 @@ impl IDirectManipulationInteractionEventHandler {
         (::windows::core::Vtable::vtable(self).OnInteraction)(::windows::core::Vtable::as_raw(self), viewport.into().abi(), interaction).ok()
     }
 }
-impl ::core::convert::From<IDirectManipulationInteractionEventHandler> for ::windows::core::IUnknown {
-    fn from(value: IDirectManipulationInteractionEventHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationInteractionEventHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectManipulationInteractionEventHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationInteractionEventHandler> for ::windows::core::IUnknown {
-    fn from(value: &IDirectManipulationInteractionEventHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectManipulationInteractionEventHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectManipulationInteractionEventHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -656,21 +515,7 @@ impl IDirectManipulationManager {
         (::windows::core::Vtable::vtable(self).CreateContent)(::windows::core::Vtable::as_raw(self), frameinfo.into().abi(), ::core::mem::transmute(clsid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IDirectManipulationManager> for ::windows::core::IUnknown {
-    fn from(value: IDirectManipulationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectManipulationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationManager> for ::windows::core::IUnknown {
-    fn from(value: &IDirectManipulationManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectManipulationManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectManipulationManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -789,36 +634,7 @@ impl IDirectManipulationManager2 {
         (::windows::core::Vtable::vtable(self).CreateBehavior)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clsid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IDirectManipulationManager2> for ::windows::core::IUnknown {
-    fn from(value: IDirectManipulationManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationManager2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectManipulationManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationManager2> for ::windows::core::IUnknown {
-    fn from(value: &IDirectManipulationManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectManipulationManager2> for IDirectManipulationManager {
-    fn from(value: IDirectManipulationManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationManager2> for &'a IDirectManipulationManager {
-    fn from(value: &'a IDirectManipulationManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationManager2> for IDirectManipulationManager {
-    fn from(value: &IDirectManipulationManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectManipulationManager2, ::windows::core::IUnknown, IDirectManipulationManager);
 impl ::core::clone::Clone for IDirectManipulationManager2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -923,51 +739,7 @@ impl IDirectManipulationManager3 {
         (::windows::core::Vtable::vtable(self).GetService)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clsid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IDirectManipulationManager3> for ::windows::core::IUnknown {
-    fn from(value: IDirectManipulationManager3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationManager3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectManipulationManager3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationManager3> for ::windows::core::IUnknown {
-    fn from(value: &IDirectManipulationManager3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectManipulationManager3> for IDirectManipulationManager {
-    fn from(value: IDirectManipulationManager3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationManager3> for &'a IDirectManipulationManager {
-    fn from(value: &'a IDirectManipulationManager3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationManager3> for IDirectManipulationManager {
-    fn from(value: &IDirectManipulationManager3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectManipulationManager3> for IDirectManipulationManager2 {
-    fn from(value: IDirectManipulationManager3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationManager3> for &'a IDirectManipulationManager2 {
-    fn from(value: &'a IDirectManipulationManager3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationManager3> for IDirectManipulationManager2 {
-    fn from(value: &IDirectManipulationManager3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectManipulationManager3, ::windows::core::IUnknown, IDirectManipulationManager, IDirectManipulationManager2);
 impl ::core::clone::Clone for IDirectManipulationManager3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1028,21 +800,7 @@ impl IDirectManipulationPrimaryContent {
         (::windows::core::Vtable::vtable(self).GetCenterPoint)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(centerx), ::core::mem::transmute(centery)).ok()
     }
 }
-impl ::core::convert::From<IDirectManipulationPrimaryContent> for ::windows::core::IUnknown {
-    fn from(value: IDirectManipulationPrimaryContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationPrimaryContent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectManipulationPrimaryContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationPrimaryContent> for ::windows::core::IUnknown {
-    fn from(value: &IDirectManipulationPrimaryContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectManipulationPrimaryContent, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectManipulationPrimaryContent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1087,21 +845,7 @@ impl IDirectManipulationUpdateHandler {
         (::windows::core::Vtable::vtable(self).Update)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDirectManipulationUpdateHandler> for ::windows::core::IUnknown {
-    fn from(value: IDirectManipulationUpdateHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationUpdateHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectManipulationUpdateHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationUpdateHandler> for ::windows::core::IUnknown {
-    fn from(value: &IDirectManipulationUpdateHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectManipulationUpdateHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectManipulationUpdateHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1154,21 +898,7 @@ impl IDirectManipulationUpdateManager {
         (::windows::core::Vtable::vtable(self).Update)(::windows::core::Vtable::as_raw(self), frameinfo.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IDirectManipulationUpdateManager> for ::windows::core::IUnknown {
-    fn from(value: IDirectManipulationUpdateManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationUpdateManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectManipulationUpdateManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationUpdateManager> for ::windows::core::IUnknown {
-    fn from(value: &IDirectManipulationUpdateManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectManipulationUpdateManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectManipulationUpdateManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1325,21 +1055,7 @@ impl IDirectManipulationViewport {
         (::windows::core::Vtable::vtable(self).Abandon)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDirectManipulationViewport> for ::windows::core::IUnknown {
-    fn from(value: IDirectManipulationViewport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationViewport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectManipulationViewport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationViewport> for ::windows::core::IUnknown {
-    fn from(value: &IDirectManipulationViewport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectManipulationViewport, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectManipulationViewport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1543,36 +1259,7 @@ impl IDirectManipulationViewport2 {
         (::windows::core::Vtable::vtable(self).RemoveAllBehaviors)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDirectManipulationViewport2> for ::windows::core::IUnknown {
-    fn from(value: IDirectManipulationViewport2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationViewport2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectManipulationViewport2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationViewport2> for ::windows::core::IUnknown {
-    fn from(value: &IDirectManipulationViewport2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectManipulationViewport2> for IDirectManipulationViewport {
-    fn from(value: IDirectManipulationViewport2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationViewport2> for &'a IDirectManipulationViewport {
-    fn from(value: &'a IDirectManipulationViewport2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationViewport2> for IDirectManipulationViewport {
-    fn from(value: &IDirectManipulationViewport2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectManipulationViewport2, ::windows::core::IUnknown, IDirectManipulationViewport);
 impl ::core::clone::Clone for IDirectManipulationViewport2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1627,21 +1314,7 @@ impl IDirectManipulationViewportEventHandler {
         (::windows::core::Vtable::vtable(self).OnContentUpdated)(::windows::core::Vtable::as_raw(self), viewport.into().abi(), content.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IDirectManipulationViewportEventHandler> for ::windows::core::IUnknown {
-    fn from(value: IDirectManipulationViewportEventHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectManipulationViewportEventHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectManipulationViewportEventHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectManipulationViewportEventHandler> for ::windows::core::IUnknown {
-    fn from(value: &IDirectManipulationViewportEventHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectManipulationViewportEventHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectManipulationViewportEventHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())

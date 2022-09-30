@@ -95,41 +95,7 @@ impl ISmsBinaryMessage {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<ISmsBinaryMessage> for ::windows::core::IUnknown {
-    fn from(value: ISmsBinaryMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a ISmsBinaryMessage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISmsBinaryMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&ISmsBinaryMessage> for ::windows::core::IUnknown {
-    fn from(value: &ISmsBinaryMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<ISmsBinaryMessage> for ::windows::core::IInspectable {
-    fn from(value: ISmsBinaryMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a ISmsBinaryMessage> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISmsBinaryMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&ISmsBinaryMessage> for ::windows::core::IInspectable {
-    fn from(value: &ISmsBinaryMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISmsBinaryMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<ISmsBinaryMessage> for ISmsMessage {
     type Error = ::windows::core::Error;
@@ -333,41 +299,7 @@ impl ISmsDevice {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<ISmsDevice> for ::windows::core::IUnknown {
-    fn from(value: ISmsDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a ISmsDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISmsDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&ISmsDevice> for ::windows::core::IUnknown {
-    fn from(value: &ISmsDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<ISmsDevice> for ::windows::core::IInspectable {
-    fn from(value: ISmsDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a ISmsDevice> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISmsDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&ISmsDevice> for ::windows::core::IInspectable {
-    fn from(value: &ISmsDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISmsDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for ISmsDevice {
     fn clone(&self) -> Self {
@@ -721,36 +653,7 @@ impl ISmsMessage {
         }
     }
 }
-impl ::core::convert::From<ISmsMessage> for ::windows::core::IUnknown {
-    fn from(value: ISmsMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISmsMessage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISmsMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISmsMessage> for ::windows::core::IUnknown {
-    fn from(value: &ISmsMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISmsMessage> for ::windows::core::IInspectable {
-    fn from(value: ISmsMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISmsMessage> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISmsMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISmsMessage> for ::windows::core::IInspectable {
-    fn from(value: &ISmsMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISmsMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ISmsMessage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -827,36 +730,7 @@ impl ISmsMessageBase {
         }
     }
 }
-impl ::core::convert::From<ISmsMessageBase> for ::windows::core::IUnknown {
-    fn from(value: ISmsMessageBase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISmsMessageBase> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISmsMessageBase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISmsMessageBase> for ::windows::core::IUnknown {
-    fn from(value: &ISmsMessageBase) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISmsMessageBase> for ::windows::core::IInspectable {
-    fn from(value: ISmsMessageBase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISmsMessageBase> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISmsMessageBase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISmsMessageBase> for ::windows::core::IInspectable {
-    fn from(value: &ISmsMessageBase) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISmsMessageBase, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ISmsMessageBase {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1218,41 +1092,7 @@ impl ISmsTextMessage {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<ISmsTextMessage> for ::windows::core::IUnknown {
-    fn from(value: ISmsTextMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a ISmsTextMessage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISmsTextMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&ISmsTextMessage> for ::windows::core::IUnknown {
-    fn from(value: &ISmsTextMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<ISmsTextMessage> for ::windows::core::IInspectable {
-    fn from(value: ISmsTextMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a ISmsTextMessage> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISmsTextMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&ISmsTextMessage> for ::windows::core::IInspectable {
-    fn from(value: &ISmsTextMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISmsTextMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<ISmsTextMessage> for ISmsMessage {
     type Error = ::windows::core::Error;
@@ -1621,41 +1461,7 @@ impl ::std::future::Future for DeleteSmsMessageOperation {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<DeleteSmsMessageOperation> for ::windows::core::IUnknown {
-    fn from(value: DeleteSmsMessageOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<&DeleteSmsMessageOperation> for ::windows::core::IUnknown {
-    fn from(value: &DeleteSmsMessageOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<&DeleteSmsMessageOperation> for &::windows::core::IUnknown {
-    fn from(value: &DeleteSmsMessageOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<DeleteSmsMessageOperation> for ::windows::core::IInspectable {
-    fn from(value: DeleteSmsMessageOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<&DeleteSmsMessageOperation> for ::windows::core::IInspectable {
-    fn from(value: &DeleteSmsMessageOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<&DeleteSmsMessageOperation> for &::windows::core::IInspectable {
-    fn from(value: &DeleteSmsMessageOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeleteSmsMessageOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<DeleteSmsMessageOperation> for super::super::Foundation::IAsyncAction {
     type Error = ::windows::core::Error;
@@ -1839,41 +1645,7 @@ impl ::std::future::Future for DeleteSmsMessagesOperation {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<DeleteSmsMessagesOperation> for ::windows::core::IUnknown {
-    fn from(value: DeleteSmsMessagesOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<&DeleteSmsMessagesOperation> for ::windows::core::IUnknown {
-    fn from(value: &DeleteSmsMessagesOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<&DeleteSmsMessagesOperation> for &::windows::core::IUnknown {
-    fn from(value: &DeleteSmsMessagesOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<DeleteSmsMessagesOperation> for ::windows::core::IInspectable {
-    fn from(value: DeleteSmsMessagesOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<&DeleteSmsMessagesOperation> for ::windows::core::IInspectable {
-    fn from(value: &DeleteSmsMessagesOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<&DeleteSmsMessagesOperation> for &::windows::core::IInspectable {
-    fn from(value: &DeleteSmsMessagesOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeleteSmsMessagesOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<DeleteSmsMessagesOperation> for super::super::Foundation::IAsyncAction {
     type Error = ::windows::core::Error;
@@ -2060,41 +1832,7 @@ impl ::std::future::Future for GetSmsDeviceOperation {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<GetSmsDeviceOperation> for ::windows::core::IUnknown {
-    fn from(value: GetSmsDeviceOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<&GetSmsDeviceOperation> for ::windows::core::IUnknown {
-    fn from(value: &GetSmsDeviceOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<&GetSmsDeviceOperation> for &::windows::core::IUnknown {
-    fn from(value: &GetSmsDeviceOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<GetSmsDeviceOperation> for ::windows::core::IInspectable {
-    fn from(value: GetSmsDeviceOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<&GetSmsDeviceOperation> for ::windows::core::IInspectable {
-    fn from(value: &GetSmsDeviceOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<&GetSmsDeviceOperation> for &::windows::core::IInspectable {
-    fn from(value: &GetSmsDeviceOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GetSmsDeviceOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<GetSmsDeviceOperation> for super::super::Foundation::IAsyncInfo {
     type Error = ::windows::core::Error;
@@ -2281,41 +2019,7 @@ impl ::std::future::Future for GetSmsMessageOperation {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<GetSmsMessageOperation> for ::windows::core::IUnknown {
-    fn from(value: GetSmsMessageOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<&GetSmsMessageOperation> for ::windows::core::IUnknown {
-    fn from(value: &GetSmsMessageOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<&GetSmsMessageOperation> for &::windows::core::IUnknown {
-    fn from(value: &GetSmsMessageOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<GetSmsMessageOperation> for ::windows::core::IInspectable {
-    fn from(value: GetSmsMessageOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<&GetSmsMessageOperation> for ::windows::core::IInspectable {
-    fn from(value: &GetSmsMessageOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<&GetSmsMessageOperation> for &::windows::core::IInspectable {
-    fn from(value: &GetSmsMessageOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GetSmsMessageOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<GetSmsMessageOperation> for super::super::Foundation::IAsyncInfo {
     type Error = ::windows::core::Error;
@@ -2517,41 +2221,7 @@ impl ::std::future::Future for GetSmsMessagesOperation {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl ::core::convert::From<GetSmsMessagesOperation> for ::windows::core::IUnknown {
-    fn from(value: GetSmsMessagesOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl ::core::convert::From<&GetSmsMessagesOperation> for ::windows::core::IUnknown {
-    fn from(value: &GetSmsMessagesOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl ::core::convert::From<&GetSmsMessagesOperation> for &::windows::core::IUnknown {
-    fn from(value: &GetSmsMessagesOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl ::core::convert::From<GetSmsMessagesOperation> for ::windows::core::IInspectable {
-    fn from(value: GetSmsMessagesOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl ::core::convert::From<&GetSmsMessagesOperation> for ::windows::core::IInspectable {
-    fn from(value: &GetSmsMessagesOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl ::core::convert::From<&GetSmsMessagesOperation> for &::windows::core::IInspectable {
-    fn from(value: &GetSmsMessagesOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GetSmsMessagesOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::core::convert::TryFrom<GetSmsMessagesOperation> for super::super::Foundation::IAsyncInfo {
     type Error = ::windows::core::Error;
@@ -2735,41 +2405,7 @@ impl ::std::future::Future for SendSmsMessageOperation {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<SendSmsMessageOperation> for ::windows::core::IUnknown {
-    fn from(value: SendSmsMessageOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<&SendSmsMessageOperation> for ::windows::core::IUnknown {
-    fn from(value: &SendSmsMessageOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<&SendSmsMessageOperation> for &::windows::core::IUnknown {
-    fn from(value: &SendSmsMessageOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<SendSmsMessageOperation> for ::windows::core::IInspectable {
-    fn from(value: SendSmsMessageOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<&SendSmsMessageOperation> for ::windows::core::IInspectable {
-    fn from(value: &SendSmsMessageOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl ::core::convert::From<&SendSmsMessageOperation> for &::windows::core::IInspectable {
-    fn from(value: &SendSmsMessageOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SendSmsMessageOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<SendSmsMessageOperation> for super::super::Foundation::IAsyncAction {
     type Error = ::windows::core::Error;
@@ -3027,36 +2663,7 @@ unsafe impl ::windows::core::Interface for SmsAppMessage {
 impl ::windows::core::RuntimeName for SmsAppMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsAppMessage";
 }
-impl ::core::convert::From<SmsAppMessage> for ::windows::core::IUnknown {
-    fn from(value: SmsAppMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsAppMessage> for ::windows::core::IUnknown {
-    fn from(value: &SmsAppMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsAppMessage> for &::windows::core::IUnknown {
-    fn from(value: &SmsAppMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmsAppMessage> for ::windows::core::IInspectable {
-    fn from(value: SmsAppMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsAppMessage> for ::windows::core::IInspectable {
-    fn from(value: &SmsAppMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsAppMessage> for &::windows::core::IInspectable {
-    fn from(value: &SmsAppMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmsAppMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SmsAppMessage> for ISmsMessageBase {
     type Error = ::windows::core::Error;
     fn try_from(value: SmsAppMessage) -> ::windows::core::Result<Self> {
@@ -3177,41 +2784,7 @@ impl ::windows::core::RuntimeName for SmsBinaryMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsBinaryMessage";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SmsBinaryMessage> for ::windows::core::IUnknown {
-    fn from(value: SmsBinaryMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsBinaryMessage> for ::windows::core::IUnknown {
-    fn from(value: &SmsBinaryMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsBinaryMessage> for &::windows::core::IUnknown {
-    fn from(value: &SmsBinaryMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SmsBinaryMessage> for ::windows::core::IInspectable {
-    fn from(value: SmsBinaryMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsBinaryMessage> for ::windows::core::IInspectable {
-    fn from(value: &SmsBinaryMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsBinaryMessage> for &::windows::core::IInspectable {
-    fn from(value: &SmsBinaryMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmsBinaryMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<SmsBinaryMessage> for ISmsBinaryMessage {
     type Error = ::windows::core::Error;
@@ -3404,36 +2977,7 @@ unsafe impl ::windows::core::Interface for SmsBroadcastMessage {
 impl ::windows::core::RuntimeName for SmsBroadcastMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsBroadcastMessage";
 }
-impl ::core::convert::From<SmsBroadcastMessage> for ::windows::core::IUnknown {
-    fn from(value: SmsBroadcastMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsBroadcastMessage> for ::windows::core::IUnknown {
-    fn from(value: &SmsBroadcastMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsBroadcastMessage> for &::windows::core::IUnknown {
-    fn from(value: &SmsBroadcastMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmsBroadcastMessage> for ::windows::core::IInspectable {
-    fn from(value: SmsBroadcastMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsBroadcastMessage> for ::windows::core::IInspectable {
-    fn from(value: &SmsBroadcastMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsBroadcastMessage> for &::windows::core::IInspectable {
-    fn from(value: &SmsBroadcastMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmsBroadcastMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SmsBroadcastMessage> for ISmsMessageBase {
     type Error = ::windows::core::Error;
     fn try_from(value: SmsBroadcastMessage) -> ::windows::core::Result<Self> {
@@ -3635,41 +3179,7 @@ impl ::windows::core::RuntimeName for SmsDevice {
     const NAME: &'static str = "Windows.Devices.Sms.SmsDevice";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SmsDevice> for ::windows::core::IUnknown {
-    fn from(value: SmsDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsDevice> for ::windows::core::IUnknown {
-    fn from(value: &SmsDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsDevice> for &::windows::core::IUnknown {
-    fn from(value: &SmsDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SmsDevice> for ::windows::core::IInspectable {
-    fn from(value: SmsDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsDevice> for ::windows::core::IInspectable {
-    fn from(value: &SmsDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsDevice> for &::windows::core::IInspectable {
-    fn from(value: &SmsDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmsDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<SmsDevice> for ISmsDevice {
     type Error = ::windows::core::Error;
@@ -3843,36 +3353,7 @@ unsafe impl ::windows::core::Interface for SmsDevice2 {
 impl ::windows::core::RuntimeName for SmsDevice2 {
     const NAME: &'static str = "Windows.Devices.Sms.SmsDevice2";
 }
-impl ::core::convert::From<SmsDevice2> for ::windows::core::IUnknown {
-    fn from(value: SmsDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsDevice2> for ::windows::core::IUnknown {
-    fn from(value: &SmsDevice2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsDevice2> for &::windows::core::IUnknown {
-    fn from(value: &SmsDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmsDevice2> for ::windows::core::IInspectable {
-    fn from(value: SmsDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsDevice2> for ::windows::core::IInspectable {
-    fn from(value: &SmsDevice2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsDevice2> for &::windows::core::IInspectable {
-    fn from(value: &SmsDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmsDevice2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -3966,41 +3447,7 @@ impl ::windows::core::RuntimeName for SmsDeviceMessageStore {
     const NAME: &'static str = "Windows.Devices.Sms.SmsDeviceMessageStore";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SmsDeviceMessageStore> for ::windows::core::IUnknown {
-    fn from(value: SmsDeviceMessageStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsDeviceMessageStore> for ::windows::core::IUnknown {
-    fn from(value: &SmsDeviceMessageStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsDeviceMessageStore> for &::windows::core::IUnknown {
-    fn from(value: &SmsDeviceMessageStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SmsDeviceMessageStore> for ::windows::core::IInspectable {
-    fn from(value: SmsDeviceMessageStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsDeviceMessageStore> for ::windows::core::IInspectable {
-    fn from(value: &SmsDeviceMessageStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsDeviceMessageStore> for &::windows::core::IInspectable {
-    fn from(value: &SmsDeviceMessageStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmsDeviceMessageStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Devices_Sms\"`*"]
 #[repr(transparent)]
 pub struct SmsFilterRule(::windows::core::IUnknown);
@@ -4166,36 +3613,7 @@ unsafe impl ::windows::core::Interface for SmsFilterRule {
 impl ::windows::core::RuntimeName for SmsFilterRule {
     const NAME: &'static str = "Windows.Devices.Sms.SmsFilterRule";
 }
-impl ::core::convert::From<SmsFilterRule> for ::windows::core::IUnknown {
-    fn from(value: SmsFilterRule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsFilterRule> for ::windows::core::IUnknown {
-    fn from(value: &SmsFilterRule) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsFilterRule> for &::windows::core::IUnknown {
-    fn from(value: &SmsFilterRule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmsFilterRule> for ::windows::core::IInspectable {
-    fn from(value: SmsFilterRule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsFilterRule> for ::windows::core::IInspectable {
-    fn from(value: &SmsFilterRule) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsFilterRule> for &::windows::core::IInspectable {
-    fn from(value: &SmsFilterRule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmsFilterRule, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmsFilterRule {}
 unsafe impl ::core::marker::Sync for SmsFilterRule {}
 #[doc = "*Required features: `\"Devices_Sms\"`*"]
@@ -4262,36 +3680,7 @@ unsafe impl ::windows::core::Interface for SmsFilterRules {
 impl ::windows::core::RuntimeName for SmsFilterRules {
     const NAME: &'static str = "Windows.Devices.Sms.SmsFilterRules";
 }
-impl ::core::convert::From<SmsFilterRules> for ::windows::core::IUnknown {
-    fn from(value: SmsFilterRules) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsFilterRules> for ::windows::core::IUnknown {
-    fn from(value: &SmsFilterRules) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsFilterRules> for &::windows::core::IUnknown {
-    fn from(value: &SmsFilterRules) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmsFilterRules> for ::windows::core::IInspectable {
-    fn from(value: SmsFilterRules) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsFilterRules> for ::windows::core::IInspectable {
-    fn from(value: &SmsFilterRules) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsFilterRules> for &::windows::core::IInspectable {
-    fn from(value: &SmsFilterRules) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmsFilterRules, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmsFilterRules {}
 unsafe impl ::core::marker::Sync for SmsFilterRules {}
 #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
@@ -4360,41 +3749,7 @@ impl ::windows::core::RuntimeName for SmsMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sms.SmsMessageReceivedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SmsMessageReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SmsMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsMessageReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SmsMessageReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsMessageReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SmsMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SmsMessageReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SmsMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsMessageReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SmsMessageReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsMessageReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SmsMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmsMessageReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Devices_Sms\"`*"]
 #[repr(transparent)]
 pub struct SmsMessageReceivedTriggerDetails(::windows::core::IUnknown);
@@ -4489,36 +3844,7 @@ unsafe impl ::windows::core::Interface for SmsMessageReceivedTriggerDetails {
 impl ::windows::core::RuntimeName for SmsMessageReceivedTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Sms.SmsMessageReceivedTriggerDetails";
 }
-impl ::core::convert::From<SmsMessageReceivedTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: SmsMessageReceivedTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsMessageReceivedTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &SmsMessageReceivedTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsMessageReceivedTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &SmsMessageReceivedTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmsMessageReceivedTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: SmsMessageReceivedTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsMessageReceivedTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &SmsMessageReceivedTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsMessageReceivedTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &SmsMessageReceivedTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmsMessageReceivedTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmsMessageReceivedTriggerDetails {}
 unsafe impl ::core::marker::Sync for SmsMessageReceivedTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Sms\"`*"]
@@ -4603,36 +3929,7 @@ unsafe impl ::windows::core::Interface for SmsMessageRegistration {
 impl ::windows::core::RuntimeName for SmsMessageRegistration {
     const NAME: &'static str = "Windows.Devices.Sms.SmsMessageRegistration";
 }
-impl ::core::convert::From<SmsMessageRegistration> for ::windows::core::IUnknown {
-    fn from(value: SmsMessageRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsMessageRegistration> for ::windows::core::IUnknown {
-    fn from(value: &SmsMessageRegistration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsMessageRegistration> for &::windows::core::IUnknown {
-    fn from(value: &SmsMessageRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmsMessageRegistration> for ::windows::core::IInspectable {
-    fn from(value: SmsMessageRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsMessageRegistration> for ::windows::core::IInspectable {
-    fn from(value: &SmsMessageRegistration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsMessageRegistration> for &::windows::core::IInspectable {
-    fn from(value: &SmsMessageRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmsMessageRegistration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -4717,41 +4014,7 @@ impl ::windows::core::RuntimeName for SmsReceivedEventDetails {
     const NAME: &'static str = "Windows.Devices.Sms.SmsReceivedEventDetails";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SmsReceivedEventDetails> for ::windows::core::IUnknown {
-    fn from(value: SmsReceivedEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsReceivedEventDetails> for ::windows::core::IUnknown {
-    fn from(value: &SmsReceivedEventDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsReceivedEventDetails> for &::windows::core::IUnknown {
-    fn from(value: &SmsReceivedEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SmsReceivedEventDetails> for ::windows::core::IInspectable {
-    fn from(value: SmsReceivedEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsReceivedEventDetails> for ::windows::core::IInspectable {
-    fn from(value: &SmsReceivedEventDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsReceivedEventDetails> for &::windows::core::IInspectable {
-    fn from(value: &SmsReceivedEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmsReceivedEventDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for SmsReceivedEventDetails {}
 #[cfg(feature = "deprecated")]
@@ -4844,36 +4107,7 @@ unsafe impl ::windows::core::Interface for SmsSendMessageResult {
 impl ::windows::core::RuntimeName for SmsSendMessageResult {
     const NAME: &'static str = "Windows.Devices.Sms.SmsSendMessageResult";
 }
-impl ::core::convert::From<SmsSendMessageResult> for ::windows::core::IUnknown {
-    fn from(value: SmsSendMessageResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsSendMessageResult> for ::windows::core::IUnknown {
-    fn from(value: &SmsSendMessageResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsSendMessageResult> for &::windows::core::IUnknown {
-    fn from(value: &SmsSendMessageResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmsSendMessageResult> for ::windows::core::IInspectable {
-    fn from(value: SmsSendMessageResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsSendMessageResult> for ::windows::core::IInspectable {
-    fn from(value: &SmsSendMessageResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsSendMessageResult> for &::windows::core::IInspectable {
-    fn from(value: &SmsSendMessageResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmsSendMessageResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmsSendMessageResult {}
 unsafe impl ::core::marker::Sync for SmsSendMessageResult {}
 #[doc = "*Required features: `\"Devices_Sms\"`*"]
@@ -5001,36 +4235,7 @@ unsafe impl ::windows::core::Interface for SmsStatusMessage {
 impl ::windows::core::RuntimeName for SmsStatusMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsStatusMessage";
 }
-impl ::core::convert::From<SmsStatusMessage> for ::windows::core::IUnknown {
-    fn from(value: SmsStatusMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsStatusMessage> for ::windows::core::IUnknown {
-    fn from(value: &SmsStatusMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsStatusMessage> for &::windows::core::IUnknown {
-    fn from(value: &SmsStatusMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmsStatusMessage> for ::windows::core::IInspectable {
-    fn from(value: SmsStatusMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsStatusMessage> for ::windows::core::IInspectable {
-    fn from(value: &SmsStatusMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsStatusMessage> for &::windows::core::IInspectable {
-    fn from(value: &SmsStatusMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmsStatusMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SmsStatusMessage> for ISmsMessageBase {
     type Error = ::windows::core::Error;
     fn try_from(value: SmsStatusMessage) -> ::windows::core::Result<Self> {
@@ -5248,41 +4453,7 @@ impl ::windows::core::RuntimeName for SmsTextMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsTextMessage";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SmsTextMessage> for ::windows::core::IUnknown {
-    fn from(value: SmsTextMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsTextMessage> for ::windows::core::IUnknown {
-    fn from(value: &SmsTextMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsTextMessage> for &::windows::core::IUnknown {
-    fn from(value: &SmsTextMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SmsTextMessage> for ::windows::core::IInspectable {
-    fn from(value: SmsTextMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsTextMessage> for ::windows::core::IInspectable {
-    fn from(value: &SmsTextMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SmsTextMessage> for &::windows::core::IInspectable {
-    fn from(value: &SmsTextMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmsTextMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<SmsTextMessage> for ISmsMessage {
     type Error = ::windows::core::Error;
@@ -5506,36 +4677,7 @@ unsafe impl ::windows::core::Interface for SmsTextMessage2 {
 impl ::windows::core::RuntimeName for SmsTextMessage2 {
     const NAME: &'static str = "Windows.Devices.Sms.SmsTextMessage2";
 }
-impl ::core::convert::From<SmsTextMessage2> for ::windows::core::IUnknown {
-    fn from(value: SmsTextMessage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsTextMessage2> for ::windows::core::IUnknown {
-    fn from(value: &SmsTextMessage2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsTextMessage2> for &::windows::core::IUnknown {
-    fn from(value: &SmsTextMessage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmsTextMessage2> for ::windows::core::IInspectable {
-    fn from(value: SmsTextMessage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsTextMessage2> for ::windows::core::IInspectable {
-    fn from(value: &SmsTextMessage2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsTextMessage2> for &::windows::core::IInspectable {
-    fn from(value: &SmsTextMessage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmsTextMessage2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SmsTextMessage2> for ISmsMessageBase {
     type Error = ::windows::core::Error;
     fn try_from(value: SmsTextMessage2) -> ::windows::core::Result<Self> {
@@ -5661,36 +4803,7 @@ unsafe impl ::windows::core::Interface for SmsVoicemailMessage {
 impl ::windows::core::RuntimeName for SmsVoicemailMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsVoicemailMessage";
 }
-impl ::core::convert::From<SmsVoicemailMessage> for ::windows::core::IUnknown {
-    fn from(value: SmsVoicemailMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsVoicemailMessage> for ::windows::core::IUnknown {
-    fn from(value: &SmsVoicemailMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsVoicemailMessage> for &::windows::core::IUnknown {
-    fn from(value: &SmsVoicemailMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmsVoicemailMessage> for ::windows::core::IInspectable {
-    fn from(value: SmsVoicemailMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsVoicemailMessage> for ::windows::core::IInspectable {
-    fn from(value: &SmsVoicemailMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsVoicemailMessage> for &::windows::core::IInspectable {
-    fn from(value: &SmsVoicemailMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmsVoicemailMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SmsVoicemailMessage> for ISmsMessageBase {
     type Error = ::windows::core::Error;
     fn try_from(value: SmsVoicemailMessage) -> ::windows::core::Result<Self> {
@@ -5839,36 +4952,7 @@ unsafe impl ::windows::core::Interface for SmsWapMessage {
 impl ::windows::core::RuntimeName for SmsWapMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsWapMessage";
 }
-impl ::core::convert::From<SmsWapMessage> for ::windows::core::IUnknown {
-    fn from(value: SmsWapMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsWapMessage> for ::windows::core::IUnknown {
-    fn from(value: &SmsWapMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsWapMessage> for &::windows::core::IUnknown {
-    fn from(value: &SmsWapMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmsWapMessage> for ::windows::core::IInspectable {
-    fn from(value: SmsWapMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsWapMessage> for ::windows::core::IInspectable {
-    fn from(value: &SmsWapMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsWapMessage> for &::windows::core::IInspectable {
-    fn from(value: &SmsWapMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmsWapMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SmsWapMessage> for ISmsMessageBase {
     type Error = ::windows::core::Error;
     fn try_from(value: SmsWapMessage) -> ::windows::core::Result<Self> {

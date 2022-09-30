@@ -121,36 +121,7 @@ unsafe impl ::windows::core::Interface for DeviceLockdownProfileInformation {
 impl ::windows::core::RuntimeName for DeviceLockdownProfileInformation {
     const NAME: &'static str = "Windows.Embedded.DeviceLockdown.DeviceLockdownProfileInformation";
 }
-impl ::core::convert::From<DeviceLockdownProfileInformation> for ::windows::core::IUnknown {
-    fn from(value: DeviceLockdownProfileInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceLockdownProfileInformation> for ::windows::core::IUnknown {
-    fn from(value: &DeviceLockdownProfileInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceLockdownProfileInformation> for &::windows::core::IUnknown {
-    fn from(value: &DeviceLockdownProfileInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceLockdownProfileInformation> for ::windows::core::IInspectable {
-    fn from(value: DeviceLockdownProfileInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceLockdownProfileInformation> for ::windows::core::IInspectable {
-    fn from(value: &DeviceLockdownProfileInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceLockdownProfileInformation> for &::windows::core::IInspectable {
-    fn from(value: &DeviceLockdownProfileInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceLockdownProfileInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceLockdownProfileInformation {}
 unsafe impl ::core::marker::Sync for DeviceLockdownProfileInformation {}
 #[cfg(feature = "implement")]

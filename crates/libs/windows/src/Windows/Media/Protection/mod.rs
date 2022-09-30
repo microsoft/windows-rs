@@ -177,36 +177,7 @@ impl IMediaProtectionServiceRequest {
         }
     }
 }
-impl ::core::convert::From<IMediaProtectionServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: IMediaProtectionServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMediaProtectionServiceRequest> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMediaProtectionServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMediaProtectionServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: &IMediaProtectionServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMediaProtectionServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: IMediaProtectionServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMediaProtectionServiceRequest> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IMediaProtectionServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMediaProtectionServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: &IMediaProtectionServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMediaProtectionServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IMediaProtectionServiceRequest {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -380,36 +351,7 @@ unsafe impl ::windows::core::Interface for ComponentLoadFailedEventArgs {
 impl ::windows::core::RuntimeName for ComponentLoadFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.ComponentLoadFailedEventArgs";
 }
-impl ::core::convert::From<ComponentLoadFailedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ComponentLoadFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ComponentLoadFailedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ComponentLoadFailedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ComponentLoadFailedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ComponentLoadFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ComponentLoadFailedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ComponentLoadFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ComponentLoadFailedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ComponentLoadFailedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ComponentLoadFailedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ComponentLoadFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ComponentLoadFailedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ComponentLoadFailedEventArgs {}
 unsafe impl ::core::marker::Sync for ComponentLoadFailedEventArgs {}
 #[doc = "*Required features: `\"Media_Protection\"`*"]
@@ -522,36 +464,7 @@ unsafe impl ::windows::core::Interface for HdcpSession {
 impl ::windows::core::RuntimeName for HdcpSession {
     const NAME: &'static str = "Windows.Media.Protection.HdcpSession";
 }
-impl ::core::convert::From<HdcpSession> for ::windows::core::IUnknown {
-    fn from(value: HdcpSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HdcpSession> for ::windows::core::IUnknown {
-    fn from(value: &HdcpSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HdcpSession> for &::windows::core::IUnknown {
-    fn from(value: &HdcpSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HdcpSession> for ::windows::core::IInspectable {
-    fn from(value: HdcpSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HdcpSession> for ::windows::core::IInspectable {
-    fn from(value: &HdcpSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HdcpSession> for &::windows::core::IInspectable {
-    fn from(value: &HdcpSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HdcpSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HdcpSession> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -674,36 +587,7 @@ unsafe impl ::windows::core::Interface for MediaProtectionManager {
 impl ::windows::core::RuntimeName for MediaProtectionManager {
     const NAME: &'static str = "Windows.Media.Protection.MediaProtectionManager";
 }
-impl ::core::convert::From<MediaProtectionManager> for ::windows::core::IUnknown {
-    fn from(value: MediaProtectionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaProtectionManager> for ::windows::core::IUnknown {
-    fn from(value: &MediaProtectionManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaProtectionManager> for &::windows::core::IUnknown {
-    fn from(value: &MediaProtectionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaProtectionManager> for ::windows::core::IInspectable {
-    fn from(value: MediaProtectionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaProtectionManager> for ::windows::core::IInspectable {
-    fn from(value: &MediaProtectionManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaProtectionManager> for &::windows::core::IInspectable {
-    fn from(value: &MediaProtectionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaProtectionManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaProtectionManager {}
 unsafe impl ::core::marker::Sync for MediaProtectionManager {}
 #[doc = "*Required features: `\"Media_Protection\"`*"]
@@ -769,36 +653,7 @@ unsafe impl ::windows::core::Interface for MediaProtectionPMPServer {
 impl ::windows::core::RuntimeName for MediaProtectionPMPServer {
     const NAME: &'static str = "Windows.Media.Protection.MediaProtectionPMPServer";
 }
-impl ::core::convert::From<MediaProtectionPMPServer> for ::windows::core::IUnknown {
-    fn from(value: MediaProtectionPMPServer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaProtectionPMPServer> for ::windows::core::IUnknown {
-    fn from(value: &MediaProtectionPMPServer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaProtectionPMPServer> for &::windows::core::IUnknown {
-    fn from(value: &MediaProtectionPMPServer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaProtectionPMPServer> for ::windows::core::IInspectable {
-    fn from(value: MediaProtectionPMPServer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaProtectionPMPServer> for ::windows::core::IInspectable {
-    fn from(value: &MediaProtectionPMPServer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaProtectionPMPServer> for &::windows::core::IInspectable {
-    fn from(value: &MediaProtectionPMPServer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaProtectionPMPServer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaProtectionPMPServer {}
 unsafe impl ::core::marker::Sync for MediaProtectionPMPServer {}
 #[doc = "*Required features: `\"Media_Protection\"`*"]
@@ -842,36 +697,7 @@ unsafe impl ::windows::core::Interface for MediaProtectionServiceCompletion {
 impl ::windows::core::RuntimeName for MediaProtectionServiceCompletion {
     const NAME: &'static str = "Windows.Media.Protection.MediaProtectionServiceCompletion";
 }
-impl ::core::convert::From<MediaProtectionServiceCompletion> for ::windows::core::IUnknown {
-    fn from(value: MediaProtectionServiceCompletion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaProtectionServiceCompletion> for ::windows::core::IUnknown {
-    fn from(value: &MediaProtectionServiceCompletion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaProtectionServiceCompletion> for &::windows::core::IUnknown {
-    fn from(value: &MediaProtectionServiceCompletion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaProtectionServiceCompletion> for ::windows::core::IInspectable {
-    fn from(value: MediaProtectionServiceCompletion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaProtectionServiceCompletion> for ::windows::core::IInspectable {
-    fn from(value: &MediaProtectionServiceCompletion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaProtectionServiceCompletion> for &::windows::core::IInspectable {
-    fn from(value: &MediaProtectionServiceCompletion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaProtectionServiceCompletion, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaProtectionServiceCompletion {}
 unsafe impl ::core::marker::Sync for MediaProtectionServiceCompletion {}
 #[doc = "*Required features: `\"Media_Protection\"`*"]
@@ -925,36 +751,7 @@ unsafe impl ::windows::core::Interface for ProtectionCapabilities {
 impl ::windows::core::RuntimeName for ProtectionCapabilities {
     const NAME: &'static str = "Windows.Media.Protection.ProtectionCapabilities";
 }
-impl ::core::convert::From<ProtectionCapabilities> for ::windows::core::IUnknown {
-    fn from(value: ProtectionCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtectionCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &ProtectionCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtectionCapabilities> for &::windows::core::IUnknown {
-    fn from(value: &ProtectionCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProtectionCapabilities> for ::windows::core::IInspectable {
-    fn from(value: ProtectionCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtectionCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &ProtectionCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtectionCapabilities> for &::windows::core::IInspectable {
-    fn from(value: &ProtectionCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProtectionCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProtectionCapabilities {}
 unsafe impl ::core::marker::Sync for ProtectionCapabilities {}
 #[doc = "*Required features: `\"Media_Protection\"`*"]
@@ -1003,36 +800,7 @@ unsafe impl ::windows::core::Interface for RevocationAndRenewalInformation {
 impl ::windows::core::RuntimeName for RevocationAndRenewalInformation {
     const NAME: &'static str = "Windows.Media.Protection.RevocationAndRenewalInformation";
 }
-impl ::core::convert::From<RevocationAndRenewalInformation> for ::windows::core::IUnknown {
-    fn from(value: RevocationAndRenewalInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RevocationAndRenewalInformation> for ::windows::core::IUnknown {
-    fn from(value: &RevocationAndRenewalInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RevocationAndRenewalInformation> for &::windows::core::IUnknown {
-    fn from(value: &RevocationAndRenewalInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RevocationAndRenewalInformation> for ::windows::core::IInspectable {
-    fn from(value: RevocationAndRenewalInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RevocationAndRenewalInformation> for ::windows::core::IInspectable {
-    fn from(value: &RevocationAndRenewalInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RevocationAndRenewalInformation> for &::windows::core::IInspectable {
-    fn from(value: &RevocationAndRenewalInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RevocationAndRenewalInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RevocationAndRenewalInformation {}
 unsafe impl ::core::marker::Sync for RevocationAndRenewalInformation {}
 #[doc = "*Required features: `\"Media_Protection\"`*"]
@@ -1107,36 +875,7 @@ unsafe impl ::windows::core::Interface for RevocationAndRenewalItem {
 impl ::windows::core::RuntimeName for RevocationAndRenewalItem {
     const NAME: &'static str = "Windows.Media.Protection.RevocationAndRenewalItem";
 }
-impl ::core::convert::From<RevocationAndRenewalItem> for ::windows::core::IUnknown {
-    fn from(value: RevocationAndRenewalItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RevocationAndRenewalItem> for ::windows::core::IUnknown {
-    fn from(value: &RevocationAndRenewalItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RevocationAndRenewalItem> for &::windows::core::IUnknown {
-    fn from(value: &RevocationAndRenewalItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RevocationAndRenewalItem> for ::windows::core::IInspectable {
-    fn from(value: RevocationAndRenewalItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RevocationAndRenewalItem> for ::windows::core::IInspectable {
-    fn from(value: &RevocationAndRenewalItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RevocationAndRenewalItem> for &::windows::core::IInspectable {
-    fn from(value: &RevocationAndRenewalItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RevocationAndRenewalItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RevocationAndRenewalItem {}
 unsafe impl ::core::marker::Sync for RevocationAndRenewalItem {}
 #[doc = "*Required features: `\"Media_Protection\"`*"]
@@ -1199,36 +938,7 @@ unsafe impl ::windows::core::Interface for ServiceRequestedEventArgs {
 impl ::windows::core::RuntimeName for ServiceRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.ServiceRequestedEventArgs";
 }
-impl ::core::convert::From<ServiceRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ServiceRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ServiceRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ServiceRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ServiceRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ServiceRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ServiceRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ServiceRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ServiceRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ServiceRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ServiceRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ServiceRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ServiceRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ServiceRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for ServiceRequestedEventArgs {}
 #[doc = "*Required features: `\"Media_Protection\"`*"]

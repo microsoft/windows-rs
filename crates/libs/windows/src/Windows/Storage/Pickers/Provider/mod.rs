@@ -332,36 +332,7 @@ unsafe impl ::windows::core::Interface for FileOpenPickerUI {
 impl ::windows::core::RuntimeName for FileOpenPickerUI {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.FileOpenPickerUI";
 }
-impl ::core::convert::From<FileOpenPickerUI> for ::windows::core::IUnknown {
-    fn from(value: FileOpenPickerUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileOpenPickerUI> for ::windows::core::IUnknown {
-    fn from(value: &FileOpenPickerUI) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileOpenPickerUI> for &::windows::core::IUnknown {
-    fn from(value: &FileOpenPickerUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileOpenPickerUI> for ::windows::core::IInspectable {
-    fn from(value: FileOpenPickerUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileOpenPickerUI> for ::windows::core::IInspectable {
-    fn from(value: &FileOpenPickerUI) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileOpenPickerUI> for &::windows::core::IInspectable {
-    fn from(value: &FileOpenPickerUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FileOpenPickerUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -419,41 +390,7 @@ impl ::windows::core::RuntimeName for FileRemovedEventArgs {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.FileRemovedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<FileRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: FileRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FileRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &FileRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FileRemovedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &FileRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<FileRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: FileRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FileRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &FileRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FileRemovedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &FileRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FileRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
 pub struct FileSavePickerUI(::windows::core::IUnknown);
@@ -562,36 +499,7 @@ unsafe impl ::windows::core::Interface for FileSavePickerUI {
 impl ::windows::core::RuntimeName for FileSavePickerUI {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.FileSavePickerUI";
 }
-impl ::core::convert::From<FileSavePickerUI> for ::windows::core::IUnknown {
-    fn from(value: FileSavePickerUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileSavePickerUI> for ::windows::core::IUnknown {
-    fn from(value: &FileSavePickerUI) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileSavePickerUI> for &::windows::core::IUnknown {
-    fn from(value: &FileSavePickerUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileSavePickerUI> for ::windows::core::IInspectable {
-    fn from(value: FileSavePickerUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileSavePickerUI> for ::windows::core::IInspectable {
-    fn from(value: &FileSavePickerUI) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileSavePickerUI> for &::windows::core::IInspectable {
-    fn from(value: &FileSavePickerUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FileSavePickerUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
 pub struct PickerClosingDeferral(::windows::core::IUnknown);
@@ -633,36 +541,7 @@ unsafe impl ::windows::core::Interface for PickerClosingDeferral {
 impl ::windows::core::RuntimeName for PickerClosingDeferral {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.PickerClosingDeferral";
 }
-impl ::core::convert::From<PickerClosingDeferral> for ::windows::core::IUnknown {
-    fn from(value: PickerClosingDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PickerClosingDeferral> for ::windows::core::IUnknown {
-    fn from(value: &PickerClosingDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PickerClosingDeferral> for &::windows::core::IUnknown {
-    fn from(value: &PickerClosingDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PickerClosingDeferral> for ::windows::core::IInspectable {
-    fn from(value: PickerClosingDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PickerClosingDeferral> for ::windows::core::IInspectable {
-    fn from(value: &PickerClosingDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PickerClosingDeferral> for &::windows::core::IInspectable {
-    fn from(value: &PickerClosingDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PickerClosingDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
 pub struct PickerClosingEventArgs(::windows::core::IUnknown);
@@ -714,36 +593,7 @@ unsafe impl ::windows::core::Interface for PickerClosingEventArgs {
 impl ::windows::core::RuntimeName for PickerClosingEventArgs {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.PickerClosingEventArgs";
 }
-impl ::core::convert::From<PickerClosingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PickerClosingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PickerClosingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PickerClosingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PickerClosingEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PickerClosingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PickerClosingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PickerClosingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PickerClosingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PickerClosingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PickerClosingEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PickerClosingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PickerClosingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
 pub struct PickerClosingOperation(::windows::core::IUnknown);
@@ -797,36 +647,7 @@ unsafe impl ::windows::core::Interface for PickerClosingOperation {
 impl ::windows::core::RuntimeName for PickerClosingOperation {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.PickerClosingOperation";
 }
-impl ::core::convert::From<PickerClosingOperation> for ::windows::core::IUnknown {
-    fn from(value: PickerClosingOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PickerClosingOperation> for ::windows::core::IUnknown {
-    fn from(value: &PickerClosingOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PickerClosingOperation> for &::windows::core::IUnknown {
-    fn from(value: &PickerClosingOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PickerClosingOperation> for ::windows::core::IInspectable {
-    fn from(value: PickerClosingOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PickerClosingOperation> for ::windows::core::IInspectable {
-    fn from(value: &PickerClosingOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PickerClosingOperation> for &::windows::core::IInspectable {
-    fn from(value: &PickerClosingOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PickerClosingOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
 pub struct TargetFileRequest(::windows::core::IUnknown);
@@ -886,36 +707,7 @@ unsafe impl ::windows::core::Interface for TargetFileRequest {
 impl ::windows::core::RuntimeName for TargetFileRequest {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.TargetFileRequest";
 }
-impl ::core::convert::From<TargetFileRequest> for ::windows::core::IUnknown {
-    fn from(value: TargetFileRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetFileRequest> for ::windows::core::IUnknown {
-    fn from(value: &TargetFileRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetFileRequest> for &::windows::core::IUnknown {
-    fn from(value: &TargetFileRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TargetFileRequest> for ::windows::core::IInspectable {
-    fn from(value: TargetFileRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetFileRequest> for ::windows::core::IInspectable {
-    fn from(value: &TargetFileRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetFileRequest> for &::windows::core::IInspectable {
-    fn from(value: &TargetFileRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TargetFileRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
 pub struct TargetFileRequestDeferral(::windows::core::IUnknown);
@@ -957,36 +749,7 @@ unsafe impl ::windows::core::Interface for TargetFileRequestDeferral {
 impl ::windows::core::RuntimeName for TargetFileRequestDeferral {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.TargetFileRequestDeferral";
 }
-impl ::core::convert::From<TargetFileRequestDeferral> for ::windows::core::IUnknown {
-    fn from(value: TargetFileRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetFileRequestDeferral> for ::windows::core::IUnknown {
-    fn from(value: &TargetFileRequestDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetFileRequestDeferral> for &::windows::core::IUnknown {
-    fn from(value: &TargetFileRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TargetFileRequestDeferral> for ::windows::core::IInspectable {
-    fn from(value: TargetFileRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetFileRequestDeferral> for ::windows::core::IInspectable {
-    fn from(value: &TargetFileRequestDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetFileRequestDeferral> for &::windows::core::IInspectable {
-    fn from(value: &TargetFileRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TargetFileRequestDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
 pub struct TargetFileRequestedEventArgs(::windows::core::IUnknown);
@@ -1031,36 +794,7 @@ unsafe impl ::windows::core::Interface for TargetFileRequestedEventArgs {
 impl ::windows::core::RuntimeName for TargetFileRequestedEventArgs {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.TargetFileRequestedEventArgs";
 }
-impl ::core::convert::From<TargetFileRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: TargetFileRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetFileRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &TargetFileRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetFileRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &TargetFileRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TargetFileRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: TargetFileRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetFileRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &TargetFileRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetFileRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &TargetFileRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TargetFileRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

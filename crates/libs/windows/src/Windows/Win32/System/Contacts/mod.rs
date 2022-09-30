@@ -12,21 +12,7 @@ impl IContact {
         (::windows::core::Vtable::vtable(self).CommitChanges)(::windows::core::Vtable::as_raw(self), dwcommitflags).ok()
     }
 }
-impl ::core::convert::From<IContact> for ::windows::core::IUnknown {
-    fn from(value: IContact) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContact> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContact) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContact> for ::windows::core::IUnknown {
-    fn from(value: &IContact) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContact, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IContact {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -100,21 +86,7 @@ impl IContactAggregationAggregate {
         (::windows::core::Vtable::vtable(self).Id)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IContactAggregationAggregate> for ::windows::core::IUnknown {
-    fn from(value: IContactAggregationAggregate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactAggregationAggregate> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactAggregationAggregate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactAggregationAggregate> for ::windows::core::IUnknown {
-    fn from(value: &IContactAggregationAggregate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactAggregationAggregate, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IContactAggregationAggregate {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -175,21 +147,7 @@ impl IContactAggregationAggregateCollection {
         (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
-impl ::core::convert::From<IContactAggregationAggregateCollection> for ::windows::core::IUnknown {
-    fn from(value: IContactAggregationAggregateCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactAggregationAggregateCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactAggregationAggregateCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactAggregationAggregateCollection> for ::windows::core::IUnknown {
-    fn from(value: &IContactAggregationAggregateCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactAggregationAggregateCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IContactAggregationAggregateCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -302,21 +260,7 @@ impl IContactAggregationContact {
         (::windows::core::Vtable::vtable(self).SetSyncIdentityHash)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psyncidentityhash)).ok()
     }
 }
-impl ::core::convert::From<IContactAggregationContact> for ::windows::core::IUnknown {
-    fn from(value: IContactAggregationContact) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactAggregationContact> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactAggregationContact) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactAggregationContact> for ::windows::core::IUnknown {
-    fn from(value: &IContactAggregationContact) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactAggregationContact, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IContactAggregationContact {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -401,21 +345,7 @@ impl IContactAggregationContactCollection {
         (::windows::core::Vtable::vtable(self).FindFirstByRemoteId)(::windows::core::Vtable::as_raw(self), psourcetype.into(), paccountid.into(), ::core::mem::transmute(premoteobjectid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationContact>(result__)
     }
 }
-impl ::core::convert::From<IContactAggregationContactCollection> for ::windows::core::IUnknown {
-    fn from(value: IContactAggregationContactCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactAggregationContactCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactAggregationContactCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactAggregationContactCollection> for ::windows::core::IUnknown {
-    fn from(value: &IContactAggregationContactCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactAggregationContactCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IContactAggregationContactCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -496,21 +426,7 @@ impl IContactAggregationGroup {
         (::windows::core::Vtable::vtable(self).SetName)(::windows::core::Vtable::as_raw(self), pname.into()).ok()
     }
 }
-impl ::core::convert::From<IContactAggregationGroup> for ::windows::core::IUnknown {
-    fn from(value: IContactAggregationGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactAggregationGroup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactAggregationGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactAggregationGroup> for ::windows::core::IUnknown {
-    fn from(value: &IContactAggregationGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactAggregationGroup, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IContactAggregationGroup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -569,21 +485,7 @@ impl IContactAggregationGroupCollection {
         (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IContactAggregationGroupCollection> for ::windows::core::IUnknown {
-    fn from(value: IContactAggregationGroupCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactAggregationGroupCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactAggregationGroupCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactAggregationGroupCollection> for ::windows::core::IUnknown {
-    fn from(value: &IContactAggregationGroupCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactAggregationGroupCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IContactAggregationGroupCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -698,21 +600,7 @@ impl IContactAggregationLink {
         (::windows::core::Vtable::vtable(self).SetSyncIdentityHash)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psyncidentityhash)).ok()
     }
 }
-impl ::core::convert::From<IContactAggregationLink> for ::windows::core::IUnknown {
-    fn from(value: IContactAggregationLink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactAggregationLink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactAggregationLink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactAggregationLink> for ::windows::core::IUnknown {
-    fn from(value: &IContactAggregationLink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactAggregationLink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IContactAggregationLink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -788,21 +676,7 @@ impl IContactAggregationLinkCollection {
         (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IContactAggregationLinkCollection> for ::windows::core::IUnknown {
-    fn from(value: IContactAggregationLinkCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactAggregationLinkCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactAggregationLinkCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactAggregationLinkCollection> for ::windows::core::IUnknown {
-    fn from(value: &IContactAggregationLinkCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactAggregationLinkCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IContactAggregationLinkCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -916,21 +790,7 @@ impl IContactAggregationManager {
         (::windows::core::Vtable::vtable(self).get_ServerContactLinks)(::windows::core::Vtable::as_raw(self), ppersonitemid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationLinkCollection>(result__)
     }
 }
-impl ::core::convert::From<IContactAggregationManager> for ::windows::core::IUnknown {
-    fn from(value: IContactAggregationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactAggregationManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactAggregationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactAggregationManager> for ::windows::core::IUnknown {
-    fn from(value: &IContactAggregationManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactAggregationManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IContactAggregationManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1083,21 +943,7 @@ impl IContactAggregationServerPerson {
         (::windows::core::Vtable::vtable(self).SetObjectId)(::windows::core::Vtable::as_raw(self), pobjectid.into()).ok()
     }
 }
-impl ::core::convert::From<IContactAggregationServerPerson> for ::windows::core::IUnknown {
-    fn from(value: IContactAggregationServerPerson) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactAggregationServerPerson> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactAggregationServerPerson) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactAggregationServerPerson> for ::windows::core::IUnknown {
-    fn from(value: &IContactAggregationServerPerson) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactAggregationServerPerson, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IContactAggregationServerPerson {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1192,21 +1038,7 @@ impl IContactAggregationServerPersonCollection {
         (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IContactAggregationServerPersonCollection> for ::windows::core::IUnknown {
-    fn from(value: IContactAggregationServerPersonCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactAggregationServerPersonCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactAggregationServerPersonCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactAggregationServerPersonCollection> for ::windows::core::IUnknown {
-    fn from(value: &IContactAggregationServerPersonCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactAggregationServerPersonCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IContactAggregationServerPersonCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1255,21 +1087,7 @@ impl IContactCollection {
         (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContact>(result__)
     }
 }
-impl ::core::convert::From<IContactCollection> for ::windows::core::IUnknown {
-    fn from(value: IContactCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactCollection> for ::windows::core::IUnknown {
-    fn from(value: &IContactCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IContactCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1340,21 +1158,7 @@ impl IContactManager {
         (::windows::core::Vtable::vtable(self).GetContactCollection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactCollection>(result__)
     }
 }
-impl ::core::convert::From<IContactManager> for ::windows::core::IUnknown {
-    fn from(value: IContactManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactManager> for ::windows::core::IUnknown {
-    fn from(value: &IContactManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IContactManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1488,21 +1292,7 @@ impl IContactProperties {
         (::windows::core::Vtable::vtable(self).GetPropertyCollection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pppropertycollection), dwflags, pszmultivaluename.into(), ppszlabels.len() as _, ::core::mem::transmute(ppszlabels.as_ptr()), fanylabelmatches.into()).ok()
     }
 }
-impl ::core::convert::From<IContactProperties> for ::windows::core::IUnknown {
-    fn from(value: IContactProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactProperties> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactProperties> for ::windows::core::IUnknown {
-    fn from(value: &IContactProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactProperties, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IContactProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1589,21 +1379,7 @@ impl IContactPropertyCollection {
         (::windows::core::Vtable::vtable(self).GetPropertyArrayElementID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszarrayelementid.as_ptr()), pszarrayelementid.len() as _, ::core::mem::transmute(pdwccharrayelementidrequired)).ok()
     }
 }
-impl ::core::convert::From<IContactPropertyCollection> for ::windows::core::IUnknown {
-    fn from(value: IContactPropertyCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContactPropertyCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContactPropertyCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactPropertyCollection> for ::windows::core::IUnknown {
-    fn from(value: &IContactPropertyCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContactPropertyCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IContactPropertyCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())

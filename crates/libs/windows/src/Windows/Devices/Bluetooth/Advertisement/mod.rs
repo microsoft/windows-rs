@@ -595,36 +595,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisement {
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisement {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisement";
 }
-impl ::core::convert::From<BluetoothLEAdvertisement> for ::windows::core::IUnknown {
-    fn from(value: BluetoothLEAdvertisement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisement> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisement> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothLEAdvertisement> for ::windows::core::IInspectable {
-    fn from(value: BluetoothLEAdvertisement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisement> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisement> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothLEAdvertisement, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisement {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisement {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
@@ -729,36 +700,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementBytePattern {
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementBytePattern {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern";
 }
-impl ::core::convert::From<BluetoothLEAdvertisementBytePattern> for ::windows::core::IUnknown {
-    fn from(value: BluetoothLEAdvertisementBytePattern) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementBytePattern> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementBytePattern) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementBytePattern> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementBytePattern) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothLEAdvertisementBytePattern> for ::windows::core::IInspectable {
-    fn from(value: BluetoothLEAdvertisementBytePattern) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementBytePattern> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementBytePattern) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementBytePattern> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementBytePattern) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothLEAdvertisementBytePattern, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementBytePattern {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementBytePattern {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
@@ -852,36 +794,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementDataSection {
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementDataSection {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection";
 }
-impl ::core::convert::From<BluetoothLEAdvertisementDataSection> for ::windows::core::IUnknown {
-    fn from(value: BluetoothLEAdvertisementDataSection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementDataSection> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementDataSection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementDataSection> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementDataSection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothLEAdvertisementDataSection> for ::windows::core::IInspectable {
-    fn from(value: BluetoothLEAdvertisementDataSection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementDataSection> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementDataSection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementDataSection> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementDataSection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothLEAdvertisementDataSection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementDataSection {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementDataSection {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
@@ -1092,36 +1005,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementFilter {
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementFilter {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementFilter";
 }
-impl ::core::convert::From<BluetoothLEAdvertisementFilter> for ::windows::core::IUnknown {
-    fn from(value: BluetoothLEAdvertisementFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementFilter> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementFilter> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothLEAdvertisementFilter> for ::windows::core::IInspectable {
-    fn from(value: BluetoothLEAdvertisementFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementFilter> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementFilter> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothLEAdvertisementFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementFilter {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementFilter {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
@@ -1268,36 +1152,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementPublisher {
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementPublisher {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisher";
 }
-impl ::core::convert::From<BluetoothLEAdvertisementPublisher> for ::windows::core::IUnknown {
-    fn from(value: BluetoothLEAdvertisementPublisher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementPublisher> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementPublisher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementPublisher> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementPublisher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothLEAdvertisementPublisher> for ::windows::core::IInspectable {
-    fn from(value: BluetoothLEAdvertisementPublisher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementPublisher> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementPublisher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementPublisher> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementPublisher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothLEAdvertisementPublisher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementPublisher {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementPublisher {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
@@ -1360,36 +1215,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementPublisherStat
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisherStatusChangedEventArgs";
 }
-impl ::core::convert::From<BluetoothLEAdvertisementPublisherStatusChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BluetoothLEAdvertisementPublisherStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementPublisherStatusChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementPublisherStatusChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementPublisherStatusChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementPublisherStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothLEAdvertisementPublisherStatusChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BluetoothLEAdvertisementPublisherStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementPublisherStatusChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementPublisherStatusChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementPublisherStatusChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementPublisherStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothLEAdvertisementPublisherStatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
@@ -1517,36 +1343,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementReceivedEvent
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementReceivedEventArgs";
 }
-impl ::core::convert::From<BluetoothLEAdvertisementReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BluetoothLEAdvertisementReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothLEAdvertisementReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BluetoothLEAdvertisementReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothLEAdvertisementReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
@@ -1729,36 +1526,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementWatcher {
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementWatcher {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcher";
 }
-impl ::core::convert::From<BluetoothLEAdvertisementWatcher> for ::windows::core::IUnknown {
-    fn from(value: BluetoothLEAdvertisementWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementWatcher> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementWatcher> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothLEAdvertisementWatcher> for ::windows::core::IInspectable {
-    fn from(value: BluetoothLEAdvertisementWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementWatcher> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementWatcher> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothLEAdvertisementWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementWatcher {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementWatcher {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
@@ -1805,36 +1573,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementWatcherStoppe
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementWatcherStoppedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcherStoppedEventArgs";
 }
-impl ::core::convert::From<BluetoothLEAdvertisementWatcherStoppedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BluetoothLEAdvertisementWatcherStoppedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementWatcherStoppedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementWatcherStoppedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementWatcherStoppedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementWatcherStoppedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothLEAdvertisementWatcherStoppedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BluetoothLEAdvertisementWatcherStoppedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementWatcherStoppedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementWatcherStoppedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementWatcherStoppedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementWatcherStoppedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothLEAdvertisementWatcherStoppedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementWatcherStoppedEventArgs {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementWatcherStoppedEventArgs {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
@@ -1928,36 +1667,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEManufacturerData {
 impl ::windows::core::RuntimeName for BluetoothLEManufacturerData {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData";
 }
-impl ::core::convert::From<BluetoothLEManufacturerData> for ::windows::core::IUnknown {
-    fn from(value: BluetoothLEManufacturerData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEManufacturerData> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothLEManufacturerData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEManufacturerData> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothLEManufacturerData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothLEManufacturerData> for ::windows::core::IInspectable {
-    fn from(value: BluetoothLEManufacturerData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEManufacturerData> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothLEManufacturerData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEManufacturerData> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothLEManufacturerData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothLEManufacturerData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEManufacturerData {}
 unsafe impl ::core::marker::Sync for BluetoothLEManufacturerData {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]

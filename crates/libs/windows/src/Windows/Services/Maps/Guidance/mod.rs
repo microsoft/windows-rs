@@ -501,36 +501,7 @@ unsafe impl ::windows::core::Interface for GuidanceAudioNotificationRequestedEve
 impl ::windows::core::RuntimeName for GuidanceAudioNotificationRequestedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceAudioNotificationRequestedEventArgs";
 }
-impl ::core::convert::From<GuidanceAudioNotificationRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GuidanceAudioNotificationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GuidanceAudioNotificationRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GuidanceAudioNotificationRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GuidanceAudioNotificationRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GuidanceAudioNotificationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GuidanceAudioNotificationRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GuidanceAudioNotificationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GuidanceAudioNotificationRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GuidanceAudioNotificationRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GuidanceAudioNotificationRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GuidanceAudioNotificationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GuidanceAudioNotificationRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceAudioNotificationRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for GuidanceAudioNotificationRequestedEventArgs {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
@@ -584,36 +555,7 @@ unsafe impl ::windows::core::Interface for GuidanceLaneInfo {
 impl ::windows::core::RuntimeName for GuidanceLaneInfo {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceLaneInfo";
 }
-impl ::core::convert::From<GuidanceLaneInfo> for ::windows::core::IUnknown {
-    fn from(value: GuidanceLaneInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GuidanceLaneInfo> for ::windows::core::IUnknown {
-    fn from(value: &GuidanceLaneInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GuidanceLaneInfo> for &::windows::core::IUnknown {
-    fn from(value: &GuidanceLaneInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GuidanceLaneInfo> for ::windows::core::IInspectable {
-    fn from(value: GuidanceLaneInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GuidanceLaneInfo> for ::windows::core::IInspectable {
-    fn from(value: &GuidanceLaneInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GuidanceLaneInfo> for &::windows::core::IInspectable {
-    fn from(value: &GuidanceLaneInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GuidanceLaneInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceLaneInfo {}
 unsafe impl ::core::marker::Sync for GuidanceLaneInfo {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
@@ -739,36 +681,7 @@ unsafe impl ::windows::core::Interface for GuidanceManeuver {
 impl ::windows::core::RuntimeName for GuidanceManeuver {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceManeuver";
 }
-impl ::core::convert::From<GuidanceManeuver> for ::windows::core::IUnknown {
-    fn from(value: GuidanceManeuver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GuidanceManeuver> for ::windows::core::IUnknown {
-    fn from(value: &GuidanceManeuver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GuidanceManeuver> for &::windows::core::IUnknown {
-    fn from(value: &GuidanceManeuver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GuidanceManeuver> for ::windows::core::IInspectable {
-    fn from(value: GuidanceManeuver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GuidanceManeuver> for ::windows::core::IInspectable {
-    fn from(value: &GuidanceManeuver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GuidanceManeuver> for &::windows::core::IInspectable {
-    fn from(value: &GuidanceManeuver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GuidanceManeuver, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceManeuver {}
 unsafe impl ::core::marker::Sync for GuidanceManeuver {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
@@ -845,36 +758,7 @@ unsafe impl ::windows::core::Interface for GuidanceMapMatchedCoordinate {
 impl ::windows::core::RuntimeName for GuidanceMapMatchedCoordinate {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceMapMatchedCoordinate";
 }
-impl ::core::convert::From<GuidanceMapMatchedCoordinate> for ::windows::core::IUnknown {
-    fn from(value: GuidanceMapMatchedCoordinate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GuidanceMapMatchedCoordinate> for ::windows::core::IUnknown {
-    fn from(value: &GuidanceMapMatchedCoordinate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GuidanceMapMatchedCoordinate> for &::windows::core::IUnknown {
-    fn from(value: &GuidanceMapMatchedCoordinate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GuidanceMapMatchedCoordinate> for ::windows::core::IInspectable {
-    fn from(value: GuidanceMapMatchedCoordinate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GuidanceMapMatchedCoordinate> for ::windows::core::IInspectable {
-    fn from(value: &GuidanceMapMatchedCoordinate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GuidanceMapMatchedCoordinate> for &::windows::core::IInspectable {
-    fn from(value: &GuidanceMapMatchedCoordinate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GuidanceMapMatchedCoordinate, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceMapMatchedCoordinate {}
 unsafe impl ::core::marker::Sync for GuidanceMapMatchedCoordinate {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
@@ -1133,36 +1017,7 @@ unsafe impl ::windows::core::Interface for GuidanceNavigator {
 impl ::windows::core::RuntimeName for GuidanceNavigator {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceNavigator";
 }
-impl ::core::convert::From<GuidanceNavigator> for ::windows::core::IUnknown {
-    fn from(value: GuidanceNavigator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GuidanceNavigator> for ::windows::core::IUnknown {
-    fn from(value: &GuidanceNavigator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GuidanceNavigator> for &::windows::core::IUnknown {
-    fn from(value: &GuidanceNavigator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GuidanceNavigator> for ::windows::core::IInspectable {
-    fn from(value: GuidanceNavigator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GuidanceNavigator> for ::windows::core::IInspectable {
-    fn from(value: &GuidanceNavigator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GuidanceNavigator> for &::windows::core::IInspectable {
-    fn from(value: &GuidanceNavigator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GuidanceNavigator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceNavigator {}
 unsafe impl ::core::marker::Sync for GuidanceNavigator {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
@@ -1209,36 +1064,7 @@ unsafe impl ::windows::core::Interface for GuidanceReroutedEventArgs {
 impl ::windows::core::RuntimeName for GuidanceReroutedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceReroutedEventArgs";
 }
-impl ::core::convert::From<GuidanceReroutedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GuidanceReroutedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GuidanceReroutedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GuidanceReroutedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GuidanceReroutedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GuidanceReroutedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GuidanceReroutedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GuidanceReroutedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GuidanceReroutedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GuidanceReroutedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GuidanceReroutedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GuidanceReroutedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GuidanceReroutedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceReroutedEventArgs {}
 unsafe impl ::core::marker::Sync for GuidanceReroutedEventArgs {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
@@ -1352,36 +1178,7 @@ unsafe impl ::windows::core::Interface for GuidanceRoadSegment {
 impl ::windows::core::RuntimeName for GuidanceRoadSegment {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceRoadSegment";
 }
-impl ::core::convert::From<GuidanceRoadSegment> for ::windows::core::IUnknown {
-    fn from(value: GuidanceRoadSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GuidanceRoadSegment> for ::windows::core::IUnknown {
-    fn from(value: &GuidanceRoadSegment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GuidanceRoadSegment> for &::windows::core::IUnknown {
-    fn from(value: &GuidanceRoadSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GuidanceRoadSegment> for ::windows::core::IInspectable {
-    fn from(value: GuidanceRoadSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GuidanceRoadSegment> for ::windows::core::IInspectable {
-    fn from(value: &GuidanceRoadSegment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GuidanceRoadSegment> for &::windows::core::IInspectable {
-    fn from(value: &GuidanceRoadSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GuidanceRoadSegment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceRoadSegment {}
 unsafe impl ::core::marker::Sync for GuidanceRoadSegment {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
@@ -1462,36 +1259,7 @@ unsafe impl ::windows::core::Interface for GuidanceRoadSignpost {
 impl ::windows::core::RuntimeName for GuidanceRoadSignpost {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceRoadSignpost";
 }
-impl ::core::convert::From<GuidanceRoadSignpost> for ::windows::core::IUnknown {
-    fn from(value: GuidanceRoadSignpost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GuidanceRoadSignpost> for ::windows::core::IUnknown {
-    fn from(value: &GuidanceRoadSignpost) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GuidanceRoadSignpost> for &::windows::core::IUnknown {
-    fn from(value: &GuidanceRoadSignpost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GuidanceRoadSignpost> for ::windows::core::IInspectable {
-    fn from(value: GuidanceRoadSignpost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GuidanceRoadSignpost> for ::windows::core::IInspectable {
-    fn from(value: &GuidanceRoadSignpost) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GuidanceRoadSignpost> for &::windows::core::IInspectable {
-    fn from(value: &GuidanceRoadSignpost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GuidanceRoadSignpost, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceRoadSignpost {}
 unsafe impl ::core::marker::Sync for GuidanceRoadSignpost {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
@@ -1607,36 +1375,7 @@ unsafe impl ::windows::core::Interface for GuidanceRoute {
 impl ::windows::core::RuntimeName for GuidanceRoute {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceRoute";
 }
-impl ::core::convert::From<GuidanceRoute> for ::windows::core::IUnknown {
-    fn from(value: GuidanceRoute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GuidanceRoute> for ::windows::core::IUnknown {
-    fn from(value: &GuidanceRoute) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GuidanceRoute> for &::windows::core::IUnknown {
-    fn from(value: &GuidanceRoute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GuidanceRoute> for ::windows::core::IInspectable {
-    fn from(value: GuidanceRoute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GuidanceRoute> for ::windows::core::IInspectable {
-    fn from(value: &GuidanceRoute) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GuidanceRoute> for &::windows::core::IInspectable {
-    fn from(value: &GuidanceRoute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GuidanceRoute, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceRoute {}
 unsafe impl ::core::marker::Sync for GuidanceRoute {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
@@ -1724,36 +1463,7 @@ unsafe impl ::windows::core::Interface for GuidanceTelemetryCollector {
 impl ::windows::core::RuntimeName for GuidanceTelemetryCollector {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceTelemetryCollector";
 }
-impl ::core::convert::From<GuidanceTelemetryCollector> for ::windows::core::IUnknown {
-    fn from(value: GuidanceTelemetryCollector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GuidanceTelemetryCollector> for ::windows::core::IUnknown {
-    fn from(value: &GuidanceTelemetryCollector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GuidanceTelemetryCollector> for &::windows::core::IUnknown {
-    fn from(value: &GuidanceTelemetryCollector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GuidanceTelemetryCollector> for ::windows::core::IInspectable {
-    fn from(value: GuidanceTelemetryCollector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GuidanceTelemetryCollector> for ::windows::core::IInspectable {
-    fn from(value: &GuidanceTelemetryCollector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GuidanceTelemetryCollector> for &::windows::core::IInspectable {
-    fn from(value: &GuidanceTelemetryCollector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GuidanceTelemetryCollector, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceTelemetryCollector {}
 unsafe impl ::core::marker::Sync for GuidanceTelemetryCollector {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
@@ -1897,36 +1607,7 @@ unsafe impl ::windows::core::Interface for GuidanceUpdatedEventArgs {
 impl ::windows::core::RuntimeName for GuidanceUpdatedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceUpdatedEventArgs";
 }
-impl ::core::convert::From<GuidanceUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GuidanceUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GuidanceUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GuidanceUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GuidanceUpdatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GuidanceUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GuidanceUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GuidanceUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GuidanceUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GuidanceUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GuidanceUpdatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GuidanceUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GuidanceUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for GuidanceUpdatedEventArgs {}
 #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]

@@ -227,36 +227,7 @@ unsafe impl ::windows::core::Interface for LockApplicationHost {
 impl ::windows::core::RuntimeName for LockApplicationHost {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockApplicationHost";
 }
-impl ::core::convert::From<LockApplicationHost> for ::windows::core::IUnknown {
-    fn from(value: LockApplicationHost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LockApplicationHost> for ::windows::core::IUnknown {
-    fn from(value: &LockApplicationHost) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LockApplicationHost> for &::windows::core::IUnknown {
-    fn from(value: &LockApplicationHost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LockApplicationHost> for ::windows::core::IInspectable {
-    fn from(value: LockApplicationHost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LockApplicationHost> for ::windows::core::IInspectable {
-    fn from(value: &LockApplicationHost) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LockApplicationHost> for &::windows::core::IInspectable {
-    fn from(value: &LockApplicationHost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LockApplicationHost, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LockApplicationHost {}
 unsafe impl ::core::marker::Sync for LockApplicationHost {}
 #[doc = "*Required features: `\"ApplicationModel_LockScreen\"`*"]
@@ -334,36 +305,7 @@ unsafe impl ::windows::core::Interface for LockScreenBadge {
 impl ::windows::core::RuntimeName for LockScreenBadge {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockScreenBadge";
 }
-impl ::core::convert::From<LockScreenBadge> for ::windows::core::IUnknown {
-    fn from(value: LockScreenBadge) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LockScreenBadge> for ::windows::core::IUnknown {
-    fn from(value: &LockScreenBadge) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LockScreenBadge> for &::windows::core::IUnknown {
-    fn from(value: &LockScreenBadge) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LockScreenBadge> for ::windows::core::IInspectable {
-    fn from(value: LockScreenBadge) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LockScreenBadge> for ::windows::core::IInspectable {
-    fn from(value: &LockScreenBadge) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LockScreenBadge> for &::windows::core::IInspectable {
-    fn from(value: &LockScreenBadge) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LockScreenBadge, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LockScreenBadge {}
 unsafe impl ::core::marker::Sync for LockScreenBadge {}
 #[doc = "*Required features: `\"ApplicationModel_LockScreen\"`*"]
@@ -499,36 +441,7 @@ unsafe impl ::windows::core::Interface for LockScreenInfo {
 impl ::windows::core::RuntimeName for LockScreenInfo {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockScreenInfo";
 }
-impl ::core::convert::From<LockScreenInfo> for ::windows::core::IUnknown {
-    fn from(value: LockScreenInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LockScreenInfo> for ::windows::core::IUnknown {
-    fn from(value: &LockScreenInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LockScreenInfo> for &::windows::core::IUnknown {
-    fn from(value: &LockScreenInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LockScreenInfo> for ::windows::core::IInspectable {
-    fn from(value: LockScreenInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LockScreenInfo> for ::windows::core::IInspectable {
-    fn from(value: &LockScreenInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LockScreenInfo> for &::windows::core::IInspectable {
-    fn from(value: &LockScreenInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LockScreenInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LockScreenInfo {}
 unsafe impl ::core::marker::Sync for LockScreenInfo {}
 #[doc = "*Required features: `\"ApplicationModel_LockScreen\"`*"]
@@ -572,36 +485,7 @@ unsafe impl ::windows::core::Interface for LockScreenUnlockingDeferral {
 impl ::windows::core::RuntimeName for LockScreenUnlockingDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockScreenUnlockingDeferral";
 }
-impl ::core::convert::From<LockScreenUnlockingDeferral> for ::windows::core::IUnknown {
-    fn from(value: LockScreenUnlockingDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LockScreenUnlockingDeferral> for ::windows::core::IUnknown {
-    fn from(value: &LockScreenUnlockingDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LockScreenUnlockingDeferral> for &::windows::core::IUnknown {
-    fn from(value: &LockScreenUnlockingDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LockScreenUnlockingDeferral> for ::windows::core::IInspectable {
-    fn from(value: LockScreenUnlockingDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LockScreenUnlockingDeferral> for ::windows::core::IInspectable {
-    fn from(value: &LockScreenUnlockingDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LockScreenUnlockingDeferral> for &::windows::core::IInspectable {
-    fn from(value: &LockScreenUnlockingDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LockScreenUnlockingDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LockScreenUnlockingDeferral {}
 unsafe impl ::core::marker::Sync for LockScreenUnlockingDeferral {}
 #[doc = "*Required features: `\"ApplicationModel_LockScreen\"`*"]
@@ -657,36 +541,7 @@ unsafe impl ::windows::core::Interface for LockScreenUnlockingEventArgs {
 impl ::windows::core::RuntimeName for LockScreenUnlockingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockScreenUnlockingEventArgs";
 }
-impl ::core::convert::From<LockScreenUnlockingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: LockScreenUnlockingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LockScreenUnlockingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &LockScreenUnlockingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LockScreenUnlockingEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &LockScreenUnlockingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LockScreenUnlockingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: LockScreenUnlockingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LockScreenUnlockingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &LockScreenUnlockingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LockScreenUnlockingEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &LockScreenUnlockingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LockScreenUnlockingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LockScreenUnlockingEventArgs {}
 unsafe impl ::core::marker::Sync for LockScreenUnlockingEventArgs {}
 #[cfg(feature = "implement")]

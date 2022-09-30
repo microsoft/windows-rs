@@ -309,41 +309,7 @@ impl IMediaEnginePlaybackSource {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<IMediaEnginePlaybackSource> for ::windows::core::IUnknown {
-    fn from(value: IMediaEnginePlaybackSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a IMediaEnginePlaybackSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMediaEnginePlaybackSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&IMediaEnginePlaybackSource> for ::windows::core::IUnknown {
-    fn from(value: &IMediaEnginePlaybackSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<IMediaEnginePlaybackSource> for ::windows::core::IInspectable {
-    fn from(value: IMediaEnginePlaybackSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a IMediaEnginePlaybackSource> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IMediaEnginePlaybackSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&IMediaEnginePlaybackSource> for ::windows::core::IInspectable {
-    fn from(value: &IMediaEnginePlaybackSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMediaEnginePlaybackSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for IMediaEnginePlaybackSource {
     fn clone(&self) -> Self {
@@ -1323,36 +1289,7 @@ pub struct IMediaPlaybackSessionOutputDegradationPolicyState_Vtbl {
 #[repr(transparent)]
 pub struct IMediaPlaybackSource(::windows::core::IUnknown);
 impl IMediaPlaybackSource {}
-impl ::core::convert::From<IMediaPlaybackSource> for ::windows::core::IUnknown {
-    fn from(value: IMediaPlaybackSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMediaPlaybackSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMediaPlaybackSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMediaPlaybackSource> for ::windows::core::IUnknown {
-    fn from(value: &IMediaPlaybackSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMediaPlaybackSource> for ::windows::core::IInspectable {
-    fn from(value: IMediaPlaybackSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMediaPlaybackSource> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IMediaPlaybackSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMediaPlaybackSource> for ::windows::core::IInspectable {
-    fn from(value: &IMediaPlaybackSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMediaPlaybackSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IMediaPlaybackSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2172,36 +2109,7 @@ unsafe impl ::windows::core::Interface for CurrentMediaPlaybackItemChangedEventA
 impl ::windows::core::RuntimeName for CurrentMediaPlaybackItemChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.CurrentMediaPlaybackItemChangedEventArgs";
 }
-impl ::core::convert::From<CurrentMediaPlaybackItemChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CurrentMediaPlaybackItemChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CurrentMediaPlaybackItemChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CurrentMediaPlaybackItemChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CurrentMediaPlaybackItemChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CurrentMediaPlaybackItemChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CurrentMediaPlaybackItemChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CurrentMediaPlaybackItemChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CurrentMediaPlaybackItemChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CurrentMediaPlaybackItemChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CurrentMediaPlaybackItemChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CurrentMediaPlaybackItemChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CurrentMediaPlaybackItemChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CurrentMediaPlaybackItemChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CurrentMediaPlaybackItemChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -2303,36 +2211,7 @@ unsafe impl ::windows::core::Interface for MediaBreak {
 impl ::windows::core::RuntimeName for MediaBreak {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreak";
 }
-impl ::core::convert::From<MediaBreak> for ::windows::core::IUnknown {
-    fn from(value: MediaBreak) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaBreak> for ::windows::core::IUnknown {
-    fn from(value: &MediaBreak) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaBreak> for &::windows::core::IUnknown {
-    fn from(value: &MediaBreak) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaBreak> for ::windows::core::IInspectable {
-    fn from(value: MediaBreak) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaBreak> for ::windows::core::IInspectable {
-    fn from(value: &MediaBreak) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaBreak> for &::windows::core::IInspectable {
-    fn from(value: &MediaBreak) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaBreak, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaBreak {}
 unsafe impl ::core::marker::Sync for MediaBreak {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -2379,36 +2258,7 @@ unsafe impl ::windows::core::Interface for MediaBreakEndedEventArgs {
 impl ::windows::core::RuntimeName for MediaBreakEndedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakEndedEventArgs";
 }
-impl ::core::convert::From<MediaBreakEndedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaBreakEndedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaBreakEndedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaBreakEndedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaBreakEndedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaBreakEndedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaBreakEndedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaBreakEndedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaBreakEndedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaBreakEndedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaBreakEndedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaBreakEndedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaBreakEndedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaBreakEndedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaBreakEndedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -2530,36 +2380,7 @@ unsafe impl ::windows::core::Interface for MediaBreakManager {
 impl ::windows::core::RuntimeName for MediaBreakManager {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakManager";
 }
-impl ::core::convert::From<MediaBreakManager> for ::windows::core::IUnknown {
-    fn from(value: MediaBreakManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaBreakManager> for ::windows::core::IUnknown {
-    fn from(value: &MediaBreakManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaBreakManager> for &::windows::core::IUnknown {
-    fn from(value: &MediaBreakManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaBreakManager> for ::windows::core::IInspectable {
-    fn from(value: MediaBreakManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaBreakManager> for ::windows::core::IInspectable {
-    fn from(value: &MediaBreakManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaBreakManager> for &::windows::core::IInspectable {
-    fn from(value: &MediaBreakManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaBreakManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaBreakManager {}
 unsafe impl ::core::marker::Sync for MediaBreakManager {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -2660,36 +2481,7 @@ unsafe impl ::windows::core::Interface for MediaBreakSchedule {
 impl ::windows::core::RuntimeName for MediaBreakSchedule {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakSchedule";
 }
-impl ::core::convert::From<MediaBreakSchedule> for ::windows::core::IUnknown {
-    fn from(value: MediaBreakSchedule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaBreakSchedule> for ::windows::core::IUnknown {
-    fn from(value: &MediaBreakSchedule) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaBreakSchedule> for &::windows::core::IUnknown {
-    fn from(value: &MediaBreakSchedule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaBreakSchedule> for ::windows::core::IInspectable {
-    fn from(value: MediaBreakSchedule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaBreakSchedule> for ::windows::core::IInspectable {
-    fn from(value: &MediaBreakSchedule) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaBreakSchedule> for &::windows::core::IInspectable {
-    fn from(value: &MediaBreakSchedule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaBreakSchedule, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaBreakSchedule {}
 unsafe impl ::core::marker::Sync for MediaBreakSchedule {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -2756,36 +2548,7 @@ unsafe impl ::windows::core::Interface for MediaBreakSeekedOverEventArgs {
 impl ::windows::core::RuntimeName for MediaBreakSeekedOverEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakSeekedOverEventArgs";
 }
-impl ::core::convert::From<MediaBreakSeekedOverEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaBreakSeekedOverEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaBreakSeekedOverEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaBreakSeekedOverEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaBreakSeekedOverEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaBreakSeekedOverEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaBreakSeekedOverEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaBreakSeekedOverEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaBreakSeekedOverEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaBreakSeekedOverEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaBreakSeekedOverEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaBreakSeekedOverEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaBreakSeekedOverEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaBreakSeekedOverEventArgs {}
 unsafe impl ::core::marker::Sync for MediaBreakSeekedOverEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -2832,36 +2595,7 @@ unsafe impl ::windows::core::Interface for MediaBreakSkippedEventArgs {
 impl ::windows::core::RuntimeName for MediaBreakSkippedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakSkippedEventArgs";
 }
-impl ::core::convert::From<MediaBreakSkippedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaBreakSkippedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaBreakSkippedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaBreakSkippedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaBreakSkippedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaBreakSkippedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaBreakSkippedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaBreakSkippedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaBreakSkippedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaBreakSkippedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaBreakSkippedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaBreakSkippedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaBreakSkippedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaBreakSkippedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaBreakSkippedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -2908,36 +2642,7 @@ unsafe impl ::windows::core::Interface for MediaBreakStartedEventArgs {
 impl ::windows::core::RuntimeName for MediaBreakStartedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakStartedEventArgs";
 }
-impl ::core::convert::From<MediaBreakStartedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaBreakStartedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaBreakStartedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaBreakStartedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaBreakStartedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaBreakStartedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaBreakStartedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaBreakStartedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaBreakStartedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaBreakStartedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaBreakStartedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaBreakStartedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaBreakStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaBreakStartedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaBreakStartedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -3021,36 +2726,7 @@ unsafe impl ::windows::core::Interface for MediaItemDisplayProperties {
 impl ::windows::core::RuntimeName for MediaItemDisplayProperties {
     const NAME: &'static str = "Windows.Media.Playback.MediaItemDisplayProperties";
 }
-impl ::core::convert::From<MediaItemDisplayProperties> for ::windows::core::IUnknown {
-    fn from(value: MediaItemDisplayProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaItemDisplayProperties> for ::windows::core::IUnknown {
-    fn from(value: &MediaItemDisplayProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaItemDisplayProperties> for &::windows::core::IUnknown {
-    fn from(value: &MediaItemDisplayProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaItemDisplayProperties> for ::windows::core::IInspectable {
-    fn from(value: MediaItemDisplayProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaItemDisplayProperties> for ::windows::core::IInspectable {
-    fn from(value: &MediaItemDisplayProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaItemDisplayProperties> for &::windows::core::IInspectable {
-    fn from(value: &MediaItemDisplayProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaItemDisplayProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaItemDisplayProperties {}
 unsafe impl ::core::marker::Sync for MediaItemDisplayProperties {}
 #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
@@ -3192,41 +2868,7 @@ impl ::core::iter::IntoIterator for &MediaPlaybackAudioTrackList {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::convert::From<MediaPlaybackAudioTrackList> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackAudioTrackList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::convert::From<&MediaPlaybackAudioTrackList> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackAudioTrackList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::convert::From<&MediaPlaybackAudioTrackList> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackAudioTrackList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::convert::From<MediaPlaybackAudioTrackList> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackAudioTrackList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::convert::From<&MediaPlaybackAudioTrackList> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackAudioTrackList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::convert::From<&MediaPlaybackAudioTrackList> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackAudioTrackList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackAudioTrackList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl ::core::convert::TryFrom<MediaPlaybackAudioTrackList> for super::super::Foundation::Collections::IIterable<super::Core::AudioTrack> {
     type Error = ::windows::core::Error;
@@ -3572,36 +3214,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManager {
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManager {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManager";
 }
-impl ::core::convert::From<MediaPlaybackCommandManager> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackCommandManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManager> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManager> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlaybackCommandManager> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackCommandManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManager> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManager> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackCommandManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManager {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManager {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -3668,36 +3281,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerAutoRepeat
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs";
 }
-impl ::core::convert::From<MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -3777,36 +3361,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerCommandBeh
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerCommandBehavior {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerCommandBehavior";
 }
-impl ::core::convert::From<MediaPlaybackCommandManagerCommandBehavior> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackCommandManagerCommandBehavior) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerCommandBehavior> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManagerCommandBehavior) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerCommandBehavior> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManagerCommandBehavior) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlaybackCommandManagerCommandBehavior> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackCommandManagerCommandBehavior) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerCommandBehavior> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManagerCommandBehavior) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerCommandBehavior> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManagerCommandBehavior) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackCommandManagerCommandBehavior, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerCommandBehavior {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerCommandBehavior {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -3866,36 +3421,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerFastForwar
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerFastForwardReceivedEventArgs";
 }
-impl ::core::convert::From<MediaPlaybackCommandManagerFastForwardReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackCommandManagerFastForwardReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerFastForwardReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManagerFastForwardReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerFastForwardReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManagerFastForwardReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlaybackCommandManagerFastForwardReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackCommandManagerFastForwardReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerFastForwardReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManagerFastForwardReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerFastForwardReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManagerFastForwardReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackCommandManagerFastForwardReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -3955,36 +3481,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerNextReceiv
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerNextReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerNextReceivedEventArgs";
 }
-impl ::core::convert::From<MediaPlaybackCommandManagerNextReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackCommandManagerNextReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerNextReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManagerNextReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerNextReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManagerNextReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlaybackCommandManagerNextReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackCommandManagerNextReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerNextReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManagerNextReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerNextReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManagerNextReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackCommandManagerNextReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerNextReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerNextReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -4044,36 +3541,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerPauseRecei
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerPauseReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerPauseReceivedEventArgs";
 }
-impl ::core::convert::From<MediaPlaybackCommandManagerPauseReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackCommandManagerPauseReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerPauseReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManagerPauseReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerPauseReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManagerPauseReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlaybackCommandManagerPauseReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackCommandManagerPauseReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerPauseReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManagerPauseReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerPauseReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManagerPauseReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackCommandManagerPauseReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPauseReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerPauseReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -4133,36 +3601,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerPlayReceiv
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerPlayReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerPlayReceivedEventArgs";
 }
-impl ::core::convert::From<MediaPlaybackCommandManagerPlayReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackCommandManagerPlayReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerPlayReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManagerPlayReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerPlayReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManagerPlayReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlaybackCommandManagerPlayReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackCommandManagerPlayReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerPlayReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManagerPlayReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerPlayReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManagerPlayReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackCommandManagerPlayReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPlayReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerPlayReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -4231,36 +3670,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerPositionRe
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerPositionReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerPositionReceivedEventArgs";
 }
-impl ::core::convert::From<MediaPlaybackCommandManagerPositionReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackCommandManagerPositionReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerPositionReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManagerPositionReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerPositionReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManagerPositionReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlaybackCommandManagerPositionReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackCommandManagerPositionReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerPositionReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManagerPositionReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerPositionReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManagerPositionReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackCommandManagerPositionReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPositionReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerPositionReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -4320,36 +3730,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerPreviousRe
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerPreviousReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerPreviousReceivedEventArgs";
 }
-impl ::core::convert::From<MediaPlaybackCommandManagerPreviousReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackCommandManagerPreviousReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerPreviousReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManagerPreviousReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerPreviousReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManagerPreviousReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlaybackCommandManagerPreviousReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackCommandManagerPreviousReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerPreviousReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManagerPreviousReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerPreviousReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManagerPreviousReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackCommandManagerPreviousReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPreviousReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerPreviousReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -4416,36 +3797,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerRateReceiv
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerRateReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerRateReceivedEventArgs";
 }
-impl ::core::convert::From<MediaPlaybackCommandManagerRateReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackCommandManagerRateReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerRateReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManagerRateReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerRateReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManagerRateReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlaybackCommandManagerRateReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackCommandManagerRateReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerRateReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManagerRateReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerRateReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManagerRateReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackCommandManagerRateReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerRateReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerRateReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -4505,36 +3857,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerRewindRece
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerRewindReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerRewindReceivedEventArgs";
 }
-impl ::core::convert::From<MediaPlaybackCommandManagerRewindReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackCommandManagerRewindReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerRewindReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManagerRewindReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerRewindReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManagerRewindReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlaybackCommandManagerRewindReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackCommandManagerRewindReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerRewindReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManagerRewindReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerRewindReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManagerRewindReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackCommandManagerRewindReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerRewindReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerRewindReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -4601,36 +3924,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerShuffleRec
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerShuffleReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerShuffleReceivedEventArgs";
 }
-impl ::core::convert::From<MediaPlaybackCommandManagerShuffleReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackCommandManagerShuffleReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerShuffleReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManagerShuffleReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerShuffleReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackCommandManagerShuffleReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlaybackCommandManagerShuffleReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackCommandManagerShuffleReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerShuffleReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManagerShuffleReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackCommandManagerShuffleReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackCommandManagerShuffleReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackCommandManagerShuffleReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerShuffleReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerShuffleReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -4874,36 +4168,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackItem {
 impl ::windows::core::RuntimeName for MediaPlaybackItem {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackItem";
 }
-impl ::core::convert::From<MediaPlaybackItem> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackItem> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackItem> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlaybackItem> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackItem> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackItem> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MediaPlaybackItem> for IMediaPlaybackSource {
     type Error = ::windows::core::Error;
     fn try_from(value: MediaPlaybackItem) -> ::windows::core::Result<Self> {
@@ -4976,36 +4241,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackItemError {
 impl ::windows::core::RuntimeName for MediaPlaybackItemError {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackItemError";
 }
-impl ::core::convert::From<MediaPlaybackItemError> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackItemError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackItemError> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackItemError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackItemError> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackItemError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlaybackItemError> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackItemError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackItemError> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackItemError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackItemError> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackItemError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackItemError, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackItemError {}
 unsafe impl ::core::marker::Sync for MediaPlaybackItemError {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -5059,36 +4295,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackItemFailedEventArgs {
 impl ::windows::core::RuntimeName for MediaPlaybackItemFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackItemFailedEventArgs";
 }
-impl ::core::convert::From<MediaPlaybackItemFailedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackItemFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackItemFailedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackItemFailedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackItemFailedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackItemFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlaybackItemFailedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackItemFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackItemFailedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackItemFailedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackItemFailedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackItemFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackItemFailedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackItemFailedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackItemFailedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -5135,36 +4342,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackItemOpenedEventArgs {
 impl ::windows::core::RuntimeName for MediaPlaybackItemOpenedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackItemOpenedEventArgs";
 }
-impl ::core::convert::From<MediaPlaybackItemOpenedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackItemOpenedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackItemOpenedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackItemOpenedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackItemOpenedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackItemOpenedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlaybackItemOpenedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackItemOpenedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackItemOpenedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackItemOpenedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackItemOpenedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackItemOpenedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackItemOpenedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackItemOpenedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackItemOpenedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -5390,36 +4568,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackList {
 impl ::windows::core::RuntimeName for MediaPlaybackList {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackList";
 }
-impl ::core::convert::From<MediaPlaybackList> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackList> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackList> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlaybackList> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackList> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackList> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MediaPlaybackList> for IMediaPlaybackSource {
     type Error = ::windows::core::Error;
     fn try_from(value: MediaPlaybackList) -> ::windows::core::Result<Self> {
@@ -5890,36 +5039,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackSession {
 impl ::windows::core::RuntimeName for MediaPlaybackSession {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackSession";
 }
-impl ::core::convert::From<MediaPlaybackSession> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackSession> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackSession> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlaybackSession> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackSession> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackSession> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackSession {}
 unsafe impl ::core::marker::Sync for MediaPlaybackSession {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -5966,36 +5086,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackSessionBufferingStartedE
 impl ::windows::core::RuntimeName for MediaPlaybackSessionBufferingStartedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackSessionBufferingStartedEventArgs";
 }
-impl ::core::convert::From<MediaPlaybackSessionBufferingStartedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackSessionBufferingStartedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackSessionBufferingStartedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackSessionBufferingStartedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackSessionBufferingStartedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackSessionBufferingStartedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlaybackSessionBufferingStartedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackSessionBufferingStartedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackSessionBufferingStartedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackSessionBufferingStartedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackSessionBufferingStartedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackSessionBufferingStartedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackSessionBufferingStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackSessionBufferingStartedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackSessionBufferingStartedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -6042,36 +5133,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackSessionOutputDegradation
 impl ::windows::core::RuntimeName for MediaPlaybackSessionOutputDegradationPolicyState {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackSessionOutputDegradationPolicyState";
 }
-impl ::core::convert::From<MediaPlaybackSessionOutputDegradationPolicyState> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackSessionOutputDegradationPolicyState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackSessionOutputDegradationPolicyState> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackSessionOutputDegradationPolicyState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackSessionOutputDegradationPolicyState> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackSessionOutputDegradationPolicyState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlaybackSessionOutputDegradationPolicyState> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackSessionOutputDegradationPolicyState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackSessionOutputDegradationPolicyState> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackSessionOutputDegradationPolicyState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackSessionOutputDegradationPolicyState> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackSessionOutputDegradationPolicyState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackSessionOutputDegradationPolicyState, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackSessionOutputDegradationPolicyState {}
 unsafe impl ::core::marker::Sync for MediaPlaybackSessionOutputDegradationPolicyState {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -6174,36 +5236,7 @@ unsafe impl ::windows::core::Interface for MediaPlaybackSphericalVideoProjection
 impl ::windows::core::RuntimeName for MediaPlaybackSphericalVideoProjection {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackSphericalVideoProjection";
 }
-impl ::core::convert::From<MediaPlaybackSphericalVideoProjection> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackSphericalVideoProjection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackSphericalVideoProjection> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackSphericalVideoProjection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackSphericalVideoProjection> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackSphericalVideoProjection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlaybackSphericalVideoProjection> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackSphericalVideoProjection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlaybackSphericalVideoProjection> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackSphericalVideoProjection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlaybackSphericalVideoProjection> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackSphericalVideoProjection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackSphericalVideoProjection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlaybackSphericalVideoProjection {}
 unsafe impl ::core::marker::Sync for MediaPlaybackSphericalVideoProjection {}
 #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
@@ -6341,41 +5374,7 @@ impl ::core::iter::IntoIterator for &MediaPlaybackTimedMetadataTrackList {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::convert::From<MediaPlaybackTimedMetadataTrackList> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackTimedMetadataTrackList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::convert::From<&MediaPlaybackTimedMetadataTrackList> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackTimedMetadataTrackList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::convert::From<&MediaPlaybackTimedMetadataTrackList> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackTimedMetadataTrackList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::convert::From<MediaPlaybackTimedMetadataTrackList> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackTimedMetadataTrackList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::convert::From<&MediaPlaybackTimedMetadataTrackList> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackTimedMetadataTrackList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::convert::From<&MediaPlaybackTimedMetadataTrackList> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackTimedMetadataTrackList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackTimedMetadataTrackList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl ::core::convert::TryFrom<MediaPlaybackTimedMetadataTrackList> for super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataTrack> {
     type Error = ::windows::core::Error;
@@ -6563,41 +5562,7 @@ impl ::core::iter::IntoIterator for &MediaPlaybackVideoTrackList {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::convert::From<MediaPlaybackVideoTrackList> for ::windows::core::IUnknown {
-    fn from(value: MediaPlaybackVideoTrackList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::convert::From<&MediaPlaybackVideoTrackList> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackVideoTrackList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::convert::From<&MediaPlaybackVideoTrackList> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlaybackVideoTrackList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::convert::From<MediaPlaybackVideoTrackList> for ::windows::core::IInspectable {
-    fn from(value: MediaPlaybackVideoTrackList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::convert::From<&MediaPlaybackVideoTrackList> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackVideoTrackList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::convert::From<&MediaPlaybackVideoTrackList> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlaybackVideoTrackList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlaybackVideoTrackList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl ::core::convert::TryFrom<MediaPlaybackVideoTrackList> for super::super::Foundation::Collections::IIterable<super::Core::VideoTrack> {
     type Error = ::windows::core::Error;
@@ -7397,36 +6362,7 @@ unsafe impl ::windows::core::Interface for MediaPlayer {
 impl ::windows::core::RuntimeName for MediaPlayer {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayer";
 }
-impl ::core::convert::From<MediaPlayer> for ::windows::core::IUnknown {
-    fn from(value: MediaPlayer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlayer> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlayer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlayer> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlayer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlayer> for ::windows::core::IInspectable {
-    fn from(value: MediaPlayer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlayer> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlayer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlayer> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlayer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlayer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MediaPlayer> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -7497,36 +6433,7 @@ unsafe impl ::windows::core::Interface for MediaPlayerDataReceivedEventArgs {
 impl ::windows::core::RuntimeName for MediaPlayerDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayerDataReceivedEventArgs";
 }
-impl ::core::convert::From<MediaPlayerDataReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaPlayerDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlayerDataReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlayerDataReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlayerDataReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlayerDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlayerDataReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaPlayerDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlayerDataReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlayerDataReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlayerDataReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlayerDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlayerDataReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlayerDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlayerDataReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -7587,36 +6494,7 @@ unsafe impl ::windows::core::Interface for MediaPlayerFailedEventArgs {
 impl ::windows::core::RuntimeName for MediaPlayerFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayerFailedEventArgs";
 }
-impl ::core::convert::From<MediaPlayerFailedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaPlayerFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlayerFailedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlayerFailedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlayerFailedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlayerFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlayerFailedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaPlayerFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlayerFailedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlayerFailedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlayerFailedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlayerFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlayerFailedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlayerFailedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlayerFailedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -7663,36 +6541,7 @@ unsafe impl ::windows::core::Interface for MediaPlayerRateChangedEventArgs {
 impl ::windows::core::RuntimeName for MediaPlayerRateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayerRateChangedEventArgs";
 }
-impl ::core::convert::From<MediaPlayerRateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaPlayerRateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlayerRateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlayerRateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlayerRateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlayerRateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlayerRateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaPlayerRateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlayerRateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlayerRateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlayerRateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlayerRateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlayerRateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPlayerRateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlayerRateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -7763,36 +6612,7 @@ unsafe impl ::windows::core::Interface for MediaPlayerSurface {
 impl ::windows::core::RuntimeName for MediaPlayerSurface {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayerSurface";
 }
-impl ::core::convert::From<MediaPlayerSurface> for ::windows::core::IUnknown {
-    fn from(value: MediaPlayerSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlayerSurface> for ::windows::core::IUnknown {
-    fn from(value: &MediaPlayerSurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlayerSurface> for &::windows::core::IUnknown {
-    fn from(value: &MediaPlayerSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaPlayerSurface> for ::windows::core::IInspectable {
-    fn from(value: MediaPlayerSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaPlayerSurface> for ::windows::core::IInspectable {
-    fn from(value: &MediaPlayerSurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaPlayerSurface> for &::windows::core::IInspectable {
-    fn from(value: &MediaPlayerSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaPlayerSurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MediaPlayerSurface> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -7898,36 +6718,7 @@ unsafe impl ::windows::core::Interface for PlaybackMediaMarker {
 impl ::windows::core::RuntimeName for PlaybackMediaMarker {
     const NAME: &'static str = "Windows.Media.Playback.PlaybackMediaMarker";
 }
-impl ::core::convert::From<PlaybackMediaMarker> for ::windows::core::IUnknown {
-    fn from(value: PlaybackMediaMarker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlaybackMediaMarker> for ::windows::core::IUnknown {
-    fn from(value: &PlaybackMediaMarker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlaybackMediaMarker> for &::windows::core::IUnknown {
-    fn from(value: &PlaybackMediaMarker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlaybackMediaMarker> for ::windows::core::IInspectable {
-    fn from(value: PlaybackMediaMarker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlaybackMediaMarker> for ::windows::core::IInspectable {
-    fn from(value: &PlaybackMediaMarker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlaybackMediaMarker> for &::windows::core::IInspectable {
-    fn from(value: &PlaybackMediaMarker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlaybackMediaMarker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PlaybackMediaMarker {}
 unsafe impl ::core::marker::Sync for PlaybackMediaMarker {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -7974,36 +6765,7 @@ unsafe impl ::windows::core::Interface for PlaybackMediaMarkerReachedEventArgs {
 impl ::windows::core::RuntimeName for PlaybackMediaMarkerReachedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.PlaybackMediaMarkerReachedEventArgs";
 }
-impl ::core::convert::From<PlaybackMediaMarkerReachedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PlaybackMediaMarkerReachedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlaybackMediaMarkerReachedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PlaybackMediaMarkerReachedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlaybackMediaMarkerReachedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PlaybackMediaMarkerReachedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlaybackMediaMarkerReachedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PlaybackMediaMarkerReachedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlaybackMediaMarkerReachedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PlaybackMediaMarkerReachedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlaybackMediaMarkerReachedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PlaybackMediaMarkerReachedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlaybackMediaMarkerReachedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PlaybackMediaMarkerReachedEventArgs {}
 unsafe impl ::core::marker::Sync for PlaybackMediaMarkerReachedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -8083,36 +6845,7 @@ impl ::core::iter::IntoIterator for &PlaybackMediaMarkerSequence {
         self.First().unwrap()
     }
 }
-impl ::core::convert::From<PlaybackMediaMarkerSequence> for ::windows::core::IUnknown {
-    fn from(value: PlaybackMediaMarkerSequence) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlaybackMediaMarkerSequence> for ::windows::core::IUnknown {
-    fn from(value: &PlaybackMediaMarkerSequence) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlaybackMediaMarkerSequence> for &::windows::core::IUnknown {
-    fn from(value: &PlaybackMediaMarkerSequence) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlaybackMediaMarkerSequence> for ::windows::core::IInspectable {
-    fn from(value: PlaybackMediaMarkerSequence) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlaybackMediaMarkerSequence> for ::windows::core::IInspectable {
-    fn from(value: &PlaybackMediaMarkerSequence) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlaybackMediaMarkerSequence> for &::windows::core::IInspectable {
-    fn from(value: &PlaybackMediaMarkerSequence) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlaybackMediaMarkerSequence, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<PlaybackMediaMarkerSequence> for super::super::Foundation::Collections::IIterable<PlaybackMediaMarker> {
     type Error = ::windows::core::Error;
@@ -8197,36 +6930,7 @@ unsafe impl ::windows::core::Interface for TimedMetadataPresentationModeChangedE
 impl ::windows::core::RuntimeName for TimedMetadataPresentationModeChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.TimedMetadataPresentationModeChangedEventArgs";
 }
-impl ::core::convert::From<TimedMetadataPresentationModeChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: TimedMetadataPresentationModeChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TimedMetadataPresentationModeChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &TimedMetadataPresentationModeChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TimedMetadataPresentationModeChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &TimedMetadataPresentationModeChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TimedMetadataPresentationModeChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: TimedMetadataPresentationModeChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TimedMetadataPresentationModeChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &TimedMetadataPresentationModeChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TimedMetadataPresentationModeChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &TimedMetadataPresentationModeChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TimedMetadataPresentationModeChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TimedMetadataPresentationModeChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TimedMetadataPresentationModeChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]

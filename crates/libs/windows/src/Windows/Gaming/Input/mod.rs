@@ -194,36 +194,7 @@ impl IGameController {
         }
     }
 }
-impl ::core::convert::From<IGameController> for ::windows::core::IUnknown {
-    fn from(value: IGameController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGameController> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGameController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGameController> for ::windows::core::IUnknown {
-    fn from(value: &IGameController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IGameController> for ::windows::core::IInspectable {
-    fn from(value: IGameController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGameController> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IGameController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGameController> for ::windows::core::IInspectable {
-    fn from(value: &IGameController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGameController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IGameController {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -302,36 +273,7 @@ impl IGameControllerBatteryInfo {
         }
     }
 }
-impl ::core::convert::From<IGameControllerBatteryInfo> for ::windows::core::IUnknown {
-    fn from(value: IGameControllerBatteryInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGameControllerBatteryInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGameControllerBatteryInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGameControllerBatteryInfo> for ::windows::core::IUnknown {
-    fn from(value: &IGameControllerBatteryInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IGameControllerBatteryInfo> for ::windows::core::IInspectable {
-    fn from(value: IGameControllerBatteryInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGameControllerBatteryInfo> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IGameControllerBatteryInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGameControllerBatteryInfo> for ::windows::core::IInspectable {
-    fn from(value: &IGameControllerBatteryInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGameControllerBatteryInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IGameControllerBatteryInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -870,36 +812,7 @@ unsafe impl ::windows::core::Interface for ArcadeStick {
 impl ::windows::core::RuntimeName for ArcadeStick {
     const NAME: &'static str = "Windows.Gaming.Input.ArcadeStick";
 }
-impl ::core::convert::From<ArcadeStick> for ::windows::core::IUnknown {
-    fn from(value: ArcadeStick) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ArcadeStick> for ::windows::core::IUnknown {
-    fn from(value: &ArcadeStick) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ArcadeStick> for &::windows::core::IUnknown {
-    fn from(value: &ArcadeStick) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ArcadeStick> for ::windows::core::IInspectable {
-    fn from(value: ArcadeStick) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ArcadeStick> for ::windows::core::IInspectable {
-    fn from(value: &ArcadeStick) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ArcadeStick> for &::windows::core::IInspectable {
-    fn from(value: &ArcadeStick) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ArcadeStick, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ArcadeStick> for IGameController {
     type Error = ::windows::core::Error;
     fn try_from(value: ArcadeStick) -> ::windows::core::Result<Self> {
@@ -1124,36 +1037,7 @@ unsafe impl ::windows::core::Interface for FlightStick {
 impl ::windows::core::RuntimeName for FlightStick {
     const NAME: &'static str = "Windows.Gaming.Input.FlightStick";
 }
-impl ::core::convert::From<FlightStick> for ::windows::core::IUnknown {
-    fn from(value: FlightStick) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FlightStick> for ::windows::core::IUnknown {
-    fn from(value: &FlightStick) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FlightStick> for &::windows::core::IUnknown {
-    fn from(value: &FlightStick) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FlightStick> for ::windows::core::IInspectable {
-    fn from(value: FlightStick) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FlightStick> for ::windows::core::IInspectable {
-    fn from(value: &FlightStick) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FlightStick> for &::windows::core::IInspectable {
-    fn from(value: &FlightStick) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FlightStick, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<FlightStick> for IGameController {
     type Error = ::windows::core::Error;
     fn try_from(value: FlightStick) -> ::windows::core::Result<Self> {
@@ -1387,36 +1271,7 @@ unsafe impl ::windows::core::Interface for Gamepad {
 impl ::windows::core::RuntimeName for Gamepad {
     const NAME: &'static str = "Windows.Gaming.Input.Gamepad";
 }
-impl ::core::convert::From<Gamepad> for ::windows::core::IUnknown {
-    fn from(value: Gamepad) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Gamepad> for ::windows::core::IUnknown {
-    fn from(value: &Gamepad) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Gamepad> for &::windows::core::IUnknown {
-    fn from(value: &Gamepad) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Gamepad> for ::windows::core::IInspectable {
-    fn from(value: Gamepad) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Gamepad> for ::windows::core::IInspectable {
-    fn from(value: &Gamepad) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Gamepad> for &::windows::core::IInspectable {
-    fn from(value: &Gamepad) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Gamepad, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Gamepad> for IGameController {
     type Error = ::windows::core::Error;
     fn try_from(value: Gamepad) -> ::windows::core::Result<Self> {
@@ -1517,36 +1372,7 @@ unsafe impl ::windows::core::Interface for Headset {
 impl ::windows::core::RuntimeName for Headset {
     const NAME: &'static str = "Windows.Gaming.Input.Headset";
 }
-impl ::core::convert::From<Headset> for ::windows::core::IUnknown {
-    fn from(value: Headset) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Headset> for ::windows::core::IUnknown {
-    fn from(value: &Headset) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Headset> for &::windows::core::IUnknown {
-    fn from(value: &Headset) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Headset> for ::windows::core::IInspectable {
-    fn from(value: Headset) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Headset> for ::windows::core::IInspectable {
-    fn from(value: &Headset) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Headset> for &::windows::core::IInspectable {
-    fn from(value: &Headset) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Headset, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Headset> for IGameControllerBatteryInfo {
     type Error = ::windows::core::Error;
     fn try_from(value: Headset) -> ::windows::core::Result<Self> {
@@ -1794,36 +1620,7 @@ unsafe impl ::windows::core::Interface for RacingWheel {
 impl ::windows::core::RuntimeName for RacingWheel {
     const NAME: &'static str = "Windows.Gaming.Input.RacingWheel";
 }
-impl ::core::convert::From<RacingWheel> for ::windows::core::IUnknown {
-    fn from(value: RacingWheel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RacingWheel> for ::windows::core::IUnknown {
-    fn from(value: &RacingWheel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RacingWheel> for &::windows::core::IUnknown {
-    fn from(value: &RacingWheel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RacingWheel> for ::windows::core::IInspectable {
-    fn from(value: RacingWheel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RacingWheel> for ::windows::core::IInspectable {
-    fn from(value: &RacingWheel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RacingWheel> for &::windows::core::IInspectable {
-    fn from(value: &RacingWheel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RacingWheel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RacingWheel> for IGameController {
     type Error = ::windows::core::Error;
     fn try_from(value: RacingWheel) -> ::windows::core::Result<Self> {
@@ -2115,36 +1912,7 @@ unsafe impl ::windows::core::Interface for RawGameController {
 impl ::windows::core::RuntimeName for RawGameController {
     const NAME: &'static str = "Windows.Gaming.Input.RawGameController";
 }
-impl ::core::convert::From<RawGameController> for ::windows::core::IUnknown {
-    fn from(value: RawGameController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RawGameController> for ::windows::core::IUnknown {
-    fn from(value: &RawGameController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RawGameController> for &::windows::core::IUnknown {
-    fn from(value: &RawGameController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RawGameController> for ::windows::core::IInspectable {
-    fn from(value: RawGameController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RawGameController> for ::windows::core::IInspectable {
-    fn from(value: &RawGameController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RawGameController> for &::windows::core::IInspectable {
-    fn from(value: &RawGameController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RawGameController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RawGameController> for IGameController {
     type Error = ::windows::core::Error;
     fn try_from(value: RawGameController) -> ::windows::core::Result<Self> {
@@ -2374,36 +2142,7 @@ unsafe impl ::windows::core::Interface for UINavigationController {
 impl ::windows::core::RuntimeName for UINavigationController {
     const NAME: &'static str = "Windows.Gaming.Input.UINavigationController";
 }
-impl ::core::convert::From<UINavigationController> for ::windows::core::IUnknown {
-    fn from(value: UINavigationController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UINavigationController> for ::windows::core::IUnknown {
-    fn from(value: &UINavigationController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UINavigationController> for &::windows::core::IUnknown {
-    fn from(value: &UINavigationController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UINavigationController> for ::windows::core::IInspectable {
-    fn from(value: UINavigationController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UINavigationController> for ::windows::core::IInspectable {
-    fn from(value: &UINavigationController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UINavigationController> for &::windows::core::IInspectable {
-    fn from(value: &UINavigationController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UINavigationController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<UINavigationController> for IGameController {
     type Error = ::windows::core::Error;
     fn try_from(value: UINavigationController) -> ::windows::core::Result<Self> {

@@ -975,36 +975,7 @@ unsafe impl ::windows::core::Interface for AsymmetricKeyAlgorithmProvider {
 impl ::windows::core::RuntimeName for AsymmetricKeyAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider";
 }
-impl ::core::convert::From<AsymmetricKeyAlgorithmProvider> for ::windows::core::IUnknown {
-    fn from(value: AsymmetricKeyAlgorithmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsymmetricKeyAlgorithmProvider> for ::windows::core::IUnknown {
-    fn from(value: &AsymmetricKeyAlgorithmProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AsymmetricKeyAlgorithmProvider> for &::windows::core::IUnknown {
-    fn from(value: &AsymmetricKeyAlgorithmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AsymmetricKeyAlgorithmProvider> for ::windows::core::IInspectable {
-    fn from(value: AsymmetricKeyAlgorithmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsymmetricKeyAlgorithmProvider> for ::windows::core::IInspectable {
-    fn from(value: &AsymmetricKeyAlgorithmProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AsymmetricKeyAlgorithmProvider> for &::windows::core::IInspectable {
-    fn from(value: &AsymmetricKeyAlgorithmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AsymmetricKeyAlgorithmProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AsymmetricKeyAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for AsymmetricKeyAlgorithmProvider {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
@@ -1240,36 +1211,7 @@ unsafe impl ::windows::core::Interface for CryptographicHash {
 impl ::windows::core::RuntimeName for CryptographicHash {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.CryptographicHash";
 }
-impl ::core::convert::From<CryptographicHash> for ::windows::core::IUnknown {
-    fn from(value: CryptographicHash) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CryptographicHash> for ::windows::core::IUnknown {
-    fn from(value: &CryptographicHash) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CryptographicHash> for &::windows::core::IUnknown {
-    fn from(value: &CryptographicHash) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CryptographicHash> for ::windows::core::IInspectable {
-    fn from(value: CryptographicHash) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CryptographicHash> for ::windows::core::IInspectable {
-    fn from(value: &CryptographicHash) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CryptographicHash> for &::windows::core::IInspectable {
-    fn from(value: &CryptographicHash) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CryptographicHash, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CryptographicHash {}
 unsafe impl ::core::marker::Sync for CryptographicHash {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
@@ -1352,36 +1294,7 @@ unsafe impl ::windows::core::Interface for CryptographicKey {
 impl ::windows::core::RuntimeName for CryptographicKey {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.CryptographicKey";
 }
-impl ::core::convert::From<CryptographicKey> for ::windows::core::IUnknown {
-    fn from(value: CryptographicKey) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CryptographicKey> for ::windows::core::IUnknown {
-    fn from(value: &CryptographicKey) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CryptographicKey> for &::windows::core::IUnknown {
-    fn from(value: &CryptographicKey) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CryptographicKey> for ::windows::core::IInspectable {
-    fn from(value: CryptographicKey) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CryptographicKey> for ::windows::core::IInspectable {
-    fn from(value: &CryptographicKey) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CryptographicKey> for &::windows::core::IInspectable {
-    fn from(value: &CryptographicKey) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CryptographicKey, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CryptographicKey {}
 unsafe impl ::core::marker::Sync for CryptographicKey {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
@@ -1729,36 +1642,7 @@ unsafe impl ::windows::core::Interface for EncryptedAndAuthenticatedData {
 impl ::windows::core::RuntimeName for EncryptedAndAuthenticatedData {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.EncryptedAndAuthenticatedData";
 }
-impl ::core::convert::From<EncryptedAndAuthenticatedData> for ::windows::core::IUnknown {
-    fn from(value: EncryptedAndAuthenticatedData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EncryptedAndAuthenticatedData> for ::windows::core::IUnknown {
-    fn from(value: &EncryptedAndAuthenticatedData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EncryptedAndAuthenticatedData> for &::windows::core::IUnknown {
-    fn from(value: &EncryptedAndAuthenticatedData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EncryptedAndAuthenticatedData> for ::windows::core::IInspectable {
-    fn from(value: EncryptedAndAuthenticatedData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EncryptedAndAuthenticatedData> for ::windows::core::IInspectable {
-    fn from(value: &EncryptedAndAuthenticatedData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EncryptedAndAuthenticatedData> for &::windows::core::IInspectable {
-    fn from(value: &EncryptedAndAuthenticatedData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EncryptedAndAuthenticatedData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EncryptedAndAuthenticatedData {}
 unsafe impl ::core::marker::Sync for EncryptedAndAuthenticatedData {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
@@ -1885,36 +1769,7 @@ unsafe impl ::windows::core::Interface for HashAlgorithmProvider {
 impl ::windows::core::RuntimeName for HashAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.HashAlgorithmProvider";
 }
-impl ::core::convert::From<HashAlgorithmProvider> for ::windows::core::IUnknown {
-    fn from(value: HashAlgorithmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HashAlgorithmProvider> for ::windows::core::IUnknown {
-    fn from(value: &HashAlgorithmProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HashAlgorithmProvider> for &::windows::core::IUnknown {
-    fn from(value: &HashAlgorithmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HashAlgorithmProvider> for ::windows::core::IInspectable {
-    fn from(value: HashAlgorithmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HashAlgorithmProvider> for ::windows::core::IInspectable {
-    fn from(value: &HashAlgorithmProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HashAlgorithmProvider> for &::windows::core::IInspectable {
-    fn from(value: &HashAlgorithmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HashAlgorithmProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HashAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for HashAlgorithmProvider {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
@@ -2122,36 +1977,7 @@ unsafe impl ::windows::core::Interface for KeyDerivationAlgorithmProvider {
 impl ::windows::core::RuntimeName for KeyDerivationAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.KeyDerivationAlgorithmProvider";
 }
-impl ::core::convert::From<KeyDerivationAlgorithmProvider> for ::windows::core::IUnknown {
-    fn from(value: KeyDerivationAlgorithmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&KeyDerivationAlgorithmProvider> for ::windows::core::IUnknown {
-    fn from(value: &KeyDerivationAlgorithmProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&KeyDerivationAlgorithmProvider> for &::windows::core::IUnknown {
-    fn from(value: &KeyDerivationAlgorithmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<KeyDerivationAlgorithmProvider> for ::windows::core::IInspectable {
-    fn from(value: KeyDerivationAlgorithmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&KeyDerivationAlgorithmProvider> for ::windows::core::IInspectable {
-    fn from(value: &KeyDerivationAlgorithmProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&KeyDerivationAlgorithmProvider> for &::windows::core::IInspectable {
-    fn from(value: &KeyDerivationAlgorithmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(KeyDerivationAlgorithmProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for KeyDerivationAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for KeyDerivationAlgorithmProvider {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
@@ -2290,36 +2116,7 @@ unsafe impl ::windows::core::Interface for KeyDerivationParameters {
 impl ::windows::core::RuntimeName for KeyDerivationParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.KeyDerivationParameters";
 }
-impl ::core::convert::From<KeyDerivationParameters> for ::windows::core::IUnknown {
-    fn from(value: KeyDerivationParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&KeyDerivationParameters> for ::windows::core::IUnknown {
-    fn from(value: &KeyDerivationParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&KeyDerivationParameters> for &::windows::core::IUnknown {
-    fn from(value: &KeyDerivationParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<KeyDerivationParameters> for ::windows::core::IInspectable {
-    fn from(value: KeyDerivationParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&KeyDerivationParameters> for ::windows::core::IInspectable {
-    fn from(value: &KeyDerivationParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&KeyDerivationParameters> for &::windows::core::IInspectable {
-    fn from(value: &KeyDerivationParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(KeyDerivationParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for KeyDerivationParameters {}
 unsafe impl ::core::marker::Sync for KeyDerivationParameters {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
@@ -2458,36 +2255,7 @@ unsafe impl ::windows::core::Interface for MacAlgorithmProvider {
 impl ::windows::core::RuntimeName for MacAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.MacAlgorithmProvider";
 }
-impl ::core::convert::From<MacAlgorithmProvider> for ::windows::core::IUnknown {
-    fn from(value: MacAlgorithmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MacAlgorithmProvider> for ::windows::core::IUnknown {
-    fn from(value: &MacAlgorithmProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MacAlgorithmProvider> for &::windows::core::IUnknown {
-    fn from(value: &MacAlgorithmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MacAlgorithmProvider> for ::windows::core::IInspectable {
-    fn from(value: MacAlgorithmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MacAlgorithmProvider> for ::windows::core::IInspectable {
-    fn from(value: &MacAlgorithmProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MacAlgorithmProvider> for &::windows::core::IInspectable {
-    fn from(value: &MacAlgorithmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MacAlgorithmProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MacAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for MacAlgorithmProvider {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
@@ -2719,36 +2487,7 @@ unsafe impl ::windows::core::Interface for SymmetricKeyAlgorithmProvider {
 impl ::windows::core::RuntimeName for SymmetricKeyAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider";
 }
-impl ::core::convert::From<SymmetricKeyAlgorithmProvider> for ::windows::core::IUnknown {
-    fn from(value: SymmetricKeyAlgorithmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SymmetricKeyAlgorithmProvider> for ::windows::core::IUnknown {
-    fn from(value: &SymmetricKeyAlgorithmProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SymmetricKeyAlgorithmProvider> for &::windows::core::IUnknown {
-    fn from(value: &SymmetricKeyAlgorithmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SymmetricKeyAlgorithmProvider> for ::windows::core::IInspectable {
-    fn from(value: SymmetricKeyAlgorithmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SymmetricKeyAlgorithmProvider> for ::windows::core::IInspectable {
-    fn from(value: &SymmetricKeyAlgorithmProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SymmetricKeyAlgorithmProvider> for &::windows::core::IInspectable {
-    fn from(value: &SymmetricKeyAlgorithmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SymmetricKeyAlgorithmProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SymmetricKeyAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for SymmetricKeyAlgorithmProvider {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]

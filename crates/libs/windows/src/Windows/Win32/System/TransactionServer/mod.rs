@@ -24,41 +24,7 @@ impl ICatalog {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ICatalog> for ::windows::core::IUnknown {
-    fn from(value: ICatalog) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ICatalog> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICatalog) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ICatalog> for ::windows::core::IUnknown {
-    fn from(value: &ICatalog) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ICatalog> for super::Com::IDispatch {
-    fn from(value: ICatalog) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ICatalog> for &'a super::Com::IDispatch {
-    fn from(value: &'a ICatalog) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ICatalog> for super::Com::IDispatch {
-    fn from(value: &ICatalog) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICatalog, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ICatalog {
     fn clone(&self) -> Self {
@@ -125,41 +91,7 @@ impl IComponentUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IComponentUtil> for ::windows::core::IUnknown {
-    fn from(value: IComponentUtil) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IComponentUtil> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IComponentUtil) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IComponentUtil> for ::windows::core::IUnknown {
-    fn from(value: &IComponentUtil) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IComponentUtil> for super::Com::IDispatch {
-    fn from(value: IComponentUtil) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IComponentUtil> for &'a super::Com::IDispatch {
-    fn from(value: &'a IComponentUtil) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IComponentUtil> for super::Com::IDispatch {
-    fn from(value: &IComponentUtil) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IComponentUtil, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IComponentUtil {
     fn clone(&self) -> Self {
@@ -218,41 +150,7 @@ impl IPackageUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IPackageUtil> for ::windows::core::IUnknown {
-    fn from(value: IPackageUtil) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IPackageUtil> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPackageUtil) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IPackageUtil> for ::windows::core::IUnknown {
-    fn from(value: &IPackageUtil) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IPackageUtil> for super::Com::IDispatch {
-    fn from(value: IPackageUtil) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IPackageUtil> for &'a super::Com::IDispatch {
-    fn from(value: &'a IPackageUtil) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IPackageUtil> for super::Com::IDispatch {
-    fn from(value: &IPackageUtil) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPackageUtil, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPackageUtil {
     fn clone(&self) -> Self {
@@ -304,41 +202,7 @@ impl IRemoteComponentUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRemoteComponentUtil> for ::windows::core::IUnknown {
-    fn from(value: IRemoteComponentUtil) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRemoteComponentUtil> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRemoteComponentUtil) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRemoteComponentUtil> for ::windows::core::IUnknown {
-    fn from(value: &IRemoteComponentUtil) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRemoteComponentUtil> for super::Com::IDispatch {
-    fn from(value: IRemoteComponentUtil) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRemoteComponentUtil> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRemoteComponentUtil) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRemoteComponentUtil> for super::Com::IDispatch {
-    fn from(value: &IRemoteComponentUtil) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRemoteComponentUtil, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRemoteComponentUtil {
     fn clone(&self) -> Self {
@@ -389,41 +253,7 @@ impl IRoleAssociationUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRoleAssociationUtil> for ::windows::core::IUnknown {
-    fn from(value: IRoleAssociationUtil) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRoleAssociationUtil> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRoleAssociationUtil) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRoleAssociationUtil> for ::windows::core::IUnknown {
-    fn from(value: &IRoleAssociationUtil) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRoleAssociationUtil> for super::Com::IDispatch {
-    fn from(value: IRoleAssociationUtil) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRoleAssociationUtil> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRoleAssociationUtil) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRoleAssociationUtil> for super::Com::IDispatch {
-    fn from(value: &IRoleAssociationUtil) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRoleAssociationUtil, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRoleAssociationUtil {
     fn clone(&self) -> Self {

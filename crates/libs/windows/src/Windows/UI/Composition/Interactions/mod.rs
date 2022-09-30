@@ -35,36 +35,7 @@ pub struct ICompositionConditionalValueStatics_Vtbl {
 #[repr(transparent)]
 pub struct ICompositionInteractionSource(::windows::core::IUnknown);
 impl ICompositionInteractionSource {}
-impl ::core::convert::From<ICompositionInteractionSource> for ::windows::core::IUnknown {
-    fn from(value: ICompositionInteractionSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICompositionInteractionSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICompositionInteractionSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionInteractionSource> for ::windows::core::IUnknown {
-    fn from(value: &ICompositionInteractionSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICompositionInteractionSource> for ::windows::core::IInspectable {
-    fn from(value: ICompositionInteractionSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICompositionInteractionSource> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ICompositionInteractionSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionInteractionSource> for ::windows::core::IInspectable {
-    fn from(value: &ICompositionInteractionSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICompositionInteractionSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ICompositionInteractionSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -634,36 +605,7 @@ impl IInteractionTrackerOwner {
         unsafe { (::windows::core::Vtable::vtable(this).ValuesChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sender), ::core::mem::transmute_copy(args)).ok() }
     }
 }
-impl ::core::convert::From<IInteractionTrackerOwner> for ::windows::core::IUnknown {
-    fn from(value: IInteractionTrackerOwner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInteractionTrackerOwner> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInteractionTrackerOwner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInteractionTrackerOwner> for ::windows::core::IUnknown {
-    fn from(value: &IInteractionTrackerOwner) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IInteractionTrackerOwner> for ::windows::core::IInspectable {
-    fn from(value: IInteractionTrackerOwner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInteractionTrackerOwner> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IInteractionTrackerOwner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInteractionTrackerOwner> for ::windows::core::IInspectable {
-    fn from(value: &IInteractionTrackerOwner) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInteractionTrackerOwner, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IInteractionTrackerOwner {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1145,36 +1087,7 @@ unsafe impl ::windows::core::Interface for CompositionConditionalValue {
 impl ::windows::core::RuntimeName for CompositionConditionalValue {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.CompositionConditionalValue";
 }
-impl ::core::convert::From<CompositionConditionalValue> for ::windows::core::IUnknown {
-    fn from(value: CompositionConditionalValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionConditionalValue> for ::windows::core::IUnknown {
-    fn from(value: &CompositionConditionalValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionConditionalValue> for &::windows::core::IUnknown {
-    fn from(value: &CompositionConditionalValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionConditionalValue> for ::windows::core::IInspectable {
-    fn from(value: CompositionConditionalValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionConditionalValue> for ::windows::core::IInspectable {
-    fn from(value: &CompositionConditionalValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionConditionalValue> for &::windows::core::IInspectable {
-    fn from(value: &CompositionConditionalValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionConditionalValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionConditionalValue> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionConditionalValue) -> ::windows::core::Result<Self> {
@@ -1420,36 +1333,7 @@ impl ::core::iter::IntoIterator for &CompositionInteractionSourceCollection {
         self.First().unwrap()
     }
 }
-impl ::core::convert::From<CompositionInteractionSourceCollection> for ::windows::core::IUnknown {
-    fn from(value: CompositionInteractionSourceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionInteractionSourceCollection> for ::windows::core::IUnknown {
-    fn from(value: &CompositionInteractionSourceCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionInteractionSourceCollection> for &::windows::core::IUnknown {
-    fn from(value: &CompositionInteractionSourceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionInteractionSourceCollection> for ::windows::core::IInspectable {
-    fn from(value: CompositionInteractionSourceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionInteractionSourceCollection> for ::windows::core::IInspectable {
-    fn from(value: &CompositionInteractionSourceCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionInteractionSourceCollection> for &::windows::core::IInspectable {
-    fn from(value: &CompositionInteractionSourceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositionInteractionSourceCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CompositionInteractionSourceCollection> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
@@ -1698,36 +1582,7 @@ unsafe impl ::windows::core::Interface for InteractionSourceConfiguration {
 impl ::windows::core::RuntimeName for InteractionSourceConfiguration {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionSourceConfiguration";
 }
-impl ::core::convert::From<InteractionSourceConfiguration> for ::windows::core::IUnknown {
-    fn from(value: InteractionSourceConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionSourceConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &InteractionSourceConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionSourceConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &InteractionSourceConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InteractionSourceConfiguration> for ::windows::core::IInspectable {
-    fn from(value: InteractionSourceConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionSourceConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &InteractionSourceConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionSourceConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &InteractionSourceConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InteractionSourceConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InteractionSourceConfiguration> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: InteractionSourceConfiguration) -> ::windows::core::Result<Self> {
@@ -2284,36 +2139,7 @@ unsafe impl ::windows::core::Interface for InteractionTracker {
 impl ::windows::core::RuntimeName for InteractionTracker {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTracker";
 }
-impl ::core::convert::From<InteractionTracker> for ::windows::core::IUnknown {
-    fn from(value: InteractionTracker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTracker> for ::windows::core::IUnknown {
-    fn from(value: &InteractionTracker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTracker> for &::windows::core::IUnknown {
-    fn from(value: &InteractionTracker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InteractionTracker> for ::windows::core::IInspectable {
-    fn from(value: InteractionTracker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTracker> for ::windows::core::IInspectable {
-    fn from(value: &InteractionTracker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTracker> for &::windows::core::IInspectable {
-    fn from(value: &InteractionTracker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InteractionTracker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InteractionTracker> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: InteractionTracker) -> ::windows::core::Result<Self> {
@@ -2423,36 +2249,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerCustomAnimationStat
 impl ::windows::core::RuntimeName for InteractionTrackerCustomAnimationStateEnteredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerCustomAnimationStateEnteredArgs";
 }
-impl ::core::convert::From<InteractionTrackerCustomAnimationStateEnteredArgs> for ::windows::core::IUnknown {
-    fn from(value: InteractionTrackerCustomAnimationStateEnteredArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerCustomAnimationStateEnteredArgs> for ::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerCustomAnimationStateEnteredArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerCustomAnimationStateEnteredArgs> for &::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerCustomAnimationStateEnteredArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InteractionTrackerCustomAnimationStateEnteredArgs> for ::windows::core::IInspectable {
-    fn from(value: InteractionTrackerCustomAnimationStateEnteredArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerCustomAnimationStateEnteredArgs> for ::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerCustomAnimationStateEnteredArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerCustomAnimationStateEnteredArgs> for &::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerCustomAnimationStateEnteredArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InteractionTrackerCustomAnimationStateEnteredArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InteractionTrackerCustomAnimationStateEnteredArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerCustomAnimationStateEnteredArgs {}
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -2506,36 +2303,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerIdleStateEnteredArg
 impl ::windows::core::RuntimeName for InteractionTrackerIdleStateEnteredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerIdleStateEnteredArgs";
 }
-impl ::core::convert::From<InteractionTrackerIdleStateEnteredArgs> for ::windows::core::IUnknown {
-    fn from(value: InteractionTrackerIdleStateEnteredArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerIdleStateEnteredArgs> for ::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerIdleStateEnteredArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerIdleStateEnteredArgs> for &::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerIdleStateEnteredArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InteractionTrackerIdleStateEnteredArgs> for ::windows::core::IInspectable {
-    fn from(value: InteractionTrackerIdleStateEnteredArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerIdleStateEnteredArgs> for ::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerIdleStateEnteredArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerIdleStateEnteredArgs> for &::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerIdleStateEnteredArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InteractionTrackerIdleStateEnteredArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InteractionTrackerIdleStateEnteredArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerIdleStateEnteredArgs {}
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -2673,36 +2441,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerInertiaModifier {
 impl ::windows::core::RuntimeName for InteractionTrackerInertiaModifier {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaModifier";
 }
-impl ::core::convert::From<InteractionTrackerInertiaModifier> for ::windows::core::IUnknown {
-    fn from(value: InteractionTrackerInertiaModifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInertiaModifier> for ::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerInertiaModifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInertiaModifier> for &::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerInertiaModifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InteractionTrackerInertiaModifier> for ::windows::core::IInspectable {
-    fn from(value: InteractionTrackerInertiaModifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInertiaModifier> for ::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerInertiaModifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInertiaModifier> for &::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerInertiaModifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InteractionTrackerInertiaModifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InteractionTrackerInertiaModifier> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: InteractionTrackerInertiaModifier) -> ::windows::core::Result<Self> {
@@ -2929,36 +2668,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerInertiaMotion {
 impl ::windows::core::RuntimeName for InteractionTrackerInertiaMotion {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaMotion";
 }
-impl ::core::convert::From<InteractionTrackerInertiaMotion> for ::windows::core::IUnknown {
-    fn from(value: InteractionTrackerInertiaMotion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInertiaMotion> for ::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerInertiaMotion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInertiaMotion> for &::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerInertiaMotion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InteractionTrackerInertiaMotion> for ::windows::core::IInspectable {
-    fn from(value: InteractionTrackerInertiaMotion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInertiaMotion> for ::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerInertiaMotion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInertiaMotion> for &::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerInertiaMotion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InteractionTrackerInertiaMotion, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InteractionTrackerInertiaMotion> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: InteractionTrackerInertiaMotion) -> ::windows::core::Result<Self> {
@@ -3203,36 +2913,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerInertiaNaturalMotio
 impl ::windows::core::RuntimeName for InteractionTrackerInertiaNaturalMotion {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaNaturalMotion";
 }
-impl ::core::convert::From<InteractionTrackerInertiaNaturalMotion> for ::windows::core::IUnknown {
-    fn from(value: InteractionTrackerInertiaNaturalMotion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for ::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerInertiaNaturalMotion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for &::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerInertiaNaturalMotion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InteractionTrackerInertiaNaturalMotion> for ::windows::core::IInspectable {
-    fn from(value: InteractionTrackerInertiaNaturalMotion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for ::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerInertiaNaturalMotion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for &::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerInertiaNaturalMotion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InteractionTrackerInertiaNaturalMotion, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InteractionTrackerInertiaNaturalMotion> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: InteractionTrackerInertiaNaturalMotion) -> ::windows::core::Result<Self> {
@@ -3474,36 +3155,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerInertiaRestingValue
 impl ::windows::core::RuntimeName for InteractionTrackerInertiaRestingValue {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaRestingValue";
 }
-impl ::core::convert::From<InteractionTrackerInertiaRestingValue> for ::windows::core::IUnknown {
-    fn from(value: InteractionTrackerInertiaRestingValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInertiaRestingValue> for ::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerInertiaRestingValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInertiaRestingValue> for &::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerInertiaRestingValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InteractionTrackerInertiaRestingValue> for ::windows::core::IInspectable {
-    fn from(value: InteractionTrackerInertiaRestingValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInertiaRestingValue> for ::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerInertiaRestingValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInertiaRestingValue> for &::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerInertiaRestingValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InteractionTrackerInertiaRestingValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InteractionTrackerInertiaRestingValue> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: InteractionTrackerInertiaRestingValue) -> ::windows::core::Result<Self> {
@@ -3685,36 +3337,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerInertiaStateEntered
 impl ::windows::core::RuntimeName for InteractionTrackerInertiaStateEnteredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaStateEnteredArgs";
 }
-impl ::core::convert::From<InteractionTrackerInertiaStateEnteredArgs> for ::windows::core::IUnknown {
-    fn from(value: InteractionTrackerInertiaStateEnteredArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInertiaStateEnteredArgs> for ::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerInertiaStateEnteredArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInertiaStateEnteredArgs> for &::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerInertiaStateEnteredArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InteractionTrackerInertiaStateEnteredArgs> for ::windows::core::IInspectable {
-    fn from(value: InteractionTrackerInertiaStateEnteredArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInertiaStateEnteredArgs> for ::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerInertiaStateEnteredArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInertiaStateEnteredArgs> for &::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerInertiaStateEnteredArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InteractionTrackerInertiaStateEnteredArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InteractionTrackerInertiaStateEnteredArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerInertiaStateEnteredArgs {}
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -3768,36 +3391,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerInteractingStateEnt
 impl ::windows::core::RuntimeName for InteractionTrackerInteractingStateEnteredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInteractingStateEnteredArgs";
 }
-impl ::core::convert::From<InteractionTrackerInteractingStateEnteredArgs> for ::windows::core::IUnknown {
-    fn from(value: InteractionTrackerInteractingStateEnteredArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInteractingStateEnteredArgs> for ::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerInteractingStateEnteredArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInteractingStateEnteredArgs> for &::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerInteractingStateEnteredArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InteractionTrackerInteractingStateEnteredArgs> for ::windows::core::IInspectable {
-    fn from(value: InteractionTrackerInteractingStateEnteredArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInteractingStateEnteredArgs> for ::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerInteractingStateEnteredArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerInteractingStateEnteredArgs> for &::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerInteractingStateEnteredArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InteractionTrackerInteractingStateEnteredArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InteractionTrackerInteractingStateEnteredArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerInteractingStateEnteredArgs {}
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -3844,36 +3438,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerRequestIgnoredArgs 
 impl ::windows::core::RuntimeName for InteractionTrackerRequestIgnoredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerRequestIgnoredArgs";
 }
-impl ::core::convert::From<InteractionTrackerRequestIgnoredArgs> for ::windows::core::IUnknown {
-    fn from(value: InteractionTrackerRequestIgnoredArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerRequestIgnoredArgs> for ::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerRequestIgnoredArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerRequestIgnoredArgs> for &::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerRequestIgnoredArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InteractionTrackerRequestIgnoredArgs> for ::windows::core::IInspectable {
-    fn from(value: InteractionTrackerRequestIgnoredArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerRequestIgnoredArgs> for ::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerRequestIgnoredArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerRequestIgnoredArgs> for &::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerRequestIgnoredArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InteractionTrackerRequestIgnoredArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InteractionTrackerRequestIgnoredArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerRequestIgnoredArgs {}
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -3936,36 +3501,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerValuesChangedArgs {
 impl ::windows::core::RuntimeName for InteractionTrackerValuesChangedArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerValuesChangedArgs";
 }
-impl ::core::convert::From<InteractionTrackerValuesChangedArgs> for ::windows::core::IUnknown {
-    fn from(value: InteractionTrackerValuesChangedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerValuesChangedArgs> for ::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerValuesChangedArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerValuesChangedArgs> for &::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerValuesChangedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InteractionTrackerValuesChangedArgs> for ::windows::core::IInspectable {
-    fn from(value: InteractionTrackerValuesChangedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerValuesChangedArgs> for ::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerValuesChangedArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerValuesChangedArgs> for &::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerValuesChangedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InteractionTrackerValuesChangedArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InteractionTrackerValuesChangedArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerValuesChangedArgs {}
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -4103,36 +3639,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerVector2InertiaModif
 impl ::windows::core::RuntimeName for InteractionTrackerVector2InertiaModifier {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaModifier";
 }
-impl ::core::convert::From<InteractionTrackerVector2InertiaModifier> for ::windows::core::IUnknown {
-    fn from(value: InteractionTrackerVector2InertiaModifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerVector2InertiaModifier> for ::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerVector2InertiaModifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerVector2InertiaModifier> for &::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerVector2InertiaModifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InteractionTrackerVector2InertiaModifier> for ::windows::core::IInspectable {
-    fn from(value: InteractionTrackerVector2InertiaModifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerVector2InertiaModifier> for ::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerVector2InertiaModifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerVector2InertiaModifier> for &::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerVector2InertiaModifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InteractionTrackerVector2InertiaModifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InteractionTrackerVector2InertiaModifier> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: InteractionTrackerVector2InertiaModifier) -> ::windows::core::Result<Self> {
@@ -4362,36 +3869,7 @@ unsafe impl ::windows::core::Interface for InteractionTrackerVector2InertiaNatur
 impl ::windows::core::RuntimeName for InteractionTrackerVector2InertiaNaturalMotion {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaNaturalMotion";
 }
-impl ::core::convert::From<InteractionTrackerVector2InertiaNaturalMotion> for ::windows::core::IUnknown {
-    fn from(value: InteractionTrackerVector2InertiaNaturalMotion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for ::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerVector2InertiaNaturalMotion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for &::windows::core::IUnknown {
-    fn from(value: &InteractionTrackerVector2InertiaNaturalMotion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InteractionTrackerVector2InertiaNaturalMotion> for ::windows::core::IInspectable {
-    fn from(value: InteractionTrackerVector2InertiaNaturalMotion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for ::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerVector2InertiaNaturalMotion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for &::windows::core::IInspectable {
-    fn from(value: &InteractionTrackerVector2InertiaNaturalMotion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InteractionTrackerVector2InertiaNaturalMotion, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InteractionTrackerVector2InertiaNaturalMotion> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: InteractionTrackerVector2InertiaNaturalMotion) -> ::windows::core::Result<Self> {
@@ -4846,36 +4324,7 @@ unsafe impl ::windows::core::Interface for VisualInteractionSource {
 impl ::windows::core::RuntimeName for VisualInteractionSource {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.VisualInteractionSource";
 }
-impl ::core::convert::From<VisualInteractionSource> for ::windows::core::IUnknown {
-    fn from(value: VisualInteractionSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VisualInteractionSource> for ::windows::core::IUnknown {
-    fn from(value: &VisualInteractionSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VisualInteractionSource> for &::windows::core::IUnknown {
-    fn from(value: &VisualInteractionSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VisualInteractionSource> for ::windows::core::IInspectable {
-    fn from(value: VisualInteractionSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VisualInteractionSource> for ::windows::core::IInspectable {
-    fn from(value: &VisualInteractionSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VisualInteractionSource> for &::windows::core::IInspectable {
-    fn from(value: &VisualInteractionSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VisualInteractionSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VisualInteractionSource> for super::IAnimationObject {
     type Error = ::windows::core::Error;
     fn try_from(value: VisualInteractionSource) -> ::windows::core::Result<Self> {

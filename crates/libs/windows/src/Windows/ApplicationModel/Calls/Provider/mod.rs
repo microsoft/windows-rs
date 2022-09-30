@@ -209,36 +209,7 @@ unsafe impl ::windows::core::Interface for PhoneCallOrigin {
 impl ::windows::core::RuntimeName for PhoneCallOrigin {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Provider.PhoneCallOrigin";
 }
-impl ::core::convert::From<PhoneCallOrigin> for ::windows::core::IUnknown {
-    fn from(value: PhoneCallOrigin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneCallOrigin> for ::windows::core::IUnknown {
-    fn from(value: &PhoneCallOrigin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneCallOrigin> for &::windows::core::IUnknown {
-    fn from(value: &PhoneCallOrigin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhoneCallOrigin> for ::windows::core::IInspectable {
-    fn from(value: PhoneCallOrigin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneCallOrigin> for ::windows::core::IInspectable {
-    fn from(value: &PhoneCallOrigin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneCallOrigin> for &::windows::core::IInspectable {
-    fn from(value: &PhoneCallOrigin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhoneCallOrigin, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneCallOrigin {}
 unsafe impl ::core::marker::Sync for PhoneCallOrigin {}
 #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]

@@ -2393,21 +2393,7 @@ impl ICcgDomainAuthCredentials {
         (::windows::core::Vtable::vtable(self).GetPasswordCredentials)(::windows::core::Vtable::as_raw(self), plugininput.into(), ::core::mem::transmute(domainname), ::core::mem::transmute(username), ::core::mem::transmute(password)).ok()
     }
 }
-impl ::core::convert::From<ICcgDomainAuthCredentials> for ::windows::core::IUnknown {
-    fn from(value: ICcgDomainAuthCredentials) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICcgDomainAuthCredentials> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICcgDomainAuthCredentials) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICcgDomainAuthCredentials> for ::windows::core::IUnknown {
-    fn from(value: &ICcgDomainAuthCredentials) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICcgDomainAuthCredentials, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICcgDomainAuthCredentials {
     fn clone(&self) -> Self {
         Self(self.0.clone())

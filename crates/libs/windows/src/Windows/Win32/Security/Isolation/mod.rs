@@ -140,21 +140,7 @@ impl IIsolatedAppLauncher {
         (::windows::core::Vtable::vtable(self).Launch)(::windows::core::Vtable::as_raw(self), appusermodelid.into(), arguments.into(), ::core::mem::transmute(telemetryparameters)).ok()
     }
 }
-impl ::core::convert::From<IIsolatedAppLauncher> for ::windows::core::IUnknown {
-    fn from(value: IIsolatedAppLauncher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IIsolatedAppLauncher> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IIsolatedAppLauncher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IIsolatedAppLauncher> for ::windows::core::IUnknown {
-    fn from(value: &IIsolatedAppLauncher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IIsolatedAppLauncher, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IIsolatedAppLauncher {
     fn clone(&self) -> Self {
         Self(self.0.clone())

@@ -115,36 +115,7 @@ impl INumberFormatter {
         }
     }
 }
-impl ::core::convert::From<INumberFormatter> for ::windows::core::IUnknown {
-    fn from(value: INumberFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INumberFormatter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INumberFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INumberFormatter> for ::windows::core::IUnknown {
-    fn from(value: &INumberFormatter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<INumberFormatter> for ::windows::core::IInspectable {
-    fn from(value: INumberFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INumberFormatter> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a INumberFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INumberFormatter> for ::windows::core::IInspectable {
-    fn from(value: &INumberFormatter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INumberFormatter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for INumberFormatter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -208,36 +179,7 @@ impl INumberFormatter2 {
         }
     }
 }
-impl ::core::convert::From<INumberFormatter2> for ::windows::core::IUnknown {
-    fn from(value: INumberFormatter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INumberFormatter2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INumberFormatter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INumberFormatter2> for ::windows::core::IUnknown {
-    fn from(value: &INumberFormatter2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<INumberFormatter2> for ::windows::core::IInspectable {
-    fn from(value: INumberFormatter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INumberFormatter2> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a INumberFormatter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INumberFormatter2> for ::windows::core::IInspectable {
-    fn from(value: &INumberFormatter2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INumberFormatter2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for INumberFormatter2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -365,36 +307,7 @@ impl INumberFormatterOptions {
         }
     }
 }
-impl ::core::convert::From<INumberFormatterOptions> for ::windows::core::IUnknown {
-    fn from(value: INumberFormatterOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INumberFormatterOptions> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INumberFormatterOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INumberFormatterOptions> for ::windows::core::IUnknown {
-    fn from(value: &INumberFormatterOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<INumberFormatterOptions> for ::windows::core::IInspectable {
-    fn from(value: INumberFormatterOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INumberFormatterOptions> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a INumberFormatterOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INumberFormatterOptions> for ::windows::core::IInspectable {
-    fn from(value: &INumberFormatterOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INumberFormatterOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for INumberFormatterOptions {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -478,36 +391,7 @@ impl INumberParser {
         }
     }
 }
-impl ::core::convert::From<INumberParser> for ::windows::core::IUnknown {
-    fn from(value: INumberParser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INumberParser> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INumberParser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INumberParser> for ::windows::core::IUnknown {
-    fn from(value: &INumberParser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<INumberParser> for ::windows::core::IInspectable {
-    fn from(value: INumberParser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INumberParser> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a INumberParser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INumberParser> for ::windows::core::IInspectable {
-    fn from(value: &INumberParser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INumberParser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for INumberParser {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -601,36 +485,7 @@ impl INumberRounder {
         }
     }
 }
-impl ::core::convert::From<INumberRounder> for ::windows::core::IUnknown {
-    fn from(value: INumberRounder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INumberRounder> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INumberRounder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INumberRounder> for ::windows::core::IUnknown {
-    fn from(value: &INumberRounder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<INumberRounder> for ::windows::core::IInspectable {
-    fn from(value: INumberRounder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INumberRounder> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a INumberRounder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INumberRounder> for ::windows::core::IInspectable {
-    fn from(value: &INumberRounder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INumberRounder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for INumberRounder {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -691,36 +546,7 @@ impl INumberRounderOption {
         unsafe { (::windows::core::Vtable::vtable(this).SetNumberRounder)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
-impl ::core::convert::From<INumberRounderOption> for ::windows::core::IUnknown {
-    fn from(value: INumberRounderOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INumberRounderOption> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INumberRounderOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INumberRounderOption> for ::windows::core::IUnknown {
-    fn from(value: &INumberRounderOption) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<INumberRounderOption> for ::windows::core::IInspectable {
-    fn from(value: INumberRounderOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INumberRounderOption> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a INumberRounderOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INumberRounderOption> for ::windows::core::IInspectable {
-    fn from(value: &INumberRounderOption) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INumberRounderOption, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for INumberRounderOption {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -849,36 +675,7 @@ impl ISignedZeroOption {
         unsafe { (::windows::core::Vtable::vtable(this).SetIsZeroSigned)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
-impl ::core::convert::From<ISignedZeroOption> for ::windows::core::IUnknown {
-    fn from(value: ISignedZeroOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISignedZeroOption> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISignedZeroOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISignedZeroOption> for ::windows::core::IUnknown {
-    fn from(value: &ISignedZeroOption) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISignedZeroOption> for ::windows::core::IInspectable {
-    fn from(value: ISignedZeroOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISignedZeroOption> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISignedZeroOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISignedZeroOption> for ::windows::core::IInspectable {
-    fn from(value: &ISignedZeroOption) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISignedZeroOption, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ISignedZeroOption {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -949,36 +746,7 @@ impl ISignificantDigitsOption {
         unsafe { (::windows::core::Vtable::vtable(this).SetSignificantDigits)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
-impl ::core::convert::From<ISignificantDigitsOption> for ::windows::core::IUnknown {
-    fn from(value: ISignificantDigitsOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISignificantDigitsOption> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISignificantDigitsOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISignificantDigitsOption> for ::windows::core::IUnknown {
-    fn from(value: &ISignificantDigitsOption) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISignificantDigitsOption> for ::windows::core::IInspectable {
-    fn from(value: ISignificantDigitsOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISignificantDigitsOption> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISignificantDigitsOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISignificantDigitsOption> for ::windows::core::IInspectable {
-    fn from(value: &ISignificantDigitsOption) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISignificantDigitsOption, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ISignificantDigitsOption {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1294,36 +1062,7 @@ unsafe impl ::windows::core::Interface for CurrencyFormatter {
 impl ::windows::core::RuntimeName for CurrencyFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.CurrencyFormatter";
 }
-impl ::core::convert::From<CurrencyFormatter> for ::windows::core::IUnknown {
-    fn from(value: CurrencyFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CurrencyFormatter> for ::windows::core::IUnknown {
-    fn from(value: &CurrencyFormatter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CurrencyFormatter> for &::windows::core::IUnknown {
-    fn from(value: &CurrencyFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CurrencyFormatter> for ::windows::core::IInspectable {
-    fn from(value: CurrencyFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CurrencyFormatter> for ::windows::core::IInspectable {
-    fn from(value: &CurrencyFormatter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CurrencyFormatter> for &::windows::core::IInspectable {
-    fn from(value: &CurrencyFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CurrencyFormatter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CurrencyFormatter> for INumberFormatter {
     type Error = ::windows::core::Error;
     fn try_from(value: CurrencyFormatter) -> ::windows::core::Result<Self> {
@@ -1711,36 +1450,7 @@ unsafe impl ::windows::core::Interface for DecimalFormatter {
 impl ::windows::core::RuntimeName for DecimalFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.DecimalFormatter";
 }
-impl ::core::convert::From<DecimalFormatter> for ::windows::core::IUnknown {
-    fn from(value: DecimalFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DecimalFormatter> for ::windows::core::IUnknown {
-    fn from(value: &DecimalFormatter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DecimalFormatter> for &::windows::core::IUnknown {
-    fn from(value: &DecimalFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DecimalFormatter> for ::windows::core::IInspectable {
-    fn from(value: DecimalFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DecimalFormatter> for ::windows::core::IInspectable {
-    fn from(value: &DecimalFormatter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DecimalFormatter> for &::windows::core::IInspectable {
-    fn from(value: &DecimalFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DecimalFormatter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DecimalFormatter> for INumberFormatter {
     type Error = ::windows::core::Error;
     fn try_from(value: DecimalFormatter) -> ::windows::core::Result<Self> {
@@ -1984,36 +1694,7 @@ unsafe impl ::windows::core::Interface for IncrementNumberRounder {
 impl ::windows::core::RuntimeName for IncrementNumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.IncrementNumberRounder";
 }
-impl ::core::convert::From<IncrementNumberRounder> for ::windows::core::IUnknown {
-    fn from(value: IncrementNumberRounder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IncrementNumberRounder> for ::windows::core::IUnknown {
-    fn from(value: &IncrementNumberRounder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IncrementNumberRounder> for &::windows::core::IUnknown {
-    fn from(value: &IncrementNumberRounder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IncrementNumberRounder> for ::windows::core::IInspectable {
-    fn from(value: IncrementNumberRounder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IncrementNumberRounder> for ::windows::core::IInspectable {
-    fn from(value: &IncrementNumberRounder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IncrementNumberRounder> for &::windows::core::IInspectable {
-    fn from(value: &IncrementNumberRounder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IncrementNumberRounder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IncrementNumberRounder> for INumberRounder {
     type Error = ::windows::core::Error;
     fn try_from(value: IncrementNumberRounder) -> ::windows::core::Result<Self> {
@@ -2130,36 +1811,7 @@ unsafe impl ::windows::core::Interface for NumeralSystemTranslator {
 impl ::windows::core::RuntimeName for NumeralSystemTranslator {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.NumeralSystemTranslator";
 }
-impl ::core::convert::From<NumeralSystemTranslator> for ::windows::core::IUnknown {
-    fn from(value: NumeralSystemTranslator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NumeralSystemTranslator> for ::windows::core::IUnknown {
-    fn from(value: &NumeralSystemTranslator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NumeralSystemTranslator> for &::windows::core::IUnknown {
-    fn from(value: &NumeralSystemTranslator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NumeralSystemTranslator> for ::windows::core::IInspectable {
-    fn from(value: NumeralSystemTranslator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NumeralSystemTranslator> for ::windows::core::IInspectable {
-    fn from(value: &NumeralSystemTranslator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NumeralSystemTranslator> for &::windows::core::IInspectable {
-    fn from(value: &NumeralSystemTranslator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NumeralSystemTranslator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NumeralSystemTranslator {}
 unsafe impl ::core::marker::Sync for NumeralSystemTranslator {}
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
@@ -2414,36 +2066,7 @@ unsafe impl ::windows::core::Interface for PercentFormatter {
 impl ::windows::core::RuntimeName for PercentFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.PercentFormatter";
 }
-impl ::core::convert::From<PercentFormatter> for ::windows::core::IUnknown {
-    fn from(value: PercentFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PercentFormatter> for ::windows::core::IUnknown {
-    fn from(value: &PercentFormatter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PercentFormatter> for &::windows::core::IUnknown {
-    fn from(value: &PercentFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PercentFormatter> for ::windows::core::IInspectable {
-    fn from(value: PercentFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PercentFormatter> for ::windows::core::IInspectable {
-    fn from(value: &PercentFormatter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PercentFormatter> for &::windows::core::IInspectable {
-    fn from(value: &PercentFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PercentFormatter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PercentFormatter> for INumberFormatter {
     type Error = ::windows::core::Error;
     fn try_from(value: PercentFormatter) -> ::windows::core::Result<Self> {
@@ -2831,36 +2454,7 @@ unsafe impl ::windows::core::Interface for PermilleFormatter {
 impl ::windows::core::RuntimeName for PermilleFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.PermilleFormatter";
 }
-impl ::core::convert::From<PermilleFormatter> for ::windows::core::IUnknown {
-    fn from(value: PermilleFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PermilleFormatter> for ::windows::core::IUnknown {
-    fn from(value: &PermilleFormatter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PermilleFormatter> for &::windows::core::IUnknown {
-    fn from(value: &PermilleFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PermilleFormatter> for ::windows::core::IInspectable {
-    fn from(value: PermilleFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PermilleFormatter> for ::windows::core::IInspectable {
-    fn from(value: &PermilleFormatter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PermilleFormatter> for &::windows::core::IInspectable {
-    fn from(value: &PermilleFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PermilleFormatter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PermilleFormatter> for INumberFormatter {
     type Error = ::windows::core::Error;
     fn try_from(value: PermilleFormatter) -> ::windows::core::Result<Self> {
@@ -3104,36 +2698,7 @@ unsafe impl ::windows::core::Interface for SignificantDigitsNumberRounder {
 impl ::windows::core::RuntimeName for SignificantDigitsNumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.SignificantDigitsNumberRounder";
 }
-impl ::core::convert::From<SignificantDigitsNumberRounder> for ::windows::core::IUnknown {
-    fn from(value: SignificantDigitsNumberRounder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SignificantDigitsNumberRounder> for ::windows::core::IUnknown {
-    fn from(value: &SignificantDigitsNumberRounder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SignificantDigitsNumberRounder> for &::windows::core::IUnknown {
-    fn from(value: &SignificantDigitsNumberRounder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SignificantDigitsNumberRounder> for ::windows::core::IInspectable {
-    fn from(value: SignificantDigitsNumberRounder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SignificantDigitsNumberRounder> for ::windows::core::IInspectable {
-    fn from(value: &SignificantDigitsNumberRounder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SignificantDigitsNumberRounder> for &::windows::core::IInspectable {
-    fn from(value: &SignificantDigitsNumberRounder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SignificantDigitsNumberRounder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SignificantDigitsNumberRounder> for INumberRounder {
     type Error = ::windows::core::Error;
     fn try_from(value: SignificantDigitsNumberRounder) -> ::windows::core::Result<Self> {

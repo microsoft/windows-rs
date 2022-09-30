@@ -830,21 +830,7 @@ impl IDot11AdHocInterface {
         (::windows::core::Vtable::vtable(self).GetStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstate)).ok()
     }
 }
-impl ::core::convert::From<IDot11AdHocInterface> for ::windows::core::IUnknown {
-    fn from(value: IDot11AdHocInterface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDot11AdHocInterface> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDot11AdHocInterface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDot11AdHocInterface> for ::windows::core::IUnknown {
-    fn from(value: &IDot11AdHocInterface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDot11AdHocInterface, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDot11AdHocInterface {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -889,21 +875,7 @@ impl IDot11AdHocInterfaceNotificationSink {
         (::windows::core::Vtable::vtable(self).OnConnectionStatusChange)(::windows::core::Vtable::as_raw(self), estatus).ok()
     }
 }
-impl ::core::convert::From<IDot11AdHocInterfaceNotificationSink> for ::windows::core::IUnknown {
-    fn from(value: IDot11AdHocInterfaceNotificationSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDot11AdHocInterfaceNotificationSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDot11AdHocInterfaceNotificationSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDot11AdHocInterfaceNotificationSink> for ::windows::core::IUnknown {
-    fn from(value: &IDot11AdHocInterfaceNotificationSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDot11AdHocInterfaceNotificationSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDot11AdHocInterfaceNotificationSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -969,21 +941,7 @@ impl IDot11AdHocManager {
         (::windows::core::Vtable::vtable(self).GetNetwork)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(networksignature), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDot11AdHocNetwork>(result__)
     }
 }
-impl ::core::convert::From<IDot11AdHocManager> for ::windows::core::IUnknown {
-    fn from(value: IDot11AdHocManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDot11AdHocManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDot11AdHocManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDot11AdHocManager> for ::windows::core::IUnknown {
-    fn from(value: &IDot11AdHocManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDot11AdHocManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDot11AdHocManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1042,21 +1000,7 @@ impl IDot11AdHocManagerNotificationSink {
         (::windows::core::Vtable::vtable(self).OnInterfaceRemove)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(signature)).ok()
     }
 }
-impl ::core::convert::From<IDot11AdHocManagerNotificationSink> for ::windows::core::IUnknown {
-    fn from(value: IDot11AdHocManagerNotificationSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDot11AdHocManagerNotificationSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDot11AdHocManagerNotificationSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDot11AdHocManagerNotificationSink> for ::windows::core::IUnknown {
-    fn from(value: &IDot11AdHocManagerNotificationSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDot11AdHocManagerNotificationSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDot11AdHocManagerNotificationSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1140,21 +1084,7 @@ impl IDot11AdHocNetwork {
         (::windows::core::Vtable::vtable(self).Disconnect)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDot11AdHocNetwork> for ::windows::core::IUnknown {
-    fn from(value: IDot11AdHocNetwork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDot11AdHocNetwork> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDot11AdHocNetwork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDot11AdHocNetwork> for ::windows::core::IUnknown {
-    fn from(value: &IDot11AdHocNetwork) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDot11AdHocNetwork, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDot11AdHocNetwork {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1208,21 +1138,7 @@ impl IDot11AdHocNetworkNotificationSink {
         (::windows::core::Vtable::vtable(self).OnConnectFail)(::windows::core::Vtable::as_raw(self), efailreason).ok()
     }
 }
-impl ::core::convert::From<IDot11AdHocNetworkNotificationSink> for ::windows::core::IUnknown {
-    fn from(value: IDot11AdHocNetworkNotificationSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDot11AdHocNetworkNotificationSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDot11AdHocNetworkNotificationSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDot11AdHocNetworkNotificationSink> for ::windows::core::IUnknown {
-    fn from(value: &IDot11AdHocNetworkNotificationSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDot11AdHocNetworkNotificationSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDot11AdHocNetworkNotificationSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1263,21 +1179,7 @@ impl IDot11AdHocSecuritySettings {
         (::windows::core::Vtable::vtable(self).GetDot11CipherAlgorithm)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcipher)).ok()
     }
 }
-impl ::core::convert::From<IDot11AdHocSecuritySettings> for ::windows::core::IUnknown {
-    fn from(value: IDot11AdHocSecuritySettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDot11AdHocSecuritySettings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDot11AdHocSecuritySettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDot11AdHocSecuritySettings> for ::windows::core::IUnknown {
-    fn from(value: &IDot11AdHocSecuritySettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDot11AdHocSecuritySettings, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDot11AdHocSecuritySettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1325,21 +1227,7 @@ impl IEnumDot11AdHocInterfaces {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumDot11AdHocInterfaces>(result__)
     }
 }
-impl ::core::convert::From<IEnumDot11AdHocInterfaces> for ::windows::core::IUnknown {
-    fn from(value: IEnumDot11AdHocInterfaces) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumDot11AdHocInterfaces> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumDot11AdHocInterfaces) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumDot11AdHocInterfaces> for ::windows::core::IUnknown {
-    fn from(value: &IEnumDot11AdHocInterfaces) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumDot11AdHocInterfaces, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumDot11AdHocInterfaces {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1389,21 +1277,7 @@ impl IEnumDot11AdHocNetworks {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumDot11AdHocNetworks>(result__)
     }
 }
-impl ::core::convert::From<IEnumDot11AdHocNetworks> for ::windows::core::IUnknown {
-    fn from(value: IEnumDot11AdHocNetworks) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumDot11AdHocNetworks> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumDot11AdHocNetworks) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumDot11AdHocNetworks> for ::windows::core::IUnknown {
-    fn from(value: &IEnumDot11AdHocNetworks) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumDot11AdHocNetworks, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumDot11AdHocNetworks {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1453,21 +1327,7 @@ impl IEnumDot11AdHocSecuritySettings {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumDot11AdHocSecuritySettings>(result__)
     }
 }
-impl ::core::convert::From<IEnumDot11AdHocSecuritySettings> for ::windows::core::IUnknown {
-    fn from(value: IEnumDot11AdHocSecuritySettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumDot11AdHocSecuritySettings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumDot11AdHocSecuritySettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumDot11AdHocSecuritySettings> for ::windows::core::IUnknown {
-    fn from(value: &IEnumDot11AdHocSecuritySettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumDot11AdHocSecuritySettings, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumDot11AdHocSecuritySettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())

@@ -920,21 +920,7 @@ impl IBindCallbackRedirect {
         (::windows::core::Vtable::vtable(self).Redirect)(::windows::core::Vtable::as_raw(self), lpcurl.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
 }
-impl ::core::convert::From<IBindCallbackRedirect> for ::windows::core::IUnknown {
-    fn from(value: IBindCallbackRedirect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBindCallbackRedirect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBindCallbackRedirect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBindCallbackRedirect> for ::windows::core::IUnknown {
-    fn from(value: &IBindCallbackRedirect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBindCallbackRedirect, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IBindCallbackRedirect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -972,21 +958,7 @@ impl IBindHttpSecurity {
         (::windows::core::Vtable::vtable(self).GetIgnoreCertMask)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IBindHttpSecurity> for ::windows::core::IUnknown {
-    fn from(value: IBindHttpSecurity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBindHttpSecurity> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBindHttpSecurity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBindHttpSecurity> for ::windows::core::IUnknown {
-    fn from(value: &IBindHttpSecurity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBindHttpSecurity, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IBindHttpSecurity {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1028,21 +1000,7 @@ impl IBindProtocol {
         (::windows::core::Vtable::vtable(self).CreateBinding)(::windows::core::Vtable::as_raw(self), szurl.into(), pbc.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IBinding>(result__)
     }
 }
-impl ::core::convert::From<IBindProtocol> for ::windows::core::IUnknown {
-    fn from(value: IBindProtocol) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBindProtocol> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBindProtocol) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBindProtocol> for ::windows::core::IUnknown {
-    fn from(value: &IBindProtocol) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBindProtocol, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IBindProtocol {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1083,21 +1041,7 @@ impl ICatalogFileInfo {
         (::windows::core::Vtable::vtable(self).GetJavaTrust)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppjavatrust)).ok()
     }
 }
-impl ::core::convert::From<ICatalogFileInfo> for ::windows::core::IUnknown {
-    fn from(value: ICatalogFileInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICatalogFileInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICatalogFileInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICatalogFileInfo> for ::windows::core::IUnknown {
-    fn from(value: &ICatalogFileInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICatalogFileInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICatalogFileInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1145,36 +1089,7 @@ impl ICodeInstall {
         (::windows::core::Vtable::vtable(self).OnCodeInstallProblem)(::windows::core::Vtable::as_raw(self), ulstatuscode, szdestination.into(), szsource.into(), dwreserved).ok()
     }
 }
-impl ::core::convert::From<ICodeInstall> for ::windows::core::IUnknown {
-    fn from(value: ICodeInstall) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICodeInstall> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICodeInstall) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICodeInstall> for ::windows::core::IUnknown {
-    fn from(value: &ICodeInstall) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICodeInstall> for IWindowForBindingUI {
-    fn from(value: ICodeInstall) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICodeInstall> for &'a IWindowForBindingUI {
-    fn from(value: &'a ICodeInstall) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICodeInstall> for IWindowForBindingUI {
-    fn from(value: &ICodeInstall) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICodeInstall, ::windows::core::IUnknown, IWindowForBindingUI);
 impl ::core::clone::Clone for ICodeInstall {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1217,21 +1132,7 @@ impl IDataFilter {
         (::windows::core::Vtable::vtable(self).SetEncodingLevel)(::windows::core::Vtable::as_raw(self), dwenclevel).ok()
     }
 }
-impl ::core::convert::From<IDataFilter> for ::windows::core::IUnknown {
-    fn from(value: IDataFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDataFilter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDataFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDataFilter> for ::windows::core::IUnknown {
-    fn from(value: &IDataFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDataFilter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDataFilter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1283,21 +1184,7 @@ impl IEncodingFilterFactory {
         (::windows::core::Vtable::vtable(self).GetDefaultFilter)(::windows::core::Vtable::as_raw(self), pwzcodein.into(), pwzcodeout.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDataFilter>(result__)
     }
 }
-impl ::core::convert::From<IEncodingFilterFactory> for ::windows::core::IUnknown {
-    fn from(value: IEncodingFilterFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEncodingFilterFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEncodingFilterFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEncodingFilterFactory> for ::windows::core::IUnknown {
-    fn from(value: &IEncodingFilterFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEncodingFilterFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEncodingFilterFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1338,21 +1225,7 @@ impl IGetBindHandle {
         (::windows::core::Vtable::vtable(self).GetBindHandle)(::windows::core::Vtable::as_raw(self), enumrequestedhandle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
     }
 }
-impl ::core::convert::From<IGetBindHandle> for ::windows::core::IUnknown {
-    fn from(value: IGetBindHandle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGetBindHandle> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGetBindHandle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGetBindHandle> for ::windows::core::IUnknown {
-    fn from(value: &IGetBindHandle) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGetBindHandle, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IGetBindHandle {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1405,21 +1278,7 @@ impl IHttpNegotiate {
         (::windows::core::Vtable::vtable(self).OnResponse)(::windows::core::Vtable::as_raw(self), dwresponsecode, szresponseheaders.into(), szrequestheaders.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IHttpNegotiate> for ::windows::core::IUnknown {
-    fn from(value: IHttpNegotiate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHttpNegotiate> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IHttpNegotiate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHttpNegotiate> for ::windows::core::IUnknown {
-    fn from(value: &IHttpNegotiate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IHttpNegotiate, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IHttpNegotiate {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1473,36 +1332,7 @@ impl IHttpNegotiate2 {
         (::windows::core::Vtable::vtable(self).GetRootSecurityId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), dwreserved).ok()
     }
 }
-impl ::core::convert::From<IHttpNegotiate2> for ::windows::core::IUnknown {
-    fn from(value: IHttpNegotiate2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHttpNegotiate2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IHttpNegotiate2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHttpNegotiate2> for ::windows::core::IUnknown {
-    fn from(value: &IHttpNegotiate2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IHttpNegotiate2> for IHttpNegotiate {
-    fn from(value: IHttpNegotiate2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHttpNegotiate2> for &'a IHttpNegotiate {
-    fn from(value: &'a IHttpNegotiate2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHttpNegotiate2> for IHttpNegotiate {
-    fn from(value: &IHttpNegotiate2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IHttpNegotiate2, ::windows::core::IUnknown, IHttpNegotiate);
 impl ::core::clone::Clone for IHttpNegotiate2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1558,51 +1388,7 @@ impl IHttpNegotiate3 {
         (::windows::core::Vtable::vtable(self).GetSerializedClientCertContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppbcert), ::core::mem::transmute(pcbcert)).ok()
     }
 }
-impl ::core::convert::From<IHttpNegotiate3> for ::windows::core::IUnknown {
-    fn from(value: IHttpNegotiate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHttpNegotiate3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IHttpNegotiate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHttpNegotiate3> for ::windows::core::IUnknown {
-    fn from(value: &IHttpNegotiate3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IHttpNegotiate3> for IHttpNegotiate {
-    fn from(value: IHttpNegotiate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHttpNegotiate3> for &'a IHttpNegotiate {
-    fn from(value: &'a IHttpNegotiate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHttpNegotiate3> for IHttpNegotiate {
-    fn from(value: &IHttpNegotiate3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IHttpNegotiate3> for IHttpNegotiate2 {
-    fn from(value: IHttpNegotiate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHttpNegotiate3> for &'a IHttpNegotiate2 {
-    fn from(value: &'a IHttpNegotiate3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHttpNegotiate3> for IHttpNegotiate2 {
-    fn from(value: &IHttpNegotiate3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IHttpNegotiate3, ::windows::core::IUnknown, IHttpNegotiate, IHttpNegotiate2);
 impl ::core::clone::Clone for IHttpNegotiate3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1645,36 +1431,7 @@ impl IHttpSecurity {
         (::windows::core::Vtable::vtable(self).OnSecurityProblem)(::windows::core::Vtable::as_raw(self), dwproblem).ok()
     }
 }
-impl ::core::convert::From<IHttpSecurity> for ::windows::core::IUnknown {
-    fn from(value: IHttpSecurity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHttpSecurity> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IHttpSecurity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHttpSecurity> for ::windows::core::IUnknown {
-    fn from(value: &IHttpSecurity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IHttpSecurity> for IWindowForBindingUI {
-    fn from(value: IHttpSecurity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHttpSecurity> for &'a IWindowForBindingUI {
-    fn from(value: &'a IHttpSecurity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHttpSecurity> for IWindowForBindingUI {
-    fn from(value: &IHttpSecurity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IHttpSecurity, ::windows::core::IUnknown, IWindowForBindingUI);
 impl ::core::clone::Clone for IHttpSecurity {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1707,21 +1464,7 @@ pub struct IHttpSecurity_Vtbl {
 #[repr(transparent)]
 pub struct IInternet(::windows::core::IUnknown);
 impl IInternet {}
-impl ::core::convert::From<IInternet> for ::windows::core::IUnknown {
-    fn from(value: IInternet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternet> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInternet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternet> for ::windows::core::IUnknown {
-    fn from(value: &IInternet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInternet, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInternet {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1762,21 +1505,7 @@ impl IInternetBindInfo {
         (::windows::core::Vtable::vtable(self).GetBindString)(::windows::core::Vtable::as_raw(self), ulstringtype, ::core::mem::transmute(ppwzstr), cel, ::core::mem::transmute(pcelfetched)).ok()
     }
 }
-impl ::core::convert::From<IInternetBindInfo> for ::windows::core::IUnknown {
-    fn from(value: IInternetBindInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetBindInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInternetBindInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetBindInfo> for ::windows::core::IUnknown {
-    fn from(value: &IInternetBindInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInternetBindInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInternetBindInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1827,36 +1556,7 @@ impl IInternetBindInfoEx {
         (::windows::core::Vtable::vtable(self).GetBindInfoEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(grfbindf), ::core::mem::transmute(pbindinfo), ::core::mem::transmute(grfbindf2), ::core::mem::transmute(pdwreserved)).ok()
     }
 }
-impl ::core::convert::From<IInternetBindInfoEx> for ::windows::core::IUnknown {
-    fn from(value: IInternetBindInfoEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetBindInfoEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInternetBindInfoEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetBindInfoEx> for ::windows::core::IUnknown {
-    fn from(value: &IInternetBindInfoEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IInternetBindInfoEx> for IInternetBindInfo {
-    fn from(value: IInternetBindInfoEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetBindInfoEx> for &'a IInternetBindInfo {
-    fn from(value: &'a IInternetBindInfoEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetBindInfoEx> for IInternetBindInfo {
-    fn from(value: &IInternetBindInfoEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInternetBindInfoEx, ::windows::core::IUnknown, IInternetBindInfo);
 impl ::core::clone::Clone for IInternetBindInfoEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1902,21 +1602,7 @@ impl IInternetHostSecurityManager {
         (::windows::core::Vtable::vtable(self).QueryCustomPolicy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(pcontext.as_ptr()), pcontext.len() as _, dwreserved).ok()
     }
 }
-impl ::core::convert::From<IInternetHostSecurityManager> for ::windows::core::IUnknown {
-    fn from(value: IInternetHostSecurityManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetHostSecurityManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInternetHostSecurityManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetHostSecurityManager> for ::windows::core::IUnknown {
-    fn from(value: &IInternetHostSecurityManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInternetHostSecurityManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInternetHostSecurityManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1959,21 +1645,7 @@ impl IInternetPriority {
         (::windows::core::Vtable::vtable(self).GetPriority)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
-impl ::core::convert::From<IInternetPriority> for ::windows::core::IUnknown {
-    fn from(value: IInternetPriority) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetPriority> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInternetPriority) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetPriority> for ::windows::core::IUnknown {
-    fn from(value: &IInternetPriority) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInternetPriority, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInternetPriority {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2047,36 +1719,7 @@ impl IInternetProtocol {
         (::windows::core::Vtable::vtable(self).UnlockRequest)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IInternetProtocol> for ::windows::core::IUnknown {
-    fn from(value: IInternetProtocol) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetProtocol> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInternetProtocol) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetProtocol> for ::windows::core::IUnknown {
-    fn from(value: &IInternetProtocol) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IInternetProtocol> for IInternetProtocolRoot {
-    fn from(value: IInternetProtocol) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetProtocol> for &'a IInternetProtocolRoot {
-    fn from(value: &'a IInternetProtocol) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetProtocol> for IInternetProtocolRoot {
-    fn from(value: &IInternetProtocol) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInternetProtocol, ::windows::core::IUnknown, IInternetProtocolRoot);
 impl ::core::clone::Clone for IInternetProtocol {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2163,51 +1806,7 @@ impl IInternetProtocolEx {
         (::windows::core::Vtable::vtable(self).StartEx)(::windows::core::Vtable::as_raw(self), puri.into().abi(), poiprotsink.into().abi(), poibindinfo.into().abi(), grfpi, dwreserved.into()).ok()
     }
 }
-impl ::core::convert::From<IInternetProtocolEx> for ::windows::core::IUnknown {
-    fn from(value: IInternetProtocolEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetProtocolEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInternetProtocolEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetProtocolEx> for ::windows::core::IUnknown {
-    fn from(value: &IInternetProtocolEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IInternetProtocolEx> for IInternetProtocolRoot {
-    fn from(value: IInternetProtocolEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetProtocolEx> for &'a IInternetProtocolRoot {
-    fn from(value: &'a IInternetProtocolEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetProtocolEx> for IInternetProtocolRoot {
-    fn from(value: &IInternetProtocolEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IInternetProtocolEx> for IInternetProtocol {
-    fn from(value: IInternetProtocolEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetProtocolEx> for &'a IInternetProtocol {
-    fn from(value: &'a IInternetProtocolEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetProtocolEx> for IInternetProtocol {
-    fn from(value: &IInternetProtocolEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInternetProtocolEx, ::windows::core::IUnknown, IInternetProtocolRoot, IInternetProtocol);
 impl ::core::clone::Clone for IInternetProtocolEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2271,21 +1870,7 @@ impl IInternetProtocolInfo {
         (::windows::core::Vtable::vtable(self).QueryInfo)(::windows::core::Vtable::as_raw(self), pwzurl.into(), oueryoption, dwqueryflags, ::core::mem::transmute(pbuffer), cbbuffer, ::core::mem::transmute(pcbbuf), dwreserved).ok()
     }
 }
-impl ::core::convert::From<IInternetProtocolInfo> for ::windows::core::IUnknown {
-    fn from(value: IInternetProtocolInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetProtocolInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInternetProtocolInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetProtocolInfo> for ::windows::core::IUnknown {
-    fn from(value: &IInternetProtocolInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInternetProtocolInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInternetProtocolInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2348,21 +1933,7 @@ impl IInternetProtocolRoot {
         (::windows::core::Vtable::vtable(self).Resume)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IInternetProtocolRoot> for ::windows::core::IUnknown {
-    fn from(value: IInternetProtocolRoot) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetProtocolRoot> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInternetProtocolRoot) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetProtocolRoot> for ::windows::core::IUnknown {
-    fn from(value: &IInternetProtocolRoot) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInternetProtocolRoot, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInternetProtocolRoot {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2422,21 +1993,7 @@ impl IInternetProtocolSink {
         (::windows::core::Vtable::vtable(self).ReportResult)(::windows::core::Vtable::as_raw(self), hrresult, dwerror, szresult.into()).ok()
     }
 }
-impl ::core::convert::From<IInternetProtocolSink> for ::windows::core::IUnknown {
-    fn from(value: IInternetProtocolSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetProtocolSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInternetProtocolSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetProtocolSink> for ::windows::core::IUnknown {
-    fn from(value: &IInternetProtocolSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInternetProtocolSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInternetProtocolSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2485,21 +2042,7 @@ impl IInternetProtocolSinkStackable {
         (::windows::core::Vtable::vtable(self).RollbackSwitch)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IInternetProtocolSinkStackable> for ::windows::core::IUnknown {
-    fn from(value: IInternetProtocolSinkStackable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetProtocolSinkStackable> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInternetProtocolSinkStackable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetProtocolSinkStackable> for ::windows::core::IUnknown {
-    fn from(value: &IInternetProtocolSinkStackable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInternetProtocolSinkStackable, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInternetProtocolSinkStackable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2578,21 +2121,7 @@ impl IInternetSecurityManager {
         (::windows::core::Vtable::vtable(self).GetZoneMappings)(::windows::core::Vtable::as_raw(self), dwzone, ::core::mem::transmute(ppenumstring), dwflags).ok()
     }
 }
-impl ::core::convert::From<IInternetSecurityManager> for ::windows::core::IUnknown {
-    fn from(value: IInternetSecurityManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetSecurityManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInternetSecurityManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetSecurityManager> for ::windows::core::IUnknown {
-    fn from(value: &IInternetSecurityManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInternetSecurityManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInternetSecurityManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2682,36 +2211,7 @@ impl IInternetSecurityManagerEx {
         (::windows::core::Vtable::vtable(self).ProcessUrlActionEx)(::windows::core::Vtable::as_raw(self), pwszurl.into(), dwaction, ::core::mem::transmute(ppolicy.as_ptr()), ppolicy.len() as _, ::core::mem::transmute(pcontext), cbcontext, dwflags, dwreserved, ::core::mem::transmute(pdwoutflags)).ok()
     }
 }
-impl ::core::convert::From<IInternetSecurityManagerEx> for ::windows::core::IUnknown {
-    fn from(value: IInternetSecurityManagerEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetSecurityManagerEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInternetSecurityManagerEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetSecurityManagerEx> for ::windows::core::IUnknown {
-    fn from(value: &IInternetSecurityManagerEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IInternetSecurityManagerEx> for IInternetSecurityManager {
-    fn from(value: IInternetSecurityManagerEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetSecurityManagerEx> for &'a IInternetSecurityManager {
-    fn from(value: &'a IInternetSecurityManagerEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetSecurityManagerEx> for IInternetSecurityManager {
-    fn from(value: &IInternetSecurityManagerEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInternetSecurityManagerEx, ::windows::core::IUnknown, IInternetSecurityManager);
 impl ::core::clone::Clone for IInternetSecurityManagerEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2818,51 +2318,7 @@ impl IInternetSecurityManagerEx2 {
         (::windows::core::Vtable::vtable(self).QueryCustomPolicyEx2)(::windows::core::Vtable::as_raw(self), puri.into().abi(), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(pcontext), cbcontext, dwreserved).ok()
     }
 }
-impl ::core::convert::From<IInternetSecurityManagerEx2> for ::windows::core::IUnknown {
-    fn from(value: IInternetSecurityManagerEx2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetSecurityManagerEx2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInternetSecurityManagerEx2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetSecurityManagerEx2> for ::windows::core::IUnknown {
-    fn from(value: &IInternetSecurityManagerEx2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IInternetSecurityManagerEx2> for IInternetSecurityManager {
-    fn from(value: IInternetSecurityManagerEx2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetSecurityManagerEx2> for &'a IInternetSecurityManager {
-    fn from(value: &'a IInternetSecurityManagerEx2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetSecurityManagerEx2> for IInternetSecurityManager {
-    fn from(value: &IInternetSecurityManagerEx2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IInternetSecurityManagerEx2> for IInternetSecurityManagerEx {
-    fn from(value: IInternetSecurityManagerEx2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetSecurityManagerEx2> for &'a IInternetSecurityManagerEx {
-    fn from(value: &'a IInternetSecurityManagerEx2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetSecurityManagerEx2> for IInternetSecurityManagerEx {
-    fn from(value: &IInternetSecurityManagerEx2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInternetSecurityManagerEx2, ::windows::core::IUnknown, IInternetSecurityManager, IInternetSecurityManagerEx);
 impl ::core::clone::Clone for IInternetSecurityManagerEx2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2913,21 +2369,7 @@ impl IInternetSecurityMgrSite {
         (::windows::core::Vtable::vtable(self).EnableModeless)(::windows::core::Vtable::as_raw(self), fenable.into()).ok()
     }
 }
-impl ::core::convert::From<IInternetSecurityMgrSite> for ::windows::core::IUnknown {
-    fn from(value: IInternetSecurityMgrSite) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetSecurityMgrSite> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInternetSecurityMgrSite) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetSecurityMgrSite> for ::windows::core::IUnknown {
-    fn from(value: &IInternetSecurityMgrSite) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInternetSecurityMgrSite, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInternetSecurityMgrSite {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3010,21 +2452,7 @@ impl IInternetSession {
         (::windows::core::Vtable::vtable(self).GetSessionOption)(::windows::core::Vtable::as_raw(self), dwoption, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwbufferlength), dwreserved).ok()
     }
 }
-impl ::core::convert::From<IInternetSession> for ::windows::core::IUnknown {
-    fn from(value: IInternetSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetSession> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInternetSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetSession> for ::windows::core::IUnknown {
-    fn from(value: &IInternetSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInternetSession, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInternetSession {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3070,21 +2498,7 @@ impl IInternetThreadSwitch {
         (::windows::core::Vtable::vtable(self).Continue)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IInternetThreadSwitch> for ::windows::core::IUnknown {
-    fn from(value: IInternetThreadSwitch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetThreadSwitch> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInternetThreadSwitch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetThreadSwitch> for ::windows::core::IUnknown {
-    fn from(value: &IInternetThreadSwitch) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInternetThreadSwitch, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInternetThreadSwitch {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3167,21 +2581,7 @@ impl IInternetZoneManager {
         (::windows::core::Vtable::vtable(self).CopyTemplatePoliciesToZone)(::windows::core::Vtable::as_raw(self), dwtemplate, dwzone, dwreserved).ok()
     }
 }
-impl ::core::convert::From<IInternetZoneManager> for ::windows::core::IUnknown {
-    fn from(value: IInternetZoneManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetZoneManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInternetZoneManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetZoneManager> for ::windows::core::IUnknown {
-    fn from(value: &IInternetZoneManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInternetZoneManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInternetZoneManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3283,36 +2683,7 @@ impl IInternetZoneManagerEx {
         (::windows::core::Vtable::vtable(self).SetZoneActionPolicyEx)(::windows::core::Vtable::as_raw(self), dwzone, dwaction, ::core::mem::transmute(ppolicy.as_ptr()), ppolicy.len() as _, urlzonereg, dwflags).ok()
     }
 }
-impl ::core::convert::From<IInternetZoneManagerEx> for ::windows::core::IUnknown {
-    fn from(value: IInternetZoneManagerEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetZoneManagerEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInternetZoneManagerEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetZoneManagerEx> for ::windows::core::IUnknown {
-    fn from(value: &IInternetZoneManagerEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IInternetZoneManagerEx> for IInternetZoneManager {
-    fn from(value: IInternetZoneManagerEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetZoneManagerEx> for &'a IInternetZoneManager {
-    fn from(value: &'a IInternetZoneManagerEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetZoneManagerEx> for IInternetZoneManager {
-    fn from(value: &IInternetZoneManagerEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInternetZoneManagerEx, ::windows::core::IUnknown, IInternetZoneManager);
 impl ::core::clone::Clone for IInternetZoneManagerEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3424,51 +2795,7 @@ impl IInternetZoneManagerEx2 {
         (::windows::core::Vtable::vtable(self).FixUnsecureSettings)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IInternetZoneManagerEx2> for ::windows::core::IUnknown {
-    fn from(value: IInternetZoneManagerEx2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetZoneManagerEx2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInternetZoneManagerEx2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetZoneManagerEx2> for ::windows::core::IUnknown {
-    fn from(value: &IInternetZoneManagerEx2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IInternetZoneManagerEx2> for IInternetZoneManager {
-    fn from(value: IInternetZoneManagerEx2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetZoneManagerEx2> for &'a IInternetZoneManager {
-    fn from(value: &'a IInternetZoneManagerEx2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetZoneManagerEx2> for IInternetZoneManager {
-    fn from(value: &IInternetZoneManagerEx2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IInternetZoneManagerEx2> for IInternetZoneManagerEx {
-    fn from(value: IInternetZoneManagerEx2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInternetZoneManagerEx2> for &'a IInternetZoneManagerEx {
-    fn from(value: &'a IInternetZoneManagerEx2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInternetZoneManagerEx2> for IInternetZoneManagerEx {
-    fn from(value: &IInternetZoneManagerEx2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInternetZoneManagerEx2, ::windows::core::IUnknown, IInternetZoneManager, IInternetZoneManagerEx);
 impl ::core::clone::Clone for IInternetZoneManagerEx2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3517,21 +2844,7 @@ impl IMonikerProp {
         (::windows::core::Vtable::vtable(self).PutProperty)(::windows::core::Vtable::as_raw(self), mkp, val.into()).ok()
     }
 }
-impl ::core::convert::From<IMonikerProp> for ::windows::core::IUnknown {
-    fn from(value: IMonikerProp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMonikerProp> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMonikerProp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMonikerProp> for ::windows::core::IUnknown {
-    fn from(value: &IMonikerProp) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMonikerProp, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMonikerProp {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3603,21 +2916,7 @@ impl IPersistMoniker {
         (::windows::core::Vtable::vtable(self).GetCurMoniker)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IMoniker>(result__)
     }
 }
-impl ::core::convert::From<IPersistMoniker> for ::windows::core::IUnknown {
-    fn from(value: IPersistMoniker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPersistMoniker> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPersistMoniker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPersistMoniker> for ::windows::core::IUnknown {
-    fn from(value: &IPersistMoniker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPersistMoniker, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPersistMoniker {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3683,21 +2982,7 @@ impl ISoftDistExt {
         (::windows::core::Vtable::vtable(self).AsyncInstallDistributionUnit)(::windows::core::Vtable::as_raw(self), pbc.into().abi(), ::core::mem::transmute(pvreserved), flags, ::core::mem::transmute(lpcbh)).ok()
     }
 }
-impl ::core::convert::From<ISoftDistExt> for ::windows::core::IUnknown {
-    fn from(value: ISoftDistExt) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISoftDistExt> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISoftDistExt) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISoftDistExt> for ::windows::core::IUnknown {
-    fn from(value: &ISoftDistExt) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISoftDistExt, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISoftDistExt {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3745,21 +3030,7 @@ impl IUriBuilderFactory {
         (::windows::core::Vtable::vtable(self).CreateInitializedIUriBuilder)(::windows::core::Vtable::as_raw(self), dwflags, dwreserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IUriBuilder>(result__)
     }
 }
-impl ::core::convert::From<IUriBuilderFactory> for ::windows::core::IUnknown {
-    fn from(value: IUriBuilderFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUriBuilderFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUriBuilderFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUriBuilderFactory> for ::windows::core::IUnknown {
-    fn from(value: &IUriBuilderFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUriBuilderFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUriBuilderFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3798,21 +3069,7 @@ impl IUriContainer {
         (::windows::core::Vtable::vtable(self).GetIUri)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IUri>(result__)
     }
 }
-impl ::core::convert::From<IUriContainer> for ::windows::core::IUnknown {
-    fn from(value: IUriContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUriContainer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUriContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUriContainer> for ::windows::core::IUnknown {
-    fn from(value: &IUriContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUriContainer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUriContainer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3852,21 +3109,7 @@ impl IWinInetCacheHints {
         (::windows::core::Vtable::vtable(self).SetCacheExtension)(::windows::core::Vtable::as_raw(self), pwzext.into(), ::core::mem::transmute(pszcachefile), ::core::mem::transmute(pcbcachefile), ::core::mem::transmute(pdwwinineterror), ::core::mem::transmute(pdwreserved)).ok()
     }
 }
-impl ::core::convert::From<IWinInetCacheHints> for ::windows::core::IUnknown {
-    fn from(value: IWinInetCacheHints) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWinInetCacheHints> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWinInetCacheHints) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWinInetCacheHints> for ::windows::core::IUnknown {
-    fn from(value: &IWinInetCacheHints) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWinInetCacheHints, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWinInetCacheHints {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3912,36 +3155,7 @@ impl IWinInetCacheHints2 {
         (::windows::core::Vtable::vtable(self).SetCacheExtension2)(::windows::core::Vtable::as_raw(self), pwzext.into(), ::core::mem::transmute(pwzcachefile), ::core::mem::transmute(pcchcachefile), ::core::mem::transmute(pdwwinineterror), ::core::mem::transmute(pdwreserved)).ok()
     }
 }
-impl ::core::convert::From<IWinInetCacheHints2> for ::windows::core::IUnknown {
-    fn from(value: IWinInetCacheHints2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWinInetCacheHints2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWinInetCacheHints2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWinInetCacheHints2> for ::windows::core::IUnknown {
-    fn from(value: &IWinInetCacheHints2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWinInetCacheHints2> for IWinInetCacheHints {
-    fn from(value: IWinInetCacheHints2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWinInetCacheHints2> for &'a IWinInetCacheHints {
-    fn from(value: &'a IWinInetCacheHints2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWinInetCacheHints2> for IWinInetCacheHints {
-    fn from(value: &IWinInetCacheHints2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWinInetCacheHints2, ::windows::core::IUnknown, IWinInetCacheHints);
 impl ::core::clone::Clone for IWinInetCacheHints2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3981,21 +3195,7 @@ impl IWinInetFileStream {
         (::windows::core::Vtable::vtable(self).SetDeleteFile)(::windows::core::Vtable::as_raw(self), dwreserved).ok()
     }
 }
-impl ::core::convert::From<IWinInetFileStream> for ::windows::core::IUnknown {
-    fn from(value: IWinInetFileStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWinInetFileStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWinInetFileStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWinInetFileStream> for ::windows::core::IUnknown {
-    fn from(value: &IWinInetFileStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWinInetFileStream, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWinInetFileStream {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4036,36 +3236,7 @@ impl IWinInetHttpInfo {
         (::windows::core::Vtable::vtable(self).QueryInfo)(::windows::core::Vtable::as_raw(self), dwoption, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbbuf), ::core::mem::transmute(pdwflags), ::core::mem::transmute(pdwreserved)).ok()
     }
 }
-impl ::core::convert::From<IWinInetHttpInfo> for ::windows::core::IUnknown {
-    fn from(value: IWinInetHttpInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWinInetHttpInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWinInetHttpInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWinInetHttpInfo> for ::windows::core::IUnknown {
-    fn from(value: &IWinInetHttpInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWinInetHttpInfo> for IWinInetInfo {
-    fn from(value: IWinInetHttpInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWinInetHttpInfo> for &'a IWinInetInfo {
-    fn from(value: &'a IWinInetHttpInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWinInetHttpInfo> for IWinInetInfo {
-    fn from(value: &IWinInetHttpInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWinInetHttpInfo, ::windows::core::IUnknown, IWinInetInfo);
 impl ::core::clone::Clone for IWinInetHttpInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4102,21 +3273,7 @@ impl IWinInetHttpTimeouts {
         (::windows::core::Vtable::vtable(self).GetRequestTimeouts)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwconnecttimeout), ::core::mem::transmute(pdwsendtimeout), ::core::mem::transmute(pdwreceivetimeout)).ok()
     }
 }
-impl ::core::convert::From<IWinInetHttpTimeouts> for ::windows::core::IUnknown {
-    fn from(value: IWinInetHttpTimeouts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWinInetHttpTimeouts> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWinInetHttpTimeouts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWinInetHttpTimeouts> for ::windows::core::IUnknown {
-    fn from(value: &IWinInetHttpTimeouts) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWinInetHttpTimeouts, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWinInetHttpTimeouts {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4153,21 +3310,7 @@ impl IWinInetInfo {
         (::windows::core::Vtable::vtable(self).QueryOption)(::windows::core::Vtable::as_raw(self), dwoption, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbbuf)).ok()
     }
 }
-impl ::core::convert::From<IWinInetInfo> for ::windows::core::IUnknown {
-    fn from(value: IWinInetInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWinInetInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWinInetInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWinInetInfo> for ::windows::core::IUnknown {
-    fn from(value: &IWinInetInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWinInetInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWinInetInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4207,21 +3350,7 @@ impl IWindowForBindingUI {
         (::windows::core::Vtable::vtable(self).GetWindow)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rguidreason), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
 }
-impl ::core::convert::From<IWindowForBindingUI> for ::windows::core::IUnknown {
-    fn from(value: IWindowForBindingUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWindowForBindingUI> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWindowForBindingUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWindowForBindingUI> for ::windows::core::IUnknown {
-    fn from(value: &IWindowForBindingUI) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWindowForBindingUI, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWindowForBindingUI {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4261,21 +3390,7 @@ impl IWrappedProtocol {
         (::windows::core::Vtable::vtable(self).GetWrapperCode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pncode), dwreserved).ok()
     }
 }
-impl ::core::convert::From<IWrappedProtocol> for ::windows::core::IUnknown {
-    fn from(value: IWrappedProtocol) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWrappedProtocol> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWrappedProtocol) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWrappedProtocol> for ::windows::core::IUnknown {
-    fn from(value: &IWrappedProtocol) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWrappedProtocol, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWrappedProtocol {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4319,21 +3434,7 @@ impl IZoneIdentifier {
         (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IZoneIdentifier> for ::windows::core::IUnknown {
-    fn from(value: IZoneIdentifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IZoneIdentifier> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IZoneIdentifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IZoneIdentifier> for ::windows::core::IUnknown {
-    fn from(value: &IZoneIdentifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IZoneIdentifier, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IZoneIdentifier {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4402,36 +3503,7 @@ impl IZoneIdentifier2 {
         (::windows::core::Vtable::vtable(self).RemoveAppZoneId)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IZoneIdentifier2> for ::windows::core::IUnknown {
-    fn from(value: IZoneIdentifier2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IZoneIdentifier2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IZoneIdentifier2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IZoneIdentifier2> for ::windows::core::IUnknown {
-    fn from(value: &IZoneIdentifier2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IZoneIdentifier2> for IZoneIdentifier {
-    fn from(value: IZoneIdentifier2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IZoneIdentifier2> for &'a IZoneIdentifier {
-    fn from(value: &'a IZoneIdentifier2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IZoneIdentifier2> for IZoneIdentifier {
-    fn from(value: &IZoneIdentifier2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IZoneIdentifier2, ::windows::core::IUnknown, IZoneIdentifier);
 impl ::core::clone::Clone for IZoneIdentifier2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())

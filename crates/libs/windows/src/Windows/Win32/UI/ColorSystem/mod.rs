@@ -1448,21 +1448,7 @@ impl IDeviceModelPlugIn {
         (::windows::core::Vtable::vtable(self).GetNeutralAxis)(::windows::core::Vtable::as_raw(self), pxyzcolors.len() as _, ::core::mem::transmute(pxyzcolors.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IDeviceModelPlugIn> for ::windows::core::IUnknown {
-    fn from(value: IDeviceModelPlugIn) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDeviceModelPlugIn> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDeviceModelPlugIn) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDeviceModelPlugIn> for ::windows::core::IUnknown {
-    fn from(value: &IDeviceModelPlugIn) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDeviceModelPlugIn, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDeviceModelPlugIn {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1520,21 +1506,7 @@ impl IGamutMapModelPlugIn {
         (::windows::core::Vtable::vtable(self).SourceToDestinationAppearanceColors)(::windows::core::Vtable::as_raw(self), ccolors, ::core::mem::transmute(pinputcolors), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<JChColorF>(result__)
     }
 }
-impl ::core::convert::From<IGamutMapModelPlugIn> for ::windows::core::IUnknown {
-    fn from(value: IGamutMapModelPlugIn) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGamutMapModelPlugIn> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGamutMapModelPlugIn) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGamutMapModelPlugIn> for ::windows::core::IUnknown {
-    fn from(value: &IGamutMapModelPlugIn) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGamutMapModelPlugIn, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IGamutMapModelPlugIn {
     fn clone(&self) -> Self {
         Self(self.0.clone())

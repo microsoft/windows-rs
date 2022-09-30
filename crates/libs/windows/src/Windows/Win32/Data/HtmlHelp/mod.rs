@@ -28,21 +28,7 @@ impl IITDatabase {
         (::windows::core::Vtable::vtable(self).GetObjectPersistence)(::windows::core::Vtable::as_raw(self), lpwszobject.into(), dwobjinstance, ::core::mem::transmute(ppvpersistence), fstream.into()).ok()
     }
 }
-impl ::core::convert::From<IITDatabase> for ::windows::core::IUnknown {
-    fn from(value: IITDatabase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IITDatabase> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IITDatabase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IITDatabase> for ::windows::core::IUnknown {
-    fn from(value: &IITDatabase) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IITDatabase, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IITDatabase {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -205,59 +191,7 @@ impl IITPropList {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IITPropList> for ::windows::core::IUnknown {
-    fn from(value: IITPropList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IITPropList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IITPropList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IITPropList> for ::windows::core::IUnknown {
-    fn from(value: &IITPropList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IITPropList> for super::super::System::Com::IPersist {
-    fn from(value: IITPropList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IITPropList> for &'a super::super::System::Com::IPersist {
-    fn from(value: &'a IITPropList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IITPropList> for super::super::System::Com::IPersist {
-    fn from(value: &IITPropList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IITPropList> for super::super::System::Com::IPersistStreamInit {
-    fn from(value: IITPropList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IITPropList> for &'a super::super::System::Com::IPersistStreamInit {
-    fn from(value: &'a IITPropList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IITPropList> for super::super::System::Com::IPersistStreamInit {
-    fn from(value: &IITPropList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IITPropList, ::windows::core::IUnknown, super::super::System::Com::IPersist, super::super::System::Com::IPersistStreamInit);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IITPropList {
     fn clone(&self) -> Self {
@@ -445,21 +379,7 @@ impl IITResultSet {
         (::windows::core::Vtable::vtable(self).GetColumnStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpcolstatus)).ok()
     }
 }
-impl ::core::convert::From<IITResultSet> for ::windows::core::IUnknown {
-    fn from(value: IITResultSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IITResultSet> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IITResultSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IITResultSet> for ::windows::core::IUnknown {
-    fn from(value: &IITResultSet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IITResultSet, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IITResultSet {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -585,21 +505,7 @@ impl IITWordWheel {
         (::windows::core::Vtable::vtable(self).GetDataColumns)(::windows::core::Vtable::as_raw(self), prs.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IITWordWheel> for ::windows::core::IUnknown {
-    fn from(value: IITWordWheel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IITWordWheel> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IITWordWheel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IITWordWheel> for ::windows::core::IUnknown {
-    fn from(value: &IITWordWheel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IITWordWheel, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IITWordWheel {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -660,21 +566,7 @@ impl IStemSink {
         (::windows::core::Vtable::vtable(self).PutWord)(::windows::core::Vtable::as_raw(self), pwcinbuf.into(), cwc).ok()
     }
 }
-impl ::core::convert::From<IStemSink> for ::windows::core::IUnknown {
-    fn from(value: IStemSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStemSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStemSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStemSink> for ::windows::core::IUnknown {
-    fn from(value: &IStemSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStemSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IStemSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -729,21 +621,7 @@ impl IStemmerConfig {
         (::windows::core::Vtable::vtable(self).LoadExternalStemmerData)(::windows::core::Vtable::as_raw(self), pstream.into().abi(), dwextdatatype).ok()
     }
 }
-impl ::core::convert::From<IStemmerConfig> for ::windows::core::IUnknown {
-    fn from(value: IStemmerConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStemmerConfig> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStemmerConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStemmerConfig> for ::windows::core::IUnknown {
-    fn from(value: &IStemmerConfig) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStemmerConfig, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IStemmerConfig {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -824,21 +702,7 @@ impl IWordBreakerConfig {
         (::windows::core::Vtable::vtable(self).GetWordStemmer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Search::IStemmer>(result__)
     }
 }
-impl ::core::convert::From<IWordBreakerConfig> for ::windows::core::IUnknown {
-    fn from(value: IWordBreakerConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWordBreakerConfig> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWordBreakerConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWordBreakerConfig> for ::windows::core::IUnknown {
-    fn from(value: &IWordBreakerConfig) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWordBreakerConfig, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWordBreakerConfig {
     fn clone(&self) -> Self {
         Self(self.0.clone())

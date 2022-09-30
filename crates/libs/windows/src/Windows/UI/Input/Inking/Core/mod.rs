@@ -361,36 +361,7 @@ unsafe impl ::windows::core::Interface for CoreIncrementalInkStroke {
 impl ::windows::core::RuntimeName for CoreIncrementalInkStroke {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreIncrementalInkStroke";
 }
-impl ::core::convert::From<CoreIncrementalInkStroke> for ::windows::core::IUnknown {
-    fn from(value: CoreIncrementalInkStroke) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreIncrementalInkStroke> for ::windows::core::IUnknown {
-    fn from(value: &CoreIncrementalInkStroke) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreIncrementalInkStroke> for &::windows::core::IUnknown {
-    fn from(value: &CoreIncrementalInkStroke) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreIncrementalInkStroke> for ::windows::core::IInspectable {
-    fn from(value: CoreIncrementalInkStroke) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreIncrementalInkStroke> for ::windows::core::IInspectable {
-    fn from(value: &CoreIncrementalInkStroke) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreIncrementalInkStroke> for &::windows::core::IInspectable {
-    fn from(value: &CoreIncrementalInkStroke) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreIncrementalInkStroke, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreIncrementalInkStroke {}
 unsafe impl ::core::marker::Sync for CoreIncrementalInkStroke {}
 #[doc = "*Required features: `\"UI_Input_Inking_Core\"`*"]
@@ -568,36 +539,7 @@ unsafe impl ::windows::core::Interface for CoreInkIndependentInputSource {
 impl ::windows::core::RuntimeName for CoreInkIndependentInputSource {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreInkIndependentInputSource";
 }
-impl ::core::convert::From<CoreInkIndependentInputSource> for ::windows::core::IUnknown {
-    fn from(value: CoreInkIndependentInputSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreInkIndependentInputSource> for ::windows::core::IUnknown {
-    fn from(value: &CoreInkIndependentInputSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreInkIndependentInputSource> for &::windows::core::IUnknown {
-    fn from(value: &CoreInkIndependentInputSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreInkIndependentInputSource> for ::windows::core::IInspectable {
-    fn from(value: CoreInkIndependentInputSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreInkIndependentInputSource> for ::windows::core::IInspectable {
-    fn from(value: &CoreInkIndependentInputSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreInkIndependentInputSource> for &::windows::core::IInspectable {
-    fn from(value: &CoreInkIndependentInputSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreInkIndependentInputSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreInkIndependentInputSource {}
 unsafe impl ::core::marker::Sync for CoreInkIndependentInputSource {}
 #[doc = "*Required features: `\"UI_Input_Inking_Core\"`*"]
@@ -669,36 +611,7 @@ unsafe impl ::windows::core::Interface for CoreInkPresenterHost {
 impl ::windows::core::RuntimeName for CoreInkPresenterHost {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreInkPresenterHost";
 }
-impl ::core::convert::From<CoreInkPresenterHost> for ::windows::core::IUnknown {
-    fn from(value: CoreInkPresenterHost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreInkPresenterHost> for ::windows::core::IUnknown {
-    fn from(value: &CoreInkPresenterHost) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreInkPresenterHost> for &::windows::core::IUnknown {
-    fn from(value: &CoreInkPresenterHost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreInkPresenterHost> for ::windows::core::IInspectable {
-    fn from(value: CoreInkPresenterHost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreInkPresenterHost> for ::windows::core::IInspectable {
-    fn from(value: &CoreInkPresenterHost) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreInkPresenterHost> for &::windows::core::IInspectable {
-    fn from(value: &CoreInkPresenterHost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreInkPresenterHost, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreInkPresenterHost {}
 unsafe impl ::core::marker::Sync for CoreInkPresenterHost {}
 #[doc = "*Required features: `\"UI_Input_Inking_Core\"`*"]
@@ -765,36 +678,7 @@ unsafe impl ::windows::core::Interface for CoreWetStrokeUpdateEventArgs {
 impl ::windows::core::RuntimeName for CoreWetStrokeUpdateEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreWetStrokeUpdateEventArgs";
 }
-impl ::core::convert::From<CoreWetStrokeUpdateEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CoreWetStrokeUpdateEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreWetStrokeUpdateEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CoreWetStrokeUpdateEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreWetStrokeUpdateEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CoreWetStrokeUpdateEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreWetStrokeUpdateEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CoreWetStrokeUpdateEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreWetStrokeUpdateEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CoreWetStrokeUpdateEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreWetStrokeUpdateEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CoreWetStrokeUpdateEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreWetStrokeUpdateEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreWetStrokeUpdateEventArgs {}
 unsafe impl ::core::marker::Sync for CoreWetStrokeUpdateEventArgs {}
 #[doc = "*Required features: `\"UI_Input_Inking_Core\"`*"]
@@ -927,36 +811,7 @@ unsafe impl ::windows::core::Interface for CoreWetStrokeUpdateSource {
 impl ::windows::core::RuntimeName for CoreWetStrokeUpdateSource {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreWetStrokeUpdateSource";
 }
-impl ::core::convert::From<CoreWetStrokeUpdateSource> for ::windows::core::IUnknown {
-    fn from(value: CoreWetStrokeUpdateSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreWetStrokeUpdateSource> for ::windows::core::IUnknown {
-    fn from(value: &CoreWetStrokeUpdateSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreWetStrokeUpdateSource> for &::windows::core::IUnknown {
-    fn from(value: &CoreWetStrokeUpdateSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreWetStrokeUpdateSource> for ::windows::core::IInspectable {
-    fn from(value: CoreWetStrokeUpdateSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreWetStrokeUpdateSource> for ::windows::core::IInspectable {
-    fn from(value: &CoreWetStrokeUpdateSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreWetStrokeUpdateSource> for &::windows::core::IInspectable {
-    fn from(value: &CoreWetStrokeUpdateSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreWetStrokeUpdateSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreWetStrokeUpdateSource {}
 unsafe impl ::core::marker::Sync for CoreWetStrokeUpdateSource {}
 #[doc = "*Required features: `\"UI_Input_Inking_Core\"`*"]

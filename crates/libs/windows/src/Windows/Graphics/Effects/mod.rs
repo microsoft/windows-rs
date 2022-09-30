@@ -14,36 +14,7 @@ impl IGraphicsEffect {
         unsafe { (::windows::core::Vtable::vtable(this).SetName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name)).ok() }
     }
 }
-impl ::core::convert::From<IGraphicsEffect> for ::windows::core::IUnknown {
-    fn from(value: IGraphicsEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGraphicsEffect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGraphicsEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGraphicsEffect> for ::windows::core::IUnknown {
-    fn from(value: &IGraphicsEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IGraphicsEffect> for ::windows::core::IInspectable {
-    fn from(value: IGraphicsEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGraphicsEffect> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IGraphicsEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGraphicsEffect> for ::windows::core::IInspectable {
-    fn from(value: &IGraphicsEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGraphicsEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IGraphicsEffect> for IGraphicsEffectSource {
     type Error = ::windows::core::Error;
     fn try_from(value: IGraphicsEffect) -> ::windows::core::Result<Self> {
@@ -103,36 +74,7 @@ pub struct IGraphicsEffect_Vtbl {
 #[repr(transparent)]
 pub struct IGraphicsEffectSource(::windows::core::IUnknown);
 impl IGraphicsEffectSource {}
-impl ::core::convert::From<IGraphicsEffectSource> for ::windows::core::IUnknown {
-    fn from(value: IGraphicsEffectSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGraphicsEffectSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGraphicsEffectSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGraphicsEffectSource> for ::windows::core::IUnknown {
-    fn from(value: &IGraphicsEffectSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IGraphicsEffectSource> for ::windows::core::IInspectable {
-    fn from(value: IGraphicsEffectSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGraphicsEffectSource> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IGraphicsEffectSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGraphicsEffectSource> for ::windows::core::IInspectable {
-    fn from(value: &IGraphicsEffectSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGraphicsEffectSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IGraphicsEffectSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())

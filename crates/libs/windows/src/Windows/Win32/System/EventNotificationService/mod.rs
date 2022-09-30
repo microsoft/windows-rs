@@ -63,41 +63,7 @@ impl ISensLogon {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISensLogon> for ::windows::core::IUnknown {
-    fn from(value: ISensLogon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISensLogon> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISensLogon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISensLogon> for ::windows::core::IUnknown {
-    fn from(value: &ISensLogon) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISensLogon> for super::Com::IDispatch {
-    fn from(value: ISensLogon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISensLogon> for &'a super::Com::IDispatch {
-    fn from(value: &'a ISensLogon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISensLogon> for super::Com::IDispatch {
-    fn from(value: &ISensLogon) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISensLogon, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISensLogon {
     fn clone(&self) -> Self {
@@ -162,41 +128,7 @@ impl ISensLogon2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISensLogon2> for ::windows::core::IUnknown {
-    fn from(value: ISensLogon2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISensLogon2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISensLogon2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISensLogon2> for ::windows::core::IUnknown {
-    fn from(value: &ISensLogon2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISensLogon2> for super::Com::IDispatch {
-    fn from(value: ISensLogon2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISensLogon2> for &'a super::Com::IDispatch {
-    fn from(value: &'a ISensLogon2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISensLogon2> for super::Com::IDispatch {
-    fn from(value: &ISensLogon2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISensLogon2, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISensLogon2 {
     fn clone(&self) -> Self {
@@ -259,41 +191,7 @@ impl ISensNetwork {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISensNetwork> for ::windows::core::IUnknown {
-    fn from(value: ISensNetwork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISensNetwork> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISensNetwork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISensNetwork> for ::windows::core::IUnknown {
-    fn from(value: &ISensNetwork) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISensNetwork> for super::Com::IDispatch {
-    fn from(value: ISensNetwork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISensNetwork> for &'a super::Com::IDispatch {
-    fn from(value: &'a ISensNetwork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISensNetwork> for super::Com::IDispatch {
-    fn from(value: &ISensNetwork) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISensNetwork, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISensNetwork {
     fn clone(&self) -> Self {
@@ -350,41 +248,7 @@ impl ISensOnNow {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISensOnNow> for ::windows::core::IUnknown {
-    fn from(value: ISensOnNow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISensOnNow> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISensOnNow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISensOnNow> for ::windows::core::IUnknown {
-    fn from(value: &ISensOnNow) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISensOnNow> for super::Com::IDispatch {
-    fn from(value: ISensOnNow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISensOnNow> for &'a super::Com::IDispatch {
-    fn from(value: &'a ISensOnNow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISensOnNow> for super::Com::IDispatch {
-    fn from(value: &ISensOnNow) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISensOnNow, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISensOnNow {
     fn clone(&self) -> Self {

@@ -58,36 +58,7 @@ impl IPwmControllerProvider {
         unsafe { (::windows::core::Vtable::vtable(this).SetPulseParameters)(::windows::core::Vtable::as_raw(this), pin, dutycycle, invertpolarity).ok() }
     }
 }
-impl ::core::convert::From<IPwmControllerProvider> for ::windows::core::IUnknown {
-    fn from(value: IPwmControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPwmControllerProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPwmControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPwmControllerProvider> for ::windows::core::IUnknown {
-    fn from(value: &IPwmControllerProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPwmControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: IPwmControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPwmControllerProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPwmControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPwmControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: &IPwmControllerProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPwmControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IPwmControllerProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -146,36 +117,7 @@ impl IPwmProvider {
         }
     }
 }
-impl ::core::convert::From<IPwmProvider> for ::windows::core::IUnknown {
-    fn from(value: IPwmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPwmProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPwmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPwmProvider> for ::windows::core::IUnknown {
-    fn from(value: &IPwmProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPwmProvider> for ::windows::core::IInspectable {
-    fn from(value: IPwmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPwmProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPwmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPwmProvider> for ::windows::core::IInspectable {
-    fn from(value: &IPwmProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPwmProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IPwmProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())

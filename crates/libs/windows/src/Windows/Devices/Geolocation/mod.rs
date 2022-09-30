@@ -536,36 +536,7 @@ impl IGeoshape {
         }
     }
 }
-impl ::core::convert::From<IGeoshape> for ::windows::core::IUnknown {
-    fn from(value: IGeoshape) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGeoshape> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGeoshape) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGeoshape> for ::windows::core::IUnknown {
-    fn from(value: &IGeoshape) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IGeoshape> for ::windows::core::IInspectable {
-    fn from(value: IGeoshape) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGeoshape> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IGeoshape) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGeoshape> for ::windows::core::IInspectable {
-    fn from(value: &IGeoshape) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGeoshape, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IGeoshape {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -819,36 +790,7 @@ unsafe impl ::windows::core::Interface for CivicAddress {
 impl ::windows::core::RuntimeName for CivicAddress {
     const NAME: &'static str = "Windows.Devices.Geolocation.CivicAddress";
 }
-impl ::core::convert::From<CivicAddress> for ::windows::core::IUnknown {
-    fn from(value: CivicAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CivicAddress> for ::windows::core::IUnknown {
-    fn from(value: &CivicAddress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CivicAddress> for &::windows::core::IUnknown {
-    fn from(value: &CivicAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CivicAddress> for ::windows::core::IInspectable {
-    fn from(value: CivicAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CivicAddress> for ::windows::core::IInspectable {
-    fn from(value: &CivicAddress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CivicAddress> for &::windows::core::IInspectable {
-    fn from(value: &CivicAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CivicAddress, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CivicAddress {}
 unsafe impl ::core::marker::Sync for CivicAddress {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -1008,36 +950,7 @@ unsafe impl ::windows::core::Interface for GeoboundingBox {
 impl ::windows::core::RuntimeName for GeoboundingBox {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeoboundingBox";
 }
-impl ::core::convert::From<GeoboundingBox> for ::windows::core::IUnknown {
-    fn from(value: GeoboundingBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GeoboundingBox> for ::windows::core::IUnknown {
-    fn from(value: &GeoboundingBox) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GeoboundingBox> for &::windows::core::IUnknown {
-    fn from(value: &GeoboundingBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GeoboundingBox> for ::windows::core::IInspectable {
-    fn from(value: GeoboundingBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GeoboundingBox> for ::windows::core::IInspectable {
-    fn from(value: &GeoboundingBox) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GeoboundingBox> for &::windows::core::IInspectable {
-    fn from(value: &GeoboundingBox) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GeoboundingBox, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<GeoboundingBox> for IGeoshape {
     type Error = ::windows::core::Error;
     fn try_from(value: GeoboundingBox) -> ::windows::core::Result<Self> {
@@ -1154,36 +1067,7 @@ unsafe impl ::windows::core::Interface for Geocircle {
 impl ::windows::core::RuntimeName for Geocircle {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geocircle";
 }
-impl ::core::convert::From<Geocircle> for ::windows::core::IUnknown {
-    fn from(value: Geocircle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Geocircle> for ::windows::core::IUnknown {
-    fn from(value: &Geocircle) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Geocircle> for &::windows::core::IUnknown {
-    fn from(value: &Geocircle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Geocircle> for ::windows::core::IInspectable {
-    fn from(value: Geocircle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Geocircle> for ::windows::core::IInspectable {
-    fn from(value: &Geocircle) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Geocircle> for &::windows::core::IInspectable {
-    fn from(value: &Geocircle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Geocircle, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Geocircle> for IGeoshape {
     type Error = ::windows::core::Error;
     fn try_from(value: Geocircle) -> ::windows::core::Result<Self> {
@@ -1349,36 +1233,7 @@ unsafe impl ::windows::core::Interface for Geocoordinate {
 impl ::windows::core::RuntimeName for Geocoordinate {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geocoordinate";
 }
-impl ::core::convert::From<Geocoordinate> for ::windows::core::IUnknown {
-    fn from(value: Geocoordinate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Geocoordinate> for ::windows::core::IUnknown {
-    fn from(value: &Geocoordinate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Geocoordinate> for &::windows::core::IUnknown {
-    fn from(value: &Geocoordinate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Geocoordinate> for ::windows::core::IInspectable {
-    fn from(value: Geocoordinate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Geocoordinate> for ::windows::core::IInspectable {
-    fn from(value: &Geocoordinate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Geocoordinate> for &::windows::core::IInspectable {
-    fn from(value: &Geocoordinate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Geocoordinate, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Geocoordinate {}
 unsafe impl ::core::marker::Sync for Geocoordinate {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -1463,36 +1318,7 @@ unsafe impl ::windows::core::Interface for GeocoordinateSatelliteData {
 impl ::windows::core::RuntimeName for GeocoordinateSatelliteData {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeocoordinateSatelliteData";
 }
-impl ::core::convert::From<GeocoordinateSatelliteData> for ::windows::core::IUnknown {
-    fn from(value: GeocoordinateSatelliteData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GeocoordinateSatelliteData> for ::windows::core::IUnknown {
-    fn from(value: &GeocoordinateSatelliteData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GeocoordinateSatelliteData> for &::windows::core::IUnknown {
-    fn from(value: &GeocoordinateSatelliteData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GeocoordinateSatelliteData> for ::windows::core::IInspectable {
-    fn from(value: GeocoordinateSatelliteData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GeocoordinateSatelliteData> for ::windows::core::IInspectable {
-    fn from(value: &GeocoordinateSatelliteData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GeocoordinateSatelliteData> for &::windows::core::IInspectable {
-    fn from(value: &GeocoordinateSatelliteData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GeocoordinateSatelliteData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GeocoordinateSatelliteData {}
 unsafe impl ::core::marker::Sync for GeocoordinateSatelliteData {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -1707,36 +1533,7 @@ unsafe impl ::windows::core::Interface for Geolocator {
 impl ::windows::core::RuntimeName for Geolocator {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geolocator";
 }
-impl ::core::convert::From<Geolocator> for ::windows::core::IUnknown {
-    fn from(value: Geolocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Geolocator> for ::windows::core::IUnknown {
-    fn from(value: &Geolocator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Geolocator> for &::windows::core::IUnknown {
-    fn from(value: &Geolocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Geolocator> for ::windows::core::IInspectable {
-    fn from(value: Geolocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Geolocator> for ::windows::core::IInspectable {
-    fn from(value: &Geolocator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Geolocator> for &::windows::core::IInspectable {
-    fn from(value: &Geolocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Geolocator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Geolocator {}
 unsafe impl ::core::marker::Sync for Geolocator {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -1847,36 +1644,7 @@ unsafe impl ::windows::core::Interface for Geopath {
 impl ::windows::core::RuntimeName for Geopath {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geopath";
 }
-impl ::core::convert::From<Geopath> for ::windows::core::IUnknown {
-    fn from(value: Geopath) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Geopath> for ::windows::core::IUnknown {
-    fn from(value: &Geopath) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Geopath> for &::windows::core::IUnknown {
-    fn from(value: &Geopath) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Geopath> for ::windows::core::IInspectable {
-    fn from(value: Geopath) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Geopath> for ::windows::core::IInspectable {
-    fn from(value: &Geopath) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Geopath> for &::windows::core::IInspectable {
-    fn from(value: &Geopath) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Geopath, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Geopath> for IGeoshape {
     type Error = ::windows::core::Error;
     fn try_from(value: Geopath) -> ::windows::core::Result<Self> {
@@ -1986,36 +1754,7 @@ unsafe impl ::windows::core::Interface for Geopoint {
 impl ::windows::core::RuntimeName for Geopoint {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geopoint";
 }
-impl ::core::convert::From<Geopoint> for ::windows::core::IUnknown {
-    fn from(value: Geopoint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Geopoint> for ::windows::core::IUnknown {
-    fn from(value: &Geopoint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Geopoint> for &::windows::core::IUnknown {
-    fn from(value: &Geopoint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Geopoint> for ::windows::core::IInspectable {
-    fn from(value: Geopoint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Geopoint> for ::windows::core::IInspectable {
-    fn from(value: &Geopoint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Geopoint> for &::windows::core::IInspectable {
-    fn from(value: &Geopoint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Geopoint, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Geopoint> for IGeoshape {
     type Error = ::windows::core::Error;
     fn try_from(value: Geopoint) -> ::windows::core::Result<Self> {
@@ -2095,36 +1834,7 @@ unsafe impl ::windows::core::Interface for Geoposition {
 impl ::windows::core::RuntimeName for Geoposition {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geoposition";
 }
-impl ::core::convert::From<Geoposition> for ::windows::core::IUnknown {
-    fn from(value: Geoposition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Geoposition> for ::windows::core::IUnknown {
-    fn from(value: &Geoposition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Geoposition> for &::windows::core::IUnknown {
-    fn from(value: &Geoposition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Geoposition> for ::windows::core::IInspectable {
-    fn from(value: Geoposition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Geoposition> for ::windows::core::IInspectable {
-    fn from(value: &Geoposition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Geoposition> for &::windows::core::IInspectable {
-    fn from(value: &Geoposition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Geoposition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Geoposition {}
 unsafe impl ::core::marker::Sync for Geoposition {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -2187,36 +1897,7 @@ unsafe impl ::windows::core::Interface for Geovisit {
 impl ::windows::core::RuntimeName for Geovisit {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geovisit";
 }
-impl ::core::convert::From<Geovisit> for ::windows::core::IUnknown {
-    fn from(value: Geovisit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Geovisit> for ::windows::core::IUnknown {
-    fn from(value: &Geovisit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Geovisit> for &::windows::core::IUnknown {
-    fn from(value: &Geovisit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Geovisit> for ::windows::core::IInspectable {
-    fn from(value: Geovisit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Geovisit> for ::windows::core::IInspectable {
-    fn from(value: &Geovisit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Geovisit> for &::windows::core::IInspectable {
-    fn from(value: &Geovisit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Geovisit, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Geovisit {}
 unsafe impl ::core::marker::Sync for Geovisit {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -2306,36 +1987,7 @@ unsafe impl ::windows::core::Interface for GeovisitMonitor {
 impl ::windows::core::RuntimeName for GeovisitMonitor {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitMonitor";
 }
-impl ::core::convert::From<GeovisitMonitor> for ::windows::core::IUnknown {
-    fn from(value: GeovisitMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GeovisitMonitor> for ::windows::core::IUnknown {
-    fn from(value: &GeovisitMonitor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GeovisitMonitor> for &::windows::core::IUnknown {
-    fn from(value: &GeovisitMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GeovisitMonitor> for ::windows::core::IInspectable {
-    fn from(value: GeovisitMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GeovisitMonitor> for ::windows::core::IInspectable {
-    fn from(value: &GeovisitMonitor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GeovisitMonitor> for &::windows::core::IInspectable {
-    fn from(value: &GeovisitMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GeovisitMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GeovisitMonitor {}
 unsafe impl ::core::marker::Sync for GeovisitMonitor {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -2382,36 +2034,7 @@ unsafe impl ::windows::core::Interface for GeovisitStateChangedEventArgs {
 impl ::windows::core::RuntimeName for GeovisitStateChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitStateChangedEventArgs";
 }
-impl ::core::convert::From<GeovisitStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GeovisitStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GeovisitStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GeovisitStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GeovisitStateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GeovisitStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GeovisitStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GeovisitStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GeovisitStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GeovisitStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GeovisitStateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GeovisitStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GeovisitStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GeovisitStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GeovisitStateChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -2460,36 +2083,7 @@ unsafe impl ::windows::core::Interface for GeovisitTriggerDetails {
 impl ::windows::core::RuntimeName for GeovisitTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitTriggerDetails";
 }
-impl ::core::convert::From<GeovisitTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: GeovisitTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GeovisitTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &GeovisitTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GeovisitTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &GeovisitTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GeovisitTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: GeovisitTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GeovisitTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &GeovisitTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GeovisitTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &GeovisitTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GeovisitTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GeovisitTriggerDetails {}
 unsafe impl ::core::marker::Sync for GeovisitTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -2536,36 +2130,7 @@ unsafe impl ::windows::core::Interface for PositionChangedEventArgs {
 impl ::windows::core::RuntimeName for PositionChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.PositionChangedEventArgs";
 }
-impl ::core::convert::From<PositionChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PositionChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PositionChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PositionChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PositionChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PositionChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PositionChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PositionChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PositionChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PositionChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PositionChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PositionChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PositionChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PositionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PositionChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -2612,36 +2177,7 @@ unsafe impl ::windows::core::Interface for StatusChangedEventArgs {
 impl ::windows::core::RuntimeName for StatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.StatusChangedEventArgs";
 }
-impl ::core::convert::From<StatusChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: StatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StatusChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &StatusChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StatusChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &StatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StatusChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: StatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StatusChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &StatusChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StatusChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &StatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for StatusChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -2695,36 +2231,7 @@ unsafe impl ::windows::core::Interface for VenueData {
 impl ::windows::core::RuntimeName for VenueData {
     const NAME: &'static str = "Windows.Devices.Geolocation.VenueData";
 }
-impl ::core::convert::From<VenueData> for ::windows::core::IUnknown {
-    fn from(value: VenueData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VenueData> for ::windows::core::IUnknown {
-    fn from(value: &VenueData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VenueData> for &::windows::core::IUnknown {
-    fn from(value: &VenueData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VenueData> for ::windows::core::IInspectable {
-    fn from(value: VenueData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VenueData> for ::windows::core::IInspectable {
-    fn from(value: &VenueData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VenueData> for &::windows::core::IInspectable {
-    fn from(value: &VenueData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VenueData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VenueData {}
 unsafe impl ::core::marker::Sync for VenueData {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]

@@ -159,36 +159,7 @@ impl IJsonValue {
         }
     }
 }
-impl ::core::convert::From<IJsonValue> for ::windows::core::IUnknown {
-    fn from(value: IJsonValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IJsonValue> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IJsonValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IJsonValue> for ::windows::core::IUnknown {
-    fn from(value: &IJsonValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IJsonValue> for ::windows::core::IInspectable {
-    fn from(value: IJsonValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IJsonValue> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IJsonValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IJsonValue> for ::windows::core::IInspectable {
-    fn from(value: &IJsonValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IJsonValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IJsonValue {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -546,36 +517,7 @@ impl ::core::iter::IntoIterator for &JsonArray {
         super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-impl ::core::convert::From<JsonArray> for ::windows::core::IUnknown {
-    fn from(value: JsonArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&JsonArray> for ::windows::core::IUnknown {
-    fn from(value: &JsonArray) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&JsonArray> for &::windows::core::IUnknown {
-    fn from(value: &JsonArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<JsonArray> for ::windows::core::IInspectable {
-    fn from(value: JsonArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&JsonArray> for ::windows::core::IInspectable {
-    fn from(value: &JsonArray) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&JsonArray> for &::windows::core::IInspectable {
-    fn from(value: &JsonArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(JsonArray, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<JsonArray> for super::super::Foundation::Collections::IIterable<IJsonValue> {
     type Error = ::windows::core::Error;
@@ -978,36 +920,7 @@ impl ::core::iter::IntoIterator for &JsonObject {
         self.First().unwrap()
     }
 }
-impl ::core::convert::From<JsonObject> for ::windows::core::IUnknown {
-    fn from(value: JsonObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&JsonObject> for ::windows::core::IUnknown {
-    fn from(value: &JsonObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&JsonObject> for &::windows::core::IUnknown {
-    fn from(value: &JsonObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<JsonObject> for ::windows::core::IInspectable {
-    fn from(value: JsonObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&JsonObject> for ::windows::core::IInspectable {
-    fn from(value: &JsonObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&JsonObject> for &::windows::core::IInspectable {
-    fn from(value: &JsonObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(JsonObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<JsonObject> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IJsonValue>> {
     type Error = ::windows::core::Error;
@@ -1236,36 +1149,7 @@ unsafe impl ::windows::core::Interface for JsonValue {
 impl ::windows::core::RuntimeName for JsonValue {
     const NAME: &'static str = "Windows.Data.Json.JsonValue";
 }
-impl ::core::convert::From<JsonValue> for ::windows::core::IUnknown {
-    fn from(value: JsonValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&JsonValue> for ::windows::core::IUnknown {
-    fn from(value: &JsonValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&JsonValue> for &::windows::core::IUnknown {
-    fn from(value: &JsonValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<JsonValue> for ::windows::core::IInspectable {
-    fn from(value: JsonValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&JsonValue> for ::windows::core::IInspectable {
-    fn from(value: &JsonValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&JsonValue> for &::windows::core::IInspectable {
-    fn from(value: &JsonValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(JsonValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<JsonValue> for IJsonValue {
     type Error = ::windows::core::Error;
     fn try_from(value: JsonValue) -> ::windows::core::Result<Self> {

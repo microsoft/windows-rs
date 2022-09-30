@@ -31,41 +31,7 @@ impl IRDPSRAPIApplication {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIApplication> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPIApplication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIApplication> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPIApplication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIApplication> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPIApplication) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIApplication> for super::Com::IDispatch {
-    fn from(value: IRDPSRAPIApplication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIApplication> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRDPSRAPIApplication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIApplication> for super::Com::IDispatch {
-    fn from(value: &IRDPSRAPIApplication) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPIApplication, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRDPSRAPIApplication {
     fn clone(&self) -> Self {
@@ -136,41 +102,7 @@ impl IRDPSRAPIApplicationFilter {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIApplicationFilter> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPIApplicationFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIApplicationFilter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPIApplicationFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIApplicationFilter> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPIApplicationFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIApplicationFilter> for super::Com::IDispatch {
-    fn from(value: IRDPSRAPIApplicationFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIApplicationFilter> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRDPSRAPIApplicationFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIApplicationFilter> for super::Com::IDispatch {
-    fn from(value: &IRDPSRAPIApplicationFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPIApplicationFilter, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRDPSRAPIApplicationFilter {
     fn clone(&self) -> Self {
@@ -233,41 +165,7 @@ impl IRDPSRAPIApplicationList {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIApplicationList> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPIApplicationList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIApplicationList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPIApplicationList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIApplicationList> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPIApplicationList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIApplicationList> for super::Com::IDispatch {
-    fn from(value: IRDPSRAPIApplicationList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIApplicationList> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRDPSRAPIApplicationList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIApplicationList> for super::Com::IDispatch {
-    fn from(value: &IRDPSRAPIApplicationList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPIApplicationList, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRDPSRAPIApplicationList {
     fn clone(&self) -> Self {
@@ -347,41 +245,7 @@ impl IRDPSRAPIAttendee {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIAttendee> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPIAttendee) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIAttendee> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPIAttendee) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIAttendee> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPIAttendee) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIAttendee> for super::Com::IDispatch {
-    fn from(value: IRDPSRAPIAttendee) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIAttendee> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRDPSRAPIAttendee) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIAttendee> for super::Com::IDispatch {
-    fn from(value: &IRDPSRAPIAttendee) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPIAttendee, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRDPSRAPIAttendee {
     fn clone(&self) -> Self {
@@ -449,41 +313,7 @@ impl IRDPSRAPIAttendeeDisconnectInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIAttendeeDisconnectInfo> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPIAttendeeDisconnectInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIAttendeeDisconnectInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPIAttendeeDisconnectInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIAttendeeDisconnectInfo> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPIAttendeeDisconnectInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIAttendeeDisconnectInfo> for super::Com::IDispatch {
-    fn from(value: IRDPSRAPIAttendeeDisconnectInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIAttendeeDisconnectInfo> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRDPSRAPIAttendeeDisconnectInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIAttendeeDisconnectInfo> for super::Com::IDispatch {
-    fn from(value: &IRDPSRAPIAttendeeDisconnectInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPIAttendeeDisconnectInfo, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRDPSRAPIAttendeeDisconnectInfo {
     fn clone(&self) -> Self {
@@ -542,41 +372,7 @@ impl IRDPSRAPIAttendeeManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIAttendeeManager> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPIAttendeeManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIAttendeeManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPIAttendeeManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIAttendeeManager> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPIAttendeeManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIAttendeeManager> for super::Com::IDispatch {
-    fn from(value: IRDPSRAPIAttendeeManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIAttendeeManager> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRDPSRAPIAttendeeManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIAttendeeManager> for super::Com::IDispatch {
-    fn from(value: &IRDPSRAPIAttendeeManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPIAttendeeManager, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRDPSRAPIAttendeeManager {
     fn clone(&self) -> Self {
@@ -637,21 +433,7 @@ impl IRDPSRAPIAudioStream {
         (::windows::core::Vtable::vtable(self).FreeBuffer)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IRDPSRAPIAudioStream> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPIAudioStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRDPSRAPIAudioStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPIAudioStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRDPSRAPIAudioStream> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPIAudioStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPIAudioStream, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRDPSRAPIAudioStream {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -698,21 +480,7 @@ impl IRDPSRAPIClipboardUseEvents {
         (::windows::core::Vtable::vtable(self).OnPasteFromClipboard)(::windows::core::Vtable::as_raw(self), clipboardformat, pattendee.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
 }
-impl ::core::convert::From<IRDPSRAPIClipboardUseEvents> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPIClipboardUseEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRDPSRAPIClipboardUseEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPIClipboardUseEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRDPSRAPIClipboardUseEvents> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPIClipboardUseEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPIClipboardUseEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRDPSRAPIClipboardUseEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -756,21 +524,7 @@ impl IRDPSRAPIDebug {
         (::windows::core::Vtable::vtable(self).CLXCmdLine)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
-impl ::core::convert::From<IRDPSRAPIDebug> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPIDebug) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRDPSRAPIDebug> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPIDebug) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRDPSRAPIDebug> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPIDebug) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPIDebug, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRDPSRAPIDebug {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -826,41 +580,7 @@ impl IRDPSRAPIFrameBuffer {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIFrameBuffer> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPIFrameBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIFrameBuffer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPIFrameBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIFrameBuffer> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPIFrameBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIFrameBuffer> for super::Com::IDispatch {
-    fn from(value: IRDPSRAPIFrameBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIFrameBuffer> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRDPSRAPIFrameBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIFrameBuffer> for super::Com::IDispatch {
-    fn from(value: &IRDPSRAPIFrameBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPIFrameBuffer, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRDPSRAPIFrameBuffer {
     fn clone(&self) -> Self {
@@ -936,41 +656,7 @@ impl IRDPSRAPIInvitation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIInvitation> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPIInvitation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIInvitation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPIInvitation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIInvitation> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPIInvitation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIInvitation> for super::Com::IDispatch {
-    fn from(value: IRDPSRAPIInvitation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIInvitation> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRDPSRAPIInvitation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIInvitation> for super::Com::IDispatch {
-    fn from(value: &IRDPSRAPIInvitation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPIInvitation, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRDPSRAPIInvitation {
     fn clone(&self) -> Self {
@@ -1043,41 +729,7 @@ impl IRDPSRAPIInvitationManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIInvitationManager> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPIInvitationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIInvitationManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPIInvitationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIInvitationManager> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPIInvitationManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIInvitationManager> for super::Com::IDispatch {
-    fn from(value: IRDPSRAPIInvitationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIInvitationManager> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRDPSRAPIInvitationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIInvitationManager> for super::Com::IDispatch {
-    fn from(value: &IRDPSRAPIInvitationManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPIInvitationManager, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRDPSRAPIInvitationManager {
     fn clone(&self) -> Self {
@@ -1130,21 +782,7 @@ impl IRDPSRAPIPerfCounterLogger {
         (::windows::core::Vtable::vtable(self).LogValue)(::windows::core::Vtable::as_raw(self), lvalue).ok()
     }
 }
-impl ::core::convert::From<IRDPSRAPIPerfCounterLogger> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPIPerfCounterLogger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRDPSRAPIPerfCounterLogger> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPIPerfCounterLogger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRDPSRAPIPerfCounterLogger> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPIPerfCounterLogger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPIPerfCounterLogger, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRDPSRAPIPerfCounterLogger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1182,21 +820,7 @@ impl IRDPSRAPIPerfCounterLoggingManager {
         (::windows::core::Vtable::vtable(self).CreateLogger)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrcountername), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRDPSRAPIPerfCounterLogger>(result__)
     }
 }
-impl ::core::convert::From<IRDPSRAPIPerfCounterLoggingManager> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPIPerfCounterLoggingManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRDPSRAPIPerfCounterLoggingManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPIPerfCounterLoggingManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRDPSRAPIPerfCounterLoggingManager> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPIPerfCounterLoggingManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPIPerfCounterLoggingManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRDPSRAPIPerfCounterLoggingManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1247,41 +871,7 @@ impl IRDPSRAPISessionProperties {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPISessionProperties> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPISessionProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPISessionProperties> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPISessionProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPISessionProperties> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPISessionProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPISessionProperties> for super::Com::IDispatch {
-    fn from(value: IRDPSRAPISessionProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPISessionProperties> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRDPSRAPISessionProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPISessionProperties> for super::Com::IDispatch {
-    fn from(value: &IRDPSRAPISessionProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPISessionProperties, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRDPSRAPISessionProperties {
     fn clone(&self) -> Self {
@@ -1390,41 +980,7 @@ impl IRDPSRAPISharingSession {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPISharingSession> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPISharingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPISharingSession> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPISharingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPISharingSession> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPISharingSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPISharingSession> for super::Com::IDispatch {
-    fn from(value: IRDPSRAPISharingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPISharingSession> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRDPSRAPISharingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPISharingSession> for super::Com::IDispatch {
-    fn from(value: &IRDPSRAPISharingSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPISharingSession, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRDPSRAPISharingSession {
     fn clone(&self) -> Self {
@@ -1574,59 +1130,7 @@ impl IRDPSRAPISharingSession2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPISharingSession2> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPISharingSession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPISharingSession2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPISharingSession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPISharingSession2> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPISharingSession2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPISharingSession2> for super::Com::IDispatch {
-    fn from(value: IRDPSRAPISharingSession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPISharingSession2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRDPSRAPISharingSession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPISharingSession2> for super::Com::IDispatch {
-    fn from(value: &IRDPSRAPISharingSession2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPISharingSession2> for IRDPSRAPISharingSession {
-    fn from(value: IRDPSRAPISharingSession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPISharingSession2> for &'a IRDPSRAPISharingSession {
-    fn from(value: &'a IRDPSRAPISharingSession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPISharingSession2> for IRDPSRAPISharingSession {
-    fn from(value: &IRDPSRAPISharingSession2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPISharingSession2, ::windows::core::IUnknown, super::Com::IDispatch, IRDPSRAPISharingSession);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRDPSRAPISharingSession2 {
     fn clone(&self) -> Self {
@@ -1698,41 +1202,7 @@ impl IRDPSRAPITcpConnectionInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPITcpConnectionInfo> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPITcpConnectionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPITcpConnectionInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPITcpConnectionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPITcpConnectionInfo> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPITcpConnectionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPITcpConnectionInfo> for super::Com::IDispatch {
-    fn from(value: IRDPSRAPITcpConnectionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPITcpConnectionInfo> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRDPSRAPITcpConnectionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPITcpConnectionInfo> for super::Com::IDispatch {
-    fn from(value: &IRDPSRAPITcpConnectionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPITcpConnectionInfo, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRDPSRAPITcpConnectionInfo {
     fn clone(&self) -> Self {
@@ -1808,21 +1278,7 @@ impl IRDPSRAPITransportStream {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IRDPSRAPITransportStream> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPITransportStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRDPSRAPITransportStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPITransportStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRDPSRAPITransportStream> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPITransportStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPITransportStream, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRDPSRAPITransportStream {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1900,21 +1356,7 @@ impl IRDPSRAPITransportStreamBuffer {
         (::windows::core::Vtable::vtable(self).SetContext)(::windows::core::Vtable::as_raw(self), pcontext.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IRDPSRAPITransportStreamBuffer> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPITransportStreamBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRDPSRAPITransportStreamBuffer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPITransportStreamBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRDPSRAPITransportStreamBuffer> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPITransportStreamBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPITransportStreamBuffer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRDPSRAPITransportStreamBuffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1972,21 +1414,7 @@ impl IRDPSRAPITransportStreamEvents {
         (::windows::core::Vtable::vtable(self).OnStreamClosed)(::windows::core::Vtable::as_raw(self), hrreason)
     }
 }
-impl ::core::convert::From<IRDPSRAPITransportStreamEvents> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPITransportStreamEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRDPSRAPITransportStreamEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPITransportStreamEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRDPSRAPITransportStreamEvents> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPITransportStreamEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPITransportStreamEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRDPSRAPITransportStreamEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2085,41 +1513,7 @@ impl IRDPSRAPIViewer {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIViewer> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPIViewer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIViewer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPIViewer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIViewer> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPIViewer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIViewer> for super::Com::IDispatch {
-    fn from(value: IRDPSRAPIViewer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIViewer> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRDPSRAPIViewer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIViewer> for super::Com::IDispatch {
-    fn from(value: &IRDPSRAPIViewer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPIViewer, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRDPSRAPIViewer {
     fn clone(&self) -> Self {
@@ -2209,41 +1603,7 @@ impl IRDPSRAPIVirtualChannel {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIVirtualChannel> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPIVirtualChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIVirtualChannel> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPIVirtualChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIVirtualChannel> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPIVirtualChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIVirtualChannel> for super::Com::IDispatch {
-    fn from(value: IRDPSRAPIVirtualChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIVirtualChannel> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRDPSRAPIVirtualChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIVirtualChannel> for super::Com::IDispatch {
-    fn from(value: &IRDPSRAPIVirtualChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPIVirtualChannel, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRDPSRAPIVirtualChannel {
     fn clone(&self) -> Self {
@@ -2310,41 +1670,7 @@ impl IRDPSRAPIVirtualChannelManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIVirtualChannelManager> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPIVirtualChannelManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIVirtualChannelManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPIVirtualChannelManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIVirtualChannelManager> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPIVirtualChannelManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIVirtualChannelManager> for super::Com::IDispatch {
-    fn from(value: IRDPSRAPIVirtualChannelManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIVirtualChannelManager> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRDPSRAPIVirtualChannelManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIVirtualChannelManager> for super::Com::IDispatch {
-    fn from(value: &IRDPSRAPIVirtualChannelManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPIVirtualChannelManager, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRDPSRAPIVirtualChannelManager {
     fn clone(&self) -> Self {
@@ -2424,41 +1750,7 @@ impl IRDPSRAPIWindow {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIWindow> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPIWindow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIWindow> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPIWindow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIWindow> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPIWindow) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIWindow> for super::Com::IDispatch {
-    fn from(value: IRDPSRAPIWindow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIWindow> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRDPSRAPIWindow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIWindow> for super::Com::IDispatch {
-    fn from(value: &IRDPSRAPIWindow) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPIWindow, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRDPSRAPIWindow {
     fn clone(&self) -> Self {
@@ -2521,41 +1813,7 @@ impl IRDPSRAPIWindowList {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIWindowList> for ::windows::core::IUnknown {
-    fn from(value: IRDPSRAPIWindowList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIWindowList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPSRAPIWindowList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIWindowList> for ::windows::core::IUnknown {
-    fn from(value: &IRDPSRAPIWindowList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IRDPSRAPIWindowList> for super::Com::IDispatch {
-    fn from(value: IRDPSRAPIWindowList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IRDPSRAPIWindowList> for &'a super::Com::IDispatch {
-    fn from(value: &'a IRDPSRAPIWindowList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IRDPSRAPIWindowList> for super::Com::IDispatch {
-    fn from(value: &IRDPSRAPIWindowList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPSRAPIWindowList, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IRDPSRAPIWindowList {
     fn clone(&self) -> Self {
@@ -2624,21 +1882,7 @@ impl IRDPViewerInputSink {
         (::windows::core::Vtable::vtable(self).EndTouchFrame)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IRDPViewerInputSink> for ::windows::core::IUnknown {
-    fn from(value: IRDPViewerInputSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRDPViewerInputSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRDPViewerInputSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRDPViewerInputSink> for ::windows::core::IUnknown {
-    fn from(value: &IRDPViewerInputSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRDPViewerInputSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRDPViewerInputSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2681,41 +1925,7 @@ pub struct _IRDPSessionEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _IRDPSessionEvents {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_IRDPSessionEvents> for ::windows::core::IUnknown {
-    fn from(value: _IRDPSessionEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _IRDPSessionEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a _IRDPSessionEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_IRDPSessionEvents> for ::windows::core::IUnknown {
-    fn from(value: &_IRDPSessionEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_IRDPSessionEvents> for super::Com::IDispatch {
-    fn from(value: _IRDPSessionEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _IRDPSessionEvents> for &'a super::Com::IDispatch {
-    fn from(value: &'a _IRDPSessionEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_IRDPSessionEvents> for super::Com::IDispatch {
-    fn from(value: &_IRDPSessionEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(_IRDPSessionEvents, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for _IRDPSessionEvents {
     fn clone(&self) -> Self {

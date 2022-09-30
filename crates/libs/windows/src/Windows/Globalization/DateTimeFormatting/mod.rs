@@ -383,36 +383,7 @@ unsafe impl ::windows::core::Interface for DateTimeFormatter {
 impl ::windows::core::RuntimeName for DateTimeFormatter {
     const NAME: &'static str = "Windows.Globalization.DateTimeFormatting.DateTimeFormatter";
 }
-impl ::core::convert::From<DateTimeFormatter> for ::windows::core::IUnknown {
-    fn from(value: DateTimeFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DateTimeFormatter> for ::windows::core::IUnknown {
-    fn from(value: &DateTimeFormatter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DateTimeFormatter> for &::windows::core::IUnknown {
-    fn from(value: &DateTimeFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DateTimeFormatter> for ::windows::core::IInspectable {
-    fn from(value: DateTimeFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DateTimeFormatter> for ::windows::core::IInspectable {
-    fn from(value: &DateTimeFormatter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DateTimeFormatter> for &::windows::core::IInspectable {
-    fn from(value: &DateTimeFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DateTimeFormatter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DateTimeFormatter {}
 unsafe impl ::core::marker::Sync for DateTimeFormatter {}
 #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]

@@ -43,41 +43,7 @@ impl IPrintDocumentPackageStatusEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IPrintDocumentPackageStatusEvent> for ::windows::core::IUnknown {
-    fn from(value: IPrintDocumentPackageStatusEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IPrintDocumentPackageStatusEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintDocumentPackageStatusEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IPrintDocumentPackageStatusEvent> for ::windows::core::IUnknown {
-    fn from(value: &IPrintDocumentPackageStatusEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IPrintDocumentPackageStatusEvent> for super::super::super::System::Com::IDispatch {
-    fn from(value: IPrintDocumentPackageStatusEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IPrintDocumentPackageStatusEvent> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IPrintDocumentPackageStatusEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IPrintDocumentPackageStatusEvent> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IPrintDocumentPackageStatusEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrintDocumentPackageStatusEvent, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPrintDocumentPackageStatusEvent {
     fn clone(&self) -> Self {
@@ -131,21 +97,7 @@ impl IPrintDocumentPackageTarget {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IPrintDocumentPackageTarget> for ::windows::core::IUnknown {
-    fn from(value: IPrintDocumentPackageTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintDocumentPackageTarget> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintDocumentPackageTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintDocumentPackageTarget> for ::windows::core::IUnknown {
-    fn from(value: &IPrintDocumentPackageTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrintDocumentPackageTarget, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPrintDocumentPackageTarget {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -193,21 +145,7 @@ impl IPrintDocumentPackageTargetFactory {
         (::windows::core::Vtable::vtable(self).CreateDocumentPackageTargetForPrintJob)(::windows::core::Vtable::as_raw(self), printername.into(), jobname.into(), joboutputstream.into().abi(), jobprintticketstream.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPrintDocumentPackageTarget>(result__)
     }
 }
-impl ::core::convert::From<IPrintDocumentPackageTargetFactory> for ::windows::core::IUnknown {
-    fn from(value: IPrintDocumentPackageTargetFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintDocumentPackageTargetFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintDocumentPackageTargetFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintDocumentPackageTargetFactory> for ::windows::core::IUnknown {
-    fn from(value: &IPrintDocumentPackageTargetFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrintDocumentPackageTargetFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPrintDocumentPackageTargetFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -251,21 +189,7 @@ impl IXpsPrintJob {
         (::windows::core::Vtable::vtable(self).GetJobStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XPS_JOB_STATUS>(result__)
     }
 }
-impl ::core::convert::From<IXpsPrintJob> for ::windows::core::IUnknown {
-    fn from(value: IXpsPrintJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsPrintJob> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsPrintJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsPrintJob> for ::windows::core::IUnknown {
-    fn from(value: &IXpsPrintJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsPrintJob, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsPrintJob {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -316,41 +240,7 @@ impl IXpsPrintJobStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXpsPrintJobStream> for ::windows::core::IUnknown {
-    fn from(value: IXpsPrintJobStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXpsPrintJobStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsPrintJobStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXpsPrintJobStream> for ::windows::core::IUnknown {
-    fn from(value: &IXpsPrintJobStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXpsPrintJobStream> for super::super::super::System::Com::ISequentialStream {
-    fn from(value: IXpsPrintJobStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXpsPrintJobStream> for &'a super::super::super::System::Com::ISequentialStream {
-    fn from(value: &'a IXpsPrintJobStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXpsPrintJobStream> for super::super::super::System::Com::ISequentialStream {
-    fn from(value: &IXpsPrintJobStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsPrintJobStream, ::windows::core::IUnknown, super::super::super::System::Com::ISequentialStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXpsPrintJobStream {
     fn clone(&self) -> Self {

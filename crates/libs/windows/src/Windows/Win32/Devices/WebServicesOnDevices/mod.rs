@@ -385,21 +385,7 @@ impl IWSDAddress {
         (::windows::core::Vtable::vtable(self).Deserialize)(::windows::core::Vtable::as_raw(self), pszbuffer.into()).ok()
     }
 }
-impl ::core::convert::From<IWSDAddress> for ::windows::core::IUnknown {
-    fn from(value: IWSDAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDAddress> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDAddress> for ::windows::core::IUnknown {
-    fn from(value: &IWSDAddress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDAddress, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWSDAddress {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -444,21 +430,7 @@ impl IWSDAsyncCallback {
         (::windows::core::Vtable::vtable(self).AsyncOperationComplete)(::windows::core::Vtable::as_raw(self), pasyncresult.into().abi(), pasyncstate.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IWSDAsyncCallback> for ::windows::core::IUnknown {
-    fn from(value: IWSDAsyncCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDAsyncCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDAsyncCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDAsyncCallback> for ::windows::core::IUnknown {
-    fn from(value: &IWSDAsyncCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDAsyncCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWSDAsyncCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -525,21 +497,7 @@ impl IWSDAsyncResult {
         (::windows::core::Vtable::vtable(self).GetEndpointProxy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWSDEndpointProxy>(result__)
     }
 }
-impl ::core::convert::From<IWSDAsyncResult> for ::windows::core::IUnknown {
-    fn from(value: IWSDAsyncResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDAsyncResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDAsyncResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDAsyncResult> for ::windows::core::IUnknown {
-    fn from(value: &IWSDAsyncResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDAsyncResult, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWSDAsyncResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -581,21 +539,7 @@ pub struct IWSDAsyncResult_Vtbl {
 #[repr(transparent)]
 pub struct IWSDAttachment(::windows::core::IUnknown);
 impl IWSDAttachment {}
-impl ::core::convert::From<IWSDAttachment> for ::windows::core::IUnknown {
-    fn from(value: IWSDAttachment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDAttachment> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDAttachment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDAttachment> for ::windows::core::IUnknown {
-    fn from(value: &IWSDAttachment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDAttachment, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWSDAttachment {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -695,21 +639,7 @@ impl IWSDDeviceHost {
         (::windows::core::Vtable::vtable(self).SignalEvent)(::windows::core::Vtable::as_raw(self), pszserviceid.into(), ::core::mem::transmute(pbody.unwrap_or(::std::ptr::null())), ::core::mem::transmute(poperation)).ok()
     }
 }
-impl ::core::convert::From<IWSDDeviceHost> for ::windows::core::IUnknown {
-    fn from(value: IWSDDeviceHost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDDeviceHost> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDDeviceHost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDDeviceHost> for ::windows::core::IUnknown {
-    fn from(value: &IWSDDeviceHost) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDDeviceHost, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWSDDeviceHost {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -764,21 +694,7 @@ impl IWSDDeviceHostNotify {
         (::windows::core::Vtable::vtable(self).GetService)(::windows::core::Vtable::as_raw(self), pszserviceid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
-impl ::core::convert::From<IWSDDeviceHostNotify> for ::windows::core::IUnknown {
-    fn from(value: IWSDDeviceHostNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDDeviceHostNotify> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDDeviceHostNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDDeviceHostNotify> for ::windows::core::IUnknown {
-    fn from(value: &IWSDDeviceHostNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDDeviceHostNotify, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWSDDeviceHostNotify {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -863,21 +779,7 @@ impl IWSDDeviceProxy {
         (::windows::core::Vtable::vtable(self).GetEndpointProxy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWSDEndpointProxy>(result__)
     }
 }
-impl ::core::convert::From<IWSDDeviceProxy> for ::windows::core::IUnknown {
-    fn from(value: IWSDDeviceProxy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDDeviceProxy> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDDeviceProxy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDDeviceProxy> for ::windows::core::IUnknown {
-    fn from(value: &IWSDDeviceProxy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDDeviceProxy, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWSDDeviceProxy {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -953,21 +855,7 @@ impl IWSDEndpointProxy {
         (::windows::core::Vtable::vtable(self).GetFaultInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut WSD_SOAP_FAULT>(result__)
     }
 }
-impl ::core::convert::From<IWSDEndpointProxy> for ::windows::core::IUnknown {
-    fn from(value: IWSDEndpointProxy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDEndpointProxy> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDEndpointProxy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDEndpointProxy> for ::windows::core::IUnknown {
-    fn from(value: &IWSDEndpointProxy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDEndpointProxy, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWSDEndpointProxy {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1028,21 +916,7 @@ impl IWSDEventingStatus {
         (::windows::core::Vtable::vtable(self).SubscriptionEnded)(::windows::core::Vtable::as_raw(self), pszsubscriptionaction.into())
     }
 }
-impl ::core::convert::From<IWSDEventingStatus> for ::windows::core::IUnknown {
-    fn from(value: IWSDEventingStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDEventingStatus> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDEventingStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDEventingStatus> for ::windows::core::IUnknown {
-    fn from(value: &IWSDEventingStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDEventingStatus, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWSDEventingStatus {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1139,51 +1013,7 @@ impl IWSDHttpAddress {
         (::windows::core::Vtable::vtable(self).SetPath)(::windows::core::Vtable::as_raw(self), pszpath.into()).ok()
     }
 }
-impl ::core::convert::From<IWSDHttpAddress> for ::windows::core::IUnknown {
-    fn from(value: IWSDHttpAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDHttpAddress> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDHttpAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDHttpAddress> for ::windows::core::IUnknown {
-    fn from(value: &IWSDHttpAddress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWSDHttpAddress> for IWSDAddress {
-    fn from(value: IWSDHttpAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDHttpAddress> for &'a IWSDAddress {
-    fn from(value: &'a IWSDHttpAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDHttpAddress> for IWSDAddress {
-    fn from(value: &IWSDHttpAddress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWSDHttpAddress> for IWSDTransportAddress {
-    fn from(value: IWSDHttpAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDHttpAddress> for &'a IWSDTransportAddress {
-    fn from(value: &'a IWSDHttpAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDHttpAddress> for IWSDTransportAddress {
-    fn from(value: &IWSDHttpAddress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDHttpAddress, ::windows::core::IUnknown, IWSDAddress, IWSDTransportAddress);
 impl ::core::clone::Clone for IWSDHttpAddress {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1233,21 +1063,7 @@ impl IWSDHttpAuthParameters {
         (::windows::core::Vtable::vtable(self).GetAuthType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IWSDHttpAuthParameters> for ::windows::core::IUnknown {
-    fn from(value: IWSDHttpAuthParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDHttpAuthParameters> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDHttpAuthParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDHttpAuthParameters> for ::windows::core::IUnknown {
-    fn from(value: &IWSDHttpAuthParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDHttpAuthParameters, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWSDHttpAuthParameters {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1352,36 +1168,7 @@ impl IWSDHttpMessageParameters {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWSDHttpMessageParameters> for ::windows::core::IUnknown {
-    fn from(value: IWSDHttpMessageParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDHttpMessageParameters> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDHttpMessageParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDHttpMessageParameters> for ::windows::core::IUnknown {
-    fn from(value: &IWSDHttpMessageParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWSDHttpMessageParameters> for IWSDMessageParameters {
-    fn from(value: IWSDHttpMessageParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDHttpMessageParameters> for &'a IWSDMessageParameters {
-    fn from(value: &'a IWSDHttpMessageParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDHttpMessageParameters> for IWSDMessageParameters {
-    fn from(value: &IWSDHttpMessageParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDHttpMessageParameters, ::windows::core::IUnknown, IWSDMessageParameters);
 impl ::core::clone::Clone for IWSDHttpMessageParameters {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1429,36 +1216,7 @@ impl IWSDInboundAttachment {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWSDInboundAttachment> for ::windows::core::IUnknown {
-    fn from(value: IWSDInboundAttachment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDInboundAttachment> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDInboundAttachment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDInboundAttachment> for ::windows::core::IUnknown {
-    fn from(value: &IWSDInboundAttachment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWSDInboundAttachment> for IWSDAttachment {
-    fn from(value: IWSDInboundAttachment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDInboundAttachment> for &'a IWSDAttachment {
-    fn from(value: &'a IWSDInboundAttachment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDInboundAttachment> for IWSDAttachment {
-    fn from(value: &IWSDInboundAttachment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDInboundAttachment, ::windows::core::IUnknown, IWSDAttachment);
 impl ::core::clone::Clone for IWSDInboundAttachment {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1517,21 +1275,7 @@ impl IWSDMessageParameters {
         (::windows::core::Vtable::vtable(self).GetLowerParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWSDMessageParameters>(result__)
     }
 }
-impl ::core::convert::From<IWSDMessageParameters> for ::windows::core::IUnknown {
-    fn from(value: IWSDMessageParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDMessageParameters> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDMessageParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDMessageParameters> for ::windows::core::IUnknown {
-    fn from(value: &IWSDMessageParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDMessageParameters, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWSDMessageParameters {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1573,21 +1317,7 @@ impl IWSDMetadataExchange {
         (::windows::core::Vtable::vtable(self).GetMetadata)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut WSD_METADATA_SECTION_LIST>(result__)
     }
 }
-impl ::core::convert::From<IWSDMetadataExchange> for ::windows::core::IUnknown {
-    fn from(value: IWSDMetadataExchange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDMetadataExchange> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDMetadataExchange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDMetadataExchange> for ::windows::core::IUnknown {
-    fn from(value: &IWSDMetadataExchange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDMetadataExchange, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWSDMetadataExchange {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1631,36 +1361,7 @@ impl IWSDOutboundAttachment {
         (::windows::core::Vtable::vtable(self).Abort)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWSDOutboundAttachment> for ::windows::core::IUnknown {
-    fn from(value: IWSDOutboundAttachment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDOutboundAttachment> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDOutboundAttachment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDOutboundAttachment> for ::windows::core::IUnknown {
-    fn from(value: &IWSDOutboundAttachment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWSDOutboundAttachment> for IWSDAttachment {
-    fn from(value: IWSDOutboundAttachment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDOutboundAttachment> for &'a IWSDAttachment {
-    fn from(value: &'a IWSDOutboundAttachment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDOutboundAttachment> for IWSDAttachment {
-    fn from(value: &IWSDOutboundAttachment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDOutboundAttachment, ::windows::core::IUnknown, IWSDAttachment);
 impl ::core::clone::Clone for IWSDOutboundAttachment {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1708,21 +1409,7 @@ impl IWSDSSLClientCertificate {
         (::windows::core::Vtable::vtable(self).GetMappedAccessToken)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
 }
-impl ::core::convert::From<IWSDSSLClientCertificate> for ::windows::core::IUnknown {
-    fn from(value: IWSDSSLClientCertificate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDSSLClientCertificate> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDSSLClientCertificate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDSSLClientCertificate> for ::windows::core::IUnknown {
-    fn from(value: &IWSDSSLClientCertificate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDSSLClientCertificate, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWSDSSLClientCertificate {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1777,21 +1464,7 @@ impl IWSDScopeMatchingRule {
         (::windows::core::Vtable::vtable(self).MatchScopes)(::windows::core::Vtable::as_raw(self), pszscope1.into(), pszscope2.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IWSDScopeMatchingRule> for ::windows::core::IUnknown {
-    fn from(value: IWSDScopeMatchingRule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDScopeMatchingRule> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDScopeMatchingRule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDScopeMatchingRule> for ::windows::core::IUnknown {
-    fn from(value: &IWSDScopeMatchingRule) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDScopeMatchingRule, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWSDScopeMatchingRule {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1841,21 +1514,7 @@ impl IWSDServiceMessaging {
         (::windows::core::Vtable::vtable(self).FaultRequest)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prequestheader), pmessageparameters.into().abi(), ::core::mem::transmute(pfault.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<IWSDServiceMessaging> for ::windows::core::IUnknown {
-    fn from(value: IWSDServiceMessaging) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDServiceMessaging> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDServiceMessaging) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDServiceMessaging> for ::windows::core::IUnknown {
-    fn from(value: &IWSDServiceMessaging) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDServiceMessaging, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWSDServiceMessaging {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1929,36 +1588,7 @@ impl IWSDServiceProxy {
         (::windows::core::Vtable::vtable(self).GetEndpointProxy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWSDEndpointProxy>(result__)
     }
 }
-impl ::core::convert::From<IWSDServiceProxy> for ::windows::core::IUnknown {
-    fn from(value: IWSDServiceProxy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDServiceProxy> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDServiceProxy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDServiceProxy> for ::windows::core::IUnknown {
-    fn from(value: &IWSDServiceProxy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWSDServiceProxy> for IWSDMetadataExchange {
-    fn from(value: IWSDServiceProxy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDServiceProxy> for &'a IWSDMetadataExchange {
-    fn from(value: &'a IWSDServiceProxy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDServiceProxy> for IWSDMetadataExchange {
-    fn from(value: &IWSDServiceProxy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDServiceProxy, ::windows::core::IUnknown, IWSDMetadataExchange);
 impl ::core::clone::Clone for IWSDServiceProxy {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2125,51 +1755,7 @@ impl IWSDServiceProxyEventing {
         (::windows::core::Vtable::vtable(self).EndGetStatusForMultipleOperations)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(poperations.as_ptr()), poperations.len() as _, presult.into().abi(), ::core::mem::transmute(ppexpires.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppany.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IWSDServiceProxyEventing> for ::windows::core::IUnknown {
-    fn from(value: IWSDServiceProxyEventing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDServiceProxyEventing> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDServiceProxyEventing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDServiceProxyEventing> for ::windows::core::IUnknown {
-    fn from(value: &IWSDServiceProxyEventing) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWSDServiceProxyEventing> for IWSDMetadataExchange {
-    fn from(value: IWSDServiceProxyEventing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDServiceProxyEventing> for &'a IWSDMetadataExchange {
-    fn from(value: &'a IWSDServiceProxyEventing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDServiceProxyEventing> for IWSDMetadataExchange {
-    fn from(value: &IWSDServiceProxyEventing) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWSDServiceProxyEventing> for IWSDServiceProxy {
-    fn from(value: IWSDServiceProxyEventing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDServiceProxyEventing> for &'a IWSDServiceProxy {
-    fn from(value: &'a IWSDServiceProxyEventing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDServiceProxyEventing> for IWSDServiceProxy {
-    fn from(value: &IWSDServiceProxyEventing) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDServiceProxyEventing, ::windows::core::IUnknown, IWSDMetadataExchange, IWSDServiceProxy);
 impl ::core::clone::Clone for IWSDServiceProxyEventing {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2259,21 +1845,7 @@ impl IWSDSignatureProperty {
         (::windows::core::Vtable::vtable(self).GetSignedInfoHash)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbsignedinfohash.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwhashsize)).ok()
     }
 }
-impl ::core::convert::From<IWSDSignatureProperty> for ::windows::core::IUnknown {
-    fn from(value: IWSDSignatureProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDSignatureProperty> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDSignatureProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDSignatureProperty> for ::windows::core::IUnknown {
-    fn from(value: &IWSDSignatureProperty) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDSignatureProperty, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWSDSignatureProperty {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2357,36 +1929,7 @@ impl IWSDTransportAddress {
         (::windows::core::Vtable::vtable(self).SetTransportAddress)(::windows::core::Vtable::as_raw(self), pszaddress.into()).ok()
     }
 }
-impl ::core::convert::From<IWSDTransportAddress> for ::windows::core::IUnknown {
-    fn from(value: IWSDTransportAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDTransportAddress> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDTransportAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDTransportAddress> for ::windows::core::IUnknown {
-    fn from(value: &IWSDTransportAddress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWSDTransportAddress> for IWSDAddress {
-    fn from(value: IWSDTransportAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDTransportAddress> for &'a IWSDAddress {
-    fn from(value: &'a IWSDTransportAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDTransportAddress> for IWSDAddress {
-    fn from(value: &IWSDTransportAddress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDTransportAddress, ::windows::core::IUnknown, IWSDAddress);
 impl ::core::clone::Clone for IWSDTransportAddress {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2510,51 +2053,7 @@ impl IWSDUdpAddress {
         (::windows::core::Vtable::vtable(self).GetAlias)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
 }
-impl ::core::convert::From<IWSDUdpAddress> for ::windows::core::IUnknown {
-    fn from(value: IWSDUdpAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDUdpAddress> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDUdpAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDUdpAddress> for ::windows::core::IUnknown {
-    fn from(value: &IWSDUdpAddress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWSDUdpAddress> for IWSDAddress {
-    fn from(value: IWSDUdpAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDUdpAddress> for &'a IWSDAddress {
-    fn from(value: &'a IWSDUdpAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDUdpAddress> for IWSDAddress {
-    fn from(value: &IWSDUdpAddress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWSDUdpAddress> for IWSDTransportAddress {
-    fn from(value: IWSDUdpAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDUdpAddress> for &'a IWSDTransportAddress {
-    fn from(value: &'a IWSDUdpAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDUdpAddress> for IWSDTransportAddress {
-    fn from(value: &IWSDUdpAddress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDUdpAddress, ::windows::core::IUnknown, IWSDAddress, IWSDTransportAddress);
 impl ::core::clone::Clone for IWSDUdpAddress {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2637,36 +2136,7 @@ impl IWSDUdpMessageParameters {
         (::windows::core::Vtable::vtable(self).GetRetransmitParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WSDUdpRetransmitParams>(result__)
     }
 }
-impl ::core::convert::From<IWSDUdpMessageParameters> for ::windows::core::IUnknown {
-    fn from(value: IWSDUdpMessageParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDUdpMessageParameters> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDUdpMessageParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDUdpMessageParameters> for ::windows::core::IUnknown {
-    fn from(value: &IWSDUdpMessageParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWSDUdpMessageParameters> for IWSDMessageParameters {
-    fn from(value: IWSDUdpMessageParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDUdpMessageParameters> for &'a IWSDMessageParameters {
-    fn from(value: &'a IWSDUdpMessageParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDUdpMessageParameters> for IWSDMessageParameters {
-    fn from(value: &IWSDUdpMessageParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDUdpMessageParameters, ::windows::core::IUnknown, IWSDMessageParameters);
 impl ::core::clone::Clone for IWSDUdpMessageParameters {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2723,21 +2193,7 @@ impl IWSDXMLContext {
         (::windows::core::Vtable::vtable(self).SetTypes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptypes.as_ptr()), ptypes.len() as _, blayernumber).ok()
     }
 }
-impl ::core::convert::From<IWSDXMLContext> for ::windows::core::IUnknown {
-    fn from(value: IWSDXMLContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDXMLContext> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDXMLContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDXMLContext> for ::windows::core::IUnknown {
-    fn from(value: &IWSDXMLContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDXMLContext, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWSDXMLContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2817,21 +2273,7 @@ impl IWSDiscoveredService {
         (::windows::core::Vtable::vtable(self).GetInstanceId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
-impl ::core::convert::From<IWSDiscoveredService> for ::windows::core::IUnknown {
-    fn from(value: IWSDiscoveredService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDiscoveredService> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDiscoveredService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDiscoveredService> for ::windows::core::IUnknown {
-    fn from(value: &IWSDiscoveredService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDiscoveredService, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWSDiscoveredService {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2912,21 +2354,7 @@ impl IWSDiscoveryProvider {
         (::windows::core::Vtable::vtable(self).GetXMLContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWSDXMLContext>(result__)
     }
 }
-impl ::core::convert::From<IWSDiscoveryProvider> for ::windows::core::IUnknown {
-    fn from(value: IWSDiscoveryProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDiscoveryProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDiscoveryProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDiscoveryProvider> for ::windows::core::IUnknown {
-    fn from(value: &IWSDiscoveryProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDiscoveryProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWSDiscoveryProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2990,21 +2418,7 @@ impl IWSDiscoveryProviderNotify {
         (::windows::core::Vtable::vtable(self).SearchComplete)(::windows::core::Vtable::as_raw(self), psztag.into()).ok()
     }
 }
-impl ::core::convert::From<IWSDiscoveryProviderNotify> for ::windows::core::IUnknown {
-    fn from(value: IWSDiscoveryProviderNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDiscoveryProviderNotify> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDiscoveryProviderNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDiscoveryProviderNotify> for ::windows::core::IUnknown {
-    fn from(value: &IWSDiscoveryProviderNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDiscoveryProviderNotify, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWSDiscoveryProviderNotify {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3177,21 +2591,7 @@ impl IWSDiscoveryPublisher {
         (::windows::core::Vtable::vtable(self).GetXMLContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWSDXMLContext>(result__)
     }
 }
-impl ::core::convert::From<IWSDiscoveryPublisher> for ::windows::core::IUnknown {
-    fn from(value: IWSDiscoveryPublisher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDiscoveryPublisher> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDiscoveryPublisher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDiscoveryPublisher> for ::windows::core::IUnknown {
-    fn from(value: &IWSDiscoveryPublisher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDiscoveryPublisher, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWSDiscoveryPublisher {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3249,21 +2649,7 @@ impl IWSDiscoveryPublisherNotify {
         (::windows::core::Vtable::vtable(self).ResolveHandler)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psoap), pmessageparameters.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IWSDiscoveryPublisherNotify> for ::windows::core::IUnknown {
-    fn from(value: IWSDiscoveryPublisherNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWSDiscoveryPublisherNotify> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSDiscoveryPublisherNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWSDiscoveryPublisherNotify> for ::windows::core::IUnknown {
-    fn from(value: &IWSDiscoveryPublisherNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSDiscoveryPublisherNotify, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWSDiscoveryPublisherNotify {
     fn clone(&self) -> Self {
         Self(self.0.clone())

@@ -177,36 +177,7 @@ unsafe impl ::windows::core::Interface for SceneLightingEffect {
 impl ::windows::core::RuntimeName for SceneLightingEffect {
     const NAME: &'static str = "Windows.UI.Composition.Effects.SceneLightingEffect";
 }
-impl ::core::convert::From<SceneLightingEffect> for ::windows::core::IUnknown {
-    fn from(value: SceneLightingEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneLightingEffect> for ::windows::core::IUnknown {
-    fn from(value: &SceneLightingEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneLightingEffect> for &::windows::core::IUnknown {
-    fn from(value: &SceneLightingEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SceneLightingEffect> for ::windows::core::IInspectable {
-    fn from(value: SceneLightingEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SceneLightingEffect> for ::windows::core::IInspectable {
-    fn from(value: &SceneLightingEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SceneLightingEffect> for &::windows::core::IInspectable {
-    fn from(value: &SceneLightingEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SceneLightingEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Graphics_Effects")]
 impl ::core::convert::TryFrom<SceneLightingEffect> for super::super::super::Graphics::Effects::IGraphicsEffect {
     type Error = ::windows::core::Error;

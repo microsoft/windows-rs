@@ -182,59 +182,7 @@ impl IAccessibleWinSAT {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-impl ::core::convert::From<IAccessibleWinSAT> for ::windows::core::IUnknown {
-    fn from(value: IAccessibleWinSAT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-impl<'a> ::core::convert::From<&'a IAccessibleWinSAT> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAccessibleWinSAT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-impl ::core::convert::From<&IAccessibleWinSAT> for ::windows::core::IUnknown {
-    fn from(value: &IAccessibleWinSAT) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-impl ::core::convert::From<IAccessibleWinSAT> for super::Com::IDispatch {
-    fn from(value: IAccessibleWinSAT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-impl<'a> ::core::convert::From<&'a IAccessibleWinSAT> for &'a super::Com::IDispatch {
-    fn from(value: &'a IAccessibleWinSAT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-impl ::core::convert::From<&IAccessibleWinSAT> for super::Com::IDispatch {
-    fn from(value: &IAccessibleWinSAT) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-impl ::core::convert::From<IAccessibleWinSAT> for super::super::UI::Accessibility::IAccessible {
-    fn from(value: IAccessibleWinSAT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-impl<'a> ::core::convert::From<&'a IAccessibleWinSAT> for &'a super::super::UI::Accessibility::IAccessible {
-    fn from(value: &'a IAccessibleWinSAT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-impl ::core::convert::From<&IAccessibleWinSAT> for super::super::UI::Accessibility::IAccessible {
-    fn from(value: &IAccessibleWinSAT) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAccessibleWinSAT, ::windows::core::IUnknown, super::Com::IDispatch, super::super::UI::Accessibility::IAccessible);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 impl ::core::clone::Clone for IAccessibleWinSAT {
     fn clone(&self) -> Self {
@@ -297,21 +245,7 @@ impl IInitiateWinSATAssessment {
         (::windows::core::Vtable::vtable(self).CancelAssessment)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IInitiateWinSATAssessment> for ::windows::core::IUnknown {
-    fn from(value: IInitiateWinSATAssessment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInitiateWinSATAssessment> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInitiateWinSATAssessment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInitiateWinSATAssessment> for ::windows::core::IUnknown {
-    fn from(value: &IInitiateWinSATAssessment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInitiateWinSATAssessment, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInitiateWinSATAssessment {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -368,41 +302,7 @@ impl IProvideWinSATAssessmentInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IProvideWinSATAssessmentInfo> for ::windows::core::IUnknown {
-    fn from(value: IProvideWinSATAssessmentInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IProvideWinSATAssessmentInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IProvideWinSATAssessmentInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IProvideWinSATAssessmentInfo> for ::windows::core::IUnknown {
-    fn from(value: &IProvideWinSATAssessmentInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IProvideWinSATAssessmentInfo> for super::Com::IDispatch {
-    fn from(value: IProvideWinSATAssessmentInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IProvideWinSATAssessmentInfo> for &'a super::Com::IDispatch {
-    fn from(value: &'a IProvideWinSATAssessmentInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IProvideWinSATAssessmentInfo> for super::Com::IDispatch {
-    fn from(value: &IProvideWinSATAssessmentInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IProvideWinSATAssessmentInfo, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IProvideWinSATAssessmentInfo {
     fn clone(&self) -> Self {
@@ -472,41 +372,7 @@ impl IProvideWinSATResultsInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IProvideWinSATResultsInfo> for ::windows::core::IUnknown {
-    fn from(value: IProvideWinSATResultsInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IProvideWinSATResultsInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IProvideWinSATResultsInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IProvideWinSATResultsInfo> for ::windows::core::IUnknown {
-    fn from(value: &IProvideWinSATResultsInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IProvideWinSATResultsInfo> for super::Com::IDispatch {
-    fn from(value: IProvideWinSATResultsInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IProvideWinSATResultsInfo> for &'a super::Com::IDispatch {
-    fn from(value: &'a IProvideWinSATResultsInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IProvideWinSATResultsInfo> for super::Com::IDispatch {
-    fn from(value: &IProvideWinSATResultsInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IProvideWinSATResultsInfo, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IProvideWinSATResultsInfo {
     fn clone(&self) -> Self {
@@ -563,21 +429,7 @@ impl IProvideWinSATVisuals {
         (::windows::core::Vtable::vtable(self).get_Bitmap)(::windows::core::Vtable::as_raw(self), bitmapsize, state, rating, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::HBITMAP>(result__)
     }
 }
-impl ::core::convert::From<IProvideWinSATVisuals> for ::windows::core::IUnknown {
-    fn from(value: IProvideWinSATVisuals) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProvideWinSATVisuals> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IProvideWinSATVisuals) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProvideWinSATVisuals> for ::windows::core::IUnknown {
-    fn from(value: &IProvideWinSATVisuals) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IProvideWinSATVisuals, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IProvideWinSATVisuals {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -623,41 +475,7 @@ impl IQueryAllWinSATAssessments {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IQueryAllWinSATAssessments> for ::windows::core::IUnknown {
-    fn from(value: IQueryAllWinSATAssessments) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IQueryAllWinSATAssessments> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IQueryAllWinSATAssessments) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IQueryAllWinSATAssessments> for ::windows::core::IUnknown {
-    fn from(value: &IQueryAllWinSATAssessments) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IQueryAllWinSATAssessments> for super::Com::IDispatch {
-    fn from(value: IQueryAllWinSATAssessments) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IQueryAllWinSATAssessments> for &'a super::Com::IDispatch {
-    fn from(value: &'a IQueryAllWinSATAssessments) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IQueryAllWinSATAssessments> for super::Com::IDispatch {
-    fn from(value: &IQueryAllWinSATAssessments) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IQueryAllWinSATAssessments, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IQueryAllWinSATAssessments {
     fn clone(&self) -> Self {
@@ -705,21 +523,7 @@ impl IQueryOEMWinSATCustomization {
         (::windows::core::Vtable::vtable(self).GetOEMPrePopulationInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WINSAT_OEM_CUSTOMIZATION_STATE>(result__)
     }
 }
-impl ::core::convert::From<IQueryOEMWinSATCustomization> for ::windows::core::IUnknown {
-    fn from(value: IQueryOEMWinSATCustomization) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IQueryOEMWinSATCustomization> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IQueryOEMWinSATCustomization) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IQueryOEMWinSATCustomization> for ::windows::core::IUnknown {
-    fn from(value: &IQueryOEMWinSATCustomization) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IQueryOEMWinSATCustomization, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IQueryOEMWinSATCustomization {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -768,41 +572,7 @@ impl IQueryRecentWinSATAssessment {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IQueryRecentWinSATAssessment> for ::windows::core::IUnknown {
-    fn from(value: IQueryRecentWinSATAssessment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IQueryRecentWinSATAssessment> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IQueryRecentWinSATAssessment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IQueryRecentWinSATAssessment> for ::windows::core::IUnknown {
-    fn from(value: &IQueryRecentWinSATAssessment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IQueryRecentWinSATAssessment> for super::Com::IDispatch {
-    fn from(value: IQueryRecentWinSATAssessment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IQueryRecentWinSATAssessment> for &'a super::Com::IDispatch {
-    fn from(value: &'a IQueryRecentWinSATAssessment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IQueryRecentWinSATAssessment> for super::Com::IDispatch {
-    fn from(value: &IQueryRecentWinSATAssessment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IQueryRecentWinSATAssessment, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IQueryRecentWinSATAssessment {
     fn clone(&self) -> Self {
@@ -862,21 +632,7 @@ impl IWinSATInitiateEvents {
         (::windows::core::Vtable::vtable(self).WinSATUpdate)(::windows::core::Vtable::as_raw(self), ucurrenttick, uticktotal, strcurrentstate.into()).ok()
     }
 }
-impl ::core::convert::From<IWinSATInitiateEvents> for ::windows::core::IUnknown {
-    fn from(value: IWinSATInitiateEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWinSATInitiateEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWinSATInitiateEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWinSATInitiateEvents> for ::windows::core::IUnknown {
-    fn from(value: &IWinSATInitiateEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWinSATInitiateEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWinSATInitiateEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())

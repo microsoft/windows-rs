@@ -137,36 +137,7 @@ unsafe impl ::windows::core::Interface for CoreAppWindowPreview {
 impl ::windows::core::RuntimeName for CoreAppWindowPreview {
     const NAME: &'static str = "Windows.UI.Core.Preview.CoreAppWindowPreview";
 }
-impl ::core::convert::From<CoreAppWindowPreview> for ::windows::core::IUnknown {
-    fn from(value: CoreAppWindowPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreAppWindowPreview> for ::windows::core::IUnknown {
-    fn from(value: &CoreAppWindowPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreAppWindowPreview> for &::windows::core::IUnknown {
-    fn from(value: &CoreAppWindowPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreAppWindowPreview> for ::windows::core::IInspectable {
-    fn from(value: CoreAppWindowPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreAppWindowPreview> for ::windows::core::IInspectable {
-    fn from(value: &CoreAppWindowPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreAppWindowPreview> for &::windows::core::IInspectable {
-    fn from(value: &CoreAppWindowPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreAppWindowPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreAppWindowPreview {}
 unsafe impl ::core::marker::Sync for CoreAppWindowPreview {}
 #[doc = "*Required features: `\"UI_Core_Preview\"`*"]
@@ -226,36 +197,7 @@ unsafe impl ::windows::core::Interface for SystemNavigationCloseRequestedPreview
 impl ::windows::core::RuntimeName for SystemNavigationCloseRequestedPreviewEventArgs {
     const NAME: &'static str = "Windows.UI.Core.Preview.SystemNavigationCloseRequestedPreviewEventArgs";
 }
-impl ::core::convert::From<SystemNavigationCloseRequestedPreviewEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SystemNavigationCloseRequestedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemNavigationCloseRequestedPreviewEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SystemNavigationCloseRequestedPreviewEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemNavigationCloseRequestedPreviewEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SystemNavigationCloseRequestedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SystemNavigationCloseRequestedPreviewEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SystemNavigationCloseRequestedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemNavigationCloseRequestedPreviewEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SystemNavigationCloseRequestedPreviewEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemNavigationCloseRequestedPreviewEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SystemNavigationCloseRequestedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SystemNavigationCloseRequestedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemNavigationCloseRequestedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for SystemNavigationCloseRequestedPreviewEventArgs {}
 #[doc = "*Required features: `\"UI_Core_Preview\"`*"]
@@ -321,36 +263,7 @@ unsafe impl ::windows::core::Interface for SystemNavigationManagerPreview {
 impl ::windows::core::RuntimeName for SystemNavigationManagerPreview {
     const NAME: &'static str = "Windows.UI.Core.Preview.SystemNavigationManagerPreview";
 }
-impl ::core::convert::From<SystemNavigationManagerPreview> for ::windows::core::IUnknown {
-    fn from(value: SystemNavigationManagerPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemNavigationManagerPreview> for ::windows::core::IUnknown {
-    fn from(value: &SystemNavigationManagerPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemNavigationManagerPreview> for &::windows::core::IUnknown {
-    fn from(value: &SystemNavigationManagerPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SystemNavigationManagerPreview> for ::windows::core::IInspectable {
-    fn from(value: SystemNavigationManagerPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemNavigationManagerPreview> for ::windows::core::IInspectable {
-    fn from(value: &SystemNavigationManagerPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemNavigationManagerPreview> for &::windows::core::IInspectable {
-    fn from(value: &SystemNavigationManagerPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SystemNavigationManagerPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemNavigationManagerPreview {}
 unsafe impl ::core::marker::Sync for SystemNavigationManagerPreview {}
 #[cfg(feature = "implement")]

@@ -134,36 +134,7 @@ unsafe impl ::windows::core::Interface for RequestingFocusOnKeyboardInputEventAr
 impl ::windows::core::RuntimeName for RequestingFocusOnKeyboardInputEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.RequestingFocusOnKeyboardInputEventArgs";
 }
-impl ::core::convert::From<RequestingFocusOnKeyboardInputEventArgs> for ::windows::core::IUnknown {
-    fn from(value: RequestingFocusOnKeyboardInputEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RequestingFocusOnKeyboardInputEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &RequestingFocusOnKeyboardInputEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RequestingFocusOnKeyboardInputEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &RequestingFocusOnKeyboardInputEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RequestingFocusOnKeyboardInputEventArgs> for ::windows::core::IInspectable {
-    fn from(value: RequestingFocusOnKeyboardInputEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RequestingFocusOnKeyboardInputEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &RequestingFocusOnKeyboardInputEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RequestingFocusOnKeyboardInputEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &RequestingFocusOnKeyboardInputEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RequestingFocusOnKeyboardInputEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RequestingFocusOnKeyboardInputEventArgs {}
 unsafe impl ::core::marker::Sync for RequestingFocusOnKeyboardInputEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
@@ -247,36 +218,7 @@ unsafe impl ::windows::core::Interface for SearchSuggestion {
 impl ::windows::core::RuntimeName for SearchSuggestion {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.SearchSuggestion";
 }
-impl ::core::convert::From<SearchSuggestion> for ::windows::core::IUnknown {
-    fn from(value: SearchSuggestion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SearchSuggestion> for ::windows::core::IUnknown {
-    fn from(value: &SearchSuggestion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SearchSuggestion> for &::windows::core::IUnknown {
-    fn from(value: &SearchSuggestion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SearchSuggestion> for ::windows::core::IInspectable {
-    fn from(value: SearchSuggestion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SearchSuggestion> for ::windows::core::IInspectable {
-    fn from(value: &SearchSuggestion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SearchSuggestion> for &::windows::core::IInspectable {
-    fn from(value: &SearchSuggestion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SearchSuggestion, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
 #[repr(transparent)]
 pub struct SearchSuggestionManager(::windows::core::IUnknown);
@@ -410,36 +352,7 @@ unsafe impl ::windows::core::Interface for SearchSuggestionManager {
 impl ::windows::core::RuntimeName for SearchSuggestionManager {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.SearchSuggestionManager";
 }
-impl ::core::convert::From<SearchSuggestionManager> for ::windows::core::IUnknown {
-    fn from(value: SearchSuggestionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SearchSuggestionManager> for ::windows::core::IUnknown {
-    fn from(value: &SearchSuggestionManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SearchSuggestionManager> for &::windows::core::IUnknown {
-    fn from(value: &SearchSuggestionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SearchSuggestionManager> for ::windows::core::IInspectable {
-    fn from(value: SearchSuggestionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SearchSuggestionManager> for ::windows::core::IInspectable {
-    fn from(value: &SearchSuggestionManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SearchSuggestionManager> for &::windows::core::IInspectable {
-    fn from(value: &SearchSuggestionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SearchSuggestionManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
 #[repr(transparent)]
 pub struct SearchSuggestionsRequestedEventArgs(::windows::core::IUnknown);
@@ -505,36 +418,7 @@ unsafe impl ::windows::core::Interface for SearchSuggestionsRequestedEventArgs {
 impl ::windows::core::RuntimeName for SearchSuggestionsRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs";
 }
-impl ::core::convert::From<SearchSuggestionsRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SearchSuggestionsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SearchSuggestionsRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SearchSuggestionsRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SearchSuggestionsRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SearchSuggestionsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SearchSuggestionsRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SearchSuggestionsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SearchSuggestionsRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SearchSuggestionsRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SearchSuggestionsRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SearchSuggestionsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SearchSuggestionsRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SearchSuggestionsRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for SearchSuggestionsRequestedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]

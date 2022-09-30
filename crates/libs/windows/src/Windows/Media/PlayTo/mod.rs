@@ -638,36 +638,7 @@ unsafe impl ::windows::core::Interface for CurrentTimeChangeRequestedEventArgs {
 impl ::windows::core::RuntimeName for CurrentTimeChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.CurrentTimeChangeRequestedEventArgs";
 }
-impl ::core::convert::From<CurrentTimeChangeRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CurrentTimeChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CurrentTimeChangeRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CurrentTimeChangeRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CurrentTimeChangeRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CurrentTimeChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CurrentTimeChangeRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CurrentTimeChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CurrentTimeChangeRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CurrentTimeChangeRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CurrentTimeChangeRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CurrentTimeChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CurrentTimeChangeRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_PlayTo\"`*"]
 #[repr(transparent)]
 pub struct MuteChangeRequestedEventArgs(::windows::core::IUnknown);
@@ -712,36 +683,7 @@ unsafe impl ::windows::core::Interface for MuteChangeRequestedEventArgs {
 impl ::windows::core::RuntimeName for MuteChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.MuteChangeRequestedEventArgs";
 }
-impl ::core::convert::From<MuteChangeRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MuteChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MuteChangeRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MuteChangeRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MuteChangeRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MuteChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MuteChangeRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MuteChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MuteChangeRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MuteChangeRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MuteChangeRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MuteChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MuteChangeRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_PlayTo\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -844,41 +786,7 @@ impl ::windows::core::RuntimeName for PlayToConnection {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToConnection";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PlayToConnection> for ::windows::core::IUnknown {
-    fn from(value: PlayToConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToConnection> for ::windows::core::IUnknown {
-    fn from(value: &PlayToConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToConnection> for &::windows::core::IUnknown {
-    fn from(value: &PlayToConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PlayToConnection> for ::windows::core::IInspectable {
-    fn from(value: PlayToConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToConnection> for ::windows::core::IInspectable {
-    fn from(value: &PlayToConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToConnection> for &::windows::core::IInspectable {
-    fn from(value: &PlayToConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayToConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PlayToConnection {}
 #[cfg(feature = "deprecated")]
@@ -949,41 +857,7 @@ impl ::windows::core::RuntimeName for PlayToConnectionErrorEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToConnectionErrorEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PlayToConnectionErrorEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PlayToConnectionErrorEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToConnectionErrorEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PlayToConnectionErrorEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToConnectionErrorEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PlayToConnectionErrorEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PlayToConnectionErrorEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PlayToConnectionErrorEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToConnectionErrorEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PlayToConnectionErrorEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToConnectionErrorEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PlayToConnectionErrorEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayToConnectionErrorEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PlayToConnectionErrorEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -1054,41 +928,7 @@ impl ::windows::core::RuntimeName for PlayToConnectionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToConnectionStateChangedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PlayToConnectionStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PlayToConnectionStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToConnectionStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PlayToConnectionStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToConnectionStateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PlayToConnectionStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PlayToConnectionStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PlayToConnectionStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToConnectionStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PlayToConnectionStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToConnectionStateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PlayToConnectionStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayToConnectionStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PlayToConnectionStateChangedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -1159,41 +999,7 @@ impl ::windows::core::RuntimeName for PlayToConnectionTransferredEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToConnectionTransferredEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PlayToConnectionTransferredEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PlayToConnectionTransferredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToConnectionTransferredEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PlayToConnectionTransferredEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToConnectionTransferredEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PlayToConnectionTransferredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PlayToConnectionTransferredEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PlayToConnectionTransferredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToConnectionTransferredEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PlayToConnectionTransferredEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToConnectionTransferredEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PlayToConnectionTransferredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayToConnectionTransferredEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PlayToConnectionTransferredEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -1310,41 +1116,7 @@ impl ::windows::core::RuntimeName for PlayToManager {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToManager";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PlayToManager> for ::windows::core::IUnknown {
-    fn from(value: PlayToManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToManager> for ::windows::core::IUnknown {
-    fn from(value: &PlayToManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToManager> for &::windows::core::IUnknown {
-    fn from(value: &PlayToManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PlayToManager> for ::windows::core::IInspectable {
-    fn from(value: PlayToManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToManager> for ::windows::core::IInspectable {
-    fn from(value: &PlayToManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToManager> for &::windows::core::IInspectable {
-    fn from(value: &PlayToManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayToManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PlayToManager {}
 #[cfg(feature = "deprecated")]
@@ -1651,36 +1423,7 @@ unsafe impl ::windows::core::Interface for PlayToReceiver {
 impl ::windows::core::RuntimeName for PlayToReceiver {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToReceiver";
 }
-impl ::core::convert::From<PlayToReceiver> for ::windows::core::IUnknown {
-    fn from(value: PlayToReceiver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayToReceiver> for ::windows::core::IUnknown {
-    fn from(value: &PlayToReceiver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayToReceiver> for &::windows::core::IUnknown {
-    fn from(value: &PlayToReceiver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlayToReceiver> for ::windows::core::IInspectable {
-    fn from(value: PlayToReceiver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayToReceiver> for ::windows::core::IInspectable {
-    fn from(value: &PlayToReceiver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayToReceiver> for &::windows::core::IInspectable {
-    fn from(value: &PlayToReceiver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayToReceiver, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_PlayTo\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -1774,41 +1517,7 @@ impl ::windows::core::RuntimeName for PlayToSource {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSource";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PlayToSource> for ::windows::core::IUnknown {
-    fn from(value: PlayToSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToSource> for ::windows::core::IUnknown {
-    fn from(value: &PlayToSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToSource> for &::windows::core::IUnknown {
-    fn from(value: &PlayToSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PlayToSource> for ::windows::core::IInspectable {
-    fn from(value: PlayToSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToSource> for ::windows::core::IInspectable {
-    fn from(value: &PlayToSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToSource> for &::windows::core::IInspectable {
-    fn from(value: &PlayToSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayToSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PlayToSource {}
 #[cfg(feature = "deprecated")]
@@ -1867,41 +1576,7 @@ impl ::windows::core::RuntimeName for PlayToSourceDeferral {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSourceDeferral";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PlayToSourceDeferral> for ::windows::core::IUnknown {
-    fn from(value: PlayToSourceDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToSourceDeferral> for ::windows::core::IUnknown {
-    fn from(value: &PlayToSourceDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToSourceDeferral> for &::windows::core::IUnknown {
-    fn from(value: &PlayToSourceDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PlayToSourceDeferral> for ::windows::core::IInspectable {
-    fn from(value: PlayToSourceDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToSourceDeferral> for ::windows::core::IInspectable {
-    fn from(value: &PlayToSourceDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToSourceDeferral> for &::windows::core::IInspectable {
-    fn from(value: &PlayToSourceDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayToSourceDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PlayToSourceDeferral {}
 #[cfg(feature = "deprecated")]
@@ -1984,41 +1659,7 @@ impl ::windows::core::RuntimeName for PlayToSourceRequest {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSourceRequest";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PlayToSourceRequest> for ::windows::core::IUnknown {
-    fn from(value: PlayToSourceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToSourceRequest> for ::windows::core::IUnknown {
-    fn from(value: &PlayToSourceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToSourceRequest> for &::windows::core::IUnknown {
-    fn from(value: &PlayToSourceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PlayToSourceRequest> for ::windows::core::IInspectable {
-    fn from(value: PlayToSourceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToSourceRequest> for ::windows::core::IInspectable {
-    fn from(value: &PlayToSourceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToSourceRequest> for &::windows::core::IInspectable {
-    fn from(value: &PlayToSourceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayToSourceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PlayToSourceRequest {}
 #[cfg(feature = "deprecated")]
@@ -2080,41 +1721,7 @@ impl ::windows::core::RuntimeName for PlayToSourceRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSourceRequestedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PlayToSourceRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PlayToSourceRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToSourceRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PlayToSourceRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToSourceRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PlayToSourceRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PlayToSourceRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PlayToSourceRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToSourceRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PlayToSourceRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToSourceRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PlayToSourceRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayToSourceRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PlayToSourceRequestedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -2212,41 +1819,7 @@ impl ::windows::core::RuntimeName for PlayToSourceSelectedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSourceSelectedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PlayToSourceSelectedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PlayToSourceSelectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToSourceSelectedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PlayToSourceSelectedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToSourceSelectedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PlayToSourceSelectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PlayToSourceSelectedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PlayToSourceSelectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToSourceSelectedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PlayToSourceSelectedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PlayToSourceSelectedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PlayToSourceSelectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayToSourceSelectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PlayToSourceSelectedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -2295,36 +1868,7 @@ unsafe impl ::windows::core::Interface for PlaybackRateChangeRequestedEventArgs 
 impl ::windows::core::RuntimeName for PlaybackRateChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlaybackRateChangeRequestedEventArgs";
 }
-impl ::core::convert::From<PlaybackRateChangeRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PlaybackRateChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlaybackRateChangeRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PlaybackRateChangeRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlaybackRateChangeRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PlaybackRateChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlaybackRateChangeRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PlaybackRateChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlaybackRateChangeRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PlaybackRateChangeRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlaybackRateChangeRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PlaybackRateChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlaybackRateChangeRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_PlayTo\"`*"]
 #[repr(transparent)]
 pub struct SourceChangeRequestedEventArgs(::windows::core::IUnknown);
@@ -2442,36 +1986,7 @@ unsafe impl ::windows::core::Interface for SourceChangeRequestedEventArgs {
 impl ::windows::core::RuntimeName for SourceChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.SourceChangeRequestedEventArgs";
 }
-impl ::core::convert::From<SourceChangeRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SourceChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SourceChangeRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SourceChangeRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SourceChangeRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SourceChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SourceChangeRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SourceChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SourceChangeRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SourceChangeRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SourceChangeRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SourceChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SourceChangeRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_PlayTo\"`*"]
 #[repr(transparent)]
 pub struct VolumeChangeRequestedEventArgs(::windows::core::IUnknown);
@@ -2516,36 +2031,7 @@ unsafe impl ::windows::core::Interface for VolumeChangeRequestedEventArgs {
 impl ::windows::core::RuntimeName for VolumeChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.VolumeChangeRequestedEventArgs";
 }
-impl ::core::convert::From<VolumeChangeRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: VolumeChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VolumeChangeRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &VolumeChangeRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VolumeChangeRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &VolumeChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VolumeChangeRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: VolumeChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VolumeChangeRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &VolumeChangeRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VolumeChangeRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &VolumeChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VolumeChangeRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_PlayTo\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]

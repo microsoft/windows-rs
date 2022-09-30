@@ -189,36 +189,7 @@ unsafe impl ::windows::core::Interface for DnssdRegistrationResult {
 impl ::windows::core::RuntimeName for DnssdRegistrationResult {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationResult";
 }
-impl ::core::convert::From<DnssdRegistrationResult> for ::windows::core::IUnknown {
-    fn from(value: DnssdRegistrationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DnssdRegistrationResult> for ::windows::core::IUnknown {
-    fn from(value: &DnssdRegistrationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DnssdRegistrationResult> for &::windows::core::IUnknown {
-    fn from(value: &DnssdRegistrationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DnssdRegistrationResult> for ::windows::core::IInspectable {
-    fn from(value: DnssdRegistrationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DnssdRegistrationResult> for ::windows::core::IInspectable {
-    fn from(value: &DnssdRegistrationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DnssdRegistrationResult> for &::windows::core::IInspectable {
-    fn from(value: &DnssdRegistrationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DnssdRegistrationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<DnssdRegistrationResult> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -400,36 +371,7 @@ unsafe impl ::windows::core::Interface for DnssdServiceInstance {
 impl ::windows::core::RuntimeName for DnssdServiceInstance {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstance";
 }
-impl ::core::convert::From<DnssdServiceInstance> for ::windows::core::IUnknown {
-    fn from(value: DnssdServiceInstance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DnssdServiceInstance> for ::windows::core::IUnknown {
-    fn from(value: &DnssdServiceInstance) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DnssdServiceInstance> for &::windows::core::IUnknown {
-    fn from(value: &DnssdServiceInstance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DnssdServiceInstance> for ::windows::core::IInspectable {
-    fn from(value: DnssdServiceInstance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DnssdServiceInstance> for ::windows::core::IInspectable {
-    fn from(value: &DnssdServiceInstance) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DnssdServiceInstance> for &::windows::core::IInspectable {
-    fn from(value: &DnssdServiceInstance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DnssdServiceInstance, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<DnssdServiceInstance> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -563,41 +505,7 @@ impl ::core::iter::IntoIterator for &DnssdServiceInstanceCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<DnssdServiceInstanceCollection> for ::windows::core::IUnknown {
-    fn from(value: DnssdServiceInstanceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&DnssdServiceInstanceCollection> for ::windows::core::IUnknown {
-    fn from(value: &DnssdServiceInstanceCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&DnssdServiceInstanceCollection> for &::windows::core::IUnknown {
-    fn from(value: &DnssdServiceInstanceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<DnssdServiceInstanceCollection> for ::windows::core::IInspectable {
-    fn from(value: DnssdServiceInstanceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&DnssdServiceInstanceCollection> for ::windows::core::IInspectable {
-    fn from(value: &DnssdServiceInstanceCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&DnssdServiceInstanceCollection> for &::windows::core::IInspectable {
-    fn from(value: &DnssdServiceInstanceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DnssdServiceInstanceCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<DnssdServiceInstanceCollection> for super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance> {
     type Error = ::windows::core::Error;
@@ -743,36 +651,7 @@ unsafe impl ::windows::core::Interface for DnssdServiceWatcher {
 impl ::windows::core::RuntimeName for DnssdServiceWatcher {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcher";
 }
-impl ::core::convert::From<DnssdServiceWatcher> for ::windows::core::IUnknown {
-    fn from(value: DnssdServiceWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DnssdServiceWatcher> for ::windows::core::IUnknown {
-    fn from(value: &DnssdServiceWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DnssdServiceWatcher> for &::windows::core::IUnknown {
-    fn from(value: &DnssdServiceWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DnssdServiceWatcher> for ::windows::core::IInspectable {
-    fn from(value: DnssdServiceWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DnssdServiceWatcher> for ::windows::core::IInspectable {
-    fn from(value: &DnssdServiceWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DnssdServiceWatcher> for &::windows::core::IInspectable {
-    fn from(value: &DnssdServiceWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DnssdServiceWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DnssdServiceWatcher {}
 unsafe impl ::core::marker::Sync for DnssdServiceWatcher {}
 #[doc = "*Required features: `\"Networking_ServiceDiscovery_Dnssd\"`*"]

@@ -398,36 +398,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskDataProviderConnection {
 impl ::windows::core::RuntimeName for UserDataTaskDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskDataProviderConnection";
 }
-impl ::core::convert::From<UserDataTaskDataProviderConnection> for ::windows::core::IUnknown {
-    fn from(value: UserDataTaskDataProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskDataProviderConnection> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTaskDataProviderConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskDataProviderConnection> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTaskDataProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTaskDataProviderConnection> for ::windows::core::IInspectable {
-    fn from(value: UserDataTaskDataProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskDataProviderConnection> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTaskDataProviderConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskDataProviderConnection> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTaskDataProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTaskDataProviderConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskDataProviderConnection {}
 unsafe impl ::core::marker::Sync for UserDataTaskDataProviderConnection {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
@@ -474,36 +445,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskDataProviderTriggerDetail
 impl ::windows::core::RuntimeName for UserDataTaskDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskDataProviderTriggerDetails";
 }
-impl ::core::convert::From<UserDataTaskDataProviderTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: UserDataTaskDataProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskDataProviderTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTaskDataProviderTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskDataProviderTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTaskDataProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTaskDataProviderTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: UserDataTaskDataProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskDataProviderTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTaskDataProviderTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskDataProviderTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTaskDataProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTaskDataProviderTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskDataProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for UserDataTaskDataProviderTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
@@ -575,36 +517,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListCompleteTaskRequest {
 impl ::windows::core::RuntimeName for UserDataTaskListCompleteTaskRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCompleteTaskRequest";
 }
-impl ::core::convert::From<UserDataTaskListCompleteTaskRequest> for ::windows::core::IUnknown {
-    fn from(value: UserDataTaskListCompleteTaskRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListCompleteTaskRequest> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListCompleteTaskRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListCompleteTaskRequest> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListCompleteTaskRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTaskListCompleteTaskRequest> for ::windows::core::IInspectable {
-    fn from(value: UserDataTaskListCompleteTaskRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListCompleteTaskRequest> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListCompleteTaskRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListCompleteTaskRequest> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListCompleteTaskRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTaskListCompleteTaskRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListCompleteTaskRequest {}
 unsafe impl ::core::marker::Sync for UserDataTaskListCompleteTaskRequest {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
@@ -660,36 +573,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListCompleteTaskRequestEv
 impl ::windows::core::RuntimeName for UserDataTaskListCompleteTaskRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCompleteTaskRequestEventArgs";
 }
-impl ::core::convert::From<UserDataTaskListCompleteTaskRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: UserDataTaskListCompleteTaskRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListCompleteTaskRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListCompleteTaskRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListCompleteTaskRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListCompleteTaskRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTaskListCompleteTaskRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: UserDataTaskListCompleteTaskRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListCompleteTaskRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListCompleteTaskRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListCompleteTaskRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListCompleteTaskRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTaskListCompleteTaskRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListCompleteTaskRequestEventArgs {}
 unsafe impl ::core::marker::Sync for UserDataTaskListCompleteTaskRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
@@ -761,36 +645,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListCreateOrUpdateTaskReq
 impl ::windows::core::RuntimeName for UserDataTaskListCreateOrUpdateTaskRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCreateOrUpdateTaskRequest";
 }
-impl ::core::convert::From<UserDataTaskListCreateOrUpdateTaskRequest> for ::windows::core::IUnknown {
-    fn from(value: UserDataTaskListCreateOrUpdateTaskRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListCreateOrUpdateTaskRequest> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListCreateOrUpdateTaskRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListCreateOrUpdateTaskRequest> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListCreateOrUpdateTaskRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTaskListCreateOrUpdateTaskRequest> for ::windows::core::IInspectable {
-    fn from(value: UserDataTaskListCreateOrUpdateTaskRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListCreateOrUpdateTaskRequest> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListCreateOrUpdateTaskRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListCreateOrUpdateTaskRequest> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListCreateOrUpdateTaskRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTaskListCreateOrUpdateTaskRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListCreateOrUpdateTaskRequest {}
 unsafe impl ::core::marker::Sync for UserDataTaskListCreateOrUpdateTaskRequest {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
@@ -846,36 +701,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListCreateOrUpdateTaskReq
 impl ::windows::core::RuntimeName for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCreateOrUpdateTaskRequestEventArgs";
 }
-impl ::core::convert::From<UserDataTaskListCreateOrUpdateTaskRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: UserDataTaskListCreateOrUpdateTaskRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListCreateOrUpdateTaskRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListCreateOrUpdateTaskRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListCreateOrUpdateTaskRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListCreateOrUpdateTaskRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTaskListCreateOrUpdateTaskRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: UserDataTaskListCreateOrUpdateTaskRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListCreateOrUpdateTaskRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListCreateOrUpdateTaskRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListCreateOrUpdateTaskRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListCreateOrUpdateTaskRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTaskListCreateOrUpdateTaskRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {}
 unsafe impl ::core::marker::Sync for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
@@ -947,36 +773,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListDeleteTaskRequest {
 impl ::windows::core::RuntimeName for UserDataTaskListDeleteTaskRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListDeleteTaskRequest";
 }
-impl ::core::convert::From<UserDataTaskListDeleteTaskRequest> for ::windows::core::IUnknown {
-    fn from(value: UserDataTaskListDeleteTaskRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListDeleteTaskRequest> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListDeleteTaskRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListDeleteTaskRequest> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListDeleteTaskRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTaskListDeleteTaskRequest> for ::windows::core::IInspectable {
-    fn from(value: UserDataTaskListDeleteTaskRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListDeleteTaskRequest> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListDeleteTaskRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListDeleteTaskRequest> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListDeleteTaskRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTaskListDeleteTaskRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListDeleteTaskRequest {}
 unsafe impl ::core::marker::Sync for UserDataTaskListDeleteTaskRequest {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
@@ -1032,36 +829,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListDeleteTaskRequestEven
 impl ::windows::core::RuntimeName for UserDataTaskListDeleteTaskRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListDeleteTaskRequestEventArgs";
 }
-impl ::core::convert::From<UserDataTaskListDeleteTaskRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: UserDataTaskListDeleteTaskRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListDeleteTaskRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListDeleteTaskRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListDeleteTaskRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListDeleteTaskRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTaskListDeleteTaskRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: UserDataTaskListDeleteTaskRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListDeleteTaskRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListDeleteTaskRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListDeleteTaskRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListDeleteTaskRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTaskListDeleteTaskRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListDeleteTaskRequestEventArgs {}
 unsafe impl ::core::marker::Sync for UserDataTaskListDeleteTaskRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
@@ -1133,36 +901,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListSkipOccurrenceRequest
 impl ::windows::core::RuntimeName for UserDataTaskListSkipOccurrenceRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSkipOccurrenceRequest";
 }
-impl ::core::convert::From<UserDataTaskListSkipOccurrenceRequest> for ::windows::core::IUnknown {
-    fn from(value: UserDataTaskListSkipOccurrenceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListSkipOccurrenceRequest> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListSkipOccurrenceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListSkipOccurrenceRequest> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListSkipOccurrenceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTaskListSkipOccurrenceRequest> for ::windows::core::IInspectable {
-    fn from(value: UserDataTaskListSkipOccurrenceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListSkipOccurrenceRequest> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListSkipOccurrenceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListSkipOccurrenceRequest> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListSkipOccurrenceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTaskListSkipOccurrenceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListSkipOccurrenceRequest {}
 unsafe impl ::core::marker::Sync for UserDataTaskListSkipOccurrenceRequest {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
@@ -1218,36 +957,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListSkipOccurrenceRequest
 impl ::windows::core::RuntimeName for UserDataTaskListSkipOccurrenceRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSkipOccurrenceRequestEventArgs";
 }
-impl ::core::convert::From<UserDataTaskListSkipOccurrenceRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: UserDataTaskListSkipOccurrenceRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListSkipOccurrenceRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListSkipOccurrenceRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListSkipOccurrenceRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListSkipOccurrenceRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTaskListSkipOccurrenceRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: UserDataTaskListSkipOccurrenceRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListSkipOccurrenceRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListSkipOccurrenceRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListSkipOccurrenceRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListSkipOccurrenceRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTaskListSkipOccurrenceRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListSkipOccurrenceRequestEventArgs {}
 unsafe impl ::core::marker::Sync for UserDataTaskListSkipOccurrenceRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
@@ -1312,36 +1022,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListSyncManagerSyncReques
 impl ::windows::core::RuntimeName for UserDataTaskListSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSyncManagerSyncRequest";
 }
-impl ::core::convert::From<UserDataTaskListSyncManagerSyncRequest> for ::windows::core::IUnknown {
-    fn from(value: UserDataTaskListSyncManagerSyncRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListSyncManagerSyncRequest> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListSyncManagerSyncRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListSyncManagerSyncRequest> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListSyncManagerSyncRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTaskListSyncManagerSyncRequest> for ::windows::core::IInspectable {
-    fn from(value: UserDataTaskListSyncManagerSyncRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListSyncManagerSyncRequest> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListSyncManagerSyncRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListSyncManagerSyncRequest> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListSyncManagerSyncRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTaskListSyncManagerSyncRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListSyncManagerSyncRequest {}
 unsafe impl ::core::marker::Sync for UserDataTaskListSyncManagerSyncRequest {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
@@ -1397,36 +1078,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListSyncManagerSyncReques
 impl ::windows::core::RuntimeName for UserDataTaskListSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSyncManagerSyncRequestEventArgs";
 }
-impl ::core::convert::From<UserDataTaskListSyncManagerSyncRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: UserDataTaskListSyncManagerSyncRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListSyncManagerSyncRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListSyncManagerSyncRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListSyncManagerSyncRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListSyncManagerSyncRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTaskListSyncManagerSyncRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: UserDataTaskListSyncManagerSyncRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListSyncManagerSyncRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListSyncManagerSyncRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListSyncManagerSyncRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListSyncManagerSyncRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTaskListSyncManagerSyncRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListSyncManagerSyncRequestEventArgs {}
 unsafe impl ::core::marker::Sync for UserDataTaskListSyncManagerSyncRequestEventArgs {}
 #[cfg(feature = "implement")]

@@ -1751,36 +1751,7 @@ unsafe impl ::windows::core::Interface for GattCharacteristic {
 impl ::windows::core::RuntimeName for GattCharacteristic {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristic";
 }
-impl ::core::convert::From<GattCharacteristic> for ::windows::core::IUnknown {
-    fn from(value: GattCharacteristic) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattCharacteristic> for ::windows::core::IUnknown {
-    fn from(value: &GattCharacteristic) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattCharacteristic> for &::windows::core::IUnknown {
-    fn from(value: &GattCharacteristic) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattCharacteristic> for ::windows::core::IInspectable {
-    fn from(value: GattCharacteristic) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattCharacteristic> for ::windows::core::IInspectable {
-    fn from(value: &GattCharacteristic) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattCharacteristic> for &::windows::core::IInspectable {
-    fn from(value: &GattCharacteristic) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattCharacteristic, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattCharacteristic {}
 unsafe impl ::core::marker::Sync for GattCharacteristic {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -2348,36 +2319,7 @@ unsafe impl ::windows::core::Interface for GattCharacteristicsResult {
 impl ::windows::core::RuntimeName for GattCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicsResult";
 }
-impl ::core::convert::From<GattCharacteristicsResult> for ::windows::core::IUnknown {
-    fn from(value: GattCharacteristicsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattCharacteristicsResult> for ::windows::core::IUnknown {
-    fn from(value: &GattCharacteristicsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattCharacteristicsResult> for &::windows::core::IUnknown {
-    fn from(value: &GattCharacteristicsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattCharacteristicsResult> for ::windows::core::IInspectable {
-    fn from(value: GattCharacteristicsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattCharacteristicsResult> for ::windows::core::IInspectable {
-    fn from(value: &GattCharacteristicsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattCharacteristicsResult> for &::windows::core::IInspectable {
-    fn from(value: &GattCharacteristicsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattCharacteristicsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattCharacteristicsResult {}
 unsafe impl ::core::marker::Sync for GattCharacteristicsResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -2447,36 +2389,7 @@ unsafe impl ::windows::core::Interface for GattClientNotificationResult {
 impl ::windows::core::RuntimeName for GattClientNotificationResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientNotificationResult";
 }
-impl ::core::convert::From<GattClientNotificationResult> for ::windows::core::IUnknown {
-    fn from(value: GattClientNotificationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattClientNotificationResult> for ::windows::core::IUnknown {
-    fn from(value: &GattClientNotificationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattClientNotificationResult> for &::windows::core::IUnknown {
-    fn from(value: &GattClientNotificationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattClientNotificationResult> for ::windows::core::IInspectable {
-    fn from(value: GattClientNotificationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattClientNotificationResult> for ::windows::core::IInspectable {
-    fn from(value: &GattClientNotificationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattClientNotificationResult> for &::windows::core::IInspectable {
-    fn from(value: &GattClientNotificationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattClientNotificationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattClientNotificationResult {}
 unsafe impl ::core::marker::Sync for GattClientNotificationResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -2598,36 +2511,7 @@ unsafe impl ::windows::core::Interface for GattDescriptor {
 impl ::windows::core::RuntimeName for GattDescriptor {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor";
 }
-impl ::core::convert::From<GattDescriptor> for ::windows::core::IUnknown {
-    fn from(value: GattDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattDescriptor> for ::windows::core::IUnknown {
-    fn from(value: &GattDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattDescriptor> for &::windows::core::IUnknown {
-    fn from(value: &GattDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattDescriptor> for ::windows::core::IInspectable {
-    fn from(value: GattDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattDescriptor> for ::windows::core::IInspectable {
-    fn from(value: &GattDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattDescriptor> for &::windows::core::IInspectable {
-    fn from(value: &GattDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattDescriptor {}
 unsafe impl ::core::marker::Sync for GattDescriptor {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -2740,36 +2624,7 @@ unsafe impl ::windows::core::Interface for GattDescriptorsResult {
 impl ::windows::core::RuntimeName for GattDescriptorsResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptorsResult";
 }
-impl ::core::convert::From<GattDescriptorsResult> for ::windows::core::IUnknown {
-    fn from(value: GattDescriptorsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattDescriptorsResult> for ::windows::core::IUnknown {
-    fn from(value: &GattDescriptorsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattDescriptorsResult> for &::windows::core::IUnknown {
-    fn from(value: &GattDescriptorsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattDescriptorsResult> for ::windows::core::IInspectable {
-    fn from(value: GattDescriptorsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattDescriptorsResult> for ::windows::core::IInspectable {
-    fn from(value: &GattDescriptorsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattDescriptorsResult> for &::windows::core::IInspectable {
-    fn from(value: &GattDescriptorsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattDescriptorsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattDescriptorsResult {}
 unsafe impl ::core::marker::Sync for GattDescriptorsResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3075,36 +2930,7 @@ unsafe impl ::windows::core::Interface for GattDeviceService {
 impl ::windows::core::RuntimeName for GattDeviceService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService";
 }
-impl ::core::convert::From<GattDeviceService> for ::windows::core::IUnknown {
-    fn from(value: GattDeviceService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattDeviceService> for ::windows::core::IUnknown {
-    fn from(value: &GattDeviceService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattDeviceService> for &::windows::core::IUnknown {
-    fn from(value: &GattDeviceService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattDeviceService> for ::windows::core::IInspectable {
-    fn from(value: GattDeviceService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattDeviceService> for ::windows::core::IInspectable {
-    fn from(value: &GattDeviceService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattDeviceService> for &::windows::core::IInspectable {
-    fn from(value: &GattDeviceService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattDeviceService, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<GattDeviceService> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3191,36 +3017,7 @@ unsafe impl ::windows::core::Interface for GattDeviceServicesResult {
 impl ::windows::core::RuntimeName for GattDeviceServicesResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceServicesResult";
 }
-impl ::core::convert::From<GattDeviceServicesResult> for ::windows::core::IUnknown {
-    fn from(value: GattDeviceServicesResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattDeviceServicesResult> for ::windows::core::IUnknown {
-    fn from(value: &GattDeviceServicesResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattDeviceServicesResult> for &::windows::core::IUnknown {
-    fn from(value: &GattDeviceServicesResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattDeviceServicesResult> for ::windows::core::IInspectable {
-    fn from(value: GattDeviceServicesResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattDeviceServicesResult> for ::windows::core::IInspectable {
-    fn from(value: &GattDeviceServicesResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattDeviceServicesResult> for &::windows::core::IInspectable {
-    fn from(value: &GattDeviceServicesResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattDeviceServicesResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattDeviceServicesResult {}
 unsafe impl ::core::marker::Sync for GattDeviceServicesResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3411,36 +3208,7 @@ unsafe impl ::windows::core::Interface for GattLocalCharacteristic {
 impl ::windows::core::RuntimeName for GattLocalCharacteristic {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic";
 }
-impl ::core::convert::From<GattLocalCharacteristic> for ::windows::core::IUnknown {
-    fn from(value: GattLocalCharacteristic) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattLocalCharacteristic> for ::windows::core::IUnknown {
-    fn from(value: &GattLocalCharacteristic) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattLocalCharacteristic> for &::windows::core::IUnknown {
-    fn from(value: &GattLocalCharacteristic) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattLocalCharacteristic> for ::windows::core::IInspectable {
-    fn from(value: GattLocalCharacteristic) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattLocalCharacteristic> for ::windows::core::IInspectable {
-    fn from(value: &GattLocalCharacteristic) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattLocalCharacteristic> for &::windows::core::IInspectable {
-    fn from(value: &GattLocalCharacteristic) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattLocalCharacteristic, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattLocalCharacteristic {}
 unsafe impl ::core::marker::Sync for GattLocalCharacteristic {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3559,36 +3327,7 @@ unsafe impl ::windows::core::Interface for GattLocalCharacteristicParameters {
 impl ::windows::core::RuntimeName for GattLocalCharacteristicParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters";
 }
-impl ::core::convert::From<GattLocalCharacteristicParameters> for ::windows::core::IUnknown {
-    fn from(value: GattLocalCharacteristicParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattLocalCharacteristicParameters> for ::windows::core::IUnknown {
-    fn from(value: &GattLocalCharacteristicParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattLocalCharacteristicParameters> for &::windows::core::IUnknown {
-    fn from(value: &GattLocalCharacteristicParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattLocalCharacteristicParameters> for ::windows::core::IInspectable {
-    fn from(value: GattLocalCharacteristicParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattLocalCharacteristicParameters> for ::windows::core::IInspectable {
-    fn from(value: &GattLocalCharacteristicParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattLocalCharacteristicParameters> for &::windows::core::IInspectable {
-    fn from(value: &GattLocalCharacteristicParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattLocalCharacteristicParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattLocalCharacteristicParameters {}
 unsafe impl ::core::marker::Sync for GattLocalCharacteristicParameters {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3642,36 +3381,7 @@ unsafe impl ::windows::core::Interface for GattLocalCharacteristicResult {
 impl ::windows::core::RuntimeName for GattLocalCharacteristicResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicResult";
 }
-impl ::core::convert::From<GattLocalCharacteristicResult> for ::windows::core::IUnknown {
-    fn from(value: GattLocalCharacteristicResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattLocalCharacteristicResult> for ::windows::core::IUnknown {
-    fn from(value: &GattLocalCharacteristicResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattLocalCharacteristicResult> for &::windows::core::IUnknown {
-    fn from(value: &GattLocalCharacteristicResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattLocalCharacteristicResult> for ::windows::core::IInspectable {
-    fn from(value: GattLocalCharacteristicResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattLocalCharacteristicResult> for ::windows::core::IInspectable {
-    fn from(value: &GattLocalCharacteristicResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattLocalCharacteristicResult> for &::windows::core::IInspectable {
-    fn from(value: &GattLocalCharacteristicResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattLocalCharacteristicResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattLocalCharacteristicResult {}
 unsafe impl ::core::marker::Sync for GattLocalCharacteristicResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3771,36 +3481,7 @@ unsafe impl ::windows::core::Interface for GattLocalDescriptor {
 impl ::windows::core::RuntimeName for GattLocalDescriptor {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptor";
 }
-impl ::core::convert::From<GattLocalDescriptor> for ::windows::core::IUnknown {
-    fn from(value: GattLocalDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattLocalDescriptor> for ::windows::core::IUnknown {
-    fn from(value: &GattLocalDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattLocalDescriptor> for &::windows::core::IUnknown {
-    fn from(value: &GattLocalDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattLocalDescriptor> for ::windows::core::IInspectable {
-    fn from(value: GattLocalDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattLocalDescriptor> for ::windows::core::IInspectable {
-    fn from(value: &GattLocalDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattLocalDescriptor> for &::windows::core::IInspectable {
-    fn from(value: &GattLocalDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattLocalDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattLocalDescriptor {}
 unsafe impl ::core::marker::Sync for GattLocalDescriptor {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3888,36 +3569,7 @@ unsafe impl ::windows::core::Interface for GattLocalDescriptorParameters {
 impl ::windows::core::RuntimeName for GattLocalDescriptorParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorParameters";
 }
-impl ::core::convert::From<GattLocalDescriptorParameters> for ::windows::core::IUnknown {
-    fn from(value: GattLocalDescriptorParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattLocalDescriptorParameters> for ::windows::core::IUnknown {
-    fn from(value: &GattLocalDescriptorParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattLocalDescriptorParameters> for &::windows::core::IUnknown {
-    fn from(value: &GattLocalDescriptorParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattLocalDescriptorParameters> for ::windows::core::IInspectable {
-    fn from(value: GattLocalDescriptorParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattLocalDescriptorParameters> for ::windows::core::IInspectable {
-    fn from(value: &GattLocalDescriptorParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattLocalDescriptorParameters> for &::windows::core::IInspectable {
-    fn from(value: &GattLocalDescriptorParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattLocalDescriptorParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattLocalDescriptorParameters {}
 unsafe impl ::core::marker::Sync for GattLocalDescriptorParameters {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3971,36 +3623,7 @@ unsafe impl ::windows::core::Interface for GattLocalDescriptorResult {
 impl ::windows::core::RuntimeName for GattLocalDescriptorResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorResult";
 }
-impl ::core::convert::From<GattLocalDescriptorResult> for ::windows::core::IUnknown {
-    fn from(value: GattLocalDescriptorResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattLocalDescriptorResult> for ::windows::core::IUnknown {
-    fn from(value: &GattLocalDescriptorResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattLocalDescriptorResult> for &::windows::core::IUnknown {
-    fn from(value: &GattLocalDescriptorResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattLocalDescriptorResult> for ::windows::core::IInspectable {
-    fn from(value: GattLocalDescriptorResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattLocalDescriptorResult> for ::windows::core::IInspectable {
-    fn from(value: &GattLocalDescriptorResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattLocalDescriptorResult> for &::windows::core::IInspectable {
-    fn from(value: &GattLocalDescriptorResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattLocalDescriptorResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattLocalDescriptorResult {}
 unsafe impl ::core::marker::Sync for GattLocalDescriptorResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4065,36 +3688,7 @@ unsafe impl ::windows::core::Interface for GattLocalService {
 impl ::windows::core::RuntimeName for GattLocalService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalService";
 }
-impl ::core::convert::From<GattLocalService> for ::windows::core::IUnknown {
-    fn from(value: GattLocalService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattLocalService> for ::windows::core::IUnknown {
-    fn from(value: &GattLocalService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattLocalService> for &::windows::core::IUnknown {
-    fn from(value: &GattLocalService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattLocalService> for ::windows::core::IInspectable {
-    fn from(value: GattLocalService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattLocalService> for ::windows::core::IInspectable {
-    fn from(value: &GattLocalService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattLocalService> for &::windows::core::IInspectable {
-    fn from(value: &GattLocalService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattLocalService, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattLocalService {}
 unsafe impl ::core::marker::Sync for GattLocalService {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4191,36 +3785,7 @@ unsafe impl ::windows::core::Interface for GattPresentationFormat {
 impl ::windows::core::RuntimeName for GattPresentationFormat {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat";
 }
-impl ::core::convert::From<GattPresentationFormat> for ::windows::core::IUnknown {
-    fn from(value: GattPresentationFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattPresentationFormat> for ::windows::core::IUnknown {
-    fn from(value: &GattPresentationFormat) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattPresentationFormat> for &::windows::core::IUnknown {
-    fn from(value: &GattPresentationFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattPresentationFormat> for ::windows::core::IInspectable {
-    fn from(value: GattPresentationFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattPresentationFormat> for ::windows::core::IInspectable {
-    fn from(value: &GattPresentationFormat) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattPresentationFormat> for &::windows::core::IInspectable {
-    fn from(value: &GattPresentationFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattPresentationFormat, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattPresentationFormat {}
 unsafe impl ::core::marker::Sync for GattPresentationFormat {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4571,36 +4136,7 @@ unsafe impl ::windows::core::Interface for GattReadClientCharacteristicConfigura
 impl ::windows::core::RuntimeName for GattReadClientCharacteristicConfigurationDescriptorResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadClientCharacteristicConfigurationDescriptorResult";
 }
-impl ::core::convert::From<GattReadClientCharacteristicConfigurationDescriptorResult> for ::windows::core::IUnknown {
-    fn from(value: GattReadClientCharacteristicConfigurationDescriptorResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattReadClientCharacteristicConfigurationDescriptorResult> for ::windows::core::IUnknown {
-    fn from(value: &GattReadClientCharacteristicConfigurationDescriptorResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattReadClientCharacteristicConfigurationDescriptorResult> for &::windows::core::IUnknown {
-    fn from(value: &GattReadClientCharacteristicConfigurationDescriptorResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattReadClientCharacteristicConfigurationDescriptorResult> for ::windows::core::IInspectable {
-    fn from(value: GattReadClientCharacteristicConfigurationDescriptorResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattReadClientCharacteristicConfigurationDescriptorResult> for ::windows::core::IInspectable {
-    fn from(value: &GattReadClientCharacteristicConfigurationDescriptorResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattReadClientCharacteristicConfigurationDescriptorResult> for &::windows::core::IInspectable {
-    fn from(value: &GattReadClientCharacteristicConfigurationDescriptorResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattReadClientCharacteristicConfigurationDescriptorResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattReadClientCharacteristicConfigurationDescriptorResult {}
 unsafe impl ::core::marker::Sync for GattReadClientCharacteristicConfigurationDescriptorResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4690,36 +4226,7 @@ unsafe impl ::windows::core::Interface for GattReadRequest {
 impl ::windows::core::RuntimeName for GattReadRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequest";
 }
-impl ::core::convert::From<GattReadRequest> for ::windows::core::IUnknown {
-    fn from(value: GattReadRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattReadRequest> for ::windows::core::IUnknown {
-    fn from(value: &GattReadRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattReadRequest> for &::windows::core::IUnknown {
-    fn from(value: &GattReadRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattReadRequest> for ::windows::core::IInspectable {
-    fn from(value: GattReadRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattReadRequest> for ::windows::core::IInspectable {
-    fn from(value: &GattReadRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattReadRequest> for &::windows::core::IInspectable {
-    fn from(value: &GattReadRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattReadRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattReadRequest {}
 unsafe impl ::core::marker::Sync for GattReadRequest {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4784,36 +4291,7 @@ unsafe impl ::windows::core::Interface for GattReadRequestedEventArgs {
 impl ::windows::core::RuntimeName for GattReadRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequestedEventArgs";
 }
-impl ::core::convert::From<GattReadRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GattReadRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattReadRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GattReadRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattReadRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GattReadRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattReadRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GattReadRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattReadRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GattReadRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattReadRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GattReadRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattReadRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattReadRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for GattReadRequestedEventArgs {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4878,36 +4356,7 @@ unsafe impl ::windows::core::Interface for GattReadResult {
 impl ::windows::core::RuntimeName for GattReadResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadResult";
 }
-impl ::core::convert::From<GattReadResult> for ::windows::core::IUnknown {
-    fn from(value: GattReadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattReadResult> for ::windows::core::IUnknown {
-    fn from(value: &GattReadResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattReadResult> for &::windows::core::IUnknown {
-    fn from(value: &GattReadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattReadResult> for ::windows::core::IInspectable {
-    fn from(value: GattReadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattReadResult> for ::windows::core::IInspectable {
-    fn from(value: &GattReadResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattReadResult> for &::windows::core::IInspectable {
-    fn from(value: &GattReadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattReadResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattReadResult {}
 unsafe impl ::core::marker::Sync for GattReadResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4982,36 +4431,7 @@ unsafe impl ::windows::core::Interface for GattReliableWriteTransaction {
 impl ::windows::core::RuntimeName for GattReliableWriteTransaction {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReliableWriteTransaction";
 }
-impl ::core::convert::From<GattReliableWriteTransaction> for ::windows::core::IUnknown {
-    fn from(value: GattReliableWriteTransaction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattReliableWriteTransaction> for ::windows::core::IUnknown {
-    fn from(value: &GattReliableWriteTransaction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattReliableWriteTransaction> for &::windows::core::IUnknown {
-    fn from(value: &GattReliableWriteTransaction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattReliableWriteTransaction> for ::windows::core::IInspectable {
-    fn from(value: GattReliableWriteTransaction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattReliableWriteTransaction> for ::windows::core::IInspectable {
-    fn from(value: &GattReliableWriteTransaction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattReliableWriteTransaction> for &::windows::core::IInspectable {
-    fn from(value: &GattReliableWriteTransaction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattReliableWriteTransaction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattReliableWriteTransaction {}
 unsafe impl ::core::marker::Sync for GattReliableWriteTransaction {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -5065,36 +4485,7 @@ unsafe impl ::windows::core::Interface for GattRequestStateChangedEventArgs {
 impl ::windows::core::RuntimeName for GattRequestStateChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattRequestStateChangedEventArgs";
 }
-impl ::core::convert::From<GattRequestStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GattRequestStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattRequestStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GattRequestStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattRequestStateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GattRequestStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattRequestStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GattRequestStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattRequestStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GattRequestStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattRequestStateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GattRequestStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattRequestStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattRequestStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattRequestStateChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -5188,36 +4579,7 @@ unsafe impl ::windows::core::Interface for GattServiceProvider {
 impl ::windows::core::RuntimeName for GattServiceProvider {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProvider";
 }
-impl ::core::convert::From<GattServiceProvider> for ::windows::core::IUnknown {
-    fn from(value: GattServiceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattServiceProvider> for ::windows::core::IUnknown {
-    fn from(value: &GattServiceProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattServiceProvider> for &::windows::core::IUnknown {
-    fn from(value: &GattServiceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattServiceProvider> for ::windows::core::IInspectable {
-    fn from(value: GattServiceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattServiceProvider> for ::windows::core::IInspectable {
-    fn from(value: &GattServiceProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattServiceProvider> for &::windows::core::IInspectable {
-    fn from(value: &GattServiceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattServiceProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattServiceProvider {}
 unsafe impl ::core::marker::Sync for GattServiceProvider {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -5271,36 +4633,7 @@ unsafe impl ::windows::core::Interface for GattServiceProviderAdvertisementStatu
 impl ::windows::core::RuntimeName for GattServiceProviderAdvertisementStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatusChangedEventArgs";
 }
-impl ::core::convert::From<GattServiceProviderAdvertisementStatusChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GattServiceProviderAdvertisementStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattServiceProviderAdvertisementStatusChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GattServiceProviderAdvertisementStatusChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattServiceProviderAdvertisementStatusChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GattServiceProviderAdvertisementStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattServiceProviderAdvertisementStatusChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GattServiceProviderAdvertisementStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattServiceProviderAdvertisementStatusChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GattServiceProviderAdvertisementStatusChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattServiceProviderAdvertisementStatusChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GattServiceProviderAdvertisementStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattServiceProviderAdvertisementStatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattServiceProviderAdvertisementStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattServiceProviderAdvertisementStatusChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -5388,36 +4721,7 @@ unsafe impl ::windows::core::Interface for GattServiceProviderAdvertisingParamet
 impl ::windows::core::RuntimeName for GattServiceProviderAdvertisingParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters";
 }
-impl ::core::convert::From<GattServiceProviderAdvertisingParameters> for ::windows::core::IUnknown {
-    fn from(value: GattServiceProviderAdvertisingParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattServiceProviderAdvertisingParameters> for ::windows::core::IUnknown {
-    fn from(value: &GattServiceProviderAdvertisingParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattServiceProviderAdvertisingParameters> for &::windows::core::IUnknown {
-    fn from(value: &GattServiceProviderAdvertisingParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattServiceProviderAdvertisingParameters> for ::windows::core::IInspectable {
-    fn from(value: GattServiceProviderAdvertisingParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattServiceProviderAdvertisingParameters> for ::windows::core::IInspectable {
-    fn from(value: &GattServiceProviderAdvertisingParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattServiceProviderAdvertisingParameters> for &::windows::core::IInspectable {
-    fn from(value: &GattServiceProviderAdvertisingParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattServiceProviderAdvertisingParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattServiceProviderAdvertisingParameters {}
 unsafe impl ::core::marker::Sync for GattServiceProviderAdvertisingParameters {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -5471,36 +4775,7 @@ unsafe impl ::windows::core::Interface for GattServiceProviderResult {
 impl ::windows::core::RuntimeName for GattServiceProviderResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderResult";
 }
-impl ::core::convert::From<GattServiceProviderResult> for ::windows::core::IUnknown {
-    fn from(value: GattServiceProviderResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattServiceProviderResult> for ::windows::core::IUnknown {
-    fn from(value: &GattServiceProviderResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattServiceProviderResult> for &::windows::core::IUnknown {
-    fn from(value: &GattServiceProviderResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattServiceProviderResult> for ::windows::core::IInspectable {
-    fn from(value: GattServiceProviderResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattServiceProviderResult> for ::windows::core::IInspectable {
-    fn from(value: &GattServiceProviderResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattServiceProviderResult> for &::windows::core::IInspectable {
-    fn from(value: &GattServiceProviderResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattServiceProviderResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattServiceProviderResult {}
 unsafe impl ::core::marker::Sync for GattServiceProviderResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -5777,36 +5052,7 @@ unsafe impl ::windows::core::Interface for GattSession {
 impl ::windows::core::RuntimeName for GattSession {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSession";
 }
-impl ::core::convert::From<GattSession> for ::windows::core::IUnknown {
-    fn from(value: GattSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattSession> for ::windows::core::IUnknown {
-    fn from(value: &GattSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattSession> for &::windows::core::IUnknown {
-    fn from(value: &GattSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattSession> for ::windows::core::IInspectable {
-    fn from(value: GattSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattSession> for ::windows::core::IInspectable {
-    fn from(value: &GattSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattSession> for &::windows::core::IInspectable {
-    fn from(value: &GattSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<GattSession> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -5882,36 +5128,7 @@ unsafe impl ::windows::core::Interface for GattSessionStatusChangedEventArgs {
 impl ::windows::core::RuntimeName for GattSessionStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatusChangedEventArgs";
 }
-impl ::core::convert::From<GattSessionStatusChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GattSessionStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattSessionStatusChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GattSessionStatusChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattSessionStatusChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GattSessionStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattSessionStatusChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GattSessionStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattSessionStatusChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GattSessionStatusChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattSessionStatusChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GattSessionStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattSessionStatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattSessionStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattSessionStatusChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -5980,36 +5197,7 @@ unsafe impl ::windows::core::Interface for GattSubscribedClient {
 impl ::windows::core::RuntimeName for GattSubscribedClient {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSubscribedClient";
 }
-impl ::core::convert::From<GattSubscribedClient> for ::windows::core::IUnknown {
-    fn from(value: GattSubscribedClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattSubscribedClient> for ::windows::core::IUnknown {
-    fn from(value: &GattSubscribedClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattSubscribedClient> for &::windows::core::IUnknown {
-    fn from(value: &GattSubscribedClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattSubscribedClient> for ::windows::core::IInspectable {
-    fn from(value: GattSubscribedClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattSubscribedClient> for ::windows::core::IInspectable {
-    fn from(value: &GattSubscribedClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattSubscribedClient> for &::windows::core::IInspectable {
-    fn from(value: &GattSubscribedClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattSubscribedClient, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattSubscribedClient {}
 unsafe impl ::core::marker::Sync for GattSubscribedClient {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -6067,36 +5255,7 @@ unsafe impl ::windows::core::Interface for GattValueChangedEventArgs {
 impl ::windows::core::RuntimeName for GattValueChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattValueChangedEventArgs";
 }
-impl ::core::convert::From<GattValueChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GattValueChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattValueChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GattValueChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattValueChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GattValueChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattValueChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GattValueChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattValueChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GattValueChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattValueChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GattValueChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattValueChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattValueChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattValueChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -6189,36 +5348,7 @@ unsafe impl ::windows::core::Interface for GattWriteRequest {
 impl ::windows::core::RuntimeName for GattWriteRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequest";
 }
-impl ::core::convert::From<GattWriteRequest> for ::windows::core::IUnknown {
-    fn from(value: GattWriteRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattWriteRequest> for ::windows::core::IUnknown {
-    fn from(value: &GattWriteRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattWriteRequest> for &::windows::core::IUnknown {
-    fn from(value: &GattWriteRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattWriteRequest> for ::windows::core::IInspectable {
-    fn from(value: GattWriteRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattWriteRequest> for ::windows::core::IInspectable {
-    fn from(value: &GattWriteRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattWriteRequest> for &::windows::core::IInspectable {
-    fn from(value: &GattWriteRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattWriteRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattWriteRequest {}
 unsafe impl ::core::marker::Sync for GattWriteRequest {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -6283,36 +5413,7 @@ unsafe impl ::windows::core::Interface for GattWriteRequestedEventArgs {
 impl ::windows::core::RuntimeName for GattWriteRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequestedEventArgs";
 }
-impl ::core::convert::From<GattWriteRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GattWriteRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattWriteRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GattWriteRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattWriteRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GattWriteRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattWriteRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GattWriteRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattWriteRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GattWriteRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattWriteRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GattWriteRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattWriteRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattWriteRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for GattWriteRequestedEventArgs {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -6368,36 +5469,7 @@ unsafe impl ::windows::core::Interface for GattWriteResult {
 impl ::windows::core::RuntimeName for GattWriteResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteResult";
 }
-impl ::core::convert::From<GattWriteResult> for ::windows::core::IUnknown {
-    fn from(value: GattWriteResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattWriteResult> for ::windows::core::IUnknown {
-    fn from(value: &GattWriteResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattWriteResult> for &::windows::core::IUnknown {
-    fn from(value: &GattWriteResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattWriteResult> for ::windows::core::IInspectable {
-    fn from(value: GattWriteResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattWriteResult> for ::windows::core::IInspectable {
-    fn from(value: &GattWriteResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattWriteResult> for &::windows::core::IInspectable {
-    fn from(value: &GattWriteResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattWriteResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattWriteResult {}
 unsafe impl ::core::marker::Sync for GattWriteResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]

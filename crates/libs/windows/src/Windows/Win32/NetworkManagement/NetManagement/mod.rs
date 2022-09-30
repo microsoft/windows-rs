@@ -2187,21 +2187,7 @@ impl IEnumNetCfgBindingInterface {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumNetCfgBindingInterface>(result__)
     }
 }
-impl ::core::convert::From<IEnumNetCfgBindingInterface> for ::windows::core::IUnknown {
-    fn from(value: IEnumNetCfgBindingInterface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumNetCfgBindingInterface> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumNetCfgBindingInterface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumNetCfgBindingInterface> for ::windows::core::IUnknown {
-    fn from(value: &IEnumNetCfgBindingInterface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumNetCfgBindingInterface, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumNetCfgBindingInterface {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2251,21 +2237,7 @@ impl IEnumNetCfgBindingPath {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumNetCfgBindingPath>(result__)
     }
 }
-impl ::core::convert::From<IEnumNetCfgBindingPath> for ::windows::core::IUnknown {
-    fn from(value: IEnumNetCfgBindingPath) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumNetCfgBindingPath> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumNetCfgBindingPath) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumNetCfgBindingPath> for ::windows::core::IUnknown {
-    fn from(value: &IEnumNetCfgBindingPath) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumNetCfgBindingPath, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumNetCfgBindingPath {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2315,21 +2287,7 @@ impl IEnumNetCfgComponent {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumNetCfgComponent>(result__)
     }
 }
-impl ::core::convert::From<IEnumNetCfgComponent> for ::windows::core::IUnknown {
-    fn from(value: IEnumNetCfgComponent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumNetCfgComponent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumNetCfgComponent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumNetCfgComponent> for ::windows::core::IUnknown {
-    fn from(value: &IEnumNetCfgComponent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumNetCfgComponent, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumNetCfgComponent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2392,21 +2350,7 @@ impl INetCfg {
         (::windows::core::Vtable::vtable(self).QueryNetCfgClass)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pguidclass), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<INetCfg> for ::windows::core::IUnknown {
-    fn from(value: INetCfg) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetCfg> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetCfg) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetCfg> for ::windows::core::IUnknown {
-    fn from(value: &INetCfg) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetCfg, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetCfg {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2458,21 +2402,7 @@ impl INetCfgBindingInterface {
         (::windows::core::Vtable::vtable(self).GetLowerComponent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetCfgComponent>(result__)
     }
 }
-impl ::core::convert::From<INetCfgBindingInterface> for ::windows::core::IUnknown {
-    fn from(value: INetCfgBindingInterface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetCfgBindingInterface> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetCfgBindingInterface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetCfgBindingInterface> for ::windows::core::IUnknown {
-    fn from(value: &INetCfgBindingInterface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetCfgBindingInterface, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetCfgBindingInterface {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2547,21 +2477,7 @@ impl INetCfgBindingPath {
         (::windows::core::Vtable::vtable(self).EnumBindingInterfaces)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumNetCfgBindingInterface>(result__)
     }
 }
-impl ::core::convert::From<INetCfgBindingPath> for ::windows::core::IUnknown {
-    fn from(value: INetCfgBindingPath) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetCfgBindingPath> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetCfgBindingPath) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetCfgBindingPath> for ::windows::core::IUnknown {
-    fn from(value: &INetCfgBindingPath) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetCfgBindingPath, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetCfgBindingPath {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2616,21 +2532,7 @@ impl INetCfgClass {
         (::windows::core::Vtable::vtable(self).EnumComponents)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumNetCfgComponent>(result__)
     }
 }
-impl ::core::convert::From<INetCfgClass> for ::windows::core::IUnknown {
-    fn from(value: INetCfgClass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetCfgClass> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetCfgClass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetCfgClass> for ::windows::core::IUnknown {
-    fn from(value: &INetCfgClass) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetCfgClass, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetCfgClass {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2693,21 +2595,7 @@ impl INetCfgClassSetup {
         (::windows::core::Vtable::vtable(self).DeInstall)(::windows::core::Vtable::as_raw(self), pcomponent.into().abi(), ::core::mem::transmute(pobotoken.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pmszwrefs.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<INetCfgClassSetup> for ::windows::core::IUnknown {
-    fn from(value: INetCfgClassSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetCfgClassSetup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetCfgClassSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetCfgClassSetup> for ::windows::core::IUnknown {
-    fn from(value: &INetCfgClassSetup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetCfgClassSetup, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetCfgClassSetup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2786,36 +2674,7 @@ impl INetCfgClassSetup2 {
         (::windows::core::Vtable::vtable(self).UpdateNonEnumeratedComponent)(::windows::core::Vtable::as_raw(self), picomp.into().abi(), dwsetupflags, dwupgradefrombuildno).ok()
     }
 }
-impl ::core::convert::From<INetCfgClassSetup2> for ::windows::core::IUnknown {
-    fn from(value: INetCfgClassSetup2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetCfgClassSetup2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetCfgClassSetup2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetCfgClassSetup2> for ::windows::core::IUnknown {
-    fn from(value: &INetCfgClassSetup2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<INetCfgClassSetup2> for INetCfgClassSetup {
-    fn from(value: INetCfgClassSetup2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetCfgClassSetup2> for &'a INetCfgClassSetup {
-    fn from(value: &'a INetCfgClassSetup2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetCfgClassSetup2> for INetCfgClassSetup {
-    fn from(value: &INetCfgClassSetup2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetCfgClassSetup2, ::windows::core::IUnknown, INetCfgClassSetup);
 impl ::core::clone::Clone for INetCfgClassSetup2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2906,21 +2765,7 @@ impl INetCfgComponent {
         (::windows::core::Vtable::vtable(self).RaisePropertyUi)(::windows::core::Vtable::as_raw(self), hwndparent.into(), dwflags, punkcontext.into().abi()).ok()
     }
 }
-impl ::core::convert::From<INetCfgComponent> for ::windows::core::IUnknown {
-    fn from(value: INetCfgComponent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetCfgComponent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetCfgComponent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetCfgComponent> for ::windows::core::IUnknown {
-    fn from(value: &INetCfgComponent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetCfgComponent, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetCfgComponent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3019,21 +2864,7 @@ impl INetCfgComponentBindings {
         (::windows::core::Vtable::vtable(self).MoveAfter)(::windows::core::Vtable::as_raw(self), pncbitemsrc.into().abi(), pncbitemdest.into().abi()).ok()
     }
 }
-impl ::core::convert::From<INetCfgComponentBindings> for ::windows::core::IUnknown {
-    fn from(value: INetCfgComponentBindings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetCfgComponentBindings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetCfgComponentBindings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetCfgComponentBindings> for ::windows::core::IUnknown {
-    fn from(value: &INetCfgComponentBindings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetCfgComponentBindings, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetCfgComponentBindings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3096,21 +2927,7 @@ impl INetCfgComponentControl {
         (::windows::core::Vtable::vtable(self).CancelChanges)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<INetCfgComponentControl> for ::windows::core::IUnknown {
-    fn from(value: INetCfgComponentControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetCfgComponentControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetCfgComponentControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetCfgComponentControl> for ::windows::core::IUnknown {
-    fn from(value: &INetCfgComponentControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetCfgComponentControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetCfgComponentControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3162,21 +2979,7 @@ impl INetCfgComponentNotifyBinding {
         (::windows::core::Vtable::vtable(self).NotifyBindingPath)(::windows::core::Vtable::as_raw(self), dwchangeflag, pipath.into().abi()).ok()
     }
 }
-impl ::core::convert::From<INetCfgComponentNotifyBinding> for ::windows::core::IUnknown {
-    fn from(value: INetCfgComponentNotifyBinding) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetCfgComponentNotifyBinding> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetCfgComponentNotifyBinding) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetCfgComponentNotifyBinding> for ::windows::core::IUnknown {
-    fn from(value: &INetCfgComponentNotifyBinding) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetCfgComponentNotifyBinding, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetCfgComponentNotifyBinding {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3233,21 +3036,7 @@ impl INetCfgComponentNotifyGlobal {
         (::windows::core::Vtable::vtable(self).SysNotifyComponent)(::windows::core::Vtable::as_raw(self), dwchangeflag, picomp.into().abi()).ok()
     }
 }
-impl ::core::convert::From<INetCfgComponentNotifyGlobal> for ::windows::core::IUnknown {
-    fn from(value: INetCfgComponentNotifyGlobal) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetCfgComponentNotifyGlobal> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetCfgComponentNotifyGlobal) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetCfgComponentNotifyGlobal> for ::windows::core::IUnknown {
-    fn from(value: &INetCfgComponentNotifyGlobal) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetCfgComponentNotifyGlobal, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetCfgComponentNotifyGlobal {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3318,21 +3107,7 @@ impl INetCfgComponentPropertyUi {
         (::windows::core::Vtable::vtable(self).CancelProperties)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<INetCfgComponentPropertyUi> for ::windows::core::IUnknown {
-    fn from(value: INetCfgComponentPropertyUi) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetCfgComponentPropertyUi> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetCfgComponentPropertyUi) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetCfgComponentPropertyUi> for ::windows::core::IUnknown {
-    fn from(value: &INetCfgComponentPropertyUi) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetCfgComponentPropertyUi, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetCfgComponentPropertyUi {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3393,21 +3168,7 @@ impl INetCfgComponentSetup {
         (::windows::core::Vtable::vtable(self).Removing)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<INetCfgComponentSetup> for ::windows::core::IUnknown {
-    fn from(value: INetCfgComponentSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetCfgComponentSetup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetCfgComponentSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetCfgComponentSetup> for ::windows::core::IUnknown {
-    fn from(value: &INetCfgComponentSetup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetCfgComponentSetup, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetCfgComponentSetup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3458,21 +3219,7 @@ impl INetCfgComponentSysPrep {
         (::windows::core::Vtable::vtable(self).RestoreAdapterParameters)(::windows::core::Vtable::as_raw(self), pszwanswerfile.into(), pszwanswersection.into(), ::core::mem::transmute(padapterinstanceguid)).ok()
     }
 }
-impl ::core::convert::From<INetCfgComponentSysPrep> for ::windows::core::IUnknown {
-    fn from(value: INetCfgComponentSysPrep) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetCfgComponentSysPrep> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetCfgComponentSysPrep) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetCfgComponentSysPrep> for ::windows::core::IUnknown {
-    fn from(value: &INetCfgComponentSysPrep) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetCfgComponentSysPrep, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetCfgComponentSysPrep {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3525,21 +3272,7 @@ impl INetCfgComponentUpperEdge {
         (::windows::core::Vtable::vtable(self).RemoveInterfacesFromAdapter)(::windows::core::Vtable::as_raw(self), padapter.into().abi(), pguidinterfaceids.len() as _, ::core::mem::transmute(pguidinterfaceids.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<INetCfgComponentUpperEdge> for ::windows::core::IUnknown {
-    fn from(value: INetCfgComponentUpperEdge) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetCfgComponentUpperEdge> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetCfgComponentUpperEdge) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetCfgComponentUpperEdge> for ::windows::core::IUnknown {
-    fn from(value: &INetCfgComponentUpperEdge) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetCfgComponentUpperEdge, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetCfgComponentUpperEdge {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3589,21 +3322,7 @@ impl INetCfgLock {
         (::windows::core::Vtable::vtable(self).IsWriteLocked)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<INetCfgLock> for ::windows::core::IUnknown {
-    fn from(value: INetCfgLock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetCfgLock> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetCfgLock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetCfgLock> for ::windows::core::IUnknown {
-    fn from(value: &INetCfgLock) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetCfgLock, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetCfgLock {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3646,21 +3365,7 @@ impl INetCfgPnpReconfigCallback {
         (::windows::core::Vtable::vtable(self).SendPnpReconfig)(::windows::core::Vtable::as_raw(self), layer, pszwupper.into(), pszwlower.into(), ::core::mem::transmute(pvdata), dwsizeofdata).ok()
     }
 }
-impl ::core::convert::From<INetCfgPnpReconfigCallback> for ::windows::core::IUnknown {
-    fn from(value: INetCfgPnpReconfigCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetCfgPnpReconfigCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetCfgPnpReconfigCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetCfgPnpReconfigCallback> for ::windows::core::IUnknown {
-    fn from(value: &INetCfgPnpReconfigCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetCfgPnpReconfigCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetCfgPnpReconfigCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3727,21 +3432,7 @@ impl INetCfgSysPrep {
         (::windows::core::Vtable::vtable(self).HrSetupSetFirstMultiSzField)(::windows::core::Vtable::as_raw(self), pwszsection.into(), pwszkey.into(), pmszvalue.into()).ok()
     }
 }
-impl ::core::convert::From<INetCfgSysPrep> for ::windows::core::IUnknown {
-    fn from(value: INetCfgSysPrep) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetCfgSysPrep> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetCfgSysPrep) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetCfgSysPrep> for ::windows::core::IUnknown {
-    fn from(value: &INetCfgSysPrep) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetCfgSysPrep, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetCfgSysPrep {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3785,21 +3476,7 @@ impl INetLanConnectionUiInfo {
         (::windows::core::Vtable::vtable(self).GetDeviceGuid)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
 }
-impl ::core::convert::From<INetLanConnectionUiInfo> for ::windows::core::IUnknown {
-    fn from(value: INetLanConnectionUiInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetLanConnectionUiInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetLanConnectionUiInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetLanConnectionUiInfo> for ::windows::core::IUnknown {
-    fn from(value: &INetLanConnectionUiInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetLanConnectionUiInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetLanConnectionUiInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3839,21 +3516,7 @@ impl INetRasConnectionIpUiInfo {
         (::windows::core::Vtable::vtable(self).GetUiInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RASCON_IPUI>(result__)
     }
 }
-impl ::core::convert::From<INetRasConnectionIpUiInfo> for ::windows::core::IUnknown {
-    fn from(value: INetRasConnectionIpUiInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetRasConnectionIpUiInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetRasConnectionIpUiInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetRasConnectionIpUiInfo> for ::windows::core::IUnknown {
-    fn from(value: &INetRasConnectionIpUiInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetRasConnectionIpUiInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetRasConnectionIpUiInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3907,21 +3570,7 @@ impl IProvisioningDomain {
         (::windows::core::Vtable::vtable(self).Query)(::windows::core::Vtable::as_raw(self), pszwdomain.into(), pszwlanguage.into(), pszwxpathquery.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Data::Xml::MsXml::IXMLDOMNodeList>(result__)
     }
 }
-impl ::core::convert::From<IProvisioningDomain> for ::windows::core::IUnknown {
-    fn from(value: IProvisioningDomain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProvisioningDomain> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IProvisioningDomain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProvisioningDomain> for ::windows::core::IUnknown {
-    fn from(value: &IProvisioningDomain) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IProvisioningDomain, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IProvisioningDomain {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3963,21 +3612,7 @@ impl IProvisioningProfileWireless {
         (::windows::core::Vtable::vtable(self).CreateProfile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrxmlwirelessconfigprofile), ::core::mem::transmute_copy(bstrxmlconnectionconfigprofile), ::core::mem::transmute(padapterinstanceguid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IProvisioningProfileWireless> for ::windows::core::IUnknown {
-    fn from(value: IProvisioningProfileWireless) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProvisioningProfileWireless> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IProvisioningProfileWireless) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProvisioningProfileWireless> for ::windows::core::IUnknown {
-    fn from(value: &IProvisioningProfileWireless) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IProvisioningProfileWireless, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IProvisioningProfileWireless {
     fn clone(&self) -> Self {
         Self(self.0.clone())

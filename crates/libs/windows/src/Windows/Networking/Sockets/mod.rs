@@ -56,36 +56,7 @@ impl IControlChannelTriggerEventDetails {
         }
     }
 }
-impl ::core::convert::From<IControlChannelTriggerEventDetails> for ::windows::core::IUnknown {
-    fn from(value: IControlChannelTriggerEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IControlChannelTriggerEventDetails> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IControlChannelTriggerEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IControlChannelTriggerEventDetails> for ::windows::core::IUnknown {
-    fn from(value: &IControlChannelTriggerEventDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IControlChannelTriggerEventDetails> for ::windows::core::IInspectable {
-    fn from(value: IControlChannelTriggerEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IControlChannelTriggerEventDetails> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IControlChannelTriggerEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IControlChannelTriggerEventDetails> for ::windows::core::IInspectable {
-    fn from(value: &IControlChannelTriggerEventDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IControlChannelTriggerEventDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IControlChannelTriggerEventDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -163,36 +134,7 @@ impl IControlChannelTriggerResetEventDetails {
         }
     }
 }
-impl ::core::convert::From<IControlChannelTriggerResetEventDetails> for ::windows::core::IUnknown {
-    fn from(value: IControlChannelTriggerResetEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IControlChannelTriggerResetEventDetails> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IControlChannelTriggerResetEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IControlChannelTriggerResetEventDetails> for ::windows::core::IUnknown {
-    fn from(value: &IControlChannelTriggerResetEventDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IControlChannelTriggerResetEventDetails> for ::windows::core::IInspectable {
-    fn from(value: IControlChannelTriggerResetEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IControlChannelTriggerResetEventDetails> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IControlChannelTriggerResetEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IControlChannelTriggerResetEventDetails> for ::windows::core::IInspectable {
-    fn from(value: &IControlChannelTriggerResetEventDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IControlChannelTriggerResetEventDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IControlChannelTriggerResetEventDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1363,36 +1305,7 @@ impl IWebSocket {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<IWebSocket> for ::windows::core::IUnknown {
-    fn from(value: IWebSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebSocket> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWebSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebSocket> for ::windows::core::IUnknown {
-    fn from(value: &IWebSocket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWebSocket> for ::windows::core::IInspectable {
-    fn from(value: IWebSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebSocket> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWebSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebSocket> for ::windows::core::IInspectable {
-    fn from(value: &IWebSocket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWebSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1538,36 +1451,7 @@ impl IWebSocketControl {
         }
     }
 }
-impl ::core::convert::From<IWebSocketControl> for ::windows::core::IUnknown {
-    fn from(value: IWebSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebSocketControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWebSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebSocketControl> for ::windows::core::IUnknown {
-    fn from(value: &IWebSocketControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWebSocketControl> for ::windows::core::IInspectable {
-    fn from(value: IWebSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebSocketControl> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWebSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebSocketControl> for ::windows::core::IInspectable {
-    fn from(value: &IWebSocketControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWebSocketControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IWebSocketControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1688,36 +1572,7 @@ impl IWebSocketControl2 {
         }
     }
 }
-impl ::core::convert::From<IWebSocketControl2> for ::windows::core::IUnknown {
-    fn from(value: IWebSocketControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebSocketControl2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWebSocketControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebSocketControl2> for ::windows::core::IUnknown {
-    fn from(value: &IWebSocketControl2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWebSocketControl2> for ::windows::core::IInspectable {
-    fn from(value: IWebSocketControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebSocketControl2> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWebSocketControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebSocketControl2> for ::windows::core::IInspectable {
-    fn from(value: &IWebSocketControl2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWebSocketControl2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IWebSocketControl2> for IWebSocketControl {
     type Error = ::windows::core::Error;
     fn try_from(value: IWebSocketControl2) -> ::windows::core::Result<Self> {
@@ -1819,36 +1674,7 @@ impl IWebSocketInformation {
         }
     }
 }
-impl ::core::convert::From<IWebSocketInformation> for ::windows::core::IUnknown {
-    fn from(value: IWebSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebSocketInformation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWebSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebSocketInformation> for ::windows::core::IUnknown {
-    fn from(value: &IWebSocketInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWebSocketInformation> for ::windows::core::IInspectable {
-    fn from(value: IWebSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebSocketInformation> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWebSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebSocketInformation> for ::windows::core::IInspectable {
-    fn from(value: &IWebSocketInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWebSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IWebSocketInformation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1946,36 +1772,7 @@ impl IWebSocketInformation2 {
         }
     }
 }
-impl ::core::convert::From<IWebSocketInformation2> for ::windows::core::IUnknown {
-    fn from(value: IWebSocketInformation2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebSocketInformation2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWebSocketInformation2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebSocketInformation2> for ::windows::core::IUnknown {
-    fn from(value: &IWebSocketInformation2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWebSocketInformation2> for ::windows::core::IInspectable {
-    fn from(value: IWebSocketInformation2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebSocketInformation2> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWebSocketInformation2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebSocketInformation2> for ::windows::core::IInspectable {
-    fn from(value: &IWebSocketInformation2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWebSocketInformation2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IWebSocketInformation2> for IWebSocketInformation {
     type Error = ::windows::core::Error;
     fn try_from(value: IWebSocketInformation2) -> ::windows::core::Result<Self> {
@@ -2213,36 +2010,7 @@ unsafe impl ::windows::core::Interface for ControlChannelTrigger {
 impl ::windows::core::RuntimeName for ControlChannelTrigger {
     const NAME: &'static str = "Windows.Networking.Sockets.ControlChannelTrigger";
 }
-impl ::core::convert::From<ControlChannelTrigger> for ::windows::core::IUnknown {
-    fn from(value: ControlChannelTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ControlChannelTrigger> for ::windows::core::IUnknown {
-    fn from(value: &ControlChannelTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ControlChannelTrigger> for &::windows::core::IUnknown {
-    fn from(value: &ControlChannelTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ControlChannelTrigger> for ::windows::core::IInspectable {
-    fn from(value: ControlChannelTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ControlChannelTrigger> for ::windows::core::IInspectable {
-    fn from(value: &ControlChannelTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ControlChannelTrigger> for &::windows::core::IInspectable {
-    fn from(value: &ControlChannelTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ControlChannelTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ControlChannelTrigger> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2474,36 +2242,7 @@ unsafe impl ::windows::core::Interface for DatagramSocket {
 impl ::windows::core::RuntimeName for DatagramSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocket";
 }
-impl ::core::convert::From<DatagramSocket> for ::windows::core::IUnknown {
-    fn from(value: DatagramSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DatagramSocket> for ::windows::core::IUnknown {
-    fn from(value: &DatagramSocket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DatagramSocket> for &::windows::core::IUnknown {
-    fn from(value: &DatagramSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DatagramSocket> for ::windows::core::IInspectable {
-    fn from(value: DatagramSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DatagramSocket> for ::windows::core::IInspectable {
-    fn from(value: &DatagramSocket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DatagramSocket> for &::windows::core::IInspectable {
-    fn from(value: &DatagramSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DatagramSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<DatagramSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2620,36 +2359,7 @@ unsafe impl ::windows::core::Interface for DatagramSocketControl {
 impl ::windows::core::RuntimeName for DatagramSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketControl";
 }
-impl ::core::convert::From<DatagramSocketControl> for ::windows::core::IUnknown {
-    fn from(value: DatagramSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DatagramSocketControl> for ::windows::core::IUnknown {
-    fn from(value: &DatagramSocketControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DatagramSocketControl> for &::windows::core::IUnknown {
-    fn from(value: &DatagramSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DatagramSocketControl> for ::windows::core::IInspectable {
-    fn from(value: DatagramSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DatagramSocketControl> for ::windows::core::IInspectable {
-    fn from(value: &DatagramSocketControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DatagramSocketControl> for &::windows::core::IInspectable {
-    fn from(value: &DatagramSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DatagramSocketControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DatagramSocketControl {}
 unsafe impl ::core::marker::Sync for DatagramSocketControl {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -2717,36 +2427,7 @@ unsafe impl ::windows::core::Interface for DatagramSocketInformation {
 impl ::windows::core::RuntimeName for DatagramSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketInformation";
 }
-impl ::core::convert::From<DatagramSocketInformation> for ::windows::core::IUnknown {
-    fn from(value: DatagramSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DatagramSocketInformation> for ::windows::core::IUnknown {
-    fn from(value: &DatagramSocketInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DatagramSocketInformation> for &::windows::core::IUnknown {
-    fn from(value: &DatagramSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DatagramSocketInformation> for ::windows::core::IInspectable {
-    fn from(value: DatagramSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DatagramSocketInformation> for ::windows::core::IInspectable {
-    fn from(value: &DatagramSocketInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DatagramSocketInformation> for &::windows::core::IInspectable {
-    fn from(value: &DatagramSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DatagramSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DatagramSocketInformation {}
 unsafe impl ::core::marker::Sync for DatagramSocketInformation {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -2825,36 +2506,7 @@ unsafe impl ::windows::core::Interface for DatagramSocketMessageReceivedEventArg
 impl ::windows::core::RuntimeName for DatagramSocketMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketMessageReceivedEventArgs";
 }
-impl ::core::convert::From<DatagramSocketMessageReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DatagramSocketMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DatagramSocketMessageReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DatagramSocketMessageReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DatagramSocketMessageReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DatagramSocketMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DatagramSocketMessageReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DatagramSocketMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DatagramSocketMessageReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DatagramSocketMessageReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DatagramSocketMessageReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DatagramSocketMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DatagramSocketMessageReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DatagramSocketMessageReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for DatagramSocketMessageReceivedEventArgs {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -3018,36 +2670,7 @@ unsafe impl ::windows::core::Interface for MessageWebSocket {
 impl ::windows::core::RuntimeName for MessageWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocket";
 }
-impl ::core::convert::From<MessageWebSocket> for ::windows::core::IUnknown {
-    fn from(value: MessageWebSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MessageWebSocket> for ::windows::core::IUnknown {
-    fn from(value: &MessageWebSocket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MessageWebSocket> for &::windows::core::IUnknown {
-    fn from(value: &MessageWebSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MessageWebSocket> for ::windows::core::IInspectable {
-    fn from(value: MessageWebSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MessageWebSocket> for ::windows::core::IInspectable {
-    fn from(value: &MessageWebSocket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MessageWebSocket> for &::windows::core::IInspectable {
-    fn from(value: &MessageWebSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MessageWebSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MessageWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3259,36 +2882,7 @@ unsafe impl ::windows::core::Interface for MessageWebSocketControl {
 impl ::windows::core::RuntimeName for MessageWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketControl";
 }
-impl ::core::convert::From<MessageWebSocketControl> for ::windows::core::IUnknown {
-    fn from(value: MessageWebSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MessageWebSocketControl> for ::windows::core::IUnknown {
-    fn from(value: &MessageWebSocketControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MessageWebSocketControl> for &::windows::core::IUnknown {
-    fn from(value: &MessageWebSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MessageWebSocketControl> for ::windows::core::IInspectable {
-    fn from(value: MessageWebSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MessageWebSocketControl> for ::windows::core::IInspectable {
-    fn from(value: &MessageWebSocketControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MessageWebSocketControl> for &::windows::core::IInspectable {
-    fn from(value: &MessageWebSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MessageWebSocketControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MessageWebSocketControl> for IWebSocketControl {
     type Error = ::windows::core::Error;
     fn try_from(value: MessageWebSocketControl) -> ::windows::core::Result<Self> {
@@ -3421,36 +3015,7 @@ unsafe impl ::windows::core::Interface for MessageWebSocketInformation {
 impl ::windows::core::RuntimeName for MessageWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketInformation";
 }
-impl ::core::convert::From<MessageWebSocketInformation> for ::windows::core::IUnknown {
-    fn from(value: MessageWebSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MessageWebSocketInformation> for ::windows::core::IUnknown {
-    fn from(value: &MessageWebSocketInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MessageWebSocketInformation> for &::windows::core::IUnknown {
-    fn from(value: &MessageWebSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MessageWebSocketInformation> for ::windows::core::IInspectable {
-    fn from(value: MessageWebSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MessageWebSocketInformation> for ::windows::core::IInspectable {
-    fn from(value: &MessageWebSocketInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MessageWebSocketInformation> for &::windows::core::IInspectable {
-    fn from(value: &MessageWebSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MessageWebSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MessageWebSocketInformation> for IWebSocketInformation {
     type Error = ::windows::core::Error;
     fn try_from(value: MessageWebSocketInformation) -> ::windows::core::Result<Self> {
@@ -3560,36 +3125,7 @@ unsafe impl ::windows::core::Interface for MessageWebSocketMessageReceivedEventA
 impl ::windows::core::RuntimeName for MessageWebSocketMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketMessageReceivedEventArgs";
 }
-impl ::core::convert::From<MessageWebSocketMessageReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MessageWebSocketMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MessageWebSocketMessageReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MessageWebSocketMessageReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MessageWebSocketMessageReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MessageWebSocketMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MessageWebSocketMessageReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MessageWebSocketMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MessageWebSocketMessageReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MessageWebSocketMessageReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MessageWebSocketMessageReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MessageWebSocketMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MessageWebSocketMessageReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MessageWebSocketMessageReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MessageWebSocketMessageReceivedEventArgs {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -3692,36 +3228,7 @@ unsafe impl ::windows::core::Interface for ServerMessageWebSocket {
 impl ::windows::core::RuntimeName for ServerMessageWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocket";
 }
-impl ::core::convert::From<ServerMessageWebSocket> for ::windows::core::IUnknown {
-    fn from(value: ServerMessageWebSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ServerMessageWebSocket> for ::windows::core::IUnknown {
-    fn from(value: &ServerMessageWebSocket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ServerMessageWebSocket> for &::windows::core::IUnknown {
-    fn from(value: &ServerMessageWebSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ServerMessageWebSocket> for ::windows::core::IInspectable {
-    fn from(value: ServerMessageWebSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ServerMessageWebSocket> for ::windows::core::IInspectable {
-    fn from(value: &ServerMessageWebSocket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ServerMessageWebSocket> for &::windows::core::IInspectable {
-    fn from(value: &ServerMessageWebSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ServerMessageWebSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ServerMessageWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3794,36 +3301,7 @@ unsafe impl ::windows::core::Interface for ServerMessageWebSocketControl {
 impl ::windows::core::RuntimeName for ServerMessageWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocketControl";
 }
-impl ::core::convert::From<ServerMessageWebSocketControl> for ::windows::core::IUnknown {
-    fn from(value: ServerMessageWebSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ServerMessageWebSocketControl> for ::windows::core::IUnknown {
-    fn from(value: &ServerMessageWebSocketControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ServerMessageWebSocketControl> for &::windows::core::IUnknown {
-    fn from(value: &ServerMessageWebSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ServerMessageWebSocketControl> for ::windows::core::IInspectable {
-    fn from(value: ServerMessageWebSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ServerMessageWebSocketControl> for ::windows::core::IInspectable {
-    fn from(value: &ServerMessageWebSocketControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ServerMessageWebSocketControl> for &::windows::core::IInspectable {
-    fn from(value: &ServerMessageWebSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ServerMessageWebSocketControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ServerMessageWebSocketControl {}
 unsafe impl ::core::marker::Sync for ServerMessageWebSocketControl {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -3884,36 +3362,7 @@ unsafe impl ::windows::core::Interface for ServerMessageWebSocketInformation {
 impl ::windows::core::RuntimeName for ServerMessageWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocketInformation";
 }
-impl ::core::convert::From<ServerMessageWebSocketInformation> for ::windows::core::IUnknown {
-    fn from(value: ServerMessageWebSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ServerMessageWebSocketInformation> for ::windows::core::IUnknown {
-    fn from(value: &ServerMessageWebSocketInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ServerMessageWebSocketInformation> for &::windows::core::IUnknown {
-    fn from(value: &ServerMessageWebSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ServerMessageWebSocketInformation> for ::windows::core::IInspectable {
-    fn from(value: ServerMessageWebSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ServerMessageWebSocketInformation> for ::windows::core::IInspectable {
-    fn from(value: &ServerMessageWebSocketInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ServerMessageWebSocketInformation> for &::windows::core::IInspectable {
-    fn from(value: &ServerMessageWebSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ServerMessageWebSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ServerMessageWebSocketInformation {}
 unsafe impl ::core::marker::Sync for ServerMessageWebSocketInformation {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -4003,36 +3452,7 @@ unsafe impl ::windows::core::Interface for ServerStreamWebSocket {
 impl ::windows::core::RuntimeName for ServerStreamWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerStreamWebSocket";
 }
-impl ::core::convert::From<ServerStreamWebSocket> for ::windows::core::IUnknown {
-    fn from(value: ServerStreamWebSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ServerStreamWebSocket> for ::windows::core::IUnknown {
-    fn from(value: &ServerStreamWebSocket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ServerStreamWebSocket> for &::windows::core::IUnknown {
-    fn from(value: &ServerStreamWebSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ServerStreamWebSocket> for ::windows::core::IInspectable {
-    fn from(value: ServerStreamWebSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ServerStreamWebSocket> for ::windows::core::IInspectable {
-    fn from(value: &ServerStreamWebSocket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ServerStreamWebSocket> for &::windows::core::IInspectable {
-    fn from(value: &ServerStreamWebSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ServerStreamWebSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ServerStreamWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4115,36 +3535,7 @@ unsafe impl ::windows::core::Interface for ServerStreamWebSocketInformation {
 impl ::windows::core::RuntimeName for ServerStreamWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerStreamWebSocketInformation";
 }
-impl ::core::convert::From<ServerStreamWebSocketInformation> for ::windows::core::IUnknown {
-    fn from(value: ServerStreamWebSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ServerStreamWebSocketInformation> for ::windows::core::IUnknown {
-    fn from(value: &ServerStreamWebSocketInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ServerStreamWebSocketInformation> for &::windows::core::IUnknown {
-    fn from(value: &ServerStreamWebSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ServerStreamWebSocketInformation> for ::windows::core::IInspectable {
-    fn from(value: ServerStreamWebSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ServerStreamWebSocketInformation> for ::windows::core::IInspectable {
-    fn from(value: &ServerStreamWebSocketInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ServerStreamWebSocketInformation> for &::windows::core::IInspectable {
-    fn from(value: &ServerStreamWebSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ServerStreamWebSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ServerStreamWebSocketInformation {}
 unsafe impl ::core::marker::Sync for ServerStreamWebSocketInformation {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -4210,36 +3601,7 @@ unsafe impl ::windows::core::Interface for SocketActivityContext {
 impl ::windows::core::RuntimeName for SocketActivityContext {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityContext";
 }
-impl ::core::convert::From<SocketActivityContext> for ::windows::core::IUnknown {
-    fn from(value: SocketActivityContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SocketActivityContext> for ::windows::core::IUnknown {
-    fn from(value: &SocketActivityContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SocketActivityContext> for &::windows::core::IUnknown {
-    fn from(value: &SocketActivityContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SocketActivityContext> for ::windows::core::IInspectable {
-    fn from(value: SocketActivityContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SocketActivityContext> for ::windows::core::IInspectable {
-    fn from(value: &SocketActivityContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SocketActivityContext> for &::windows::core::IInspectable {
-    fn from(value: &SocketActivityContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SocketActivityContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SocketActivityContext {}
 unsafe impl ::core::marker::Sync for SocketActivityContext {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -4341,36 +3703,7 @@ unsafe impl ::windows::core::Interface for SocketActivityInformation {
 impl ::windows::core::RuntimeName for SocketActivityInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityInformation";
 }
-impl ::core::convert::From<SocketActivityInformation> for ::windows::core::IUnknown {
-    fn from(value: SocketActivityInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SocketActivityInformation> for ::windows::core::IUnknown {
-    fn from(value: &SocketActivityInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SocketActivityInformation> for &::windows::core::IUnknown {
-    fn from(value: &SocketActivityInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SocketActivityInformation> for ::windows::core::IInspectable {
-    fn from(value: SocketActivityInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SocketActivityInformation> for ::windows::core::IInspectable {
-    fn from(value: &SocketActivityInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SocketActivityInformation> for &::windows::core::IInspectable {
-    fn from(value: &SocketActivityInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SocketActivityInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SocketActivityInformation {}
 unsafe impl ::core::marker::Sync for SocketActivityInformation {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -4424,36 +3757,7 @@ unsafe impl ::windows::core::Interface for SocketActivityTriggerDetails {
 impl ::windows::core::RuntimeName for SocketActivityTriggerDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityTriggerDetails";
 }
-impl ::core::convert::From<SocketActivityTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: SocketActivityTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SocketActivityTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &SocketActivityTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SocketActivityTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &SocketActivityTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SocketActivityTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: SocketActivityTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SocketActivityTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &SocketActivityTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SocketActivityTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &SocketActivityTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SocketActivityTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SocketActivityTriggerDetails {}
 unsafe impl ::core::marker::Sync for SocketActivityTriggerDetails {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -4662,36 +3966,7 @@ unsafe impl ::windows::core::Interface for StreamSocket {
 impl ::windows::core::RuntimeName for StreamSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocket";
 }
-impl ::core::convert::From<StreamSocket> for ::windows::core::IUnknown {
-    fn from(value: StreamSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StreamSocket> for ::windows::core::IUnknown {
-    fn from(value: &StreamSocket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StreamSocket> for &::windows::core::IUnknown {
-    fn from(value: &StreamSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StreamSocket> for ::windows::core::IInspectable {
-    fn from(value: StreamSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StreamSocket> for ::windows::core::IInspectable {
-    fn from(value: &StreamSocket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StreamSocket> for &::windows::core::IInspectable {
-    fn from(value: &StreamSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StreamSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<StreamSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4854,36 +4129,7 @@ unsafe impl ::windows::core::Interface for StreamSocketControl {
 impl ::windows::core::RuntimeName for StreamSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketControl";
 }
-impl ::core::convert::From<StreamSocketControl> for ::windows::core::IUnknown {
-    fn from(value: StreamSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StreamSocketControl> for ::windows::core::IUnknown {
-    fn from(value: &StreamSocketControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StreamSocketControl> for &::windows::core::IUnknown {
-    fn from(value: &StreamSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StreamSocketControl> for ::windows::core::IInspectable {
-    fn from(value: StreamSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StreamSocketControl> for ::windows::core::IInspectable {
-    fn from(value: &StreamSocketControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StreamSocketControl> for &::windows::core::IInspectable {
-    fn from(value: &StreamSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StreamSocketControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StreamSocketControl {}
 unsafe impl ::core::marker::Sync for StreamSocketControl {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -5029,36 +4275,7 @@ unsafe impl ::windows::core::Interface for StreamSocketInformation {
 impl ::windows::core::RuntimeName for StreamSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketInformation";
 }
-impl ::core::convert::From<StreamSocketInformation> for ::windows::core::IUnknown {
-    fn from(value: StreamSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StreamSocketInformation> for ::windows::core::IUnknown {
-    fn from(value: &StreamSocketInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StreamSocketInformation> for &::windows::core::IUnknown {
-    fn from(value: &StreamSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StreamSocketInformation> for ::windows::core::IInspectable {
-    fn from(value: StreamSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StreamSocketInformation> for ::windows::core::IInspectable {
-    fn from(value: &StreamSocketInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StreamSocketInformation> for &::windows::core::IInspectable {
-    fn from(value: &StreamSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StreamSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StreamSocketInformation {}
 unsafe impl ::core::marker::Sync for StreamSocketInformation {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -5201,36 +4418,7 @@ unsafe impl ::windows::core::Interface for StreamSocketListener {
 impl ::windows::core::RuntimeName for StreamSocketListener {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListener";
 }
-impl ::core::convert::From<StreamSocketListener> for ::windows::core::IUnknown {
-    fn from(value: StreamSocketListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StreamSocketListener> for ::windows::core::IUnknown {
-    fn from(value: &StreamSocketListener) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StreamSocketListener> for &::windows::core::IUnknown {
-    fn from(value: &StreamSocketListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StreamSocketListener> for ::windows::core::IInspectable {
-    fn from(value: StreamSocketListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StreamSocketListener> for ::windows::core::IInspectable {
-    fn from(value: &StreamSocketListener) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StreamSocketListener> for &::windows::core::IInspectable {
-    fn from(value: &StreamSocketListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StreamSocketListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<StreamSocketListener> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -5299,36 +4487,7 @@ unsafe impl ::windows::core::Interface for StreamSocketListenerConnectionReceive
 impl ::windows::core::RuntimeName for StreamSocketListenerConnectionReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerConnectionReceivedEventArgs";
 }
-impl ::core::convert::From<StreamSocketListenerConnectionReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: StreamSocketListenerConnectionReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StreamSocketListenerConnectionReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &StreamSocketListenerConnectionReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StreamSocketListenerConnectionReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &StreamSocketListenerConnectionReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StreamSocketListenerConnectionReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: StreamSocketListenerConnectionReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StreamSocketListenerConnectionReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &StreamSocketListenerConnectionReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StreamSocketListenerConnectionReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &StreamSocketListenerConnectionReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StreamSocketListenerConnectionReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StreamSocketListenerConnectionReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for StreamSocketListenerConnectionReceivedEventArgs {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -5423,36 +4582,7 @@ unsafe impl ::windows::core::Interface for StreamSocketListenerControl {
 impl ::windows::core::RuntimeName for StreamSocketListenerControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerControl";
 }
-impl ::core::convert::From<StreamSocketListenerControl> for ::windows::core::IUnknown {
-    fn from(value: StreamSocketListenerControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StreamSocketListenerControl> for ::windows::core::IUnknown {
-    fn from(value: &StreamSocketListenerControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StreamSocketListenerControl> for &::windows::core::IUnknown {
-    fn from(value: &StreamSocketListenerControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StreamSocketListenerControl> for ::windows::core::IInspectable {
-    fn from(value: StreamSocketListenerControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StreamSocketListenerControl> for ::windows::core::IInspectable {
-    fn from(value: &StreamSocketListenerControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StreamSocketListenerControl> for &::windows::core::IInspectable {
-    fn from(value: &StreamSocketListenerControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StreamSocketListenerControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StreamSocketListenerControl {}
 unsafe impl ::core::marker::Sync for StreamSocketListenerControl {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -5499,36 +4629,7 @@ unsafe impl ::windows::core::Interface for StreamSocketListenerInformation {
 impl ::windows::core::RuntimeName for StreamSocketListenerInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerInformation";
 }
-impl ::core::convert::From<StreamSocketListenerInformation> for ::windows::core::IUnknown {
-    fn from(value: StreamSocketListenerInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StreamSocketListenerInformation> for ::windows::core::IUnknown {
-    fn from(value: &StreamSocketListenerInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StreamSocketListenerInformation> for &::windows::core::IUnknown {
-    fn from(value: &StreamSocketListenerInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StreamSocketListenerInformation> for ::windows::core::IInspectable {
-    fn from(value: StreamSocketListenerInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StreamSocketListenerInformation> for ::windows::core::IInspectable {
-    fn from(value: &StreamSocketListenerInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StreamSocketListenerInformation> for &::windows::core::IInspectable {
-    fn from(value: &StreamSocketListenerInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StreamSocketListenerInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StreamSocketListenerInformation {}
 unsafe impl ::core::marker::Sync for StreamSocketListenerInformation {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -5660,36 +4761,7 @@ unsafe impl ::windows::core::Interface for StreamWebSocket {
 impl ::windows::core::RuntimeName for StreamWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocket";
 }
-impl ::core::convert::From<StreamWebSocket> for ::windows::core::IUnknown {
-    fn from(value: StreamWebSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StreamWebSocket> for ::windows::core::IUnknown {
-    fn from(value: &StreamWebSocket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StreamWebSocket> for &::windows::core::IUnknown {
-    fn from(value: &StreamWebSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StreamWebSocket> for ::windows::core::IInspectable {
-    fn from(value: StreamWebSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StreamWebSocket> for ::windows::core::IInspectable {
-    fn from(value: &StreamWebSocket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StreamWebSocket> for &::windows::core::IInspectable {
-    fn from(value: &StreamWebSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StreamWebSocket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<StreamWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -5879,36 +4951,7 @@ unsafe impl ::windows::core::Interface for StreamWebSocketControl {
 impl ::windows::core::RuntimeName for StreamWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocketControl";
 }
-impl ::core::convert::From<StreamWebSocketControl> for ::windows::core::IUnknown {
-    fn from(value: StreamWebSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StreamWebSocketControl> for ::windows::core::IUnknown {
-    fn from(value: &StreamWebSocketControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StreamWebSocketControl> for &::windows::core::IUnknown {
-    fn from(value: &StreamWebSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StreamWebSocketControl> for ::windows::core::IInspectable {
-    fn from(value: StreamWebSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StreamWebSocketControl> for ::windows::core::IInspectable {
-    fn from(value: &StreamWebSocketControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StreamWebSocketControl> for &::windows::core::IInspectable {
-    fn from(value: &StreamWebSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StreamWebSocketControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StreamWebSocketControl> for IWebSocketControl {
     type Error = ::windows::core::Error;
     fn try_from(value: StreamWebSocketControl) -> ::windows::core::Result<Self> {
@@ -6041,36 +5084,7 @@ unsafe impl ::windows::core::Interface for StreamWebSocketInformation {
 impl ::windows::core::RuntimeName for StreamWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocketInformation";
 }
-impl ::core::convert::From<StreamWebSocketInformation> for ::windows::core::IUnknown {
-    fn from(value: StreamWebSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StreamWebSocketInformation> for ::windows::core::IUnknown {
-    fn from(value: &StreamWebSocketInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StreamWebSocketInformation> for &::windows::core::IUnknown {
-    fn from(value: &StreamWebSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StreamWebSocketInformation> for ::windows::core::IInspectable {
-    fn from(value: StreamWebSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StreamWebSocketInformation> for ::windows::core::IInspectable {
-    fn from(value: &StreamWebSocketInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StreamWebSocketInformation> for &::windows::core::IInspectable {
-    fn from(value: &StreamWebSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StreamWebSocketInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StreamWebSocketInformation> for IWebSocketInformation {
     type Error = ::windows::core::Error;
     fn try_from(value: StreamWebSocketInformation) -> ::windows::core::Result<Self> {
@@ -6162,36 +5176,7 @@ unsafe impl ::windows::core::Interface for WebSocketClosedEventArgs {
 impl ::windows::core::RuntimeName for WebSocketClosedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketClosedEventArgs";
 }
-impl ::core::convert::From<WebSocketClosedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: WebSocketClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebSocketClosedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &WebSocketClosedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebSocketClosedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &WebSocketClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebSocketClosedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: WebSocketClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebSocketClosedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &WebSocketClosedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebSocketClosedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &WebSocketClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebSocketClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebSocketClosedEventArgs {}
 unsafe impl ::core::marker::Sync for WebSocketClosedEventArgs {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
@@ -6279,41 +5264,7 @@ impl ::windows::core::RuntimeName for WebSocketKeepAlive {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketKeepAlive";
 }
 #[cfg(feature = "ApplicationModel_Background")]
-impl ::core::convert::From<WebSocketKeepAlive> for ::windows::core::IUnknown {
-    fn from(value: WebSocketKeepAlive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "ApplicationModel_Background")]
-impl ::core::convert::From<&WebSocketKeepAlive> for ::windows::core::IUnknown {
-    fn from(value: &WebSocketKeepAlive) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "ApplicationModel_Background")]
-impl ::core::convert::From<&WebSocketKeepAlive> for &::windows::core::IUnknown {
-    fn from(value: &WebSocketKeepAlive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "ApplicationModel_Background")]
-impl ::core::convert::From<WebSocketKeepAlive> for ::windows::core::IInspectable {
-    fn from(value: WebSocketKeepAlive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "ApplicationModel_Background")]
-impl ::core::convert::From<&WebSocketKeepAlive> for ::windows::core::IInspectable {
-    fn from(value: &WebSocketKeepAlive) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "ApplicationModel_Background")]
-impl ::core::convert::From<&WebSocketKeepAlive> for &::windows::core::IInspectable {
-    fn from(value: &WebSocketKeepAlive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebSocketKeepAlive, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Background")]
 impl ::core::convert::TryFrom<WebSocketKeepAlive> for super::super::ApplicationModel::Background::IBackgroundTask {
     type Error = ::windows::core::Error;
@@ -6424,36 +5375,7 @@ unsafe impl ::windows::core::Interface for WebSocketServerCustomValidationReques
 impl ::windows::core::RuntimeName for WebSocketServerCustomValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketServerCustomValidationRequestedEventArgs";
 }
-impl ::core::convert::From<WebSocketServerCustomValidationRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: WebSocketServerCustomValidationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebSocketServerCustomValidationRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &WebSocketServerCustomValidationRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebSocketServerCustomValidationRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &WebSocketServerCustomValidationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebSocketServerCustomValidationRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: WebSocketServerCustomValidationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebSocketServerCustomValidationRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &WebSocketServerCustomValidationRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebSocketServerCustomValidationRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &WebSocketServerCustomValidationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebSocketServerCustomValidationRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebSocketServerCustomValidationRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for WebSocketServerCustomValidationRequestedEventArgs {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]

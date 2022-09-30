@@ -12,21 +12,7 @@ impl IIsolatedEnvironmentInterop {
         (::windows::core::Vtable::vtable(self).GetHostHwndInterop)(::windows::core::Vtable::as_raw(self), containerhwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
 }
-impl ::core::convert::From<IIsolatedEnvironmentInterop> for ::windows::core::IUnknown {
-    fn from(value: IIsolatedEnvironmentInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IIsolatedEnvironmentInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IIsolatedEnvironmentInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IIsolatedEnvironmentInterop> for ::windows::core::IUnknown {
-    fn from(value: &IIsolatedEnvironmentInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IIsolatedEnvironmentInterop, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IIsolatedEnvironmentInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())

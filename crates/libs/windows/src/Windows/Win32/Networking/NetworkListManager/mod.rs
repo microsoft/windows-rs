@@ -29,41 +29,7 @@ impl IEnumNetworkConnections {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IEnumNetworkConnections> for ::windows::core::IUnknown {
-    fn from(value: IEnumNetworkConnections) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IEnumNetworkConnections> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumNetworkConnections) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IEnumNetworkConnections> for ::windows::core::IUnknown {
-    fn from(value: &IEnumNetworkConnections) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IEnumNetworkConnections> for super::super::System::Com::IDispatch {
-    fn from(value: IEnumNetworkConnections) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IEnumNetworkConnections> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IEnumNetworkConnections) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IEnumNetworkConnections> for super::super::System::Com::IDispatch {
-    fn from(value: &IEnumNetworkConnections) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumNetworkConnections, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IEnumNetworkConnections {
     fn clone(&self) -> Self {
@@ -143,41 +109,7 @@ impl IEnumNetworks {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IEnumNetworks> for ::windows::core::IUnknown {
-    fn from(value: IEnumNetworks) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IEnumNetworks> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumNetworks) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IEnumNetworks> for ::windows::core::IUnknown {
-    fn from(value: &IEnumNetworks) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IEnumNetworks> for super::super::System::Com::IDispatch {
-    fn from(value: IEnumNetworks) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IEnumNetworks> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IEnumNetworks) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IEnumNetworks> for super::super::System::Com::IDispatch {
-    fn from(value: &IEnumNetworks) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumNetworks, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IEnumNetworks {
     fn clone(&self) -> Self {
@@ -284,41 +216,7 @@ impl INetwork {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetwork> for ::windows::core::IUnknown {
-    fn from(value: INetwork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetwork> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetwork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetwork> for ::windows::core::IUnknown {
-    fn from(value: &INetwork) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetwork> for super::super::System::Com::IDispatch {
-    fn from(value: INetwork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetwork> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetwork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetwork> for super::super::System::Com::IDispatch {
-    fn from(value: &INetwork) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetwork, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetwork {
     fn clone(&self) -> Self {
@@ -407,41 +305,7 @@ impl INetworkConnection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetworkConnection> for ::windows::core::IUnknown {
-    fn from(value: INetworkConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetworkConnection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetworkConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetworkConnection> for ::windows::core::IUnknown {
-    fn from(value: &INetworkConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetworkConnection> for super::super::System::Com::IDispatch {
-    fn from(value: INetworkConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetworkConnection> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetworkConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetworkConnection> for super::super::System::Com::IDispatch {
-    fn from(value: &INetworkConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetworkConnection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetworkConnection {
     fn clone(&self) -> Self {
@@ -501,21 +365,7 @@ impl INetworkConnectionCost {
         (::windows::core::Vtable::vtable(self).GetDataPlanStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<NLM_DATAPLAN_STATUS>(result__)
     }
 }
-impl ::core::convert::From<INetworkConnectionCost> for ::windows::core::IUnknown {
-    fn from(value: INetworkConnectionCost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetworkConnectionCost> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetworkConnectionCost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetworkConnectionCost> for ::windows::core::IUnknown {
-    fn from(value: &INetworkConnectionCost) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetworkConnectionCost, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetworkConnectionCost {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -559,21 +409,7 @@ impl INetworkConnectionCostEvents {
         (::windows::core::Vtable::vtable(self).ConnectionDataPlanStatusChanged)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(connectionid)).ok()
     }
 }
-impl ::core::convert::From<INetworkConnectionCostEvents> for ::windows::core::IUnknown {
-    fn from(value: INetworkConnectionCostEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetworkConnectionCostEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetworkConnectionCostEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetworkConnectionCostEvents> for ::windows::core::IUnknown {
-    fn from(value: &INetworkConnectionCostEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetworkConnectionCostEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetworkConnectionCostEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -614,21 +450,7 @@ impl INetworkConnectionEvents {
         (::windows::core::Vtable::vtable(self).NetworkConnectionPropertyChanged)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(connectionid), flags).ok()
     }
 }
-impl ::core::convert::From<INetworkConnectionEvents> for ::windows::core::IUnknown {
-    fn from(value: INetworkConnectionEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetworkConnectionEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetworkConnectionEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetworkConnectionEvents> for ::windows::core::IUnknown {
-    fn from(value: &INetworkConnectionEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetworkConnectionEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetworkConnectionEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -674,21 +496,7 @@ impl INetworkCostManager {
         (::windows::core::Vtable::vtable(self).SetDestinationAddresses)(::windows::core::Vtable::as_raw(self), pdestipaddrlist.len() as _, ::core::mem::transmute(pdestipaddrlist.as_ptr()), bappend).ok()
     }
 }
-impl ::core::convert::From<INetworkCostManager> for ::windows::core::IUnknown {
-    fn from(value: INetworkCostManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetworkCostManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetworkCostManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetworkCostManager> for ::windows::core::IUnknown {
-    fn from(value: &INetworkCostManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetworkCostManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetworkCostManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -733,21 +541,7 @@ impl INetworkCostManagerEvents {
         (::windows::core::Vtable::vtable(self).DataPlanStatusChanged)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdestaddr)).ok()
     }
 }
-impl ::core::convert::From<INetworkCostManagerEvents> for ::windows::core::IUnknown {
-    fn from(value: INetworkCostManagerEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetworkCostManagerEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetworkCostManagerEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetworkCostManagerEvents> for ::windows::core::IUnknown {
-    fn from(value: &INetworkCostManagerEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetworkCostManagerEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetworkCostManagerEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -794,21 +588,7 @@ impl INetworkEvents {
         (::windows::core::Vtable::vtable(self).NetworkPropertyChanged)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(networkid), flags).ok()
     }
 }
-impl ::core::convert::From<INetworkEvents> for ::windows::core::IUnknown {
-    fn from(value: INetworkEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetworkEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetworkEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetworkEvents> for ::windows::core::IUnknown {
-    fn from(value: &INetworkEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetworkEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetworkEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -890,41 +670,7 @@ impl INetworkListManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetworkListManager> for ::windows::core::IUnknown {
-    fn from(value: INetworkListManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetworkListManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetworkListManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetworkListManager> for ::windows::core::IUnknown {
-    fn from(value: &INetworkListManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<INetworkListManager> for super::super::System::Com::IDispatch {
-    fn from(value: INetworkListManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a INetworkListManager> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a INetworkListManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&INetworkListManager> for super::super::System::Com::IDispatch {
-    fn from(value: &INetworkListManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetworkListManager, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for INetworkListManager {
     fn clone(&self) -> Self {
@@ -988,21 +734,7 @@ impl INetworkListManagerEvents {
         (::windows::core::Vtable::vtable(self).ConnectivityChanged)(::windows::core::Vtable::as_raw(self), newconnectivity).ok()
     }
 }
-impl ::core::convert::From<INetworkListManagerEvents> for ::windows::core::IUnknown {
-    fn from(value: INetworkListManagerEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetworkListManagerEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetworkListManagerEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetworkListManagerEvents> for ::windows::core::IUnknown {
-    fn from(value: &INetworkListManagerEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetworkListManagerEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetworkListManagerEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())

@@ -305,36 +305,7 @@ impl IInkPointFactory {
         }
     }
 }
-impl ::core::convert::From<IInkPointFactory> for ::windows::core::IUnknown {
-    fn from(value: IInkPointFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInkPointFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInkPointFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInkPointFactory> for ::windows::core::IUnknown {
-    fn from(value: &IInkPointFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IInkPointFactory> for ::windows::core::IInspectable {
-    fn from(value: IInkPointFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInkPointFactory> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IInkPointFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInkPointFactory> for ::windows::core::IInspectable {
-    fn from(value: &IInkPointFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInkPointFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IInkPointFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -562,36 +533,7 @@ impl IInkPresenterRulerFactory {
         }
     }
 }
-impl ::core::convert::From<IInkPresenterRulerFactory> for ::windows::core::IUnknown {
-    fn from(value: IInkPresenterRulerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInkPresenterRulerFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInkPresenterRulerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInkPresenterRulerFactory> for ::windows::core::IUnknown {
-    fn from(value: &IInkPresenterRulerFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IInkPresenterRulerFactory> for ::windows::core::IInspectable {
-    fn from(value: IInkPresenterRulerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInkPresenterRulerFactory> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IInkPresenterRulerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInkPresenterRulerFactory> for ::windows::core::IInspectable {
-    fn from(value: &IInkPresenterRulerFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInkPresenterRulerFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IInkPresenterRulerFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -687,36 +629,7 @@ impl IInkPresenterStencil {
         unsafe { (::windows::core::Vtable::vtable(this).SetTransform)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
-impl ::core::convert::From<IInkPresenterStencil> for ::windows::core::IUnknown {
-    fn from(value: IInkPresenterStencil) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInkPresenterStencil> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInkPresenterStencil) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInkPresenterStencil> for ::windows::core::IUnknown {
-    fn from(value: &IInkPresenterStencil) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IInkPresenterStencil> for ::windows::core::IInspectable {
-    fn from(value: IInkPresenterStencil) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInkPresenterStencil> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IInkPresenterStencil) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInkPresenterStencil> for ::windows::core::IInspectable {
-    fn from(value: &IInkPresenterStencil) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInkPresenterStencil, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IInkPresenterStencil {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -834,36 +747,7 @@ impl IInkRecognizerContainer {
         }
     }
 }
-impl ::core::convert::From<IInkRecognizerContainer> for ::windows::core::IUnknown {
-    fn from(value: IInkRecognizerContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInkRecognizerContainer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInkRecognizerContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInkRecognizerContainer> for ::windows::core::IUnknown {
-    fn from(value: &IInkRecognizerContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IInkRecognizerContainer> for ::windows::core::IInspectable {
-    fn from(value: IInkRecognizerContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInkRecognizerContainer> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IInkRecognizerContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInkRecognizerContainer> for ::windows::core::IInspectable {
-    fn from(value: &IInkRecognizerContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInkRecognizerContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IInkRecognizerContainer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1197,36 +1081,7 @@ impl IInkStrokeContainer {
         }
     }
 }
-impl ::core::convert::From<IInkStrokeContainer> for ::windows::core::IUnknown {
-    fn from(value: IInkStrokeContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInkStrokeContainer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInkStrokeContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInkStrokeContainer> for ::windows::core::IUnknown {
-    fn from(value: &IInkStrokeContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IInkStrokeContainer> for ::windows::core::IInspectable {
-    fn from(value: IInkStrokeContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInkStrokeContainer> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IInkStrokeContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInkStrokeContainer> for ::windows::core::IInspectable {
-    fn from(value: &IInkStrokeContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInkStrokeContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IInkStrokeContainer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1771,36 +1626,7 @@ unsafe impl ::windows::core::Interface for InkDrawingAttributes {
 impl ::windows::core::RuntimeName for InkDrawingAttributes {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkDrawingAttributes";
 }
-impl ::core::convert::From<InkDrawingAttributes> for ::windows::core::IUnknown {
-    fn from(value: InkDrawingAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkDrawingAttributes> for ::windows::core::IUnknown {
-    fn from(value: &InkDrawingAttributes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkDrawingAttributes> for &::windows::core::IUnknown {
-    fn from(value: &InkDrawingAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkDrawingAttributes> for ::windows::core::IInspectable {
-    fn from(value: InkDrawingAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkDrawingAttributes> for ::windows::core::IInspectable {
-    fn from(value: &InkDrawingAttributes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkDrawingAttributes> for &::windows::core::IInspectable {
-    fn from(value: &InkDrawingAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkDrawingAttributes, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkDrawingAttributes {}
 unsafe impl ::core::marker::Sync for InkDrawingAttributes {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -1851,36 +1677,7 @@ unsafe impl ::windows::core::Interface for InkDrawingAttributesPencilProperties 
 impl ::windows::core::RuntimeName for InkDrawingAttributesPencilProperties {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkDrawingAttributesPencilProperties";
 }
-impl ::core::convert::From<InkDrawingAttributesPencilProperties> for ::windows::core::IUnknown {
-    fn from(value: InkDrawingAttributesPencilProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkDrawingAttributesPencilProperties> for ::windows::core::IUnknown {
-    fn from(value: &InkDrawingAttributesPencilProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkDrawingAttributesPencilProperties> for &::windows::core::IUnknown {
-    fn from(value: &InkDrawingAttributesPencilProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkDrawingAttributesPencilProperties> for ::windows::core::IInspectable {
-    fn from(value: InkDrawingAttributesPencilProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkDrawingAttributesPencilProperties> for ::windows::core::IInspectable {
-    fn from(value: &InkDrawingAttributesPencilProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkDrawingAttributesPencilProperties> for &::windows::core::IInspectable {
-    fn from(value: &InkDrawingAttributesPencilProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkDrawingAttributesPencilProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkDrawingAttributesPencilProperties {}
 unsafe impl ::core::marker::Sync for InkDrawingAttributesPencilProperties {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -1953,36 +1750,7 @@ unsafe impl ::windows::core::Interface for InkInputConfiguration {
 impl ::windows::core::RuntimeName for InkInputConfiguration {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkInputConfiguration";
 }
-impl ::core::convert::From<InkInputConfiguration> for ::windows::core::IUnknown {
-    fn from(value: InkInputConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkInputConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &InkInputConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkInputConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &InkInputConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkInputConfiguration> for ::windows::core::IInspectable {
-    fn from(value: InkInputConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkInputConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &InkInputConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkInputConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &InkInputConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkInputConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkInputConfiguration {}
 unsafe impl ::core::marker::Sync for InkInputConfiguration {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -2044,36 +1812,7 @@ unsafe impl ::windows::core::Interface for InkInputProcessingConfiguration {
 impl ::windows::core::RuntimeName for InkInputProcessingConfiguration {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkInputProcessingConfiguration";
 }
-impl ::core::convert::From<InkInputProcessingConfiguration> for ::windows::core::IUnknown {
-    fn from(value: InkInputProcessingConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkInputProcessingConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &InkInputProcessingConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkInputProcessingConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &InkInputProcessingConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkInputProcessingConfiguration> for ::windows::core::IInspectable {
-    fn from(value: InkInputProcessingConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkInputProcessingConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &InkInputProcessingConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkInputProcessingConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &InkInputProcessingConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkInputProcessingConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkInputProcessingConfiguration {}
 unsafe impl ::core::marker::Sync for InkInputProcessingConfiguration {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -2313,36 +2052,7 @@ unsafe impl ::windows::core::Interface for InkManager {
 impl ::windows::core::RuntimeName for InkManager {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkManager";
 }
-impl ::core::convert::From<InkManager> for ::windows::core::IUnknown {
-    fn from(value: InkManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkManager> for ::windows::core::IUnknown {
-    fn from(value: &InkManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkManager> for &::windows::core::IUnknown {
-    fn from(value: &InkManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkManager> for ::windows::core::IInspectable {
-    fn from(value: InkManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkManager> for ::windows::core::IInspectable {
-    fn from(value: &InkManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkManager> for &::windows::core::IInspectable {
-    fn from(value: &InkManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InkManager> for IInkRecognizerContainer {
     type Error = ::windows::core::Error;
     fn try_from(value: InkManager) -> ::windows::core::Result<Self> {
@@ -2455,36 +2165,7 @@ unsafe impl ::windows::core::Interface for InkModelerAttributes {
 impl ::windows::core::RuntimeName for InkModelerAttributes {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkModelerAttributes";
 }
-impl ::core::convert::From<InkModelerAttributes> for ::windows::core::IUnknown {
-    fn from(value: InkModelerAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkModelerAttributes> for ::windows::core::IUnknown {
-    fn from(value: &InkModelerAttributes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkModelerAttributes> for &::windows::core::IUnknown {
-    fn from(value: &InkModelerAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkModelerAttributes> for ::windows::core::IInspectable {
-    fn from(value: InkModelerAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkModelerAttributes> for ::windows::core::IInspectable {
-    fn from(value: &InkModelerAttributes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkModelerAttributes> for &::windows::core::IInspectable {
-    fn from(value: &InkModelerAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkModelerAttributes, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkModelerAttributes {}
 unsafe impl ::core::marker::Sync for InkModelerAttributes {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -2587,36 +2268,7 @@ unsafe impl ::windows::core::Interface for InkPoint {
 impl ::windows::core::RuntimeName for InkPoint {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPoint";
 }
-impl ::core::convert::From<InkPoint> for ::windows::core::IUnknown {
-    fn from(value: InkPoint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkPoint> for ::windows::core::IUnknown {
-    fn from(value: &InkPoint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkPoint> for &::windows::core::IUnknown {
-    fn from(value: &InkPoint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkPoint> for ::windows::core::IInspectable {
-    fn from(value: InkPoint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkPoint> for ::windows::core::IInspectable {
-    fn from(value: &InkPoint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkPoint> for &::windows::core::IInspectable {
-    fn from(value: &InkPoint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkPoint, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkPoint {}
 unsafe impl ::core::marker::Sync for InkPoint {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -2784,36 +2436,7 @@ unsafe impl ::windows::core::Interface for InkPresenter {
 impl ::windows::core::RuntimeName for InkPresenter {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPresenter";
 }
-impl ::core::convert::From<InkPresenter> for ::windows::core::IUnknown {
-    fn from(value: InkPresenter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkPresenter> for ::windows::core::IUnknown {
-    fn from(value: &InkPresenter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkPresenter> for &::windows::core::IUnknown {
-    fn from(value: &InkPresenter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkPresenter> for ::windows::core::IInspectable {
-    fn from(value: InkPresenter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkPresenter> for ::windows::core::IInspectable {
-    fn from(value: &InkPresenter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkPresenter> for &::windows::core::IInspectable {
-    fn from(value: &InkPresenter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkPresenter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkPresenter {}
 unsafe impl ::core::marker::Sync for InkPresenter {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -2996,36 +2619,7 @@ unsafe impl ::windows::core::Interface for InkPresenterProtractor {
 impl ::windows::core::RuntimeName for InkPresenterProtractor {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPresenterProtractor";
 }
-impl ::core::convert::From<InkPresenterProtractor> for ::windows::core::IUnknown {
-    fn from(value: InkPresenterProtractor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkPresenterProtractor> for ::windows::core::IUnknown {
-    fn from(value: &InkPresenterProtractor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkPresenterProtractor> for &::windows::core::IUnknown {
-    fn from(value: &InkPresenterProtractor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkPresenterProtractor> for ::windows::core::IInspectable {
-    fn from(value: InkPresenterProtractor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkPresenterProtractor> for ::windows::core::IInspectable {
-    fn from(value: &InkPresenterProtractor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkPresenterProtractor> for &::windows::core::IInspectable {
-    fn from(value: &InkPresenterProtractor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkPresenterProtractor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InkPresenterProtractor> for IInkPresenterStencil {
     type Error = ::windows::core::Error;
     fn try_from(value: InkPresenterProtractor) -> ::windows::core::Result<Self> {
@@ -3194,36 +2788,7 @@ unsafe impl ::windows::core::Interface for InkPresenterRuler {
 impl ::windows::core::RuntimeName for InkPresenterRuler {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPresenterRuler";
 }
-impl ::core::convert::From<InkPresenterRuler> for ::windows::core::IUnknown {
-    fn from(value: InkPresenterRuler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkPresenterRuler> for ::windows::core::IUnknown {
-    fn from(value: &InkPresenterRuler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkPresenterRuler> for &::windows::core::IUnknown {
-    fn from(value: &InkPresenterRuler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkPresenterRuler> for ::windows::core::IInspectable {
-    fn from(value: InkPresenterRuler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkPresenterRuler> for ::windows::core::IInspectable {
-    fn from(value: &InkPresenterRuler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkPresenterRuler> for &::windows::core::IInspectable {
-    fn from(value: &InkPresenterRuler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkPresenterRuler, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InkPresenterRuler> for IInkPresenterStencil {
     type Error = ::windows::core::Error;
     fn try_from(value: InkPresenterRuler) -> ::windows::core::Result<Self> {
@@ -3309,36 +2874,7 @@ unsafe impl ::windows::core::Interface for InkRecognitionResult {
 impl ::windows::core::RuntimeName for InkRecognitionResult {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkRecognitionResult";
 }
-impl ::core::convert::From<InkRecognitionResult> for ::windows::core::IUnknown {
-    fn from(value: InkRecognitionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkRecognitionResult> for ::windows::core::IUnknown {
-    fn from(value: &InkRecognitionResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkRecognitionResult> for &::windows::core::IUnknown {
-    fn from(value: &InkRecognitionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkRecognitionResult> for ::windows::core::IInspectable {
-    fn from(value: InkRecognitionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkRecognitionResult> for ::windows::core::IInspectable {
-    fn from(value: &InkRecognitionResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkRecognitionResult> for &::windows::core::IInspectable {
-    fn from(value: &InkRecognitionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkRecognitionResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkRecognitionResult {}
 unsafe impl ::core::marker::Sync for InkRecognitionResult {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -3385,36 +2921,7 @@ unsafe impl ::windows::core::Interface for InkRecognizer {
 impl ::windows::core::RuntimeName for InkRecognizer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkRecognizer";
 }
-impl ::core::convert::From<InkRecognizer> for ::windows::core::IUnknown {
-    fn from(value: InkRecognizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkRecognizer> for ::windows::core::IUnknown {
-    fn from(value: &InkRecognizer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkRecognizer> for &::windows::core::IUnknown {
-    fn from(value: &InkRecognizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkRecognizer> for ::windows::core::IInspectable {
-    fn from(value: InkRecognizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkRecognizer> for ::windows::core::IInspectable {
-    fn from(value: &InkRecognizer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkRecognizer> for &::windows::core::IInspectable {
-    fn from(value: &InkRecognizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkRecognizer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkRecognizerContainer(::windows::core::IUnknown);
@@ -3481,36 +2988,7 @@ unsafe impl ::windows::core::Interface for InkRecognizerContainer {
 impl ::windows::core::RuntimeName for InkRecognizerContainer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkRecognizerContainer";
 }
-impl ::core::convert::From<InkRecognizerContainer> for ::windows::core::IUnknown {
-    fn from(value: InkRecognizerContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkRecognizerContainer> for ::windows::core::IUnknown {
-    fn from(value: &InkRecognizerContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkRecognizerContainer> for &::windows::core::IUnknown {
-    fn from(value: &InkRecognizerContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkRecognizerContainer> for ::windows::core::IInspectable {
-    fn from(value: InkRecognizerContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkRecognizerContainer> for ::windows::core::IInspectable {
-    fn from(value: &InkRecognizerContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkRecognizerContainer> for &::windows::core::IInspectable {
-    fn from(value: &InkRecognizerContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkRecognizerContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InkRecognizerContainer> for IInkRecognizerContainer {
     type Error = ::windows::core::Error;
     fn try_from(value: InkRecognizerContainer) -> ::windows::core::Result<Self> {
@@ -3697,36 +3175,7 @@ unsafe impl ::windows::core::Interface for InkStroke {
 impl ::windows::core::RuntimeName for InkStroke {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStroke";
 }
-impl ::core::convert::From<InkStroke> for ::windows::core::IUnknown {
-    fn from(value: InkStroke) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkStroke> for ::windows::core::IUnknown {
-    fn from(value: &InkStroke) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkStroke> for &::windows::core::IUnknown {
-    fn from(value: &InkStroke) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkStroke> for ::windows::core::IInspectable {
-    fn from(value: InkStroke) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkStroke> for ::windows::core::IInspectable {
-    fn from(value: &InkStroke) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkStroke> for &::windows::core::IInspectable {
-    fn from(value: &InkStroke) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkStroke, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkStroke {}
 unsafe impl ::core::marker::Sync for InkStroke {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -3838,36 +3287,7 @@ unsafe impl ::windows::core::Interface for InkStrokeBuilder {
 impl ::windows::core::RuntimeName for InkStrokeBuilder {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeBuilder";
 }
-impl ::core::convert::From<InkStrokeBuilder> for ::windows::core::IUnknown {
-    fn from(value: InkStrokeBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkStrokeBuilder> for ::windows::core::IUnknown {
-    fn from(value: &InkStrokeBuilder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkStrokeBuilder> for &::windows::core::IUnknown {
-    fn from(value: &InkStrokeBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkStrokeBuilder> for ::windows::core::IInspectable {
-    fn from(value: InkStrokeBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkStrokeBuilder> for ::windows::core::IInspectable {
-    fn from(value: &InkStrokeBuilder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkStrokeBuilder> for &::windows::core::IInspectable {
-    fn from(value: &InkStrokeBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkStrokeBuilder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkStrokeContainer(::windows::core::IUnknown);
@@ -4073,36 +3493,7 @@ unsafe impl ::windows::core::Interface for InkStrokeContainer {
 impl ::windows::core::RuntimeName for InkStrokeContainer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeContainer";
 }
-impl ::core::convert::From<InkStrokeContainer> for ::windows::core::IUnknown {
-    fn from(value: InkStrokeContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkStrokeContainer> for ::windows::core::IUnknown {
-    fn from(value: &InkStrokeContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkStrokeContainer> for &::windows::core::IUnknown {
-    fn from(value: &InkStrokeContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkStrokeContainer> for ::windows::core::IInspectable {
-    fn from(value: InkStrokeContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkStrokeContainer> for ::windows::core::IInspectable {
-    fn from(value: &InkStrokeContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkStrokeContainer> for &::windows::core::IInspectable {
-    fn from(value: &InkStrokeContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkStrokeContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<InkStrokeContainer> for IInkStrokeContainer {
     type Error = ::windows::core::Error;
     fn try_from(value: InkStrokeContainer) -> ::windows::core::Result<Self> {
@@ -4226,36 +3617,7 @@ unsafe impl ::windows::core::Interface for InkStrokeInput {
 impl ::windows::core::RuntimeName for InkStrokeInput {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeInput";
 }
-impl ::core::convert::From<InkStrokeInput> for ::windows::core::IUnknown {
-    fn from(value: InkStrokeInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkStrokeInput> for ::windows::core::IUnknown {
-    fn from(value: &InkStrokeInput) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkStrokeInput> for &::windows::core::IUnknown {
-    fn from(value: &InkStrokeInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkStrokeInput> for ::windows::core::IInspectable {
-    fn from(value: InkStrokeInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkStrokeInput> for ::windows::core::IInspectable {
-    fn from(value: &InkStrokeInput) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkStrokeInput> for &::windows::core::IInspectable {
-    fn from(value: &InkStrokeInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkStrokeInput, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkStrokeInput {}
 unsafe impl ::core::marker::Sync for InkStrokeInput {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -4350,36 +3712,7 @@ unsafe impl ::windows::core::Interface for InkStrokeRenderingSegment {
 impl ::windows::core::RuntimeName for InkStrokeRenderingSegment {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeRenderingSegment";
 }
-impl ::core::convert::From<InkStrokeRenderingSegment> for ::windows::core::IUnknown {
-    fn from(value: InkStrokeRenderingSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkStrokeRenderingSegment> for ::windows::core::IUnknown {
-    fn from(value: &InkStrokeRenderingSegment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkStrokeRenderingSegment> for &::windows::core::IUnknown {
-    fn from(value: &InkStrokeRenderingSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkStrokeRenderingSegment> for ::windows::core::IInspectable {
-    fn from(value: InkStrokeRenderingSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkStrokeRenderingSegment> for ::windows::core::IInspectable {
-    fn from(value: &InkStrokeRenderingSegment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkStrokeRenderingSegment> for &::windows::core::IInspectable {
-    fn from(value: &InkStrokeRenderingSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkStrokeRenderingSegment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkStrokeRenderingSegment {}
 unsafe impl ::core::marker::Sync for InkStrokeRenderingSegment {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -4428,36 +3761,7 @@ unsafe impl ::windows::core::Interface for InkStrokesCollectedEventArgs {
 impl ::windows::core::RuntimeName for InkStrokesCollectedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokesCollectedEventArgs";
 }
-impl ::core::convert::From<InkStrokesCollectedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: InkStrokesCollectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkStrokesCollectedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &InkStrokesCollectedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkStrokesCollectedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &InkStrokesCollectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkStrokesCollectedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: InkStrokesCollectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkStrokesCollectedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &InkStrokesCollectedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkStrokesCollectedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &InkStrokesCollectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkStrokesCollectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkStrokesErasedEventArgs(::windows::core::IUnknown);
@@ -4504,36 +3808,7 @@ unsafe impl ::windows::core::Interface for InkStrokesErasedEventArgs {
 impl ::windows::core::RuntimeName for InkStrokesErasedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokesErasedEventArgs";
 }
-impl ::core::convert::From<InkStrokesErasedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: InkStrokesErasedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkStrokesErasedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &InkStrokesErasedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkStrokesErasedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &InkStrokesErasedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkStrokesErasedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: InkStrokesErasedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkStrokesErasedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &InkStrokesErasedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkStrokesErasedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &InkStrokesErasedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkStrokesErasedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkSynchronizer(::windows::core::IUnknown);
@@ -4584,36 +3859,7 @@ unsafe impl ::windows::core::Interface for InkSynchronizer {
 impl ::windows::core::RuntimeName for InkSynchronizer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkSynchronizer";
 }
-impl ::core::convert::From<InkSynchronizer> for ::windows::core::IUnknown {
-    fn from(value: InkSynchronizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkSynchronizer> for ::windows::core::IUnknown {
-    fn from(value: &InkSynchronizer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkSynchronizer> for &::windows::core::IUnknown {
-    fn from(value: &InkSynchronizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkSynchronizer> for ::windows::core::IInspectable {
-    fn from(value: InkSynchronizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkSynchronizer> for ::windows::core::IInspectable {
-    fn from(value: &InkSynchronizer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkSynchronizer> for &::windows::core::IInspectable {
-    fn from(value: &InkSynchronizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkSynchronizer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkUnprocessedInput(::windows::core::IUnknown);
@@ -4763,36 +4009,7 @@ unsafe impl ::windows::core::Interface for InkUnprocessedInput {
 impl ::windows::core::RuntimeName for InkUnprocessedInput {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkUnprocessedInput";
 }
-impl ::core::convert::From<InkUnprocessedInput> for ::windows::core::IUnknown {
-    fn from(value: InkUnprocessedInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkUnprocessedInput> for ::windows::core::IUnknown {
-    fn from(value: &InkUnprocessedInput) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkUnprocessedInput> for &::windows::core::IUnknown {
-    fn from(value: &InkUnprocessedInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkUnprocessedInput> for ::windows::core::IInspectable {
-    fn from(value: InkUnprocessedInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkUnprocessedInput> for ::windows::core::IInspectable {
-    fn from(value: &InkUnprocessedInput) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkUnprocessedInput> for &::windows::core::IInspectable {
-    fn from(value: &InkUnprocessedInput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkUnprocessedInput, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkUnprocessedInput {}
 unsafe impl ::core::marker::Sync for InkUnprocessedInput {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -4889,36 +4106,7 @@ unsafe impl ::windows::core::Interface for PenAndInkSettings {
 impl ::windows::core::RuntimeName for PenAndInkSettings {
     const NAME: &'static str = "Windows.UI.Input.Inking.PenAndInkSettings";
 }
-impl ::core::convert::From<PenAndInkSettings> for ::windows::core::IUnknown {
-    fn from(value: PenAndInkSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PenAndInkSettings> for ::windows::core::IUnknown {
-    fn from(value: &PenAndInkSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PenAndInkSettings> for &::windows::core::IUnknown {
-    fn from(value: &PenAndInkSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PenAndInkSettings> for ::windows::core::IInspectable {
-    fn from(value: PenAndInkSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PenAndInkSettings> for ::windows::core::IInspectable {
-    fn from(value: &PenAndInkSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PenAndInkSettings> for &::windows::core::IInspectable {
-    fn from(value: &PenAndInkSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PenAndInkSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PenAndInkSettings {}
 unsafe impl ::core::marker::Sync for PenAndInkSettings {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]

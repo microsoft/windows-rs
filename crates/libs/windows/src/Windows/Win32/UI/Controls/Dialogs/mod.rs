@@ -232,21 +232,7 @@ impl IPrintDialogCallback {
         (::windows::core::Vtable::vtable(self).HandleMessage)(::windows::core::Vtable::as_raw(self), hdlg.into(), umsg, wparam.into(), lparam.into(), ::core::mem::transmute(presult)).ok()
     }
 }
-impl ::core::convert::From<IPrintDialogCallback> for ::windows::core::IUnknown {
-    fn from(value: IPrintDialogCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintDialogCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintDialogCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintDialogCallback> for ::windows::core::IUnknown {
-    fn from(value: &IPrintDialogCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrintDialogCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPrintDialogCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -296,21 +282,7 @@ impl IPrintDialogServices {
         (::windows::core::Vtable::vtable(self).GetCurrentPortName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pportname), ::core::mem::transmute(pcchsize)).ok()
     }
 }
-impl ::core::convert::From<IPrintDialogServices> for ::windows::core::IUnknown {
-    fn from(value: IPrintDialogServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintDialogServices> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintDialogServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintDialogServices> for ::windows::core::IUnknown {
-    fn from(value: &IPrintDialogServices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrintDialogServices, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPrintDialogServices {
     fn clone(&self) -> Self {
         Self(self.0.clone())

@@ -6,21 +6,7 @@ impl IAudioEndpointFormatControl {
         (::windows::core::Vtable::vtable(self).ResetToDefault)(::windows::core::Vtable::as_raw(self), resetflags).ok()
     }
 }
-impl ::core::convert::From<IAudioEndpointFormatControl> for ::windows::core::IUnknown {
-    fn from(value: IAudioEndpointFormatControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioEndpointFormatControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioEndpointFormatControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioEndpointFormatControl> for ::windows::core::IUnknown {
-    fn from(value: &IAudioEndpointFormatControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioEndpointFormatControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioEndpointFormatControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -64,21 +50,7 @@ impl IAudioEndpointLastBufferControl {
         (::windows::core::Vtable::vtable(self).ReleaseOutputDataPointerForLastBuffer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pconnectionproperty))
     }
 }
-impl ::core::convert::From<IAudioEndpointLastBufferControl> for ::windows::core::IUnknown {
-    fn from(value: IAudioEndpointLastBufferControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioEndpointLastBufferControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioEndpointLastBufferControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioEndpointLastBufferControl> for ::windows::core::IUnknown {
-    fn from(value: &IAudioEndpointLastBufferControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioEndpointLastBufferControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioEndpointLastBufferControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -127,21 +99,7 @@ impl IAudioEndpointOffloadStreamMeter {
         (::windows::core::Vtable::vtable(self).GetMeteringData)(::windows::core::Vtable::as_raw(self), u32channelcount, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
     }
 }
-impl ::core::convert::From<IAudioEndpointOffloadStreamMeter> for ::windows::core::IUnknown {
-    fn from(value: IAudioEndpointOffloadStreamMeter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioEndpointOffloadStreamMeter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioEndpointOffloadStreamMeter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioEndpointOffloadStreamMeter> for ::windows::core::IUnknown {
-    fn from(value: &IAudioEndpointOffloadStreamMeter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioEndpointOffloadStreamMeter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioEndpointOffloadStreamMeter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -183,21 +141,7 @@ impl IAudioEndpointOffloadStreamMute {
         (::windows::core::Vtable::vtable(self).GetMute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
     }
 }
-impl ::core::convert::From<IAudioEndpointOffloadStreamMute> for ::windows::core::IUnknown {
-    fn from(value: IAudioEndpointOffloadStreamMute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioEndpointOffloadStreamMute> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioEndpointOffloadStreamMute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioEndpointOffloadStreamMute> for ::windows::core::IUnknown {
-    fn from(value: &IAudioEndpointOffloadStreamMute) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioEndpointOffloadStreamMute, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioEndpointOffloadStreamMute {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -245,21 +189,7 @@ impl IAudioEndpointOffloadStreamVolume {
         (::windows::core::Vtable::vtable(self).GetChannelVolumes)(::windows::core::Vtable::as_raw(self), u32channelcount, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
     }
 }
-impl ::core::convert::From<IAudioEndpointOffloadStreamVolume> for ::windows::core::IUnknown {
-    fn from(value: IAudioEndpointOffloadStreamVolume) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioEndpointOffloadStreamVolume> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioEndpointOffloadStreamVolume) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioEndpointOffloadStreamVolume> for ::windows::core::IUnknown {
-    fn from(value: &IAudioEndpointOffloadStreamVolume) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioEndpointOffloadStreamVolume, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioEndpointOffloadStreamVolume {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -372,21 +302,7 @@ impl IAudioEndpointVolume {
         (::windows::core::Vtable::vtable(self).GetVolumeRange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pflvolumemindb), ::core::mem::transmute(pflvolumemaxdb), ::core::mem::transmute(pflvolumeincrementdb)).ok()
     }
 }
-impl ::core::convert::From<IAudioEndpointVolume> for ::windows::core::IUnknown {
-    fn from(value: IAudioEndpointVolume) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioEndpointVolume> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioEndpointVolume) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioEndpointVolume> for ::windows::core::IUnknown {
-    fn from(value: &IAudioEndpointVolume) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioEndpointVolume, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioEndpointVolume {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -448,21 +364,7 @@ impl IAudioEndpointVolumeCallback {
         (::windows::core::Vtable::vtable(self).OnNotify)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pnotify)).ok()
     }
 }
-impl ::core::convert::From<IAudioEndpointVolumeCallback> for ::windows::core::IUnknown {
-    fn from(value: IAudioEndpointVolumeCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioEndpointVolumeCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioEndpointVolumeCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioEndpointVolumeCallback> for ::windows::core::IUnknown {
-    fn from(value: &IAudioEndpointVolumeCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioEndpointVolumeCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioEndpointVolumeCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -576,36 +478,7 @@ impl IAudioEndpointVolumeEx {
         (::windows::core::Vtable::vtable(self).GetVolumeRangeChannel)(::windows::core::Vtable::as_raw(self), ichannel, ::core::mem::transmute(pflvolumemindb), ::core::mem::transmute(pflvolumemaxdb), ::core::mem::transmute(pflvolumeincrementdb)).ok()
     }
 }
-impl ::core::convert::From<IAudioEndpointVolumeEx> for ::windows::core::IUnknown {
-    fn from(value: IAudioEndpointVolumeEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioEndpointVolumeEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioEndpointVolumeEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioEndpointVolumeEx> for ::windows::core::IUnknown {
-    fn from(value: &IAudioEndpointVolumeEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAudioEndpointVolumeEx> for IAudioEndpointVolume {
-    fn from(value: IAudioEndpointVolumeEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioEndpointVolumeEx> for &'a IAudioEndpointVolume {
-    fn from(value: &'a IAudioEndpointVolumeEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioEndpointVolumeEx> for IAudioEndpointVolume {
-    fn from(value: &IAudioEndpointVolumeEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioEndpointVolumeEx, ::windows::core::IUnknown, IAudioEndpointVolume);
 impl ::core::clone::Clone for IAudioEndpointVolumeEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -653,21 +526,7 @@ impl IAudioLfxControl {
         (::windows::core::Vtable::vtable(self).GetLocalEffectsState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAudioLfxControl> for ::windows::core::IUnknown {
-    fn from(value: IAudioLfxControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioLfxControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioLfxControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioLfxControl> for ::windows::core::IUnknown {
-    fn from(value: &IAudioLfxControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioLfxControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioLfxControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -723,21 +582,7 @@ impl IAudioMeterInformation {
         (::windows::core::Vtable::vtable(self).QueryHardwareSupport)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IAudioMeterInformation> for ::windows::core::IUnknown {
-    fn from(value: IAudioMeterInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioMeterInformation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioMeterInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioMeterInformation> for ::windows::core::IUnknown {
-    fn from(value: &IAudioMeterInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioMeterInformation, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioMeterInformation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -814,21 +659,7 @@ impl IHardwareAudioEngineBase {
         (::windows::core::Vtable::vtable(self).GetGfxState)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IHardwareAudioEngineBase> for ::windows::core::IUnknown {
-    fn from(value: IHardwareAudioEngineBase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHardwareAudioEngineBase> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IHardwareAudioEngineBase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHardwareAudioEngineBase> for ::windows::core::IUnknown {
-    fn from(value: &IHardwareAudioEngineBase) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IHardwareAudioEngineBase, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IHardwareAudioEngineBase {
     fn clone(&self) -> Self {
         Self(self.0.clone())

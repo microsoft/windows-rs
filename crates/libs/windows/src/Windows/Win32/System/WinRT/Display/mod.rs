@@ -21,21 +21,7 @@ impl IDisplayDeviceInterop {
         (::windows::core::Vtable::vtable(self).OpenSharedHandle)(::windows::core::Vtable::as_raw(self), nthandle.into(), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut ::core::ffi::c_void>(result__)
     }
 }
-impl ::core::convert::From<IDisplayDeviceInterop> for ::windows::core::IUnknown {
-    fn from(value: IDisplayDeviceInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDisplayDeviceInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDisplayDeviceInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDisplayDeviceInterop> for ::windows::core::IUnknown {
-    fn from(value: &IDisplayDeviceInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDisplayDeviceInterop, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDisplayDeviceInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -86,21 +72,7 @@ impl IDisplayPathInterop {
         (::windows::core::Vtable::vtable(self).GetSourceId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IDisplayPathInterop> for ::windows::core::IUnknown {
-    fn from(value: IDisplayPathInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDisplayPathInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDisplayPathInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDisplayPathInterop> for ::windows::core::IUnknown {
-    fn from(value: &IDisplayPathInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDisplayPathInterop, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDisplayPathInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())

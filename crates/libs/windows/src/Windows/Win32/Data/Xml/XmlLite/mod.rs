@@ -183,21 +183,7 @@ impl IXmlReader {
         (::windows::core::Vtable::vtable(self).IsEOF)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IXmlReader> for ::windows::core::IUnknown {
-    fn from(value: IXmlReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXmlReader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXmlReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXmlReader> for ::windows::core::IUnknown {
-    fn from(value: &IXmlReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXmlReader, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXmlReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -271,21 +257,7 @@ impl IXmlResolver {
         (::windows::core::Vtable::vtable(self).ResolveUri)(::windows::core::Vtable::as_raw(self), pwszbaseuri.into(), pwszpublicidentifier.into(), pwszsystemidentifier.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
-impl ::core::convert::From<IXmlResolver> for ::windows::core::IUnknown {
-    fn from(value: IXmlResolver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXmlResolver> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXmlResolver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXmlResolver> for ::windows::core::IUnknown {
-    fn from(value: &IXmlResolver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXmlResolver, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXmlResolver {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -483,21 +455,7 @@ impl IXmlWriter {
         (::windows::core::Vtable::vtable(self).Flush)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IXmlWriter> for ::windows::core::IUnknown {
-    fn from(value: IXmlWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXmlWriter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXmlWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXmlWriter> for ::windows::core::IUnknown {
-    fn from(value: &IXmlWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXmlWriter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXmlWriter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -711,21 +669,7 @@ impl IXmlWriterLite {
         (::windows::core::Vtable::vtable(self).Flush)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IXmlWriterLite> for ::windows::core::IUnknown {
-    fn from(value: IXmlWriterLite) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXmlWriterLite> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXmlWriterLite) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXmlWriterLite> for ::windows::core::IUnknown {
-    fn from(value: &IXmlWriterLite) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXmlWriterLite, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXmlWriterLite {
     fn clone(&self) -> Self {
         Self(self.0.clone())

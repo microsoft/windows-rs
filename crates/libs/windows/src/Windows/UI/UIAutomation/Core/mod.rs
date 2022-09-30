@@ -29,36 +29,7 @@ impl ICoreAutomationConnectionBoundObjectProvider {
         }
     }
 }
-impl ::core::convert::From<ICoreAutomationConnectionBoundObjectProvider> for ::windows::core::IUnknown {
-    fn from(value: ICoreAutomationConnectionBoundObjectProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICoreAutomationConnectionBoundObjectProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICoreAutomationConnectionBoundObjectProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICoreAutomationConnectionBoundObjectProvider> for ::windows::core::IUnknown {
-    fn from(value: &ICoreAutomationConnectionBoundObjectProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICoreAutomationConnectionBoundObjectProvider> for ::windows::core::IInspectable {
-    fn from(value: ICoreAutomationConnectionBoundObjectProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICoreAutomationConnectionBoundObjectProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ICoreAutomationConnectionBoundObjectProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICoreAutomationConnectionBoundObjectProvider> for ::windows::core::IInspectable {
-    fn from(value: &ICoreAutomationConnectionBoundObjectProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICoreAutomationConnectionBoundObjectProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ICoreAutomationConnectionBoundObjectProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -177,36 +148,7 @@ impl ICoreAutomationRemoteOperationExtensionProvider {
         }
     }
 }
-impl ::core::convert::From<ICoreAutomationRemoteOperationExtensionProvider> for ::windows::core::IUnknown {
-    fn from(value: ICoreAutomationRemoteOperationExtensionProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICoreAutomationRemoteOperationExtensionProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICoreAutomationRemoteOperationExtensionProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICoreAutomationRemoteOperationExtensionProvider> for ::windows::core::IUnknown {
-    fn from(value: &ICoreAutomationRemoteOperationExtensionProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICoreAutomationRemoteOperationExtensionProvider> for ::windows::core::IInspectable {
-    fn from(value: ICoreAutomationRemoteOperationExtensionProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICoreAutomationRemoteOperationExtensionProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ICoreAutomationRemoteOperationExtensionProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICoreAutomationRemoteOperationExtensionProvider> for ::windows::core::IInspectable {
-    fn from(value: &ICoreAutomationRemoteOperationExtensionProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICoreAutomationRemoteOperationExtensionProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ICoreAutomationRemoteOperationExtensionProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -433,36 +375,7 @@ unsafe impl ::windows::core::Interface for AutomationRemoteOperationResult {
 impl ::windows::core::RuntimeName for AutomationRemoteOperationResult {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.AutomationRemoteOperationResult";
 }
-impl ::core::convert::From<AutomationRemoteOperationResult> for ::windows::core::IUnknown {
-    fn from(value: AutomationRemoteOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AutomationRemoteOperationResult> for ::windows::core::IUnknown {
-    fn from(value: &AutomationRemoteOperationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AutomationRemoteOperationResult> for &::windows::core::IUnknown {
-    fn from(value: &AutomationRemoteOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AutomationRemoteOperationResult> for ::windows::core::IInspectable {
-    fn from(value: AutomationRemoteOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AutomationRemoteOperationResult> for ::windows::core::IInspectable {
-    fn from(value: &AutomationRemoteOperationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AutomationRemoteOperationResult> for &::windows::core::IInspectable {
-    fn from(value: &AutomationRemoteOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AutomationRemoteOperationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AutomationRemoteOperationResult {}
 unsafe impl ::core::marker::Sync for AutomationRemoteOperationResult {}
 #[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
@@ -560,36 +473,7 @@ unsafe impl ::windows::core::Interface for CoreAutomationRemoteOperation {
 impl ::windows::core::RuntimeName for CoreAutomationRemoteOperation {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperation";
 }
-impl ::core::convert::From<CoreAutomationRemoteOperation> for ::windows::core::IUnknown {
-    fn from(value: CoreAutomationRemoteOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreAutomationRemoteOperation> for ::windows::core::IUnknown {
-    fn from(value: &CoreAutomationRemoteOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreAutomationRemoteOperation> for &::windows::core::IUnknown {
-    fn from(value: &CoreAutomationRemoteOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreAutomationRemoteOperation> for ::windows::core::IInspectable {
-    fn from(value: CoreAutomationRemoteOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreAutomationRemoteOperation> for ::windows::core::IInspectable {
-    fn from(value: &CoreAutomationRemoteOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreAutomationRemoteOperation> for &::windows::core::IInspectable {
-    fn from(value: &CoreAutomationRemoteOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreAutomationRemoteOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreAutomationRemoteOperation {}
 unsafe impl ::core::marker::Sync for CoreAutomationRemoteOperation {}
 #[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
@@ -650,36 +534,7 @@ unsafe impl ::windows::core::Interface for CoreAutomationRemoteOperationContext 
 impl ::windows::core::RuntimeName for CoreAutomationRemoteOperationContext {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperationContext";
 }
-impl ::core::convert::From<CoreAutomationRemoteOperationContext> for ::windows::core::IUnknown {
-    fn from(value: CoreAutomationRemoteOperationContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreAutomationRemoteOperationContext> for ::windows::core::IUnknown {
-    fn from(value: &CoreAutomationRemoteOperationContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreAutomationRemoteOperationContext> for &::windows::core::IUnknown {
-    fn from(value: &CoreAutomationRemoteOperationContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreAutomationRemoteOperationContext> for ::windows::core::IInspectable {
-    fn from(value: CoreAutomationRemoteOperationContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreAutomationRemoteOperationContext> for ::windows::core::IInspectable {
-    fn from(value: &CoreAutomationRemoteOperationContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreAutomationRemoteOperationContext> for &::windows::core::IInspectable {
-    fn from(value: &CoreAutomationRemoteOperationContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreAutomationRemoteOperationContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreAutomationRemoteOperationContext {}
 unsafe impl ::core::marker::Sync for CoreAutomationRemoteOperationContext {}
 #[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
@@ -793,36 +648,7 @@ unsafe impl ::windows::core::Interface for RemoteAutomationClientSession {
 impl ::windows::core::RuntimeName for RemoteAutomationClientSession {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.RemoteAutomationClientSession";
 }
-impl ::core::convert::From<RemoteAutomationClientSession> for ::windows::core::IUnknown {
-    fn from(value: RemoteAutomationClientSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteAutomationClientSession> for ::windows::core::IUnknown {
-    fn from(value: &RemoteAutomationClientSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteAutomationClientSession> for &::windows::core::IUnknown {
-    fn from(value: &RemoteAutomationClientSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteAutomationClientSession> for ::windows::core::IInspectable {
-    fn from(value: RemoteAutomationClientSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteAutomationClientSession> for ::windows::core::IInspectable {
-    fn from(value: &RemoteAutomationClientSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteAutomationClientSession> for &::windows::core::IInspectable {
-    fn from(value: &RemoteAutomationClientSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteAutomationClientSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteAutomationClientSession {}
 unsafe impl ::core::marker::Sync for RemoteAutomationClientSession {}
 #[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
@@ -876,36 +702,7 @@ unsafe impl ::windows::core::Interface for RemoteAutomationConnectionRequestedEv
 impl ::windows::core::RuntimeName for RemoteAutomationConnectionRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.RemoteAutomationConnectionRequestedEventArgs";
 }
-impl ::core::convert::From<RemoteAutomationConnectionRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: RemoteAutomationConnectionRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteAutomationConnectionRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &RemoteAutomationConnectionRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteAutomationConnectionRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &RemoteAutomationConnectionRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteAutomationConnectionRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: RemoteAutomationConnectionRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteAutomationConnectionRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &RemoteAutomationConnectionRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteAutomationConnectionRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &RemoteAutomationConnectionRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteAutomationConnectionRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteAutomationConnectionRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteAutomationConnectionRequestedEventArgs {}
 #[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
@@ -952,36 +749,7 @@ unsafe impl ::windows::core::Interface for RemoteAutomationDisconnectedEventArgs
 impl ::windows::core::RuntimeName for RemoteAutomationDisconnectedEventArgs {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.RemoteAutomationDisconnectedEventArgs";
 }
-impl ::core::convert::From<RemoteAutomationDisconnectedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: RemoteAutomationDisconnectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteAutomationDisconnectedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &RemoteAutomationDisconnectedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteAutomationDisconnectedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &RemoteAutomationDisconnectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteAutomationDisconnectedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: RemoteAutomationDisconnectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteAutomationDisconnectedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &RemoteAutomationDisconnectedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteAutomationDisconnectedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &RemoteAutomationDisconnectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteAutomationDisconnectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteAutomationDisconnectedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteAutomationDisconnectedEventArgs {}
 #[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
@@ -1052,36 +820,7 @@ unsafe impl ::windows::core::Interface for RemoteAutomationWindow {
 impl ::windows::core::RuntimeName for RemoteAutomationWindow {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.RemoteAutomationWindow";
 }
-impl ::core::convert::From<RemoteAutomationWindow> for ::windows::core::IUnknown {
-    fn from(value: RemoteAutomationWindow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteAutomationWindow> for ::windows::core::IUnknown {
-    fn from(value: &RemoteAutomationWindow) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteAutomationWindow> for &::windows::core::IUnknown {
-    fn from(value: &RemoteAutomationWindow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteAutomationWindow> for ::windows::core::IInspectable {
-    fn from(value: RemoteAutomationWindow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteAutomationWindow> for ::windows::core::IInspectable {
-    fn from(value: &RemoteAutomationWindow) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteAutomationWindow> for &::windows::core::IInspectable {
-    fn from(value: &RemoteAutomationWindow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteAutomationWindow, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteAutomationWindow {}
 unsafe impl ::core::marker::Sync for RemoteAutomationWindow {}
 #[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]

@@ -190,36 +190,7 @@ impl IChatItem {
         }
     }
 }
-impl ::core::convert::From<IChatItem> for ::windows::core::IUnknown {
-    fn from(value: IChatItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IChatItem> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IChatItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IChatItem> for ::windows::core::IUnknown {
-    fn from(value: &IChatItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IChatItem> for ::windows::core::IInspectable {
-    fn from(value: IChatItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IChatItem> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IChatItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IChatItem> for ::windows::core::IInspectable {
-    fn from(value: &IChatItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IChatItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IChatItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1374,36 +1345,7 @@ unsafe impl ::windows::core::Interface for ChatCapabilities {
 impl ::windows::core::RuntimeName for ChatCapabilities {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatCapabilities";
 }
-impl ::core::convert::From<ChatCapabilities> for ::windows::core::IUnknown {
-    fn from(value: ChatCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &ChatCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatCapabilities> for &::windows::core::IUnknown {
-    fn from(value: &ChatCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatCapabilities> for ::windows::core::IInspectable {
-    fn from(value: ChatCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &ChatCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatCapabilities> for &::windows::core::IInspectable {
-    fn from(value: &ChatCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatCapabilities {}
 unsafe impl ::core::marker::Sync for ChatCapabilities {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -1635,36 +1577,7 @@ unsafe impl ::windows::core::Interface for ChatConversation {
 impl ::windows::core::RuntimeName for ChatConversation {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatConversation";
 }
-impl ::core::convert::From<ChatConversation> for ::windows::core::IUnknown {
-    fn from(value: ChatConversation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatConversation> for ::windows::core::IUnknown {
-    fn from(value: &ChatConversation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatConversation> for &::windows::core::IUnknown {
-    fn from(value: &ChatConversation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatConversation> for ::windows::core::IInspectable {
-    fn from(value: ChatConversation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatConversation> for ::windows::core::IInspectable {
-    fn from(value: &ChatConversation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatConversation> for &::windows::core::IInspectable {
-    fn from(value: &ChatConversation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatConversation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ChatConversation> for IChatItem {
     type Error = ::windows::core::Error;
     fn try_from(value: ChatConversation) -> ::windows::core::Result<Self> {
@@ -1741,36 +1654,7 @@ unsafe impl ::windows::core::Interface for ChatConversationReader {
 impl ::windows::core::RuntimeName for ChatConversationReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatConversationReader";
 }
-impl ::core::convert::From<ChatConversationReader> for ::windows::core::IUnknown {
-    fn from(value: ChatConversationReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatConversationReader> for ::windows::core::IUnknown {
-    fn from(value: &ChatConversationReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatConversationReader> for &::windows::core::IUnknown {
-    fn from(value: &ChatConversationReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatConversationReader> for ::windows::core::IInspectable {
-    fn from(value: ChatConversationReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatConversationReader> for ::windows::core::IInspectable {
-    fn from(value: &ChatConversationReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatConversationReader> for &::windows::core::IInspectable {
-    fn from(value: &ChatConversationReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatConversationReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatConversationReader {}
 unsafe impl ::core::marker::Sync for ChatConversationReader {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -1870,36 +1754,7 @@ unsafe impl ::windows::core::Interface for ChatConversationThreadingInfo {
 impl ::windows::core::RuntimeName for ChatConversationThreadingInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatConversationThreadingInfo";
 }
-impl ::core::convert::From<ChatConversationThreadingInfo> for ::windows::core::IUnknown {
-    fn from(value: ChatConversationThreadingInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatConversationThreadingInfo> for ::windows::core::IUnknown {
-    fn from(value: &ChatConversationThreadingInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatConversationThreadingInfo> for &::windows::core::IUnknown {
-    fn from(value: &ChatConversationThreadingInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatConversationThreadingInfo> for ::windows::core::IInspectable {
-    fn from(value: ChatConversationThreadingInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatConversationThreadingInfo> for ::windows::core::IInspectable {
-    fn from(value: &ChatConversationThreadingInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatConversationThreadingInfo> for &::windows::core::IInspectable {
-    fn from(value: &ChatConversationThreadingInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatConversationThreadingInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatConversationThreadingInfo {}
 unsafe impl ::core::marker::Sync for ChatConversationThreadingInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -2245,36 +2100,7 @@ unsafe impl ::windows::core::Interface for ChatMessage {
 impl ::windows::core::RuntimeName for ChatMessage {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessage";
 }
-impl ::core::convert::From<ChatMessage> for ::windows::core::IUnknown {
-    fn from(value: ChatMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessage> for ::windows::core::IUnknown {
-    fn from(value: &ChatMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessage> for &::windows::core::IUnknown {
-    fn from(value: &ChatMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatMessage> for ::windows::core::IInspectable {
-    fn from(value: ChatMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessage> for ::windows::core::IInspectable {
-    fn from(value: &ChatMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessage> for &::windows::core::IInspectable {
-    fn from(value: &ChatMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ChatMessage> for IChatItem {
     type Error = ::windows::core::Error;
     fn try_from(value: ChatMessage) -> ::windows::core::Result<Self> {
@@ -2443,36 +2269,7 @@ unsafe impl ::windows::core::Interface for ChatMessageAttachment {
 impl ::windows::core::RuntimeName for ChatMessageAttachment {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageAttachment";
 }
-impl ::core::convert::From<ChatMessageAttachment> for ::windows::core::IUnknown {
-    fn from(value: ChatMessageAttachment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageAttachment> for ::windows::core::IUnknown {
-    fn from(value: &ChatMessageAttachment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageAttachment> for &::windows::core::IUnknown {
-    fn from(value: &ChatMessageAttachment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatMessageAttachment> for ::windows::core::IInspectable {
-    fn from(value: ChatMessageAttachment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageAttachment> for ::windows::core::IInspectable {
-    fn from(value: &ChatMessageAttachment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageAttachment> for &::windows::core::IInspectable {
-    fn from(value: &ChatMessageAttachment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatMessageAttachment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageAttachment {}
 unsafe impl ::core::marker::Sync for ChatMessageAttachment {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -2546,36 +2343,7 @@ unsafe impl ::windows::core::Interface for ChatMessageChange {
 impl ::windows::core::RuntimeName for ChatMessageChange {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChange";
 }
-impl ::core::convert::From<ChatMessageChange> for ::windows::core::IUnknown {
-    fn from(value: ChatMessageChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageChange> for ::windows::core::IUnknown {
-    fn from(value: &ChatMessageChange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageChange> for &::windows::core::IUnknown {
-    fn from(value: &ChatMessageChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatMessageChange> for ::windows::core::IInspectable {
-    fn from(value: ChatMessageChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageChange> for ::windows::core::IInspectable {
-    fn from(value: &ChatMessageChange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageChange> for &::windows::core::IInspectable {
-    fn from(value: &ChatMessageChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatMessageChange, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageChange {}
 unsafe impl ::core::marker::Sync for ChatMessageChange {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -2632,36 +2400,7 @@ unsafe impl ::windows::core::Interface for ChatMessageChangeReader {
 impl ::windows::core::RuntimeName for ChatMessageChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangeReader";
 }
-impl ::core::convert::From<ChatMessageChangeReader> for ::windows::core::IUnknown {
-    fn from(value: ChatMessageChangeReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageChangeReader> for ::windows::core::IUnknown {
-    fn from(value: &ChatMessageChangeReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageChangeReader> for &::windows::core::IUnknown {
-    fn from(value: &ChatMessageChangeReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatMessageChangeReader> for ::windows::core::IInspectable {
-    fn from(value: ChatMessageChangeReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageChangeReader> for ::windows::core::IInspectable {
-    fn from(value: &ChatMessageChangeReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageChangeReader> for &::windows::core::IInspectable {
-    fn from(value: &ChatMessageChangeReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatMessageChangeReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageChangeReader {}
 unsafe impl ::core::marker::Sync for ChatMessageChangeReader {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -2716,36 +2455,7 @@ unsafe impl ::windows::core::Interface for ChatMessageChangeTracker {
 impl ::windows::core::RuntimeName for ChatMessageChangeTracker {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangeTracker";
 }
-impl ::core::convert::From<ChatMessageChangeTracker> for ::windows::core::IUnknown {
-    fn from(value: ChatMessageChangeTracker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageChangeTracker> for ::windows::core::IUnknown {
-    fn from(value: &ChatMessageChangeTracker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageChangeTracker> for &::windows::core::IUnknown {
-    fn from(value: &ChatMessageChangeTracker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatMessageChangeTracker> for ::windows::core::IInspectable {
-    fn from(value: ChatMessageChangeTracker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageChangeTracker> for ::windows::core::IInspectable {
-    fn from(value: &ChatMessageChangeTracker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageChangeTracker> for &::windows::core::IInspectable {
-    fn from(value: &ChatMessageChangeTracker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatMessageChangeTracker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageChangeTracker {}
 unsafe impl ::core::marker::Sync for ChatMessageChangeTracker {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -2789,36 +2499,7 @@ unsafe impl ::windows::core::Interface for ChatMessageChangedDeferral {
 impl ::windows::core::RuntimeName for ChatMessageChangedDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangedDeferral";
 }
-impl ::core::convert::From<ChatMessageChangedDeferral> for ::windows::core::IUnknown {
-    fn from(value: ChatMessageChangedDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageChangedDeferral> for ::windows::core::IUnknown {
-    fn from(value: &ChatMessageChangedDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageChangedDeferral> for &::windows::core::IUnknown {
-    fn from(value: &ChatMessageChangedDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatMessageChangedDeferral> for ::windows::core::IInspectable {
-    fn from(value: ChatMessageChangedDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageChangedDeferral> for ::windows::core::IInspectable {
-    fn from(value: &ChatMessageChangedDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageChangedDeferral> for &::windows::core::IInspectable {
-    fn from(value: &ChatMessageChangedDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatMessageChangedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageChangedDeferral {}
 unsafe impl ::core::marker::Sync for ChatMessageChangedDeferral {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -2865,36 +2546,7 @@ unsafe impl ::windows::core::Interface for ChatMessageChangedEventArgs {
 impl ::windows::core::RuntimeName for ChatMessageChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangedEventArgs";
 }
-impl ::core::convert::From<ChatMessageChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ChatMessageChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ChatMessageChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ChatMessageChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatMessageChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ChatMessageChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ChatMessageChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ChatMessageChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatMessageChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ChatMessageChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -3042,36 +2694,7 @@ unsafe impl ::windows::core::Interface for ChatMessageNotificationTriggerDetails
 impl ::windows::core::RuntimeName for ChatMessageNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageNotificationTriggerDetails";
 }
-impl ::core::convert::From<ChatMessageNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: ChatMessageNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &ChatMessageNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageNotificationTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &ChatMessageNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatMessageNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: ChatMessageNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &ChatMessageNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageNotificationTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &ChatMessageNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatMessageNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageNotificationTriggerDetails {}
 unsafe impl ::core::marker::Sync for ChatMessageNotificationTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -3129,36 +2752,7 @@ unsafe impl ::windows::core::Interface for ChatMessageReader {
 impl ::windows::core::RuntimeName for ChatMessageReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageReader";
 }
-impl ::core::convert::From<ChatMessageReader> for ::windows::core::IUnknown {
-    fn from(value: ChatMessageReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageReader> for ::windows::core::IUnknown {
-    fn from(value: &ChatMessageReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageReader> for &::windows::core::IUnknown {
-    fn from(value: &ChatMessageReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatMessageReader> for ::windows::core::IInspectable {
-    fn from(value: ChatMessageReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageReader> for ::windows::core::IInspectable {
-    fn from(value: &ChatMessageReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageReader> for &::windows::core::IInspectable {
-    fn from(value: &ChatMessageReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatMessageReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageReader {}
 unsafe impl ::core::marker::Sync for ChatMessageReader {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -3472,36 +3066,7 @@ unsafe impl ::windows::core::Interface for ChatMessageStore {
 impl ::windows::core::RuntimeName for ChatMessageStore {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageStore";
 }
-impl ::core::convert::From<ChatMessageStore> for ::windows::core::IUnknown {
-    fn from(value: ChatMessageStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageStore> for ::windows::core::IUnknown {
-    fn from(value: &ChatMessageStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageStore> for &::windows::core::IUnknown {
-    fn from(value: &ChatMessageStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatMessageStore> for ::windows::core::IInspectable {
-    fn from(value: ChatMessageStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageStore> for ::windows::core::IInspectable {
-    fn from(value: &ChatMessageStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageStore> for &::windows::core::IInspectable {
-    fn from(value: &ChatMessageStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatMessageStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageStore {}
 unsafe impl ::core::marker::Sync for ChatMessageStore {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -3555,36 +3120,7 @@ unsafe impl ::windows::core::Interface for ChatMessageStoreChangedEventArgs {
 impl ::windows::core::RuntimeName for ChatMessageStoreChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageStoreChangedEventArgs";
 }
-impl ::core::convert::From<ChatMessageStoreChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ChatMessageStoreChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageStoreChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ChatMessageStoreChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageStoreChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ChatMessageStoreChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatMessageStoreChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ChatMessageStoreChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageStoreChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ChatMessageStoreChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageStoreChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ChatMessageStoreChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatMessageStoreChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageStoreChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ChatMessageStoreChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -3675,36 +3211,7 @@ unsafe impl ::windows::core::Interface for ChatMessageTransport {
 impl ::windows::core::RuntimeName for ChatMessageTransport {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageTransport";
 }
-impl ::core::convert::From<ChatMessageTransport> for ::windows::core::IUnknown {
-    fn from(value: ChatMessageTransport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageTransport> for ::windows::core::IUnknown {
-    fn from(value: &ChatMessageTransport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageTransport> for &::windows::core::IUnknown {
-    fn from(value: &ChatMessageTransport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatMessageTransport> for ::windows::core::IInspectable {
-    fn from(value: ChatMessageTransport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageTransport> for ::windows::core::IInspectable {
-    fn from(value: &ChatMessageTransport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageTransport> for &::windows::core::IInspectable {
-    fn from(value: &ChatMessageTransport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatMessageTransport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageTransport {}
 unsafe impl ::core::marker::Sync for ChatMessageTransport {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -3783,36 +3290,7 @@ unsafe impl ::windows::core::Interface for ChatMessageTransportConfiguration {
 impl ::windows::core::RuntimeName for ChatMessageTransportConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageTransportConfiguration";
 }
-impl ::core::convert::From<ChatMessageTransportConfiguration> for ::windows::core::IUnknown {
-    fn from(value: ChatMessageTransportConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageTransportConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &ChatMessageTransportConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageTransportConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &ChatMessageTransportConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatMessageTransportConfiguration> for ::windows::core::IInspectable {
-    fn from(value: ChatMessageTransportConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageTransportConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &ChatMessageTransportConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageTransportConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &ChatMessageTransportConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatMessageTransportConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageTransportConfiguration {}
 unsafe impl ::core::marker::Sync for ChatMessageTransportConfiguration {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -3886,36 +3364,7 @@ unsafe impl ::windows::core::Interface for ChatMessageValidationResult {
 impl ::windows::core::RuntimeName for ChatMessageValidationResult {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageValidationResult";
 }
-impl ::core::convert::From<ChatMessageValidationResult> for ::windows::core::IUnknown {
-    fn from(value: ChatMessageValidationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageValidationResult> for ::windows::core::IUnknown {
-    fn from(value: &ChatMessageValidationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageValidationResult> for &::windows::core::IUnknown {
-    fn from(value: &ChatMessageValidationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatMessageValidationResult> for ::windows::core::IInspectable {
-    fn from(value: ChatMessageValidationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageValidationResult> for ::windows::core::IInspectable {
-    fn from(value: &ChatMessageValidationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageValidationResult> for &::windows::core::IInspectable {
-    fn from(value: &ChatMessageValidationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatMessageValidationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatMessageValidationResult {}
 unsafe impl ::core::marker::Sync for ChatMessageValidationResult {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -3973,36 +3422,7 @@ unsafe impl ::windows::core::Interface for ChatQueryOptions {
 impl ::windows::core::RuntimeName for ChatQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatQueryOptions";
 }
-impl ::core::convert::From<ChatQueryOptions> for ::windows::core::IUnknown {
-    fn from(value: ChatQueryOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatQueryOptions> for ::windows::core::IUnknown {
-    fn from(value: &ChatQueryOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatQueryOptions> for &::windows::core::IUnknown {
-    fn from(value: &ChatQueryOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatQueryOptions> for ::windows::core::IInspectable {
-    fn from(value: ChatQueryOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatQueryOptions> for ::windows::core::IInspectable {
-    fn from(value: &ChatQueryOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatQueryOptions> for &::windows::core::IInspectable {
-    fn from(value: &ChatQueryOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatQueryOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatQueryOptions {}
 unsafe impl ::core::marker::Sync for ChatQueryOptions {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -4133,36 +3553,7 @@ unsafe impl ::windows::core::Interface for ChatRecipientDeliveryInfo {
 impl ::windows::core::RuntimeName for ChatRecipientDeliveryInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo";
 }
-impl ::core::convert::From<ChatRecipientDeliveryInfo> for ::windows::core::IUnknown {
-    fn from(value: ChatRecipientDeliveryInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatRecipientDeliveryInfo> for ::windows::core::IUnknown {
-    fn from(value: &ChatRecipientDeliveryInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatRecipientDeliveryInfo> for &::windows::core::IUnknown {
-    fn from(value: &ChatRecipientDeliveryInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatRecipientDeliveryInfo> for ::windows::core::IInspectable {
-    fn from(value: ChatRecipientDeliveryInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatRecipientDeliveryInfo> for ::windows::core::IInspectable {
-    fn from(value: &ChatRecipientDeliveryInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatRecipientDeliveryInfo> for &::windows::core::IInspectable {
-    fn from(value: &ChatRecipientDeliveryInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatRecipientDeliveryInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatRecipientDeliveryInfo {}
 unsafe impl ::core::marker::Sync for ChatRecipientDeliveryInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -4220,36 +3611,7 @@ unsafe impl ::windows::core::Interface for ChatSearchReader {
 impl ::windows::core::RuntimeName for ChatSearchReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatSearchReader";
 }
-impl ::core::convert::From<ChatSearchReader> for ::windows::core::IUnknown {
-    fn from(value: ChatSearchReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatSearchReader> for ::windows::core::IUnknown {
-    fn from(value: &ChatSearchReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatSearchReader> for &::windows::core::IUnknown {
-    fn from(value: &ChatSearchReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatSearchReader> for ::windows::core::IInspectable {
-    fn from(value: ChatSearchReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatSearchReader> for ::windows::core::IInspectable {
-    fn from(value: &ChatSearchReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatSearchReader> for &::windows::core::IInspectable {
-    fn from(value: &ChatSearchReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatSearchReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatSearchReader {}
 unsafe impl ::core::marker::Sync for ChatSearchReader {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -4311,36 +3673,7 @@ unsafe impl ::windows::core::Interface for ChatSyncConfiguration {
 impl ::windows::core::RuntimeName for ChatSyncConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatSyncConfiguration";
 }
-impl ::core::convert::From<ChatSyncConfiguration> for ::windows::core::IUnknown {
-    fn from(value: ChatSyncConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatSyncConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &ChatSyncConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatSyncConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &ChatSyncConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatSyncConfiguration> for ::windows::core::IInspectable {
-    fn from(value: ChatSyncConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatSyncConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &ChatSyncConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatSyncConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &ChatSyncConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatSyncConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatSyncConfiguration {}
 unsafe impl ::core::marker::Sync for ChatSyncConfiguration {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -4427,36 +3760,7 @@ unsafe impl ::windows::core::Interface for ChatSyncManager {
 impl ::windows::core::RuntimeName for ChatSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatSyncManager";
 }
-impl ::core::convert::From<ChatSyncManager> for ::windows::core::IUnknown {
-    fn from(value: ChatSyncManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatSyncManager> for ::windows::core::IUnknown {
-    fn from(value: &ChatSyncManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatSyncManager> for &::windows::core::IUnknown {
-    fn from(value: &ChatSyncManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatSyncManager> for ::windows::core::IInspectable {
-    fn from(value: ChatSyncManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatSyncManager> for ::windows::core::IInspectable {
-    fn from(value: &ChatSyncManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatSyncManager> for &::windows::core::IInspectable {
-    fn from(value: &ChatSyncManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatSyncManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChatSyncManager {}
 unsafe impl ::core::marker::Sync for ChatSyncManager {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -4551,36 +3855,7 @@ unsafe impl ::windows::core::Interface for RcsEndUserMessage {
 impl ::windows::core::RuntimeName for RcsEndUserMessage {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessage";
 }
-impl ::core::convert::From<RcsEndUserMessage> for ::windows::core::IUnknown {
-    fn from(value: RcsEndUserMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessage> for ::windows::core::IUnknown {
-    fn from(value: &RcsEndUserMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessage> for &::windows::core::IUnknown {
-    fn from(value: &RcsEndUserMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RcsEndUserMessage> for ::windows::core::IInspectable {
-    fn from(value: RcsEndUserMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessage> for ::windows::core::IInspectable {
-    fn from(value: &RcsEndUserMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessage> for &::windows::core::IInspectable {
-    fn from(value: &RcsEndUserMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RcsEndUserMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RcsEndUserMessage {}
 unsafe impl ::core::marker::Sync for RcsEndUserMessage {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -4627,36 +3902,7 @@ unsafe impl ::windows::core::Interface for RcsEndUserMessageAction {
 impl ::windows::core::RuntimeName for RcsEndUserMessageAction {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageAction";
 }
-impl ::core::convert::From<RcsEndUserMessageAction> for ::windows::core::IUnknown {
-    fn from(value: RcsEndUserMessageAction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessageAction> for ::windows::core::IUnknown {
-    fn from(value: &RcsEndUserMessageAction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessageAction> for &::windows::core::IUnknown {
-    fn from(value: &RcsEndUserMessageAction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RcsEndUserMessageAction> for ::windows::core::IInspectable {
-    fn from(value: RcsEndUserMessageAction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessageAction> for ::windows::core::IInspectable {
-    fn from(value: &RcsEndUserMessageAction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessageAction> for &::windows::core::IInspectable {
-    fn from(value: &RcsEndUserMessageAction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RcsEndUserMessageAction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RcsEndUserMessageAction {}
 unsafe impl ::core::marker::Sync for RcsEndUserMessageAction {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -4710,36 +3956,7 @@ unsafe impl ::windows::core::Interface for RcsEndUserMessageAvailableEventArgs {
 impl ::windows::core::RuntimeName for RcsEndUserMessageAvailableEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableEventArgs";
 }
-impl ::core::convert::From<RcsEndUserMessageAvailableEventArgs> for ::windows::core::IUnknown {
-    fn from(value: RcsEndUserMessageAvailableEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessageAvailableEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &RcsEndUserMessageAvailableEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessageAvailableEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &RcsEndUserMessageAvailableEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RcsEndUserMessageAvailableEventArgs> for ::windows::core::IInspectable {
-    fn from(value: RcsEndUserMessageAvailableEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessageAvailableEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &RcsEndUserMessageAvailableEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessageAvailableEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &RcsEndUserMessageAvailableEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RcsEndUserMessageAvailableEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RcsEndUserMessageAvailableEventArgs {}
 unsafe impl ::core::marker::Sync for RcsEndUserMessageAvailableEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -4793,36 +4010,7 @@ unsafe impl ::windows::core::Interface for RcsEndUserMessageAvailableTriggerDeta
 impl ::windows::core::RuntimeName for RcsEndUserMessageAvailableTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableTriggerDetails";
 }
-impl ::core::convert::From<RcsEndUserMessageAvailableTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: RcsEndUserMessageAvailableTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessageAvailableTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &RcsEndUserMessageAvailableTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessageAvailableTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &RcsEndUserMessageAvailableTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RcsEndUserMessageAvailableTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: RcsEndUserMessageAvailableTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessageAvailableTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &RcsEndUserMessageAvailableTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessageAvailableTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &RcsEndUserMessageAvailableTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RcsEndUserMessageAvailableTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RcsEndUserMessageAvailableTriggerDetails {}
 unsafe impl ::core::marker::Sync for RcsEndUserMessageAvailableTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -4877,36 +4065,7 @@ unsafe impl ::windows::core::Interface for RcsEndUserMessageManager {
 impl ::windows::core::RuntimeName for RcsEndUserMessageManager {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageManager";
 }
-impl ::core::convert::From<RcsEndUserMessageManager> for ::windows::core::IUnknown {
-    fn from(value: RcsEndUserMessageManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessageManager> for ::windows::core::IUnknown {
-    fn from(value: &RcsEndUserMessageManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessageManager> for &::windows::core::IUnknown {
-    fn from(value: &RcsEndUserMessageManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RcsEndUserMessageManager> for ::windows::core::IInspectable {
-    fn from(value: RcsEndUserMessageManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessageManager> for ::windows::core::IInspectable {
-    fn from(value: &RcsEndUserMessageManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessageManager> for &::windows::core::IInspectable {
-    fn from(value: &RcsEndUserMessageManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RcsEndUserMessageManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RcsEndUserMessageManager {}
 unsafe impl ::core::marker::Sync for RcsEndUserMessageManager {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -5013,36 +4172,7 @@ unsafe impl ::windows::core::Interface for RcsServiceKindSupportedChangedEventAr
 impl ::windows::core::RuntimeName for RcsServiceKindSupportedChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsServiceKindSupportedChangedEventArgs";
 }
-impl ::core::convert::From<RcsServiceKindSupportedChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: RcsServiceKindSupportedChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RcsServiceKindSupportedChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &RcsServiceKindSupportedChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RcsServiceKindSupportedChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &RcsServiceKindSupportedChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RcsServiceKindSupportedChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: RcsServiceKindSupportedChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RcsServiceKindSupportedChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &RcsServiceKindSupportedChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RcsServiceKindSupportedChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &RcsServiceKindSupportedChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RcsServiceKindSupportedChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RcsServiceKindSupportedChangedEventArgs {}
 unsafe impl ::core::marker::Sync for RcsServiceKindSupportedChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -5148,36 +4278,7 @@ unsafe impl ::windows::core::Interface for RcsTransport {
 impl ::windows::core::RuntimeName for RcsTransport {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsTransport";
 }
-impl ::core::convert::From<RcsTransport> for ::windows::core::IUnknown {
-    fn from(value: RcsTransport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RcsTransport> for ::windows::core::IUnknown {
-    fn from(value: &RcsTransport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RcsTransport> for &::windows::core::IUnknown {
-    fn from(value: &RcsTransport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RcsTransport> for ::windows::core::IInspectable {
-    fn from(value: RcsTransport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RcsTransport> for ::windows::core::IInspectable {
-    fn from(value: &RcsTransport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RcsTransport> for &::windows::core::IInspectable {
-    fn from(value: &RcsTransport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RcsTransport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RcsTransport {}
 unsafe impl ::core::marker::Sync for RcsTransport {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -5259,36 +4360,7 @@ unsafe impl ::windows::core::Interface for RcsTransportConfiguration {
 impl ::windows::core::RuntimeName for RcsTransportConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsTransportConfiguration";
 }
-impl ::core::convert::From<RcsTransportConfiguration> for ::windows::core::IUnknown {
-    fn from(value: RcsTransportConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RcsTransportConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &RcsTransportConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RcsTransportConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &RcsTransportConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RcsTransportConfiguration> for ::windows::core::IInspectable {
-    fn from(value: RcsTransportConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RcsTransportConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &RcsTransportConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RcsTransportConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &RcsTransportConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RcsTransportConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RcsTransportConfiguration {}
 unsafe impl ::core::marker::Sync for RcsTransportConfiguration {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -5349,36 +4421,7 @@ unsafe impl ::windows::core::Interface for RemoteParticipantComposingChangedEven
 impl ::windows::core::RuntimeName for RemoteParticipantComposingChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RemoteParticipantComposingChangedEventArgs";
 }
-impl ::core::convert::From<RemoteParticipantComposingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: RemoteParticipantComposingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteParticipantComposingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &RemoteParticipantComposingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteParticipantComposingChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &RemoteParticipantComposingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteParticipantComposingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: RemoteParticipantComposingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteParticipantComposingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &RemoteParticipantComposingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteParticipantComposingChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &RemoteParticipantComposingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteParticipantComposingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteParticipantComposingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteParticipantComposingChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]

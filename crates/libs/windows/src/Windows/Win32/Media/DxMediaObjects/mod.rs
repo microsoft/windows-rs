@@ -122,21 +122,7 @@ impl IDMOQualityControl {
         (::windows::core::Vtable::vtable(self).GetStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IDMOQualityControl> for ::windows::core::IUnknown {
-    fn from(value: IDMOQualityControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMOQualityControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDMOQualityControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMOQualityControl> for ::windows::core::IUnknown {
-    fn from(value: &IDMOQualityControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDMOQualityControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDMOQualityControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -187,21 +173,7 @@ impl IDMOVideoOutputOptimizations {
         (::windows::core::Vtable::vtable(self).GetCurrentSampleRequirements)(::windows::core::Vtable::as_raw(self), uloutputstreamindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IDMOVideoOutputOptimizations> for ::windows::core::IUnknown {
-    fn from(value: IDMOVideoOutputOptimizations) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMOVideoOutputOptimizations> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDMOVideoOutputOptimizations) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMOVideoOutputOptimizations> for ::windows::core::IUnknown {
-    fn from(value: &IDMOVideoOutputOptimizations) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDMOVideoOutputOptimizations, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDMOVideoOutputOptimizations {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -251,21 +223,7 @@ impl IEnumDMO {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumDMO>(result__)
     }
 }
-impl ::core::convert::From<IEnumDMO> for ::windows::core::IUnknown {
-    fn from(value: IEnumDMO) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumDMO> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumDMO) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumDMO> for ::windows::core::IUnknown {
-    fn from(value: &IEnumDMO) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumDMO, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumDMO {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -312,21 +270,7 @@ impl IMediaBuffer {
         (::windows::core::Vtable::vtable(self).GetBufferAndLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppbuffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcblength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IMediaBuffer> for ::windows::core::IUnknown {
-    fn from(value: IMediaBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMediaBuffer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMediaBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMediaBuffer> for ::windows::core::IUnknown {
-    fn from(value: &IMediaBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMediaBuffer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMediaBuffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -448,21 +392,7 @@ impl IMediaObject {
         (::windows::core::Vtable::vtable(self).Lock)(::windows::core::Vtable::as_raw(self), block).ok()
     }
 }
-impl ::core::convert::From<IMediaObject> for ::windows::core::IUnknown {
-    fn from(value: IMediaObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMediaObject> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMediaObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMediaObject> for ::windows::core::IUnknown {
-    fn from(value: &IMediaObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMediaObject, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMediaObject {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -545,21 +475,7 @@ impl IMediaObjectInPlace {
         (::windows::core::Vtable::vtable(self).GetLatency)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
     }
 }
-impl ::core::convert::From<IMediaObjectInPlace> for ::windows::core::IUnknown {
-    fn from(value: IMediaObjectInPlace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMediaObjectInPlace> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMediaObjectInPlace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMediaObjectInPlace> for ::windows::core::IUnknown {
-    fn from(value: &IMediaObjectInPlace) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMediaObjectInPlace, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMediaObjectInPlace {
     fn clone(&self) -> Self {
         Self(self.0.clone())

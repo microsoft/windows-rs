@@ -176,36 +176,7 @@ impl IAccessoryNotificationTriggerDetails {
         unsafe { (::windows::core::Vtable::vtable(this).SetStartedProcessing)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
-impl ::core::convert::From<IAccessoryNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: IAccessoryNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAccessoryNotificationTriggerDetails> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAccessoryNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAccessoryNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &IAccessoryNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAccessoryNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: IAccessoryNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAccessoryNotificationTriggerDetails> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAccessoryNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAccessoryNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &IAccessoryNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAccessoryNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IAccessoryNotificationTriggerDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1124,36 +1095,7 @@ unsafe impl ::windows::core::Interface for AlarmNotificationTriggerDetails {
 impl ::windows::core::RuntimeName for AlarmNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.AlarmNotificationTriggerDetails";
 }
-impl ::core::convert::From<AlarmNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: AlarmNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AlarmNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &AlarmNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AlarmNotificationTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &AlarmNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AlarmNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: AlarmNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AlarmNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &AlarmNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AlarmNotificationTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &AlarmNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AlarmNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AlarmNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: AlarmNotificationTriggerDetails) -> ::windows::core::Result<Self> {
@@ -1224,36 +1166,7 @@ unsafe impl ::windows::core::Interface for AppNotificationInfo {
 impl ::windows::core::RuntimeName for AppNotificationInfo {
     const NAME: &'static str = "Windows.Phone.Notification.Management.AppNotificationInfo";
 }
-impl ::core::convert::From<AppNotificationInfo> for ::windows::core::IUnknown {
-    fn from(value: AppNotificationInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppNotificationInfo> for ::windows::core::IUnknown {
-    fn from(value: &AppNotificationInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppNotificationInfo> for &::windows::core::IUnknown {
-    fn from(value: &AppNotificationInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppNotificationInfo> for ::windows::core::IInspectable {
-    fn from(value: AppNotificationInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppNotificationInfo> for ::windows::core::IInspectable {
-    fn from(value: &AppNotificationInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppNotificationInfo> for &::windows::core::IInspectable {
-    fn from(value: &AppNotificationInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppNotificationInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
 pub struct BinaryId(::windows::core::IUnknown);
@@ -1305,36 +1218,7 @@ unsafe impl ::windows::core::Interface for BinaryId {
 impl ::windows::core::RuntimeName for BinaryId {
     const NAME: &'static str = "Windows.Phone.Notification.Management.BinaryId";
 }
-impl ::core::convert::From<BinaryId> for ::windows::core::IUnknown {
-    fn from(value: BinaryId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BinaryId> for ::windows::core::IUnknown {
-    fn from(value: &BinaryId) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BinaryId> for &::windows::core::IUnknown {
-    fn from(value: &BinaryId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BinaryId> for ::windows::core::IInspectable {
-    fn from(value: BinaryId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BinaryId> for ::windows::core::IInspectable {
-    fn from(value: &BinaryId) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BinaryId> for &::windows::core::IInspectable {
-    fn from(value: &BinaryId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BinaryId, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
 pub struct CalendarChangedNotificationTriggerDetails(::windows::core::IUnknown);
@@ -1427,36 +1311,7 @@ unsafe impl ::windows::core::Interface for CalendarChangedNotificationTriggerDet
 impl ::windows::core::RuntimeName for CalendarChangedNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.CalendarChangedNotificationTriggerDetails";
 }
-impl ::core::convert::From<CalendarChangedNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: CalendarChangedNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CalendarChangedNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &CalendarChangedNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CalendarChangedNotificationTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &CalendarChangedNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CalendarChangedNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: CalendarChangedNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CalendarChangedNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &CalendarChangedNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CalendarChangedNotificationTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &CalendarChangedNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CalendarChangedNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CalendarChangedNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: CalendarChangedNotificationTriggerDetails) -> ::windows::core::Result<Self> {
@@ -1624,36 +1479,7 @@ unsafe impl ::windows::core::Interface for CortanaTileNotificationTriggerDetails
 impl ::windows::core::RuntimeName for CortanaTileNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.CortanaTileNotificationTriggerDetails";
 }
-impl ::core::convert::From<CortanaTileNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: CortanaTileNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CortanaTileNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &CortanaTileNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CortanaTileNotificationTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &CortanaTileNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CortanaTileNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: CortanaTileNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CortanaTileNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &CortanaTileNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CortanaTileNotificationTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &CortanaTileNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CortanaTileNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CortanaTileNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: CortanaTileNotificationTriggerDetails) -> ::windows::core::Result<Self> {
@@ -1724,36 +1550,7 @@ unsafe impl ::windows::core::Interface for EmailAccountInfo {
 impl ::windows::core::RuntimeName for EmailAccountInfo {
     const NAME: &'static str = "Windows.Phone.Notification.Management.EmailAccountInfo";
 }
-impl ::core::convert::From<EmailAccountInfo> for ::windows::core::IUnknown {
-    fn from(value: EmailAccountInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailAccountInfo> for ::windows::core::IUnknown {
-    fn from(value: &EmailAccountInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailAccountInfo> for &::windows::core::IUnknown {
-    fn from(value: &EmailAccountInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailAccountInfo> for ::windows::core::IInspectable {
-    fn from(value: EmailAccountInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailAccountInfo> for ::windows::core::IInspectable {
-    fn from(value: &EmailAccountInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailAccountInfo> for &::windows::core::IInspectable {
-    fn from(value: &EmailAccountInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailAccountInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
 pub struct EmailFolderInfo(::windows::core::IUnknown);
@@ -1805,36 +1602,7 @@ unsafe impl ::windows::core::Interface for EmailFolderInfo {
 impl ::windows::core::RuntimeName for EmailFolderInfo {
     const NAME: &'static str = "Windows.Phone.Notification.Management.EmailFolderInfo";
 }
-impl ::core::convert::From<EmailFolderInfo> for ::windows::core::IUnknown {
-    fn from(value: EmailFolderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailFolderInfo> for ::windows::core::IUnknown {
-    fn from(value: &EmailFolderInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailFolderInfo> for &::windows::core::IUnknown {
-    fn from(value: &EmailFolderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailFolderInfo> for ::windows::core::IInspectable {
-    fn from(value: EmailFolderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailFolderInfo> for ::windows::core::IInspectable {
-    fn from(value: &EmailFolderInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailFolderInfo> for &::windows::core::IInspectable {
-    fn from(value: &EmailFolderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailFolderInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
 pub struct EmailNotificationTriggerDetails(::windows::core::IUnknown);
@@ -1966,36 +1734,7 @@ unsafe impl ::windows::core::Interface for EmailNotificationTriggerDetails {
 impl ::windows::core::RuntimeName for EmailNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.EmailNotificationTriggerDetails";
 }
-impl ::core::convert::From<EmailNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: EmailNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &EmailNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailNotificationTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &EmailNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: EmailNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &EmailNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailNotificationTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &EmailNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<EmailNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: EmailNotificationTriggerDetails) -> ::windows::core::Result<Self> {
@@ -2121,36 +1860,7 @@ unsafe impl ::windows::core::Interface for EmailReadNotificationTriggerDetails {
 impl ::windows::core::RuntimeName for EmailReadNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.EmailReadNotificationTriggerDetails";
 }
-impl ::core::convert::From<EmailReadNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: EmailReadNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailReadNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &EmailReadNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailReadNotificationTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &EmailReadNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailReadNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: EmailReadNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailReadNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &EmailReadNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailReadNotificationTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &EmailReadNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailReadNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<EmailReadNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: EmailReadNotificationTriggerDetails) -> ::windows::core::Result<Self> {
@@ -2262,36 +1972,7 @@ unsafe impl ::windows::core::Interface for MediaControlsTriggerDetails {
 impl ::windows::core::RuntimeName for MediaControlsTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.MediaControlsTriggerDetails";
 }
-impl ::core::convert::From<MediaControlsTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: MediaControlsTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaControlsTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &MediaControlsTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaControlsTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &MediaControlsTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaControlsTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: MediaControlsTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaControlsTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &MediaControlsTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaControlsTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &MediaControlsTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaControlsTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MediaControlsTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: MediaControlsTriggerDetails) -> ::windows::core::Result<Self> {
@@ -2401,36 +2082,7 @@ unsafe impl ::windows::core::Interface for MediaMetadata {
 impl ::windows::core::RuntimeName for MediaMetadata {
     const NAME: &'static str = "Windows.Phone.Notification.Management.MediaMetadata";
 }
-impl ::core::convert::From<MediaMetadata> for ::windows::core::IUnknown {
-    fn from(value: MediaMetadata) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaMetadata> for ::windows::core::IUnknown {
-    fn from(value: &MediaMetadata) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaMetadata> for &::windows::core::IUnknown {
-    fn from(value: &MediaMetadata) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaMetadata> for ::windows::core::IInspectable {
-    fn from(value: MediaMetadata) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaMetadata> for ::windows::core::IInspectable {
-    fn from(value: &MediaMetadata) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaMetadata> for &::windows::core::IInspectable {
-    fn from(value: &MediaMetadata) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaMetadata, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
 pub struct PhoneCallDetails(::windows::core::IUnknown);
@@ -2558,36 +2210,7 @@ unsafe impl ::windows::core::Interface for PhoneCallDetails {
 impl ::windows::core::RuntimeName for PhoneCallDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.PhoneCallDetails";
 }
-impl ::core::convert::From<PhoneCallDetails> for ::windows::core::IUnknown {
-    fn from(value: PhoneCallDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneCallDetails> for ::windows::core::IUnknown {
-    fn from(value: &PhoneCallDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneCallDetails> for &::windows::core::IUnknown {
-    fn from(value: &PhoneCallDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhoneCallDetails> for ::windows::core::IInspectable {
-    fn from(value: PhoneCallDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneCallDetails> for ::windows::core::IInspectable {
-    fn from(value: &PhoneCallDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneCallDetails> for &::windows::core::IInspectable {
-    fn from(value: &PhoneCallDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhoneCallDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
 pub struct PhoneLineDetails(::windows::core::IUnknown);
@@ -2674,36 +2297,7 @@ unsafe impl ::windows::core::Interface for PhoneLineDetails {
 impl ::windows::core::RuntimeName for PhoneLineDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.PhoneLineDetails";
 }
-impl ::core::convert::From<PhoneLineDetails> for ::windows::core::IUnknown {
-    fn from(value: PhoneLineDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneLineDetails> for ::windows::core::IUnknown {
-    fn from(value: &PhoneLineDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneLineDetails> for &::windows::core::IUnknown {
-    fn from(value: &PhoneLineDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhoneLineDetails> for ::windows::core::IInspectable {
-    fn from(value: PhoneLineDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneLineDetails> for ::windows::core::IInspectable {
-    fn from(value: &PhoneLineDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneLineDetails> for &::windows::core::IInspectable {
-    fn from(value: &PhoneLineDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhoneLineDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
 pub struct PhoneNotificationTriggerDetails(::windows::core::IUnknown);
@@ -2803,36 +2397,7 @@ unsafe impl ::windows::core::Interface for PhoneNotificationTriggerDetails {
 impl ::windows::core::RuntimeName for PhoneNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.PhoneNotificationTriggerDetails";
 }
-impl ::core::convert::From<PhoneNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: PhoneNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &PhoneNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneNotificationTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &PhoneNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhoneNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: PhoneNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &PhoneNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneNotificationTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &PhoneNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhoneNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PhoneNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PhoneNotificationTriggerDetails) -> ::windows::core::Result<Self> {
@@ -2990,36 +2555,7 @@ unsafe impl ::windows::core::Interface for ReminderNotificationTriggerDetails {
 impl ::windows::core::RuntimeName for ReminderNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.ReminderNotificationTriggerDetails";
 }
-impl ::core::convert::From<ReminderNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: ReminderNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ReminderNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &ReminderNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ReminderNotificationTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &ReminderNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ReminderNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: ReminderNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ReminderNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &ReminderNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ReminderNotificationTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &ReminderNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ReminderNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ReminderNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: ReminderNotificationTriggerDetails) -> ::windows::core::Result<Self> {
@@ -3097,36 +2633,7 @@ unsafe impl ::windows::core::Interface for SpeedDialEntry {
 impl ::windows::core::RuntimeName for SpeedDialEntry {
     const NAME: &'static str = "Windows.Phone.Notification.Management.SpeedDialEntry";
 }
-impl ::core::convert::From<SpeedDialEntry> for ::windows::core::IUnknown {
-    fn from(value: SpeedDialEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeedDialEntry> for ::windows::core::IUnknown {
-    fn from(value: &SpeedDialEntry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeedDialEntry> for &::windows::core::IUnknown {
-    fn from(value: &SpeedDialEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpeedDialEntry> for ::windows::core::IInspectable {
-    fn from(value: SpeedDialEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeedDialEntry> for ::windows::core::IInspectable {
-    fn from(value: &SpeedDialEntry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeedDialEntry> for &::windows::core::IInspectable {
-    fn from(value: &SpeedDialEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpeedDialEntry, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
 pub struct TextResponse(::windows::core::IUnknown);
@@ -3178,36 +2685,7 @@ unsafe impl ::windows::core::Interface for TextResponse {
 impl ::windows::core::RuntimeName for TextResponse {
     const NAME: &'static str = "Windows.Phone.Notification.Management.TextResponse";
 }
-impl ::core::convert::From<TextResponse> for ::windows::core::IUnknown {
-    fn from(value: TextResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TextResponse> for ::windows::core::IUnknown {
-    fn from(value: &TextResponse) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TextResponse> for &::windows::core::IUnknown {
-    fn from(value: &TextResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TextResponse> for ::windows::core::IInspectable {
-    fn from(value: TextResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TextResponse> for ::windows::core::IInspectable {
-    fn from(value: &TextResponse) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TextResponse> for &::windows::core::IInspectable {
-    fn from(value: &TextResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TextResponse, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
 pub struct ToastNotificationTriggerDetails(::windows::core::IUnknown);
@@ -3328,36 +2806,7 @@ unsafe impl ::windows::core::Interface for ToastNotificationTriggerDetails {
 impl ::windows::core::RuntimeName for ToastNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.ToastNotificationTriggerDetails";
 }
-impl ::core::convert::From<ToastNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: ToastNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &ToastNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastNotificationTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &ToastNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ToastNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: ToastNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &ToastNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastNotificationTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &ToastNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ToastNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ToastNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: ToastNotificationTriggerDetails) -> ::windows::core::Result<Self> {
@@ -3449,36 +2898,7 @@ unsafe impl ::windows::core::Interface for VolumeInfo {
 impl ::windows::core::RuntimeName for VolumeInfo {
     const NAME: &'static str = "Windows.Phone.Notification.Management.VolumeInfo";
 }
-impl ::core::convert::From<VolumeInfo> for ::windows::core::IUnknown {
-    fn from(value: VolumeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VolumeInfo> for ::windows::core::IUnknown {
-    fn from(value: &VolumeInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VolumeInfo> for &::windows::core::IUnknown {
-    fn from(value: &VolumeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VolumeInfo> for ::windows::core::IInspectable {
-    fn from(value: VolumeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VolumeInfo> for ::windows::core::IInspectable {
-    fn from(value: &VolumeInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VolumeInfo> for &::windows::core::IInspectable {
-    fn from(value: &VolumeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VolumeInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

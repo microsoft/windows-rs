@@ -49,21 +49,7 @@ impl IDirectMusic {
         (::windows::core::Vtable::vtable(self).SetDirectSound)(::windows::core::Vtable::as_raw(self), pdirectsound.into().abi(), hwnd.into()).ok()
     }
 }
-impl ::core::convert::From<IDirectMusic> for ::windows::core::IUnknown {
-    fn from(value: IDirectMusic) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectMusic> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectMusic) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectMusic> for ::windows::core::IUnknown {
-    fn from(value: &IDirectMusic) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectMusic, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectMusic {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -166,36 +152,7 @@ impl IDirectMusic8 {
         (::windows::core::Vtable::vtable(self).SetExternalMasterClock)(::windows::core::Vtable::as_raw(self), pclock.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IDirectMusic8> for ::windows::core::IUnknown {
-    fn from(value: IDirectMusic8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectMusic8> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectMusic8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectMusic8> for ::windows::core::IUnknown {
-    fn from(value: &IDirectMusic8) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectMusic8> for IDirectMusic {
-    fn from(value: IDirectMusic8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectMusic8> for &'a IDirectMusic {
-    fn from(value: &'a IDirectMusic8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectMusic8> for IDirectMusic {
-    fn from(value: &IDirectMusic8) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectMusic8, ::windows::core::IUnknown, IDirectMusic);
 impl ::core::clone::Clone for IDirectMusic8 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -268,21 +225,7 @@ impl IDirectMusicBuffer {
         (::windows::core::Vtable::vtable(self).SetUsedBytes)(::windows::core::Vtable::as_raw(self), cb).ok()
     }
 }
-impl ::core::convert::From<IDirectMusicBuffer> for ::windows::core::IUnknown {
-    fn from(value: IDirectMusicBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectMusicBuffer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectMusicBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectMusicBuffer> for ::windows::core::IUnknown {
-    fn from(value: &IDirectMusicBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectMusicBuffer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectMusicBuffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -338,21 +281,7 @@ impl IDirectMusicCollection {
         (::windows::core::Vtable::vtable(self).EnumInstrument)(::windows::core::Vtable::as_raw(self), dwindex, ::core::mem::transmute(pdwpatch), pwszname.into(), dwnamelen).ok()
     }
 }
-impl ::core::convert::From<IDirectMusicCollection> for ::windows::core::IUnknown {
-    fn from(value: IDirectMusicCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectMusicCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectMusicCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectMusicCollection> for ::windows::core::IUnknown {
-    fn from(value: &IDirectMusicCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectMusicCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectMusicCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -390,21 +319,7 @@ impl IDirectMusicDownload {
         (::windows::core::Vtable::vtable(self).GetBuffer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppvbuffer), ::core::mem::transmute(pdwsize)).ok()
     }
 }
-impl ::core::convert::From<IDirectMusicDownload> for ::windows::core::IUnknown {
-    fn from(value: IDirectMusicDownload) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectMusicDownload> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectMusicDownload) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectMusicDownload> for ::windows::core::IUnknown {
-    fn from(value: &IDirectMusicDownload) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectMusicDownload, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectMusicDownload {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -437,21 +352,7 @@ pub struct IDirectMusicDownload_Vtbl {
 #[repr(transparent)]
 pub struct IDirectMusicDownloadedInstrument(::windows::core::IUnknown);
 impl IDirectMusicDownloadedInstrument {}
-impl ::core::convert::From<IDirectMusicDownloadedInstrument> for ::windows::core::IUnknown {
-    fn from(value: IDirectMusicDownloadedInstrument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectMusicDownloadedInstrument> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectMusicDownloadedInstrument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectMusicDownloadedInstrument> for ::windows::core::IUnknown {
-    fn from(value: &IDirectMusicDownloadedInstrument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectMusicDownloadedInstrument, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectMusicDownloadedInstrument {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -490,21 +391,7 @@ impl IDirectMusicInstrument {
         (::windows::core::Vtable::vtable(self).SetPatch)(::windows::core::Vtable::as_raw(self), dwpatch).ok()
     }
 }
-impl ::core::convert::From<IDirectMusicInstrument> for ::windows::core::IUnknown {
-    fn from(value: IDirectMusicInstrument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectMusicInstrument> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectMusicInstrument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectMusicInstrument> for ::windows::core::IUnknown {
-    fn from(value: &IDirectMusicInstrument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectMusicInstrument, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectMusicInstrument {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -621,21 +508,7 @@ impl IDirectMusicPort {
         (::windows::core::Vtable::vtable(self).GetFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwaveformatex), ::core::mem::transmute(pdwwaveformatexsize), ::core::mem::transmute(pdwbuffersize)).ok()
     }
 }
-impl ::core::convert::From<IDirectMusicPort> for ::windows::core::IUnknown {
-    fn from(value: IDirectMusicPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectMusicPort> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectMusicPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectMusicPort> for ::windows::core::IUnknown {
-    fn from(value: &IDirectMusicPort) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectMusicPort, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectMusicPort {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -723,21 +596,7 @@ impl IDirectMusicPortDownload {
         (::windows::core::Vtable::vtable(self).Unload)(::windows::core::Vtable::as_raw(self), pidmdownload.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IDirectMusicPortDownload> for ::windows::core::IUnknown {
-    fn from(value: IDirectMusicPortDownload) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectMusicPortDownload> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectMusicPortDownload) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectMusicPortDownload> for ::windows::core::IUnknown {
-    fn from(value: &IDirectMusicPortDownload) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectMusicPortDownload, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectMusicPortDownload {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -849,21 +708,7 @@ impl IDirectMusicSynth {
         (::windows::core::Vtable::vtable(self).GetAppend)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwappend)).ok()
     }
 }
-impl ::core::convert::From<IDirectMusicSynth> for ::windows::core::IUnknown {
-    fn from(value: IDirectMusicSynth) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectMusicSynth> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectMusicSynth) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectMusicSynth> for ::windows::core::IUnknown {
-    fn from(value: &IDirectMusicSynth) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectMusicSynth, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectMusicSynth {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1015,36 +860,7 @@ impl IDirectMusicSynth8 {
         (::windows::core::Vtable::vtable(self).AssignChannelToBuses)(::windows::core::Vtable::as_raw(self), dwchannelgroup, dwchannel, ::core::mem::transmute(pdwbuses), cbuses).ok()
     }
 }
-impl ::core::convert::From<IDirectMusicSynth8> for ::windows::core::IUnknown {
-    fn from(value: IDirectMusicSynth8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectMusicSynth8> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectMusicSynth8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectMusicSynth8> for ::windows::core::IUnknown {
-    fn from(value: &IDirectMusicSynth8) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectMusicSynth8> for IDirectMusicSynth {
-    fn from(value: IDirectMusicSynth8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectMusicSynth8> for &'a IDirectMusicSynth {
-    fn from(value: &'a IDirectMusicSynth8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectMusicSynth8> for IDirectMusicSynth {
-    fn from(value: &IDirectMusicSynth8) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectMusicSynth8, ::windows::core::IUnknown, IDirectMusicSynth);
 impl ::core::clone::Clone for IDirectMusicSynth8 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1127,21 +943,7 @@ impl IDirectMusicSynthSink {
         (::windows::core::Vtable::vtable(self).GetDesiredBufferSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwbuffersizeinsamples)).ok()
     }
 }
-impl ::core::convert::From<IDirectMusicSynthSink> for ::windows::core::IUnknown {
-    fn from(value: IDirectMusicSynthSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectMusicSynthSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectMusicSynthSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectMusicSynthSink> for ::windows::core::IUnknown {
-    fn from(value: &IDirectMusicSynthSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectMusicSynthSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectMusicSynthSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1194,21 +996,7 @@ impl IDirectMusicThru {
         (::windows::core::Vtable::vtable(self).ThruChannel)(::windows::core::Vtable::as_raw(self), dwsourcechannelgroup, dwsourcechannel, dwdestinationchannelgroup, dwdestinationchannel, pdestinationport.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IDirectMusicThru> for ::windows::core::IUnknown {
-    fn from(value: IDirectMusicThru) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectMusicThru> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectMusicThru) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectMusicThru> for ::windows::core::IUnknown {
-    fn from(value: &IDirectMusicThru) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectMusicThru, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectMusicThru {
     fn clone(&self) -> Self {
         Self(self.0.clone())

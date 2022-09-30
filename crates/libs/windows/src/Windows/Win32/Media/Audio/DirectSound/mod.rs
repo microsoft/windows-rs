@@ -153,21 +153,7 @@ impl IDirectSound {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcguiddevice.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<IDirectSound> for ::windows::core::IUnknown {
-    fn from(value: IDirectSound) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSound> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectSound) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSound> for ::windows::core::IUnknown {
-    fn from(value: &IDirectSound) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectSound, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectSound {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -283,21 +269,7 @@ impl IDirectSound3DBuffer {
         (::windows::core::Vtable::vtable(self).SetVelocity)(::windows::core::Vtable::as_raw(self), x, y, z, dwapply).ok()
     }
 }
-impl ::core::convert::From<IDirectSound3DBuffer> for ::windows::core::IUnknown {
-    fn from(value: IDirectSound3DBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSound3DBuffer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectSound3DBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSound3DBuffer> for ::windows::core::IUnknown {
-    fn from(value: &IDirectSound3DBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectSound3DBuffer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectSound3DBuffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -424,21 +396,7 @@ impl IDirectSound3DListener {
         (::windows::core::Vtable::vtable(self).CommitDeferredSettings)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDirectSound3DListener> for ::windows::core::IUnknown {
-    fn from(value: IDirectSound3DListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSound3DListener> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectSound3DListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSound3DListener> for ::windows::core::IUnknown {
-    fn from(value: &IDirectSound3DListener) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectSound3DListener, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectSound3DListener {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -543,36 +501,7 @@ impl IDirectSound8 {
         (::windows::core::Vtable::vtable(self).VerifyCertification)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IDirectSound8> for ::windows::core::IUnknown {
-    fn from(value: IDirectSound8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSound8> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectSound8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSound8> for ::windows::core::IUnknown {
-    fn from(value: &IDirectSound8) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectSound8> for IDirectSound {
-    fn from(value: IDirectSound8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSound8> for &'a IDirectSound {
-    fn from(value: &'a IDirectSound8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSound8> for IDirectSound {
-    fn from(value: &IDirectSound8) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectSound8, ::windows::core::IUnknown, IDirectSound);
 impl ::core::clone::Clone for IDirectSound8 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -668,21 +597,7 @@ impl IDirectSoundBuffer {
         (::windows::core::Vtable::vtable(self).Restore)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDirectSoundBuffer> for ::windows::core::IUnknown {
-    fn from(value: IDirectSoundBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSoundBuffer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectSoundBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSoundBuffer> for ::windows::core::IUnknown {
-    fn from(value: &IDirectSoundBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectSoundBuffer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectSoundBuffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -805,36 +720,7 @@ impl IDirectSoundBuffer8 {
         (::windows::core::Vtable::vtable(self).GetObjectInPath)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rguidobject), dwindex, ::core::mem::transmute(rguidinterface), ::core::mem::transmute(ppobject)).ok()
     }
 }
-impl ::core::convert::From<IDirectSoundBuffer8> for ::windows::core::IUnknown {
-    fn from(value: IDirectSoundBuffer8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSoundBuffer8> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectSoundBuffer8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSoundBuffer8> for ::windows::core::IUnknown {
-    fn from(value: &IDirectSoundBuffer8) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectSoundBuffer8> for IDirectSoundBuffer {
-    fn from(value: IDirectSoundBuffer8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSoundBuffer8> for &'a IDirectSoundBuffer {
-    fn from(value: &'a IDirectSoundBuffer8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSoundBuffer8> for IDirectSoundBuffer {
-    fn from(value: &IDirectSoundBuffer8) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectSoundBuffer8, ::windows::core::IUnknown, IDirectSoundBuffer);
 impl ::core::clone::Clone for IDirectSoundBuffer8 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -883,21 +769,7 @@ impl IDirectSoundCapture {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcguiddevice.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<IDirectSoundCapture> for ::windows::core::IUnknown {
-    fn from(value: IDirectSoundCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSoundCapture> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectSoundCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSoundCapture> for ::windows::core::IUnknown {
-    fn from(value: &IDirectSoundCapture) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectSoundCapture, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectSoundCapture {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -965,21 +837,7 @@ impl IDirectSoundCaptureBuffer {
         (::windows::core::Vtable::vtable(self).Unlock)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvaudioptr1), dwaudiobytes1, ::core::mem::transmute(pvaudioptr2.unwrap_or(::std::ptr::null())), dwaudiobytes2).ok()
     }
 }
-impl ::core::convert::From<IDirectSoundCaptureBuffer> for ::windows::core::IUnknown {
-    fn from(value: IDirectSoundCaptureBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSoundCaptureBuffer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectSoundCaptureBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSoundCaptureBuffer> for ::windows::core::IUnknown {
-    fn from(value: &IDirectSoundCaptureBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectSoundCaptureBuffer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectSoundCaptureBuffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1059,36 +917,7 @@ impl IDirectSoundCaptureBuffer8 {
         (::windows::core::Vtable::vtable(self).GetFXStatus)(::windows::core::Vtable::as_raw(self), pdwfxstatus.len() as _, ::core::mem::transmute(pdwfxstatus.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IDirectSoundCaptureBuffer8> for ::windows::core::IUnknown {
-    fn from(value: IDirectSoundCaptureBuffer8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSoundCaptureBuffer8> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectSoundCaptureBuffer8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSoundCaptureBuffer8> for ::windows::core::IUnknown {
-    fn from(value: &IDirectSoundCaptureBuffer8) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectSoundCaptureBuffer8> for IDirectSoundCaptureBuffer {
-    fn from(value: IDirectSoundCaptureBuffer8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSoundCaptureBuffer8> for &'a IDirectSoundCaptureBuffer {
-    fn from(value: &'a IDirectSoundCaptureBuffer8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSoundCaptureBuffer8> for IDirectSoundCaptureBuffer {
-    fn from(value: &IDirectSoundCaptureBuffer8) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectSoundCaptureBuffer8, ::windows::core::IUnknown, IDirectSoundCaptureBuffer);
 impl ::core::clone::Clone for IDirectSoundCaptureBuffer8 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1141,21 +970,7 @@ impl IDirectSoundCaptureFXAec {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDirectSoundCaptureFXAec> for ::windows::core::IUnknown {
-    fn from(value: IDirectSoundCaptureFXAec) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSoundCaptureFXAec> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectSoundCaptureFXAec) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSoundCaptureFXAec> for ::windows::core::IUnknown {
-    fn from(value: &IDirectSoundCaptureFXAec) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectSoundCaptureFXAec, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectSoundCaptureFXAec {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1212,21 +1027,7 @@ impl IDirectSoundCaptureFXNoiseSuppress {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDirectSoundCaptureFXNoiseSuppress> for ::windows::core::IUnknown {
-    fn from(value: IDirectSoundCaptureFXNoiseSuppress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSoundCaptureFXNoiseSuppress> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectSoundCaptureFXNoiseSuppress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSoundCaptureFXNoiseSuppress> for ::windows::core::IUnknown {
-    fn from(value: &IDirectSoundCaptureFXNoiseSuppress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectSoundCaptureFXNoiseSuppress, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectSoundCaptureFXNoiseSuppress {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1275,21 +1076,7 @@ impl IDirectSoundFXChorus {
         (::windows::core::Vtable::vtable(self).GetAllParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DSFXChorus>(result__)
     }
 }
-impl ::core::convert::From<IDirectSoundFXChorus> for ::windows::core::IUnknown {
-    fn from(value: IDirectSoundFXChorus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSoundFXChorus> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectSoundFXChorus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSoundFXChorus> for ::windows::core::IUnknown {
-    fn from(value: &IDirectSoundFXChorus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectSoundFXChorus, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectSoundFXChorus {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1331,21 +1118,7 @@ impl IDirectSoundFXCompressor {
         (::windows::core::Vtable::vtable(self).GetAllParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DSFXCompressor>(result__)
     }
 }
-impl ::core::convert::From<IDirectSoundFXCompressor> for ::windows::core::IUnknown {
-    fn from(value: IDirectSoundFXCompressor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSoundFXCompressor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectSoundFXCompressor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSoundFXCompressor> for ::windows::core::IUnknown {
-    fn from(value: &IDirectSoundFXCompressor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectSoundFXCompressor, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectSoundFXCompressor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1387,21 +1160,7 @@ impl IDirectSoundFXDistortion {
         (::windows::core::Vtable::vtable(self).GetAllParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DSFXDistortion>(result__)
     }
 }
-impl ::core::convert::From<IDirectSoundFXDistortion> for ::windows::core::IUnknown {
-    fn from(value: IDirectSoundFXDistortion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSoundFXDistortion> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectSoundFXDistortion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSoundFXDistortion> for ::windows::core::IUnknown {
-    fn from(value: &IDirectSoundFXDistortion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectSoundFXDistortion, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectSoundFXDistortion {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1443,21 +1202,7 @@ impl IDirectSoundFXEcho {
         (::windows::core::Vtable::vtable(self).GetAllParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DSFXEcho>(result__)
     }
 }
-impl ::core::convert::From<IDirectSoundFXEcho> for ::windows::core::IUnknown {
-    fn from(value: IDirectSoundFXEcho) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSoundFXEcho> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectSoundFXEcho) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSoundFXEcho> for ::windows::core::IUnknown {
-    fn from(value: &IDirectSoundFXEcho) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectSoundFXEcho, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectSoundFXEcho {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1499,21 +1244,7 @@ impl IDirectSoundFXFlanger {
         (::windows::core::Vtable::vtable(self).GetAllParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DSFXFlanger>(result__)
     }
 }
-impl ::core::convert::From<IDirectSoundFXFlanger> for ::windows::core::IUnknown {
-    fn from(value: IDirectSoundFXFlanger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSoundFXFlanger> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectSoundFXFlanger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSoundFXFlanger> for ::windows::core::IUnknown {
-    fn from(value: &IDirectSoundFXFlanger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectSoundFXFlanger, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectSoundFXFlanger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1555,21 +1286,7 @@ impl IDirectSoundFXGargle {
         (::windows::core::Vtable::vtable(self).GetAllParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DSFXGargle>(result__)
     }
 }
-impl ::core::convert::From<IDirectSoundFXGargle> for ::windows::core::IUnknown {
-    fn from(value: IDirectSoundFXGargle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSoundFXGargle> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectSoundFXGargle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSoundFXGargle> for ::windows::core::IUnknown {
-    fn from(value: &IDirectSoundFXGargle) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectSoundFXGargle, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectSoundFXGargle {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1625,21 +1342,7 @@ impl IDirectSoundFXI3DL2Reverb {
         (::windows::core::Vtable::vtable(self).GetQuality)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
-impl ::core::convert::From<IDirectSoundFXI3DL2Reverb> for ::windows::core::IUnknown {
-    fn from(value: IDirectSoundFXI3DL2Reverb) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSoundFXI3DL2Reverb> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectSoundFXI3DL2Reverb) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSoundFXI3DL2Reverb> for ::windows::core::IUnknown {
-    fn from(value: &IDirectSoundFXI3DL2Reverb) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectSoundFXI3DL2Reverb, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectSoundFXI3DL2Reverb {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1685,21 +1388,7 @@ impl IDirectSoundFXParamEq {
         (::windows::core::Vtable::vtable(self).GetAllParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DSFXParamEq>(result__)
     }
 }
-impl ::core::convert::From<IDirectSoundFXParamEq> for ::windows::core::IUnknown {
-    fn from(value: IDirectSoundFXParamEq) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSoundFXParamEq> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectSoundFXParamEq) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSoundFXParamEq> for ::windows::core::IUnknown {
-    fn from(value: &IDirectSoundFXParamEq) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectSoundFXParamEq, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectSoundFXParamEq {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1741,21 +1430,7 @@ impl IDirectSoundFXWavesReverb {
         (::windows::core::Vtable::vtable(self).GetAllParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DSFXWavesReverb>(result__)
     }
 }
-impl ::core::convert::From<IDirectSoundFXWavesReverb> for ::windows::core::IUnknown {
-    fn from(value: IDirectSoundFXWavesReverb) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSoundFXWavesReverb> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectSoundFXWavesReverb) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSoundFXWavesReverb> for ::windows::core::IUnknown {
-    fn from(value: &IDirectSoundFXWavesReverb) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectSoundFXWavesReverb, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectSoundFXWavesReverb {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1798,21 +1473,7 @@ impl IDirectSoundFullDuplex {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcaptureguid), ::core::mem::transmute(prenderguid), ::core::mem::transmute(lpdscbufferdesc), ::core::mem::transmute(lpdsbufferdesc), hwnd.into(), dwlevel, ::core::mem::transmute(lplpdirectsoundcapturebuffer8), ::core::mem::transmute(lplpdirectsoundbuffer8)).ok()
     }
 }
-impl ::core::convert::From<IDirectSoundFullDuplex> for ::windows::core::IUnknown {
-    fn from(value: IDirectSoundFullDuplex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSoundFullDuplex> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectSoundFullDuplex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSoundFullDuplex> for ::windows::core::IUnknown {
-    fn from(value: &IDirectSoundFullDuplex) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectSoundFullDuplex, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectSoundFullDuplex {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1854,21 +1515,7 @@ impl IDirectSoundNotify {
         (::windows::core::Vtable::vtable(self).SetNotificationPositions)(::windows::core::Vtable::as_raw(self), pcpositionnotifies.len() as _, ::core::mem::transmute(pcpositionnotifies.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IDirectSoundNotify> for ::windows::core::IUnknown {
-    fn from(value: IDirectSoundNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectSoundNotify> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectSoundNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSoundNotify> for ::windows::core::IUnknown {
-    fn from(value: &IDirectSoundNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectSoundNotify, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectSoundNotify {
     fn clone(&self) -> Self {
         Self(self.0.clone())

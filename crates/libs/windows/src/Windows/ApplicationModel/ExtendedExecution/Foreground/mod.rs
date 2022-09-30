@@ -87,36 +87,7 @@ unsafe impl ::windows::core::Interface for ExtendedExecutionForegroundRevokedEve
 impl ::windows::core::RuntimeName for ExtendedExecutionForegroundRevokedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedEventArgs";
 }
-impl ::core::convert::From<ExtendedExecutionForegroundRevokedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ExtendedExecutionForegroundRevokedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ExtendedExecutionForegroundRevokedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ExtendedExecutionForegroundRevokedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ExtendedExecutionForegroundRevokedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ExtendedExecutionForegroundRevokedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ExtendedExecutionForegroundRevokedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ExtendedExecutionForegroundRevokedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ExtendedExecutionForegroundRevokedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ExtendedExecutionForegroundRevokedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ExtendedExecutionForegroundRevokedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ExtendedExecutionForegroundRevokedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ExtendedExecutionForegroundRevokedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ExtendedExecutionForegroundRevokedEventArgs {}
 unsafe impl ::core::marker::Sync for ExtendedExecutionForegroundRevokedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution_Foreground\"`*"]
@@ -215,36 +186,7 @@ unsafe impl ::windows::core::Interface for ExtendedExecutionForegroundSession {
 impl ::windows::core::RuntimeName for ExtendedExecutionForegroundSession {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundSession";
 }
-impl ::core::convert::From<ExtendedExecutionForegroundSession> for ::windows::core::IUnknown {
-    fn from(value: ExtendedExecutionForegroundSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ExtendedExecutionForegroundSession> for ::windows::core::IUnknown {
-    fn from(value: &ExtendedExecutionForegroundSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ExtendedExecutionForegroundSession> for &::windows::core::IUnknown {
-    fn from(value: &ExtendedExecutionForegroundSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ExtendedExecutionForegroundSession> for ::windows::core::IInspectable {
-    fn from(value: ExtendedExecutionForegroundSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ExtendedExecutionForegroundSession> for ::windows::core::IInspectable {
-    fn from(value: &ExtendedExecutionForegroundSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ExtendedExecutionForegroundSession> for &::windows::core::IInspectable {
-    fn from(value: &ExtendedExecutionForegroundSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ExtendedExecutionForegroundSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ExtendedExecutionForegroundSession> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;

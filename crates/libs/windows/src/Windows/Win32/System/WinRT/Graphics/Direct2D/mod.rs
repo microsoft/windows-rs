@@ -18,21 +18,7 @@ impl IGeometrySource2DInterop {
         (::windows::core::Vtable::vtable(self).TryGetGeometryUsingFactory)(::windows::core::Vtable::as_raw(self), factory.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>(result__)
     }
 }
-impl ::core::convert::From<IGeometrySource2DInterop> for ::windows::core::IUnknown {
-    fn from(value: IGeometrySource2DInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGeometrySource2DInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGeometrySource2DInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGeometrySource2DInterop> for ::windows::core::IUnknown {
-    fn from(value: &IGeometrySource2DInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGeometrySource2DInterop, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IGeometrySource2DInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -103,21 +89,7 @@ impl IGraphicsEffectD2D1Interop {
         (::windows::core::Vtable::vtable(self).GetSourceCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IGraphicsEffectD2D1Interop> for ::windows::core::IUnknown {
-    fn from(value: IGraphicsEffectD2D1Interop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGraphicsEffectD2D1Interop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGraphicsEffectD2D1Interop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGraphicsEffectD2D1Interop> for ::windows::core::IUnknown {
-    fn from(value: &IGraphicsEffectD2D1Interop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGraphicsEffectD2D1Interop, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IGraphicsEffectD2D1Interop {
     fn clone(&self) -> Self {
         Self(self.0.clone())

@@ -795,36 +795,7 @@ unsafe impl ::windows::core::Interface for SpatialAnchor {
 impl ::windows::core::RuntimeName for SpatialAnchor {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchor";
 }
-impl ::core::convert::From<SpatialAnchor> for ::windows::core::IUnknown {
-    fn from(value: SpatialAnchor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialAnchor> for ::windows::core::IUnknown {
-    fn from(value: &SpatialAnchor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialAnchor> for &::windows::core::IUnknown {
-    fn from(value: &SpatialAnchor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialAnchor> for ::windows::core::IInspectable {
-    fn from(value: SpatialAnchor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialAnchor> for ::windows::core::IInspectable {
-    fn from(value: &SpatialAnchor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialAnchor> for &::windows::core::IInspectable {
-    fn from(value: &SpatialAnchor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialAnchor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialAnchor {}
 unsafe impl ::core::marker::Sync for SpatialAnchor {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -885,36 +856,7 @@ unsafe impl ::windows::core::Interface for SpatialAnchorExportSufficiency {
 impl ::windows::core::RuntimeName for SpatialAnchorExportSufficiency {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorExportSufficiency";
 }
-impl ::core::convert::From<SpatialAnchorExportSufficiency> for ::windows::core::IUnknown {
-    fn from(value: SpatialAnchorExportSufficiency) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialAnchorExportSufficiency> for ::windows::core::IUnknown {
-    fn from(value: &SpatialAnchorExportSufficiency) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialAnchorExportSufficiency> for &::windows::core::IUnknown {
-    fn from(value: &SpatialAnchorExportSufficiency) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialAnchorExportSufficiency> for ::windows::core::IInspectable {
-    fn from(value: SpatialAnchorExportSufficiency) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialAnchorExportSufficiency> for ::windows::core::IInspectable {
-    fn from(value: &SpatialAnchorExportSufficiency) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialAnchorExportSufficiency> for &::windows::core::IInspectable {
-    fn from(value: &SpatialAnchorExportSufficiency) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialAnchorExportSufficiency, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialAnchorExportSufficiency {}
 unsafe impl ::core::marker::Sync for SpatialAnchorExportSufficiency {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -995,36 +937,7 @@ unsafe impl ::windows::core::Interface for SpatialAnchorExporter {
 impl ::windows::core::RuntimeName for SpatialAnchorExporter {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorExporter";
 }
-impl ::core::convert::From<SpatialAnchorExporter> for ::windows::core::IUnknown {
-    fn from(value: SpatialAnchorExporter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialAnchorExporter> for ::windows::core::IUnknown {
-    fn from(value: &SpatialAnchorExporter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialAnchorExporter> for &::windows::core::IUnknown {
-    fn from(value: &SpatialAnchorExporter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialAnchorExporter> for ::windows::core::IInspectable {
-    fn from(value: SpatialAnchorExporter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialAnchorExporter> for ::windows::core::IInspectable {
-    fn from(value: &SpatialAnchorExporter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialAnchorExporter> for &::windows::core::IInspectable {
-    fn from(value: &SpatialAnchorExporter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialAnchorExporter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialAnchorExporter {}
 unsafe impl ::core::marker::Sync for SpatialAnchorExporter {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -1093,36 +1006,7 @@ unsafe impl ::windows::core::Interface for SpatialAnchorRawCoordinateSystemAdjus
 impl ::windows::core::RuntimeName for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorRawCoordinateSystemAdjustedEventArgs";
 }
-impl ::core::convert::From<SpatialAnchorRawCoordinateSystemAdjustedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SpatialAnchorRawCoordinateSystemAdjustedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialAnchorRawCoordinateSystemAdjustedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SpatialAnchorRawCoordinateSystemAdjustedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialAnchorRawCoordinateSystemAdjustedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SpatialAnchorRawCoordinateSystemAdjustedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialAnchorRawCoordinateSystemAdjustedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SpatialAnchorRawCoordinateSystemAdjustedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialAnchorRawCoordinateSystemAdjustedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SpatialAnchorRawCoordinateSystemAdjustedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialAnchorRawCoordinateSystemAdjustedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SpatialAnchorRawCoordinateSystemAdjustedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialAnchorRawCoordinateSystemAdjustedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -1186,36 +1070,7 @@ unsafe impl ::windows::core::Interface for SpatialAnchorStore {
 impl ::windows::core::RuntimeName for SpatialAnchorStore {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorStore";
 }
-impl ::core::convert::From<SpatialAnchorStore> for ::windows::core::IUnknown {
-    fn from(value: SpatialAnchorStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialAnchorStore> for ::windows::core::IUnknown {
-    fn from(value: &SpatialAnchorStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialAnchorStore> for &::windows::core::IUnknown {
-    fn from(value: &SpatialAnchorStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialAnchorStore> for ::windows::core::IInspectable {
-    fn from(value: SpatialAnchorStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialAnchorStore> for ::windows::core::IInspectable {
-    fn from(value: &SpatialAnchorStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialAnchorStore> for &::windows::core::IInspectable {
-    fn from(value: &SpatialAnchorStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialAnchorStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialAnchorStore {}
 unsafe impl ::core::marker::Sync for SpatialAnchorStore {}
 #[doc = "*Required features: `\"Perception_Spatial\"`, `\"deprecated\"`*"]
@@ -1342,36 +1197,7 @@ unsafe impl ::windows::core::Interface for SpatialBoundingVolume {
 impl ::windows::core::RuntimeName for SpatialBoundingVolume {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialBoundingVolume";
 }
-impl ::core::convert::From<SpatialBoundingVolume> for ::windows::core::IUnknown {
-    fn from(value: SpatialBoundingVolume) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialBoundingVolume> for ::windows::core::IUnknown {
-    fn from(value: &SpatialBoundingVolume) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialBoundingVolume> for &::windows::core::IUnknown {
-    fn from(value: &SpatialBoundingVolume) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialBoundingVolume> for ::windows::core::IInspectable {
-    fn from(value: SpatialBoundingVolume) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialBoundingVolume> for ::windows::core::IInspectable {
-    fn from(value: &SpatialBoundingVolume) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialBoundingVolume> for &::windows::core::IInspectable {
-    fn from(value: &SpatialBoundingVolume) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialBoundingVolume, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialBoundingVolume {}
 unsafe impl ::core::marker::Sync for SpatialBoundingVolume {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -1420,36 +1246,7 @@ unsafe impl ::windows::core::Interface for SpatialCoordinateSystem {
 impl ::windows::core::RuntimeName for SpatialCoordinateSystem {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialCoordinateSystem";
 }
-impl ::core::convert::From<SpatialCoordinateSystem> for ::windows::core::IUnknown {
-    fn from(value: SpatialCoordinateSystem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialCoordinateSystem> for ::windows::core::IUnknown {
-    fn from(value: &SpatialCoordinateSystem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialCoordinateSystem> for &::windows::core::IUnknown {
-    fn from(value: &SpatialCoordinateSystem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialCoordinateSystem> for ::windows::core::IInspectable {
-    fn from(value: SpatialCoordinateSystem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialCoordinateSystem> for ::windows::core::IInspectable {
-    fn from(value: &SpatialCoordinateSystem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialCoordinateSystem> for &::windows::core::IInspectable {
-    fn from(value: &SpatialCoordinateSystem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialCoordinateSystem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialCoordinateSystem {}
 unsafe impl ::core::marker::Sync for SpatialCoordinateSystem {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -1531,36 +1328,7 @@ unsafe impl ::windows::core::Interface for SpatialEntity {
 impl ::windows::core::RuntimeName for SpatialEntity {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntity";
 }
-impl ::core::convert::From<SpatialEntity> for ::windows::core::IUnknown {
-    fn from(value: SpatialEntity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialEntity> for ::windows::core::IUnknown {
-    fn from(value: &SpatialEntity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialEntity> for &::windows::core::IUnknown {
-    fn from(value: &SpatialEntity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialEntity> for ::windows::core::IInspectable {
-    fn from(value: SpatialEntity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialEntity> for ::windows::core::IInspectable {
-    fn from(value: &SpatialEntity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialEntity> for &::windows::core::IInspectable {
-    fn from(value: &SpatialEntity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialEntity, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialEntity {}
 unsafe impl ::core::marker::Sync for SpatialEntity {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -1607,36 +1375,7 @@ unsafe impl ::windows::core::Interface for SpatialEntityAddedEventArgs {
 impl ::windows::core::RuntimeName for SpatialEntityAddedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityAddedEventArgs";
 }
-impl ::core::convert::From<SpatialEntityAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SpatialEntityAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialEntityAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SpatialEntityAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialEntityAddedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SpatialEntityAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialEntityAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SpatialEntityAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialEntityAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SpatialEntityAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialEntityAddedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SpatialEntityAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialEntityAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialEntityAddedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialEntityAddedEventArgs {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -1683,36 +1422,7 @@ unsafe impl ::windows::core::Interface for SpatialEntityRemovedEventArgs {
 impl ::windows::core::RuntimeName for SpatialEntityRemovedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityRemovedEventArgs";
 }
-impl ::core::convert::From<SpatialEntityRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SpatialEntityRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialEntityRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SpatialEntityRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialEntityRemovedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SpatialEntityRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialEntityRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SpatialEntityRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialEntityRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SpatialEntityRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialEntityRemovedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SpatialEntityRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialEntityRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialEntityRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialEntityRemovedEventArgs {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -1796,36 +1506,7 @@ unsafe impl ::windows::core::Interface for SpatialEntityStore {
 impl ::windows::core::RuntimeName for SpatialEntityStore {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityStore";
 }
-impl ::core::convert::From<SpatialEntityStore> for ::windows::core::IUnknown {
-    fn from(value: SpatialEntityStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialEntityStore> for ::windows::core::IUnknown {
-    fn from(value: &SpatialEntityStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialEntityStore> for &::windows::core::IUnknown {
-    fn from(value: &SpatialEntityStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialEntityStore> for ::windows::core::IInspectable {
-    fn from(value: SpatialEntityStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialEntityStore> for ::windows::core::IInspectable {
-    fn from(value: &SpatialEntityStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialEntityStore> for &::windows::core::IInspectable {
-    fn from(value: &SpatialEntityStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialEntityStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialEntityStore {}
 unsafe impl ::core::marker::Sync for SpatialEntityStore {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -1872,36 +1553,7 @@ unsafe impl ::windows::core::Interface for SpatialEntityUpdatedEventArgs {
 impl ::windows::core::RuntimeName for SpatialEntityUpdatedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityUpdatedEventArgs";
 }
-impl ::core::convert::From<SpatialEntityUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SpatialEntityUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialEntityUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SpatialEntityUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialEntityUpdatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SpatialEntityUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialEntityUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SpatialEntityUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialEntityUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SpatialEntityUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialEntityUpdatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SpatialEntityUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialEntityUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialEntityUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialEntityUpdatedEventArgs {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -2016,36 +1668,7 @@ unsafe impl ::windows::core::Interface for SpatialEntityWatcher {
 impl ::windows::core::RuntimeName for SpatialEntityWatcher {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityWatcher";
 }
-impl ::core::convert::From<SpatialEntityWatcher> for ::windows::core::IUnknown {
-    fn from(value: SpatialEntityWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialEntityWatcher> for ::windows::core::IUnknown {
-    fn from(value: &SpatialEntityWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialEntityWatcher> for &::windows::core::IUnknown {
-    fn from(value: &SpatialEntityWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialEntityWatcher> for ::windows::core::IInspectable {
-    fn from(value: SpatialEntityWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialEntityWatcher> for ::windows::core::IInspectable {
-    fn from(value: &SpatialEntityWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialEntityWatcher> for &::windows::core::IInspectable {
-    fn from(value: &SpatialEntityWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialEntityWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialEntityWatcher {}
 unsafe impl ::core::marker::Sync for SpatialEntityWatcher {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -2157,36 +1780,7 @@ unsafe impl ::windows::core::Interface for SpatialLocation {
 impl ::windows::core::RuntimeName for SpatialLocation {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocation";
 }
-impl ::core::convert::From<SpatialLocation> for ::windows::core::IUnknown {
-    fn from(value: SpatialLocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialLocation> for ::windows::core::IUnknown {
-    fn from(value: &SpatialLocation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialLocation> for &::windows::core::IUnknown {
-    fn from(value: &SpatialLocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialLocation> for ::windows::core::IInspectable {
-    fn from(value: SpatialLocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialLocation> for ::windows::core::IInspectable {
-    fn from(value: &SpatialLocation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialLocation> for &::windows::core::IInspectable {
-    fn from(value: &SpatialLocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialLocation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialLocation {}
 unsafe impl ::core::marker::Sync for SpatialLocation {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -2349,36 +1943,7 @@ unsafe impl ::windows::core::Interface for SpatialLocator {
 impl ::windows::core::RuntimeName for SpatialLocator {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocator";
 }
-impl ::core::convert::From<SpatialLocator> for ::windows::core::IUnknown {
-    fn from(value: SpatialLocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialLocator> for ::windows::core::IUnknown {
-    fn from(value: &SpatialLocator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialLocator> for &::windows::core::IUnknown {
-    fn from(value: &SpatialLocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialLocator> for ::windows::core::IInspectable {
-    fn from(value: SpatialLocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialLocator> for ::windows::core::IInspectable {
-    fn from(value: &SpatialLocator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialLocator> for &::windows::core::IInspectable {
-    fn from(value: &SpatialLocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialLocator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialLocator {}
 unsafe impl ::core::marker::Sync for SpatialLocator {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -2468,36 +2033,7 @@ unsafe impl ::windows::core::Interface for SpatialLocatorAttachedFrameOfReferenc
 impl ::windows::core::RuntimeName for SpatialLocatorAttachedFrameOfReference {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocatorAttachedFrameOfReference";
 }
-impl ::core::convert::From<SpatialLocatorAttachedFrameOfReference> for ::windows::core::IUnknown {
-    fn from(value: SpatialLocatorAttachedFrameOfReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialLocatorAttachedFrameOfReference> for ::windows::core::IUnknown {
-    fn from(value: &SpatialLocatorAttachedFrameOfReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialLocatorAttachedFrameOfReference> for &::windows::core::IUnknown {
-    fn from(value: &SpatialLocatorAttachedFrameOfReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialLocatorAttachedFrameOfReference> for ::windows::core::IInspectable {
-    fn from(value: SpatialLocatorAttachedFrameOfReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialLocatorAttachedFrameOfReference> for ::windows::core::IInspectable {
-    fn from(value: &SpatialLocatorAttachedFrameOfReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialLocatorAttachedFrameOfReference> for &::windows::core::IInspectable {
-    fn from(value: &SpatialLocatorAttachedFrameOfReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialLocatorAttachedFrameOfReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialLocatorAttachedFrameOfReference {}
 unsafe impl ::core::marker::Sync for SpatialLocatorAttachedFrameOfReference {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -2548,36 +2084,7 @@ unsafe impl ::windows::core::Interface for SpatialLocatorPositionalTrackingDeact
 impl ::windows::core::RuntimeName for SpatialLocatorPositionalTrackingDeactivatingEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocatorPositionalTrackingDeactivatingEventArgs";
 }
-impl ::core::convert::From<SpatialLocatorPositionalTrackingDeactivatingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SpatialLocatorPositionalTrackingDeactivatingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialLocatorPositionalTrackingDeactivatingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SpatialLocatorPositionalTrackingDeactivatingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialLocatorPositionalTrackingDeactivatingEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SpatialLocatorPositionalTrackingDeactivatingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialLocatorPositionalTrackingDeactivatingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SpatialLocatorPositionalTrackingDeactivatingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialLocatorPositionalTrackingDeactivatingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SpatialLocatorPositionalTrackingDeactivatingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialLocatorPositionalTrackingDeactivatingEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SpatialLocatorPositionalTrackingDeactivatingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialLocatorPositionalTrackingDeactivatingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialLocatorPositionalTrackingDeactivatingEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialLocatorPositionalTrackingDeactivatingEventArgs {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -2686,36 +2193,7 @@ unsafe impl ::windows::core::Interface for SpatialStageFrameOfReference {
 impl ::windows::core::RuntimeName for SpatialStageFrameOfReference {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialStageFrameOfReference";
 }
-impl ::core::convert::From<SpatialStageFrameOfReference> for ::windows::core::IUnknown {
-    fn from(value: SpatialStageFrameOfReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialStageFrameOfReference> for ::windows::core::IUnknown {
-    fn from(value: &SpatialStageFrameOfReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialStageFrameOfReference> for &::windows::core::IUnknown {
-    fn from(value: &SpatialStageFrameOfReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialStageFrameOfReference> for ::windows::core::IInspectable {
-    fn from(value: SpatialStageFrameOfReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialStageFrameOfReference> for ::windows::core::IInspectable {
-    fn from(value: &SpatialStageFrameOfReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialStageFrameOfReference> for &::windows::core::IInspectable {
-    fn from(value: &SpatialStageFrameOfReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialStageFrameOfReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialStageFrameOfReference {}
 unsafe impl ::core::marker::Sync for SpatialStageFrameOfReference {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
@@ -2762,36 +2240,7 @@ unsafe impl ::windows::core::Interface for SpatialStationaryFrameOfReference {
 impl ::windows::core::RuntimeName for SpatialStationaryFrameOfReference {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialStationaryFrameOfReference";
 }
-impl ::core::convert::From<SpatialStationaryFrameOfReference> for ::windows::core::IUnknown {
-    fn from(value: SpatialStationaryFrameOfReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialStationaryFrameOfReference> for ::windows::core::IUnknown {
-    fn from(value: &SpatialStationaryFrameOfReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialStationaryFrameOfReference> for &::windows::core::IUnknown {
-    fn from(value: &SpatialStationaryFrameOfReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialStationaryFrameOfReference> for ::windows::core::IInspectable {
-    fn from(value: SpatialStationaryFrameOfReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialStationaryFrameOfReference> for ::windows::core::IInspectable {
-    fn from(value: &SpatialStationaryFrameOfReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialStationaryFrameOfReference> for &::windows::core::IInspectable {
-    fn from(value: &SpatialStationaryFrameOfReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialStationaryFrameOfReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialStationaryFrameOfReference {}
 unsafe impl ::core::marker::Sync for SpatialStationaryFrameOfReference {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]

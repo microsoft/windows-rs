@@ -1548,36 +1548,7 @@ impl ::core::iter::IntoIterator for &HttpCacheDirectiveHeaderValueCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-impl ::core::convert::From<HttpCacheDirectiveHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: HttpCacheDirectiveHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpCacheDirectiveHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: &HttpCacheDirectiveHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpCacheDirectiveHeaderValueCollection> for &::windows::core::IUnknown {
-    fn from(value: &HttpCacheDirectiveHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpCacheDirectiveHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: HttpCacheDirectiveHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpCacheDirectiveHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: &HttpCacheDirectiveHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpCacheDirectiveHeaderValueCollection> for &::windows::core::IInspectable {
-    fn from(value: &HttpCacheDirectiveHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpCacheDirectiveHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpCacheDirectiveHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<HttpNameValueHeaderValue> {
     type Error = ::windows::core::Error;
@@ -1749,36 +1720,7 @@ unsafe impl ::windows::core::Interface for HttpChallengeHeaderValue {
 impl ::windows::core::RuntimeName for HttpChallengeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpChallengeHeaderValue";
 }
-impl ::core::convert::From<HttpChallengeHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: HttpChallengeHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpChallengeHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: &HttpChallengeHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpChallengeHeaderValue> for &::windows::core::IUnknown {
-    fn from(value: &HttpChallengeHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpChallengeHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: HttpChallengeHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpChallengeHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: &HttpChallengeHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpChallengeHeaderValue> for &::windows::core::IInspectable {
-    fn from(value: &HttpChallengeHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpChallengeHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpChallengeHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -1972,36 +1914,7 @@ impl ::core::iter::IntoIterator for &HttpChallengeHeaderValueCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-impl ::core::convert::From<HttpChallengeHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: HttpChallengeHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpChallengeHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: &HttpChallengeHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpChallengeHeaderValueCollection> for &::windows::core::IUnknown {
-    fn from(value: &HttpChallengeHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpChallengeHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: HttpChallengeHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpChallengeHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: &HttpChallengeHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpChallengeHeaderValueCollection> for &::windows::core::IInspectable {
-    fn from(value: &HttpChallengeHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpChallengeHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpChallengeHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<HttpChallengeHeaderValue> {
     type Error = ::windows::core::Error;
@@ -2151,36 +2064,7 @@ unsafe impl ::windows::core::Interface for HttpConnectionOptionHeaderValue {
 impl ::windows::core::RuntimeName for HttpConnectionOptionHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue";
 }
-impl ::core::convert::From<HttpConnectionOptionHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: HttpConnectionOptionHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpConnectionOptionHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: &HttpConnectionOptionHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpConnectionOptionHeaderValue> for &::windows::core::IUnknown {
-    fn from(value: &HttpConnectionOptionHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpConnectionOptionHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: HttpConnectionOptionHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpConnectionOptionHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: &HttpConnectionOptionHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpConnectionOptionHeaderValue> for &::windows::core::IInspectable {
-    fn from(value: &HttpConnectionOptionHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpConnectionOptionHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpConnectionOptionHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -2374,36 +2258,7 @@ impl ::core::iter::IntoIterator for &HttpConnectionOptionHeaderValueCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-impl ::core::convert::From<HttpConnectionOptionHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: HttpConnectionOptionHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpConnectionOptionHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: &HttpConnectionOptionHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpConnectionOptionHeaderValueCollection> for &::windows::core::IUnknown {
-    fn from(value: &HttpConnectionOptionHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpConnectionOptionHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: HttpConnectionOptionHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpConnectionOptionHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: &HttpConnectionOptionHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpConnectionOptionHeaderValueCollection> for &::windows::core::IInspectable {
-    fn from(value: &HttpConnectionOptionHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpConnectionOptionHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpConnectionOptionHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<HttpConnectionOptionHeaderValue> {
     type Error = ::windows::core::Error;
@@ -2553,36 +2408,7 @@ unsafe impl ::windows::core::Interface for HttpContentCodingHeaderValue {
 impl ::windows::core::RuntimeName for HttpContentCodingHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingHeaderValue";
 }
-impl ::core::convert::From<HttpContentCodingHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: HttpContentCodingHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpContentCodingHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: &HttpContentCodingHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpContentCodingHeaderValue> for &::windows::core::IUnknown {
-    fn from(value: &HttpContentCodingHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpContentCodingHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: HttpContentCodingHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpContentCodingHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: &HttpContentCodingHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpContentCodingHeaderValue> for &::windows::core::IInspectable {
-    fn from(value: &HttpContentCodingHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpContentCodingHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpContentCodingHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -2776,36 +2602,7 @@ impl ::core::iter::IntoIterator for &HttpContentCodingHeaderValueCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-impl ::core::convert::From<HttpContentCodingHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: HttpContentCodingHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpContentCodingHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: &HttpContentCodingHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpContentCodingHeaderValueCollection> for &::windows::core::IUnknown {
-    fn from(value: &HttpContentCodingHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpContentCodingHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: HttpContentCodingHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpContentCodingHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: &HttpContentCodingHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpContentCodingHeaderValueCollection> for &::windows::core::IInspectable {
-    fn from(value: &HttpContentCodingHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpContentCodingHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpContentCodingHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<HttpContentCodingHeaderValue> {
     type Error = ::windows::core::Error;
@@ -2970,36 +2767,7 @@ unsafe impl ::windows::core::Interface for HttpContentCodingWithQualityHeaderVal
 impl ::windows::core::RuntimeName for HttpContentCodingWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue";
 }
-impl ::core::convert::From<HttpContentCodingWithQualityHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: HttpContentCodingWithQualityHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpContentCodingWithQualityHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: &HttpContentCodingWithQualityHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpContentCodingWithQualityHeaderValue> for &::windows::core::IUnknown {
-    fn from(value: &HttpContentCodingWithQualityHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpContentCodingWithQualityHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: HttpContentCodingWithQualityHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpContentCodingWithQualityHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: &HttpContentCodingWithQualityHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpContentCodingWithQualityHeaderValue> for &::windows::core::IInspectable {
-    fn from(value: &HttpContentCodingWithQualityHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpContentCodingWithQualityHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpContentCodingWithQualityHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -3193,36 +2961,7 @@ impl ::core::iter::IntoIterator for &HttpContentCodingWithQualityHeaderValueColl
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-impl ::core::convert::From<HttpContentCodingWithQualityHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: HttpContentCodingWithQualityHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpContentCodingWithQualityHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: &HttpContentCodingWithQualityHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpContentCodingWithQualityHeaderValueCollection> for &::windows::core::IUnknown {
-    fn from(value: &HttpContentCodingWithQualityHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpContentCodingWithQualityHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: HttpContentCodingWithQualityHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpContentCodingWithQualityHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: &HttpContentCodingWithQualityHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpContentCodingWithQualityHeaderValueCollection> for &::windows::core::IInspectable {
-    fn from(value: &HttpContentCodingWithQualityHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpContentCodingWithQualityHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpContentCodingWithQualityHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<HttpContentCodingWithQualityHeaderValue> {
     type Error = ::windows::core::Error;
@@ -3437,36 +3176,7 @@ unsafe impl ::windows::core::Interface for HttpContentDispositionHeaderValue {
 impl ::windows::core::RuntimeName for HttpContentDispositionHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentDispositionHeaderValue";
 }
-impl ::core::convert::From<HttpContentDispositionHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: HttpContentDispositionHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpContentDispositionHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: &HttpContentDispositionHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpContentDispositionHeaderValue> for &::windows::core::IUnknown {
-    fn from(value: &HttpContentDispositionHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpContentDispositionHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: HttpContentDispositionHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpContentDispositionHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: &HttpContentDispositionHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpContentDispositionHeaderValue> for &::windows::core::IInspectable {
-    fn from(value: &HttpContentDispositionHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpContentDispositionHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpContentDispositionHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -3775,36 +3485,7 @@ impl ::core::iter::IntoIterator for &HttpContentHeaderCollection {
         self.First().unwrap()
     }
 }
-impl ::core::convert::From<HttpContentHeaderCollection> for ::windows::core::IUnknown {
-    fn from(value: HttpContentHeaderCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpContentHeaderCollection> for ::windows::core::IUnknown {
-    fn from(value: &HttpContentHeaderCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpContentHeaderCollection> for &::windows::core::IUnknown {
-    fn from(value: &HttpContentHeaderCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpContentHeaderCollection> for ::windows::core::IInspectable {
-    fn from(value: HttpContentHeaderCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpContentHeaderCollection> for ::windows::core::IInspectable {
-    fn from(value: &HttpContentHeaderCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpContentHeaderCollection> for &::windows::core::IInspectable {
-    fn from(value: &HttpContentHeaderCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpContentHeaderCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpContentHeaderCollection> for super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
@@ -3997,36 +3678,7 @@ unsafe impl ::windows::core::Interface for HttpContentRangeHeaderValue {
 impl ::windows::core::RuntimeName for HttpContentRangeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentRangeHeaderValue";
 }
-impl ::core::convert::From<HttpContentRangeHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: HttpContentRangeHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpContentRangeHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: &HttpContentRangeHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpContentRangeHeaderValue> for &::windows::core::IUnknown {
-    fn from(value: &HttpContentRangeHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpContentRangeHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: HttpContentRangeHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpContentRangeHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: &HttpContentRangeHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpContentRangeHeaderValue> for &::windows::core::IInspectable {
-    fn from(value: &HttpContentRangeHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpContentRangeHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpContentRangeHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -4149,36 +3801,7 @@ unsafe impl ::windows::core::Interface for HttpCookiePairHeaderValue {
 impl ::windows::core::RuntimeName for HttpCookiePairHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCookiePairHeaderValue";
 }
-impl ::core::convert::From<HttpCookiePairHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: HttpCookiePairHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpCookiePairHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: &HttpCookiePairHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpCookiePairHeaderValue> for &::windows::core::IUnknown {
-    fn from(value: &HttpCookiePairHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpCookiePairHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: HttpCookiePairHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpCookiePairHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: &HttpCookiePairHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpCookiePairHeaderValue> for &::windows::core::IInspectable {
-    fn from(value: &HttpCookiePairHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpCookiePairHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpCookiePairHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -4372,36 +3995,7 @@ impl ::core::iter::IntoIterator for &HttpCookiePairHeaderValueCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-impl ::core::convert::From<HttpCookiePairHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: HttpCookiePairHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpCookiePairHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: &HttpCookiePairHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpCookiePairHeaderValueCollection> for &::windows::core::IUnknown {
-    fn from(value: &HttpCookiePairHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpCookiePairHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: HttpCookiePairHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpCookiePairHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: &HttpCookiePairHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpCookiePairHeaderValueCollection> for &::windows::core::IInspectable {
-    fn from(value: &HttpCookiePairHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpCookiePairHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpCookiePairHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<HttpCookiePairHeaderValue> {
     type Error = ::windows::core::Error;
@@ -4573,36 +4167,7 @@ unsafe impl ::windows::core::Interface for HttpCredentialsHeaderValue {
 impl ::windows::core::RuntimeName for HttpCredentialsHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCredentialsHeaderValue";
 }
-impl ::core::convert::From<HttpCredentialsHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: HttpCredentialsHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpCredentialsHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: &HttpCredentialsHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpCredentialsHeaderValue> for &::windows::core::IUnknown {
-    fn from(value: &HttpCredentialsHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpCredentialsHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: HttpCredentialsHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpCredentialsHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: &HttpCredentialsHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpCredentialsHeaderValue> for &::windows::core::IInspectable {
-    fn from(value: &HttpCredentialsHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpCredentialsHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpCredentialsHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -4708,36 +4273,7 @@ unsafe impl ::windows::core::Interface for HttpDateOrDeltaHeaderValue {
 impl ::windows::core::RuntimeName for HttpDateOrDeltaHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpDateOrDeltaHeaderValue";
 }
-impl ::core::convert::From<HttpDateOrDeltaHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: HttpDateOrDeltaHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpDateOrDeltaHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: &HttpDateOrDeltaHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpDateOrDeltaHeaderValue> for &::windows::core::IUnknown {
-    fn from(value: &HttpDateOrDeltaHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpDateOrDeltaHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: HttpDateOrDeltaHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpDateOrDeltaHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: &HttpDateOrDeltaHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpDateOrDeltaHeaderValue> for &::windows::core::IInspectable {
-    fn from(value: &HttpDateOrDeltaHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpDateOrDeltaHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpDateOrDeltaHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -4869,36 +4405,7 @@ unsafe impl ::windows::core::Interface for HttpExpectationHeaderValue {
 impl ::windows::core::RuntimeName for HttpExpectationHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpExpectationHeaderValue";
 }
-impl ::core::convert::From<HttpExpectationHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: HttpExpectationHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpExpectationHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: &HttpExpectationHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpExpectationHeaderValue> for &::windows::core::IUnknown {
-    fn from(value: &HttpExpectationHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpExpectationHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: HttpExpectationHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpExpectationHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: &HttpExpectationHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpExpectationHeaderValue> for &::windows::core::IInspectable {
-    fn from(value: &HttpExpectationHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpExpectationHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpExpectationHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -5092,36 +4599,7 @@ impl ::core::iter::IntoIterator for &HttpExpectationHeaderValueCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-impl ::core::convert::From<HttpExpectationHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: HttpExpectationHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpExpectationHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: &HttpExpectationHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpExpectationHeaderValueCollection> for &::windows::core::IUnknown {
-    fn from(value: &HttpExpectationHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpExpectationHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: HttpExpectationHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpExpectationHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: &HttpExpectationHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpExpectationHeaderValueCollection> for &::windows::core::IInspectable {
-    fn from(value: &HttpExpectationHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpExpectationHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpExpectationHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<HttpExpectationHeaderValue> {
     type Error = ::windows::core::Error;
@@ -5359,36 +4837,7 @@ impl ::core::iter::IntoIterator for &HttpLanguageHeaderValueCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-impl ::core::convert::From<HttpLanguageHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: HttpLanguageHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpLanguageHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: &HttpLanguageHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpLanguageHeaderValueCollection> for &::windows::core::IUnknown {
-    fn from(value: &HttpLanguageHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpLanguageHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: HttpLanguageHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpLanguageHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: &HttpLanguageHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpLanguageHeaderValueCollection> for &::windows::core::IInspectable {
-    fn from(value: &HttpLanguageHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpLanguageHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
 impl ::core::convert::TryFrom<HttpLanguageHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<super::super::super::Globalization::Language> {
     type Error = ::windows::core::Error;
@@ -5553,36 +5002,7 @@ unsafe impl ::windows::core::Interface for HttpLanguageRangeWithQualityHeaderVal
 impl ::windows::core::RuntimeName for HttpLanguageRangeWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue";
 }
-impl ::core::convert::From<HttpLanguageRangeWithQualityHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: HttpLanguageRangeWithQualityHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpLanguageRangeWithQualityHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: &HttpLanguageRangeWithQualityHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpLanguageRangeWithQualityHeaderValue> for &::windows::core::IUnknown {
-    fn from(value: &HttpLanguageRangeWithQualityHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpLanguageRangeWithQualityHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: HttpLanguageRangeWithQualityHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpLanguageRangeWithQualityHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: &HttpLanguageRangeWithQualityHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpLanguageRangeWithQualityHeaderValue> for &::windows::core::IInspectable {
-    fn from(value: &HttpLanguageRangeWithQualityHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpLanguageRangeWithQualityHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpLanguageRangeWithQualityHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -5776,36 +5196,7 @@ impl ::core::iter::IntoIterator for &HttpLanguageRangeWithQualityHeaderValueColl
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-impl ::core::convert::From<HttpLanguageRangeWithQualityHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: HttpLanguageRangeWithQualityHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpLanguageRangeWithQualityHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: &HttpLanguageRangeWithQualityHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpLanguageRangeWithQualityHeaderValueCollection> for &::windows::core::IUnknown {
-    fn from(value: &HttpLanguageRangeWithQualityHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpLanguageRangeWithQualityHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: HttpLanguageRangeWithQualityHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpLanguageRangeWithQualityHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: &HttpLanguageRangeWithQualityHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpLanguageRangeWithQualityHeaderValueCollection> for &::windows::core::IInspectable {
-    fn from(value: &HttpLanguageRangeWithQualityHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpLanguageRangeWithQualityHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpLanguageRangeWithQualityHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<HttpLanguageRangeWithQualityHeaderValue> {
     type Error = ::windows::core::Error;
@@ -5979,36 +5370,7 @@ unsafe impl ::windows::core::Interface for HttpMediaTypeHeaderValue {
 impl ::windows::core::RuntimeName for HttpMediaTypeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMediaTypeHeaderValue";
 }
-impl ::core::convert::From<HttpMediaTypeHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: HttpMediaTypeHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpMediaTypeHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: &HttpMediaTypeHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpMediaTypeHeaderValue> for &::windows::core::IUnknown {
-    fn from(value: &HttpMediaTypeHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpMediaTypeHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: HttpMediaTypeHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpMediaTypeHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: &HttpMediaTypeHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpMediaTypeHeaderValue> for &::windows::core::IInspectable {
-    fn from(value: &HttpMediaTypeHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpMediaTypeHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpMediaTypeHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -6163,36 +5525,7 @@ unsafe impl ::windows::core::Interface for HttpMediaTypeWithQualityHeaderValue {
 impl ::windows::core::RuntimeName for HttpMediaTypeWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue";
 }
-impl ::core::convert::From<HttpMediaTypeWithQualityHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: HttpMediaTypeWithQualityHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpMediaTypeWithQualityHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: &HttpMediaTypeWithQualityHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpMediaTypeWithQualityHeaderValue> for &::windows::core::IUnknown {
-    fn from(value: &HttpMediaTypeWithQualityHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpMediaTypeWithQualityHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: HttpMediaTypeWithQualityHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpMediaTypeWithQualityHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: &HttpMediaTypeWithQualityHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpMediaTypeWithQualityHeaderValue> for &::windows::core::IInspectable {
-    fn from(value: &HttpMediaTypeWithQualityHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpMediaTypeWithQualityHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpMediaTypeWithQualityHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -6386,36 +5719,7 @@ impl ::core::iter::IntoIterator for &HttpMediaTypeWithQualityHeaderValueCollecti
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-impl ::core::convert::From<HttpMediaTypeWithQualityHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: HttpMediaTypeWithQualityHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpMediaTypeWithQualityHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: &HttpMediaTypeWithQualityHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpMediaTypeWithQualityHeaderValueCollection> for &::windows::core::IUnknown {
-    fn from(value: &HttpMediaTypeWithQualityHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpMediaTypeWithQualityHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: HttpMediaTypeWithQualityHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpMediaTypeWithQualityHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: &HttpMediaTypeWithQualityHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpMediaTypeWithQualityHeaderValueCollection> for &::windows::core::IInspectable {
-    fn from(value: &HttpMediaTypeWithQualityHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpMediaTypeWithQualityHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpMediaTypeWithQualityHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<HttpMediaTypeWithQualityHeaderValue> {
     type Error = ::windows::core::Error;
@@ -6653,36 +5957,7 @@ impl ::core::iter::IntoIterator for &HttpMethodHeaderValueCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-impl ::core::convert::From<HttpMethodHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: HttpMethodHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpMethodHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: &HttpMethodHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpMethodHeaderValueCollection> for &::windows::core::IUnknown {
-    fn from(value: &HttpMethodHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpMethodHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: HttpMethodHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpMethodHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: &HttpMethodHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpMethodHeaderValueCollection> for &::windows::core::IInspectable {
-    fn from(value: &HttpMethodHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpMethodHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpMethodHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<super::HttpMethod> {
     type Error = ::windows::core::Error;
@@ -6849,36 +6124,7 @@ unsafe impl ::windows::core::Interface for HttpNameValueHeaderValue {
 impl ::windows::core::RuntimeName for HttpNameValueHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpNameValueHeaderValue";
 }
-impl ::core::convert::From<HttpNameValueHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: HttpNameValueHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpNameValueHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: &HttpNameValueHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpNameValueHeaderValue> for &::windows::core::IUnknown {
-    fn from(value: &HttpNameValueHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpNameValueHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: HttpNameValueHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpNameValueHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: &HttpNameValueHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpNameValueHeaderValue> for &::windows::core::IInspectable {
-    fn from(value: &HttpNameValueHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpNameValueHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpNameValueHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -6997,36 +6243,7 @@ unsafe impl ::windows::core::Interface for HttpProductHeaderValue {
 impl ::windows::core::RuntimeName for HttpProductHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpProductHeaderValue";
 }
-impl ::core::convert::From<HttpProductHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: HttpProductHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpProductHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: &HttpProductHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpProductHeaderValue> for &::windows::core::IUnknown {
-    fn from(value: &HttpProductHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpProductHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: HttpProductHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpProductHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: &HttpProductHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpProductHeaderValue> for &::windows::core::IInspectable {
-    fn from(value: &HttpProductHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpProductHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpProductHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -7145,36 +6362,7 @@ unsafe impl ::windows::core::Interface for HttpProductInfoHeaderValue {
 impl ::windows::core::RuntimeName for HttpProductInfoHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpProductInfoHeaderValue";
 }
-impl ::core::convert::From<HttpProductInfoHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: HttpProductInfoHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpProductInfoHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: &HttpProductInfoHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpProductInfoHeaderValue> for &::windows::core::IUnknown {
-    fn from(value: &HttpProductInfoHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpProductInfoHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: HttpProductInfoHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpProductInfoHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: &HttpProductInfoHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpProductInfoHeaderValue> for &::windows::core::IInspectable {
-    fn from(value: &HttpProductInfoHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpProductInfoHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpProductInfoHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -7368,36 +6556,7 @@ impl ::core::iter::IntoIterator for &HttpProductInfoHeaderValueCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-impl ::core::convert::From<HttpProductInfoHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: HttpProductInfoHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpProductInfoHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: &HttpProductInfoHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpProductInfoHeaderValueCollection> for &::windows::core::IUnknown {
-    fn from(value: &HttpProductInfoHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpProductInfoHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: HttpProductInfoHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpProductInfoHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: &HttpProductInfoHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpProductInfoHeaderValueCollection> for &::windows::core::IInspectable {
-    fn from(value: &HttpProductInfoHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpProductInfoHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpProductInfoHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<HttpProductInfoHeaderValue> {
     type Error = ::windows::core::Error;
@@ -7807,36 +6966,7 @@ impl ::core::iter::IntoIterator for &HttpRequestHeaderCollection {
         self.First().unwrap()
     }
 }
-impl ::core::convert::From<HttpRequestHeaderCollection> for ::windows::core::IUnknown {
-    fn from(value: HttpRequestHeaderCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpRequestHeaderCollection> for ::windows::core::IUnknown {
-    fn from(value: &HttpRequestHeaderCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpRequestHeaderCollection> for &::windows::core::IUnknown {
-    fn from(value: &HttpRequestHeaderCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpRequestHeaderCollection> for ::windows::core::IInspectable {
-    fn from(value: HttpRequestHeaderCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpRequestHeaderCollection> for ::windows::core::IInspectable {
-    fn from(value: &HttpRequestHeaderCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpRequestHeaderCollection> for &::windows::core::IInspectable {
-    fn from(value: &HttpRequestHeaderCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpRequestHeaderCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpRequestHeaderCollection> for super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
@@ -8150,36 +7280,7 @@ impl ::core::iter::IntoIterator for &HttpResponseHeaderCollection {
         self.First().unwrap()
     }
 }
-impl ::core::convert::From<HttpResponseHeaderCollection> for ::windows::core::IUnknown {
-    fn from(value: HttpResponseHeaderCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpResponseHeaderCollection> for ::windows::core::IUnknown {
-    fn from(value: &HttpResponseHeaderCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpResponseHeaderCollection> for &::windows::core::IUnknown {
-    fn from(value: &HttpResponseHeaderCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpResponseHeaderCollection> for ::windows::core::IInspectable {
-    fn from(value: HttpResponseHeaderCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpResponseHeaderCollection> for ::windows::core::IInspectable {
-    fn from(value: &HttpResponseHeaderCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpResponseHeaderCollection> for &::windows::core::IInspectable {
-    fn from(value: &HttpResponseHeaderCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpResponseHeaderCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpResponseHeaderCollection> for super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
@@ -8338,36 +7439,7 @@ unsafe impl ::windows::core::Interface for HttpTransferCodingHeaderValue {
 impl ::windows::core::RuntimeName for HttpTransferCodingHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpTransferCodingHeaderValue";
 }
-impl ::core::convert::From<HttpTransferCodingHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: HttpTransferCodingHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpTransferCodingHeaderValue> for ::windows::core::IUnknown {
-    fn from(value: &HttpTransferCodingHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpTransferCodingHeaderValue> for &::windows::core::IUnknown {
-    fn from(value: &HttpTransferCodingHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpTransferCodingHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: HttpTransferCodingHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpTransferCodingHeaderValue> for ::windows::core::IInspectable {
-    fn from(value: &HttpTransferCodingHeaderValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpTransferCodingHeaderValue> for &::windows::core::IInspectable {
-    fn from(value: &HttpTransferCodingHeaderValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpTransferCodingHeaderValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpTransferCodingHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -8561,36 +7633,7 @@ impl ::core::iter::IntoIterator for &HttpTransferCodingHeaderValueCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-impl ::core::convert::From<HttpTransferCodingHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: HttpTransferCodingHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpTransferCodingHeaderValueCollection> for ::windows::core::IUnknown {
-    fn from(value: &HttpTransferCodingHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpTransferCodingHeaderValueCollection> for &::windows::core::IUnknown {
-    fn from(value: &HttpTransferCodingHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpTransferCodingHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: HttpTransferCodingHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpTransferCodingHeaderValueCollection> for ::windows::core::IInspectable {
-    fn from(value: &HttpTransferCodingHeaderValueCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpTransferCodingHeaderValueCollection> for &::windows::core::IInspectable {
-    fn from(value: &HttpTransferCodingHeaderValueCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpTransferCodingHeaderValueCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpTransferCodingHeaderValueCollection> for super::super::super::Foundation::Collections::IIterable<HttpTransferCodingHeaderValue> {
     type Error = ::windows::core::Error;

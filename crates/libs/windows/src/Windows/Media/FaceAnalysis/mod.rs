@@ -188,36 +188,7 @@ unsafe impl ::windows::core::Interface for DetectedFace {
 impl ::windows::core::RuntimeName for DetectedFace {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.DetectedFace";
 }
-impl ::core::convert::From<DetectedFace> for ::windows::core::IUnknown {
-    fn from(value: DetectedFace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DetectedFace> for ::windows::core::IUnknown {
-    fn from(value: &DetectedFace) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DetectedFace> for &::windows::core::IUnknown {
-    fn from(value: &DetectedFace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DetectedFace> for ::windows::core::IInspectable {
-    fn from(value: DetectedFace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DetectedFace> for ::windows::core::IInspectable {
-    fn from(value: &DetectedFace) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DetectedFace> for &::windows::core::IInspectable {
-    fn from(value: &DetectedFace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DetectedFace, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DetectedFace {}
 unsafe impl ::core::marker::Sync for DetectedFace {}
 #[doc = "*Required features: `\"Media_FaceAnalysis\"`*"]
@@ -340,36 +311,7 @@ unsafe impl ::windows::core::Interface for FaceDetector {
 impl ::windows::core::RuntimeName for FaceDetector {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.FaceDetector";
 }
-impl ::core::convert::From<FaceDetector> for ::windows::core::IUnknown {
-    fn from(value: FaceDetector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FaceDetector> for ::windows::core::IUnknown {
-    fn from(value: &FaceDetector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FaceDetector> for &::windows::core::IUnknown {
-    fn from(value: &FaceDetector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FaceDetector> for ::windows::core::IInspectable {
-    fn from(value: FaceDetector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FaceDetector> for ::windows::core::IInspectable {
-    fn from(value: &FaceDetector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FaceDetector> for &::windows::core::IInspectable {
-    fn from(value: &FaceDetector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FaceDetector, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FaceDetector {}
 unsafe impl ::core::marker::Sync for FaceDetector {}
 #[doc = "*Required features: `\"Media_FaceAnalysis\"`*"]
@@ -483,36 +425,7 @@ unsafe impl ::windows::core::Interface for FaceTracker {
 impl ::windows::core::RuntimeName for FaceTracker {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.FaceTracker";
 }
-impl ::core::convert::From<FaceTracker> for ::windows::core::IUnknown {
-    fn from(value: FaceTracker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FaceTracker> for ::windows::core::IUnknown {
-    fn from(value: &FaceTracker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FaceTracker> for &::windows::core::IUnknown {
-    fn from(value: &FaceTracker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FaceTracker> for ::windows::core::IInspectable {
-    fn from(value: FaceTracker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FaceTracker> for ::windows::core::IInspectable {
-    fn from(value: &FaceTracker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FaceTracker> for &::windows::core::IInspectable {
-    fn from(value: &FaceTracker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FaceTracker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FaceTracker {}
 unsafe impl ::core::marker::Sync for FaceTracker {}
 #[cfg(feature = "implement")]

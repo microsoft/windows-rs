@@ -686,36 +686,7 @@ unsafe impl ::windows::core::Interface for BufferProtectUnprotectResult {
 impl ::windows::core::RuntimeName for BufferProtectUnprotectResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.BufferProtectUnprotectResult";
 }
-impl ::core::convert::From<BufferProtectUnprotectResult> for ::windows::core::IUnknown {
-    fn from(value: BufferProtectUnprotectResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BufferProtectUnprotectResult> for ::windows::core::IUnknown {
-    fn from(value: &BufferProtectUnprotectResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BufferProtectUnprotectResult> for &::windows::core::IUnknown {
-    fn from(value: &BufferProtectUnprotectResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BufferProtectUnprotectResult> for ::windows::core::IInspectable {
-    fn from(value: BufferProtectUnprotectResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BufferProtectUnprotectResult> for ::windows::core::IInspectable {
-    fn from(value: &BufferProtectUnprotectResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BufferProtectUnprotectResult> for &::windows::core::IInspectable {
-    fn from(value: &BufferProtectUnprotectResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BufferProtectUnprotectResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BufferProtectUnprotectResult {}
 unsafe impl ::core::marker::Sync for BufferProtectUnprotectResult {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -769,36 +740,7 @@ unsafe impl ::windows::core::Interface for DataProtectionInfo {
 impl ::windows::core::RuntimeName for DataProtectionInfo {
     const NAME: &'static str = "Windows.Security.EnterpriseData.DataProtectionInfo";
 }
-impl ::core::convert::From<DataProtectionInfo> for ::windows::core::IUnknown {
-    fn from(value: DataProtectionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DataProtectionInfo> for ::windows::core::IUnknown {
-    fn from(value: &DataProtectionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DataProtectionInfo> for &::windows::core::IUnknown {
-    fn from(value: &DataProtectionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DataProtectionInfo> for ::windows::core::IInspectable {
-    fn from(value: DataProtectionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DataProtectionInfo> for ::windows::core::IInspectable {
-    fn from(value: &DataProtectionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DataProtectionInfo> for &::windows::core::IInspectable {
-    fn from(value: &DataProtectionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DataProtectionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DataProtectionInfo {}
 unsafe impl ::core::marker::Sync for DataProtectionInfo {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -954,36 +896,7 @@ unsafe impl ::windows::core::Interface for FileProtectionInfo {
 impl ::windows::core::RuntimeName for FileProtectionInfo {
     const NAME: &'static str = "Windows.Security.EnterpriseData.FileProtectionInfo";
 }
-impl ::core::convert::From<FileProtectionInfo> for ::windows::core::IUnknown {
-    fn from(value: FileProtectionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileProtectionInfo> for ::windows::core::IUnknown {
-    fn from(value: &FileProtectionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileProtectionInfo> for &::windows::core::IUnknown {
-    fn from(value: &FileProtectionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileProtectionInfo> for ::windows::core::IInspectable {
-    fn from(value: FileProtectionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileProtectionInfo> for ::windows::core::IInspectable {
-    fn from(value: &FileProtectionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileProtectionInfo> for &::windows::core::IInspectable {
-    fn from(value: &FileProtectionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FileProtectionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FileProtectionInfo {}
 unsafe impl ::core::marker::Sync for FileProtectionInfo {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -1278,36 +1191,7 @@ unsafe impl ::windows::core::Interface for FileUnprotectOptions {
 impl ::windows::core::RuntimeName for FileUnprotectOptions {
     const NAME: &'static str = "Windows.Security.EnterpriseData.FileUnprotectOptions";
 }
-impl ::core::convert::From<FileUnprotectOptions> for ::windows::core::IUnknown {
-    fn from(value: FileUnprotectOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileUnprotectOptions> for ::windows::core::IUnknown {
-    fn from(value: &FileUnprotectOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileUnprotectOptions> for &::windows::core::IUnknown {
-    fn from(value: &FileUnprotectOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileUnprotectOptions> for ::windows::core::IInspectable {
-    fn from(value: FileUnprotectOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileUnprotectOptions> for ::windows::core::IInspectable {
-    fn from(value: &FileUnprotectOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileUnprotectOptions> for &::windows::core::IInspectable {
-    fn from(value: &FileUnprotectOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FileUnprotectOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FileUnprotectOptions {}
 unsafe impl ::core::marker::Sync for FileUnprotectOptions {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -1356,36 +1240,7 @@ unsafe impl ::windows::core::Interface for ProtectedAccessResumedEventArgs {
 impl ::windows::core::RuntimeName for ProtectedAccessResumedEventArgs {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedAccessResumedEventArgs";
 }
-impl ::core::convert::From<ProtectedAccessResumedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ProtectedAccessResumedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtectedAccessResumedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ProtectedAccessResumedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtectedAccessResumedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ProtectedAccessResumedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProtectedAccessResumedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ProtectedAccessResumedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtectedAccessResumedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ProtectedAccessResumedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtectedAccessResumedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ProtectedAccessResumedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProtectedAccessResumedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProtectedAccessResumedEventArgs {}
 unsafe impl ::core::marker::Sync for ProtectedAccessResumedEventArgs {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -1452,36 +1307,7 @@ unsafe impl ::windows::core::Interface for ProtectedAccessSuspendingEventArgs {
 impl ::windows::core::RuntimeName for ProtectedAccessSuspendingEventArgs {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedAccessSuspendingEventArgs";
 }
-impl ::core::convert::From<ProtectedAccessSuspendingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ProtectedAccessSuspendingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtectedAccessSuspendingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ProtectedAccessSuspendingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtectedAccessSuspendingEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ProtectedAccessSuspendingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProtectedAccessSuspendingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ProtectedAccessSuspendingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtectedAccessSuspendingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ProtectedAccessSuspendingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtectedAccessSuspendingEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ProtectedAccessSuspendingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProtectedAccessSuspendingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProtectedAccessSuspendingEventArgs {}
 unsafe impl ::core::marker::Sync for ProtectedAccessSuspendingEventArgs {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -1537,36 +1363,7 @@ unsafe impl ::windows::core::Interface for ProtectedContainerExportResult {
 impl ::windows::core::RuntimeName for ProtectedContainerExportResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedContainerExportResult";
 }
-impl ::core::convert::From<ProtectedContainerExportResult> for ::windows::core::IUnknown {
-    fn from(value: ProtectedContainerExportResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtectedContainerExportResult> for ::windows::core::IUnknown {
-    fn from(value: &ProtectedContainerExportResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtectedContainerExportResult> for &::windows::core::IUnknown {
-    fn from(value: &ProtectedContainerExportResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProtectedContainerExportResult> for ::windows::core::IInspectable {
-    fn from(value: ProtectedContainerExportResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtectedContainerExportResult> for ::windows::core::IInspectable {
-    fn from(value: &ProtectedContainerExportResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtectedContainerExportResult> for &::windows::core::IInspectable {
-    fn from(value: &ProtectedContainerExportResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProtectedContainerExportResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProtectedContainerExportResult {}
 unsafe impl ::core::marker::Sync for ProtectedContainerExportResult {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -1622,36 +1419,7 @@ unsafe impl ::windows::core::Interface for ProtectedContainerImportResult {
 impl ::windows::core::RuntimeName for ProtectedContainerImportResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedContainerImportResult";
 }
-impl ::core::convert::From<ProtectedContainerImportResult> for ::windows::core::IUnknown {
-    fn from(value: ProtectedContainerImportResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtectedContainerImportResult> for ::windows::core::IUnknown {
-    fn from(value: &ProtectedContainerImportResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtectedContainerImportResult> for &::windows::core::IUnknown {
-    fn from(value: &ProtectedContainerImportResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProtectedContainerImportResult> for ::windows::core::IInspectable {
-    fn from(value: ProtectedContainerImportResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtectedContainerImportResult> for ::windows::core::IInspectable {
-    fn from(value: &ProtectedContainerImportResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtectedContainerImportResult> for &::windows::core::IInspectable {
-    fn from(value: &ProtectedContainerImportResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProtectedContainerImportResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProtectedContainerImportResult {}
 unsafe impl ::core::marker::Sync for ProtectedContainerImportResult {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -1700,36 +1468,7 @@ unsafe impl ::windows::core::Interface for ProtectedContentRevokedEventArgs {
 impl ::windows::core::RuntimeName for ProtectedContentRevokedEventArgs {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedContentRevokedEventArgs";
 }
-impl ::core::convert::From<ProtectedContentRevokedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ProtectedContentRevokedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtectedContentRevokedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ProtectedContentRevokedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtectedContentRevokedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ProtectedContentRevokedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProtectedContentRevokedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ProtectedContentRevokedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtectedContentRevokedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ProtectedContentRevokedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtectedContentRevokedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ProtectedContentRevokedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProtectedContentRevokedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProtectedContentRevokedEventArgs {}
 unsafe impl ::core::marker::Sync for ProtectedContentRevokedEventArgs {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -1794,36 +1533,7 @@ unsafe impl ::windows::core::Interface for ProtectedFileCreateResult {
 impl ::windows::core::RuntimeName for ProtectedFileCreateResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedFileCreateResult";
 }
-impl ::core::convert::From<ProtectedFileCreateResult> for ::windows::core::IUnknown {
-    fn from(value: ProtectedFileCreateResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtectedFileCreateResult> for ::windows::core::IUnknown {
-    fn from(value: &ProtectedFileCreateResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtectedFileCreateResult> for &::windows::core::IUnknown {
-    fn from(value: &ProtectedFileCreateResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProtectedFileCreateResult> for ::windows::core::IInspectable {
-    fn from(value: ProtectedFileCreateResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtectedFileCreateResult> for ::windows::core::IInspectable {
-    fn from(value: &ProtectedFileCreateResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtectedFileCreateResult> for &::windows::core::IInspectable {
-    fn from(value: &ProtectedFileCreateResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProtectedFileCreateResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProtectedFileCreateResult {}
 unsafe impl ::core::marker::Sync for ProtectedFileCreateResult {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -1924,36 +1634,7 @@ unsafe impl ::windows::core::Interface for ProtectionPolicyAuditInfo {
 impl ::windows::core::RuntimeName for ProtectionPolicyAuditInfo {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectionPolicyAuditInfo";
 }
-impl ::core::convert::From<ProtectionPolicyAuditInfo> for ::windows::core::IUnknown {
-    fn from(value: ProtectionPolicyAuditInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtectionPolicyAuditInfo> for ::windows::core::IUnknown {
-    fn from(value: &ProtectionPolicyAuditInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtectionPolicyAuditInfo> for &::windows::core::IUnknown {
-    fn from(value: &ProtectionPolicyAuditInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProtectionPolicyAuditInfo> for ::windows::core::IInspectable {
-    fn from(value: ProtectionPolicyAuditInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtectionPolicyAuditInfo> for ::windows::core::IInspectable {
-    fn from(value: &ProtectionPolicyAuditInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtectionPolicyAuditInfo> for &::windows::core::IInspectable {
-    fn from(value: &ProtectionPolicyAuditInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProtectionPolicyAuditInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProtectionPolicyAuditInfo {}
 unsafe impl ::core::marker::Sync for ProtectionPolicyAuditInfo {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -2326,36 +2007,7 @@ unsafe impl ::windows::core::Interface for ProtectionPolicyManager {
 impl ::windows::core::RuntimeName for ProtectionPolicyManager {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectionPolicyManager";
 }
-impl ::core::convert::From<ProtectionPolicyManager> for ::windows::core::IUnknown {
-    fn from(value: ProtectionPolicyManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtectionPolicyManager> for ::windows::core::IUnknown {
-    fn from(value: &ProtectionPolicyManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtectionPolicyManager> for &::windows::core::IUnknown {
-    fn from(value: &ProtectionPolicyManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProtectionPolicyManager> for ::windows::core::IInspectable {
-    fn from(value: ProtectionPolicyManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtectionPolicyManager> for ::windows::core::IInspectable {
-    fn from(value: &ProtectionPolicyManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtectionPolicyManager> for &::windows::core::IInspectable {
-    fn from(value: &ProtectionPolicyManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProtectionPolicyManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProtectionPolicyManager {}
 unsafe impl ::core::marker::Sync for ProtectionPolicyManager {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
@@ -2401,36 +2053,7 @@ unsafe impl ::windows::core::Interface for ThreadNetworkContext {
 impl ::windows::core::RuntimeName for ThreadNetworkContext {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ThreadNetworkContext";
 }
-impl ::core::convert::From<ThreadNetworkContext> for ::windows::core::IUnknown {
-    fn from(value: ThreadNetworkContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ThreadNetworkContext> for ::windows::core::IUnknown {
-    fn from(value: &ThreadNetworkContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ThreadNetworkContext> for &::windows::core::IUnknown {
-    fn from(value: &ThreadNetworkContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ThreadNetworkContext> for ::windows::core::IInspectable {
-    fn from(value: ThreadNetworkContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ThreadNetworkContext> for ::windows::core::IInspectable {
-    fn from(value: &ThreadNetworkContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ThreadNetworkContext> for &::windows::core::IInspectable {
-    fn from(value: &ThreadNetworkContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ThreadNetworkContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ThreadNetworkContext> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;

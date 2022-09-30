@@ -4230,21 +4230,7 @@ impl IAssemblyCache {
         (::windows::core::Vtable::vtable(self).InstallAssembly)(::windows::core::Vtable::as_raw(self), dwflags, pszmanifestfilepath.into(), ::core::mem::transmute(prefdata)).ok()
     }
 }
-impl ::core::convert::From<IAssemblyCache> for ::windows::core::IUnknown {
-    fn from(value: IAssemblyCache) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAssemblyCache> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAssemblyCache) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAssemblyCache> for ::windows::core::IUnknown {
-    fn from(value: &IAssemblyCache) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAssemblyCache, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAssemblyCache {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4296,21 +4282,7 @@ impl IAssemblyCacheItem {
         (::windows::core::Vtable::vtable(self).AbortItem)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IAssemblyCacheItem> for ::windows::core::IUnknown {
-    fn from(value: IAssemblyCacheItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAssemblyCacheItem> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAssemblyCacheItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAssemblyCacheItem> for ::windows::core::IUnknown {
-    fn from(value: &IAssemblyCacheItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAssemblyCacheItem, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAssemblyCacheItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4385,21 +4357,7 @@ impl IAssemblyName {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAssemblyName>(result__)
     }
 }
-impl ::core::convert::From<IAssemblyName> for ::windows::core::IUnknown {
-    fn from(value: IAssemblyName) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAssemblyName> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAssemblyName) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAssemblyName> for ::windows::core::IUnknown {
-    fn from(value: &IAssemblyName) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAssemblyName, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAssemblyName {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4456,21 +4414,7 @@ impl IEnumMsmDependency {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumMsmDependency>(result__)
     }
 }
-impl ::core::convert::From<IEnumMsmDependency> for ::windows::core::IUnknown {
-    fn from(value: IEnumMsmDependency) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumMsmDependency> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumMsmDependency) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumMsmDependency> for ::windows::core::IUnknown {
-    fn from(value: &IEnumMsmDependency) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumMsmDependency, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumMsmDependency {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4525,21 +4469,7 @@ impl IEnumMsmError {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumMsmError>(result__)
     }
 }
-impl ::core::convert::From<IEnumMsmError> for ::windows::core::IUnknown {
-    fn from(value: IEnumMsmError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumMsmError> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumMsmError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumMsmError> for ::windows::core::IUnknown {
-    fn from(value: &IEnumMsmError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumMsmError, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumMsmError {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4592,21 +4522,7 @@ impl IEnumMsmString {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumMsmString>(result__)
     }
 }
-impl ::core::convert::From<IEnumMsmString> for ::windows::core::IUnknown {
-    fn from(value: IEnumMsmString) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumMsmString> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumMsmString) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumMsmString> for ::windows::core::IUnknown {
-    fn from(value: &IEnumMsmString) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumMsmString, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumMsmString {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4659,41 +4575,7 @@ impl IMsmDependencies {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMsmDependencies> for ::windows::core::IUnknown {
-    fn from(value: IMsmDependencies) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMsmDependencies> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMsmDependencies) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMsmDependencies> for ::windows::core::IUnknown {
-    fn from(value: &IMsmDependencies) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMsmDependencies> for super::Com::IDispatch {
-    fn from(value: IMsmDependencies) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMsmDependencies> for &'a super::Com::IDispatch {
-    fn from(value: &'a IMsmDependencies) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMsmDependencies> for super::Com::IDispatch {
-    fn from(value: &IMsmDependencies) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMsmDependencies, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IMsmDependencies {
     fn clone(&self) -> Self {
@@ -4751,41 +4633,7 @@ impl IMsmDependency {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMsmDependency> for ::windows::core::IUnknown {
-    fn from(value: IMsmDependency) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMsmDependency> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMsmDependency) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMsmDependency> for ::windows::core::IUnknown {
-    fn from(value: &IMsmDependency) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMsmDependency> for super::Com::IDispatch {
-    fn from(value: IMsmDependency) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMsmDependency> for &'a super::Com::IDispatch {
-    fn from(value: &'a IMsmDependency) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMsmDependency> for super::Com::IDispatch {
-    fn from(value: &IMsmDependency) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMsmDependency, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IMsmDependency {
     fn clone(&self) -> Self {
@@ -4858,41 +4706,7 @@ impl IMsmError {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMsmError> for ::windows::core::IUnknown {
-    fn from(value: IMsmError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMsmError> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMsmError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMsmError> for ::windows::core::IUnknown {
-    fn from(value: &IMsmError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMsmError> for super::Com::IDispatch {
-    fn from(value: IMsmError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMsmError> for &'a super::Com::IDispatch {
-    fn from(value: &'a IMsmError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMsmError> for super::Com::IDispatch {
-    fn from(value: &IMsmError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMsmError, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IMsmError {
     fn clone(&self) -> Self {
@@ -4961,41 +4775,7 @@ impl IMsmErrors {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMsmErrors> for ::windows::core::IUnknown {
-    fn from(value: IMsmErrors) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMsmErrors> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMsmErrors) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMsmErrors> for ::windows::core::IUnknown {
-    fn from(value: &IMsmErrors) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMsmErrors> for super::Com::IDispatch {
-    fn from(value: IMsmErrors) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMsmErrors> for &'a super::Com::IDispatch {
-    fn from(value: &'a IMsmErrors) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMsmErrors> for super::Com::IDispatch {
-    fn from(value: &IMsmErrors) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMsmErrors, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IMsmErrors {
     fn clone(&self) -> Self {
@@ -5050,41 +4830,7 @@ impl IMsmGetFiles {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMsmGetFiles> for ::windows::core::IUnknown {
-    fn from(value: IMsmGetFiles) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMsmGetFiles> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMsmGetFiles) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMsmGetFiles> for ::windows::core::IUnknown {
-    fn from(value: &IMsmGetFiles) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMsmGetFiles> for super::Com::IDispatch {
-    fn from(value: IMsmGetFiles) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMsmGetFiles> for &'a super::Com::IDispatch {
-    fn from(value: &'a IMsmGetFiles) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMsmGetFiles> for super::Com::IDispatch {
-    fn from(value: &IMsmGetFiles) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMsmGetFiles, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IMsmGetFiles {
     fn clone(&self) -> Self {
@@ -5176,41 +4922,7 @@ impl IMsmMerge {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMsmMerge> for ::windows::core::IUnknown {
-    fn from(value: IMsmMerge) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMsmMerge> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMsmMerge) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMsmMerge> for ::windows::core::IUnknown {
-    fn from(value: &IMsmMerge) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMsmMerge> for super::Com::IDispatch {
-    fn from(value: IMsmMerge) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMsmMerge> for &'a super::Com::IDispatch {
-    fn from(value: &'a IMsmMerge) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMsmMerge> for super::Com::IDispatch {
-    fn from(value: &IMsmMerge) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMsmMerge, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IMsmMerge {
     fn clone(&self) -> Self {
@@ -5282,41 +4994,7 @@ impl IMsmStrings {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMsmStrings> for ::windows::core::IUnknown {
-    fn from(value: IMsmStrings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMsmStrings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMsmStrings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMsmStrings> for ::windows::core::IUnknown {
-    fn from(value: &IMsmStrings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMsmStrings> for super::Com::IDispatch {
-    fn from(value: IMsmStrings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMsmStrings> for &'a super::Com::IDispatch {
-    fn from(value: &'a IMsmStrings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMsmStrings> for super::Com::IDispatch {
-    fn from(value: &IMsmStrings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMsmStrings, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IMsmStrings {
     fn clone(&self) -> Self {
@@ -5635,21 +5313,7 @@ impl IPMApplicationInfo {
         (::windows::core::Vtable::vtable(self).set_Title)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(apptitle)).ok()
     }
 }
-impl ::core::convert::From<IPMApplicationInfo> for ::windows::core::IUnknown {
-    fn from(value: IPMApplicationInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMApplicationInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMApplicationInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMApplicationInfo> for ::windows::core::IUnknown {
-    fn from(value: &IPMApplicationInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMApplicationInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMApplicationInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5828,21 +5492,7 @@ impl IPMApplicationInfoEnumerator {
         (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPMApplicationInfo>(result__)
     }
 }
-impl ::core::convert::From<IPMApplicationInfoEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IPMApplicationInfoEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMApplicationInfoEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMApplicationInfoEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMApplicationInfoEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IPMApplicationInfoEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMApplicationInfoEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMApplicationInfoEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5942,21 +5592,7 @@ impl IPMBackgroundServiceAgentInfo {
         (::windows::core::Vtable::vtable(self).set_IsScheduleAllowed)(::windows::core::Vtable::as_raw(self), isscheduleallowed.into()).ok()
     }
 }
-impl ::core::convert::From<IPMBackgroundServiceAgentInfo> for ::windows::core::IUnknown {
-    fn from(value: IPMBackgroundServiceAgentInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMBackgroundServiceAgentInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMBackgroundServiceAgentInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMBackgroundServiceAgentInfo> for ::windows::core::IUnknown {
-    fn from(value: &IPMBackgroundServiceAgentInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMBackgroundServiceAgentInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMBackgroundServiceAgentInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6025,21 +5661,7 @@ impl IPMBackgroundServiceAgentInfoEnumerator {
         (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPMBackgroundServiceAgentInfo>(result__)
     }
 }
-impl ::core::convert::From<IPMBackgroundServiceAgentInfoEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IPMBackgroundServiceAgentInfoEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMBackgroundServiceAgentInfoEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMBackgroundServiceAgentInfoEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMBackgroundServiceAgentInfoEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IPMBackgroundServiceAgentInfoEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMBackgroundServiceAgentInfoEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMBackgroundServiceAgentInfoEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6097,21 +5719,7 @@ impl IPMBackgroundWorkerInfo {
         (::windows::core::Vtable::vtable(self).IsBootWorker)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IPMBackgroundWorkerInfo> for ::windows::core::IUnknown {
-    fn from(value: IPMBackgroundWorkerInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMBackgroundWorkerInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMBackgroundWorkerInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMBackgroundWorkerInfo> for ::windows::core::IUnknown {
-    fn from(value: &IPMBackgroundWorkerInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMBackgroundWorkerInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMBackgroundWorkerInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6157,21 +5765,7 @@ impl IPMBackgroundWorkerInfoEnumerator {
         (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPMBackgroundWorkerInfo>(result__)
     }
 }
-impl ::core::convert::From<IPMBackgroundWorkerInfoEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IPMBackgroundWorkerInfoEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMBackgroundWorkerInfoEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMBackgroundWorkerInfoEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMBackgroundWorkerInfoEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IPMBackgroundWorkerInfoEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMBackgroundWorkerInfoEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMBackgroundWorkerInfoEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6358,21 +5952,7 @@ impl IPMDeploymentManager {
         (::windows::core::Vtable::vtable(self).FixJunctionsForAppsOnSDCard)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IPMDeploymentManager> for ::windows::core::IUnknown {
-    fn from(value: IPMDeploymentManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMDeploymentManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMDeploymentManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMDeploymentManager> for ::windows::core::IUnknown {
-    fn from(value: &IPMDeploymentManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMDeploymentManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMDeploymentManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6552,21 +6132,7 @@ impl IPMEnumerationManager {
         (::windows::core::Vtable::vtable(self).get_StartAppEnumeratorBlob)(::windows::core::Vtable::as_raw(self), filter.into().abi(), ::core::mem::transmute(pcapps), ::core::mem::transmute(ppappblobs)).ok()
     }
 }
-impl ::core::convert::From<IPMEnumerationManager> for ::windows::core::IUnknown {
-    fn from(value: IPMEnumerationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMEnumerationManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMEnumerationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMEnumerationManager> for ::windows::core::IUnknown {
-    fn from(value: &IPMEnumerationManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMEnumerationManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMEnumerationManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6629,21 +6195,7 @@ impl IPMExtensionCachedFileUpdaterInfo {
         (::windows::core::Vtable::vtable(self).SupportsUpdates)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IPMExtensionCachedFileUpdaterInfo> for ::windows::core::IUnknown {
-    fn from(value: IPMExtensionCachedFileUpdaterInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMExtensionCachedFileUpdaterInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMExtensionCachedFileUpdaterInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMExtensionCachedFileUpdaterInfo> for ::windows::core::IUnknown {
-    fn from(value: &IPMExtensionCachedFileUpdaterInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMExtensionCachedFileUpdaterInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMExtensionCachedFileUpdaterInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6683,21 +6235,7 @@ impl IPMExtensionContractInfo {
         (::windows::core::Vtable::vtable(self).get_InvocationInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(paumid), ::core::mem::transmute(pargs)).ok()
     }
 }
-impl ::core::convert::From<IPMExtensionContractInfo> for ::windows::core::IUnknown {
-    fn from(value: IPMExtensionContractInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMExtensionContractInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMExtensionContractInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMExtensionContractInfo> for ::windows::core::IUnknown {
-    fn from(value: &IPMExtensionContractInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMExtensionContractInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMExtensionContractInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6752,21 +6290,7 @@ impl IPMExtensionFileExtensionInfo {
         (::windows::core::Vtable::vtable(self).get_AllFileTypes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcbtypes), ::core::mem::transmute(pptypes)).ok()
     }
 }
-impl ::core::convert::From<IPMExtensionFileExtensionInfo> for ::windows::core::IUnknown {
-    fn from(value: IPMExtensionFileExtensionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMExtensionFileExtensionInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMExtensionFileExtensionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMExtensionFileExtensionInfo> for ::windows::core::IUnknown {
-    fn from(value: &IPMExtensionFileExtensionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMExtensionFileExtensionInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMExtensionFileExtensionInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6815,21 +6339,7 @@ impl IPMExtensionFileOpenPickerInfo {
         (::windows::core::Vtable::vtable(self).SupportsAllFileTypes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IPMExtensionFileOpenPickerInfo> for ::windows::core::IUnknown {
-    fn from(value: IPMExtensionFileOpenPickerInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMExtensionFileOpenPickerInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMExtensionFileOpenPickerInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMExtensionFileOpenPickerInfo> for ::windows::core::IUnknown {
-    fn from(value: &IPMExtensionFileOpenPickerInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMExtensionFileOpenPickerInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMExtensionFileOpenPickerInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6876,21 +6386,7 @@ impl IPMExtensionFileSavePickerInfo {
         (::windows::core::Vtable::vtable(self).SupportsAllFileTypes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IPMExtensionFileSavePickerInfo> for ::windows::core::IUnknown {
-    fn from(value: IPMExtensionFileSavePickerInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMExtensionFileSavePickerInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMExtensionFileSavePickerInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMExtensionFileSavePickerInfo> for ::windows::core::IUnknown {
-    fn from(value: &IPMExtensionFileSavePickerInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMExtensionFileSavePickerInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMExtensionFileSavePickerInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6947,21 +6443,7 @@ impl IPMExtensionInfo {
         (::windows::core::Vtable::vtable(self).get_InvocationInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pimageurn), ::core::mem::transmute(pparameters)).ok()
     }
 }
-impl ::core::convert::From<IPMExtensionInfo> for ::windows::core::IUnknown {
-    fn from(value: IPMExtensionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMExtensionInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMExtensionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMExtensionInfo> for ::windows::core::IUnknown {
-    fn from(value: &IPMExtensionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMExtensionInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMExtensionInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7004,21 +6486,7 @@ impl IPMExtensionInfoEnumerator {
         (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPMExtensionInfo>(result__)
     }
 }
-impl ::core::convert::From<IPMExtensionInfoEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IPMExtensionInfoEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMExtensionInfoEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMExtensionInfoEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMExtensionInfoEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IPMExtensionInfoEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMExtensionInfoEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMExtensionInfoEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7058,21 +6526,7 @@ impl IPMExtensionProtocolInfo {
         (::windows::core::Vtable::vtable(self).get_InvocationInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pimageurn), ::core::mem::transmute(pparameters)).ok()
     }
 }
-impl ::core::convert::From<IPMExtensionProtocolInfo> for ::windows::core::IUnknown {
-    fn from(value: IPMExtensionProtocolInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMExtensionProtocolInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMExtensionProtocolInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMExtensionProtocolInfo> for ::windows::core::IUnknown {
-    fn from(value: &IPMExtensionProtocolInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMExtensionProtocolInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMExtensionProtocolInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7119,21 +6573,7 @@ impl IPMExtensionShareTargetInfo {
         (::windows::core::Vtable::vtable(self).SupportsAllFileTypes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IPMExtensionShareTargetInfo> for ::windows::core::IUnknown {
-    fn from(value: IPMExtensionShareTargetInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMExtensionShareTargetInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMExtensionShareTargetInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMExtensionShareTargetInfo> for ::windows::core::IUnknown {
-    fn from(value: &IPMExtensionShareTargetInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMExtensionShareTargetInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMExtensionShareTargetInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7269,21 +6709,7 @@ impl IPMLiveTileJobInfo {
         (::windows::core::Vtable::vtable(self).set_DownloadState)(::windows::core::Vtable::as_raw(self), uldownloadstate).ok()
     }
 }
-impl ::core::convert::From<IPMLiveTileJobInfo> for ::windows::core::IUnknown {
-    fn from(value: IPMLiveTileJobInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMLiveTileJobInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMLiveTileJobInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMLiveTileJobInfo> for ::windows::core::IUnknown {
-    fn from(value: &IPMLiveTileJobInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMLiveTileJobInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMLiveTileJobInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7362,21 +6788,7 @@ impl IPMLiveTileJobInfoEnumerator {
         (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPMLiveTileJobInfo>(result__)
     }
 }
-impl ::core::convert::From<IPMLiveTileJobInfoEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IPMLiveTileJobInfoEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMLiveTileJobInfoEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMLiveTileJobInfoEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMLiveTileJobInfoEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IPMLiveTileJobInfoEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMLiveTileJobInfoEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMLiveTileJobInfoEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7493,21 +6905,7 @@ impl IPMTaskInfo {
         (::windows::core::Vtable::vtable(self).IsOptedForExtendedMem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IPMTaskInfo> for ::windows::core::IUnknown {
-    fn from(value: IPMTaskInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMTaskInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMTaskInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMTaskInfo> for ::windows::core::IUnknown {
-    fn from(value: &IPMTaskInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMTaskInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMTaskInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7577,21 +6975,7 @@ impl IPMTaskInfoEnumerator {
         (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPMTaskInfo>(result__)
     }
 }
-impl ::core::convert::From<IPMTaskInfoEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IPMTaskInfoEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMTaskInfoEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMTaskInfoEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMTaskInfoEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IPMTaskInfoEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMTaskInfoEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMTaskInfoEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7744,21 +7128,7 @@ impl IPMTileInfo {
         (::windows::core::Vtable::vtable(self).set_IsAutoRestoreDisabled)(::windows::core::Vtable::as_raw(self), autorestoredisabled.into()).ok()
     }
 }
-impl ::core::convert::From<IPMTileInfo> for ::windows::core::IUnknown {
-    fn from(value: IPMTileInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMTileInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMTileInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMTileInfo> for ::windows::core::IUnknown {
-    fn from(value: &IPMTileInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMTileInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMTileInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7852,21 +7222,7 @@ impl IPMTileInfoEnumerator {
         (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPMTileInfo>(result__)
     }
 }
-impl ::core::convert::From<IPMTileInfoEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IPMTileInfoEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMTileInfoEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMTileInfoEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMTileInfoEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IPMTileInfoEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMTileInfoEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMTileInfoEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7904,21 +7260,7 @@ impl IPMTilePropertyEnumerator {
         (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPMTilePropertyInfo>(result__)
     }
 }
-impl ::core::convert::From<IPMTilePropertyEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IPMTilePropertyEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMTilePropertyEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMTilePropertyEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMTilePropertyEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IPMTilePropertyEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMTilePropertyEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMTilePropertyEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7962,21 +7304,7 @@ impl IPMTilePropertyInfo {
         (::windows::core::Vtable::vtable(self).set_Property)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(propvalue)).ok()
     }
 }
-impl ::core::convert::From<IPMTilePropertyInfo> for ::windows::core::IUnknown {
-    fn from(value: IPMTilePropertyInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPMTilePropertyInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPMTilePropertyInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPMTilePropertyInfo> for ::windows::core::IUnknown {
-    fn from(value: &IPMTilePropertyInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPMTilePropertyInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPMTilePropertyInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8046,21 +7374,7 @@ impl IValidate {
         (::windows::core::Vtable::vtable(self).Validate)(::windows::core::Vtable::as_raw(self), wzices.into()).ok()
     }
 }
-impl ::core::convert::From<IValidate> for ::windows::core::IUnknown {
-    fn from(value: IValidate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IValidate> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IValidate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IValidate> for ::windows::core::IUnknown {
-    fn from(value: &IValidate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IValidate, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IValidate {
     fn clone(&self) -> Self {
         Self(self.0.clone())

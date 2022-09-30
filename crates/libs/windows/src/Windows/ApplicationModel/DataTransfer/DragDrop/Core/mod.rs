@@ -190,36 +190,7 @@ impl ICoreDropOperationTarget {
         }
     }
 }
-impl ::core::convert::From<ICoreDropOperationTarget> for ::windows::core::IUnknown {
-    fn from(value: ICoreDropOperationTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICoreDropOperationTarget> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICoreDropOperationTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICoreDropOperationTarget> for ::windows::core::IUnknown {
-    fn from(value: &ICoreDropOperationTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICoreDropOperationTarget> for ::windows::core::IInspectable {
-    fn from(value: ICoreDropOperationTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICoreDropOperationTarget> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ICoreDropOperationTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICoreDropOperationTarget> for ::windows::core::IInspectable {
-    fn from(value: &ICoreDropOperationTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICoreDropOperationTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ICoreDropOperationTarget {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -359,36 +330,7 @@ unsafe impl ::windows::core::Interface for CoreDragDropManager {
 impl ::windows::core::RuntimeName for CoreDragDropManager {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragDropManager";
 }
-impl ::core::convert::From<CoreDragDropManager> for ::windows::core::IUnknown {
-    fn from(value: CoreDragDropManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreDragDropManager> for ::windows::core::IUnknown {
-    fn from(value: &CoreDragDropManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreDragDropManager> for &::windows::core::IUnknown {
-    fn from(value: &CoreDragDropManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreDragDropManager> for ::windows::core::IInspectable {
-    fn from(value: CoreDragDropManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreDragDropManager> for ::windows::core::IInspectable {
-    fn from(value: &CoreDragDropManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreDragDropManager> for &::windows::core::IInspectable {
-    fn from(value: &CoreDragDropManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreDragDropManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreDragDropManager {}
 unsafe impl ::core::marker::Sync for CoreDragDropManager {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer_DragDrop_Core\"`*"]
@@ -458,36 +400,7 @@ unsafe impl ::windows::core::Interface for CoreDragInfo {
 impl ::windows::core::RuntimeName for CoreDragInfo {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragInfo";
 }
-impl ::core::convert::From<CoreDragInfo> for ::windows::core::IUnknown {
-    fn from(value: CoreDragInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreDragInfo> for ::windows::core::IUnknown {
-    fn from(value: &CoreDragInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreDragInfo> for &::windows::core::IUnknown {
-    fn from(value: &CoreDragInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreDragInfo> for ::windows::core::IInspectable {
-    fn from(value: CoreDragInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreDragInfo> for ::windows::core::IInspectable {
-    fn from(value: &CoreDragInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreDragInfo> for &::windows::core::IInspectable {
-    fn from(value: &CoreDragInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreDragInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreDragInfo {}
 unsafe impl ::core::marker::Sync for CoreDragInfo {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer_DragDrop_Core\"`*"]
@@ -588,36 +501,7 @@ unsafe impl ::windows::core::Interface for CoreDragOperation {
 impl ::windows::core::RuntimeName for CoreDragOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragOperation";
 }
-impl ::core::convert::From<CoreDragOperation> for ::windows::core::IUnknown {
-    fn from(value: CoreDragOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreDragOperation> for ::windows::core::IUnknown {
-    fn from(value: &CoreDragOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreDragOperation> for &::windows::core::IUnknown {
-    fn from(value: &CoreDragOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreDragOperation> for ::windows::core::IInspectable {
-    fn from(value: CoreDragOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreDragOperation> for ::windows::core::IInspectable {
-    fn from(value: &CoreDragOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreDragOperation> for &::windows::core::IInspectable {
-    fn from(value: &CoreDragOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreDragOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreDragOperation {}
 unsafe impl ::core::marker::Sync for CoreDragOperation {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer_DragDrop_Core\"`*"]
@@ -717,36 +601,7 @@ unsafe impl ::windows::core::Interface for CoreDragUIOverride {
 impl ::windows::core::RuntimeName for CoreDragUIOverride {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIOverride";
 }
-impl ::core::convert::From<CoreDragUIOverride> for ::windows::core::IUnknown {
-    fn from(value: CoreDragUIOverride) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreDragUIOverride> for ::windows::core::IUnknown {
-    fn from(value: &CoreDragUIOverride) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreDragUIOverride> for &::windows::core::IUnknown {
-    fn from(value: &CoreDragUIOverride) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreDragUIOverride> for ::windows::core::IInspectable {
-    fn from(value: CoreDragUIOverride) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreDragUIOverride> for ::windows::core::IInspectable {
-    fn from(value: &CoreDragUIOverride) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreDragUIOverride> for &::windows::core::IInspectable {
-    fn from(value: &CoreDragUIOverride) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreDragUIOverride, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreDragUIOverride {}
 unsafe impl ::core::marker::Sync for CoreDragUIOverride {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer_DragDrop_Core\"`*"]
@@ -794,36 +649,7 @@ unsafe impl ::windows::core::Interface for CoreDropOperationTargetRequestedEvent
 impl ::windows::core::RuntimeName for CoreDropOperationTargetRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDropOperationTargetRequestedEventArgs";
 }
-impl ::core::convert::From<CoreDropOperationTargetRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CoreDropOperationTargetRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreDropOperationTargetRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CoreDropOperationTargetRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreDropOperationTargetRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CoreDropOperationTargetRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreDropOperationTargetRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CoreDropOperationTargetRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreDropOperationTargetRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CoreDropOperationTargetRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreDropOperationTargetRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CoreDropOperationTargetRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreDropOperationTargetRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CoreDropOperationTargetRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreDropOperationTargetRequestedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer_DragDrop_Core\"`*"]

@@ -13,36 +13,7 @@ impl IRadialControllerConfigurationInterop {
         (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), hwnd.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IRadialControllerConfigurationInterop> for ::windows::core::IUnknown {
-    fn from(value: IRadialControllerConfigurationInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRadialControllerConfigurationInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRadialControllerConfigurationInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRadialControllerConfigurationInterop> for ::windows::core::IUnknown {
-    fn from(value: &IRadialControllerConfigurationInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IRadialControllerConfigurationInterop> for ::windows::core::IInspectable {
-    fn from(value: IRadialControllerConfigurationInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRadialControllerConfigurationInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IRadialControllerConfigurationInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRadialControllerConfigurationInterop> for ::windows::core::IInspectable {
-    fn from(value: &IRadialControllerConfigurationInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRadialControllerConfigurationInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IRadialControllerConfigurationInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -89,36 +60,7 @@ impl IRadialControllerIndependentInputSourceInterop {
         (::windows::core::Vtable::vtable(self).CreateForWindow)(::windows::core::Vtable::as_raw(self), hwnd.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IRadialControllerIndependentInputSourceInterop> for ::windows::core::IUnknown {
-    fn from(value: IRadialControllerIndependentInputSourceInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRadialControllerIndependentInputSourceInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRadialControllerIndependentInputSourceInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRadialControllerIndependentInputSourceInterop> for ::windows::core::IUnknown {
-    fn from(value: &IRadialControllerIndependentInputSourceInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IRadialControllerIndependentInputSourceInterop> for ::windows::core::IInspectable {
-    fn from(value: IRadialControllerIndependentInputSourceInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRadialControllerIndependentInputSourceInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IRadialControllerIndependentInputSourceInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRadialControllerIndependentInputSourceInterop> for ::windows::core::IInspectable {
-    fn from(value: &IRadialControllerIndependentInputSourceInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRadialControllerIndependentInputSourceInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IRadialControllerIndependentInputSourceInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -165,36 +107,7 @@ impl IRadialControllerInterop {
         (::windows::core::Vtable::vtable(self).CreateForWindow)(::windows::core::Vtable::as_raw(self), hwnd.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IRadialControllerInterop> for ::windows::core::IUnknown {
-    fn from(value: IRadialControllerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRadialControllerInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRadialControllerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRadialControllerInterop> for ::windows::core::IUnknown {
-    fn from(value: &IRadialControllerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IRadialControllerInterop> for ::windows::core::IInspectable {
-    fn from(value: IRadialControllerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRadialControllerInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IRadialControllerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRadialControllerInterop> for ::windows::core::IInspectable {
-    fn from(value: &IRadialControllerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRadialControllerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IRadialControllerInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())

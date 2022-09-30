@@ -88,36 +88,7 @@ unsafe impl ::windows::core::Interface for InkWorkspaceHostedAppManager {
 impl ::windows::core::RuntimeName for InkWorkspaceHostedAppManager {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.InkWorkspace.InkWorkspaceHostedAppManager";
 }
-impl ::core::convert::From<InkWorkspaceHostedAppManager> for ::windows::core::IUnknown {
-    fn from(value: InkWorkspaceHostedAppManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkWorkspaceHostedAppManager> for ::windows::core::IUnknown {
-    fn from(value: &InkWorkspaceHostedAppManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkWorkspaceHostedAppManager> for &::windows::core::IUnknown {
-    fn from(value: &InkWorkspaceHostedAppManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InkWorkspaceHostedAppManager> for ::windows::core::IInspectable {
-    fn from(value: InkWorkspaceHostedAppManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InkWorkspaceHostedAppManager> for ::windows::core::IInspectable {
-    fn from(value: &InkWorkspaceHostedAppManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InkWorkspaceHostedAppManager> for &::windows::core::IInspectable {
-    fn from(value: &InkWorkspaceHostedAppManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InkWorkspaceHostedAppManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InkWorkspaceHostedAppManager {}
 unsafe impl ::core::marker::Sync for InkWorkspaceHostedAppManager {}
 #[cfg(feature = "implement")]

@@ -389,36 +389,7 @@ unsafe impl ::windows::core::Interface for HidBooleanControl {
 impl ::windows::core::RuntimeName for HidBooleanControl {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidBooleanControl";
 }
-impl ::core::convert::From<HidBooleanControl> for ::windows::core::IUnknown {
-    fn from(value: HidBooleanControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HidBooleanControl> for ::windows::core::IUnknown {
-    fn from(value: &HidBooleanControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HidBooleanControl> for &::windows::core::IUnknown {
-    fn from(value: &HidBooleanControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HidBooleanControl> for ::windows::core::IInspectable {
-    fn from(value: HidBooleanControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HidBooleanControl> for ::windows::core::IInspectable {
-    fn from(value: &HidBooleanControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HidBooleanControl> for &::windows::core::IInspectable {
-    fn from(value: &HidBooleanControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HidBooleanControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HidBooleanControl {}
 unsafe impl ::core::marker::Sync for HidBooleanControl {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
@@ -509,36 +480,7 @@ unsafe impl ::windows::core::Interface for HidBooleanControlDescription {
 impl ::windows::core::RuntimeName for HidBooleanControlDescription {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription";
 }
-impl ::core::convert::From<HidBooleanControlDescription> for ::windows::core::IUnknown {
-    fn from(value: HidBooleanControlDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HidBooleanControlDescription> for ::windows::core::IUnknown {
-    fn from(value: &HidBooleanControlDescription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HidBooleanControlDescription> for &::windows::core::IUnknown {
-    fn from(value: &HidBooleanControlDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HidBooleanControlDescription> for ::windows::core::IInspectable {
-    fn from(value: HidBooleanControlDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HidBooleanControlDescription> for ::windows::core::IInspectable {
-    fn from(value: &HidBooleanControlDescription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HidBooleanControlDescription> for &::windows::core::IInspectable {
-    fn from(value: &HidBooleanControlDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HidBooleanControlDescription, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HidBooleanControlDescription {}
 unsafe impl ::core::marker::Sync for HidBooleanControlDescription {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
@@ -606,36 +548,7 @@ unsafe impl ::windows::core::Interface for HidCollection {
 impl ::windows::core::RuntimeName for HidCollection {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidCollection";
 }
-impl ::core::convert::From<HidCollection> for ::windows::core::IUnknown {
-    fn from(value: HidCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HidCollection> for ::windows::core::IUnknown {
-    fn from(value: &HidCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HidCollection> for &::windows::core::IUnknown {
-    fn from(value: &HidCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HidCollection> for ::windows::core::IInspectable {
-    fn from(value: HidCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HidCollection> for ::windows::core::IInspectable {
-    fn from(value: &HidCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HidCollection> for &::windows::core::IInspectable {
-    fn from(value: &HidCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HidCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HidCollection {}
 unsafe impl ::core::marker::Sync for HidCollection {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
@@ -856,36 +769,7 @@ unsafe impl ::windows::core::Interface for HidDevice {
 impl ::windows::core::RuntimeName for HidDevice {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidDevice";
 }
-impl ::core::convert::From<HidDevice> for ::windows::core::IUnknown {
-    fn from(value: HidDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HidDevice> for ::windows::core::IUnknown {
-    fn from(value: &HidDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HidDevice> for &::windows::core::IUnknown {
-    fn from(value: &HidDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HidDevice> for ::windows::core::IInspectable {
-    fn from(value: HidDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HidDevice> for ::windows::core::IInspectable {
-    fn from(value: &HidDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HidDevice> for &::windows::core::IInspectable {
-    fn from(value: &HidDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HidDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HidDevice> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1001,36 +885,7 @@ unsafe impl ::windows::core::Interface for HidFeatureReport {
 impl ::windows::core::RuntimeName for HidFeatureReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidFeatureReport";
 }
-impl ::core::convert::From<HidFeatureReport> for ::windows::core::IUnknown {
-    fn from(value: HidFeatureReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HidFeatureReport> for ::windows::core::IUnknown {
-    fn from(value: &HidFeatureReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HidFeatureReport> for &::windows::core::IUnknown {
-    fn from(value: &HidFeatureReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HidFeatureReport> for ::windows::core::IInspectable {
-    fn from(value: HidFeatureReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HidFeatureReport> for ::windows::core::IInspectable {
-    fn from(value: &HidFeatureReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HidFeatureReport> for &::windows::core::IInspectable {
-    fn from(value: &HidFeatureReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HidFeatureReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HidFeatureReport {}
 unsafe impl ::core::marker::Sync for HidFeatureReport {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
@@ -1132,36 +987,7 @@ unsafe impl ::windows::core::Interface for HidInputReport {
 impl ::windows::core::RuntimeName for HidInputReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidInputReport";
 }
-impl ::core::convert::From<HidInputReport> for ::windows::core::IUnknown {
-    fn from(value: HidInputReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HidInputReport> for ::windows::core::IUnknown {
-    fn from(value: &HidInputReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HidInputReport> for &::windows::core::IUnknown {
-    fn from(value: &HidInputReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HidInputReport> for ::windows::core::IInspectable {
-    fn from(value: HidInputReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HidInputReport> for ::windows::core::IInspectable {
-    fn from(value: &HidInputReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HidInputReport> for &::windows::core::IInspectable {
-    fn from(value: &HidInputReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HidInputReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HidInputReport {}
 unsafe impl ::core::marker::Sync for HidInputReport {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
@@ -1208,36 +1034,7 @@ unsafe impl ::windows::core::Interface for HidInputReportReceivedEventArgs {
 impl ::windows::core::RuntimeName for HidInputReportReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidInputReportReceivedEventArgs";
 }
-impl ::core::convert::From<HidInputReportReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: HidInputReportReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HidInputReportReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &HidInputReportReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HidInputReportReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &HidInputReportReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HidInputReportReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: HidInputReportReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HidInputReportReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &HidInputReportReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HidInputReportReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &HidInputReportReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HidInputReportReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HidInputReportReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for HidInputReportReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
@@ -1334,36 +1131,7 @@ unsafe impl ::windows::core::Interface for HidNumericControl {
 impl ::windows::core::RuntimeName for HidNumericControl {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidNumericControl";
 }
-impl ::core::convert::From<HidNumericControl> for ::windows::core::IUnknown {
-    fn from(value: HidNumericControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HidNumericControl> for ::windows::core::IUnknown {
-    fn from(value: &HidNumericControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HidNumericControl> for &::windows::core::IUnknown {
-    fn from(value: &HidNumericControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HidNumericControl> for ::windows::core::IInspectable {
-    fn from(value: HidNumericControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HidNumericControl> for ::windows::core::IInspectable {
-    fn from(value: &HidNumericControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HidNumericControl> for &::windows::core::IInspectable {
-    fn from(value: &HidNumericControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HidNumericControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HidNumericControl {}
 unsafe impl ::core::marker::Sync for HidNumericControl {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
@@ -1517,36 +1285,7 @@ unsafe impl ::windows::core::Interface for HidNumericControlDescription {
 impl ::windows::core::RuntimeName for HidNumericControlDescription {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription";
 }
-impl ::core::convert::From<HidNumericControlDescription> for ::windows::core::IUnknown {
-    fn from(value: HidNumericControlDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HidNumericControlDescription> for ::windows::core::IUnknown {
-    fn from(value: &HidNumericControlDescription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HidNumericControlDescription> for &::windows::core::IUnknown {
-    fn from(value: &HidNumericControlDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HidNumericControlDescription> for ::windows::core::IInspectable {
-    fn from(value: HidNumericControlDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HidNumericControlDescription> for ::windows::core::IInspectable {
-    fn from(value: &HidNumericControlDescription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HidNumericControlDescription> for &::windows::core::IInspectable {
-    fn from(value: &HidNumericControlDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HidNumericControlDescription, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HidNumericControlDescription {}
 unsafe impl ::core::marker::Sync for HidNumericControlDescription {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
@@ -1640,36 +1379,7 @@ unsafe impl ::windows::core::Interface for HidOutputReport {
 impl ::windows::core::RuntimeName for HidOutputReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidOutputReport";
 }
-impl ::core::convert::From<HidOutputReport> for ::windows::core::IUnknown {
-    fn from(value: HidOutputReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HidOutputReport> for ::windows::core::IUnknown {
-    fn from(value: &HidOutputReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HidOutputReport> for &::windows::core::IUnknown {
-    fn from(value: &HidOutputReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HidOutputReport> for ::windows::core::IInspectable {
-    fn from(value: HidOutputReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HidOutputReport> for ::windows::core::IInspectable {
-    fn from(value: &HidOutputReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HidOutputReport> for &::windows::core::IInspectable {
-    fn from(value: &HidOutputReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HidOutputReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HidOutputReport {}
 unsafe impl ::core::marker::Sync for HidOutputReport {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]

@@ -198,36 +198,7 @@ unsafe impl ::windows::core::Interface for AppCapability {
 impl ::windows::core::RuntimeName for AppCapability {
     const NAME: &'static str = "Windows.Security.Authorization.AppCapabilityAccess.AppCapability";
 }
-impl ::core::convert::From<AppCapability> for ::windows::core::IUnknown {
-    fn from(value: AppCapability) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCapability> for ::windows::core::IUnknown {
-    fn from(value: &AppCapability) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCapability> for &::windows::core::IUnknown {
-    fn from(value: &AppCapability) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppCapability> for ::windows::core::IInspectable {
-    fn from(value: AppCapability) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCapability> for ::windows::core::IInspectable {
-    fn from(value: &AppCapability) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCapability> for &::windows::core::IInspectable {
-    fn from(value: &AppCapability) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppCapability, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppCapability {}
 unsafe impl ::core::marker::Sync for AppCapability {}
 #[doc = "*Required features: `\"Security_Authorization_AppCapabilityAccess\"`*"]
@@ -266,36 +237,7 @@ unsafe impl ::windows::core::Interface for AppCapabilityAccessChangedEventArgs {
 impl ::windows::core::RuntimeName for AppCapabilityAccessChangedEventArgs {
     const NAME: &'static str = "Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessChangedEventArgs";
 }
-impl ::core::convert::From<AppCapabilityAccessChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppCapabilityAccessChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCapabilityAccessChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppCapabilityAccessChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCapabilityAccessChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppCapabilityAccessChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppCapabilityAccessChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppCapabilityAccessChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCapabilityAccessChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppCapabilityAccessChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCapabilityAccessChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppCapabilityAccessChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppCapabilityAccessChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppCapabilityAccessChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppCapabilityAccessChangedEventArgs {}
 #[doc = "*Required features: `\"Security_Authorization_AppCapabilityAccess\"`*"]

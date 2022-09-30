@@ -32,21 +32,7 @@ impl ICreateDeviceAccessAsync {
         (::windows::core::Vtable::vtable(self).GetResult)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<ICreateDeviceAccessAsync> for ::windows::core::IUnknown {
-    fn from(value: ICreateDeviceAccessAsync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICreateDeviceAccessAsync> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICreateDeviceAccessAsync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICreateDeviceAccessAsync> for ::windows::core::IUnknown {
-    fn from(value: &ICreateDeviceAccessAsync) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICreateDeviceAccessAsync, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICreateDeviceAccessAsync {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -105,21 +91,7 @@ impl IDeviceIoControl {
         (::windows::core::Vtable::vtable(self).CancelOperation)(::windows::core::Vtable::as_raw(self), cancelcontext).ok()
     }
 }
-impl ::core::convert::From<IDeviceIoControl> for ::windows::core::IUnknown {
-    fn from(value: IDeviceIoControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDeviceIoControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDeviceIoControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDeviceIoControl> for ::windows::core::IUnknown {
-    fn from(value: &IDeviceIoControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDeviceIoControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDeviceIoControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -158,21 +130,7 @@ impl IDeviceRequestCompletionCallback {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self), requestresult, bytesreturned).ok()
     }
 }
-impl ::core::convert::From<IDeviceRequestCompletionCallback> for ::windows::core::IUnknown {
-    fn from(value: IDeviceRequestCompletionCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDeviceRequestCompletionCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDeviceRequestCompletionCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDeviceRequestCompletionCallback> for ::windows::core::IUnknown {
-    fn from(value: &IDeviceRequestCompletionCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDeviceRequestCompletionCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDeviceRequestCompletionCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())

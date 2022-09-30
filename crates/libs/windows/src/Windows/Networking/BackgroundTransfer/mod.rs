@@ -240,36 +240,7 @@ impl IBackgroundTransferBase {
         unsafe { (::windows::core::Vtable::vtable(this).SetCostPolicy)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
-impl ::core::convert::From<IBackgroundTransferBase> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundTransferBase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTransferBase> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundTransferBase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTransferBase> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundTransferBase) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundTransferBase> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundTransferBase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTransferBase> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IBackgroundTransferBase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTransferBase> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundTransferBase) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundTransferBase, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IBackgroundTransferBase {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -414,36 +385,7 @@ impl IBackgroundTransferContentPartFactory {
         }
     }
 }
-impl ::core::convert::From<IBackgroundTransferContentPartFactory> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundTransferContentPartFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTransferContentPartFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundTransferContentPartFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTransferContentPartFactory> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundTransferContentPartFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundTransferContentPartFactory> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundTransferContentPartFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTransferContentPartFactory> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IBackgroundTransferContentPartFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTransferContentPartFactory> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundTransferContentPartFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundTransferContentPartFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IBackgroundTransferContentPartFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -594,36 +536,7 @@ impl IBackgroundTransferOperation {
         }
     }
 }
-impl ::core::convert::From<IBackgroundTransferOperation> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundTransferOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTransferOperation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundTransferOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTransferOperation> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundTransferOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundTransferOperation> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundTransferOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTransferOperation> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IBackgroundTransferOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTransferOperation> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundTransferOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundTransferOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IBackgroundTransferOperation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -691,36 +604,7 @@ impl IBackgroundTransferOperationPriority {
         unsafe { (::windows::core::Vtable::vtable(this).SetPriority)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
-impl ::core::convert::From<IBackgroundTransferOperationPriority> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundTransferOperationPriority) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTransferOperationPriority> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundTransferOperationPriority) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTransferOperationPriority> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundTransferOperationPriority) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundTransferOperationPriority> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundTransferOperationPriority) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTransferOperationPriority> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IBackgroundTransferOperationPriority) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTransferOperationPriority> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundTransferOperationPriority) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundTransferOperationPriority, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IBackgroundTransferOperationPriority {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1535,36 +1419,7 @@ unsafe impl ::windows::core::Interface for BackgroundDownloader {
 impl ::windows::core::RuntimeName for BackgroundDownloader {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundDownloader";
 }
-impl ::core::convert::From<BackgroundDownloader> for ::windows::core::IUnknown {
-    fn from(value: BackgroundDownloader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundDownloader> for ::windows::core::IUnknown {
-    fn from(value: &BackgroundDownloader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundDownloader> for &::windows::core::IUnknown {
-    fn from(value: &BackgroundDownloader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BackgroundDownloader> for ::windows::core::IInspectable {
-    fn from(value: BackgroundDownloader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundDownloader> for ::windows::core::IInspectable {
-    fn from(value: &BackgroundDownloader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundDownloader> for &::windows::core::IInspectable {
-    fn from(value: &BackgroundDownloader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BackgroundDownloader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BackgroundDownloader> for IBackgroundTransferBase {
     type Error = ::windows::core::Error;
     fn try_from(value: BackgroundDownloader) -> ::windows::core::Result<Self> {
@@ -1650,36 +1505,7 @@ unsafe impl ::windows::core::Interface for BackgroundTransferCompletionGroup {
 impl ::windows::core::RuntimeName for BackgroundTransferCompletionGroup {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroup";
 }
-impl ::core::convert::From<BackgroundTransferCompletionGroup> for ::windows::core::IUnknown {
-    fn from(value: BackgroundTransferCompletionGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundTransferCompletionGroup> for ::windows::core::IUnknown {
-    fn from(value: &BackgroundTransferCompletionGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundTransferCompletionGroup> for &::windows::core::IUnknown {
-    fn from(value: &BackgroundTransferCompletionGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BackgroundTransferCompletionGroup> for ::windows::core::IInspectable {
-    fn from(value: BackgroundTransferCompletionGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundTransferCompletionGroup> for ::windows::core::IInspectable {
-    fn from(value: &BackgroundTransferCompletionGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundTransferCompletionGroup> for &::windows::core::IInspectable {
-    fn from(value: &BackgroundTransferCompletionGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BackgroundTransferCompletionGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundTransferCompletionGroup {}
 unsafe impl ::core::marker::Sync for BackgroundTransferCompletionGroup {}
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
@@ -1737,36 +1563,7 @@ unsafe impl ::windows::core::Interface for BackgroundTransferCompletionGroupTrig
 impl ::windows::core::RuntimeName for BackgroundTransferCompletionGroupTriggerDetails {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroupTriggerDetails";
 }
-impl ::core::convert::From<BackgroundTransferCompletionGroupTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: BackgroundTransferCompletionGroupTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundTransferCompletionGroupTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &BackgroundTransferCompletionGroupTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundTransferCompletionGroupTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &BackgroundTransferCompletionGroupTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BackgroundTransferCompletionGroupTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: BackgroundTransferCompletionGroupTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundTransferCompletionGroupTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &BackgroundTransferCompletionGroupTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundTransferCompletionGroupTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &BackgroundTransferCompletionGroupTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BackgroundTransferCompletionGroupTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundTransferCompletionGroupTriggerDetails {}
 unsafe impl ::core::marker::Sync for BackgroundTransferCompletionGroupTriggerDetails {}
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
@@ -1848,36 +1645,7 @@ unsafe impl ::windows::core::Interface for BackgroundTransferContentPart {
 impl ::windows::core::RuntimeName for BackgroundTransferContentPart {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart";
 }
-impl ::core::convert::From<BackgroundTransferContentPart> for ::windows::core::IUnknown {
-    fn from(value: BackgroundTransferContentPart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundTransferContentPart> for ::windows::core::IUnknown {
-    fn from(value: &BackgroundTransferContentPart) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundTransferContentPart> for &::windows::core::IUnknown {
-    fn from(value: &BackgroundTransferContentPart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BackgroundTransferContentPart> for ::windows::core::IInspectable {
-    fn from(value: BackgroundTransferContentPart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundTransferContentPart> for ::windows::core::IInspectable {
-    fn from(value: &BackgroundTransferContentPart) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundTransferContentPart> for &::windows::core::IInspectable {
-    fn from(value: &BackgroundTransferContentPart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BackgroundTransferContentPart, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundTransferContentPart {}
 unsafe impl ::core::marker::Sync for BackgroundTransferContentPart {}
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
@@ -1966,36 +1734,7 @@ unsafe impl ::windows::core::Interface for BackgroundTransferGroup {
 impl ::windows::core::RuntimeName for BackgroundTransferGroup {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferGroup";
 }
-impl ::core::convert::From<BackgroundTransferGroup> for ::windows::core::IUnknown {
-    fn from(value: BackgroundTransferGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundTransferGroup> for ::windows::core::IUnknown {
-    fn from(value: &BackgroundTransferGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundTransferGroup> for &::windows::core::IUnknown {
-    fn from(value: &BackgroundTransferGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BackgroundTransferGroup> for ::windows::core::IInspectable {
-    fn from(value: BackgroundTransferGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundTransferGroup> for ::windows::core::IInspectable {
-    fn from(value: &BackgroundTransferGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundTransferGroup> for &::windows::core::IInspectable {
-    fn from(value: &BackgroundTransferGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BackgroundTransferGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundTransferGroup {}
 unsafe impl ::core::marker::Sync for BackgroundTransferGroup {}
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
@@ -2060,36 +1799,7 @@ unsafe impl ::windows::core::Interface for BackgroundTransferRangesDownloadedEve
 impl ::windows::core::RuntimeName for BackgroundTransferRangesDownloadedEventArgs {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferRangesDownloadedEventArgs";
 }
-impl ::core::convert::From<BackgroundTransferRangesDownloadedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BackgroundTransferRangesDownloadedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundTransferRangesDownloadedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BackgroundTransferRangesDownloadedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundTransferRangesDownloadedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BackgroundTransferRangesDownloadedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BackgroundTransferRangesDownloadedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BackgroundTransferRangesDownloadedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundTransferRangesDownloadedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BackgroundTransferRangesDownloadedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundTransferRangesDownloadedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BackgroundTransferRangesDownloadedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BackgroundTransferRangesDownloadedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundTransferRangesDownloadedEventArgs {}
 unsafe impl ::core::marker::Sync for BackgroundTransferRangesDownloadedEventArgs {}
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
@@ -2413,36 +2123,7 @@ unsafe impl ::windows::core::Interface for BackgroundUploader {
 impl ::windows::core::RuntimeName for BackgroundUploader {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundUploader";
 }
-impl ::core::convert::From<BackgroundUploader> for ::windows::core::IUnknown {
-    fn from(value: BackgroundUploader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundUploader> for ::windows::core::IUnknown {
-    fn from(value: &BackgroundUploader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundUploader> for &::windows::core::IUnknown {
-    fn from(value: &BackgroundUploader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BackgroundUploader> for ::windows::core::IInspectable {
-    fn from(value: BackgroundUploader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundUploader> for ::windows::core::IInspectable {
-    fn from(value: &BackgroundUploader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundUploader> for &::windows::core::IInspectable {
-    fn from(value: &BackgroundUploader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BackgroundUploader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BackgroundUploader> for IBackgroundTransferBase {
     type Error = ::windows::core::Error;
     fn try_from(value: BackgroundUploader) -> ::windows::core::Result<Self> {
@@ -2746,36 +2427,7 @@ unsafe impl ::windows::core::Interface for DownloadOperation {
 impl ::windows::core::RuntimeName for DownloadOperation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.DownloadOperation";
 }
-impl ::core::convert::From<DownloadOperation> for ::windows::core::IUnknown {
-    fn from(value: DownloadOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DownloadOperation> for ::windows::core::IUnknown {
-    fn from(value: &DownloadOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DownloadOperation> for &::windows::core::IUnknown {
-    fn from(value: &DownloadOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DownloadOperation> for ::windows::core::IInspectable {
-    fn from(value: DownloadOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DownloadOperation> for ::windows::core::IInspectable {
-    fn from(value: &DownloadOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DownloadOperation> for &::windows::core::IInspectable {
-    fn from(value: &DownloadOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DownloadOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DownloadOperation> for IBackgroundTransferOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: DownloadOperation) -> ::windows::core::Result<Self> {
@@ -2885,36 +2537,7 @@ unsafe impl ::windows::core::Interface for ResponseInformation {
 impl ::windows::core::RuntimeName for ResponseInformation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.ResponseInformation";
 }
-impl ::core::convert::From<ResponseInformation> for ::windows::core::IUnknown {
-    fn from(value: ResponseInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ResponseInformation> for ::windows::core::IUnknown {
-    fn from(value: &ResponseInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ResponseInformation> for &::windows::core::IUnknown {
-    fn from(value: &ResponseInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ResponseInformation> for ::windows::core::IInspectable {
-    fn from(value: ResponseInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ResponseInformation> for ::windows::core::IInspectable {
-    fn from(value: &ResponseInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ResponseInformation> for &::windows::core::IInspectable {
-    fn from(value: &ResponseInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ResponseInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ResponseInformation {}
 unsafe impl ::core::marker::Sync for ResponseInformation {}
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`, `\"deprecated\"`*"]
@@ -2974,41 +2597,7 @@ impl ::windows::core::RuntimeName for UnconstrainedTransferRequestResult {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.UnconstrainedTransferRequestResult";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<UnconstrainedTransferRequestResult> for ::windows::core::IUnknown {
-    fn from(value: UnconstrainedTransferRequestResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&UnconstrainedTransferRequestResult> for ::windows::core::IUnknown {
-    fn from(value: &UnconstrainedTransferRequestResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&UnconstrainedTransferRequestResult> for &::windows::core::IUnknown {
-    fn from(value: &UnconstrainedTransferRequestResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<UnconstrainedTransferRequestResult> for ::windows::core::IInspectable {
-    fn from(value: UnconstrainedTransferRequestResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&UnconstrainedTransferRequestResult> for ::windows::core::IInspectable {
-    fn from(value: &UnconstrainedTransferRequestResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&UnconstrainedTransferRequestResult> for &::windows::core::IInspectable {
-    fn from(value: &UnconstrainedTransferRequestResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UnconstrainedTransferRequestResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for UnconstrainedTransferRequestResult {}
 #[cfg(feature = "deprecated")]
@@ -3173,36 +2762,7 @@ unsafe impl ::windows::core::Interface for UploadOperation {
 impl ::windows::core::RuntimeName for UploadOperation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.UploadOperation";
 }
-impl ::core::convert::From<UploadOperation> for ::windows::core::IUnknown {
-    fn from(value: UploadOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UploadOperation> for ::windows::core::IUnknown {
-    fn from(value: &UploadOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UploadOperation> for &::windows::core::IUnknown {
-    fn from(value: &UploadOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UploadOperation> for ::windows::core::IInspectable {
-    fn from(value: UploadOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UploadOperation> for ::windows::core::IInspectable {
-    fn from(value: &UploadOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UploadOperation> for &::windows::core::IInspectable {
-    fn from(value: &UploadOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UploadOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<UploadOperation> for IBackgroundTransferOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: UploadOperation) -> ::windows::core::Result<Self> {

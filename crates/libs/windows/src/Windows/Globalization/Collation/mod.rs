@@ -95,36 +95,7 @@ unsafe impl ::windows::core::Interface for CharacterGrouping {
 impl ::windows::core::RuntimeName for CharacterGrouping {
     const NAME: &'static str = "Windows.Globalization.Collation.CharacterGrouping";
 }
-impl ::core::convert::From<CharacterGrouping> for ::windows::core::IUnknown {
-    fn from(value: CharacterGrouping) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CharacterGrouping> for ::windows::core::IUnknown {
-    fn from(value: &CharacterGrouping) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CharacterGrouping> for &::windows::core::IUnknown {
-    fn from(value: &CharacterGrouping) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CharacterGrouping> for ::windows::core::IInspectable {
-    fn from(value: CharacterGrouping) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CharacterGrouping> for ::windows::core::IInspectable {
-    fn from(value: &CharacterGrouping) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CharacterGrouping> for &::windows::core::IInspectable {
-    fn from(value: &CharacterGrouping) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CharacterGrouping, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CharacterGrouping {}
 unsafe impl ::core::marker::Sync for CharacterGrouping {}
 #[doc = "*Required features: `\"Globalization_Collation\"`*"]
@@ -250,36 +221,7 @@ impl ::core::iter::IntoIterator for &CharacterGroupings {
         super::super::Foundation::Collections::VectorViewIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-impl ::core::convert::From<CharacterGroupings> for ::windows::core::IUnknown {
-    fn from(value: CharacterGroupings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CharacterGroupings> for ::windows::core::IUnknown {
-    fn from(value: &CharacterGroupings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CharacterGroupings> for &::windows::core::IUnknown {
-    fn from(value: &CharacterGroupings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CharacterGroupings> for ::windows::core::IInspectable {
-    fn from(value: CharacterGroupings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CharacterGroupings> for ::windows::core::IInspectable {
-    fn from(value: &CharacterGroupings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CharacterGroupings> for &::windows::core::IInspectable {
-    fn from(value: &CharacterGroupings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CharacterGroupings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<CharacterGroupings> for super::super::Foundation::Collections::IIterable<CharacterGrouping> {
     type Error = ::windows::core::Error;

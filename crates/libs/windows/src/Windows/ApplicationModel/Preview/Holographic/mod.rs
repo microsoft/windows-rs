@@ -179,41 +179,7 @@ impl ::windows::core::RuntimeName for HolographicKeyboardPlacementOverridePrevie
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<HolographicKeyboardPlacementOverridePreview> for ::windows::core::IUnknown {
-    fn from(value: HolographicKeyboardPlacementOverridePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&HolographicKeyboardPlacementOverridePreview> for ::windows::core::IUnknown {
-    fn from(value: &HolographicKeyboardPlacementOverridePreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&HolographicKeyboardPlacementOverridePreview> for &::windows::core::IUnknown {
-    fn from(value: &HolographicKeyboardPlacementOverridePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<HolographicKeyboardPlacementOverridePreview> for ::windows::core::IInspectable {
-    fn from(value: HolographicKeyboardPlacementOverridePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&HolographicKeyboardPlacementOverridePreview> for ::windows::core::IInspectable {
-    fn from(value: &HolographicKeyboardPlacementOverridePreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&HolographicKeyboardPlacementOverridePreview> for &::windows::core::IInspectable {
-    fn from(value: &HolographicKeyboardPlacementOverridePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HolographicKeyboardPlacementOverridePreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for HolographicKeyboardPlacementOverridePreview {}
 #[cfg(feature = "deprecated")]

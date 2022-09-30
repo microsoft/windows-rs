@@ -60,36 +60,7 @@ impl IAudioEffectDefinition {
         }
     }
 }
-impl ::core::convert::From<IAudioEffectDefinition> for ::windows::core::IUnknown {
-    fn from(value: IAudioEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioEffectDefinition> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioEffectDefinition> for ::windows::core::IUnknown {
-    fn from(value: &IAudioEffectDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAudioEffectDefinition> for ::windows::core::IInspectable {
-    fn from(value: IAudioEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioEffectDefinition> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAudioEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioEffectDefinition> for ::windows::core::IInspectable {
-    fn from(value: &IAudioEffectDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IAudioEffectDefinition {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -283,36 +254,7 @@ impl IBasicAudioEffect {
         unsafe { (::windows::core::Vtable::vtable(this).SetProperties)(::windows::core::Vtable::as_raw(this), configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
-impl ::core::convert::From<IBasicAudioEffect> for ::windows::core::IUnknown {
-    fn from(value: IBasicAudioEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBasicAudioEffect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBasicAudioEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBasicAudioEffect> for ::windows::core::IUnknown {
-    fn from(value: &IBasicAudioEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBasicAudioEffect> for ::windows::core::IInspectable {
-    fn from(value: IBasicAudioEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBasicAudioEffect> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IBasicAudioEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBasicAudioEffect> for ::windows::core::IInspectable {
-    fn from(value: &IBasicAudioEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBasicAudioEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IBasicAudioEffect> for super::IMediaExtension {
     type Error = ::windows::core::Error;
     fn try_from(value: IBasicAudioEffect) -> ::windows::core::Result<Self> {
@@ -445,36 +387,7 @@ impl IBasicVideoEffect {
         unsafe { (::windows::core::Vtable::vtable(this).SetProperties)(::windows::core::Vtable::as_raw(this), configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
-impl ::core::convert::From<IBasicVideoEffect> for ::windows::core::IUnknown {
-    fn from(value: IBasicVideoEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBasicVideoEffect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBasicVideoEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBasicVideoEffect> for ::windows::core::IUnknown {
-    fn from(value: &IBasicVideoEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBasicVideoEffect> for ::windows::core::IInspectable {
-    fn from(value: IBasicVideoEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBasicVideoEffect> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IBasicVideoEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBasicVideoEffect> for ::windows::core::IInspectable {
-    fn from(value: &IBasicVideoEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBasicVideoEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IBasicVideoEffect> for super::IMediaExtension {
     type Error = ::windows::core::Error;
     fn try_from(value: IBasicVideoEffect) -> ::windows::core::Result<Self> {
@@ -658,36 +571,7 @@ impl IVideoCompositor {
         unsafe { (::windows::core::Vtable::vtable(this).SetProperties)(::windows::core::Vtable::as_raw(this), configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
-impl ::core::convert::From<IVideoCompositor> for ::windows::core::IUnknown {
-    fn from(value: IVideoCompositor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVideoCompositor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVideoCompositor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVideoCompositor> for ::windows::core::IUnknown {
-    fn from(value: &IVideoCompositor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVideoCompositor> for ::windows::core::IInspectable {
-    fn from(value: IVideoCompositor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVideoCompositor> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IVideoCompositor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVideoCompositor> for ::windows::core::IInspectable {
-    fn from(value: &IVideoCompositor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVideoCompositor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IVideoCompositor> for super::IMediaExtension {
     type Error = ::windows::core::Error;
     fn try_from(value: IVideoCompositor) -> ::windows::core::Result<Self> {
@@ -770,36 +654,7 @@ impl IVideoCompositorDefinition {
         }
     }
 }
-impl ::core::convert::From<IVideoCompositorDefinition> for ::windows::core::IUnknown {
-    fn from(value: IVideoCompositorDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVideoCompositorDefinition> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVideoCompositorDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVideoCompositorDefinition> for ::windows::core::IUnknown {
-    fn from(value: &IVideoCompositorDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVideoCompositorDefinition> for ::windows::core::IInspectable {
-    fn from(value: IVideoCompositorDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVideoCompositorDefinition> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IVideoCompositorDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVideoCompositorDefinition> for ::windows::core::IInspectable {
-    fn from(value: &IVideoCompositorDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVideoCompositorDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IVideoCompositorDefinition {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -879,36 +734,7 @@ impl IVideoEffectDefinition {
         }
     }
 }
-impl ::core::convert::From<IVideoEffectDefinition> for ::windows::core::IUnknown {
-    fn from(value: IVideoEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVideoEffectDefinition> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVideoEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVideoEffectDefinition> for ::windows::core::IUnknown {
-    fn from(value: &IVideoEffectDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVideoEffectDefinition> for ::windows::core::IInspectable {
-    fn from(value: IVideoEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVideoEffectDefinition> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IVideoEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVideoEffectDefinition> for ::windows::core::IInspectable {
-    fn from(value: &IVideoEffectDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVideoEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IVideoEffectDefinition {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1147,36 +973,7 @@ unsafe impl ::windows::core::Interface for AudioCaptureEffectsManager {
 impl ::windows::core::RuntimeName for AudioCaptureEffectsManager {
     const NAME: &'static str = "Windows.Media.Effects.AudioCaptureEffectsManager";
 }
-impl ::core::convert::From<AudioCaptureEffectsManager> for ::windows::core::IUnknown {
-    fn from(value: AudioCaptureEffectsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioCaptureEffectsManager> for ::windows::core::IUnknown {
-    fn from(value: &AudioCaptureEffectsManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioCaptureEffectsManager> for &::windows::core::IUnknown {
-    fn from(value: &AudioCaptureEffectsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioCaptureEffectsManager> for ::windows::core::IInspectable {
-    fn from(value: AudioCaptureEffectsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioCaptureEffectsManager> for ::windows::core::IInspectable {
-    fn from(value: &AudioCaptureEffectsManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioCaptureEffectsManager> for &::windows::core::IInspectable {
-    fn from(value: &AudioCaptureEffectsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioCaptureEffectsManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioCaptureEffectsManager {}
 unsafe impl ::core::marker::Sync for AudioCaptureEffectsManager {}
 #[doc = "*Required features: `\"Media_Effects\"`*"]
@@ -1223,36 +1020,7 @@ unsafe impl ::windows::core::Interface for AudioEffect {
 impl ::windows::core::RuntimeName for AudioEffect {
     const NAME: &'static str = "Windows.Media.Effects.AudioEffect";
 }
-impl ::core::convert::From<AudioEffect> for ::windows::core::IUnknown {
-    fn from(value: AudioEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioEffect> for ::windows::core::IUnknown {
-    fn from(value: &AudioEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioEffect> for &::windows::core::IUnknown {
-    fn from(value: &AudioEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioEffect> for ::windows::core::IInspectable {
-    fn from(value: AudioEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioEffect> for ::windows::core::IInspectable {
-    fn from(value: &AudioEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioEffect> for &::windows::core::IInspectable {
-    fn from(value: &AudioEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioEffect {}
 unsafe impl ::core::marker::Sync for AudioEffect {}
 #[doc = "*Required features: `\"Media_Effects\"`*"]
@@ -1331,36 +1099,7 @@ unsafe impl ::windows::core::Interface for AudioEffectDefinition {
 impl ::windows::core::RuntimeName for AudioEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.AudioEffectDefinition";
 }
-impl ::core::convert::From<AudioEffectDefinition> for ::windows::core::IUnknown {
-    fn from(value: AudioEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioEffectDefinition> for ::windows::core::IUnknown {
-    fn from(value: &AudioEffectDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioEffectDefinition> for &::windows::core::IUnknown {
-    fn from(value: &AudioEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioEffectDefinition> for ::windows::core::IInspectable {
-    fn from(value: AudioEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioEffectDefinition> for ::windows::core::IInspectable {
-    fn from(value: &AudioEffectDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioEffectDefinition> for &::windows::core::IInspectable {
-    fn from(value: &AudioEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AudioEffectDefinition> for IAudioEffectDefinition {
     type Error = ::windows::core::Error;
     fn try_from(value: AudioEffectDefinition) -> ::windows::core::Result<Self> {
@@ -1511,36 +1250,7 @@ unsafe impl ::windows::core::Interface for AudioRenderEffectsManager {
 impl ::windows::core::RuntimeName for AudioRenderEffectsManager {
     const NAME: &'static str = "Windows.Media.Effects.AudioRenderEffectsManager";
 }
-impl ::core::convert::From<AudioRenderEffectsManager> for ::windows::core::IUnknown {
-    fn from(value: AudioRenderEffectsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioRenderEffectsManager> for ::windows::core::IUnknown {
-    fn from(value: &AudioRenderEffectsManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioRenderEffectsManager> for &::windows::core::IUnknown {
-    fn from(value: &AudioRenderEffectsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioRenderEffectsManager> for ::windows::core::IInspectable {
-    fn from(value: AudioRenderEffectsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioRenderEffectsManager> for ::windows::core::IInspectable {
-    fn from(value: &AudioRenderEffectsManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioRenderEffectsManager> for &::windows::core::IInspectable {
-    fn from(value: &AudioRenderEffectsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AudioRenderEffectsManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AudioRenderEffectsManager {}
 unsafe impl ::core::marker::Sync for AudioRenderEffectsManager {}
 #[doc = "*Required features: `\"Media_Effects\"`*"]
@@ -1616,36 +1326,7 @@ unsafe impl ::windows::core::Interface for CompositeVideoFrameContext {
 impl ::windows::core::RuntimeName for CompositeVideoFrameContext {
     const NAME: &'static str = "Windows.Media.Effects.CompositeVideoFrameContext";
 }
-impl ::core::convert::From<CompositeVideoFrameContext> for ::windows::core::IUnknown {
-    fn from(value: CompositeVideoFrameContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositeVideoFrameContext> for ::windows::core::IUnknown {
-    fn from(value: &CompositeVideoFrameContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositeVideoFrameContext> for &::windows::core::IUnknown {
-    fn from(value: &CompositeVideoFrameContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositeVideoFrameContext> for ::windows::core::IInspectable {
-    fn from(value: CompositeVideoFrameContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositeVideoFrameContext> for ::windows::core::IInspectable {
-    fn from(value: &CompositeVideoFrameContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositeVideoFrameContext> for &::windows::core::IInspectable {
-    fn from(value: &CompositeVideoFrameContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositeVideoFrameContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CompositeVideoFrameContext {}
 unsafe impl ::core::marker::Sync for CompositeVideoFrameContext {}
 #[doc = "*Required features: `\"Media_Effects\"`*"]
@@ -1699,36 +1380,7 @@ unsafe impl ::windows::core::Interface for ProcessAudioFrameContext {
 impl ::windows::core::RuntimeName for ProcessAudioFrameContext {
     const NAME: &'static str = "Windows.Media.Effects.ProcessAudioFrameContext";
 }
-impl ::core::convert::From<ProcessAudioFrameContext> for ::windows::core::IUnknown {
-    fn from(value: ProcessAudioFrameContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessAudioFrameContext> for ::windows::core::IUnknown {
-    fn from(value: &ProcessAudioFrameContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessAudioFrameContext> for &::windows::core::IUnknown {
-    fn from(value: &ProcessAudioFrameContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProcessAudioFrameContext> for ::windows::core::IInspectable {
-    fn from(value: ProcessAudioFrameContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessAudioFrameContext> for ::windows::core::IInspectable {
-    fn from(value: &ProcessAudioFrameContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessAudioFrameContext> for &::windows::core::IInspectable {
-    fn from(value: &ProcessAudioFrameContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProcessAudioFrameContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessAudioFrameContext {}
 unsafe impl ::core::marker::Sync for ProcessAudioFrameContext {}
 #[doc = "*Required features: `\"Media_Effects\"`*"]
@@ -1782,36 +1434,7 @@ unsafe impl ::windows::core::Interface for ProcessVideoFrameContext {
 impl ::windows::core::RuntimeName for ProcessVideoFrameContext {
     const NAME: &'static str = "Windows.Media.Effects.ProcessVideoFrameContext";
 }
-impl ::core::convert::From<ProcessVideoFrameContext> for ::windows::core::IUnknown {
-    fn from(value: ProcessVideoFrameContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessVideoFrameContext> for ::windows::core::IUnknown {
-    fn from(value: &ProcessVideoFrameContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessVideoFrameContext> for &::windows::core::IUnknown {
-    fn from(value: &ProcessVideoFrameContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProcessVideoFrameContext> for ::windows::core::IInspectable {
-    fn from(value: ProcessVideoFrameContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessVideoFrameContext> for ::windows::core::IInspectable {
-    fn from(value: &ProcessVideoFrameContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessVideoFrameContext> for &::windows::core::IInspectable {
-    fn from(value: &ProcessVideoFrameContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProcessVideoFrameContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessVideoFrameContext {}
 unsafe impl ::core::marker::Sync for ProcessVideoFrameContext {}
 #[doc = "*Required features: `\"Media_Effects\"`*"]
@@ -1885,36 +1508,7 @@ unsafe impl ::windows::core::Interface for SlowMotionEffectDefinition {
 impl ::windows::core::RuntimeName for SlowMotionEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.SlowMotionEffectDefinition";
 }
-impl ::core::convert::From<SlowMotionEffectDefinition> for ::windows::core::IUnknown {
-    fn from(value: SlowMotionEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SlowMotionEffectDefinition> for ::windows::core::IUnknown {
-    fn from(value: &SlowMotionEffectDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SlowMotionEffectDefinition> for &::windows::core::IUnknown {
-    fn from(value: &SlowMotionEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SlowMotionEffectDefinition> for ::windows::core::IInspectable {
-    fn from(value: SlowMotionEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SlowMotionEffectDefinition> for ::windows::core::IInspectable {
-    fn from(value: &SlowMotionEffectDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SlowMotionEffectDefinition> for &::windows::core::IInspectable {
-    fn from(value: &SlowMotionEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SlowMotionEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SlowMotionEffectDefinition> for IVideoEffectDefinition {
     type Error = ::windows::core::Error;
     fn try_from(value: SlowMotionEffectDefinition) -> ::windows::core::Result<Self> {
@@ -2012,36 +1606,7 @@ unsafe impl ::windows::core::Interface for VideoCompositorDefinition {
 impl ::windows::core::RuntimeName for VideoCompositorDefinition {
     const NAME: &'static str = "Windows.Media.Effects.VideoCompositorDefinition";
 }
-impl ::core::convert::From<VideoCompositorDefinition> for ::windows::core::IUnknown {
-    fn from(value: VideoCompositorDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VideoCompositorDefinition> for ::windows::core::IUnknown {
-    fn from(value: &VideoCompositorDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VideoCompositorDefinition> for &::windows::core::IUnknown {
-    fn from(value: &VideoCompositorDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VideoCompositorDefinition> for ::windows::core::IInspectable {
-    fn from(value: VideoCompositorDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VideoCompositorDefinition> for ::windows::core::IInspectable {
-    fn from(value: &VideoCompositorDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VideoCompositorDefinition> for &::windows::core::IInspectable {
-    fn from(value: &VideoCompositorDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VideoCompositorDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VideoCompositorDefinition> for IVideoCompositorDefinition {
     type Error = ::windows::core::Error;
     fn try_from(value: VideoCompositorDefinition) -> ::windows::core::Result<Self> {
@@ -2139,36 +1704,7 @@ unsafe impl ::windows::core::Interface for VideoEffectDefinition {
 impl ::windows::core::RuntimeName for VideoEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.VideoEffectDefinition";
 }
-impl ::core::convert::From<VideoEffectDefinition> for ::windows::core::IUnknown {
-    fn from(value: VideoEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VideoEffectDefinition> for ::windows::core::IUnknown {
-    fn from(value: &VideoEffectDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VideoEffectDefinition> for &::windows::core::IUnknown {
-    fn from(value: &VideoEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VideoEffectDefinition> for ::windows::core::IInspectable {
-    fn from(value: VideoEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VideoEffectDefinition> for ::windows::core::IInspectable {
-    fn from(value: &VideoEffectDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VideoEffectDefinition> for &::windows::core::IInspectable {
-    fn from(value: &VideoEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VideoEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VideoEffectDefinition> for IVideoEffectDefinition {
     type Error = ::windows::core::Error;
     fn try_from(value: VideoEffectDefinition) -> ::windows::core::Result<Self> {
@@ -2347,36 +1883,7 @@ unsafe impl ::windows::core::Interface for VideoTransformEffectDefinition {
 impl ::windows::core::RuntimeName for VideoTransformEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.VideoTransformEffectDefinition";
 }
-impl ::core::convert::From<VideoTransformEffectDefinition> for ::windows::core::IUnknown {
-    fn from(value: VideoTransformEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VideoTransformEffectDefinition> for ::windows::core::IUnknown {
-    fn from(value: &VideoTransformEffectDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VideoTransformEffectDefinition> for &::windows::core::IUnknown {
-    fn from(value: &VideoTransformEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VideoTransformEffectDefinition> for ::windows::core::IInspectable {
-    fn from(value: VideoTransformEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VideoTransformEffectDefinition> for ::windows::core::IInspectable {
-    fn from(value: &VideoTransformEffectDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VideoTransformEffectDefinition> for &::windows::core::IInspectable {
-    fn from(value: &VideoTransformEffectDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VideoTransformEffectDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<VideoTransformEffectDefinition> for IVideoEffectDefinition {
     type Error = ::windows::core::Error;
     fn try_from(value: VideoTransformEffectDefinition) -> ::windows::core::Result<Self> {
@@ -2502,36 +2009,7 @@ unsafe impl ::windows::core::Interface for VideoTransformSphericalProjection {
 impl ::windows::core::RuntimeName for VideoTransformSphericalProjection {
     const NAME: &'static str = "Windows.Media.Effects.VideoTransformSphericalProjection";
 }
-impl ::core::convert::From<VideoTransformSphericalProjection> for ::windows::core::IUnknown {
-    fn from(value: VideoTransformSphericalProjection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VideoTransformSphericalProjection> for ::windows::core::IUnknown {
-    fn from(value: &VideoTransformSphericalProjection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VideoTransformSphericalProjection> for &::windows::core::IUnknown {
-    fn from(value: &VideoTransformSphericalProjection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VideoTransformSphericalProjection> for ::windows::core::IInspectable {
-    fn from(value: VideoTransformSphericalProjection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VideoTransformSphericalProjection> for ::windows::core::IInspectable {
-    fn from(value: &VideoTransformSphericalProjection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VideoTransformSphericalProjection> for &::windows::core::IInspectable {
-    fn from(value: &VideoTransformSphericalProjection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VideoTransformSphericalProjection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VideoTransformSphericalProjection {}
 unsafe impl ::core::marker::Sync for VideoTransformSphericalProjection {}
 #[doc = "*Required features: `\"Media_Effects\"`*"]

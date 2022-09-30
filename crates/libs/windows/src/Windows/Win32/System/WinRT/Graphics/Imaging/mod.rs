@@ -10,36 +10,7 @@ impl ISoftwareBitmapNative {
         (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<ISoftwareBitmapNative> for ::windows::core::IUnknown {
-    fn from(value: ISoftwareBitmapNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISoftwareBitmapNative> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISoftwareBitmapNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISoftwareBitmapNative> for ::windows::core::IUnknown {
-    fn from(value: &ISoftwareBitmapNative) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISoftwareBitmapNative> for ::windows::core::IInspectable {
-    fn from(value: ISoftwareBitmapNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISoftwareBitmapNative> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISoftwareBitmapNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISoftwareBitmapNative> for ::windows::core::IInspectable {
-    fn from(value: &ISoftwareBitmapNative) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISoftwareBitmapNative, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ISoftwareBitmapNative {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -95,36 +66,7 @@ impl ISoftwareBitmapNativeFactory {
         (::windows::core::Vtable::vtable(self).CreateFromMF2DBuffer2)(::windows::core::Vtable::as_raw(self), data.into().abi(), ::core::mem::transmute(subtype), width, height, forcereadonly.into(), ::core::mem::transmute(mindisplayaperture.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<ISoftwareBitmapNativeFactory> for ::windows::core::IUnknown {
-    fn from(value: ISoftwareBitmapNativeFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISoftwareBitmapNativeFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISoftwareBitmapNativeFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISoftwareBitmapNativeFactory> for ::windows::core::IUnknown {
-    fn from(value: &ISoftwareBitmapNativeFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISoftwareBitmapNativeFactory> for ::windows::core::IInspectable {
-    fn from(value: ISoftwareBitmapNativeFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISoftwareBitmapNativeFactory> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISoftwareBitmapNativeFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISoftwareBitmapNativeFactory> for ::windows::core::IInspectable {
-    fn from(value: &ISoftwareBitmapNativeFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISoftwareBitmapNativeFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ISoftwareBitmapNativeFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())

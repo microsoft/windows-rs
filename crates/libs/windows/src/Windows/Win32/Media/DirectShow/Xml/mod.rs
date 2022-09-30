@@ -26,21 +26,7 @@ impl IXMLGraphBuilder {
         (::windows::core::Vtable::vtable(self).BuildFromXMLFile)(::windows::core::Vtable::as_raw(self), pgraph.into().abi(), wszfilename.into(), wszbaseurl.into()).ok()
     }
 }
-impl ::core::convert::From<IXMLGraphBuilder> for ::windows::core::IUnknown {
-    fn from(value: IXMLGraphBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXMLGraphBuilder> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLGraphBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXMLGraphBuilder> for ::windows::core::IUnknown {
-    fn from(value: &IXMLGraphBuilder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLGraphBuilder, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXMLGraphBuilder {
     fn clone(&self) -> Self {
         Self(self.0.clone())

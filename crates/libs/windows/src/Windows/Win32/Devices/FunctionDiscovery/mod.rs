@@ -60,21 +60,7 @@ impl IFunctionDiscovery {
         (::windows::core::Vtable::vtable(self).RemoveInstance)(::windows::core::Vtable::as_raw(self), enumsystemvisibility, pszcategory.into(), pszsubcategory.into(), pszcategoryidentity.into()).ok()
     }
 }
-impl ::core::convert::From<IFunctionDiscovery> for ::windows::core::IUnknown {
-    fn from(value: IFunctionDiscovery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFunctionDiscovery> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFunctionDiscovery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFunctionDiscovery> for ::windows::core::IUnknown {
-    fn from(value: &IFunctionDiscovery) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFunctionDiscovery, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFunctionDiscovery {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -145,21 +131,7 @@ impl IFunctionDiscoveryNotification {
         (::windows::core::Vtable::vtable(self).OnEvent)(::windows::core::Vtable::as_raw(self), dweventid, fdqcquerycontext, pszprovider.into()).ok()
     }
 }
-impl ::core::convert::From<IFunctionDiscoveryNotification> for ::windows::core::IUnknown {
-    fn from(value: IFunctionDiscoveryNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFunctionDiscoveryNotification> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFunctionDiscoveryNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFunctionDiscoveryNotification> for ::windows::core::IUnknown {
-    fn from(value: &IFunctionDiscoveryNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFunctionDiscoveryNotification, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFunctionDiscoveryNotification {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -258,21 +230,7 @@ impl IFunctionDiscoveryProvider {
         (::windows::core::Vtable::vtable(self).InstanceReleased)(::windows::core::Vtable::as_raw(self), pifunctioninstance.into().abi(), iproviderinstancecontext).ok()
     }
 }
-impl ::core::convert::From<IFunctionDiscoveryProvider> for ::windows::core::IUnknown {
-    fn from(value: IFunctionDiscoveryProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFunctionDiscoveryProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFunctionDiscoveryProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFunctionDiscoveryProvider> for ::windows::core::IUnknown {
-    fn from(value: &IFunctionDiscoveryProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFunctionDiscoveryProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFunctionDiscoveryProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -350,21 +308,7 @@ impl IFunctionDiscoveryProviderFactory {
         (::windows::core::Vtable::vtable(self).CreateFunctionInstanceCollection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFunctionInstanceCollection>(result__)
     }
 }
-impl ::core::convert::From<IFunctionDiscoveryProviderFactory> for ::windows::core::IUnknown {
-    fn from(value: IFunctionDiscoveryProviderFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFunctionDiscoveryProviderFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFunctionDiscoveryProviderFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFunctionDiscoveryProviderFactory> for ::windows::core::IUnknown {
-    fn from(value: &IFunctionDiscoveryProviderFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFunctionDiscoveryProviderFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFunctionDiscoveryProviderFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -424,21 +368,7 @@ impl IFunctionDiscoveryProviderQuery {
         (::windows::core::Vtable::vtable(self).GetPropertyConstraints)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IProviderPropertyConstraintCollection>(result__)
     }
 }
-impl ::core::convert::From<IFunctionDiscoveryProviderQuery> for ::windows::core::IUnknown {
-    fn from(value: IFunctionDiscoveryProviderQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFunctionDiscoveryProviderQuery> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFunctionDiscoveryProviderQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFunctionDiscoveryProviderQuery> for ::windows::core::IUnknown {
-    fn from(value: &IFunctionDiscoveryProviderQuery) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFunctionDiscoveryProviderQuery, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFunctionDiscoveryProviderQuery {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -491,21 +421,7 @@ impl IFunctionDiscoveryServiceProvider {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pifunctioninstance.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IFunctionDiscoveryServiceProvider> for ::windows::core::IUnknown {
-    fn from(value: IFunctionDiscoveryServiceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFunctionDiscoveryServiceProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFunctionDiscoveryServiceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFunctionDiscoveryServiceProvider> for ::windows::core::IUnknown {
-    fn from(value: &IFunctionDiscoveryServiceProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFunctionDiscoveryServiceProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFunctionDiscoveryServiceProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -567,41 +483,7 @@ impl IFunctionInstance {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFunctionInstance> for ::windows::core::IUnknown {
-    fn from(value: IFunctionInstance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFunctionInstance> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFunctionInstance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFunctionInstance> for ::windows::core::IUnknown {
-    fn from(value: &IFunctionInstance) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFunctionInstance> for super::super::System::Com::IServiceProvider {
-    fn from(value: IFunctionInstance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFunctionInstance> for &'a super::super::System::Com::IServiceProvider {
-    fn from(value: &'a IFunctionInstance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFunctionInstance> for super::super::System::Com::IServiceProvider {
-    fn from(value: &IFunctionInstance) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFunctionInstance, ::windows::core::IUnknown, super::super::System::Com::IServiceProvider);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFunctionInstance {
     fn clone(&self) -> Self {
@@ -686,21 +568,7 @@ impl IFunctionInstanceCollection {
         (::windows::core::Vtable::vtable(self).DeleteAll)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IFunctionInstanceCollection> for ::windows::core::IUnknown {
-    fn from(value: IFunctionInstanceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFunctionInstanceCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFunctionInstanceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFunctionInstanceCollection> for ::windows::core::IUnknown {
-    fn from(value: &IFunctionInstanceCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFunctionInstanceCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFunctionInstanceCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -768,21 +636,7 @@ impl IFunctionInstanceCollectionQuery {
         (::windows::core::Vtable::vtable(self).Execute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFunctionInstanceCollection>(result__)
     }
 }
-impl ::core::convert::From<IFunctionInstanceCollectionQuery> for ::windows::core::IUnknown {
-    fn from(value: IFunctionInstanceCollectionQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFunctionInstanceCollectionQuery> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFunctionInstanceCollectionQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFunctionInstanceCollectionQuery> for ::windows::core::IUnknown {
-    fn from(value: &IFunctionInstanceCollectionQuery) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFunctionInstanceCollectionQuery, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFunctionInstanceCollectionQuery {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -827,21 +681,7 @@ impl IFunctionInstanceQuery {
         (::windows::core::Vtable::vtable(self).Execute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFunctionInstance>(result__)
     }
 }
-impl ::core::convert::From<IFunctionInstanceQuery> for ::windows::core::IUnknown {
-    fn from(value: IFunctionInstanceQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFunctionInstanceQuery> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFunctionInstanceQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFunctionInstanceQuery> for ::windows::core::IUnknown {
-    fn from(value: &IFunctionInstanceQuery) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFunctionInstanceQuery, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFunctionInstanceQuery {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -896,21 +736,7 @@ impl IPNPXAssociation {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), pszsubcategory.into()).ok()
     }
 }
-impl ::core::convert::From<IPNPXAssociation> for ::windows::core::IUnknown {
-    fn from(value: IPNPXAssociation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPNPXAssociation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPNPXAssociation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPNPXAssociation> for ::windows::core::IUnknown {
-    fn from(value: &IPNPXAssociation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPNPXAssociation, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPNPXAssociation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -967,21 +793,7 @@ impl IPNPXDeviceAssociation {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), pszsubcategory.into(), pifunctiondiscoverynotification.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IPNPXDeviceAssociation> for ::windows::core::IUnknown {
-    fn from(value: IPNPXDeviceAssociation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPNPXDeviceAssociation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPNPXDeviceAssociation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPNPXDeviceAssociation> for ::windows::core::IUnknown {
-    fn from(value: &IPNPXDeviceAssociation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPNPXDeviceAssociation, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPNPXDeviceAssociation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1055,21 +867,7 @@ impl IPropertyStoreCollection {
         (::windows::core::Vtable::vtable(self).DeleteAll)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IPropertyStoreCollection> for ::windows::core::IUnknown {
-    fn from(value: IPropertyStoreCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyStoreCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertyStoreCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyStoreCollection> for ::windows::core::IUnknown {
-    fn from(value: &IPropertyStoreCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertyStoreCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPropertyStoreCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1156,21 +954,7 @@ impl IProviderProperties {
         (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), pifunctioninstance.into().abi(), iproviderinstancecontext, ::core::mem::transmute(key), ::core::mem::transmute(ppropvar)).ok()
     }
 }
-impl ::core::convert::From<IProviderProperties> for ::windows::core::IUnknown {
-    fn from(value: IProviderProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProviderProperties> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IProviderProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProviderProperties> for ::windows::core::IUnknown {
-    fn from(value: &IProviderProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IProviderProperties, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IProviderProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1244,21 +1028,7 @@ impl IProviderPropertyConstraintCollection {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IProviderPropertyConstraintCollection> for ::windows::core::IUnknown {
-    fn from(value: IProviderPropertyConstraintCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProviderPropertyConstraintCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IProviderPropertyConstraintCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProviderPropertyConstraintCollection> for ::windows::core::IUnknown {
-    fn from(value: &IProviderPropertyConstraintCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IProviderPropertyConstraintCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IProviderPropertyConstraintCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1323,21 +1093,7 @@ impl IProviderPublishing {
         (::windows::core::Vtable::vtable(self).RemoveInstance)(::windows::core::Vtable::as_raw(self), enumvisibilityflags, pszsubcategory.into(), pszproviderinstanceidentity.into()).ok()
     }
 }
-impl ::core::convert::From<IProviderPublishing> for ::windows::core::IUnknown {
-    fn from(value: IProviderPublishing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProviderPublishing> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IProviderPublishing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProviderPublishing> for ::windows::core::IUnknown {
-    fn from(value: &IProviderPublishing) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IProviderPublishing, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IProviderPublishing {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1398,21 +1154,7 @@ impl IProviderQueryConstraintCollection {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IProviderQueryConstraintCollection> for ::windows::core::IUnknown {
-    fn from(value: IProviderQueryConstraintCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProviderQueryConstraintCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IProviderQueryConstraintCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProviderQueryConstraintCollection> for ::windows::core::IUnknown {
-    fn from(value: &IProviderQueryConstraintCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IProviderQueryConstraintCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IProviderQueryConstraintCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())

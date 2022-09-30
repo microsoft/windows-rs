@@ -47,21 +47,7 @@ impl ID3D11On12Device {
         (::windows::core::Vtable::vtable(self).AcquireWrappedResources)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppresources.as_ptr()), ppresources.len() as _)
     }
 }
-impl ::core::convert::From<ID3D11On12Device> for ::windows::core::IUnknown {
-    fn from(value: ID3D11On12Device) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D11On12Device> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D11On12Device) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11On12Device> for ::windows::core::IUnknown {
-    fn from(value: &ID3D11On12Device) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D11On12Device, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID3D11On12Device {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -134,36 +120,7 @@ impl ID3D11On12Device1 {
         (::windows::core::Vtable::vtable(self).GetD3D12Device)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<ID3D11On12Device1> for ::windows::core::IUnknown {
-    fn from(value: ID3D11On12Device1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D11On12Device1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D11On12Device1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11On12Device1> for ::windows::core::IUnknown {
-    fn from(value: &ID3D11On12Device1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D11On12Device1> for ID3D11On12Device {
-    fn from(value: ID3D11On12Device1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D11On12Device1> for &'a ID3D11On12Device {
-    fn from(value: &'a ID3D11On12Device1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11On12Device1> for ID3D11On12Device {
-    fn from(value: &ID3D11On12Device1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D11On12Device1, ::windows::core::IUnknown, ID3D11On12Device);
 impl ::core::clone::Clone for ID3D11On12Device1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -244,51 +201,7 @@ impl ID3D11On12Device2 {
         (::windows::core::Vtable::vtable(self).ReturnUnderlyingResource)(::windows::core::Vtable::as_raw(self), presource11.into().abi(), numsync, ::core::mem::transmute(psignalvalues), ::core::mem::transmute(ppfences)).ok()
     }
 }
-impl ::core::convert::From<ID3D11On12Device2> for ::windows::core::IUnknown {
-    fn from(value: ID3D11On12Device2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D11On12Device2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D11On12Device2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11On12Device2> for ::windows::core::IUnknown {
-    fn from(value: &ID3D11On12Device2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D11On12Device2> for ID3D11On12Device {
-    fn from(value: ID3D11On12Device2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D11On12Device2> for &'a ID3D11On12Device {
-    fn from(value: &'a ID3D11On12Device2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11On12Device2> for ID3D11On12Device {
-    fn from(value: &ID3D11On12Device2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D11On12Device2> for ID3D11On12Device1 {
-    fn from(value: ID3D11On12Device2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D11On12Device2> for &'a ID3D11On12Device1 {
-    fn from(value: &'a ID3D11On12Device2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11On12Device2> for ID3D11On12Device1 {
-    fn from(value: &ID3D11On12Device2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D11On12Device2, ::windows::core::IUnknown, ID3D11On12Device, ID3D11On12Device1);
 impl ::core::clone::Clone for ID3D11On12Device2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())

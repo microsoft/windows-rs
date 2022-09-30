@@ -109,36 +109,7 @@ unsafe impl ::windows::core::Interface for RemoteTextConnection {
 impl ::windows::core::RuntimeName for RemoteTextConnection {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Input.RemoteTextConnection";
 }
-impl ::core::convert::From<RemoteTextConnection> for ::windows::core::IUnknown {
-    fn from(value: RemoteTextConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteTextConnection> for ::windows::core::IUnknown {
-    fn from(value: &RemoteTextConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteTextConnection> for &::windows::core::IUnknown {
-    fn from(value: &RemoteTextConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteTextConnection> for ::windows::core::IInspectable {
-    fn from(value: RemoteTextConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteTextConnection> for ::windows::core::IInspectable {
-    fn from(value: &RemoteTextConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteTextConnection> for &::windows::core::IInspectable {
-    fn from(value: &RemoteTextConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteTextConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<RemoteTextConnection> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;

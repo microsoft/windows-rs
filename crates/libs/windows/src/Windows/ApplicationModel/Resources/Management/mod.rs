@@ -198,36 +198,7 @@ unsafe impl ::windows::core::Interface for IndexedResourceCandidate {
 impl ::windows::core::RuntimeName for IndexedResourceCandidate {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.IndexedResourceCandidate";
 }
-impl ::core::convert::From<IndexedResourceCandidate> for ::windows::core::IUnknown {
-    fn from(value: IndexedResourceCandidate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IndexedResourceCandidate> for ::windows::core::IUnknown {
-    fn from(value: &IndexedResourceCandidate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IndexedResourceCandidate> for &::windows::core::IUnknown {
-    fn from(value: &IndexedResourceCandidate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IndexedResourceCandidate> for ::windows::core::IInspectable {
-    fn from(value: IndexedResourceCandidate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IndexedResourceCandidate> for ::windows::core::IInspectable {
-    fn from(value: &IndexedResourceCandidate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IndexedResourceCandidate> for &::windows::core::IInspectable {
-    fn from(value: &IndexedResourceCandidate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IndexedResourceCandidate, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IndexedResourceCandidate {}
 unsafe impl ::core::marker::Sync for IndexedResourceCandidate {}
 #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`*"]
@@ -281,36 +252,7 @@ unsafe impl ::windows::core::Interface for IndexedResourceQualifier {
 impl ::windows::core::RuntimeName for IndexedResourceQualifier {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.IndexedResourceQualifier";
 }
-impl ::core::convert::From<IndexedResourceQualifier> for ::windows::core::IUnknown {
-    fn from(value: IndexedResourceQualifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IndexedResourceQualifier> for ::windows::core::IUnknown {
-    fn from(value: &IndexedResourceQualifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IndexedResourceQualifier> for &::windows::core::IUnknown {
-    fn from(value: &IndexedResourceQualifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IndexedResourceQualifier> for ::windows::core::IInspectable {
-    fn from(value: IndexedResourceQualifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IndexedResourceQualifier> for ::windows::core::IInspectable {
-    fn from(value: &IndexedResourceQualifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IndexedResourceQualifier> for &::windows::core::IInspectable {
-    fn from(value: &IndexedResourceQualifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IndexedResourceQualifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IndexedResourceQualifier {}
 unsafe impl ::core::marker::Sync for IndexedResourceQualifier {}
 #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`, `\"deprecated\"`*"]
@@ -407,41 +349,7 @@ impl ::windows::core::RuntimeName for ResourceIndexer {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.ResourceIndexer";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<ResourceIndexer> for ::windows::core::IUnknown {
-    fn from(value: ResourceIndexer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&ResourceIndexer> for ::windows::core::IUnknown {
-    fn from(value: &ResourceIndexer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&ResourceIndexer> for &::windows::core::IUnknown {
-    fn from(value: &ResourceIndexer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<ResourceIndexer> for ::windows::core::IInspectable {
-    fn from(value: ResourceIndexer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&ResourceIndexer> for ::windows::core::IInspectable {
-    fn from(value: &ResourceIndexer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&ResourceIndexer> for &::windows::core::IInspectable {
-    fn from(value: &ResourceIndexer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ResourceIndexer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for ResourceIndexer {}
 #[cfg(feature = "deprecated")]

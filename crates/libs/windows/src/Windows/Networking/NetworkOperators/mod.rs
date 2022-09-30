@@ -2706,36 +2706,7 @@ unsafe impl ::windows::core::Interface for ESim {
 impl ::windows::core::RuntimeName for ESim {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESim";
 }
-impl ::core::convert::From<ESim> for ::windows::core::IUnknown {
-    fn from(value: ESim) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESim> for ::windows::core::IUnknown {
-    fn from(value: &ESim) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESim> for &::windows::core::IUnknown {
-    fn from(value: &ESim) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESim> for ::windows::core::IInspectable {
-    fn from(value: ESim) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESim> for ::windows::core::IInspectable {
-    fn from(value: &ESim) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESim> for &::windows::core::IInspectable {
-    fn from(value: &ESim) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ESim, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESim {}
 unsafe impl ::core::marker::Sync for ESim {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -2782,36 +2753,7 @@ unsafe impl ::windows::core::Interface for ESimAddedEventArgs {
 impl ::windows::core::RuntimeName for ESimAddedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimAddedEventArgs";
 }
-impl ::core::convert::From<ESimAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ESimAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ESimAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimAddedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ESimAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ESimAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ESimAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimAddedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ESimAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ESimAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimAddedEventArgs {}
 unsafe impl ::core::marker::Sync for ESimAddedEventArgs {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -2865,36 +2807,7 @@ unsafe impl ::windows::core::Interface for ESimDiscoverEvent {
 impl ::windows::core::RuntimeName for ESimDiscoverEvent {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimDiscoverEvent";
 }
-impl ::core::convert::From<ESimDiscoverEvent> for ::windows::core::IUnknown {
-    fn from(value: ESimDiscoverEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimDiscoverEvent> for ::windows::core::IUnknown {
-    fn from(value: &ESimDiscoverEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimDiscoverEvent> for &::windows::core::IUnknown {
-    fn from(value: &ESimDiscoverEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimDiscoverEvent> for ::windows::core::IInspectable {
-    fn from(value: ESimDiscoverEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimDiscoverEvent> for ::windows::core::IInspectable {
-    fn from(value: &ESimDiscoverEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimDiscoverEvent> for &::windows::core::IInspectable {
-    fn from(value: &ESimDiscoverEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ESimDiscoverEvent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimDiscoverEvent {}
 unsafe impl ::core::marker::Sync for ESimDiscoverEvent {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -2964,36 +2877,7 @@ unsafe impl ::windows::core::Interface for ESimDiscoverResult {
 impl ::windows::core::RuntimeName for ESimDiscoverResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimDiscoverResult";
 }
-impl ::core::convert::From<ESimDiscoverResult> for ::windows::core::IUnknown {
-    fn from(value: ESimDiscoverResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimDiscoverResult> for ::windows::core::IUnknown {
-    fn from(value: &ESimDiscoverResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimDiscoverResult> for &::windows::core::IUnknown {
-    fn from(value: &ESimDiscoverResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimDiscoverResult> for ::windows::core::IInspectable {
-    fn from(value: ESimDiscoverResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimDiscoverResult> for ::windows::core::IInspectable {
-    fn from(value: &ESimDiscoverResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimDiscoverResult> for &::windows::core::IInspectable {
-    fn from(value: &ESimDiscoverResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ESimDiscoverResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimDiscoverResult {}
 unsafe impl ::core::marker::Sync for ESimDiscoverResult {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -3047,36 +2931,7 @@ unsafe impl ::windows::core::Interface for ESimDownloadProfileMetadataResult {
 impl ::windows::core::RuntimeName for ESimDownloadProfileMetadataResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimDownloadProfileMetadataResult";
 }
-impl ::core::convert::From<ESimDownloadProfileMetadataResult> for ::windows::core::IUnknown {
-    fn from(value: ESimDownloadProfileMetadataResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimDownloadProfileMetadataResult> for ::windows::core::IUnknown {
-    fn from(value: &ESimDownloadProfileMetadataResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimDownloadProfileMetadataResult> for &::windows::core::IUnknown {
-    fn from(value: &ESimDownloadProfileMetadataResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimDownloadProfileMetadataResult> for ::windows::core::IInspectable {
-    fn from(value: ESimDownloadProfileMetadataResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimDownloadProfileMetadataResult> for ::windows::core::IInspectable {
-    fn from(value: &ESimDownloadProfileMetadataResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimDownloadProfileMetadataResult> for &::windows::core::IInspectable {
-    fn from(value: &ESimDownloadProfileMetadataResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ESimDownloadProfileMetadataResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimDownloadProfileMetadataResult {}
 unsafe impl ::core::marker::Sync for ESimDownloadProfileMetadataResult {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -3160,36 +3015,7 @@ unsafe impl ::windows::core::Interface for ESimOperationResult {
 impl ::windows::core::RuntimeName for ESimOperationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimOperationResult";
 }
-impl ::core::convert::From<ESimOperationResult> for ::windows::core::IUnknown {
-    fn from(value: ESimOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimOperationResult> for ::windows::core::IUnknown {
-    fn from(value: &ESimOperationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimOperationResult> for &::windows::core::IUnknown {
-    fn from(value: &ESimOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimOperationResult> for ::windows::core::IInspectable {
-    fn from(value: ESimOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimOperationResult> for ::windows::core::IInspectable {
-    fn from(value: &ESimOperationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimOperationResult> for &::windows::core::IInspectable {
-    fn from(value: &ESimOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ESimOperationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimOperationResult {}
 unsafe impl ::core::marker::Sync for ESimOperationResult {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -3236,36 +3062,7 @@ unsafe impl ::windows::core::Interface for ESimPolicy {
 impl ::windows::core::RuntimeName for ESimPolicy {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimPolicy";
 }
-impl ::core::convert::From<ESimPolicy> for ::windows::core::IUnknown {
-    fn from(value: ESimPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimPolicy> for ::windows::core::IUnknown {
-    fn from(value: &ESimPolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimPolicy> for &::windows::core::IUnknown {
-    fn from(value: &ESimPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimPolicy> for ::windows::core::IInspectable {
-    fn from(value: ESimPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimPolicy> for ::windows::core::IInspectable {
-    fn from(value: &ESimPolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimPolicy> for &::windows::core::IInspectable {
-    fn from(value: &ESimPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ESimPolicy, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimPolicy {}
 unsafe impl ::core::marker::Sync for ESimPolicy {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -3390,36 +3187,7 @@ unsafe impl ::windows::core::Interface for ESimProfile {
 impl ::windows::core::RuntimeName for ESimProfile {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimProfile";
 }
-impl ::core::convert::From<ESimProfile> for ::windows::core::IUnknown {
-    fn from(value: ESimProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimProfile> for ::windows::core::IUnknown {
-    fn from(value: &ESimProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimProfile> for &::windows::core::IUnknown {
-    fn from(value: &ESimProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimProfile> for ::windows::core::IInspectable {
-    fn from(value: ESimProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimProfile> for ::windows::core::IInspectable {
-    fn from(value: &ESimProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimProfile> for &::windows::core::IInspectable {
-    fn from(value: &ESimProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ESimProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimProfile {}
 unsafe impl ::core::marker::Sync for ESimProfile {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -3561,36 +3329,7 @@ unsafe impl ::windows::core::Interface for ESimProfileMetadata {
 impl ::windows::core::RuntimeName for ESimProfileMetadata {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimProfileMetadata";
 }
-impl ::core::convert::From<ESimProfileMetadata> for ::windows::core::IUnknown {
-    fn from(value: ESimProfileMetadata) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimProfileMetadata> for ::windows::core::IUnknown {
-    fn from(value: &ESimProfileMetadata) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimProfileMetadata> for &::windows::core::IUnknown {
-    fn from(value: &ESimProfileMetadata) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimProfileMetadata> for ::windows::core::IInspectable {
-    fn from(value: ESimProfileMetadata) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimProfileMetadata> for ::windows::core::IInspectable {
-    fn from(value: &ESimProfileMetadata) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimProfileMetadata> for &::windows::core::IInspectable {
-    fn from(value: &ESimProfileMetadata) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ESimProfileMetadata, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimProfileMetadata {}
 unsafe impl ::core::marker::Sync for ESimProfileMetadata {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -3651,36 +3390,7 @@ unsafe impl ::windows::core::Interface for ESimProfilePolicy {
 impl ::windows::core::RuntimeName for ESimProfilePolicy {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimProfilePolicy";
 }
-impl ::core::convert::From<ESimProfilePolicy> for ::windows::core::IUnknown {
-    fn from(value: ESimProfilePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimProfilePolicy> for ::windows::core::IUnknown {
-    fn from(value: &ESimProfilePolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimProfilePolicy> for &::windows::core::IUnknown {
-    fn from(value: &ESimProfilePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimProfilePolicy> for ::windows::core::IInspectable {
-    fn from(value: ESimProfilePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimProfilePolicy> for ::windows::core::IInspectable {
-    fn from(value: &ESimProfilePolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimProfilePolicy> for &::windows::core::IInspectable {
-    fn from(value: &ESimProfilePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ESimProfilePolicy, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimProfilePolicy {}
 unsafe impl ::core::marker::Sync for ESimProfilePolicy {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -3727,36 +3437,7 @@ unsafe impl ::windows::core::Interface for ESimRemovedEventArgs {
 impl ::windows::core::RuntimeName for ESimRemovedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimRemovedEventArgs";
 }
-impl ::core::convert::From<ESimRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ESimRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ESimRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimRemovedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ESimRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ESimRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ESimRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimRemovedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ESimRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ESimRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for ESimRemovedEventArgs {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -3810,36 +3491,7 @@ unsafe impl ::windows::core::Interface for ESimServiceInfo {
 impl ::windows::core::RuntimeName for ESimServiceInfo {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimServiceInfo";
 }
-impl ::core::convert::From<ESimServiceInfo> for ::windows::core::IUnknown {
-    fn from(value: ESimServiceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimServiceInfo> for ::windows::core::IUnknown {
-    fn from(value: &ESimServiceInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimServiceInfo> for &::windows::core::IUnknown {
-    fn from(value: &ESimServiceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimServiceInfo> for ::windows::core::IInspectable {
-    fn from(value: ESimServiceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimServiceInfo> for ::windows::core::IInspectable {
-    fn from(value: &ESimServiceInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimServiceInfo> for &::windows::core::IInspectable {
-    fn from(value: &ESimServiceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ESimServiceInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimServiceInfo {}
 unsafe impl ::core::marker::Sync for ESimServiceInfo {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -3886,36 +3538,7 @@ unsafe impl ::windows::core::Interface for ESimUpdatedEventArgs {
 impl ::windows::core::RuntimeName for ESimUpdatedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimUpdatedEventArgs";
 }
-impl ::core::convert::From<ESimUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ESimUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ESimUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimUpdatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ESimUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ESimUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ESimUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimUpdatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ESimUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ESimUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for ESimUpdatedEventArgs {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -4045,36 +3668,7 @@ unsafe impl ::windows::core::Interface for ESimWatcher {
 impl ::windows::core::RuntimeName for ESimWatcher {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimWatcher";
 }
-impl ::core::convert::From<ESimWatcher> for ::windows::core::IUnknown {
-    fn from(value: ESimWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimWatcher> for ::windows::core::IUnknown {
-    fn from(value: &ESimWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimWatcher> for &::windows::core::IUnknown {
-    fn from(value: &ESimWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimWatcher> for ::windows::core::IInspectable {
-    fn from(value: ESimWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimWatcher> for ::windows::core::IInspectable {
-    fn from(value: &ESimWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimWatcher> for &::windows::core::IInspectable {
-    fn from(value: &ESimWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ESimWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ESimWatcher {}
 unsafe impl ::core::marker::Sync for ESimWatcher {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -4213,36 +3807,7 @@ unsafe impl ::windows::core::Interface for HotspotAuthenticationContext {
 impl ::windows::core::RuntimeName for HotspotAuthenticationContext {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotAuthenticationContext";
 }
-impl ::core::convert::From<HotspotAuthenticationContext> for ::windows::core::IUnknown {
-    fn from(value: HotspotAuthenticationContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HotspotAuthenticationContext> for ::windows::core::IUnknown {
-    fn from(value: &HotspotAuthenticationContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HotspotAuthenticationContext> for &::windows::core::IUnknown {
-    fn from(value: &HotspotAuthenticationContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HotspotAuthenticationContext> for ::windows::core::IInspectable {
-    fn from(value: HotspotAuthenticationContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HotspotAuthenticationContext> for ::windows::core::IInspectable {
-    fn from(value: &HotspotAuthenticationContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HotspotAuthenticationContext> for &::windows::core::IInspectable {
-    fn from(value: &HotspotAuthenticationContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HotspotAuthenticationContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct HotspotAuthenticationEventDetails(::windows::core::IUnknown);
@@ -4287,36 +3852,7 @@ unsafe impl ::windows::core::Interface for HotspotAuthenticationEventDetails {
 impl ::windows::core::RuntimeName for HotspotAuthenticationEventDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotAuthenticationEventDetails";
 }
-impl ::core::convert::From<HotspotAuthenticationEventDetails> for ::windows::core::IUnknown {
-    fn from(value: HotspotAuthenticationEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HotspotAuthenticationEventDetails> for ::windows::core::IUnknown {
-    fn from(value: &HotspotAuthenticationEventDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HotspotAuthenticationEventDetails> for &::windows::core::IUnknown {
-    fn from(value: &HotspotAuthenticationEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HotspotAuthenticationEventDetails> for ::windows::core::IInspectable {
-    fn from(value: HotspotAuthenticationEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HotspotAuthenticationEventDetails> for ::windows::core::IInspectable {
-    fn from(value: &HotspotAuthenticationEventDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HotspotAuthenticationEventDetails> for &::windows::core::IInspectable {
-    fn from(value: &HotspotAuthenticationEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HotspotAuthenticationEventDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct HotspotCredentialsAuthenticationResult(::windows::core::IUnknown);
@@ -4386,36 +3922,7 @@ unsafe impl ::windows::core::Interface for HotspotCredentialsAuthenticationResul
 impl ::windows::core::RuntimeName for HotspotCredentialsAuthenticationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotCredentialsAuthenticationResult";
 }
-impl ::core::convert::From<HotspotCredentialsAuthenticationResult> for ::windows::core::IUnknown {
-    fn from(value: HotspotCredentialsAuthenticationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HotspotCredentialsAuthenticationResult> for ::windows::core::IUnknown {
-    fn from(value: &HotspotCredentialsAuthenticationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HotspotCredentialsAuthenticationResult> for &::windows::core::IUnknown {
-    fn from(value: &HotspotCredentialsAuthenticationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HotspotCredentialsAuthenticationResult> for ::windows::core::IInspectable {
-    fn from(value: HotspotCredentialsAuthenticationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HotspotCredentialsAuthenticationResult> for ::windows::core::IInspectable {
-    fn from(value: &HotspotCredentialsAuthenticationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HotspotCredentialsAuthenticationResult> for &::windows::core::IInspectable {
-    fn from(value: &HotspotCredentialsAuthenticationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HotspotCredentialsAuthenticationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 pub struct KnownCSimFilePaths;
 impl KnownCSimFilePaths {
@@ -4693,36 +4200,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandAccount {
 impl ::windows::core::RuntimeName for MobileBroadbandAccount {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccount";
 }
-impl ::core::convert::From<MobileBroadbandAccount> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandAccount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandAccount> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandAccount) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandAccount> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandAccount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandAccount> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandAccount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandAccount> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandAccount) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandAccount> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandAccount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandAccount, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandAccountEventArgs(::windows::core::IUnknown);
@@ -4767,36 +4245,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandAccountEventArgs {
 impl ::windows::core::RuntimeName for MobileBroadbandAccountEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountEventArgs";
 }
-impl ::core::convert::From<MobileBroadbandAccountEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandAccountEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandAccountEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandAccountEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandAccountEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandAccountEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandAccountEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandAccountEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandAccountEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandAccountEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandAccountEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandAccountEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandAccountEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandAccountUpdatedEventArgs(::windows::core::IUnknown);
@@ -4855,36 +4304,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandAccountUpdatedEventArg
 impl ::windows::core::RuntimeName for MobileBroadbandAccountUpdatedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountUpdatedEventArgs";
 }
-impl ::core::convert::From<MobileBroadbandAccountUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandAccountUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandAccountUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandAccountUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandAccountUpdatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandAccountUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandAccountUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandAccountUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandAccountUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandAccountUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandAccountUpdatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandAccountUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandAccountUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandAccountWatcher(::windows::core::IUnknown);
@@ -5019,36 +4439,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandAccountWatcher {
 impl ::windows::core::RuntimeName for MobileBroadbandAccountWatcher {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcher";
 }
-impl ::core::convert::From<MobileBroadbandAccountWatcher> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandAccountWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandAccountWatcher> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandAccountWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandAccountWatcher> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandAccountWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandAccountWatcher> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandAccountWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandAccountWatcher> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandAccountWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandAccountWatcher> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandAccountWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandAccountWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandAntennaSar(::windows::core::IUnknown);
@@ -5111,36 +4502,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandAntennaSar {
 impl ::windows::core::RuntimeName for MobileBroadbandAntennaSar {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAntennaSar";
 }
-impl ::core::convert::From<MobileBroadbandAntennaSar> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandAntennaSar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandAntennaSar> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandAntennaSar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandAntennaSar> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandAntennaSar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandAntennaSar> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandAntennaSar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandAntennaSar> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandAntennaSar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandAntennaSar> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandAntennaSar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandAntennaSar, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandAntennaSar {}
 unsafe impl ::core::marker::Sync for MobileBroadbandAntennaSar {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5252,36 +4614,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandCellCdma {
 impl ::windows::core::RuntimeName for MobileBroadbandCellCdma {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellCdma";
 }
-impl ::core::convert::From<MobileBroadbandCellCdma> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandCellCdma) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellCdma> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandCellCdma) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellCdma> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandCellCdma) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandCellCdma> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandCellCdma) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellCdma> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandCellCdma) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellCdma> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandCellCdma) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandCellCdma, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandCellCdma {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCellCdma {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5382,36 +4715,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandCellGsm {
 impl ::windows::core::RuntimeName for MobileBroadbandCellGsm {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellGsm";
 }
-impl ::core::convert::From<MobileBroadbandCellGsm> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandCellGsm) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellGsm> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandCellGsm) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellGsm> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandCellGsm) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandCellGsm> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandCellGsm) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellGsm> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandCellGsm) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellGsm> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandCellGsm) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandCellGsm, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandCellGsm {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCellGsm {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5521,36 +4825,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandCellLte {
 impl ::windows::core::RuntimeName for MobileBroadbandCellLte {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellLte";
 }
-impl ::core::convert::From<MobileBroadbandCellLte> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandCellLte) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellLte> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandCellLte) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellLte> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandCellLte) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandCellLte> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandCellLte) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellLte> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandCellLte) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellLte> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandCellLte) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandCellLte, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandCellLte {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCellLte {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5669,36 +4944,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandCellNR {
 impl ::windows::core::RuntimeName for MobileBroadbandCellNR {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellNR";
 }
-impl ::core::convert::From<MobileBroadbandCellNR> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandCellNR) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellNR> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandCellNR) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellNR> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandCellNR) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandCellNR> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandCellNR) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellNR> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandCellNR) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellNR> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandCellNR) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandCellNR, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandCellNR {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCellNR {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5808,36 +5054,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandCellTdscdma {
 impl ::windows::core::RuntimeName for MobileBroadbandCellTdscdma {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellTdscdma";
 }
-impl ::core::convert::From<MobileBroadbandCellTdscdma> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandCellTdscdma) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellTdscdma> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandCellTdscdma) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellTdscdma> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandCellTdscdma) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandCellTdscdma> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandCellTdscdma) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellTdscdma> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandCellTdscdma) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellTdscdma> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandCellTdscdma) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandCellTdscdma, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandCellTdscdma {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCellTdscdma {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5947,36 +5164,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandCellUmts {
 impl ::windows::core::RuntimeName for MobileBroadbandCellUmts {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellUmts";
 }
-impl ::core::convert::From<MobileBroadbandCellUmts> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandCellUmts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellUmts> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandCellUmts) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellUmts> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandCellUmts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandCellUmts> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandCellUmts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellUmts> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandCellUmts) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellUmts> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandCellUmts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandCellUmts, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandCellUmts {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCellUmts {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6124,36 +5312,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandCellsInfo {
 impl ::windows::core::RuntimeName for MobileBroadbandCellsInfo {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellsInfo";
 }
-impl ::core::convert::From<MobileBroadbandCellsInfo> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandCellsInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellsInfo> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandCellsInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellsInfo> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandCellsInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandCellsInfo> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandCellsInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellsInfo> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandCellsInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCellsInfo> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandCellsInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandCellsInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandCellsInfo {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCellsInfo {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6200,36 +5359,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandCurrentSlotIndexChange
 impl ::windows::core::RuntimeName for MobileBroadbandCurrentSlotIndexChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCurrentSlotIndexChangedEventArgs";
 }
-impl ::core::convert::From<MobileBroadbandCurrentSlotIndexChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandCurrentSlotIndexChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCurrentSlotIndexChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandCurrentSlotIndexChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCurrentSlotIndexChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandCurrentSlotIndexChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandCurrentSlotIndexChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandCurrentSlotIndexChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCurrentSlotIndexChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandCurrentSlotIndexChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandCurrentSlotIndexChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandCurrentSlotIndexChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandCurrentSlotIndexChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandCurrentSlotIndexChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCurrentSlotIndexChangedEventArgs {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6420,36 +5550,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandDeviceInformation {
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceInformation {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceInformation";
 }
-impl ::core::convert::From<MobileBroadbandDeviceInformation> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandDeviceInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceInformation> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandDeviceInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceInformation> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandDeviceInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandDeviceInformation> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandDeviceInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceInformation> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandDeviceInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceInformation> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandDeviceInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandDeviceInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceService(::windows::core::IUnknown);
@@ -6517,36 +5618,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandDeviceService {
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceService {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceService";
 }
-impl ::core::convert::From<MobileBroadbandDeviceService> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandDeviceService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceService> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandDeviceService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceService> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandDeviceService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandDeviceService> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandDeviceService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceService> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandDeviceService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceService> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandDeviceService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandDeviceService, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceService {}
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceService {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6602,36 +5674,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceCommandRe
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceCommandResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandResult";
 }
-impl ::core::convert::From<MobileBroadbandDeviceServiceCommandResult> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandDeviceServiceCommandResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceCommandResult> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandDeviceServiceCommandResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceCommandResult> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandDeviceServiceCommandResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandDeviceServiceCommandResult> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandDeviceServiceCommandResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceCommandResult> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandDeviceServiceCommandResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceCommandResult> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandDeviceServiceCommandResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandDeviceServiceCommandResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceCommandResult {}
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceCommandResult {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6701,36 +5744,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceCommandSe
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceCommandSession {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandSession";
 }
-impl ::core::convert::From<MobileBroadbandDeviceServiceCommandSession> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandDeviceServiceCommandSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceCommandSession> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandDeviceServiceCommandSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceCommandSession> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandDeviceServiceCommandSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandDeviceServiceCommandSession> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandDeviceServiceCommandSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceCommandSession> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandDeviceServiceCommandSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceCommandSession> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandDeviceServiceCommandSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandDeviceServiceCommandSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceCommandSession {}
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceCommandSession {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6779,36 +5793,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceDataRecei
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceDataReceivedEventArgs";
 }
-impl ::core::convert::From<MobileBroadbandDeviceServiceDataReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandDeviceServiceDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceDataReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandDeviceServiceDataReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceDataReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandDeviceServiceDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandDeviceServiceDataReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandDeviceServiceDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceDataReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandDeviceServiceDataReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceDataReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandDeviceServiceDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandDeviceServiceDataReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceDataReceivedEventArgs {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6880,36 +5865,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceDataSessi
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceDataSession {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceDataSession";
 }
-impl ::core::convert::From<MobileBroadbandDeviceServiceDataSession> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandDeviceServiceDataSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceDataSession> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandDeviceServiceDataSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceDataSession> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandDeviceServiceDataSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandDeviceServiceDataSession> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandDeviceServiceDataSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceDataSession> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandDeviceServiceDataSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceDataSession> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandDeviceServiceDataSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandDeviceServiceDataSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceDataSession {}
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceDataSession {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6970,36 +5926,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceInformati
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceInformation {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceInformation";
 }
-impl ::core::convert::From<MobileBroadbandDeviceServiceInformation> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandDeviceServiceInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceInformation> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandDeviceServiceInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceInformation> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandDeviceServiceInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandDeviceServiceInformation> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandDeviceServiceInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceInformation> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandDeviceServiceInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceInformation> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandDeviceServiceInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandDeviceServiceInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceInformation {}
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceInformation {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7062,36 +5989,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceTriggerDe
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceTriggerDetails";
 }
-impl ::core::convert::From<MobileBroadbandDeviceServiceTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandDeviceServiceTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandDeviceServiceTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandDeviceServiceTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandDeviceServiceTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandDeviceServiceTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandDeviceServiceTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandDeviceServiceTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandDeviceServiceTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceTriggerDetails {}
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceTriggerDetails {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7279,36 +6177,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandModem {
 impl ::windows::core::RuntimeName for MobileBroadbandModem {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandModem";
 }
-impl ::core::convert::From<MobileBroadbandModem> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandModem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandModem> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandModem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandModem> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandModem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandModem> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandModem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandModem> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandModem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandModem> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandModem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandModem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandModem {}
 unsafe impl ::core::marker::Sync for MobileBroadbandModem {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7376,36 +6245,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandModemConfiguration {
 impl ::windows::core::RuntimeName for MobileBroadbandModemConfiguration {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandModemConfiguration";
 }
-impl ::core::convert::From<MobileBroadbandModemConfiguration> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandModemConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandModemConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandModemConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandModemConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandModemConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandModemConfiguration> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandModemConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandModemConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandModemConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandModemConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandModemConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandModemConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandModemIsolation(::windows::core::IUnknown);
@@ -7480,36 +6320,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandModemIsolation {
 impl ::windows::core::RuntimeName for MobileBroadbandModemIsolation {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandModemIsolation";
 }
-impl ::core::convert::From<MobileBroadbandModemIsolation> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandModemIsolation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandModemIsolation> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandModemIsolation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandModemIsolation> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandModemIsolation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandModemIsolation> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandModemIsolation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandModemIsolation> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandModemIsolation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandModemIsolation> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandModemIsolation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandModemIsolation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandModemIsolation {}
 unsafe impl ::core::marker::Sync for MobileBroadbandModemIsolation {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7645,36 +6456,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandNetwork {
 impl ::windows::core::RuntimeName for MobileBroadbandNetwork {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandNetwork";
 }
-impl ::core::convert::From<MobileBroadbandNetwork> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandNetwork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandNetwork> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandNetwork) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandNetwork> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandNetwork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandNetwork> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandNetwork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandNetwork> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandNetwork) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandNetwork> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandNetwork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandNetwork, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandNetworkRegistrationStateChange(::windows::core::IUnknown);
@@ -7726,36 +6508,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandNetworkRegistrationSta
 impl ::windows::core::RuntimeName for MobileBroadbandNetworkRegistrationStateChange {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChange";
 }
-impl ::core::convert::From<MobileBroadbandNetworkRegistrationStateChange> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandNetworkRegistrationStateChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandNetworkRegistrationStateChange> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandNetworkRegistrationStateChange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandNetworkRegistrationStateChange> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandNetworkRegistrationStateChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandNetworkRegistrationStateChange> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandNetworkRegistrationStateChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandNetworkRegistrationStateChange> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandNetworkRegistrationStateChange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandNetworkRegistrationStateChange> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandNetworkRegistrationStateChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandNetworkRegistrationStateChange, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandNetworkRegistrationStateChange {}
 unsafe impl ::core::marker::Sync for MobileBroadbandNetworkRegistrationStateChange {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7804,36 +6557,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandNetworkRegistrationSta
 impl ::windows::core::RuntimeName for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChangeTriggerDetails";
 }
-impl ::core::convert::From<MobileBroadbandNetworkRegistrationStateChangeTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandNetworkRegistrationStateChangeTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandNetworkRegistrationStateChangeTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandNetworkRegistrationStateChangeTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandNetworkRegistrationStateChangeTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandNetworkRegistrationStateChangeTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandNetworkRegistrationStateChangeTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandNetworkRegistrationStateChangeTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandNetworkRegistrationStateChangeTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandNetworkRegistrationStateChangeTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandNetworkRegistrationStateChangeTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandNetworkRegistrationStateChangeTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandNetworkRegistrationStateChangeTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {}
 unsafe impl ::core::marker::Sync for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7896,36 +6620,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandPco {
 impl ::windows::core::RuntimeName for MobileBroadbandPco {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPco";
 }
-impl ::core::convert::From<MobileBroadbandPco> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandPco) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPco> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandPco) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPco> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandPco) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandPco> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandPco) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPco> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandPco) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPco> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandPco) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandPco, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandPco {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPco {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7972,36 +6667,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandPcoDataChangeTriggerDe
 impl ::windows::core::RuntimeName for MobileBroadbandPcoDataChangeTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPcoDataChangeTriggerDetails";
 }
-impl ::core::convert::From<MobileBroadbandPcoDataChangeTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandPcoDataChangeTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPcoDataChangeTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandPcoDataChangeTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPcoDataChangeTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandPcoDataChangeTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandPcoDataChangeTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandPcoDataChangeTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPcoDataChangeTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandPcoDataChangeTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPcoDataChangeTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandPcoDataChangeTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandPcoDataChangeTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandPcoDataChangeTriggerDetails {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPcoDataChangeTriggerDetails {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8135,36 +6801,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandPin {
 impl ::windows::core::RuntimeName for MobileBroadbandPin {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPin";
 }
-impl ::core::convert::From<MobileBroadbandPin> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandPin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPin> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandPin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPin> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandPin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandPin> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandPin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPin> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandPin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPin> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandPin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandPin, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandPin {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPin {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8225,36 +6862,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandPinLockStateChange {
 impl ::windows::core::RuntimeName for MobileBroadbandPinLockStateChange {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChange";
 }
-impl ::core::convert::From<MobileBroadbandPinLockStateChange> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandPinLockStateChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPinLockStateChange> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandPinLockStateChange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPinLockStateChange> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandPinLockStateChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandPinLockStateChange> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandPinLockStateChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPinLockStateChange> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandPinLockStateChange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPinLockStateChange> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandPinLockStateChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandPinLockStateChange, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandPinLockStateChange {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPinLockStateChange {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8303,36 +6911,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandPinLockStateChangeTrig
 impl ::windows::core::RuntimeName for MobileBroadbandPinLockStateChangeTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChangeTriggerDetails";
 }
-impl ::core::convert::From<MobileBroadbandPinLockStateChangeTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandPinLockStateChangeTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPinLockStateChangeTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandPinLockStateChangeTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPinLockStateChangeTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandPinLockStateChangeTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandPinLockStateChangeTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandPinLockStateChangeTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPinLockStateChangeTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandPinLockStateChangeTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPinLockStateChangeTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandPinLockStateChangeTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandPinLockStateChangeTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandPinLockStateChangeTriggerDetails {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPinLockStateChangeTriggerDetails {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8388,36 +6967,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandPinManager {
 impl ::windows::core::RuntimeName for MobileBroadbandPinManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinManager";
 }
-impl ::core::convert::From<MobileBroadbandPinManager> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandPinManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPinManager> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandPinManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPinManager> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandPinManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandPinManager> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandPinManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPinManager> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandPinManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPinManager> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandPinManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandPinManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandPinManager {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPinManager {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8471,36 +7021,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandPinOperationResult {
 impl ::windows::core::RuntimeName for MobileBroadbandPinOperationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinOperationResult";
 }
-impl ::core::convert::From<MobileBroadbandPinOperationResult> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandPinOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPinOperationResult> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandPinOperationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPinOperationResult> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandPinOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandPinOperationResult> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandPinOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPinOperationResult> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandPinOperationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPinOperationResult> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandPinOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandPinOperationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandPinOperationResult {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPinOperationResult {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8554,36 +7075,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandRadioStateChange {
 impl ::windows::core::RuntimeName for MobileBroadbandRadioStateChange {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChange";
 }
-impl ::core::convert::From<MobileBroadbandRadioStateChange> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandRadioStateChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandRadioStateChange> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandRadioStateChange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandRadioStateChange> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandRadioStateChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandRadioStateChange> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandRadioStateChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandRadioStateChange> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandRadioStateChange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandRadioStateChange> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandRadioStateChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandRadioStateChange, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandRadioStateChange {}
 unsafe impl ::core::marker::Sync for MobileBroadbandRadioStateChange {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8632,36 +7124,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandRadioStateChangeTrigge
 impl ::windows::core::RuntimeName for MobileBroadbandRadioStateChangeTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChangeTriggerDetails";
 }
-impl ::core::convert::From<MobileBroadbandRadioStateChangeTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandRadioStateChangeTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandRadioStateChangeTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandRadioStateChangeTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandRadioStateChangeTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandRadioStateChangeTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandRadioStateChangeTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandRadioStateChangeTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandRadioStateChangeTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandRadioStateChangeTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandRadioStateChangeTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandRadioStateChangeTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandRadioStateChangeTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandRadioStateChangeTriggerDetails {}
 unsafe impl ::core::marker::Sync for MobileBroadbandRadioStateChangeTriggerDetails {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8821,36 +7284,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandSarManager {
 impl ::windows::core::RuntimeName for MobileBroadbandSarManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSarManager";
 }
-impl ::core::convert::From<MobileBroadbandSarManager> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandSarManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandSarManager> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandSarManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandSarManager> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandSarManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandSarManager> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandSarManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandSarManager> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandSarManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandSarManager> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandSarManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandSarManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandSarManager {}
 unsafe impl ::core::marker::Sync for MobileBroadbandSarManager {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8904,36 +7338,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandSlotInfo {
 impl ::windows::core::RuntimeName for MobileBroadbandSlotInfo {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSlotInfo";
 }
-impl ::core::convert::From<MobileBroadbandSlotInfo> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandSlotInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandSlotInfo> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandSlotInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandSlotInfo> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandSlotInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandSlotInfo> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandSlotInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandSlotInfo> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandSlotInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandSlotInfo> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandSlotInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandSlotInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandSlotInfo {}
 unsafe impl ::core::marker::Sync for MobileBroadbandSlotInfo {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8980,36 +7385,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandSlotInfoChangedEventAr
 impl ::windows::core::RuntimeName for MobileBroadbandSlotInfoChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSlotInfoChangedEventArgs";
 }
-impl ::core::convert::From<MobileBroadbandSlotInfoChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandSlotInfoChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandSlotInfoChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandSlotInfoChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandSlotInfoChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandSlotInfoChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandSlotInfoChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandSlotInfoChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandSlotInfoChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandSlotInfoChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandSlotInfoChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandSlotInfoChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandSlotInfoChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandSlotInfoChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MobileBroadbandSlotInfoChangedEventArgs {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -9111,36 +7487,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandSlotManager {
 impl ::windows::core::RuntimeName for MobileBroadbandSlotManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSlotManager";
 }
-impl ::core::convert::From<MobileBroadbandSlotManager> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandSlotManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandSlotManager> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandSlotManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandSlotManager> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandSlotManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandSlotManager> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandSlotManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandSlotManager> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandSlotManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandSlotManager> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandSlotManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandSlotManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandSlotManager {}
 unsafe impl ::core::marker::Sync for MobileBroadbandSlotManager {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -9187,36 +7534,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandTransmissionStateChang
 impl ::windows::core::RuntimeName for MobileBroadbandTransmissionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandTransmissionStateChangedEventArgs";
 }
-impl ::core::convert::From<MobileBroadbandTransmissionStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandTransmissionStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandTransmissionStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandTransmissionStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandTransmissionStateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandTransmissionStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandTransmissionStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandTransmissionStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandTransmissionStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandTransmissionStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandTransmissionStateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandTransmissionStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandTransmissionStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandTransmissionStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MobileBroadbandTransmissionStateChangedEventArgs {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -9272,36 +7590,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandUicc {
 impl ::windows::core::RuntimeName for MobileBroadbandUicc {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUicc";
 }
-impl ::core::convert::From<MobileBroadbandUicc> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandUicc) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandUicc> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandUicc) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandUicc> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandUicc) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandUicc> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandUicc) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandUicc> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandUicc) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandUicc> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandUicc) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandUicc, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandUicc {}
 unsafe impl ::core::marker::Sync for MobileBroadbandUicc {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -9383,36 +7672,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandUiccApp {
 impl ::windows::core::RuntimeName for MobileBroadbandUiccApp {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccApp";
 }
-impl ::core::convert::From<MobileBroadbandUiccApp> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandUiccApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandUiccApp> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandUiccApp) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandUiccApp> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandUiccApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandUiccApp> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandUiccApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandUiccApp> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandUiccApp) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandUiccApp> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandUiccApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandUiccApp, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandUiccApp {}
 unsafe impl ::core::marker::Sync for MobileBroadbandUiccApp {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -9468,36 +7728,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandUiccAppReadRecordResul
 impl ::windows::core::RuntimeName for MobileBroadbandUiccAppReadRecordResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccAppReadRecordResult";
 }
-impl ::core::convert::From<MobileBroadbandUiccAppReadRecordResult> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandUiccAppReadRecordResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandUiccAppReadRecordResult> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandUiccAppReadRecordResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandUiccAppReadRecordResult> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandUiccAppReadRecordResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandUiccAppReadRecordResult> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandUiccAppReadRecordResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandUiccAppReadRecordResult> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandUiccAppReadRecordResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandUiccAppReadRecordResult> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandUiccAppReadRecordResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandUiccAppReadRecordResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandUiccAppReadRecordResult {}
 unsafe impl ::core::marker::Sync for MobileBroadbandUiccAppReadRecordResult {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -9579,36 +7810,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandUiccAppRecordDetailsRe
 impl ::windows::core::RuntimeName for MobileBroadbandUiccAppRecordDetailsResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccAppRecordDetailsResult";
 }
-impl ::core::convert::From<MobileBroadbandUiccAppRecordDetailsResult> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandUiccAppRecordDetailsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandUiccAppRecordDetailsResult> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandUiccAppRecordDetailsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandUiccAppRecordDetailsResult> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandUiccAppRecordDetailsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandUiccAppRecordDetailsResult> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandUiccAppRecordDetailsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandUiccAppRecordDetailsResult> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandUiccAppRecordDetailsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandUiccAppRecordDetailsResult> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandUiccAppRecordDetailsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandUiccAppRecordDetailsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandUiccAppRecordDetailsResult {}
 unsafe impl ::core::marker::Sync for MobileBroadbandUiccAppRecordDetailsResult {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -9664,36 +7866,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandUiccAppsResult {
 impl ::windows::core::RuntimeName for MobileBroadbandUiccAppsResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccAppsResult";
 }
-impl ::core::convert::From<MobileBroadbandUiccAppsResult> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandUiccAppsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandUiccAppsResult> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandUiccAppsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandUiccAppsResult> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandUiccAppsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandUiccAppsResult> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandUiccAppsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandUiccAppsResult> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandUiccAppsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandUiccAppsResult> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandUiccAppsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandUiccAppsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MobileBroadbandUiccAppsResult {}
 unsafe impl ::core::marker::Sync for MobileBroadbandUiccAppsResult {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -9740,36 +7913,7 @@ unsafe impl ::windows::core::Interface for NetworkOperatorDataUsageTriggerDetail
 impl ::windows::core::RuntimeName for NetworkOperatorDataUsageTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorDataUsageTriggerDetails";
 }
-impl ::core::convert::From<NetworkOperatorDataUsageTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: NetworkOperatorDataUsageTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkOperatorDataUsageTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &NetworkOperatorDataUsageTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkOperatorDataUsageTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &NetworkOperatorDataUsageTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NetworkOperatorDataUsageTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: NetworkOperatorDataUsageTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkOperatorDataUsageTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &NetworkOperatorDataUsageTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkOperatorDataUsageTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &NetworkOperatorDataUsageTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NetworkOperatorDataUsageTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NetworkOperatorDataUsageTriggerDetails {}
 unsafe impl ::core::marker::Sync for NetworkOperatorDataUsageTriggerDetails {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -9857,36 +8001,7 @@ unsafe impl ::windows::core::Interface for NetworkOperatorNotificationEventDetai
 impl ::windows::core::RuntimeName for NetworkOperatorNotificationEventDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorNotificationEventDetails";
 }
-impl ::core::convert::From<NetworkOperatorNotificationEventDetails> for ::windows::core::IUnknown {
-    fn from(value: NetworkOperatorNotificationEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkOperatorNotificationEventDetails> for ::windows::core::IUnknown {
-    fn from(value: &NetworkOperatorNotificationEventDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkOperatorNotificationEventDetails> for &::windows::core::IUnknown {
-    fn from(value: &NetworkOperatorNotificationEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NetworkOperatorNotificationEventDetails> for ::windows::core::IInspectable {
-    fn from(value: NetworkOperatorNotificationEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkOperatorNotificationEventDetails> for ::windows::core::IInspectable {
-    fn from(value: &NetworkOperatorNotificationEventDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkOperatorNotificationEventDetails> for &::windows::core::IInspectable {
-    fn from(value: &NetworkOperatorNotificationEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NetworkOperatorNotificationEventDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NetworkOperatorNotificationEventDetails {}
 unsafe impl ::core::marker::Sync for NetworkOperatorNotificationEventDetails {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -9982,36 +8097,7 @@ unsafe impl ::windows::core::Interface for NetworkOperatorTetheringAccessPointCo
 impl ::windows::core::RuntimeName for NetworkOperatorTetheringAccessPointConfiguration {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringAccessPointConfiguration";
 }
-impl ::core::convert::From<NetworkOperatorTetheringAccessPointConfiguration> for ::windows::core::IUnknown {
-    fn from(value: NetworkOperatorTetheringAccessPointConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkOperatorTetheringAccessPointConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &NetworkOperatorTetheringAccessPointConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkOperatorTetheringAccessPointConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &NetworkOperatorTetheringAccessPointConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NetworkOperatorTetheringAccessPointConfiguration> for ::windows::core::IInspectable {
-    fn from(value: NetworkOperatorTetheringAccessPointConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkOperatorTetheringAccessPointConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &NetworkOperatorTetheringAccessPointConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkOperatorTetheringAccessPointConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &NetworkOperatorTetheringAccessPointConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NetworkOperatorTetheringAccessPointConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NetworkOperatorTetheringAccessPointConfiguration {}
 unsafe impl ::core::marker::Sync for NetworkOperatorTetheringAccessPointConfiguration {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -10067,36 +8153,7 @@ unsafe impl ::windows::core::Interface for NetworkOperatorTetheringClient {
 impl ::windows::core::RuntimeName for NetworkOperatorTetheringClient {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringClient";
 }
-impl ::core::convert::From<NetworkOperatorTetheringClient> for ::windows::core::IUnknown {
-    fn from(value: NetworkOperatorTetheringClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkOperatorTetheringClient> for ::windows::core::IUnknown {
-    fn from(value: &NetworkOperatorTetheringClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkOperatorTetheringClient> for &::windows::core::IUnknown {
-    fn from(value: &NetworkOperatorTetheringClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NetworkOperatorTetheringClient> for ::windows::core::IInspectable {
-    fn from(value: NetworkOperatorTetheringClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkOperatorTetheringClient> for ::windows::core::IInspectable {
-    fn from(value: &NetworkOperatorTetheringClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkOperatorTetheringClient> for &::windows::core::IInspectable {
-    fn from(value: &NetworkOperatorTetheringClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NetworkOperatorTetheringClient, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NetworkOperatorTetheringClient {}
 unsafe impl ::core::marker::Sync for NetworkOperatorTetheringClient {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -10284,36 +8341,7 @@ unsafe impl ::windows::core::Interface for NetworkOperatorTetheringManager {
 impl ::windows::core::RuntimeName for NetworkOperatorTetheringManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager";
 }
-impl ::core::convert::From<NetworkOperatorTetheringManager> for ::windows::core::IUnknown {
-    fn from(value: NetworkOperatorTetheringManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkOperatorTetheringManager> for ::windows::core::IUnknown {
-    fn from(value: &NetworkOperatorTetheringManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkOperatorTetheringManager> for &::windows::core::IUnknown {
-    fn from(value: &NetworkOperatorTetheringManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NetworkOperatorTetheringManager> for ::windows::core::IInspectable {
-    fn from(value: NetworkOperatorTetheringManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkOperatorTetheringManager> for ::windows::core::IInspectable {
-    fn from(value: &NetworkOperatorTetheringManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkOperatorTetheringManager> for &::windows::core::IInspectable {
-    fn from(value: &NetworkOperatorTetheringManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NetworkOperatorTetheringManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct NetworkOperatorTetheringOperationResult(::windows::core::IUnknown);
@@ -10365,36 +8393,7 @@ unsafe impl ::windows::core::Interface for NetworkOperatorTetheringOperationResu
 impl ::windows::core::RuntimeName for NetworkOperatorTetheringOperationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringOperationResult";
 }
-impl ::core::convert::From<NetworkOperatorTetheringOperationResult> for ::windows::core::IUnknown {
-    fn from(value: NetworkOperatorTetheringOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkOperatorTetheringOperationResult> for ::windows::core::IUnknown {
-    fn from(value: &NetworkOperatorTetheringOperationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkOperatorTetheringOperationResult> for &::windows::core::IUnknown {
-    fn from(value: &NetworkOperatorTetheringOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NetworkOperatorTetheringOperationResult> for ::windows::core::IInspectable {
-    fn from(value: NetworkOperatorTetheringOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkOperatorTetheringOperationResult> for ::windows::core::IInspectable {
-    fn from(value: &NetworkOperatorTetheringOperationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkOperatorTetheringOperationResult> for &::windows::core::IInspectable {
-    fn from(value: &NetworkOperatorTetheringOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NetworkOperatorTetheringOperationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct ProvisionFromXmlDocumentResults(::windows::core::IUnknown);
@@ -10446,36 +8445,7 @@ unsafe impl ::windows::core::Interface for ProvisionFromXmlDocumentResults {
 impl ::windows::core::RuntimeName for ProvisionFromXmlDocumentResults {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisionFromXmlDocumentResults";
 }
-impl ::core::convert::From<ProvisionFromXmlDocumentResults> for ::windows::core::IUnknown {
-    fn from(value: ProvisionFromXmlDocumentResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProvisionFromXmlDocumentResults> for ::windows::core::IUnknown {
-    fn from(value: &ProvisionFromXmlDocumentResults) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProvisionFromXmlDocumentResults> for &::windows::core::IUnknown {
-    fn from(value: &ProvisionFromXmlDocumentResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProvisionFromXmlDocumentResults> for ::windows::core::IInspectable {
-    fn from(value: ProvisionFromXmlDocumentResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProvisionFromXmlDocumentResults> for ::windows::core::IInspectable {
-    fn from(value: &ProvisionFromXmlDocumentResults) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProvisionFromXmlDocumentResults> for &::windows::core::IInspectable {
-    fn from(value: &ProvisionFromXmlDocumentResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProvisionFromXmlDocumentResults, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct ProvisionedProfile(::windows::core::IUnknown);
@@ -10525,36 +8495,7 @@ unsafe impl ::windows::core::Interface for ProvisionedProfile {
 impl ::windows::core::RuntimeName for ProvisionedProfile {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisionedProfile";
 }
-impl ::core::convert::From<ProvisionedProfile> for ::windows::core::IUnknown {
-    fn from(value: ProvisionedProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProvisionedProfile> for ::windows::core::IUnknown {
-    fn from(value: &ProvisionedProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProvisionedProfile> for &::windows::core::IUnknown {
-    fn from(value: &ProvisionedProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProvisionedProfile> for ::windows::core::IInspectable {
-    fn from(value: ProvisionedProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProvisionedProfile> for ::windows::core::IInspectable {
-    fn from(value: &ProvisionedProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProvisionedProfile> for &::windows::core::IInspectable {
-    fn from(value: &ProvisionedProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProvisionedProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct ProvisioningAgent(::windows::core::IUnknown);
@@ -10626,36 +8567,7 @@ unsafe impl ::windows::core::Interface for ProvisioningAgent {
 impl ::windows::core::RuntimeName for ProvisioningAgent {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisioningAgent";
 }
-impl ::core::convert::From<ProvisioningAgent> for ::windows::core::IUnknown {
-    fn from(value: ProvisioningAgent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProvisioningAgent> for ::windows::core::IUnknown {
-    fn from(value: &ProvisioningAgent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProvisioningAgent> for &::windows::core::IUnknown {
-    fn from(value: &ProvisioningAgent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProvisioningAgent> for ::windows::core::IInspectable {
-    fn from(value: ProvisioningAgent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProvisioningAgent> for ::windows::core::IInspectable {
-    fn from(value: &ProvisioningAgent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProvisioningAgent> for &::windows::core::IInspectable {
-    fn from(value: &ProvisioningAgent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProvisioningAgent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct TetheringEntitlementCheckTriggerDetails(::windows::core::IUnknown);
@@ -10708,36 +8620,7 @@ unsafe impl ::windows::core::Interface for TetheringEntitlementCheckTriggerDetai
 impl ::windows::core::RuntimeName for TetheringEntitlementCheckTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.TetheringEntitlementCheckTriggerDetails";
 }
-impl ::core::convert::From<TetheringEntitlementCheckTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: TetheringEntitlementCheckTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TetheringEntitlementCheckTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &TetheringEntitlementCheckTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TetheringEntitlementCheckTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &TetheringEntitlementCheckTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TetheringEntitlementCheckTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: TetheringEntitlementCheckTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TetheringEntitlementCheckTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &TetheringEntitlementCheckTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TetheringEntitlementCheckTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &TetheringEntitlementCheckTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TetheringEntitlementCheckTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TetheringEntitlementCheckTriggerDetails {}
 unsafe impl ::core::marker::Sync for TetheringEntitlementCheckTriggerDetails {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -10821,36 +8704,7 @@ unsafe impl ::windows::core::Interface for UssdMessage {
 impl ::windows::core::RuntimeName for UssdMessage {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdMessage";
 }
-impl ::core::convert::From<UssdMessage> for ::windows::core::IUnknown {
-    fn from(value: UssdMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UssdMessage> for ::windows::core::IUnknown {
-    fn from(value: &UssdMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UssdMessage> for &::windows::core::IUnknown {
-    fn from(value: &UssdMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UssdMessage> for ::windows::core::IInspectable {
-    fn from(value: UssdMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UssdMessage> for ::windows::core::IInspectable {
-    fn from(value: &UssdMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UssdMessage> for &::windows::core::IInspectable {
-    fn from(value: &UssdMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UssdMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UssdMessage {}
 unsafe impl ::core::marker::Sync for UssdMessage {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -10904,36 +8758,7 @@ unsafe impl ::windows::core::Interface for UssdReply {
 impl ::windows::core::RuntimeName for UssdReply {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdReply";
 }
-impl ::core::convert::From<UssdReply> for ::windows::core::IUnknown {
-    fn from(value: UssdReply) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UssdReply> for ::windows::core::IUnknown {
-    fn from(value: &UssdReply) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UssdReply> for &::windows::core::IUnknown {
-    fn from(value: &UssdReply) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UssdReply> for ::windows::core::IInspectable {
-    fn from(value: UssdReply) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UssdReply> for ::windows::core::IInspectable {
-    fn from(value: &UssdReply) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UssdReply> for &::windows::core::IInspectable {
-    fn from(value: &UssdReply) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UssdReply, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct UssdSession(::windows::core::IUnknown);
@@ -11001,36 +8826,7 @@ unsafe impl ::windows::core::Interface for UssdSession {
 impl ::windows::core::RuntimeName for UssdSession {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdSession";
 }
-impl ::core::convert::From<UssdSession> for ::windows::core::IUnknown {
-    fn from(value: UssdSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UssdSession> for ::windows::core::IUnknown {
-    fn from(value: &UssdSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UssdSession> for &::windows::core::IUnknown {
-    fn from(value: &UssdSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UssdSession> for ::windows::core::IInspectable {
-    fn from(value: UssdSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UssdSession> for ::windows::core::IInspectable {
-    fn from(value: &UssdSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UssdSession> for &::windows::core::IInspectable {
-    fn from(value: &UssdSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UssdSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

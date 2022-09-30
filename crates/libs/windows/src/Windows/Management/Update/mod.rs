@@ -134,36 +134,7 @@ unsafe impl ::windows::core::Interface for PreviewBuildsManager {
 impl ::windows::core::RuntimeName for PreviewBuildsManager {
     const NAME: &'static str = "Windows.Management.Update.PreviewBuildsManager";
 }
-impl ::core::convert::From<PreviewBuildsManager> for ::windows::core::IUnknown {
-    fn from(value: PreviewBuildsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PreviewBuildsManager> for ::windows::core::IUnknown {
-    fn from(value: &PreviewBuildsManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PreviewBuildsManager> for &::windows::core::IUnknown {
-    fn from(value: &PreviewBuildsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PreviewBuildsManager> for ::windows::core::IInspectable {
-    fn from(value: PreviewBuildsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PreviewBuildsManager> for ::windows::core::IInspectable {
-    fn from(value: &PreviewBuildsManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PreviewBuildsManager> for &::windows::core::IInspectable {
-    fn from(value: &PreviewBuildsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PreviewBuildsManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PreviewBuildsManager {}
 unsafe impl ::core::marker::Sync for PreviewBuildsManager {}
 #[doc = "*Required features: `\"Management_Update\"`*"]
@@ -212,36 +183,7 @@ unsafe impl ::windows::core::Interface for PreviewBuildsState {
 impl ::windows::core::RuntimeName for PreviewBuildsState {
     const NAME: &'static str = "Windows.Management.Update.PreviewBuildsState";
 }
-impl ::core::convert::From<PreviewBuildsState> for ::windows::core::IUnknown {
-    fn from(value: PreviewBuildsState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PreviewBuildsState> for ::windows::core::IUnknown {
-    fn from(value: &PreviewBuildsState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PreviewBuildsState> for &::windows::core::IUnknown {
-    fn from(value: &PreviewBuildsState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PreviewBuildsState> for ::windows::core::IInspectable {
-    fn from(value: PreviewBuildsState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PreviewBuildsState> for ::windows::core::IInspectable {
-    fn from(value: &PreviewBuildsState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PreviewBuildsState> for &::windows::core::IInspectable {
-    fn from(value: &PreviewBuildsState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PreviewBuildsState, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PreviewBuildsState {}
 unsafe impl ::core::marker::Sync for PreviewBuildsState {}
 #[cfg(feature = "implement")]

@@ -1228,36 +1228,7 @@ impl IPropertySet {
         unsafe { (::windows::core::Vtable::vtable(this).RemoveMapChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
 }
-impl ::core::convert::From<IPropertySet> for ::windows::core::IUnknown {
-    fn from(value: IPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertySet> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertySet> for ::windows::core::IUnknown {
-    fn from(value: &IPropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPropertySet> for ::windows::core::IInspectable {
-    fn from(value: IPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertySet> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertySet> for ::windows::core::IInspectable {
-    fn from(value: &IPropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertySet, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPropertySet> for IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: IPropertySet) -> ::windows::core::Result<Self> {
@@ -1602,36 +1573,7 @@ impl IVectorChangedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IVectorChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: IVectorChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVectorChangedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVectorChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVectorChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &IVectorChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVectorChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IVectorChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVectorChangedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IVectorChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVectorChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IVectorChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVectorChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IVectorChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1958,36 +1900,7 @@ impl ::core::iter::IntoIterator for &PropertySet {
         self.First().unwrap()
     }
 }
-impl ::core::convert::From<PropertySet> for ::windows::core::IUnknown {
-    fn from(value: PropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PropertySet> for ::windows::core::IUnknown {
-    fn from(value: &PropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PropertySet> for &::windows::core::IUnknown {
-    fn from(value: &PropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PropertySet> for ::windows::core::IInspectable {
-    fn from(value: PropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PropertySet> for ::windows::core::IInspectable {
-    fn from(value: &PropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PropertySet> for &::windows::core::IInspectable {
-    fn from(value: &PropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PropertySet, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PropertySet> for IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: PropertySet) -> ::windows::core::Result<Self> {
@@ -2185,36 +2098,7 @@ impl ::core::iter::IntoIterator for &StringMap {
         self.First().unwrap()
     }
 }
-impl ::core::convert::From<StringMap> for ::windows::core::IUnknown {
-    fn from(value: StringMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StringMap> for ::windows::core::IUnknown {
-    fn from(value: &StringMap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StringMap> for &::windows::core::IUnknown {
-    fn from(value: &StringMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StringMap> for ::windows::core::IInspectable {
-    fn from(value: StringMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StringMap> for ::windows::core::IInspectable {
-    fn from(value: &StringMap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StringMap> for &::windows::core::IInspectable {
-    fn from(value: &StringMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StringMap, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StringMap> for IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
     fn try_from(value: StringMap) -> ::windows::core::Result<Self> {
@@ -2396,36 +2280,7 @@ impl ::core::iter::IntoIterator for &ValueSet {
         self.First().unwrap()
     }
 }
-impl ::core::convert::From<ValueSet> for ::windows::core::IUnknown {
-    fn from(value: ValueSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ValueSet> for ::windows::core::IUnknown {
-    fn from(value: &ValueSet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ValueSet> for &::windows::core::IUnknown {
-    fn from(value: &ValueSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ValueSet> for ::windows::core::IInspectable {
-    fn from(value: ValueSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ValueSet> for ::windows::core::IInspectable {
-    fn from(value: &ValueSet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ValueSet> for &::windows::core::IInspectable {
-    fn from(value: &ValueSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ValueSet, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ValueSet> for IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: ValueSet) -> ::windows::core::Result<Self> {

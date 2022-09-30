@@ -66,35 +66,6 @@ unsafe impl ::windows::core::Interface for DisplayRequest {
 impl ::windows::core::RuntimeName for DisplayRequest {
     const NAME: &'static str = "Windows.System.Display.DisplayRequest";
 }
-impl ::core::convert::From<DisplayRequest> for ::windows::core::IUnknown {
-    fn from(value: DisplayRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayRequest> for ::windows::core::IUnknown {
-    fn from(value: &DisplayRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayRequest> for &::windows::core::IUnknown {
-    fn from(value: &DisplayRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayRequest> for ::windows::core::IInspectable {
-    fn from(value: DisplayRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayRequest> for ::windows::core::IInspectable {
-    fn from(value: &DisplayRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayRequest> for &::windows::core::IInspectable {
-    fn from(value: &DisplayRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

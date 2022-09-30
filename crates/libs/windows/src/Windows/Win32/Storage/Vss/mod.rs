@@ -26,21 +26,7 @@ impl IVssAdmin {
         (::windows::core::Vtable::vtable(self).AbortAllSnapshotsInProgress)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IVssAdmin> for ::windows::core::IUnknown {
-    fn from(value: IVssAdmin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssAdmin> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssAdmin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssAdmin> for ::windows::core::IUnknown {
-    fn from(value: &IVssAdmin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssAdmin, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVssAdmin {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -101,36 +87,7 @@ impl IVssAdminEx {
         (::windows::core::Vtable::vtable(self).SetProviderContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(providerid), lcontext).ok()
     }
 }
-impl ::core::convert::From<IVssAdminEx> for ::windows::core::IUnknown {
-    fn from(value: IVssAdminEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssAdminEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssAdminEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssAdminEx> for ::windows::core::IUnknown {
-    fn from(value: &IVssAdminEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVssAdminEx> for IVssAdmin {
-    fn from(value: IVssAdminEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssAdminEx> for &'a IVssAdmin {
-    fn from(value: &'a IVssAdminEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssAdminEx> for IVssAdmin {
-    fn from(value: &IVssAdminEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssAdminEx, ::windows::core::IUnknown, IVssAdmin);
 impl ::core::clone::Clone for IVssAdminEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -175,21 +132,7 @@ impl IVssAsync {
         (::windows::core::Vtable::vtable(self).QueryStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phrresult), ::core::mem::transmute(preserved)).ok()
     }
 }
-impl ::core::convert::From<IVssAsync> for ::windows::core::IUnknown {
-    fn from(value: IVssAsync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssAsync> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssAsync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssAsync> for ::windows::core::IUnknown {
-    fn from(value: &IVssAsync) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssAsync, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVssAsync {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -386,21 +329,7 @@ impl IVssComponent {
         (::windows::core::Vtable::vtable(self).GetDifferencedFile)(::windows::core::Vtable::as_raw(self), idifferencedfile, ::core::mem::transmute(pbstrpath), ::core::mem::transmute(pbstrfilespec), ::core::mem::transmute(pbrecursive), ::core::mem::transmute(pbstrlsnstring), ::core::mem::transmute(pftlastmodifytime)).ok()
     }
 }
-impl ::core::convert::From<IVssComponent> for ::windows::core::IUnknown {
-    fn from(value: IVssComponent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssComponent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssComponent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssComponent> for ::windows::core::IUnknown {
-    fn from(value: &IVssComponent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssComponent, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVssComponent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -672,36 +601,7 @@ impl IVssComponentEx {
         (::windows::core::Vtable::vtable(self).GetRestoreName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
-impl ::core::convert::From<IVssComponentEx> for ::windows::core::IUnknown {
-    fn from(value: IVssComponentEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssComponentEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssComponentEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssComponentEx> for ::windows::core::IUnknown {
-    fn from(value: &IVssComponentEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVssComponentEx> for IVssComponent {
-    fn from(value: IVssComponentEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssComponentEx> for &'a IVssComponent {
-    fn from(value: &'a IVssComponentEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssComponentEx> for IVssComponent {
-    fn from(value: &IVssComponentEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssComponentEx, ::windows::core::IUnknown, IVssComponent);
 impl ::core::clone::Clone for IVssComponentEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -942,51 +842,7 @@ impl IVssComponentEx2 {
         (::windows::core::Vtable::vtable(self).GetFailure)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phr), ::core::mem::transmute(phrapplication), ::core::mem::transmute(pbstrapplicationmessage), ::core::mem::transmute(pdwreserved)).ok()
     }
 }
-impl ::core::convert::From<IVssComponentEx2> for ::windows::core::IUnknown {
-    fn from(value: IVssComponentEx2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssComponentEx2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssComponentEx2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssComponentEx2> for ::windows::core::IUnknown {
-    fn from(value: &IVssComponentEx2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVssComponentEx2> for IVssComponent {
-    fn from(value: IVssComponentEx2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssComponentEx2> for &'a IVssComponent {
-    fn from(value: &'a IVssComponentEx2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssComponentEx2> for IVssComponent {
-    fn from(value: &IVssComponentEx2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVssComponentEx2> for IVssComponentEx {
-    fn from(value: IVssComponentEx2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssComponentEx2> for &'a IVssComponentEx {
-    fn from(value: &'a IVssComponentEx2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssComponentEx2> for IVssComponentEx {
-    fn from(value: &IVssComponentEx2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssComponentEx2, ::windows::core::IUnknown, IVssComponent, IVssComponentEx);
 impl ::core::clone::Clone for IVssComponentEx2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1069,21 +925,7 @@ impl IVssCreateExpressWriterMetadata {
         (::windows::core::Vtable::vtable(self).SaveAsXML)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
-impl ::core::convert::From<IVssCreateExpressWriterMetadata> for ::windows::core::IUnknown {
-    fn from(value: IVssCreateExpressWriterMetadata) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssCreateExpressWriterMetadata> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssCreateExpressWriterMetadata) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssCreateExpressWriterMetadata> for ::windows::core::IUnknown {
-    fn from(value: &IVssCreateExpressWriterMetadata) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssCreateExpressWriterMetadata, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVssCreateExpressWriterMetadata {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1284,21 +1126,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt {
         (::windows::core::Vtable::vtable(self).QueryDiffAreasForSnapshot)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(snapshotid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssEnumMgmtObject>(result__)
     }
 }
-impl ::core::convert::From<IVssDifferentialSoftwareSnapshotMgmt> for ::windows::core::IUnknown {
-    fn from(value: IVssDifferentialSoftwareSnapshotMgmt) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssDifferentialSoftwareSnapshotMgmt> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssDifferentialSoftwareSnapshotMgmt) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssDifferentialSoftwareSnapshotMgmt> for ::windows::core::IUnknown {
-    fn from(value: &IVssDifferentialSoftwareSnapshotMgmt) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssDifferentialSoftwareSnapshotMgmt, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVssDifferentialSoftwareSnapshotMgmt {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1377,36 +1205,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt2 {
         (::windows::core::Vtable::vtable(self).SetSnapshotPriority)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(idsnapshot), priority).ok()
     }
 }
-impl ::core::convert::From<IVssDifferentialSoftwareSnapshotMgmt2> for ::windows::core::IUnknown {
-    fn from(value: IVssDifferentialSoftwareSnapshotMgmt2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssDifferentialSoftwareSnapshotMgmt2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssDifferentialSoftwareSnapshotMgmt2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssDifferentialSoftwareSnapshotMgmt2> for ::windows::core::IUnknown {
-    fn from(value: &IVssDifferentialSoftwareSnapshotMgmt2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVssDifferentialSoftwareSnapshotMgmt2> for IVssDifferentialSoftwareSnapshotMgmt {
-    fn from(value: IVssDifferentialSoftwareSnapshotMgmt2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssDifferentialSoftwareSnapshotMgmt2> for &'a IVssDifferentialSoftwareSnapshotMgmt {
-    fn from(value: &'a IVssDifferentialSoftwareSnapshotMgmt2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssDifferentialSoftwareSnapshotMgmt2> for IVssDifferentialSoftwareSnapshotMgmt {
-    fn from(value: &IVssDifferentialSoftwareSnapshotMgmt2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssDifferentialSoftwareSnapshotMgmt2, ::windows::core::IUnknown, IVssDifferentialSoftwareSnapshotMgmt);
 impl ::core::clone::Clone for IVssDifferentialSoftwareSnapshotMgmt2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1504,51 +1303,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt3 {
         (::windows::core::Vtable::vtable(self).QuerySnapshotDeltaBitmap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(idsnapshotolder), ::core::mem::transmute(idsnapshotyounger), ::core::mem::transmute(pcblocksizeperbit), ::core::mem::transmute(pcbitmaplength), ::core::mem::transmute(ppbbitmap)).ok()
     }
 }
-impl ::core::convert::From<IVssDifferentialSoftwareSnapshotMgmt3> for ::windows::core::IUnknown {
-    fn from(value: IVssDifferentialSoftwareSnapshotMgmt3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssDifferentialSoftwareSnapshotMgmt3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssDifferentialSoftwareSnapshotMgmt3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssDifferentialSoftwareSnapshotMgmt3> for ::windows::core::IUnknown {
-    fn from(value: &IVssDifferentialSoftwareSnapshotMgmt3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVssDifferentialSoftwareSnapshotMgmt3> for IVssDifferentialSoftwareSnapshotMgmt {
-    fn from(value: IVssDifferentialSoftwareSnapshotMgmt3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssDifferentialSoftwareSnapshotMgmt3> for &'a IVssDifferentialSoftwareSnapshotMgmt {
-    fn from(value: &'a IVssDifferentialSoftwareSnapshotMgmt3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssDifferentialSoftwareSnapshotMgmt3> for IVssDifferentialSoftwareSnapshotMgmt {
-    fn from(value: &IVssDifferentialSoftwareSnapshotMgmt3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVssDifferentialSoftwareSnapshotMgmt3> for IVssDifferentialSoftwareSnapshotMgmt2 {
-    fn from(value: IVssDifferentialSoftwareSnapshotMgmt3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssDifferentialSoftwareSnapshotMgmt3> for &'a IVssDifferentialSoftwareSnapshotMgmt2 {
-    fn from(value: &'a IVssDifferentialSoftwareSnapshotMgmt3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssDifferentialSoftwareSnapshotMgmt3> for IVssDifferentialSoftwareSnapshotMgmt2 {
-    fn from(value: &IVssDifferentialSoftwareSnapshotMgmt3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssDifferentialSoftwareSnapshotMgmt3, ::windows::core::IUnknown, IVssDifferentialSoftwareSnapshotMgmt, IVssDifferentialSoftwareSnapshotMgmt2);
 impl ::core::clone::Clone for IVssDifferentialSoftwareSnapshotMgmt3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1601,21 +1356,7 @@ impl IVssEnumMgmtObject {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppenum)).ok()
     }
 }
-impl ::core::convert::From<IVssEnumMgmtObject> for ::windows::core::IUnknown {
-    fn from(value: IVssEnumMgmtObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssEnumMgmtObject> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssEnumMgmtObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssEnumMgmtObject> for ::windows::core::IUnknown {
-    fn from(value: &IVssEnumMgmtObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssEnumMgmtObject, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVssEnumMgmtObject {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1664,21 +1405,7 @@ impl IVssEnumObject {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppenum)).ok()
     }
 }
-impl ::core::convert::From<IVssEnumObject> for ::windows::core::IUnknown {
-    fn from(value: IVssEnumObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssEnumObject> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssEnumObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssEnumObject> for ::windows::core::IUnknown {
-    fn from(value: &IVssEnumObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssEnumObject, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVssEnumObject {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1734,21 +1461,7 @@ impl IVssExpressWriter {
         (::windows::core::Vtable::vtable(self).Unregister)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(writerid)).ok()
     }
 }
-impl ::core::convert::From<IVssExpressWriter> for ::windows::core::IUnknown {
-    fn from(value: IVssExpressWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssExpressWriter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssExpressWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssExpressWriter> for ::windows::core::IUnknown {
-    fn from(value: &IVssExpressWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssExpressWriter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVssExpressWriter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1826,21 +1539,7 @@ impl IVssFileShareSnapshotProvider {
         (::windows::core::Vtable::vtable(self).SetSnapshotProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(snapshotid), esnapshotpropertyid, vproperty.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IVssFileShareSnapshotProvider> for ::windows::core::IUnknown {
-    fn from(value: IVssFileShareSnapshotProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssFileShareSnapshotProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssFileShareSnapshotProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssFileShareSnapshotProvider> for ::windows::core::IUnknown {
-    fn from(value: &IVssFileShareSnapshotProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssFileShareSnapshotProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVssFileShareSnapshotProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1923,21 +1622,7 @@ impl IVssHardwareSnapshotProvider {
         (::windows::core::Vtable::vtable(self).OnLunEmpty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(wszdevicename), ::core::mem::transmute(pinformation)).ok()
     }
 }
-impl ::core::convert::From<IVssHardwareSnapshotProvider> for ::windows::core::IUnknown {
-    fn from(value: IVssHardwareSnapshotProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssHardwareSnapshotProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssHardwareSnapshotProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssHardwareSnapshotProvider> for ::windows::core::IUnknown {
-    fn from(value: &IVssHardwareSnapshotProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssHardwareSnapshotProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVssHardwareSnapshotProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2044,36 +1729,7 @@ impl IVssHardwareSnapshotProviderEx {
         (::windows::core::Vtable::vtable(self).OnReuseLuns)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psnapshotluns), ::core::mem::transmute(poriginalluns), dwcount).ok()
     }
 }
-impl ::core::convert::From<IVssHardwareSnapshotProviderEx> for ::windows::core::IUnknown {
-    fn from(value: IVssHardwareSnapshotProviderEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssHardwareSnapshotProviderEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssHardwareSnapshotProviderEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssHardwareSnapshotProviderEx> for ::windows::core::IUnknown {
-    fn from(value: &IVssHardwareSnapshotProviderEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVssHardwareSnapshotProviderEx> for IVssHardwareSnapshotProvider {
-    fn from(value: IVssHardwareSnapshotProviderEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssHardwareSnapshotProviderEx> for &'a IVssHardwareSnapshotProvider {
-    fn from(value: &'a IVssHardwareSnapshotProviderEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssHardwareSnapshotProviderEx> for IVssHardwareSnapshotProvider {
-    fn from(value: &IVssHardwareSnapshotProviderEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssHardwareSnapshotProviderEx, ::windows::core::IUnknown, IVssHardwareSnapshotProvider);
 impl ::core::clone::Clone for IVssHardwareSnapshotProviderEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2140,21 +1796,7 @@ impl IVssProviderCreateSnapshotSet {
         (::windows::core::Vtable::vtable(self).AbortSnapshots)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(snapshotsetid)).ok()
     }
 }
-impl ::core::convert::From<IVssProviderCreateSnapshotSet> for ::windows::core::IUnknown {
-    fn from(value: IVssProviderCreateSnapshotSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssProviderCreateSnapshotSet> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssProviderCreateSnapshotSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssProviderCreateSnapshotSet> for ::windows::core::IUnknown {
-    fn from(value: &IVssProviderCreateSnapshotSet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssProviderCreateSnapshotSet, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVssProviderCreateSnapshotSet {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2208,21 +1850,7 @@ impl IVssProviderNotifications {
         (::windows::core::Vtable::vtable(self).OnUnload)(::windows::core::Vtable::as_raw(self), bforceunload.into()).ok()
     }
 }
-impl ::core::convert::From<IVssProviderNotifications> for ::windows::core::IUnknown {
-    fn from(value: IVssProviderNotifications) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssProviderNotifications> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssProviderNotifications) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssProviderNotifications> for ::windows::core::IUnknown {
-    fn from(value: &IVssProviderNotifications) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssProviderNotifications, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVssProviderNotifications {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2272,21 +1900,7 @@ impl IVssSnapshotMgmt {
         (::windows::core::Vtable::vtable(self).QuerySnapshotsByVolume)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszvolumename), ::core::mem::transmute(providerid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssEnumObject>(result__)
     }
 }
-impl ::core::convert::From<IVssSnapshotMgmt> for ::windows::core::IUnknown {
-    fn from(value: IVssSnapshotMgmt) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssSnapshotMgmt> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssSnapshotMgmt) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssSnapshotMgmt> for ::windows::core::IUnknown {
-    fn from(value: &IVssSnapshotMgmt) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssSnapshotMgmt, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVssSnapshotMgmt {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2326,21 +1940,7 @@ impl IVssSnapshotMgmt2 {
         (::windows::core::Vtable::vtable(self).GetMinDiffAreaSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
     }
 }
-impl ::core::convert::From<IVssSnapshotMgmt2> for ::windows::core::IUnknown {
-    fn from(value: IVssSnapshotMgmt2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssSnapshotMgmt2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssSnapshotMgmt2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssSnapshotMgmt2> for ::windows::core::IUnknown {
-    fn from(value: &IVssSnapshotMgmt2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssSnapshotMgmt2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVssSnapshotMgmt2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2422,21 +2022,7 @@ impl IVssSoftwareSnapshotProvider {
         (::windows::core::Vtable::vtable(self).QueryRevertStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszvolume), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssAsync>(result__)
     }
 }
-impl ::core::convert::From<IVssSoftwareSnapshotProvider> for ::windows::core::IUnknown {
-    fn from(value: IVssSoftwareSnapshotProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssSoftwareSnapshotProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssSoftwareSnapshotProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssSoftwareSnapshotProvider> for ::windows::core::IUnknown {
-    fn from(value: &IVssSoftwareSnapshotProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssSoftwareSnapshotProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVssSoftwareSnapshotProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2500,21 +2086,7 @@ impl IVssWMDependency {
         (::windows::core::Vtable::vtable(self).GetComponentName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrcomponentname)).ok()
     }
 }
-impl ::core::convert::From<IVssWMDependency> for ::windows::core::IUnknown {
-    fn from(value: IVssWMDependency) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssWMDependency> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssWMDependency) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssWMDependency> for ::windows::core::IUnknown {
-    fn from(value: &IVssWMDependency) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssWMDependency, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVssWMDependency {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2570,21 +2142,7 @@ impl IVssWMFiledesc {
         (::windows::core::Vtable::vtable(self).GetBackupTypeMask)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IVssWMFiledesc> for ::windows::core::IUnknown {
-    fn from(value: IVssWMFiledesc) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssWMFiledesc> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssWMFiledesc) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssWMFiledesc> for ::windows::core::IUnknown {
-    fn from(value: &IVssWMFiledesc) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssWMFiledesc, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVssWMFiledesc {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2755,21 +2313,7 @@ impl IVssWriterImpl {
         (::windows::core::Vtable::vtable(self).IsWriterShuttingDown)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IVssWriterImpl> for ::windows::core::IUnknown {
-    fn from(value: IVssWriterImpl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVssWriterImpl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVssWriterImpl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVssWriterImpl> for ::windows::core::IUnknown {
-    fn from(value: &IVssWriterImpl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVssWriterImpl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVssWriterImpl {
     fn clone(&self) -> Self {
         Self(self.0.clone())

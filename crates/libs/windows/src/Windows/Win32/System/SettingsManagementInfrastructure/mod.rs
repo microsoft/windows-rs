@@ -18,21 +18,7 @@ impl IItemEnumerator {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IItemEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IItemEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IItemEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IItemEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IItemEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IItemEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IItemEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IItemEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -116,21 +102,7 @@ impl ISettingsContext {
         (::windows::core::Vtable::vtable(self).RevertSetting)(::windows::core::Vtable::as_raw(self), pidentity.into().abi(), pwzsetting.into()).ok()
     }
 }
-impl ::core::convert::From<ISettingsContext> for ::windows::core::IUnknown {
-    fn from(value: ISettingsContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISettingsContext> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISettingsContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISettingsContext> for ::windows::core::IUnknown {
-    fn from(value: &ISettingsContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISettingsContext, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISettingsContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -259,21 +231,7 @@ impl ISettingsEngine {
         (::windows::core::Vtable::vtable(self).GetSettingsContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISettingsContext>(result__)
     }
 }
-impl ::core::convert::From<ISettingsEngine> for ::windows::core::IUnknown {
-    fn from(value: ISettingsEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISettingsEngine> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISettingsEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISettingsEngine> for ::windows::core::IUnknown {
-    fn from(value: &ISettingsEngine) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISettingsEngine, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISettingsEngine {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -349,21 +307,7 @@ impl ISettingsIdentity {
         (::windows::core::Vtable::vtable(self).SetFlags)(::windows::core::Vtable::as_raw(self), flags).ok()
     }
 }
-impl ::core::convert::From<ISettingsIdentity> for ::windows::core::IUnknown {
-    fn from(value: ISettingsIdentity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISettingsIdentity> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISettingsIdentity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISettingsIdentity> for ::windows::core::IUnknown {
-    fn from(value: &ISettingsIdentity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISettingsIdentity, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISettingsIdentity {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -514,21 +458,7 @@ impl ISettingsItem {
         (::windows::core::Vtable::vtable(self).GetKeyValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
 }
-impl ::core::convert::From<ISettingsItem> for ::windows::core::IUnknown {
-    fn from(value: ISettingsItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISettingsItem> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISettingsItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISettingsItem> for ::windows::core::IUnknown {
-    fn from(value: &ISettingsItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISettingsItem, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISettingsItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -650,21 +580,7 @@ impl ISettingsNamespace {
         (::windows::core::Vtable::vtable(self).GetAttribute)(::windows::core::Vtable::as_raw(self), name.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
 }
-impl ::core::convert::From<ISettingsNamespace> for ::windows::core::IUnknown {
-    fn from(value: ISettingsNamespace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISettingsNamespace> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISettingsNamespace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISettingsNamespace> for ::windows::core::IUnknown {
-    fn from(value: &ISettingsNamespace) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISettingsNamespace, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISettingsNamespace {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -734,21 +650,7 @@ impl ISettingsResult {
         (::windows::core::Vtable::vtable(self).GetSource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
-impl ::core::convert::From<ISettingsResult> for ::windows::core::IUnknown {
-    fn from(value: ISettingsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISettingsResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISettingsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISettingsResult> for ::windows::core::IUnknown {
-    fn from(value: &ISettingsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISettingsResult, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISettingsResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -915,21 +817,7 @@ impl ITargetInfo {
         (::windows::core::Vtable::vtable(self).GetSchemaHiveMountName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
-impl ::core::convert::From<ITargetInfo> for ::windows::core::IUnknown {
-    fn from(value: ITargetInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITargetInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITargetInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITargetInfo> for ::windows::core::IUnknown {
-    fn from(value: &ITargetInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITargetInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITargetInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())

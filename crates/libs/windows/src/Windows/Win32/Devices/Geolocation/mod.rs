@@ -47,36 +47,7 @@ impl ICivicAddressReport {
         (::windows::core::Vtable::vtable(self).GetDetailLevel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<ICivicAddressReport> for ::windows::core::IUnknown {
-    fn from(value: ICivicAddressReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICivicAddressReport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICivicAddressReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICivicAddressReport> for ::windows::core::IUnknown {
-    fn from(value: &ICivicAddressReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICivicAddressReport> for ILocationReport {
-    fn from(value: ICivicAddressReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICivicAddressReport> for &'a ILocationReport {
-    fn from(value: &'a ICivicAddressReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICivicAddressReport> for ILocationReport {
-    fn from(value: &ICivicAddressReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICivicAddressReport, ::windows::core::IUnknown, ILocationReport);
 impl ::core::clone::Clone for ICivicAddressReport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -152,59 +123,7 @@ impl ICivicAddressReportFactory {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ICivicAddressReportFactory> for ::windows::core::IUnknown {
-    fn from(value: ICivicAddressReportFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ICivicAddressReportFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICivicAddressReportFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ICivicAddressReportFactory> for ::windows::core::IUnknown {
-    fn from(value: &ICivicAddressReportFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ICivicAddressReportFactory> for super::super::System::Com::IDispatch {
-    fn from(value: ICivicAddressReportFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ICivicAddressReportFactory> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ICivicAddressReportFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ICivicAddressReportFactory> for super::super::System::Com::IDispatch {
-    fn from(value: &ICivicAddressReportFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ICivicAddressReportFactory> for ILocationReportFactory {
-    fn from(value: ICivicAddressReportFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ICivicAddressReportFactory> for &'a ILocationReportFactory {
-    fn from(value: &'a ICivicAddressReportFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ICivicAddressReportFactory> for ILocationReportFactory {
-    fn from(value: &ICivicAddressReportFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICivicAddressReportFactory, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ILocationReportFactory);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ICivicAddressReportFactory {
     fn clone(&self) -> Self {
@@ -258,21 +177,7 @@ impl IDefaultLocation {
         (::windows::core::Vtable::vtable(self).GetReport)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ILocationReport>(result__)
     }
 }
-impl ::core::convert::From<IDefaultLocation> for ::windows::core::IUnknown {
-    fn from(value: IDefaultLocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDefaultLocation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDefaultLocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDefaultLocation> for ::windows::core::IUnknown {
-    fn from(value: &IDefaultLocation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDefaultLocation, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDefaultLocation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -342,41 +247,7 @@ impl IDispCivicAddressReport {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDispCivicAddressReport> for ::windows::core::IUnknown {
-    fn from(value: IDispCivicAddressReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IDispCivicAddressReport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDispCivicAddressReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDispCivicAddressReport> for ::windows::core::IUnknown {
-    fn from(value: &IDispCivicAddressReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDispCivicAddressReport> for super::super::System::Com::IDispatch {
-    fn from(value: IDispCivicAddressReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IDispCivicAddressReport> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IDispCivicAddressReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDispCivicAddressReport> for super::super::System::Com::IDispatch {
-    fn from(value: &IDispCivicAddressReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDispCivicAddressReport, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IDispCivicAddressReport {
     fn clone(&self) -> Self {
@@ -451,41 +322,7 @@ impl IDispLatLongReport {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDispLatLongReport> for ::windows::core::IUnknown {
-    fn from(value: IDispLatLongReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IDispLatLongReport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDispLatLongReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDispLatLongReport> for ::windows::core::IUnknown {
-    fn from(value: &IDispLatLongReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDispLatLongReport> for super::super::System::Com::IDispatch {
-    fn from(value: IDispLatLongReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IDispLatLongReport> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IDispLatLongReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDispLatLongReport> for super::super::System::Com::IDispatch {
-    fn from(value: &IDispLatLongReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDispLatLongReport, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IDispLatLongReport {
     fn clone(&self) -> Self {
@@ -567,36 +404,7 @@ impl ILatLongReport {
         (::windows::core::Vtable::vtable(self).GetAltitudeError)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
 }
-impl ::core::convert::From<ILatLongReport> for ::windows::core::IUnknown {
-    fn from(value: ILatLongReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILatLongReport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILatLongReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILatLongReport> for ::windows::core::IUnknown {
-    fn from(value: &ILatLongReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ILatLongReport> for ILocationReport {
-    fn from(value: ILatLongReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILatLongReport> for &'a ILocationReport {
-    fn from(value: &'a ILatLongReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILatLongReport> for ILocationReport {
-    fn from(value: &ILatLongReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILatLongReport, ::windows::core::IUnknown, ILocationReport);
 impl ::core::clone::Clone for ILatLongReport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -670,59 +478,7 @@ impl ILatLongReportFactory {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ILatLongReportFactory> for ::windows::core::IUnknown {
-    fn from(value: ILatLongReportFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ILatLongReportFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILatLongReportFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ILatLongReportFactory> for ::windows::core::IUnknown {
-    fn from(value: &ILatLongReportFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ILatLongReportFactory> for super::super::System::Com::IDispatch {
-    fn from(value: ILatLongReportFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ILatLongReportFactory> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ILatLongReportFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ILatLongReportFactory> for super::super::System::Com::IDispatch {
-    fn from(value: &ILatLongReportFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ILatLongReportFactory> for ILocationReportFactory {
-    fn from(value: ILatLongReportFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ILatLongReportFactory> for &'a ILocationReportFactory {
-    fn from(value: &'a ILatLongReportFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ILatLongReportFactory> for ILocationReportFactory {
-    fn from(value: &ILatLongReportFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILatLongReportFactory, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ILocationReportFactory);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ILatLongReportFactory {
     fn clone(&self) -> Self {
@@ -810,21 +566,7 @@ impl ILocation {
         (::windows::core::Vtable::vtable(self).RequestPermissions)(::windows::core::Vtable::as_raw(self), hparent.into(), ::core::mem::transmute(preporttypes.as_ptr()), preporttypes.len() as _, fmodal.into()).ok()
     }
 }
-impl ::core::convert::From<ILocation> for ::windows::core::IUnknown {
-    fn from(value: ILocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILocation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILocation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILocation> for ::windows::core::IUnknown {
-    fn from(value: &ILocation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILocation, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ILocation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -884,21 +626,7 @@ impl ILocationEvents {
         (::windows::core::Vtable::vtable(self).OnStatusChanged)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(reporttype), newstatus).ok()
     }
 }
-impl ::core::convert::From<ILocationEvents> for ::windows::core::IUnknown {
-    fn from(value: ILocationEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILocationEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILocationEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILocationEvents> for ::windows::core::IUnknown {
-    fn from(value: &ILocationEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILocationEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ILocationEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -939,21 +667,7 @@ impl ILocationPower {
         (::windows::core::Vtable::vtable(self).Disconnect)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ILocationPower> for ::windows::core::IUnknown {
-    fn from(value: ILocationPower) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILocationPower> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILocationPower) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILocationPower> for ::windows::core::IUnknown {
-    fn from(value: &ILocationPower) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILocationPower, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ILocationPower {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1004,21 +718,7 @@ impl ILocationReport {
         (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pkey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
 }
-impl ::core::convert::From<ILocationReport> for ::windows::core::IUnknown {
-    fn from(value: ILocationReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILocationReport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILocationReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILocationReport> for ::windows::core::IUnknown {
-    fn from(value: &ILocationReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILocationReport, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ILocationReport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1090,41 +790,7 @@ impl ILocationReportFactory {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ILocationReportFactory> for ::windows::core::IUnknown {
-    fn from(value: ILocationReportFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ILocationReportFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILocationReportFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ILocationReportFactory> for ::windows::core::IUnknown {
-    fn from(value: &ILocationReportFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ILocationReportFactory> for super::super::System::Com::IDispatch {
-    fn from(value: ILocationReportFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ILocationReportFactory> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ILocationReportFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ILocationReportFactory> for super::super::System::Com::IDispatch {
-    fn from(value: &ILocationReportFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILocationReportFactory, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ILocationReportFactory {
     fn clone(&self) -> Self {
@@ -1174,41 +840,7 @@ pub struct _ICivicAddressReportFactoryEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _ICivicAddressReportFactoryEvents {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_ICivicAddressReportFactoryEvents> for ::windows::core::IUnknown {
-    fn from(value: _ICivicAddressReportFactoryEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _ICivicAddressReportFactoryEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a _ICivicAddressReportFactoryEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_ICivicAddressReportFactoryEvents> for ::windows::core::IUnknown {
-    fn from(value: &_ICivicAddressReportFactoryEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_ICivicAddressReportFactoryEvents> for super::super::System::Com::IDispatch {
-    fn from(value: _ICivicAddressReportFactoryEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _ICivicAddressReportFactoryEvents> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a _ICivicAddressReportFactoryEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_ICivicAddressReportFactoryEvents> for super::super::System::Com::IDispatch {
-    fn from(value: &_ICivicAddressReportFactoryEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(_ICivicAddressReportFactoryEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for _ICivicAddressReportFactoryEvents {
     fn clone(&self) -> Self {
@@ -1250,41 +882,7 @@ pub struct _ILatLongReportFactoryEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _ILatLongReportFactoryEvents {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_ILatLongReportFactoryEvents> for ::windows::core::IUnknown {
-    fn from(value: _ILatLongReportFactoryEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _ILatLongReportFactoryEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a _ILatLongReportFactoryEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_ILatLongReportFactoryEvents> for ::windows::core::IUnknown {
-    fn from(value: &_ILatLongReportFactoryEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_ILatLongReportFactoryEvents> for super::super::System::Com::IDispatch {
-    fn from(value: _ILatLongReportFactoryEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _ILatLongReportFactoryEvents> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a _ILatLongReportFactoryEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_ILatLongReportFactoryEvents> for super::super::System::Com::IDispatch {
-    fn from(value: &_ILatLongReportFactoryEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(_ILatLongReportFactoryEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for _ILatLongReportFactoryEvents {
     fn clone(&self) -> Self {

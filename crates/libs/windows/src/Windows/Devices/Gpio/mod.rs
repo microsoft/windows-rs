@@ -303,36 +303,7 @@ unsafe impl ::windows::core::Interface for GpioChangeCounter {
 impl ::windows::core::RuntimeName for GpioChangeCounter {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioChangeCounter";
 }
-impl ::core::convert::From<GpioChangeCounter> for ::windows::core::IUnknown {
-    fn from(value: GpioChangeCounter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GpioChangeCounter> for ::windows::core::IUnknown {
-    fn from(value: &GpioChangeCounter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GpioChangeCounter> for &::windows::core::IUnknown {
-    fn from(value: &GpioChangeCounter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GpioChangeCounter> for ::windows::core::IInspectable {
-    fn from(value: GpioChangeCounter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GpioChangeCounter> for ::windows::core::IInspectable {
-    fn from(value: &GpioChangeCounter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GpioChangeCounter> for &::windows::core::IInspectable {
-    fn from(value: &GpioChangeCounter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GpioChangeCounter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<GpioChangeCounter> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -511,36 +482,7 @@ unsafe impl ::windows::core::Interface for GpioChangeReader {
 impl ::windows::core::RuntimeName for GpioChangeReader {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioChangeReader";
 }
-impl ::core::convert::From<GpioChangeReader> for ::windows::core::IUnknown {
-    fn from(value: GpioChangeReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GpioChangeReader> for ::windows::core::IUnknown {
-    fn from(value: &GpioChangeReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GpioChangeReader> for &::windows::core::IUnknown {
-    fn from(value: &GpioChangeReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GpioChangeReader> for ::windows::core::IInspectable {
-    fn from(value: GpioChangeReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GpioChangeReader> for ::windows::core::IInspectable {
-    fn from(value: &GpioChangeReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GpioChangeReader> for &::windows::core::IInspectable {
-    fn from(value: &GpioChangeReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GpioChangeReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<GpioChangeReader> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -666,36 +608,7 @@ unsafe impl ::windows::core::Interface for GpioController {
 impl ::windows::core::RuntimeName for GpioController {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioController";
 }
-impl ::core::convert::From<GpioController> for ::windows::core::IUnknown {
-    fn from(value: GpioController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GpioController> for ::windows::core::IUnknown {
-    fn from(value: &GpioController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GpioController> for &::windows::core::IUnknown {
-    fn from(value: &GpioController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GpioController> for ::windows::core::IInspectable {
-    fn from(value: GpioController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GpioController> for ::windows::core::IInspectable {
-    fn from(value: &GpioController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GpioController> for &::windows::core::IInspectable {
-    fn from(value: &GpioController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GpioController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GpioController {}
 unsafe impl ::core::marker::Sync for GpioController {}
 #[doc = "*Required features: `\"Devices_Gpio\"`*"]
@@ -814,36 +727,7 @@ unsafe impl ::windows::core::Interface for GpioPin {
 impl ::windows::core::RuntimeName for GpioPin {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioPin";
 }
-impl ::core::convert::From<GpioPin> for ::windows::core::IUnknown {
-    fn from(value: GpioPin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GpioPin> for ::windows::core::IUnknown {
-    fn from(value: &GpioPin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GpioPin> for &::windows::core::IUnknown {
-    fn from(value: &GpioPin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GpioPin> for ::windows::core::IInspectable {
-    fn from(value: GpioPin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GpioPin> for ::windows::core::IInspectable {
-    fn from(value: &GpioPin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GpioPin> for &::windows::core::IInspectable {
-    fn from(value: &GpioPin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GpioPin, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<GpioPin> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -912,36 +796,7 @@ unsafe impl ::windows::core::Interface for GpioPinValueChangedEventArgs {
 impl ::windows::core::RuntimeName for GpioPinValueChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioPinValueChangedEventArgs";
 }
-impl ::core::convert::From<GpioPinValueChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GpioPinValueChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GpioPinValueChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GpioPinValueChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GpioPinValueChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GpioPinValueChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GpioPinValueChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GpioPinValueChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GpioPinValueChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GpioPinValueChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GpioPinValueChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GpioPinValueChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GpioPinValueChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GpioPinValueChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GpioPinValueChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Gpio\"`*"]

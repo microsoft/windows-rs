@@ -225,36 +225,7 @@ impl IPrintCustomOptionDetails {
         }
     }
 }
-impl ::core::convert::From<IPrintCustomOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: IPrintCustomOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintCustomOptionDetails> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintCustomOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintCustomOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: &IPrintCustomOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPrintCustomOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: IPrintCustomOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintCustomOptionDetails> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPrintCustomOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintCustomOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &IPrintCustomOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrintCustomOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPrintCustomOptionDetails> for IPrintOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: IPrintCustomOptionDetails) -> ::windows::core::Result<Self> {
@@ -465,36 +436,7 @@ impl IPrintItemListOptionDetails {
         }
     }
 }
-impl ::core::convert::From<IPrintItemListOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: IPrintItemListOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintItemListOptionDetails> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintItemListOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintItemListOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: &IPrintItemListOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPrintItemListOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: IPrintItemListOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintItemListOptionDetails> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPrintItemListOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintItemListOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &IPrintItemListOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrintItemListOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPrintItemListOptionDetails> for IPrintOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: IPrintItemListOptionDetails) -> ::windows::core::Result<Self> {
@@ -660,36 +602,7 @@ impl IPrintNumberOptionDetails {
         }
     }
 }
-impl ::core::convert::From<IPrintNumberOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: IPrintNumberOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintNumberOptionDetails> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintNumberOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintNumberOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: &IPrintNumberOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPrintNumberOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: IPrintNumberOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintNumberOptionDetails> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPrintNumberOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintNumberOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &IPrintNumberOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrintNumberOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPrintNumberOptionDetails> for IPrintOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: IPrintNumberOptionDetails) -> ::windows::core::Result<Self> {
@@ -803,36 +716,7 @@ impl IPrintOptionDetails {
         }
     }
 }
-impl ::core::convert::From<IPrintOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: IPrintOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintOptionDetails> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: &IPrintOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPrintOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: IPrintOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintOptionDetails> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPrintOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &IPrintOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrintOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IPrintOptionDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1093,36 +977,7 @@ impl IPrintTextOptionDetails {
         }
     }
 }
-impl ::core::convert::From<IPrintTextOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: IPrintTextOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintTextOptionDetails> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintTextOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintTextOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: &IPrintTextOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPrintTextOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: IPrintTextOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintTextOptionDetails> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPrintTextOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintTextOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &IPrintTextOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrintTextOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPrintTextOptionDetails> for IPrintOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: IPrintTextOptionDetails) -> ::windows::core::Result<Self> {
@@ -1298,36 +1153,7 @@ unsafe impl ::windows::core::Interface for PrintBindingOptionDetails {
 impl ::windows::core::RuntimeName for PrintBindingOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintBindingOptionDetails";
 }
-impl ::core::convert::From<PrintBindingOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: PrintBindingOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintBindingOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: &PrintBindingOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintBindingOptionDetails> for &::windows::core::IUnknown {
-    fn from(value: &PrintBindingOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintBindingOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: PrintBindingOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintBindingOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &PrintBindingOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintBindingOptionDetails> for &::windows::core::IInspectable {
-    fn from(value: &PrintBindingOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintBindingOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintBindingOptionDetails> for IPrintItemListOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintBindingOptionDetails) -> ::windows::core::Result<Self> {
@@ -1489,36 +1315,7 @@ unsafe impl ::windows::core::Interface for PrintBorderingOptionDetails {
 impl ::windows::core::RuntimeName for PrintBorderingOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintBorderingOptionDetails";
 }
-impl ::core::convert::From<PrintBorderingOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: PrintBorderingOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintBorderingOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: &PrintBorderingOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintBorderingOptionDetails> for &::windows::core::IUnknown {
-    fn from(value: &PrintBorderingOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintBorderingOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: PrintBorderingOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintBorderingOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &PrintBorderingOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintBorderingOptionDetails> for &::windows::core::IInspectable {
-    fn from(value: &PrintBorderingOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintBorderingOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintBorderingOptionDetails> for IPrintItemListOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintBorderingOptionDetails) -> ::windows::core::Result<Self> {
@@ -1680,36 +1477,7 @@ unsafe impl ::windows::core::Interface for PrintCollationOptionDetails {
 impl ::windows::core::RuntimeName for PrintCollationOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCollationOptionDetails";
 }
-impl ::core::convert::From<PrintCollationOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: PrintCollationOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintCollationOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: &PrintCollationOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintCollationOptionDetails> for &::windows::core::IUnknown {
-    fn from(value: &PrintCollationOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintCollationOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: PrintCollationOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintCollationOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &PrintCollationOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintCollationOptionDetails> for &::windows::core::IInspectable {
-    fn from(value: &PrintCollationOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintCollationOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintCollationOptionDetails> for IPrintItemListOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintCollationOptionDetails) -> ::windows::core::Result<Self> {
@@ -1871,36 +1639,7 @@ unsafe impl ::windows::core::Interface for PrintColorModeOptionDetails {
 impl ::windows::core::RuntimeName for PrintColorModeOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintColorModeOptionDetails";
 }
-impl ::core::convert::From<PrintColorModeOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: PrintColorModeOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintColorModeOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: &PrintColorModeOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintColorModeOptionDetails> for &::windows::core::IUnknown {
-    fn from(value: &PrintColorModeOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintColorModeOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: PrintColorModeOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintColorModeOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &PrintColorModeOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintColorModeOptionDetails> for &::windows::core::IInspectable {
-    fn from(value: &PrintColorModeOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintColorModeOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintColorModeOptionDetails> for IPrintItemListOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintColorModeOptionDetails) -> ::windows::core::Result<Self> {
@@ -2067,36 +1806,7 @@ unsafe impl ::windows::core::Interface for PrintCopiesOptionDetails {
 impl ::windows::core::RuntimeName for PrintCopiesOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCopiesOptionDetails";
 }
-impl ::core::convert::From<PrintCopiesOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: PrintCopiesOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintCopiesOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: &PrintCopiesOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintCopiesOptionDetails> for &::windows::core::IUnknown {
-    fn from(value: &PrintCopiesOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintCopiesOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: PrintCopiesOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintCopiesOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &PrintCopiesOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintCopiesOptionDetails> for &::windows::core::IInspectable {
-    fn from(value: &PrintCopiesOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintCopiesOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintCopiesOptionDetails> for IPrintNumberOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintCopiesOptionDetails) -> ::windows::core::Result<Self> {
@@ -2192,36 +1902,7 @@ unsafe impl ::windows::core::Interface for PrintCustomItemDetails {
 impl ::windows::core::RuntimeName for PrintCustomItemDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCustomItemDetails";
 }
-impl ::core::convert::From<PrintCustomItemDetails> for ::windows::core::IUnknown {
-    fn from(value: PrintCustomItemDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintCustomItemDetails> for ::windows::core::IUnknown {
-    fn from(value: &PrintCustomItemDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintCustomItemDetails> for &::windows::core::IUnknown {
-    fn from(value: &PrintCustomItemDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintCustomItemDetails> for ::windows::core::IInspectable {
-    fn from(value: PrintCustomItemDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintCustomItemDetails> for ::windows::core::IInspectable {
-    fn from(value: &PrintCustomItemDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintCustomItemDetails> for &::windows::core::IInspectable {
-    fn from(value: &PrintCustomItemDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintCustomItemDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintCustomItemDetails {}
 unsafe impl ::core::marker::Sync for PrintCustomItemDetails {}
 #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
@@ -2370,36 +2051,7 @@ unsafe impl ::windows::core::Interface for PrintCustomItemListOptionDetails {
 impl ::windows::core::RuntimeName for PrintCustomItemListOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCustomItemListOptionDetails";
 }
-impl ::core::convert::From<PrintCustomItemListOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: PrintCustomItemListOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintCustomItemListOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: &PrintCustomItemListOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintCustomItemListOptionDetails> for &::windows::core::IUnknown {
-    fn from(value: &PrintCustomItemListOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintCustomItemListOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: PrintCustomItemListOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintCustomItemListOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &PrintCustomItemListOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintCustomItemListOptionDetails> for &::windows::core::IInspectable {
-    fn from(value: &PrintCustomItemListOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintCustomItemListOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintCustomItemListOptionDetails> for IPrintCustomOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintCustomItemListOptionDetails) -> ::windows::core::Result<Self> {
@@ -2593,36 +2245,7 @@ unsafe impl ::windows::core::Interface for PrintCustomTextOptionDetails {
 impl ::windows::core::RuntimeName for PrintCustomTextOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCustomTextOptionDetails";
 }
-impl ::core::convert::From<PrintCustomTextOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: PrintCustomTextOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintCustomTextOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: &PrintCustomTextOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintCustomTextOptionDetails> for &::windows::core::IUnknown {
-    fn from(value: &PrintCustomTextOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintCustomTextOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: PrintCustomTextOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintCustomTextOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &PrintCustomTextOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintCustomTextOptionDetails> for &::windows::core::IInspectable {
-    fn from(value: &PrintCustomTextOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintCustomTextOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintCustomTextOptionDetails> for IPrintCustomOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintCustomTextOptionDetails) -> ::windows::core::Result<Self> {
@@ -2786,36 +2409,7 @@ unsafe impl ::windows::core::Interface for PrintCustomToggleOptionDetails {
 impl ::windows::core::RuntimeName for PrintCustomToggleOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCustomToggleOptionDetails";
 }
-impl ::core::convert::From<PrintCustomToggleOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: PrintCustomToggleOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintCustomToggleOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: &PrintCustomToggleOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintCustomToggleOptionDetails> for &::windows::core::IUnknown {
-    fn from(value: &PrintCustomToggleOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintCustomToggleOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: PrintCustomToggleOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintCustomToggleOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &PrintCustomToggleOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintCustomToggleOptionDetails> for &::windows::core::IInspectable {
-    fn from(value: &PrintCustomToggleOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintCustomToggleOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintCustomToggleOptionDetails> for IPrintCustomOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintCustomToggleOptionDetails) -> ::windows::core::Result<Self> {
@@ -2977,36 +2571,7 @@ unsafe impl ::windows::core::Interface for PrintDuplexOptionDetails {
 impl ::windows::core::RuntimeName for PrintDuplexOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintDuplexOptionDetails";
 }
-impl ::core::convert::From<PrintDuplexOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: PrintDuplexOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintDuplexOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: &PrintDuplexOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintDuplexOptionDetails> for &::windows::core::IUnknown {
-    fn from(value: &PrintDuplexOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintDuplexOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: PrintDuplexOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintDuplexOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &PrintDuplexOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintDuplexOptionDetails> for &::windows::core::IInspectable {
-    fn from(value: &PrintDuplexOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintDuplexOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintDuplexOptionDetails> for IPrintItemListOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintDuplexOptionDetails) -> ::windows::core::Result<Self> {
@@ -3168,36 +2733,7 @@ unsafe impl ::windows::core::Interface for PrintHolePunchOptionDetails {
 impl ::windows::core::RuntimeName for PrintHolePunchOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintHolePunchOptionDetails";
 }
-impl ::core::convert::From<PrintHolePunchOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: PrintHolePunchOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintHolePunchOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: &PrintHolePunchOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintHolePunchOptionDetails> for &::windows::core::IUnknown {
-    fn from(value: &PrintHolePunchOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintHolePunchOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: PrintHolePunchOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintHolePunchOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &PrintHolePunchOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintHolePunchOptionDetails> for &::windows::core::IInspectable {
-    fn from(value: &PrintHolePunchOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintHolePunchOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintHolePunchOptionDetails> for IPrintItemListOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintHolePunchOptionDetails) -> ::windows::core::Result<Self> {
@@ -3359,36 +2895,7 @@ unsafe impl ::windows::core::Interface for PrintMediaSizeOptionDetails {
 impl ::windows::core::RuntimeName for PrintMediaSizeOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintMediaSizeOptionDetails";
 }
-impl ::core::convert::From<PrintMediaSizeOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: PrintMediaSizeOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintMediaSizeOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: &PrintMediaSizeOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintMediaSizeOptionDetails> for &::windows::core::IUnknown {
-    fn from(value: &PrintMediaSizeOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintMediaSizeOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: PrintMediaSizeOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintMediaSizeOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &PrintMediaSizeOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintMediaSizeOptionDetails> for &::windows::core::IInspectable {
-    fn from(value: &PrintMediaSizeOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintMediaSizeOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintMediaSizeOptionDetails> for IPrintItemListOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintMediaSizeOptionDetails) -> ::windows::core::Result<Self> {
@@ -3550,36 +3057,7 @@ unsafe impl ::windows::core::Interface for PrintMediaTypeOptionDetails {
 impl ::windows::core::RuntimeName for PrintMediaTypeOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintMediaTypeOptionDetails";
 }
-impl ::core::convert::From<PrintMediaTypeOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: PrintMediaTypeOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintMediaTypeOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: &PrintMediaTypeOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintMediaTypeOptionDetails> for &::windows::core::IUnknown {
-    fn from(value: &PrintMediaTypeOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintMediaTypeOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: PrintMediaTypeOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintMediaTypeOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &PrintMediaTypeOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintMediaTypeOptionDetails> for &::windows::core::IInspectable {
-    fn from(value: &PrintMediaTypeOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintMediaTypeOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintMediaTypeOptionDetails> for IPrintItemListOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintMediaTypeOptionDetails) -> ::windows::core::Result<Self> {
@@ -3741,36 +3219,7 @@ unsafe impl ::windows::core::Interface for PrintOrientationOptionDetails {
 impl ::windows::core::RuntimeName for PrintOrientationOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintOrientationOptionDetails";
 }
-impl ::core::convert::From<PrintOrientationOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: PrintOrientationOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintOrientationOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: &PrintOrientationOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintOrientationOptionDetails> for &::windows::core::IUnknown {
-    fn from(value: &PrintOrientationOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintOrientationOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: PrintOrientationOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintOrientationOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &PrintOrientationOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintOrientationOptionDetails> for &::windows::core::IInspectable {
-    fn from(value: &PrintOrientationOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintOrientationOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintOrientationOptionDetails> for IPrintItemListOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintOrientationOptionDetails) -> ::windows::core::Result<Self> {
@@ -3923,36 +3372,7 @@ unsafe impl ::windows::core::Interface for PrintPageRangeOptionDetails {
 impl ::windows::core::RuntimeName for PrintPageRangeOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintPageRangeOptionDetails";
 }
-impl ::core::convert::From<PrintPageRangeOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: PrintPageRangeOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintPageRangeOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: &PrintPageRangeOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintPageRangeOptionDetails> for &::windows::core::IUnknown {
-    fn from(value: &PrintPageRangeOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintPageRangeOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: PrintPageRangeOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintPageRangeOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &PrintPageRangeOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintPageRangeOptionDetails> for &::windows::core::IInspectable {
-    fn from(value: &PrintPageRangeOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintPageRangeOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintPageRangeOptionDetails> for IPrintOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintPageRangeOptionDetails) -> ::windows::core::Result<Self> {
@@ -4095,36 +3515,7 @@ unsafe impl ::windows::core::Interface for PrintQualityOptionDetails {
 impl ::windows::core::RuntimeName for PrintQualityOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintQualityOptionDetails";
 }
-impl ::core::convert::From<PrintQualityOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: PrintQualityOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintQualityOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: &PrintQualityOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintQualityOptionDetails> for &::windows::core::IUnknown {
-    fn from(value: &PrintQualityOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintQualityOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: PrintQualityOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintQualityOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &PrintQualityOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintQualityOptionDetails> for &::windows::core::IInspectable {
-    fn from(value: &PrintQualityOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintQualityOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintQualityOptionDetails> for IPrintItemListOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintQualityOptionDetails) -> ::windows::core::Result<Self> {
@@ -4286,36 +3677,7 @@ unsafe impl ::windows::core::Interface for PrintStapleOptionDetails {
 impl ::windows::core::RuntimeName for PrintStapleOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintStapleOptionDetails";
 }
-impl ::core::convert::From<PrintStapleOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: PrintStapleOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintStapleOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: &PrintStapleOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintStapleOptionDetails> for &::windows::core::IUnknown {
-    fn from(value: &PrintStapleOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintStapleOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: PrintStapleOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintStapleOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &PrintStapleOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintStapleOptionDetails> for &::windows::core::IInspectable {
-    fn from(value: &PrintStapleOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintStapleOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintStapleOptionDetails> for IPrintItemListOptionDetails {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintStapleOptionDetails) -> ::windows::core::Result<Self> {
@@ -4400,36 +3762,7 @@ unsafe impl ::windows::core::Interface for PrintTaskOptionChangedEventArgs {
 impl ::windows::core::RuntimeName for PrintTaskOptionChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintTaskOptionChangedEventArgs";
 }
-impl ::core::convert::From<PrintTaskOptionChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PrintTaskOptionChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTaskOptionChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PrintTaskOptionChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTaskOptionChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PrintTaskOptionChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintTaskOptionChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PrintTaskOptionChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTaskOptionChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PrintTaskOptionChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTaskOptionChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PrintTaskOptionChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintTaskOptionChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTaskOptionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintTaskOptionChangedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
@@ -4558,36 +3891,7 @@ unsafe impl ::windows::core::Interface for PrintTaskOptionDetails {
 impl ::windows::core::RuntimeName for PrintTaskOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintTaskOptionDetails";
 }
-impl ::core::convert::From<PrintTaskOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: PrintTaskOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTaskOptionDetails> for ::windows::core::IUnknown {
-    fn from(value: &PrintTaskOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTaskOptionDetails> for &::windows::core::IUnknown {
-    fn from(value: &PrintTaskOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintTaskOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: PrintTaskOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTaskOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &PrintTaskOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTaskOptionDetails> for &::windows::core::IInspectable {
-    fn from(value: &PrintTaskOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintTaskOptionDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintTaskOptionDetails> for super::IPrintTaskOptionsCore {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintTaskOptionDetails) -> ::windows::core::Result<Self> {

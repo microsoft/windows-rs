@@ -1173,41 +1173,7 @@ impl IWdsTransportCacheable {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportCacheable> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportCacheable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportCacheable> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportCacheable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportCacheable> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportCacheable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportCacheable> for super::Com::IDispatch {
-    fn from(value: IWdsTransportCacheable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportCacheable> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportCacheable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportCacheable> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportCacheable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportCacheable, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportCacheable {
     fn clone(&self) -> Self {
@@ -1303,41 +1269,7 @@ impl IWdsTransportClient {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportClient> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportClient> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportClient> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportClient> for super::Com::IDispatch {
-    fn from(value: IWdsTransportClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportClient> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportClient> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportClient, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportClient {
     fn clone(&self) -> Self {
@@ -1409,41 +1341,7 @@ impl IWdsTransportCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportCollection> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportCollection> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportCollection> for super::Com::IDispatch {
-    fn from(value: IWdsTransportCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportCollection> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportCollection> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportCollection {
     fn clone(&self) -> Self {
@@ -1526,41 +1424,7 @@ impl IWdsTransportConfigurationManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportConfigurationManager> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportConfigurationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportConfigurationManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportConfigurationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportConfigurationManager> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportConfigurationManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportConfigurationManager> for super::Com::IDispatch {
-    fn from(value: IWdsTransportConfigurationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportConfigurationManager> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportConfigurationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportConfigurationManager> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportConfigurationManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportConfigurationManager, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportConfigurationManager {
     fn clone(&self) -> Self {
@@ -1658,59 +1522,7 @@ impl IWdsTransportConfigurationManager2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportConfigurationManager2> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportConfigurationManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportConfigurationManager2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportConfigurationManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportConfigurationManager2> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportConfigurationManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportConfigurationManager2> for super::Com::IDispatch {
-    fn from(value: IWdsTransportConfigurationManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportConfigurationManager2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportConfigurationManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportConfigurationManager2> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportConfigurationManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportConfigurationManager2> for IWdsTransportConfigurationManager {
-    fn from(value: IWdsTransportConfigurationManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportConfigurationManager2> for &'a IWdsTransportConfigurationManager {
-    fn from(value: &'a IWdsTransportConfigurationManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportConfigurationManager2> for IWdsTransportConfigurationManager {
-    fn from(value: &IWdsTransportConfigurationManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportConfigurationManager2, ::windows::core::IUnknown, super::Com::IDispatch, IWdsTransportConfigurationManager);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportConfigurationManager2 {
     fn clone(&self) -> Self {
@@ -1780,41 +1592,7 @@ impl IWdsTransportContent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportContent> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportContent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportContent> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportContent> for super::Com::IDispatch {
-    fn from(value: IWdsTransportContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportContent> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportContent> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportContent, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportContent {
     fn clone(&self) -> Self {
@@ -1884,41 +1662,7 @@ impl IWdsTransportContentProvider {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportContentProvider> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportContentProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportContentProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportContentProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportContentProvider> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportContentProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportContentProvider> for super::Com::IDispatch {
-    fn from(value: IWdsTransportContentProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportContentProvider> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportContentProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportContentProvider> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportContentProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportContentProvider, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportContentProvider {
     fn clone(&self) -> Self {
@@ -1992,59 +1736,7 @@ impl IWdsTransportDiagnosticsPolicy {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportDiagnosticsPolicy> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportDiagnosticsPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportDiagnosticsPolicy> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportDiagnosticsPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportDiagnosticsPolicy> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportDiagnosticsPolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportDiagnosticsPolicy> for super::Com::IDispatch {
-    fn from(value: IWdsTransportDiagnosticsPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportDiagnosticsPolicy> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportDiagnosticsPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportDiagnosticsPolicy> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportDiagnosticsPolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportDiagnosticsPolicy> for IWdsTransportCacheable {
-    fn from(value: IWdsTransportDiagnosticsPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportDiagnosticsPolicy> for &'a IWdsTransportCacheable {
-    fn from(value: &'a IWdsTransportDiagnosticsPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportDiagnosticsPolicy> for IWdsTransportCacheable {
-    fn from(value: &IWdsTransportDiagnosticsPolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportDiagnosticsPolicy, ::windows::core::IUnknown, super::Com::IDispatch, IWdsTransportCacheable);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportDiagnosticsPolicy {
     fn clone(&self) -> Self {
@@ -2097,41 +1789,7 @@ impl IWdsTransportManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportManager> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportManager> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportManager> for super::Com::IDispatch {
-    fn from(value: IWdsTransportManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportManager> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportManager> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportManager, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportManager {
     fn clone(&self) -> Self {
@@ -2219,59 +1877,7 @@ impl IWdsTransportMulticastSessionPolicy {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportMulticastSessionPolicy> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportMulticastSessionPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportMulticastSessionPolicy> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportMulticastSessionPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportMulticastSessionPolicy> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportMulticastSessionPolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportMulticastSessionPolicy> for super::Com::IDispatch {
-    fn from(value: IWdsTransportMulticastSessionPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportMulticastSessionPolicy> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportMulticastSessionPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportMulticastSessionPolicy> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportMulticastSessionPolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportMulticastSessionPolicy> for IWdsTransportCacheable {
-    fn from(value: IWdsTransportMulticastSessionPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportMulticastSessionPolicy> for &'a IWdsTransportCacheable {
-    fn from(value: &'a IWdsTransportMulticastSessionPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportMulticastSessionPolicy> for IWdsTransportCacheable {
-    fn from(value: &IWdsTransportMulticastSessionPolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportMulticastSessionPolicy, ::windows::core::IUnknown, super::Com::IDispatch, IWdsTransportCacheable);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportMulticastSessionPolicy {
     fn clone(&self) -> Self {
@@ -2402,41 +2008,7 @@ impl IWdsTransportNamespace {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportNamespace> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportNamespace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportNamespace> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportNamespace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportNamespace> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportNamespace) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportNamespace> for super::Com::IDispatch {
-    fn from(value: IWdsTransportNamespace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportNamespace> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportNamespace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportNamespace> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportNamespace) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportNamespace, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportNamespace {
     fn clone(&self) -> Self {
@@ -2586,59 +2158,7 @@ impl IWdsTransportNamespaceAutoCast {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportNamespaceAutoCast> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportNamespaceAutoCast) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceAutoCast> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportNamespaceAutoCast) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportNamespaceAutoCast> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportNamespaceAutoCast) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportNamespaceAutoCast> for super::Com::IDispatch {
-    fn from(value: IWdsTransportNamespaceAutoCast) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceAutoCast> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportNamespaceAutoCast) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportNamespaceAutoCast> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportNamespaceAutoCast) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportNamespaceAutoCast> for IWdsTransportNamespace {
-    fn from(value: IWdsTransportNamespaceAutoCast) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceAutoCast> for &'a IWdsTransportNamespace {
-    fn from(value: &'a IWdsTransportNamespaceAutoCast) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportNamespaceAutoCast> for IWdsTransportNamespace {
-    fn from(value: &IWdsTransportNamespaceAutoCast) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportNamespaceAutoCast, ::windows::core::IUnknown, super::Com::IDispatch, IWdsTransportNamespace);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportNamespaceAutoCast {
     fn clone(&self) -> Self {
@@ -2699,41 +2219,7 @@ impl IWdsTransportNamespaceManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportNamespaceManager> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportNamespaceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportNamespaceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportNamespaceManager> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportNamespaceManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportNamespaceManager> for super::Com::IDispatch {
-    fn from(value: IWdsTransportNamespaceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceManager> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportNamespaceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportNamespaceManager> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportNamespaceManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportNamespaceManager, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportNamespaceManager {
     fn clone(&self) -> Self {
@@ -2871,59 +2357,7 @@ impl IWdsTransportNamespaceScheduledCast {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportNamespaceScheduledCast> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportNamespaceScheduledCast) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceScheduledCast> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportNamespaceScheduledCast) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportNamespaceScheduledCast> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportNamespaceScheduledCast) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportNamespaceScheduledCast> for super::Com::IDispatch {
-    fn from(value: IWdsTransportNamespaceScheduledCast) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceScheduledCast> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportNamespaceScheduledCast) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportNamespaceScheduledCast> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportNamespaceScheduledCast) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportNamespaceScheduledCast> for IWdsTransportNamespace {
-    fn from(value: IWdsTransportNamespaceScheduledCast) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceScheduledCast> for &'a IWdsTransportNamespace {
-    fn from(value: &'a IWdsTransportNamespaceScheduledCast) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportNamespaceScheduledCast> for IWdsTransportNamespace {
-    fn from(value: &IWdsTransportNamespaceScheduledCast) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportNamespaceScheduledCast, ::windows::core::IUnknown, super::Com::IDispatch, IWdsTransportNamespace);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportNamespaceScheduledCast {
     fn clone(&self) -> Self {
@@ -3064,77 +2498,7 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportNamespaceScheduledCastAutoStart> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceScheduledCastAutoStart> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportNamespaceScheduledCastAutoStart> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportNamespaceScheduledCastAutoStart> for super::Com::IDispatch {
-    fn from(value: IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceScheduledCastAutoStart> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportNamespaceScheduledCastAutoStart> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportNamespaceScheduledCastAutoStart> for IWdsTransportNamespace {
-    fn from(value: IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceScheduledCastAutoStart> for &'a IWdsTransportNamespace {
-    fn from(value: &'a IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportNamespaceScheduledCastAutoStart> for IWdsTransportNamespace {
-    fn from(value: &IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportNamespaceScheduledCastAutoStart> for IWdsTransportNamespaceScheduledCast {
-    fn from(value: IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceScheduledCastAutoStart> for &'a IWdsTransportNamespaceScheduledCast {
-    fn from(value: &'a IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportNamespaceScheduledCastAutoStart> for IWdsTransportNamespaceScheduledCast {
-    fn from(value: &IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportNamespaceScheduledCastAutoStart, ::windows::core::IUnknown, super::Com::IDispatch, IWdsTransportNamespace, IWdsTransportNamespaceScheduledCast);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportNamespaceScheduledCastAutoStart {
     fn clone(&self) -> Self {
@@ -3264,77 +2628,7 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportNamespaceScheduledCastManualStart> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportNamespaceScheduledCastManualStart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceScheduledCastManualStart> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportNamespaceScheduledCastManualStart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportNamespaceScheduledCastManualStart> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportNamespaceScheduledCastManualStart) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportNamespaceScheduledCastManualStart> for super::Com::IDispatch {
-    fn from(value: IWdsTransportNamespaceScheduledCastManualStart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceScheduledCastManualStart> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportNamespaceScheduledCastManualStart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportNamespaceScheduledCastManualStart> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportNamespaceScheduledCastManualStart) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportNamespaceScheduledCastManualStart> for IWdsTransportNamespace {
-    fn from(value: IWdsTransportNamespaceScheduledCastManualStart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceScheduledCastManualStart> for &'a IWdsTransportNamespace {
-    fn from(value: &'a IWdsTransportNamespaceScheduledCastManualStart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportNamespaceScheduledCastManualStart> for IWdsTransportNamespace {
-    fn from(value: &IWdsTransportNamespaceScheduledCastManualStart) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportNamespaceScheduledCastManualStart> for IWdsTransportNamespaceScheduledCast {
-    fn from(value: IWdsTransportNamespaceScheduledCastManualStart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceScheduledCastManualStart> for &'a IWdsTransportNamespaceScheduledCast {
-    fn from(value: &'a IWdsTransportNamespaceScheduledCastManualStart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportNamespaceScheduledCastManualStart> for IWdsTransportNamespaceScheduledCast {
-    fn from(value: &IWdsTransportNamespaceScheduledCastManualStart) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportNamespaceScheduledCastManualStart, ::windows::core::IUnknown, super::Com::IDispatch, IWdsTransportNamespace, IWdsTransportNamespaceScheduledCast);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportNamespaceScheduledCastManualStart {
     fn clone(&self) -> Self {
@@ -3402,41 +2696,7 @@ impl IWdsTransportServer {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportServer> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportServer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportServer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportServer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportServer> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportServer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportServer> for super::Com::IDispatch {
-    fn from(value: IWdsTransportServer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportServer> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportServer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportServer> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportServer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportServer, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportServer {
     fn clone(&self) -> Self {
@@ -3524,59 +2784,7 @@ impl IWdsTransportServer2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportServer2> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportServer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportServer2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportServer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportServer2> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportServer2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportServer2> for super::Com::IDispatch {
-    fn from(value: IWdsTransportServer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportServer2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportServer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportServer2> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportServer2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportServer2> for IWdsTransportServer {
-    fn from(value: IWdsTransportServer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportServer2> for &'a IWdsTransportServer {
-    fn from(value: &'a IWdsTransportServer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportServer2> for IWdsTransportServer {
-    fn from(value: &IWdsTransportServer2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportServer2, ::windows::core::IUnknown, super::Com::IDispatch, IWdsTransportServer);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportServer2 {
     fn clone(&self) -> Self {
@@ -3678,59 +2886,7 @@ impl IWdsTransportServicePolicy {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportServicePolicy> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportServicePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportServicePolicy> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportServicePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportServicePolicy> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportServicePolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportServicePolicy> for super::Com::IDispatch {
-    fn from(value: IWdsTransportServicePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportServicePolicy> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportServicePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportServicePolicy> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportServicePolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportServicePolicy> for IWdsTransportCacheable {
-    fn from(value: IWdsTransportServicePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportServicePolicy> for &'a IWdsTransportCacheable {
-    fn from(value: &'a IWdsTransportServicePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportServicePolicy> for IWdsTransportCacheable {
-    fn from(value: &IWdsTransportServicePolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportServicePolicy, ::windows::core::IUnknown, super::Com::IDispatch, IWdsTransportCacheable);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportServicePolicy {
     fn clone(&self) -> Self {
@@ -3861,77 +3017,7 @@ impl IWdsTransportServicePolicy2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportServicePolicy2> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportServicePolicy2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportServicePolicy2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportServicePolicy2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportServicePolicy2> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportServicePolicy2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportServicePolicy2> for super::Com::IDispatch {
-    fn from(value: IWdsTransportServicePolicy2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportServicePolicy2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportServicePolicy2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportServicePolicy2> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportServicePolicy2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportServicePolicy2> for IWdsTransportCacheable {
-    fn from(value: IWdsTransportServicePolicy2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportServicePolicy2> for &'a IWdsTransportCacheable {
-    fn from(value: &'a IWdsTransportServicePolicy2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportServicePolicy2> for IWdsTransportCacheable {
-    fn from(value: &IWdsTransportServicePolicy2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportServicePolicy2> for IWdsTransportServicePolicy {
-    fn from(value: IWdsTransportServicePolicy2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportServicePolicy2> for &'a IWdsTransportServicePolicy {
-    fn from(value: &'a IWdsTransportServicePolicy2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportServicePolicy2> for IWdsTransportServicePolicy {
-    fn from(value: &IWdsTransportServicePolicy2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportServicePolicy2, ::windows::core::IUnknown, super::Com::IDispatch, IWdsTransportCacheable, IWdsTransportServicePolicy);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportServicePolicy2 {
     fn clone(&self) -> Self {
@@ -4015,41 +3101,7 @@ impl IWdsTransportSession {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportSession> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportSession> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportSession> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportSession> for super::Com::IDispatch {
-    fn from(value: IWdsTransportSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportSession> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportSession> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportSession, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportSession {
     fn clone(&self) -> Self {
@@ -4124,41 +3176,7 @@ impl IWdsTransportSetupManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportSetupManager> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportSetupManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportSetupManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportSetupManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportSetupManager> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportSetupManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportSetupManager> for super::Com::IDispatch {
-    fn from(value: IWdsTransportSetupManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportSetupManager> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportSetupManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportSetupManager> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportSetupManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportSetupManager, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportSetupManager {
     fn clone(&self) -> Self {
@@ -4234,59 +3252,7 @@ impl IWdsTransportSetupManager2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportSetupManager2> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportSetupManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportSetupManager2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportSetupManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportSetupManager2> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportSetupManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportSetupManager2> for super::Com::IDispatch {
-    fn from(value: IWdsTransportSetupManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportSetupManager2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportSetupManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportSetupManager2> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportSetupManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportSetupManager2> for IWdsTransportSetupManager {
-    fn from(value: IWdsTransportSetupManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportSetupManager2> for &'a IWdsTransportSetupManager {
-    fn from(value: &'a IWdsTransportSetupManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportSetupManager2> for IWdsTransportSetupManager {
-    fn from(value: &IWdsTransportSetupManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportSetupManager2, ::windows::core::IUnknown, super::Com::IDispatch, IWdsTransportSetupManager);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportSetupManager2 {
     fn clone(&self) -> Self {
@@ -4362,41 +3328,7 @@ impl IWdsTransportTftpClient {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportTftpClient> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportTftpClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportTftpClient> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportTftpClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportTftpClient> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportTftpClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportTftpClient> for super::Com::IDispatch {
-    fn from(value: IWdsTransportTftpClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportTftpClient> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportTftpClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportTftpClient> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportTftpClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportTftpClient, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportTftpClient {
     fn clone(&self) -> Self {
@@ -4452,41 +3384,7 @@ impl IWdsTransportTftpManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportTftpManager> for ::windows::core::IUnknown {
-    fn from(value: IWdsTransportTftpManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportTftpManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWdsTransportTftpManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportTftpManager> for ::windows::core::IUnknown {
-    fn from(value: &IWdsTransportTftpManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWdsTransportTftpManager> for super::Com::IDispatch {
-    fn from(value: IWdsTransportTftpManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWdsTransportTftpManager> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWdsTransportTftpManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWdsTransportTftpManager> for super::Com::IDispatch {
-    fn from(value: &IWdsTransportTftpManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWdsTransportTftpManager, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWdsTransportTftpManager {
     fn clone(&self) -> Self {

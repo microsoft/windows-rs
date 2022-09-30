@@ -401,36 +401,7 @@ unsafe impl ::windows::core::Interface for RfcommDeviceService {
 impl ::windows::core::RuntimeName for RfcommDeviceService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService";
 }
-impl ::core::convert::From<RfcommDeviceService> for ::windows::core::IUnknown {
-    fn from(value: RfcommDeviceService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RfcommDeviceService> for ::windows::core::IUnknown {
-    fn from(value: &RfcommDeviceService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RfcommDeviceService> for &::windows::core::IUnknown {
-    fn from(value: &RfcommDeviceService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RfcommDeviceService> for ::windows::core::IInspectable {
-    fn from(value: RfcommDeviceService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RfcommDeviceService> for ::windows::core::IInspectable {
-    fn from(value: &RfcommDeviceService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RfcommDeviceService> for &::windows::core::IInspectable {
-    fn from(value: &RfcommDeviceService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RfcommDeviceService, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<RfcommDeviceService> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -508,36 +479,7 @@ unsafe impl ::windows::core::Interface for RfcommDeviceServicesResult {
 impl ::windows::core::RuntimeName for RfcommDeviceServicesResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceServicesResult";
 }
-impl ::core::convert::From<RfcommDeviceServicesResult> for ::windows::core::IUnknown {
-    fn from(value: RfcommDeviceServicesResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RfcommDeviceServicesResult> for ::windows::core::IUnknown {
-    fn from(value: &RfcommDeviceServicesResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RfcommDeviceServicesResult> for &::windows::core::IUnknown {
-    fn from(value: &RfcommDeviceServicesResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RfcommDeviceServicesResult> for ::windows::core::IInspectable {
-    fn from(value: RfcommDeviceServicesResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RfcommDeviceServicesResult> for ::windows::core::IInspectable {
-    fn from(value: &RfcommDeviceServicesResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RfcommDeviceServicesResult> for &::windows::core::IInspectable {
-    fn from(value: &RfcommDeviceServicesResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RfcommDeviceServicesResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RfcommDeviceServicesResult {}
 unsafe impl ::core::marker::Sync for RfcommDeviceServicesResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`*"]
@@ -651,36 +593,7 @@ unsafe impl ::windows::core::Interface for RfcommServiceId {
 impl ::windows::core::RuntimeName for RfcommServiceId {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceId";
 }
-impl ::core::convert::From<RfcommServiceId> for ::windows::core::IUnknown {
-    fn from(value: RfcommServiceId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RfcommServiceId> for ::windows::core::IUnknown {
-    fn from(value: &RfcommServiceId) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RfcommServiceId> for &::windows::core::IUnknown {
-    fn from(value: &RfcommServiceId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RfcommServiceId> for ::windows::core::IInspectable {
-    fn from(value: RfcommServiceId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RfcommServiceId> for ::windows::core::IInspectable {
-    fn from(value: &RfcommServiceId) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RfcommServiceId> for &::windows::core::IInspectable {
-    fn from(value: &RfcommServiceId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RfcommServiceId, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RfcommServiceId {}
 unsafe impl ::core::marker::Sync for RfcommServiceId {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`*"]
@@ -765,36 +678,7 @@ unsafe impl ::windows::core::Interface for RfcommServiceProvider {
 impl ::windows::core::RuntimeName for RfcommServiceProvider {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceProvider";
 }
-impl ::core::convert::From<RfcommServiceProvider> for ::windows::core::IUnknown {
-    fn from(value: RfcommServiceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RfcommServiceProvider> for ::windows::core::IUnknown {
-    fn from(value: &RfcommServiceProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RfcommServiceProvider> for &::windows::core::IUnknown {
-    fn from(value: &RfcommServiceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RfcommServiceProvider> for ::windows::core::IInspectable {
-    fn from(value: RfcommServiceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RfcommServiceProvider> for ::windows::core::IInspectable {
-    fn from(value: &RfcommServiceProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RfcommServiceProvider> for &::windows::core::IInspectable {
-    fn from(value: &RfcommServiceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RfcommServiceProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RfcommServiceProvider {}
 unsafe impl ::core::marker::Sync for RfcommServiceProvider {}
 #[cfg(feature = "implement")]

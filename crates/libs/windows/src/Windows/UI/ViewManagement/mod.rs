@@ -1263,36 +1263,7 @@ unsafe impl ::windows::core::Interface for AccessibilitySettings {
 impl ::windows::core::RuntimeName for AccessibilitySettings {
     const NAME: &'static str = "Windows.UI.ViewManagement.AccessibilitySettings";
 }
-impl ::core::convert::From<AccessibilitySettings> for ::windows::core::IUnknown {
-    fn from(value: AccessibilitySettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccessibilitySettings> for ::windows::core::IUnknown {
-    fn from(value: &AccessibilitySettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccessibilitySettings> for &::windows::core::IUnknown {
-    fn from(value: &AccessibilitySettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AccessibilitySettings> for ::windows::core::IInspectable {
-    fn from(value: AccessibilitySettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccessibilitySettings> for ::windows::core::IInspectable {
-    fn from(value: &AccessibilitySettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccessibilitySettings> for &::windows::core::IInspectable {
-    fn from(value: &AccessibilitySettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AccessibilitySettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AccessibilitySettings {}
 unsafe impl ::core::marker::Sync for AccessibilitySettings {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -1357,36 +1328,7 @@ unsafe impl ::windows::core::Interface for ActivationViewSwitcher {
 impl ::windows::core::RuntimeName for ActivationViewSwitcher {
     const NAME: &'static str = "Windows.UI.ViewManagement.ActivationViewSwitcher";
 }
-impl ::core::convert::From<ActivationViewSwitcher> for ::windows::core::IUnknown {
-    fn from(value: ActivationViewSwitcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivationViewSwitcher> for ::windows::core::IUnknown {
-    fn from(value: &ActivationViewSwitcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivationViewSwitcher> for &::windows::core::IUnknown {
-    fn from(value: &ActivationViewSwitcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ActivationViewSwitcher> for ::windows::core::IInspectable {
-    fn from(value: ActivationViewSwitcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivationViewSwitcher> for ::windows::core::IInspectable {
-    fn from(value: &ActivationViewSwitcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivationViewSwitcher> for &::windows::core::IInspectable {
-    fn from(value: &ActivationViewSwitcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ActivationViewSwitcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ActivationViewSwitcher {}
 unsafe impl ::core::marker::Sync for ActivationViewSwitcher {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -1803,36 +1745,7 @@ unsafe impl ::windows::core::Interface for ApplicationView {
 impl ::windows::core::RuntimeName for ApplicationView {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationView";
 }
-impl ::core::convert::From<ApplicationView> for ::windows::core::IUnknown {
-    fn from(value: ApplicationView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationView> for ::windows::core::IUnknown {
-    fn from(value: &ApplicationView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationView> for &::windows::core::IUnknown {
-    fn from(value: &ApplicationView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ApplicationView> for ::windows::core::IInspectable {
-    fn from(value: ApplicationView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationView> for ::windows::core::IInspectable {
-    fn from(value: &ApplicationView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationView> for &::windows::core::IInspectable {
-    fn from(value: &ApplicationView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ApplicationView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ApplicationView {}
 unsafe impl ::core::marker::Sync for ApplicationView {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -1886,36 +1799,7 @@ unsafe impl ::windows::core::Interface for ApplicationViewConsolidatedEventArgs 
 impl ::windows::core::RuntimeName for ApplicationViewConsolidatedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewConsolidatedEventArgs";
 }
-impl ::core::convert::From<ApplicationViewConsolidatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ApplicationViewConsolidatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationViewConsolidatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ApplicationViewConsolidatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationViewConsolidatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ApplicationViewConsolidatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ApplicationViewConsolidatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ApplicationViewConsolidatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationViewConsolidatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ApplicationViewConsolidatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationViewConsolidatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ApplicationViewConsolidatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ApplicationViewConsolidatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ApplicationViewConsolidatedEventArgs {}
 unsafe impl ::core::marker::Sync for ApplicationViewConsolidatedEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -1972,36 +1856,7 @@ unsafe impl ::windows::core::Interface for ApplicationViewScaling {
 impl ::windows::core::RuntimeName for ApplicationViewScaling {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewScaling";
 }
-impl ::core::convert::From<ApplicationViewScaling> for ::windows::core::IUnknown {
-    fn from(value: ApplicationViewScaling) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationViewScaling> for ::windows::core::IUnknown {
-    fn from(value: &ApplicationViewScaling) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationViewScaling> for &::windows::core::IUnknown {
-    fn from(value: &ApplicationViewScaling) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ApplicationViewScaling> for ::windows::core::IInspectable {
-    fn from(value: ApplicationViewScaling) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationViewScaling> for ::windows::core::IInspectable {
-    fn from(value: &ApplicationViewScaling) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationViewScaling> for &::windows::core::IInspectable {
-    fn from(value: &ApplicationViewScaling) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ApplicationViewScaling, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 pub struct ApplicationViewSwitcher;
 impl ApplicationViewSwitcher {
@@ -2367,36 +2222,7 @@ unsafe impl ::windows::core::Interface for ApplicationViewTitleBar {
 impl ::windows::core::RuntimeName for ApplicationViewTitleBar {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewTitleBar";
 }
-impl ::core::convert::From<ApplicationViewTitleBar> for ::windows::core::IUnknown {
-    fn from(value: ApplicationViewTitleBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationViewTitleBar> for ::windows::core::IUnknown {
-    fn from(value: &ApplicationViewTitleBar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationViewTitleBar> for &::windows::core::IUnknown {
-    fn from(value: &ApplicationViewTitleBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ApplicationViewTitleBar> for ::windows::core::IInspectable {
-    fn from(value: ApplicationViewTitleBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationViewTitleBar> for ::windows::core::IInspectable {
-    fn from(value: &ApplicationViewTitleBar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationViewTitleBar> for &::windows::core::IInspectable {
-    fn from(value: &ApplicationViewTitleBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ApplicationViewTitleBar, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ApplicationViewTitleBar {}
 unsafe impl ::core::marker::Sync for ApplicationViewTitleBar {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -2465,36 +2291,7 @@ unsafe impl ::windows::core::Interface for ApplicationViewTransferContext {
 impl ::windows::core::RuntimeName for ApplicationViewTransferContext {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewTransferContext";
 }
-impl ::core::convert::From<ApplicationViewTransferContext> for ::windows::core::IUnknown {
-    fn from(value: ApplicationViewTransferContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationViewTransferContext> for ::windows::core::IUnknown {
-    fn from(value: &ApplicationViewTransferContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationViewTransferContext> for &::windows::core::IUnknown {
-    fn from(value: &ApplicationViewTransferContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ApplicationViewTransferContext> for ::windows::core::IInspectable {
-    fn from(value: ApplicationViewTransferContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationViewTransferContext> for ::windows::core::IInspectable {
-    fn from(value: &ApplicationViewTransferContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationViewTransferContext> for &::windows::core::IInspectable {
-    fn from(value: &ApplicationViewTransferContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ApplicationViewTransferContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
 pub struct InputPane(::windows::core::IUnknown);
@@ -2618,36 +2415,7 @@ unsafe impl ::windows::core::Interface for InputPane {
 impl ::windows::core::RuntimeName for InputPane {
     const NAME: &'static str = "Windows.UI.ViewManagement.InputPane";
 }
-impl ::core::convert::From<InputPane> for ::windows::core::IUnknown {
-    fn from(value: InputPane) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InputPane> for ::windows::core::IUnknown {
-    fn from(value: &InputPane) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InputPane> for &::windows::core::IUnknown {
-    fn from(value: &InputPane) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InputPane> for ::windows::core::IInspectable {
-    fn from(value: InputPane) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InputPane> for ::windows::core::IInspectable {
-    fn from(value: &InputPane) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InputPane> for &::windows::core::IInspectable {
-    fn from(value: &InputPane) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InputPane, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
 pub struct InputPaneVisibilityEventArgs(::windows::core::IUnknown);
@@ -2705,36 +2473,7 @@ unsafe impl ::windows::core::Interface for InputPaneVisibilityEventArgs {
 impl ::windows::core::RuntimeName for InputPaneVisibilityEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.InputPaneVisibilityEventArgs";
 }
-impl ::core::convert::From<InputPaneVisibilityEventArgs> for ::windows::core::IUnknown {
-    fn from(value: InputPaneVisibilityEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InputPaneVisibilityEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &InputPaneVisibilityEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InputPaneVisibilityEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &InputPaneVisibilityEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InputPaneVisibilityEventArgs> for ::windows::core::IInspectable {
-    fn from(value: InputPaneVisibilityEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InputPaneVisibilityEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &InputPaneVisibilityEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InputPaneVisibilityEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &InputPaneVisibilityEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InputPaneVisibilityEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 pub struct ProjectionManager;
 impl ProjectionManager {
@@ -2986,36 +2725,7 @@ unsafe impl ::windows::core::Interface for StatusBar {
 impl ::windows::core::RuntimeName for StatusBar {
     const NAME: &'static str = "Windows.UI.ViewManagement.StatusBar";
 }
-impl ::core::convert::From<StatusBar> for ::windows::core::IUnknown {
-    fn from(value: StatusBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StatusBar> for ::windows::core::IUnknown {
-    fn from(value: &StatusBar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StatusBar> for &::windows::core::IUnknown {
-    fn from(value: &StatusBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StatusBar> for ::windows::core::IInspectable {
-    fn from(value: StatusBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StatusBar> for ::windows::core::IInspectable {
-    fn from(value: &StatusBar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StatusBar> for &::windows::core::IInspectable {
-    fn from(value: &StatusBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StatusBar, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StatusBar {}
 unsafe impl ::core::marker::Sync for StatusBar {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -3103,36 +2813,7 @@ unsafe impl ::windows::core::Interface for StatusBarProgressIndicator {
 impl ::windows::core::RuntimeName for StatusBarProgressIndicator {
     const NAME: &'static str = "Windows.UI.ViewManagement.StatusBarProgressIndicator";
 }
-impl ::core::convert::From<StatusBarProgressIndicator> for ::windows::core::IUnknown {
-    fn from(value: StatusBarProgressIndicator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StatusBarProgressIndicator> for ::windows::core::IUnknown {
-    fn from(value: &StatusBarProgressIndicator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StatusBarProgressIndicator> for &::windows::core::IUnknown {
-    fn from(value: &StatusBarProgressIndicator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StatusBarProgressIndicator> for ::windows::core::IInspectable {
-    fn from(value: StatusBarProgressIndicator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StatusBarProgressIndicator> for ::windows::core::IInspectable {
-    fn from(value: &StatusBarProgressIndicator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StatusBarProgressIndicator> for &::windows::core::IInspectable {
-    fn from(value: &StatusBarProgressIndicator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StatusBarProgressIndicator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StatusBarProgressIndicator {}
 unsafe impl ::core::marker::Sync for StatusBarProgressIndicator {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -3396,36 +3077,7 @@ unsafe impl ::windows::core::Interface for UISettings {
 impl ::windows::core::RuntimeName for UISettings {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettings";
 }
-impl ::core::convert::From<UISettings> for ::windows::core::IUnknown {
-    fn from(value: UISettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UISettings> for ::windows::core::IUnknown {
-    fn from(value: &UISettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UISettings> for &::windows::core::IUnknown {
-    fn from(value: &UISettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UISettings> for ::windows::core::IInspectable {
-    fn from(value: UISettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UISettings> for ::windows::core::IInspectable {
-    fn from(value: &UISettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UISettings> for &::windows::core::IInspectable {
-    fn from(value: &UISettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UISettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UISettings {}
 unsafe impl ::core::marker::Sync for UISettings {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -3464,36 +3116,7 @@ unsafe impl ::windows::core::Interface for UISettingsAnimationsEnabledChangedEve
 impl ::windows::core::RuntimeName for UISettingsAnimationsEnabledChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettingsAnimationsEnabledChangedEventArgs";
 }
-impl ::core::convert::From<UISettingsAnimationsEnabledChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: UISettingsAnimationsEnabledChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UISettingsAnimationsEnabledChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &UISettingsAnimationsEnabledChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UISettingsAnimationsEnabledChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &UISettingsAnimationsEnabledChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UISettingsAnimationsEnabledChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: UISettingsAnimationsEnabledChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UISettingsAnimationsEnabledChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &UISettingsAnimationsEnabledChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UISettingsAnimationsEnabledChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &UISettingsAnimationsEnabledChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UISettingsAnimationsEnabledChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UISettingsAnimationsEnabledChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UISettingsAnimationsEnabledChangedEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -3532,36 +3155,7 @@ unsafe impl ::windows::core::Interface for UISettingsAutoHideScrollBarsChangedEv
 impl ::windows::core::RuntimeName for UISettingsAutoHideScrollBarsChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettingsAutoHideScrollBarsChangedEventArgs";
 }
-impl ::core::convert::From<UISettingsAutoHideScrollBarsChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: UISettingsAutoHideScrollBarsChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UISettingsAutoHideScrollBarsChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &UISettingsAutoHideScrollBarsChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UISettingsAutoHideScrollBarsChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &UISettingsAutoHideScrollBarsChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UISettingsAutoHideScrollBarsChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: UISettingsAutoHideScrollBarsChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UISettingsAutoHideScrollBarsChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &UISettingsAutoHideScrollBarsChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UISettingsAutoHideScrollBarsChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &UISettingsAutoHideScrollBarsChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UISettingsAutoHideScrollBarsChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UISettingsAutoHideScrollBarsChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UISettingsAutoHideScrollBarsChangedEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -3600,36 +3194,7 @@ unsafe impl ::windows::core::Interface for UISettingsMessageDurationChangedEvent
 impl ::windows::core::RuntimeName for UISettingsMessageDurationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettingsMessageDurationChangedEventArgs";
 }
-impl ::core::convert::From<UISettingsMessageDurationChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: UISettingsMessageDurationChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UISettingsMessageDurationChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &UISettingsMessageDurationChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UISettingsMessageDurationChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &UISettingsMessageDurationChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UISettingsMessageDurationChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: UISettingsMessageDurationChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UISettingsMessageDurationChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &UISettingsMessageDurationChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UISettingsMessageDurationChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &UISettingsMessageDurationChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UISettingsMessageDurationChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UISettingsMessageDurationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UISettingsMessageDurationChangedEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -3687,36 +3252,7 @@ unsafe impl ::windows::core::Interface for UIViewSettings {
 impl ::windows::core::RuntimeName for UIViewSettings {
     const NAME: &'static str = "Windows.UI.ViewManagement.UIViewSettings";
 }
-impl ::core::convert::From<UIViewSettings> for ::windows::core::IUnknown {
-    fn from(value: UIViewSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UIViewSettings> for ::windows::core::IUnknown {
-    fn from(value: &UIViewSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UIViewSettings> for &::windows::core::IUnknown {
-    fn from(value: &UIViewSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UIViewSettings> for ::windows::core::IInspectable {
-    fn from(value: UIViewSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UIViewSettings> for ::windows::core::IInspectable {
-    fn from(value: &UIViewSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UIViewSettings> for &::windows::core::IInspectable {
-    fn from(value: &UIViewSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UIViewSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UIViewSettings {}
 unsafe impl ::core::marker::Sync for UIViewSettings {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -3793,36 +3329,7 @@ unsafe impl ::windows::core::Interface for ViewModePreferences {
 impl ::windows::core::RuntimeName for ViewModePreferences {
     const NAME: &'static str = "Windows.UI.ViewManagement.ViewModePreferences";
 }
-impl ::core::convert::From<ViewModePreferences> for ::windows::core::IUnknown {
-    fn from(value: ViewModePreferences) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ViewModePreferences> for ::windows::core::IUnknown {
-    fn from(value: &ViewModePreferences) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ViewModePreferences> for &::windows::core::IUnknown {
-    fn from(value: &ViewModePreferences) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ViewModePreferences> for ::windows::core::IInspectable {
-    fn from(value: ViewModePreferences) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ViewModePreferences> for ::windows::core::IInspectable {
-    fn from(value: &ViewModePreferences) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ViewModePreferences> for &::windows::core::IInspectable {
-    fn from(value: &ViewModePreferences) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ViewModePreferences, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

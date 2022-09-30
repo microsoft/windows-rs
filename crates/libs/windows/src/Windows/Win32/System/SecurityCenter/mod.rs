@@ -69,41 +69,7 @@ impl IWSCDefaultProduct {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWSCDefaultProduct> for ::windows::core::IUnknown {
-    fn from(value: IWSCDefaultProduct) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWSCDefaultProduct> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSCDefaultProduct) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWSCDefaultProduct> for ::windows::core::IUnknown {
-    fn from(value: &IWSCDefaultProduct) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWSCDefaultProduct> for super::Com::IDispatch {
-    fn from(value: IWSCDefaultProduct) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWSCDefaultProduct> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWSCDefaultProduct) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWSCDefaultProduct> for super::Com::IDispatch {
-    fn from(value: &IWSCDefaultProduct) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSCDefaultProduct, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWSCDefaultProduct {
     fn clone(&self) -> Self {
@@ -160,41 +126,7 @@ impl IWSCProductList {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWSCProductList> for ::windows::core::IUnknown {
-    fn from(value: IWSCProductList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWSCProductList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWSCProductList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWSCProductList> for ::windows::core::IUnknown {
-    fn from(value: &IWSCProductList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWSCProductList> for super::Com::IDispatch {
-    fn from(value: IWSCProductList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWSCProductList> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWSCProductList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWSCProductList> for super::Com::IDispatch {
-    fn from(value: &IWSCProductList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWSCProductList, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWSCProductList {
     fn clone(&self) -> Self {
@@ -273,41 +205,7 @@ impl IWscProduct {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWscProduct> for ::windows::core::IUnknown {
-    fn from(value: IWscProduct) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWscProduct> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWscProduct) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWscProduct> for ::windows::core::IUnknown {
-    fn from(value: &IWscProduct) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWscProduct> for super::Com::IDispatch {
-    fn from(value: IWscProduct) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWscProduct> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWscProduct) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWscProduct> for super::Com::IDispatch {
-    fn from(value: &IWscProduct) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWscProduct, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWscProduct {
     fn clone(&self) -> Self {
@@ -414,59 +312,7 @@ impl IWscProduct2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWscProduct2> for ::windows::core::IUnknown {
-    fn from(value: IWscProduct2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWscProduct2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWscProduct2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWscProduct2> for ::windows::core::IUnknown {
-    fn from(value: &IWscProduct2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWscProduct2> for super::Com::IDispatch {
-    fn from(value: IWscProduct2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWscProduct2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWscProduct2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWscProduct2> for super::Com::IDispatch {
-    fn from(value: &IWscProduct2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWscProduct2> for IWscProduct {
-    fn from(value: IWscProduct2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWscProduct2> for &'a IWscProduct {
-    fn from(value: &'a IWscProduct2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWscProduct2> for IWscProduct {
-    fn from(value: &IWscProduct2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWscProduct2, ::windows::core::IUnknown, super::Com::IDispatch, IWscProduct);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWscProduct2 {
     fn clone(&self) -> Self {
@@ -573,77 +419,7 @@ impl IWscProduct3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWscProduct3> for ::windows::core::IUnknown {
-    fn from(value: IWscProduct3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWscProduct3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWscProduct3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWscProduct3> for ::windows::core::IUnknown {
-    fn from(value: &IWscProduct3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWscProduct3> for super::Com::IDispatch {
-    fn from(value: IWscProduct3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWscProduct3> for &'a super::Com::IDispatch {
-    fn from(value: &'a IWscProduct3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWscProduct3> for super::Com::IDispatch {
-    fn from(value: &IWscProduct3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWscProduct3> for IWscProduct {
-    fn from(value: IWscProduct3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWscProduct3> for &'a IWscProduct {
-    fn from(value: &'a IWscProduct3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWscProduct3> for IWscProduct {
-    fn from(value: &IWscProduct3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWscProduct3> for IWscProduct2 {
-    fn from(value: IWscProduct3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWscProduct3> for &'a IWscProduct2 {
-    fn from(value: &'a IWscProduct3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWscProduct3> for IWscProduct2 {
-    fn from(value: &IWscProduct3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWscProduct3, ::windows::core::IUnknown, super::Com::IDispatch, IWscProduct, IWscProduct2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWscProduct3 {
     fn clone(&self) -> Self {

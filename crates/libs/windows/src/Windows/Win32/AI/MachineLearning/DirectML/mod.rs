@@ -73,51 +73,7 @@ impl IDMLBindingTable {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(desc.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<IDMLBindingTable> for ::windows::core::IUnknown {
-    fn from(value: IDMLBindingTable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLBindingTable> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDMLBindingTable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLBindingTable> for ::windows::core::IUnknown {
-    fn from(value: &IDMLBindingTable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLBindingTable> for IDMLObject {
-    fn from(value: IDMLBindingTable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLBindingTable> for &'a IDMLObject {
-    fn from(value: &'a IDMLBindingTable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLBindingTable> for IDMLObject {
-    fn from(value: &IDMLBindingTable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLBindingTable> for IDMLDeviceChild {
-    fn from(value: IDMLBindingTable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLBindingTable> for &'a IDMLDeviceChild {
-    fn from(value: &'a IDMLBindingTable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLBindingTable> for IDMLDeviceChild {
-    fn from(value: &IDMLBindingTable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDMLBindingTable, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild);
 impl ::core::clone::Clone for IDMLBindingTable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -193,51 +149,7 @@ impl IDMLCommandRecorder {
         (::windows::core::Vtable::vtable(self).RecordDispatch)(::windows::core::Vtable::as_raw(self), commandlist.into().abi(), dispatchable.into().abi(), bindings.into().abi())
     }
 }
-impl ::core::convert::From<IDMLCommandRecorder> for ::windows::core::IUnknown {
-    fn from(value: IDMLCommandRecorder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLCommandRecorder> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDMLCommandRecorder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLCommandRecorder> for ::windows::core::IUnknown {
-    fn from(value: &IDMLCommandRecorder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLCommandRecorder> for IDMLObject {
-    fn from(value: IDMLCommandRecorder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLCommandRecorder> for &'a IDMLObject {
-    fn from(value: &'a IDMLCommandRecorder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLCommandRecorder> for IDMLObject {
-    fn from(value: &IDMLCommandRecorder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLCommandRecorder> for IDMLDeviceChild {
-    fn from(value: IDMLCommandRecorder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLCommandRecorder> for &'a IDMLDeviceChild {
-    fn from(value: &'a IDMLCommandRecorder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLCommandRecorder> for IDMLDeviceChild {
-    fn from(value: &IDMLCommandRecorder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDMLCommandRecorder, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild);
 impl ::core::clone::Clone for IDMLCommandRecorder {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -304,81 +216,7 @@ impl IDMLCompiledOperator {
         result__
     }
 }
-impl ::core::convert::From<IDMLCompiledOperator> for ::windows::core::IUnknown {
-    fn from(value: IDMLCompiledOperator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLCompiledOperator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDMLCompiledOperator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLCompiledOperator> for ::windows::core::IUnknown {
-    fn from(value: &IDMLCompiledOperator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLCompiledOperator> for IDMLObject {
-    fn from(value: IDMLCompiledOperator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLCompiledOperator> for &'a IDMLObject {
-    fn from(value: &'a IDMLCompiledOperator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLCompiledOperator> for IDMLObject {
-    fn from(value: &IDMLCompiledOperator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLCompiledOperator> for IDMLDeviceChild {
-    fn from(value: IDMLCompiledOperator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLCompiledOperator> for &'a IDMLDeviceChild {
-    fn from(value: &'a IDMLCompiledOperator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLCompiledOperator> for IDMLDeviceChild {
-    fn from(value: &IDMLCompiledOperator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLCompiledOperator> for IDMLPageable {
-    fn from(value: IDMLCompiledOperator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLCompiledOperator> for &'a IDMLPageable {
-    fn from(value: &'a IDMLCompiledOperator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLCompiledOperator> for IDMLPageable {
-    fn from(value: &IDMLCompiledOperator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLCompiledOperator> for IDMLDispatchable {
-    fn from(value: IDMLCompiledOperator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLCompiledOperator> for &'a IDMLDispatchable {
-    fn from(value: &'a IDMLCompiledOperator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLCompiledOperator> for IDMLDispatchable {
-    fn from(value: &IDMLCompiledOperator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDMLCompiledOperator, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable, IDMLDispatchable);
 impl ::core::clone::Clone for IDMLCompiledOperator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -419,21 +257,7 @@ impl IDMLDebugDevice {
         (::windows::core::Vtable::vtable(self).SetMuteDebugOutput)(::windows::core::Vtable::as_raw(self), mute.into())
     }
 }
-impl ::core::convert::From<IDMLDebugDevice> for ::windows::core::IUnknown {
-    fn from(value: IDMLDebugDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLDebugDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDMLDebugDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLDebugDevice> for ::windows::core::IUnknown {
-    fn from(value: &IDMLDebugDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDMLDebugDevice, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDMLDebugDevice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -543,36 +367,7 @@ impl IDMLDevice {
         (::windows::core::Vtable::vtable(self).GetParentDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IDMLDevice> for ::windows::core::IUnknown {
-    fn from(value: IDMLDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDMLDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLDevice> for ::windows::core::IUnknown {
-    fn from(value: &IDMLDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLDevice> for IDMLObject {
-    fn from(value: IDMLDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLDevice> for &'a IDMLObject {
-    fn from(value: &'a IDMLDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLDevice> for IDMLObject {
-    fn from(value: &IDMLDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDMLDevice, ::windows::core::IUnknown, IDMLObject);
 impl ::core::clone::Clone for IDMLDevice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -697,51 +492,7 @@ impl IDMLDevice1 {
         (::windows::core::Vtable::vtable(self).CompileGraph)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(desc), flags, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
 }
-impl ::core::convert::From<IDMLDevice1> for ::windows::core::IUnknown {
-    fn from(value: IDMLDevice1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLDevice1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDMLDevice1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLDevice1> for ::windows::core::IUnknown {
-    fn from(value: &IDMLDevice1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLDevice1> for IDMLObject {
-    fn from(value: IDMLDevice1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLDevice1> for &'a IDMLObject {
-    fn from(value: &'a IDMLDevice1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLDevice1> for IDMLObject {
-    fn from(value: &IDMLDevice1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLDevice1> for IDMLDevice {
-    fn from(value: IDMLDevice1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLDevice1> for &'a IDMLDevice {
-    fn from(value: &'a IDMLDevice1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLDevice1> for IDMLDevice {
-    fn from(value: &IDMLDevice1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDMLDevice1, ::windows::core::IUnknown, IDMLObject, IDMLDevice);
 impl ::core::clone::Clone for IDMLDevice1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -800,36 +551,7 @@ impl IDMLDeviceChild {
         (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IDMLDeviceChild> for ::windows::core::IUnknown {
-    fn from(value: IDMLDeviceChild) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLDeviceChild> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDMLDeviceChild) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLDeviceChild> for ::windows::core::IUnknown {
-    fn from(value: &IDMLDeviceChild) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLDeviceChild> for IDMLObject {
-    fn from(value: IDMLDeviceChild) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLDeviceChild> for &'a IDMLObject {
-    fn from(value: &'a IDMLDeviceChild) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLDeviceChild> for IDMLObject {
-    fn from(value: &IDMLDeviceChild) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDMLDeviceChild, ::windows::core::IUnknown, IDMLObject);
 impl ::core::clone::Clone for IDMLDeviceChild {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -893,66 +615,7 @@ impl IDMLDispatchable {
         result__
     }
 }
-impl ::core::convert::From<IDMLDispatchable> for ::windows::core::IUnknown {
-    fn from(value: IDMLDispatchable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLDispatchable> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDMLDispatchable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLDispatchable> for ::windows::core::IUnknown {
-    fn from(value: &IDMLDispatchable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLDispatchable> for IDMLObject {
-    fn from(value: IDMLDispatchable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLDispatchable> for &'a IDMLObject {
-    fn from(value: &'a IDMLDispatchable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLDispatchable> for IDMLObject {
-    fn from(value: &IDMLDispatchable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLDispatchable> for IDMLDeviceChild {
-    fn from(value: IDMLDispatchable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLDispatchable> for &'a IDMLDeviceChild {
-    fn from(value: &'a IDMLDispatchable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLDispatchable> for IDMLDeviceChild {
-    fn from(value: &IDMLDispatchable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLDispatchable> for IDMLPageable {
-    fn from(value: IDMLDispatchable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLDispatchable> for &'a IDMLPageable {
-    fn from(value: &'a IDMLDispatchable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLDispatchable> for IDMLPageable {
-    fn from(value: &IDMLDispatchable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDMLDispatchable, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable);
 impl ::core::clone::Clone for IDMLDispatchable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1004,21 +667,7 @@ impl IDMLObject {
         (::windows::core::Vtable::vtable(self).SetName)(::windows::core::Vtable::as_raw(self), name.into()).ok()
     }
 }
-impl ::core::convert::From<IDMLObject> for ::windows::core::IUnknown {
-    fn from(value: IDMLObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLObject> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDMLObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLObject> for ::windows::core::IUnknown {
-    fn from(value: &IDMLObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDMLObject, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDMLObject {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1080,51 +729,7 @@ impl IDMLOperator {
         (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IDMLOperator> for ::windows::core::IUnknown {
-    fn from(value: IDMLOperator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLOperator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDMLOperator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLOperator> for ::windows::core::IUnknown {
-    fn from(value: &IDMLOperator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLOperator> for IDMLObject {
-    fn from(value: IDMLOperator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLOperator> for &'a IDMLObject {
-    fn from(value: &'a IDMLOperator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLOperator> for IDMLObject {
-    fn from(value: &IDMLOperator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLOperator> for IDMLDeviceChild {
-    fn from(value: IDMLOperator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLOperator> for &'a IDMLDeviceChild {
-    fn from(value: &'a IDMLOperator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLOperator> for IDMLDeviceChild {
-    fn from(value: &IDMLOperator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDMLOperator, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild);
 impl ::core::clone::Clone for IDMLOperator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1190,81 +795,7 @@ impl IDMLOperatorInitializer {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self), operators.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(operators.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
 }
-impl ::core::convert::From<IDMLOperatorInitializer> for ::windows::core::IUnknown {
-    fn from(value: IDMLOperatorInitializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLOperatorInitializer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDMLOperatorInitializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLOperatorInitializer> for ::windows::core::IUnknown {
-    fn from(value: &IDMLOperatorInitializer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLOperatorInitializer> for IDMLObject {
-    fn from(value: IDMLOperatorInitializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLOperatorInitializer> for &'a IDMLObject {
-    fn from(value: &'a IDMLOperatorInitializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLOperatorInitializer> for IDMLObject {
-    fn from(value: &IDMLOperatorInitializer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLOperatorInitializer> for IDMLDeviceChild {
-    fn from(value: IDMLOperatorInitializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLOperatorInitializer> for &'a IDMLDeviceChild {
-    fn from(value: &'a IDMLOperatorInitializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLOperatorInitializer> for IDMLDeviceChild {
-    fn from(value: &IDMLOperatorInitializer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLOperatorInitializer> for IDMLPageable {
-    fn from(value: IDMLOperatorInitializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLOperatorInitializer> for &'a IDMLPageable {
-    fn from(value: &'a IDMLOperatorInitializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLOperatorInitializer> for IDMLPageable {
-    fn from(value: &IDMLOperatorInitializer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLOperatorInitializer> for IDMLDispatchable {
-    fn from(value: IDMLOperatorInitializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLOperatorInitializer> for &'a IDMLDispatchable {
-    fn from(value: &'a IDMLOperatorInitializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLOperatorInitializer> for IDMLDispatchable {
-    fn from(value: &IDMLOperatorInitializer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDMLOperatorInitializer, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable, IDMLDispatchable);
 impl ::core::clone::Clone for IDMLOperatorInitializer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1323,51 +854,7 @@ impl IDMLPageable {
         (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IDMLPageable> for ::windows::core::IUnknown {
-    fn from(value: IDMLPageable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLPageable> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDMLPageable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLPageable> for ::windows::core::IUnknown {
-    fn from(value: &IDMLPageable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLPageable> for IDMLObject {
-    fn from(value: IDMLPageable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLPageable> for &'a IDMLObject {
-    fn from(value: &'a IDMLPageable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLPageable> for IDMLObject {
-    fn from(value: &IDMLPageable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDMLPageable> for IDMLDeviceChild {
-    fn from(value: IDMLPageable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDMLPageable> for &'a IDMLDeviceChild {
-    fn from(value: &'a IDMLPageable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDMLPageable> for IDMLDeviceChild {
-    fn from(value: &IDMLPageable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDMLPageable, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild);
 impl ::core::clone::Clone for IDMLPageable {
     fn clone(&self) -> Self {
         Self(self.0.clone())

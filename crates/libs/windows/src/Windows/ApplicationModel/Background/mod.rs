@@ -177,36 +177,7 @@ pub struct IAppointmentStoreNotificationTrigger_Vtbl {
 #[repr(transparent)]
 pub struct IBackgroundCondition(::windows::core::IUnknown);
 impl IBackgroundCondition {}
-impl ::core::convert::From<IBackgroundCondition> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCondition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCondition> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCondition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCondition> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCondition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCondition> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundCondition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCondition> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IBackgroundCondition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCondition> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundCondition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCondition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IBackgroundCondition {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -318,36 +289,7 @@ impl IBackgroundTask {
         unsafe { (::windows::core::Vtable::vtable(this).Run)(::windows::core::Vtable::as_raw(this), taskinstance.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
-impl ::core::convert::From<IBackgroundTask> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTask> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTask> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundTask) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundTask> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTask> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IBackgroundTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTask> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundTask) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundTask, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IBackgroundTask {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -564,36 +506,7 @@ impl IBackgroundTaskInstance {
         }
     }
 }
-impl ::core::convert::From<IBackgroundTaskInstance> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundTaskInstance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTaskInstance> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundTaskInstance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskInstance> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundTaskInstance) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundTaskInstance> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundTaskInstance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTaskInstance> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IBackgroundTaskInstance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskInstance> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundTaskInstance) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundTaskInstance, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IBackgroundTaskInstance {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -716,36 +629,7 @@ impl IBackgroundTaskInstance2 {
         }
     }
 }
-impl ::core::convert::From<IBackgroundTaskInstance2> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundTaskInstance2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTaskInstance2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundTaskInstance2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskInstance2> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundTaskInstance2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundTaskInstance2> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundTaskInstance2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTaskInstance2> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IBackgroundTaskInstance2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskInstance2> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundTaskInstance2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundTaskInstance2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IBackgroundTaskInstance2> for IBackgroundTaskInstance {
     type Error = ::windows::core::Error;
     fn try_from(value: IBackgroundTaskInstance2) -> ::windows::core::Result<Self> {
@@ -875,36 +759,7 @@ impl IBackgroundTaskInstance4 {
         }
     }
 }
-impl ::core::convert::From<IBackgroundTaskInstance4> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundTaskInstance4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTaskInstance4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundTaskInstance4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskInstance4> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundTaskInstance4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundTaskInstance4> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundTaskInstance4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTaskInstance4> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IBackgroundTaskInstance4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskInstance4> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundTaskInstance4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundTaskInstance4, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IBackgroundTaskInstance4> for IBackgroundTaskInstance {
     type Error = ::windows::core::Error;
     fn try_from(value: IBackgroundTaskInstance4) -> ::windows::core::Result<Self> {
@@ -1031,36 +886,7 @@ impl IBackgroundTaskRegistration {
         unsafe { (::windows::core::Vtable::vtable(this).Unregister)(::windows::core::Vtable::as_raw(this), canceltask).ok() }
     }
 }
-impl ::core::convert::From<IBackgroundTaskRegistration> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundTaskRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTaskRegistration> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundTaskRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskRegistration> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundTaskRegistration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundTaskRegistration> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundTaskRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTaskRegistration> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IBackgroundTaskRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskRegistration> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundTaskRegistration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundTaskRegistration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IBackgroundTaskRegistration {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1174,36 +1000,7 @@ impl IBackgroundTaskRegistration2 {
         unsafe { (::windows::core::Vtable::vtable(this).Unregister)(::windows::core::Vtable::as_raw(this), canceltask).ok() }
     }
 }
-impl ::core::convert::From<IBackgroundTaskRegistration2> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundTaskRegistration2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTaskRegistration2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundTaskRegistration2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskRegistration2> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundTaskRegistration2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundTaskRegistration2> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundTaskRegistration2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTaskRegistration2> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IBackgroundTaskRegistration2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskRegistration2> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundTaskRegistration2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundTaskRegistration2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IBackgroundTaskRegistration2> for IBackgroundTaskRegistration {
     type Error = ::windows::core::Error;
     fn try_from(value: IBackgroundTaskRegistration2) -> ::windows::core::Result<Self> {
@@ -1318,36 +1115,7 @@ impl IBackgroundTaskRegistration3 {
         unsafe { (::windows::core::Vtable::vtable(this).Unregister)(::windows::core::Vtable::as_raw(this), canceltask).ok() }
     }
 }
-impl ::core::convert::From<IBackgroundTaskRegistration3> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundTaskRegistration3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTaskRegistration3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundTaskRegistration3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskRegistration3> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundTaskRegistration3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundTaskRegistration3> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundTaskRegistration3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTaskRegistration3> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IBackgroundTaskRegistration3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskRegistration3> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundTaskRegistration3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundTaskRegistration3, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IBackgroundTaskRegistration3> for IBackgroundTaskRegistration {
     type Error = ::windows::core::Error;
     fn try_from(value: IBackgroundTaskRegistration3) -> ::windows::core::Result<Self> {
@@ -1487,36 +1255,7 @@ pub struct IBackgroundTaskRegistrationStatics2_Vtbl {
 #[repr(transparent)]
 pub struct IBackgroundTrigger(::windows::core::IUnknown);
 impl IBackgroundTrigger {}
-impl ::core::convert::From<IBackgroundTrigger> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTrigger> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTrigger> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundTrigger> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundTrigger> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IBackgroundTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTrigger> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IBackgroundTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2774,36 +2513,7 @@ unsafe impl ::windows::core::Interface for ActivitySensorTrigger {
 impl ::windows::core::RuntimeName for ActivitySensorTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ActivitySensorTrigger";
 }
-impl ::core::convert::From<ActivitySensorTrigger> for ::windows::core::IUnknown {
-    fn from(value: ActivitySensorTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivitySensorTrigger> for ::windows::core::IUnknown {
-    fn from(value: &ActivitySensorTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivitySensorTrigger> for &::windows::core::IUnknown {
-    fn from(value: &ActivitySensorTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ActivitySensorTrigger> for ::windows::core::IInspectable {
-    fn from(value: ActivitySensorTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivitySensorTrigger> for ::windows::core::IInspectable {
-    fn from(value: &ActivitySensorTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivitySensorTrigger> for &::windows::core::IInspectable {
-    fn from(value: &ActivitySensorTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ActivitySensorTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ActivitySensorTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: ActivitySensorTrigger) -> ::windows::core::Result<Self> {
@@ -2910,36 +2620,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastTrigger {
 impl ::windows::core::RuntimeName for AppBroadcastTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AppBroadcastTrigger";
 }
-impl ::core::convert::From<AppBroadcastTrigger> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastTrigger> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastTrigger> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastTrigger> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastTrigger> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastTrigger> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AppBroadcastTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: AppBroadcastTrigger) -> ::windows::core::Result<Self> {
@@ -3068,36 +2749,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastTriggerProviderInfo {
 impl ::windows::core::RuntimeName for AppBroadcastTriggerProviderInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo";
 }
-impl ::core::convert::From<AppBroadcastTriggerProviderInfo> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastTriggerProviderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastTriggerProviderInfo> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastTriggerProviderInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastTriggerProviderInfo> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastTriggerProviderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastTriggerProviderInfo> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastTriggerProviderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastTriggerProviderInfo> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastTriggerProviderInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastTriggerProviderInfo> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastTriggerProviderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastTriggerProviderInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastTriggerProviderInfo {}
 unsafe impl ::core::marker::Sync for AppBroadcastTriggerProviderInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -3162,36 +2814,7 @@ unsafe impl ::windows::core::Interface for ApplicationTrigger {
 impl ::windows::core::RuntimeName for ApplicationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ApplicationTrigger";
 }
-impl ::core::convert::From<ApplicationTrigger> for ::windows::core::IUnknown {
-    fn from(value: ApplicationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationTrigger> for ::windows::core::IUnknown {
-    fn from(value: &ApplicationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationTrigger> for &::windows::core::IUnknown {
-    fn from(value: &ApplicationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ApplicationTrigger> for ::windows::core::IInspectable {
-    fn from(value: ApplicationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationTrigger> for ::windows::core::IInspectable {
-    fn from(value: &ApplicationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationTrigger> for &::windows::core::IInspectable {
-    fn from(value: &ApplicationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ApplicationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ApplicationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: ApplicationTrigger) -> ::windows::core::Result<Self> {
@@ -3259,36 +2882,7 @@ unsafe impl ::windows::core::Interface for ApplicationTriggerDetails {
 impl ::windows::core::RuntimeName for ApplicationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ApplicationTriggerDetails";
 }
-impl ::core::convert::From<ApplicationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: ApplicationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &ApplicationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &ApplicationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ApplicationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: ApplicationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &ApplicationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &ApplicationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ApplicationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ApplicationTriggerDetails {}
 unsafe impl ::core::marker::Sync for ApplicationTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -3335,36 +2929,7 @@ unsafe impl ::windows::core::Interface for AppointmentStoreNotificationTrigger {
 impl ::windows::core::RuntimeName for AppointmentStoreNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AppointmentStoreNotificationTrigger";
 }
-impl ::core::convert::From<AppointmentStoreNotificationTrigger> for ::windows::core::IUnknown {
-    fn from(value: AppointmentStoreNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentStoreNotificationTrigger> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentStoreNotificationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentStoreNotificationTrigger> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentStoreNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentStoreNotificationTrigger> for ::windows::core::IInspectable {
-    fn from(value: AppointmentStoreNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentStoreNotificationTrigger> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentStoreNotificationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentStoreNotificationTrigger> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentStoreNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppointmentStoreNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AppointmentStoreNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: AppointmentStoreNotificationTrigger) -> ::windows::core::Result<Self> {
@@ -3596,36 +3161,7 @@ unsafe impl ::windows::core::Interface for BackgroundTaskBuilder {
 impl ::windows::core::RuntimeName for BackgroundTaskBuilder {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskBuilder";
 }
-impl ::core::convert::From<BackgroundTaskBuilder> for ::windows::core::IUnknown {
-    fn from(value: BackgroundTaskBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundTaskBuilder> for ::windows::core::IUnknown {
-    fn from(value: &BackgroundTaskBuilder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundTaskBuilder> for &::windows::core::IUnknown {
-    fn from(value: &BackgroundTaskBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BackgroundTaskBuilder> for ::windows::core::IInspectable {
-    fn from(value: BackgroundTaskBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundTaskBuilder> for ::windows::core::IInspectable {
-    fn from(value: &BackgroundTaskBuilder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundTaskBuilder> for &::windows::core::IInspectable {
-    fn from(value: &BackgroundTaskBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BackgroundTaskBuilder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 pub struct BackgroundTaskCompletedEventArgs(::windows::core::IUnknown);
@@ -3674,36 +3210,7 @@ unsafe impl ::windows::core::Interface for BackgroundTaskCompletedEventArgs {
 impl ::windows::core::RuntimeName for BackgroundTaskCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskCompletedEventArgs";
 }
-impl ::core::convert::From<BackgroundTaskCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BackgroundTaskCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundTaskCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BackgroundTaskCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundTaskCompletedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BackgroundTaskCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BackgroundTaskCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BackgroundTaskCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundTaskCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BackgroundTaskCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundTaskCompletedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BackgroundTaskCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BackgroundTaskCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundTaskCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for BackgroundTaskCompletedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -3747,36 +3254,7 @@ unsafe impl ::windows::core::Interface for BackgroundTaskDeferral {
 impl ::windows::core::RuntimeName for BackgroundTaskDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskDeferral";
 }
-impl ::core::convert::From<BackgroundTaskDeferral> for ::windows::core::IUnknown {
-    fn from(value: BackgroundTaskDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundTaskDeferral> for ::windows::core::IUnknown {
-    fn from(value: &BackgroundTaskDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundTaskDeferral> for &::windows::core::IUnknown {
-    fn from(value: &BackgroundTaskDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BackgroundTaskDeferral> for ::windows::core::IInspectable {
-    fn from(value: BackgroundTaskDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundTaskDeferral> for ::windows::core::IInspectable {
-    fn from(value: &BackgroundTaskDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundTaskDeferral> for &::windows::core::IInspectable {
-    fn from(value: &BackgroundTaskDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BackgroundTaskDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundTaskDeferral {}
 unsafe impl ::core::marker::Sync for BackgroundTaskDeferral {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -3830,36 +3308,7 @@ unsafe impl ::windows::core::Interface for BackgroundTaskProgressEventArgs {
 impl ::windows::core::RuntimeName for BackgroundTaskProgressEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskProgressEventArgs";
 }
-impl ::core::convert::From<BackgroundTaskProgressEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BackgroundTaskProgressEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundTaskProgressEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BackgroundTaskProgressEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundTaskProgressEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BackgroundTaskProgressEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BackgroundTaskProgressEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BackgroundTaskProgressEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundTaskProgressEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BackgroundTaskProgressEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundTaskProgressEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BackgroundTaskProgressEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BackgroundTaskProgressEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundTaskProgressEventArgs {}
 unsafe impl ::core::marker::Sync for BackgroundTaskProgressEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -3993,36 +3442,7 @@ unsafe impl ::windows::core::Interface for BackgroundTaskRegistration {
 impl ::windows::core::RuntimeName for BackgroundTaskRegistration {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskRegistration";
 }
-impl ::core::convert::From<BackgroundTaskRegistration> for ::windows::core::IUnknown {
-    fn from(value: BackgroundTaskRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundTaskRegistration> for ::windows::core::IUnknown {
-    fn from(value: &BackgroundTaskRegistration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundTaskRegistration> for &::windows::core::IUnknown {
-    fn from(value: &BackgroundTaskRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BackgroundTaskRegistration> for ::windows::core::IInspectable {
-    fn from(value: BackgroundTaskRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundTaskRegistration> for ::windows::core::IInspectable {
-    fn from(value: &BackgroundTaskRegistration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundTaskRegistration> for &::windows::core::IInspectable {
-    fn from(value: &BackgroundTaskRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BackgroundTaskRegistration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BackgroundTaskRegistration> for IBackgroundTaskRegistration {
     type Error = ::windows::core::Error;
     fn try_from(value: BackgroundTaskRegistration) -> ::windows::core::Result<Self> {
@@ -4174,36 +3594,7 @@ unsafe impl ::windows::core::Interface for BackgroundTaskRegistrationGroup {
 impl ::windows::core::RuntimeName for BackgroundTaskRegistrationGroup {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskRegistrationGroup";
 }
-impl ::core::convert::From<BackgroundTaskRegistrationGroup> for ::windows::core::IUnknown {
-    fn from(value: BackgroundTaskRegistrationGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundTaskRegistrationGroup> for ::windows::core::IUnknown {
-    fn from(value: &BackgroundTaskRegistrationGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundTaskRegistrationGroup> for &::windows::core::IUnknown {
-    fn from(value: &BackgroundTaskRegistrationGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BackgroundTaskRegistrationGroup> for ::windows::core::IInspectable {
-    fn from(value: BackgroundTaskRegistrationGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundTaskRegistrationGroup> for ::windows::core::IInspectable {
-    fn from(value: &BackgroundTaskRegistrationGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundTaskRegistrationGroup> for &::windows::core::IInspectable {
-    fn from(value: &BackgroundTaskRegistrationGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BackgroundTaskRegistrationGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundTaskRegistrationGroup {}
 unsafe impl ::core::marker::Sync for BackgroundTaskRegistrationGroup {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -4329,36 +3720,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementPublisherTrig
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementPublisherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BluetoothLEAdvertisementPublisherTrigger";
 }
-impl ::core::convert::From<BluetoothLEAdvertisementPublisherTrigger> for ::windows::core::IUnknown {
-    fn from(value: BluetoothLEAdvertisementPublisherTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementPublisherTrigger> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementPublisherTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementPublisherTrigger> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementPublisherTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothLEAdvertisementPublisherTrigger> for ::windows::core::IInspectable {
-    fn from(value: BluetoothLEAdvertisementPublisherTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementPublisherTrigger> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementPublisherTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementPublisherTrigger> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementPublisherTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothLEAdvertisementPublisherTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BluetoothLEAdvertisementPublisherTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: BluetoothLEAdvertisementPublisherTrigger) -> ::windows::core::Result<Self> {
@@ -4501,36 +3863,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementWatcherTrigge
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementWatcherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BluetoothLEAdvertisementWatcherTrigger";
 }
-impl ::core::convert::From<BluetoothLEAdvertisementWatcherTrigger> for ::windows::core::IUnknown {
-    fn from(value: BluetoothLEAdvertisementWatcherTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementWatcherTrigger> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementWatcherTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementWatcherTrigger> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementWatcherTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothLEAdvertisementWatcherTrigger> for ::windows::core::IInspectable {
-    fn from(value: BluetoothLEAdvertisementWatcherTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementWatcherTrigger> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementWatcherTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementWatcherTrigger> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementWatcherTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothLEAdvertisementWatcherTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BluetoothLEAdvertisementWatcherTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: BluetoothLEAdvertisementWatcherTrigger) -> ::windows::core::Result<Self> {
@@ -4596,36 +3929,7 @@ unsafe impl ::windows::core::Interface for CachedFileUpdaterTrigger {
 impl ::windows::core::RuntimeName for CachedFileUpdaterTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CachedFileUpdaterTrigger";
 }
-impl ::core::convert::From<CachedFileUpdaterTrigger> for ::windows::core::IUnknown {
-    fn from(value: CachedFileUpdaterTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterTrigger> for ::windows::core::IUnknown {
-    fn from(value: &CachedFileUpdaterTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterTrigger> for &::windows::core::IUnknown {
-    fn from(value: &CachedFileUpdaterTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CachedFileUpdaterTrigger> for ::windows::core::IInspectable {
-    fn from(value: CachedFileUpdaterTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterTrigger> for ::windows::core::IInspectable {
-    fn from(value: &CachedFileUpdaterTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterTrigger> for &::windows::core::IInspectable {
-    fn from(value: &CachedFileUpdaterTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CachedFileUpdaterTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CachedFileUpdaterTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: CachedFileUpdaterTrigger) -> ::windows::core::Result<Self> {
@@ -4709,36 +4013,7 @@ unsafe impl ::windows::core::Interface for CachedFileUpdaterTriggerDetails {
 impl ::windows::core::RuntimeName for CachedFileUpdaterTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CachedFileUpdaterTriggerDetails";
 }
-impl ::core::convert::From<CachedFileUpdaterTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: CachedFileUpdaterTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &CachedFileUpdaterTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &CachedFileUpdaterTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CachedFileUpdaterTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: CachedFileUpdaterTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &CachedFileUpdaterTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &CachedFileUpdaterTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CachedFileUpdaterTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CachedFileUpdaterTriggerDetails {}
 unsafe impl ::core::marker::Sync for CachedFileUpdaterTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -4785,36 +4060,7 @@ unsafe impl ::windows::core::Interface for ChatMessageNotificationTrigger {
 impl ::windows::core::RuntimeName for ChatMessageNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ChatMessageNotificationTrigger";
 }
-impl ::core::convert::From<ChatMessageNotificationTrigger> for ::windows::core::IUnknown {
-    fn from(value: ChatMessageNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageNotificationTrigger> for ::windows::core::IUnknown {
-    fn from(value: &ChatMessageNotificationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageNotificationTrigger> for &::windows::core::IUnknown {
-    fn from(value: &ChatMessageNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatMessageNotificationTrigger> for ::windows::core::IInspectable {
-    fn from(value: ChatMessageNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageNotificationTrigger> for ::windows::core::IInspectable {
-    fn from(value: &ChatMessageNotificationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageNotificationTrigger> for &::windows::core::IInspectable {
-    fn from(value: &ChatMessageNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatMessageNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ChatMessageNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: ChatMessageNotificationTrigger) -> ::windows::core::Result<Self> {
@@ -4880,36 +4126,7 @@ unsafe impl ::windows::core::Interface for ChatMessageReceivedNotificationTrigge
 impl ::windows::core::RuntimeName for ChatMessageReceivedNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ChatMessageReceivedNotificationTrigger";
 }
-impl ::core::convert::From<ChatMessageReceivedNotificationTrigger> for ::windows::core::IUnknown {
-    fn from(value: ChatMessageReceivedNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageReceivedNotificationTrigger> for ::windows::core::IUnknown {
-    fn from(value: &ChatMessageReceivedNotificationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageReceivedNotificationTrigger> for &::windows::core::IUnknown {
-    fn from(value: &ChatMessageReceivedNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChatMessageReceivedNotificationTrigger> for ::windows::core::IInspectable {
-    fn from(value: ChatMessageReceivedNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChatMessageReceivedNotificationTrigger> for ::windows::core::IInspectable {
-    fn from(value: &ChatMessageReceivedNotificationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChatMessageReceivedNotificationTrigger> for &::windows::core::IInspectable {
-    fn from(value: &ChatMessageReceivedNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChatMessageReceivedNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ChatMessageReceivedNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: ChatMessageReceivedNotificationTrigger) -> ::windows::core::Result<Self> {
@@ -4975,36 +4192,7 @@ unsafe impl ::windows::core::Interface for CommunicationBlockingAppSetAsActiveTr
 impl ::windows::core::RuntimeName for CommunicationBlockingAppSetAsActiveTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CommunicationBlockingAppSetAsActiveTrigger";
 }
-impl ::core::convert::From<CommunicationBlockingAppSetAsActiveTrigger> for ::windows::core::IUnknown {
-    fn from(value: CommunicationBlockingAppSetAsActiveTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CommunicationBlockingAppSetAsActiveTrigger> for ::windows::core::IUnknown {
-    fn from(value: &CommunicationBlockingAppSetAsActiveTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CommunicationBlockingAppSetAsActiveTrigger> for &::windows::core::IUnknown {
-    fn from(value: &CommunicationBlockingAppSetAsActiveTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CommunicationBlockingAppSetAsActiveTrigger> for ::windows::core::IInspectable {
-    fn from(value: CommunicationBlockingAppSetAsActiveTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CommunicationBlockingAppSetAsActiveTrigger> for ::windows::core::IInspectable {
-    fn from(value: &CommunicationBlockingAppSetAsActiveTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CommunicationBlockingAppSetAsActiveTrigger> for &::windows::core::IInspectable {
-    fn from(value: &CommunicationBlockingAppSetAsActiveTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CommunicationBlockingAppSetAsActiveTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CommunicationBlockingAppSetAsActiveTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: CommunicationBlockingAppSetAsActiveTrigger) -> ::windows::core::Result<Self> {
@@ -5070,36 +4258,7 @@ unsafe impl ::windows::core::Interface for ContactStoreNotificationTrigger {
 impl ::windows::core::RuntimeName for ContactStoreNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ContactStoreNotificationTrigger";
 }
-impl ::core::convert::From<ContactStoreNotificationTrigger> for ::windows::core::IUnknown {
-    fn from(value: ContactStoreNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactStoreNotificationTrigger> for ::windows::core::IUnknown {
-    fn from(value: &ContactStoreNotificationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactStoreNotificationTrigger> for &::windows::core::IUnknown {
-    fn from(value: &ContactStoreNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactStoreNotificationTrigger> for ::windows::core::IInspectable {
-    fn from(value: ContactStoreNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactStoreNotificationTrigger> for ::windows::core::IInspectable {
-    fn from(value: &ContactStoreNotificationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactStoreNotificationTrigger> for &::windows::core::IInspectable {
-    fn from(value: &ContactStoreNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContactStoreNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContactStoreNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: ContactStoreNotificationTrigger) -> ::windows::core::Result<Self> {
@@ -5187,36 +4346,7 @@ unsafe impl ::windows::core::Interface for ContentPrefetchTrigger {
 impl ::windows::core::RuntimeName for ContentPrefetchTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ContentPrefetchTrigger";
 }
-impl ::core::convert::From<ContentPrefetchTrigger> for ::windows::core::IUnknown {
-    fn from(value: ContentPrefetchTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContentPrefetchTrigger> for ::windows::core::IUnknown {
-    fn from(value: &ContentPrefetchTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContentPrefetchTrigger> for &::windows::core::IUnknown {
-    fn from(value: &ContentPrefetchTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContentPrefetchTrigger> for ::windows::core::IInspectable {
-    fn from(value: ContentPrefetchTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContentPrefetchTrigger> for ::windows::core::IInspectable {
-    fn from(value: &ContentPrefetchTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContentPrefetchTrigger> for &::windows::core::IInspectable {
-    fn from(value: &ContentPrefetchTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContentPrefetchTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ContentPrefetchTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: ContentPrefetchTrigger) -> ::windows::core::Result<Self> {
@@ -5280,36 +4410,7 @@ unsafe impl ::windows::core::Interface for ConversationalAgentTrigger {
 impl ::windows::core::RuntimeName for ConversationalAgentTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ConversationalAgentTrigger";
 }
-impl ::core::convert::From<ConversationalAgentTrigger> for ::windows::core::IUnknown {
-    fn from(value: ConversationalAgentTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConversationalAgentTrigger> for ::windows::core::IUnknown {
-    fn from(value: &ConversationalAgentTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConversationalAgentTrigger> for &::windows::core::IUnknown {
-    fn from(value: &ConversationalAgentTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ConversationalAgentTrigger> for ::windows::core::IInspectable {
-    fn from(value: ConversationalAgentTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConversationalAgentTrigger> for ::windows::core::IInspectable {
-    fn from(value: &ConversationalAgentTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConversationalAgentTrigger> for &::windows::core::IInspectable {
-    fn from(value: &ConversationalAgentTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ConversationalAgentTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ConversationalAgentTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: ConversationalAgentTrigger) -> ::windows::core::Result<Self> {
@@ -5391,36 +4492,7 @@ unsafe impl ::windows::core::Interface for CustomSystemEventTrigger {
 impl ::windows::core::RuntimeName for CustomSystemEventTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CustomSystemEventTrigger";
 }
-impl ::core::convert::From<CustomSystemEventTrigger> for ::windows::core::IUnknown {
-    fn from(value: CustomSystemEventTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CustomSystemEventTrigger> for ::windows::core::IUnknown {
-    fn from(value: &CustomSystemEventTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CustomSystemEventTrigger> for &::windows::core::IUnknown {
-    fn from(value: &CustomSystemEventTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CustomSystemEventTrigger> for ::windows::core::IInspectable {
-    fn from(value: CustomSystemEventTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CustomSystemEventTrigger> for ::windows::core::IInspectable {
-    fn from(value: &CustomSystemEventTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CustomSystemEventTrigger> for &::windows::core::IInspectable {
-    fn from(value: &CustomSystemEventTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CustomSystemEventTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CustomSystemEventTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: CustomSystemEventTrigger) -> ::windows::core::Result<Self> {
@@ -5515,36 +4587,7 @@ unsafe impl ::windows::core::Interface for DeviceConnectionChangeTrigger {
 impl ::windows::core::RuntimeName for DeviceConnectionChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceConnectionChangeTrigger";
 }
-impl ::core::convert::From<DeviceConnectionChangeTrigger> for ::windows::core::IUnknown {
-    fn from(value: DeviceConnectionChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceConnectionChangeTrigger> for ::windows::core::IUnknown {
-    fn from(value: &DeviceConnectionChangeTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceConnectionChangeTrigger> for &::windows::core::IUnknown {
-    fn from(value: &DeviceConnectionChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceConnectionChangeTrigger> for ::windows::core::IInspectable {
-    fn from(value: DeviceConnectionChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceConnectionChangeTrigger> for ::windows::core::IInspectable {
-    fn from(value: &DeviceConnectionChangeTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceConnectionChangeTrigger> for &::windows::core::IInspectable {
-    fn from(value: &DeviceConnectionChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceConnectionChangeTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DeviceConnectionChangeTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: DeviceConnectionChangeTrigger) -> ::windows::core::Result<Self> {
@@ -5646,41 +4689,7 @@ impl ::windows::core::RuntimeName for DeviceManufacturerNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceManufacturerNotificationTrigger";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<DeviceManufacturerNotificationTrigger> for ::windows::core::IUnknown {
-    fn from(value: DeviceManufacturerNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&DeviceManufacturerNotificationTrigger> for ::windows::core::IUnknown {
-    fn from(value: &DeviceManufacturerNotificationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&DeviceManufacturerNotificationTrigger> for &::windows::core::IUnknown {
-    fn from(value: &DeviceManufacturerNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<DeviceManufacturerNotificationTrigger> for ::windows::core::IInspectable {
-    fn from(value: DeviceManufacturerNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&DeviceManufacturerNotificationTrigger> for ::windows::core::IInspectable {
-    fn from(value: &DeviceManufacturerNotificationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&DeviceManufacturerNotificationTrigger> for &::windows::core::IInspectable {
-    fn from(value: &DeviceManufacturerNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceManufacturerNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<DeviceManufacturerNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
@@ -5765,36 +4774,7 @@ unsafe impl ::windows::core::Interface for DeviceServicingTrigger {
 impl ::windows::core::RuntimeName for DeviceServicingTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceServicingTrigger";
 }
-impl ::core::convert::From<DeviceServicingTrigger> for ::windows::core::IUnknown {
-    fn from(value: DeviceServicingTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceServicingTrigger> for ::windows::core::IUnknown {
-    fn from(value: &DeviceServicingTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceServicingTrigger> for &::windows::core::IUnknown {
-    fn from(value: &DeviceServicingTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceServicingTrigger> for ::windows::core::IInspectable {
-    fn from(value: DeviceServicingTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceServicingTrigger> for ::windows::core::IInspectable {
-    fn from(value: &DeviceServicingTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceServicingTrigger> for &::windows::core::IInspectable {
-    fn from(value: &DeviceServicingTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceServicingTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DeviceServicingTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: DeviceServicingTrigger) -> ::windows::core::Result<Self> {
@@ -5878,36 +4858,7 @@ unsafe impl ::windows::core::Interface for DeviceUseTrigger {
 impl ::windows::core::RuntimeName for DeviceUseTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceUseTrigger";
 }
-impl ::core::convert::From<DeviceUseTrigger> for ::windows::core::IUnknown {
-    fn from(value: DeviceUseTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceUseTrigger> for ::windows::core::IUnknown {
-    fn from(value: &DeviceUseTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceUseTrigger> for &::windows::core::IUnknown {
-    fn from(value: &DeviceUseTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceUseTrigger> for ::windows::core::IInspectable {
-    fn from(value: DeviceUseTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceUseTrigger> for ::windows::core::IInspectable {
-    fn from(value: &DeviceUseTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceUseTrigger> for &::windows::core::IInspectable {
-    fn from(value: &DeviceUseTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceUseTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DeviceUseTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: DeviceUseTrigger) -> ::windows::core::Result<Self> {
@@ -5965,36 +4916,7 @@ unsafe impl ::windows::core::Interface for DeviceWatcherTrigger {
 impl ::windows::core::RuntimeName for DeviceWatcherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceWatcherTrigger";
 }
-impl ::core::convert::From<DeviceWatcherTrigger> for ::windows::core::IUnknown {
-    fn from(value: DeviceWatcherTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceWatcherTrigger> for ::windows::core::IUnknown {
-    fn from(value: &DeviceWatcherTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceWatcherTrigger> for &::windows::core::IUnknown {
-    fn from(value: &DeviceWatcherTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceWatcherTrigger> for ::windows::core::IInspectable {
-    fn from(value: DeviceWatcherTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceWatcherTrigger> for ::windows::core::IInspectable {
-    fn from(value: &DeviceWatcherTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceWatcherTrigger> for &::windows::core::IInspectable {
-    fn from(value: &DeviceWatcherTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceWatcherTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DeviceWatcherTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: DeviceWatcherTrigger) -> ::windows::core::Result<Self> {
@@ -6058,36 +4980,7 @@ unsafe impl ::windows::core::Interface for EmailStoreNotificationTrigger {
 impl ::windows::core::RuntimeName for EmailStoreNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.EmailStoreNotificationTrigger";
 }
-impl ::core::convert::From<EmailStoreNotificationTrigger> for ::windows::core::IUnknown {
-    fn from(value: EmailStoreNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailStoreNotificationTrigger> for ::windows::core::IUnknown {
-    fn from(value: &EmailStoreNotificationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailStoreNotificationTrigger> for &::windows::core::IUnknown {
-    fn from(value: &EmailStoreNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailStoreNotificationTrigger> for ::windows::core::IInspectable {
-    fn from(value: EmailStoreNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailStoreNotificationTrigger> for ::windows::core::IInspectable {
-    fn from(value: &EmailStoreNotificationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailStoreNotificationTrigger> for &::windows::core::IInspectable {
-    fn from(value: &EmailStoreNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailStoreNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<EmailStoreNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: EmailStoreNotificationTrigger) -> ::windows::core::Result<Self> {
@@ -6190,36 +5083,7 @@ unsafe impl ::windows::core::Interface for GattCharacteristicNotificationTrigger
 impl ::windows::core::RuntimeName for GattCharacteristicNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger";
 }
-impl ::core::convert::From<GattCharacteristicNotificationTrigger> for ::windows::core::IUnknown {
-    fn from(value: GattCharacteristicNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattCharacteristicNotificationTrigger> for ::windows::core::IUnknown {
-    fn from(value: &GattCharacteristicNotificationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattCharacteristicNotificationTrigger> for &::windows::core::IUnknown {
-    fn from(value: &GattCharacteristicNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattCharacteristicNotificationTrigger> for ::windows::core::IInspectable {
-    fn from(value: GattCharacteristicNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattCharacteristicNotificationTrigger> for ::windows::core::IInspectable {
-    fn from(value: &GattCharacteristicNotificationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattCharacteristicNotificationTrigger> for &::windows::core::IInspectable {
-    fn from(value: &GattCharacteristicNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattCharacteristicNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<GattCharacteristicNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: GattCharacteristicNotificationTrigger) -> ::windows::core::Result<Self> {
@@ -6322,36 +5186,7 @@ unsafe impl ::windows::core::Interface for GattServiceProviderTrigger {
 impl ::windows::core::RuntimeName for GattServiceProviderTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GattServiceProviderTrigger";
 }
-impl ::core::convert::From<GattServiceProviderTrigger> for ::windows::core::IUnknown {
-    fn from(value: GattServiceProviderTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattServiceProviderTrigger> for ::windows::core::IUnknown {
-    fn from(value: &GattServiceProviderTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattServiceProviderTrigger> for &::windows::core::IUnknown {
-    fn from(value: &GattServiceProviderTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattServiceProviderTrigger> for ::windows::core::IInspectable {
-    fn from(value: GattServiceProviderTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattServiceProviderTrigger> for ::windows::core::IInspectable {
-    fn from(value: &GattServiceProviderTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattServiceProviderTrigger> for &::windows::core::IInspectable {
-    fn from(value: &GattServiceProviderTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattServiceProviderTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<GattServiceProviderTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: GattServiceProviderTrigger) -> ::windows::core::Result<Self> {
@@ -6426,36 +5261,7 @@ unsafe impl ::windows::core::Interface for GattServiceProviderTriggerResult {
 impl ::windows::core::RuntimeName for GattServiceProviderTriggerResult {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GattServiceProviderTriggerResult";
 }
-impl ::core::convert::From<GattServiceProviderTriggerResult> for ::windows::core::IUnknown {
-    fn from(value: GattServiceProviderTriggerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattServiceProviderTriggerResult> for ::windows::core::IUnknown {
-    fn from(value: &GattServiceProviderTriggerResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattServiceProviderTriggerResult> for &::windows::core::IUnknown {
-    fn from(value: &GattServiceProviderTriggerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattServiceProviderTriggerResult> for ::windows::core::IInspectable {
-    fn from(value: GattServiceProviderTriggerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattServiceProviderTriggerResult> for ::windows::core::IInspectable {
-    fn from(value: &GattServiceProviderTriggerResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattServiceProviderTriggerResult> for &::windows::core::IInspectable {
-    fn from(value: &GattServiceProviderTriggerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattServiceProviderTriggerResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattServiceProviderTriggerResult {}
 unsafe impl ::core::marker::Sync for GattServiceProviderTriggerResult {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -6517,36 +5323,7 @@ unsafe impl ::windows::core::Interface for GeovisitTrigger {
 impl ::windows::core::RuntimeName for GeovisitTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GeovisitTrigger";
 }
-impl ::core::convert::From<GeovisitTrigger> for ::windows::core::IUnknown {
-    fn from(value: GeovisitTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GeovisitTrigger> for ::windows::core::IUnknown {
-    fn from(value: &GeovisitTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GeovisitTrigger> for &::windows::core::IUnknown {
-    fn from(value: &GeovisitTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GeovisitTrigger> for ::windows::core::IInspectable {
-    fn from(value: GeovisitTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GeovisitTrigger> for ::windows::core::IInspectable {
-    fn from(value: &GeovisitTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GeovisitTrigger> for &::windows::core::IInspectable {
-    fn from(value: &GeovisitTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GeovisitTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<GeovisitTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: GeovisitTrigger) -> ::windows::core::Result<Self> {
@@ -6623,36 +5400,7 @@ unsafe impl ::windows::core::Interface for LocationTrigger {
 impl ::windows::core::RuntimeName for LocationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.LocationTrigger";
 }
-impl ::core::convert::From<LocationTrigger> for ::windows::core::IUnknown {
-    fn from(value: LocationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LocationTrigger> for ::windows::core::IUnknown {
-    fn from(value: &LocationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LocationTrigger> for &::windows::core::IUnknown {
-    fn from(value: &LocationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LocationTrigger> for ::windows::core::IInspectable {
-    fn from(value: LocationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LocationTrigger> for ::windows::core::IInspectable {
-    fn from(value: &LocationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LocationTrigger> for &::windows::core::IInspectable {
-    fn from(value: &LocationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LocationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LocationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: LocationTrigger) -> ::windows::core::Result<Self> {
@@ -6736,36 +5484,7 @@ unsafe impl ::windows::core::Interface for MaintenanceTrigger {
 impl ::windows::core::RuntimeName for MaintenanceTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MaintenanceTrigger";
 }
-impl ::core::convert::From<MaintenanceTrigger> for ::windows::core::IUnknown {
-    fn from(value: MaintenanceTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MaintenanceTrigger> for ::windows::core::IUnknown {
-    fn from(value: &MaintenanceTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MaintenanceTrigger> for &::windows::core::IUnknown {
-    fn from(value: &MaintenanceTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MaintenanceTrigger> for ::windows::core::IInspectable {
-    fn from(value: MaintenanceTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MaintenanceTrigger> for ::windows::core::IInspectable {
-    fn from(value: &MaintenanceTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MaintenanceTrigger> for &::windows::core::IInspectable {
-    fn from(value: &MaintenanceTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MaintenanceTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MaintenanceTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: MaintenanceTrigger) -> ::windows::core::Result<Self> {
@@ -6847,36 +5566,7 @@ unsafe impl ::windows::core::Interface for MediaProcessingTrigger {
 impl ::windows::core::RuntimeName for MediaProcessingTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MediaProcessingTrigger";
 }
-impl ::core::convert::From<MediaProcessingTrigger> for ::windows::core::IUnknown {
-    fn from(value: MediaProcessingTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaProcessingTrigger> for ::windows::core::IUnknown {
-    fn from(value: &MediaProcessingTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaProcessingTrigger> for &::windows::core::IUnknown {
-    fn from(value: &MediaProcessingTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaProcessingTrigger> for ::windows::core::IInspectable {
-    fn from(value: MediaProcessingTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaProcessingTrigger> for ::windows::core::IInspectable {
-    fn from(value: &MediaProcessingTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaProcessingTrigger> for &::windows::core::IInspectable {
-    fn from(value: &MediaProcessingTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaProcessingTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MediaProcessingTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: MediaProcessingTrigger) -> ::windows::core::Result<Self> {
@@ -6940,36 +5630,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceNotificat
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandDeviceServiceNotificationTrigger";
 }
-impl ::core::convert::From<MobileBroadbandDeviceServiceNotificationTrigger> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandDeviceServiceNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceNotificationTrigger> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandDeviceServiceNotificationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceNotificationTrigger> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandDeviceServiceNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandDeviceServiceNotificationTrigger> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandDeviceServiceNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceNotificationTrigger> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandDeviceServiceNotificationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandDeviceServiceNotificationTrigger> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandDeviceServiceNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandDeviceServiceNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MobileBroadbandDeviceServiceNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: MobileBroadbandDeviceServiceNotificationTrigger) -> ::windows::core::Result<Self> {
@@ -7035,36 +5696,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandPcoDataChangeTrigger {
 impl ::windows::core::RuntimeName for MobileBroadbandPcoDataChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandPcoDataChangeTrigger";
 }
-impl ::core::convert::From<MobileBroadbandPcoDataChangeTrigger> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandPcoDataChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPcoDataChangeTrigger> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandPcoDataChangeTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPcoDataChangeTrigger> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandPcoDataChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandPcoDataChangeTrigger> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandPcoDataChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPcoDataChangeTrigger> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandPcoDataChangeTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPcoDataChangeTrigger> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandPcoDataChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandPcoDataChangeTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MobileBroadbandPcoDataChangeTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: MobileBroadbandPcoDataChangeTrigger) -> ::windows::core::Result<Self> {
@@ -7130,36 +5762,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandPinLockStateChangeTrig
 impl ::windows::core::RuntimeName for MobileBroadbandPinLockStateChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandPinLockStateChangeTrigger";
 }
-impl ::core::convert::From<MobileBroadbandPinLockStateChangeTrigger> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandPinLockStateChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPinLockStateChangeTrigger> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandPinLockStateChangeTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPinLockStateChangeTrigger> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandPinLockStateChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandPinLockStateChangeTrigger> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandPinLockStateChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPinLockStateChangeTrigger> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandPinLockStateChangeTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandPinLockStateChangeTrigger> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandPinLockStateChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandPinLockStateChangeTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MobileBroadbandPinLockStateChangeTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: MobileBroadbandPinLockStateChangeTrigger) -> ::windows::core::Result<Self> {
@@ -7225,36 +5828,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandRadioStateChangeTrigge
 impl ::windows::core::RuntimeName for MobileBroadbandRadioStateChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandRadioStateChangeTrigger";
 }
-impl ::core::convert::From<MobileBroadbandRadioStateChangeTrigger> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandRadioStateChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandRadioStateChangeTrigger> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandRadioStateChangeTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandRadioStateChangeTrigger> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandRadioStateChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandRadioStateChangeTrigger> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandRadioStateChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandRadioStateChangeTrigger> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandRadioStateChangeTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandRadioStateChangeTrigger> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandRadioStateChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandRadioStateChangeTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MobileBroadbandRadioStateChangeTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: MobileBroadbandRadioStateChangeTrigger) -> ::windows::core::Result<Self> {
@@ -7320,36 +5894,7 @@ unsafe impl ::windows::core::Interface for MobileBroadbandRegistrationStateChang
 impl ::windows::core::RuntimeName for MobileBroadbandRegistrationStateChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandRegistrationStateChangeTrigger";
 }
-impl ::core::convert::From<MobileBroadbandRegistrationStateChangeTrigger> for ::windows::core::IUnknown {
-    fn from(value: MobileBroadbandRegistrationStateChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandRegistrationStateChangeTrigger> for ::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandRegistrationStateChangeTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandRegistrationStateChangeTrigger> for &::windows::core::IUnknown {
-    fn from(value: &MobileBroadbandRegistrationStateChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MobileBroadbandRegistrationStateChangeTrigger> for ::windows::core::IInspectable {
-    fn from(value: MobileBroadbandRegistrationStateChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MobileBroadbandRegistrationStateChangeTrigger> for ::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandRegistrationStateChangeTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MobileBroadbandRegistrationStateChangeTrigger> for &::windows::core::IInspectable {
-    fn from(value: &MobileBroadbandRegistrationStateChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MobileBroadbandRegistrationStateChangeTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MobileBroadbandRegistrationStateChangeTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: MobileBroadbandRegistrationStateChangeTrigger) -> ::windows::core::Result<Self> {
@@ -7415,36 +5960,7 @@ unsafe impl ::windows::core::Interface for NetworkOperatorDataUsageTrigger {
 impl ::windows::core::RuntimeName for NetworkOperatorDataUsageTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorDataUsageTrigger";
 }
-impl ::core::convert::From<NetworkOperatorDataUsageTrigger> for ::windows::core::IUnknown {
-    fn from(value: NetworkOperatorDataUsageTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkOperatorDataUsageTrigger> for ::windows::core::IUnknown {
-    fn from(value: &NetworkOperatorDataUsageTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkOperatorDataUsageTrigger> for &::windows::core::IUnknown {
-    fn from(value: &NetworkOperatorDataUsageTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NetworkOperatorDataUsageTrigger> for ::windows::core::IInspectable {
-    fn from(value: NetworkOperatorDataUsageTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkOperatorDataUsageTrigger> for ::windows::core::IInspectable {
-    fn from(value: &NetworkOperatorDataUsageTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkOperatorDataUsageTrigger> for &::windows::core::IInspectable {
-    fn from(value: &NetworkOperatorDataUsageTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NetworkOperatorDataUsageTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<NetworkOperatorDataUsageTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: NetworkOperatorDataUsageTrigger) -> ::windows::core::Result<Self> {
@@ -7510,36 +6026,7 @@ unsafe impl ::windows::core::Interface for NetworkOperatorHotspotAuthenticationT
 impl ::windows::core::RuntimeName for NetworkOperatorHotspotAuthenticationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorHotspotAuthenticationTrigger";
 }
-impl ::core::convert::From<NetworkOperatorHotspotAuthenticationTrigger> for ::windows::core::IUnknown {
-    fn from(value: NetworkOperatorHotspotAuthenticationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkOperatorHotspotAuthenticationTrigger> for ::windows::core::IUnknown {
-    fn from(value: &NetworkOperatorHotspotAuthenticationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkOperatorHotspotAuthenticationTrigger> for &::windows::core::IUnknown {
-    fn from(value: &NetworkOperatorHotspotAuthenticationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NetworkOperatorHotspotAuthenticationTrigger> for ::windows::core::IInspectable {
-    fn from(value: NetworkOperatorHotspotAuthenticationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkOperatorHotspotAuthenticationTrigger> for ::windows::core::IInspectable {
-    fn from(value: &NetworkOperatorHotspotAuthenticationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkOperatorHotspotAuthenticationTrigger> for &::windows::core::IInspectable {
-    fn from(value: &NetworkOperatorHotspotAuthenticationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NetworkOperatorHotspotAuthenticationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<NetworkOperatorHotspotAuthenticationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: NetworkOperatorHotspotAuthenticationTrigger) -> ::windows::core::Result<Self> {
@@ -7614,36 +6101,7 @@ unsafe impl ::windows::core::Interface for NetworkOperatorNotificationTrigger {
 impl ::windows::core::RuntimeName for NetworkOperatorNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorNotificationTrigger";
 }
-impl ::core::convert::From<NetworkOperatorNotificationTrigger> for ::windows::core::IUnknown {
-    fn from(value: NetworkOperatorNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkOperatorNotificationTrigger> for ::windows::core::IUnknown {
-    fn from(value: &NetworkOperatorNotificationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkOperatorNotificationTrigger> for &::windows::core::IUnknown {
-    fn from(value: &NetworkOperatorNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NetworkOperatorNotificationTrigger> for ::windows::core::IInspectable {
-    fn from(value: NetworkOperatorNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkOperatorNotificationTrigger> for ::windows::core::IInspectable {
-    fn from(value: &NetworkOperatorNotificationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkOperatorNotificationTrigger> for &::windows::core::IInspectable {
-    fn from(value: &NetworkOperatorNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NetworkOperatorNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<NetworkOperatorNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: NetworkOperatorNotificationTrigger) -> ::windows::core::Result<Self> {
@@ -7707,36 +6165,7 @@ unsafe impl ::windows::core::Interface for PaymentAppCanMakePaymentTrigger {
 impl ::windows::core::RuntimeName for PaymentAppCanMakePaymentTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.PaymentAppCanMakePaymentTrigger";
 }
-impl ::core::convert::From<PaymentAppCanMakePaymentTrigger> for ::windows::core::IUnknown {
-    fn from(value: PaymentAppCanMakePaymentTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentAppCanMakePaymentTrigger> for ::windows::core::IUnknown {
-    fn from(value: &PaymentAppCanMakePaymentTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentAppCanMakePaymentTrigger> for &::windows::core::IUnknown {
-    fn from(value: &PaymentAppCanMakePaymentTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PaymentAppCanMakePaymentTrigger> for ::windows::core::IInspectable {
-    fn from(value: PaymentAppCanMakePaymentTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PaymentAppCanMakePaymentTrigger> for ::windows::core::IInspectable {
-    fn from(value: &PaymentAppCanMakePaymentTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PaymentAppCanMakePaymentTrigger> for &::windows::core::IInspectable {
-    fn from(value: &PaymentAppCanMakePaymentTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PaymentAppCanMakePaymentTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PaymentAppCanMakePaymentTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: PaymentAppCanMakePaymentTrigger) -> ::windows::core::Result<Self> {
@@ -7824,36 +6253,7 @@ unsafe impl ::windows::core::Interface for PhoneTrigger {
 impl ::windows::core::RuntimeName for PhoneTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.PhoneTrigger";
 }
-impl ::core::convert::From<PhoneTrigger> for ::windows::core::IUnknown {
-    fn from(value: PhoneTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneTrigger> for ::windows::core::IUnknown {
-    fn from(value: &PhoneTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneTrigger> for &::windows::core::IUnknown {
-    fn from(value: &PhoneTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhoneTrigger> for ::windows::core::IInspectable {
-    fn from(value: PhoneTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneTrigger> for ::windows::core::IInspectable {
-    fn from(value: &PhoneTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneTrigger> for &::windows::core::IInspectable {
-    fn from(value: &PhoneTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhoneTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PhoneTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: PhoneTrigger) -> ::windows::core::Result<Self> {
@@ -7930,36 +6330,7 @@ unsafe impl ::windows::core::Interface for PushNotificationTrigger {
 impl ::windows::core::RuntimeName for PushNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.PushNotificationTrigger";
 }
-impl ::core::convert::From<PushNotificationTrigger> for ::windows::core::IUnknown {
-    fn from(value: PushNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PushNotificationTrigger> for ::windows::core::IUnknown {
-    fn from(value: &PushNotificationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PushNotificationTrigger> for &::windows::core::IUnknown {
-    fn from(value: &PushNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PushNotificationTrigger> for ::windows::core::IInspectable {
-    fn from(value: PushNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PushNotificationTrigger> for ::windows::core::IInspectable {
-    fn from(value: &PushNotificationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PushNotificationTrigger> for &::windows::core::IInspectable {
-    fn from(value: &PushNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PushNotificationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PushNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: PushNotificationTrigger) -> ::windows::core::Result<Self> {
@@ -8025,36 +6396,7 @@ unsafe impl ::windows::core::Interface for RcsEndUserMessageAvailableTrigger {
 impl ::windows::core::RuntimeName for RcsEndUserMessageAvailableTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.RcsEndUserMessageAvailableTrigger";
 }
-impl ::core::convert::From<RcsEndUserMessageAvailableTrigger> for ::windows::core::IUnknown {
-    fn from(value: RcsEndUserMessageAvailableTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessageAvailableTrigger> for ::windows::core::IUnknown {
-    fn from(value: &RcsEndUserMessageAvailableTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessageAvailableTrigger> for &::windows::core::IUnknown {
-    fn from(value: &RcsEndUserMessageAvailableTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RcsEndUserMessageAvailableTrigger> for ::windows::core::IInspectable {
-    fn from(value: RcsEndUserMessageAvailableTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessageAvailableTrigger> for ::windows::core::IInspectable {
-    fn from(value: &RcsEndUserMessageAvailableTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RcsEndUserMessageAvailableTrigger> for &::windows::core::IInspectable {
-    fn from(value: &RcsEndUserMessageAvailableTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RcsEndUserMessageAvailableTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RcsEndUserMessageAvailableTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: RcsEndUserMessageAvailableTrigger) -> ::windows::core::Result<Self> {
@@ -8179,36 +6521,7 @@ unsafe impl ::windows::core::Interface for RfcommConnectionTrigger {
 impl ::windows::core::RuntimeName for RfcommConnectionTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.RfcommConnectionTrigger";
 }
-impl ::core::convert::From<RfcommConnectionTrigger> for ::windows::core::IUnknown {
-    fn from(value: RfcommConnectionTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RfcommConnectionTrigger> for ::windows::core::IUnknown {
-    fn from(value: &RfcommConnectionTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RfcommConnectionTrigger> for &::windows::core::IUnknown {
-    fn from(value: &RfcommConnectionTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RfcommConnectionTrigger> for ::windows::core::IInspectable {
-    fn from(value: RfcommConnectionTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RfcommConnectionTrigger> for ::windows::core::IInspectable {
-    fn from(value: &RfcommConnectionTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RfcommConnectionTrigger> for &::windows::core::IInspectable {
-    fn from(value: &RfcommConnectionTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RfcommConnectionTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RfcommConnectionTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: RfcommConnectionTrigger) -> ::windows::core::Result<Self> {
@@ -8285,41 +6598,7 @@ impl ::windows::core::RuntimeName for SecondaryAuthenticationFactorAuthenticatio
     const NAME: &'static str = "Windows.ApplicationModel.Background.SecondaryAuthenticationFactorAuthenticationTrigger";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SecondaryAuthenticationFactorAuthenticationTrigger> for ::windows::core::IUnknown {
-    fn from(value: SecondaryAuthenticationFactorAuthenticationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationTrigger> for ::windows::core::IUnknown {
-    fn from(value: &SecondaryAuthenticationFactorAuthenticationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationTrigger> for &::windows::core::IUnknown {
-    fn from(value: &SecondaryAuthenticationFactorAuthenticationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SecondaryAuthenticationFactorAuthenticationTrigger> for ::windows::core::IInspectable {
-    fn from(value: SecondaryAuthenticationFactorAuthenticationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationTrigger> for ::windows::core::IInspectable {
-    fn from(value: &SecondaryAuthenticationFactorAuthenticationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationTrigger> for &::windows::core::IInspectable {
-    fn from(value: &SecondaryAuthenticationFactorAuthenticationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SecondaryAuthenticationFactorAuthenticationTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<SecondaryAuthenticationFactorAuthenticationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
@@ -8396,36 +6675,7 @@ unsafe impl ::windows::core::Interface for SensorDataThresholdTrigger {
 impl ::windows::core::RuntimeName for SensorDataThresholdTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SensorDataThresholdTrigger";
 }
-impl ::core::convert::From<SensorDataThresholdTrigger> for ::windows::core::IUnknown {
-    fn from(value: SensorDataThresholdTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SensorDataThresholdTrigger> for ::windows::core::IUnknown {
-    fn from(value: &SensorDataThresholdTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SensorDataThresholdTrigger> for &::windows::core::IUnknown {
-    fn from(value: &SensorDataThresholdTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SensorDataThresholdTrigger> for ::windows::core::IInspectable {
-    fn from(value: SensorDataThresholdTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SensorDataThresholdTrigger> for ::windows::core::IInspectable {
-    fn from(value: &SensorDataThresholdTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SensorDataThresholdTrigger> for &::windows::core::IInspectable {
-    fn from(value: &SensorDataThresholdTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SensorDataThresholdTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SensorDataThresholdTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: SensorDataThresholdTrigger) -> ::windows::core::Result<Self> {
@@ -8506,36 +6756,7 @@ unsafe impl ::windows::core::Interface for SmartCardTrigger {
 impl ::windows::core::RuntimeName for SmartCardTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SmartCardTrigger";
 }
-impl ::core::convert::From<SmartCardTrigger> for ::windows::core::IUnknown {
-    fn from(value: SmartCardTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardTrigger> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardTrigger> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardTrigger> for ::windows::core::IInspectable {
-    fn from(value: SmartCardTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardTrigger> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardTrigger> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SmartCardTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: SmartCardTrigger) -> ::windows::core::Result<Self> {
@@ -8605,36 +6826,7 @@ unsafe impl ::windows::core::Interface for SmsMessageReceivedTrigger {
 impl ::windows::core::RuntimeName for SmsMessageReceivedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SmsMessageReceivedTrigger";
 }
-impl ::core::convert::From<SmsMessageReceivedTrigger> for ::windows::core::IUnknown {
-    fn from(value: SmsMessageReceivedTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsMessageReceivedTrigger> for ::windows::core::IUnknown {
-    fn from(value: &SmsMessageReceivedTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsMessageReceivedTrigger> for &::windows::core::IUnknown {
-    fn from(value: &SmsMessageReceivedTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmsMessageReceivedTrigger> for ::windows::core::IInspectable {
-    fn from(value: SmsMessageReceivedTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmsMessageReceivedTrigger> for ::windows::core::IInspectable {
-    fn from(value: &SmsMessageReceivedTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmsMessageReceivedTrigger> for &::windows::core::IInspectable {
-    fn from(value: &SmsMessageReceivedTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmsMessageReceivedTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SmsMessageReceivedTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: SmsMessageReceivedTrigger) -> ::windows::core::Result<Self> {
@@ -8707,36 +6899,7 @@ unsafe impl ::windows::core::Interface for SocketActivityTrigger {
 impl ::windows::core::RuntimeName for SocketActivityTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SocketActivityTrigger";
 }
-impl ::core::convert::From<SocketActivityTrigger> for ::windows::core::IUnknown {
-    fn from(value: SocketActivityTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SocketActivityTrigger> for ::windows::core::IUnknown {
-    fn from(value: &SocketActivityTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SocketActivityTrigger> for &::windows::core::IUnknown {
-    fn from(value: &SocketActivityTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SocketActivityTrigger> for ::windows::core::IInspectable {
-    fn from(value: SocketActivityTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SocketActivityTrigger> for ::windows::core::IInspectable {
-    fn from(value: &SocketActivityTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SocketActivityTrigger> for &::windows::core::IInspectable {
-    fn from(value: &SocketActivityTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SocketActivityTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SocketActivityTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: SocketActivityTrigger) -> ::windows::core::Result<Self> {
@@ -8808,36 +6971,7 @@ unsafe impl ::windows::core::Interface for StorageLibraryChangeTrackerTrigger {
 impl ::windows::core::RuntimeName for StorageLibraryChangeTrackerTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.StorageLibraryChangeTrackerTrigger";
 }
-impl ::core::convert::From<StorageLibraryChangeTrackerTrigger> for ::windows::core::IUnknown {
-    fn from(value: StorageLibraryChangeTrackerTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageLibraryChangeTrackerTrigger> for ::windows::core::IUnknown {
-    fn from(value: &StorageLibraryChangeTrackerTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageLibraryChangeTrackerTrigger> for &::windows::core::IUnknown {
-    fn from(value: &StorageLibraryChangeTrackerTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageLibraryChangeTrackerTrigger> for ::windows::core::IInspectable {
-    fn from(value: StorageLibraryChangeTrackerTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageLibraryChangeTrackerTrigger> for ::windows::core::IInspectable {
-    fn from(value: &StorageLibraryChangeTrackerTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageLibraryChangeTrackerTrigger> for &::windows::core::IInspectable {
-    fn from(value: &StorageLibraryChangeTrackerTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageLibraryChangeTrackerTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StorageLibraryChangeTrackerTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: StorageLibraryChangeTrackerTrigger) -> ::windows::core::Result<Self> {
@@ -8921,36 +7055,7 @@ unsafe impl ::windows::core::Interface for StorageLibraryContentChangedTrigger {
 impl ::windows::core::RuntimeName for StorageLibraryContentChangedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.StorageLibraryContentChangedTrigger";
 }
-impl ::core::convert::From<StorageLibraryContentChangedTrigger> for ::windows::core::IUnknown {
-    fn from(value: StorageLibraryContentChangedTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageLibraryContentChangedTrigger> for ::windows::core::IUnknown {
-    fn from(value: &StorageLibraryContentChangedTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageLibraryContentChangedTrigger> for &::windows::core::IUnknown {
-    fn from(value: &StorageLibraryContentChangedTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageLibraryContentChangedTrigger> for ::windows::core::IInspectable {
-    fn from(value: StorageLibraryContentChangedTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageLibraryContentChangedTrigger> for ::windows::core::IInspectable {
-    fn from(value: &StorageLibraryContentChangedTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageLibraryContentChangedTrigger> for &::windows::core::IInspectable {
-    fn from(value: &StorageLibraryContentChangedTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageLibraryContentChangedTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StorageLibraryContentChangedTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: StorageLibraryContentChangedTrigger) -> ::windows::core::Result<Self> {
@@ -9025,36 +7130,7 @@ unsafe impl ::windows::core::Interface for SystemCondition {
 impl ::windows::core::RuntimeName for SystemCondition {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SystemCondition";
 }
-impl ::core::convert::From<SystemCondition> for ::windows::core::IUnknown {
-    fn from(value: SystemCondition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemCondition> for ::windows::core::IUnknown {
-    fn from(value: &SystemCondition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemCondition> for &::windows::core::IUnknown {
-    fn from(value: &SystemCondition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SystemCondition> for ::windows::core::IInspectable {
-    fn from(value: SystemCondition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemCondition> for ::windows::core::IInspectable {
-    fn from(value: &SystemCondition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemCondition> for &::windows::core::IInspectable {
-    fn from(value: &SystemCondition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SystemCondition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SystemCondition> for IBackgroundCondition {
     type Error = ::windows::core::Error;
     fn try_from(value: SystemCondition) -> ::windows::core::Result<Self> {
@@ -9136,36 +7212,7 @@ unsafe impl ::windows::core::Interface for SystemTrigger {
 impl ::windows::core::RuntimeName for SystemTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SystemTrigger";
 }
-impl ::core::convert::From<SystemTrigger> for ::windows::core::IUnknown {
-    fn from(value: SystemTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemTrigger> for ::windows::core::IUnknown {
-    fn from(value: &SystemTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemTrigger> for &::windows::core::IUnknown {
-    fn from(value: &SystemTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SystemTrigger> for ::windows::core::IInspectable {
-    fn from(value: SystemTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemTrigger> for ::windows::core::IInspectable {
-    fn from(value: &SystemTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemTrigger> for &::windows::core::IInspectable {
-    fn from(value: &SystemTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SystemTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SystemTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: SystemTrigger) -> ::windows::core::Result<Self> {
@@ -9229,36 +7276,7 @@ unsafe impl ::windows::core::Interface for TetheringEntitlementCheckTrigger {
 impl ::windows::core::RuntimeName for TetheringEntitlementCheckTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.TetheringEntitlementCheckTrigger";
 }
-impl ::core::convert::From<TetheringEntitlementCheckTrigger> for ::windows::core::IUnknown {
-    fn from(value: TetheringEntitlementCheckTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TetheringEntitlementCheckTrigger> for ::windows::core::IUnknown {
-    fn from(value: &TetheringEntitlementCheckTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TetheringEntitlementCheckTrigger> for &::windows::core::IUnknown {
-    fn from(value: &TetheringEntitlementCheckTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TetheringEntitlementCheckTrigger> for ::windows::core::IInspectable {
-    fn from(value: TetheringEntitlementCheckTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TetheringEntitlementCheckTrigger> for ::windows::core::IInspectable {
-    fn from(value: &TetheringEntitlementCheckTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TetheringEntitlementCheckTrigger> for &::windows::core::IInspectable {
-    fn from(value: &TetheringEntitlementCheckTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TetheringEntitlementCheckTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<TetheringEntitlementCheckTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: TetheringEntitlementCheckTrigger) -> ::windows::core::Result<Self> {
@@ -9342,36 +7360,7 @@ unsafe impl ::windows::core::Interface for TimeTrigger {
 impl ::windows::core::RuntimeName for TimeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.TimeTrigger";
 }
-impl ::core::convert::From<TimeTrigger> for ::windows::core::IUnknown {
-    fn from(value: TimeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TimeTrigger> for ::windows::core::IUnknown {
-    fn from(value: &TimeTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TimeTrigger> for &::windows::core::IUnknown {
-    fn from(value: &TimeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TimeTrigger> for ::windows::core::IInspectable {
-    fn from(value: TimeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TimeTrigger> for ::windows::core::IInspectable {
-    fn from(value: &TimeTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TimeTrigger> for &::windows::core::IInspectable {
-    fn from(value: &TimeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TimeTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<TimeTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: TimeTrigger) -> ::windows::core::Result<Self> {
@@ -9446,36 +7435,7 @@ unsafe impl ::windows::core::Interface for ToastNotificationActionTrigger {
 impl ::windows::core::RuntimeName for ToastNotificationActionTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ToastNotificationActionTrigger";
 }
-impl ::core::convert::From<ToastNotificationActionTrigger> for ::windows::core::IUnknown {
-    fn from(value: ToastNotificationActionTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastNotificationActionTrigger> for ::windows::core::IUnknown {
-    fn from(value: &ToastNotificationActionTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastNotificationActionTrigger> for &::windows::core::IUnknown {
-    fn from(value: &ToastNotificationActionTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ToastNotificationActionTrigger> for ::windows::core::IInspectable {
-    fn from(value: ToastNotificationActionTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastNotificationActionTrigger> for ::windows::core::IInspectable {
-    fn from(value: &ToastNotificationActionTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastNotificationActionTrigger> for &::windows::core::IInspectable {
-    fn from(value: &ToastNotificationActionTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ToastNotificationActionTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ToastNotificationActionTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: ToastNotificationActionTrigger) -> ::windows::core::Result<Self> {
@@ -9552,36 +7512,7 @@ unsafe impl ::windows::core::Interface for ToastNotificationHistoryChangedTrigge
 impl ::windows::core::RuntimeName for ToastNotificationHistoryChangedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ToastNotificationHistoryChangedTrigger";
 }
-impl ::core::convert::From<ToastNotificationHistoryChangedTrigger> for ::windows::core::IUnknown {
-    fn from(value: ToastNotificationHistoryChangedTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastNotificationHistoryChangedTrigger> for ::windows::core::IUnknown {
-    fn from(value: &ToastNotificationHistoryChangedTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastNotificationHistoryChangedTrigger> for &::windows::core::IUnknown {
-    fn from(value: &ToastNotificationHistoryChangedTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ToastNotificationHistoryChangedTrigger> for ::windows::core::IInspectable {
-    fn from(value: ToastNotificationHistoryChangedTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastNotificationHistoryChangedTrigger> for ::windows::core::IInspectable {
-    fn from(value: &ToastNotificationHistoryChangedTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastNotificationHistoryChangedTrigger> for &::windows::core::IInspectable {
-    fn from(value: &ToastNotificationHistoryChangedTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ToastNotificationHistoryChangedTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ToastNotificationHistoryChangedTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: ToastNotificationHistoryChangedTrigger) -> ::windows::core::Result<Self> {
@@ -9653,36 +7584,7 @@ unsafe impl ::windows::core::Interface for UserNotificationChangedTrigger {
 impl ::windows::core::RuntimeName for UserNotificationChangedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.UserNotificationChangedTrigger";
 }
-impl ::core::convert::From<UserNotificationChangedTrigger> for ::windows::core::IUnknown {
-    fn from(value: UserNotificationChangedTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserNotificationChangedTrigger> for ::windows::core::IUnknown {
-    fn from(value: &UserNotificationChangedTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserNotificationChangedTrigger> for &::windows::core::IUnknown {
-    fn from(value: &UserNotificationChangedTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserNotificationChangedTrigger> for ::windows::core::IInspectable {
-    fn from(value: UserNotificationChangedTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserNotificationChangedTrigger> for ::windows::core::IInspectable {
-    fn from(value: &UserNotificationChangedTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserNotificationChangedTrigger> for &::windows::core::IInspectable {
-    fn from(value: &UserNotificationChangedTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserNotificationChangedTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<UserNotificationChangedTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: UserNotificationChangedTrigger) -> ::windows::core::Result<Self> {

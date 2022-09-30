@@ -108,36 +108,7 @@ impl IPropertyAnimation {
         }
     }
 }
-impl ::core::convert::From<IPropertyAnimation> for ::windows::core::IUnknown {
-    fn from(value: IPropertyAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyAnimation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertyAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyAnimation> for ::windows::core::IUnknown {
-    fn from(value: &IPropertyAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPropertyAnimation> for ::windows::core::IInspectable {
-    fn from(value: IPropertyAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyAnimation> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPropertyAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyAnimation> for ::windows::core::IInspectable {
-    fn from(value: &IPropertyAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertyAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IPropertyAnimation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -306,36 +277,7 @@ unsafe impl ::windows::core::Interface for AnimationDescription {
 impl ::windows::core::RuntimeName for AnimationDescription {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.AnimationDescription";
 }
-impl ::core::convert::From<AnimationDescription> for ::windows::core::IUnknown {
-    fn from(value: AnimationDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AnimationDescription> for ::windows::core::IUnknown {
-    fn from(value: &AnimationDescription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AnimationDescription> for &::windows::core::IUnknown {
-    fn from(value: &AnimationDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AnimationDescription> for ::windows::core::IInspectable {
-    fn from(value: AnimationDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AnimationDescription> for ::windows::core::IInspectable {
-    fn from(value: &AnimationDescription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AnimationDescription> for &::windows::core::IInspectable {
-    fn from(value: &AnimationDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AnimationDescription, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AnimationDescription {}
 unsafe impl ::core::marker::Sync for AnimationDescription {}
 #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
@@ -434,36 +376,7 @@ unsafe impl ::windows::core::Interface for OpacityAnimation {
 impl ::windows::core::RuntimeName for OpacityAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.OpacityAnimation";
 }
-impl ::core::convert::From<OpacityAnimation> for ::windows::core::IUnknown {
-    fn from(value: OpacityAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OpacityAnimation> for ::windows::core::IUnknown {
-    fn from(value: &OpacityAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OpacityAnimation> for &::windows::core::IUnknown {
-    fn from(value: &OpacityAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<OpacityAnimation> for ::windows::core::IInspectable {
-    fn from(value: OpacityAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OpacityAnimation> for ::windows::core::IInspectable {
-    fn from(value: &OpacityAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OpacityAnimation> for &::windows::core::IInspectable {
-    fn from(value: &OpacityAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(OpacityAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<OpacityAnimation> for IPropertyAnimation {
     type Error = ::windows::core::Error;
     fn try_from(value: OpacityAnimation) -> ::windows::core::Result<Self> {
@@ -565,36 +478,7 @@ unsafe impl ::windows::core::Interface for PropertyAnimation {
 impl ::windows::core::RuntimeName for PropertyAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.PropertyAnimation";
 }
-impl ::core::convert::From<PropertyAnimation> for ::windows::core::IUnknown {
-    fn from(value: PropertyAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PropertyAnimation> for ::windows::core::IUnknown {
-    fn from(value: &PropertyAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PropertyAnimation> for &::windows::core::IUnknown {
-    fn from(value: &PropertyAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PropertyAnimation> for ::windows::core::IInspectable {
-    fn from(value: PropertyAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PropertyAnimation> for ::windows::core::IInspectable {
-    fn from(value: &PropertyAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PropertyAnimation> for &::windows::core::IInspectable {
-    fn from(value: &PropertyAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PropertyAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PropertyAnimation> for IPropertyAnimation {
     type Error = ::windows::core::Error;
     fn try_from(value: PropertyAnimation) -> ::windows::core::Result<Self> {
@@ -737,36 +621,7 @@ unsafe impl ::windows::core::Interface for ScaleAnimation {
 impl ::windows::core::RuntimeName for ScaleAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.ScaleAnimation";
 }
-impl ::core::convert::From<ScaleAnimation> for ::windows::core::IUnknown {
-    fn from(value: ScaleAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ScaleAnimation> for ::windows::core::IUnknown {
-    fn from(value: &ScaleAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ScaleAnimation> for &::windows::core::IUnknown {
-    fn from(value: &ScaleAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ScaleAnimation> for ::windows::core::IInspectable {
-    fn from(value: ScaleAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ScaleAnimation> for ::windows::core::IInspectable {
-    fn from(value: &ScaleAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ScaleAnimation> for &::windows::core::IInspectable {
-    fn from(value: &ScaleAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ScaleAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ScaleAnimation> for IPropertyAnimation {
     type Error = ::windows::core::Error;
     fn try_from(value: ScaleAnimation) -> ::windows::core::Result<Self> {
@@ -868,36 +723,7 @@ unsafe impl ::windows::core::Interface for TranslationAnimation {
 impl ::windows::core::RuntimeName for TranslationAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.TranslationAnimation";
 }
-impl ::core::convert::From<TranslationAnimation> for ::windows::core::IUnknown {
-    fn from(value: TranslationAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TranslationAnimation> for ::windows::core::IUnknown {
-    fn from(value: &TranslationAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TranslationAnimation> for &::windows::core::IUnknown {
-    fn from(value: &TranslationAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TranslationAnimation> for ::windows::core::IInspectable {
-    fn from(value: TranslationAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TranslationAnimation> for ::windows::core::IInspectable {
-    fn from(value: &TranslationAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TranslationAnimation> for &::windows::core::IInspectable {
-    fn from(value: &TranslationAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TranslationAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<TranslationAnimation> for IPropertyAnimation {
     type Error = ::windows::core::Error;
     fn try_from(value: TranslationAnimation) -> ::windows::core::Result<Self> {

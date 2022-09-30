@@ -198,36 +198,7 @@ unsafe impl ::windows::core::Interface for EndpointPair {
 impl ::windows::core::RuntimeName for EndpointPair {
     const NAME: &'static str = "Windows.Networking.EndpointPair";
 }
-impl ::core::convert::From<EndpointPair> for ::windows::core::IUnknown {
-    fn from(value: EndpointPair) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EndpointPair> for ::windows::core::IUnknown {
-    fn from(value: &EndpointPair) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EndpointPair> for &::windows::core::IUnknown {
-    fn from(value: &EndpointPair) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EndpointPair> for ::windows::core::IInspectable {
-    fn from(value: EndpointPair) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EndpointPair> for ::windows::core::IInspectable {
-    fn from(value: &EndpointPair) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EndpointPair> for &::windows::core::IInspectable {
-    fn from(value: &EndpointPair) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EndpointPair, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EndpointPair {}
 unsafe impl ::core::marker::Sync for EndpointPair {}
 #[doc = "*Required features: `\"Networking\"`*"]
@@ -342,36 +313,7 @@ unsafe impl ::windows::core::Interface for HostName {
 impl ::windows::core::RuntimeName for HostName {
     const NAME: &'static str = "Windows.Networking.HostName";
 }
-impl ::core::convert::From<HostName> for ::windows::core::IUnknown {
-    fn from(value: HostName) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HostName> for ::windows::core::IUnknown {
-    fn from(value: &HostName) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HostName> for &::windows::core::IUnknown {
-    fn from(value: &HostName) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HostName> for ::windows::core::IInspectable {
-    fn from(value: HostName) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HostName> for ::windows::core::IInspectable {
-    fn from(value: &HostName) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HostName> for &::windows::core::IInspectable {
-    fn from(value: &HostName) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HostName, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HostName> for super::Foundation::IStringable {
     type Error = ::windows::core::Error;

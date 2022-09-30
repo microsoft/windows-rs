@@ -390,21 +390,7 @@ impl IAccountingProviderConfig {
         (::windows::core::Vtable::vtable(self).Deactivate)(::windows::core::Vtable::as_raw(self), uconnectionparam, ureserved1, ureserved2).ok()
     }
 }
-impl ::core::convert::From<IAccountingProviderConfig> for ::windows::core::IUnknown {
-    fn from(value: IAccountingProviderConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAccountingProviderConfig> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAccountingProviderConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAccountingProviderConfig> for ::windows::core::IUnknown {
-    fn from(value: &IAccountingProviderConfig) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAccountingProviderConfig, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAccountingProviderConfig {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -469,21 +455,7 @@ impl IAuthenticationProviderConfig {
         (::windows::core::Vtable::vtable(self).Deactivate)(::windows::core::Vtable::as_raw(self), uconnectionparam, ureserved1, ureserved2).ok()
     }
 }
-impl ::core::convert::From<IAuthenticationProviderConfig> for ::windows::core::IUnknown {
-    fn from(value: IAuthenticationProviderConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAuthenticationProviderConfig> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAuthenticationProviderConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAuthenticationProviderConfig> for ::windows::core::IUnknown {
-    fn from(value: &IAuthenticationProviderConfig) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAuthenticationProviderConfig, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAuthenticationProviderConfig {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -558,21 +530,7 @@ impl IEAPProviderConfig {
         (::windows::core::Vtable::vtable(self).RouterInvokeCredentialsUI)(::windows::core::Vtable::as_raw(self), dweaptypeid, uconnectionparam, hwndparent.into(), dwflags, ::core::mem::transmute(pconnectiondatain.as_ptr()), pconnectiondatain.len() as _, ::core::mem::transmute(puserdatain.as_ptr()), puserdatain.len() as _, ::core::mem::transmute(ppuserdataout), ::core::mem::transmute(pdwsizeofuserdataout)).ok()
     }
 }
-impl ::core::convert::From<IEAPProviderConfig> for ::windows::core::IUnknown {
-    fn from(value: IEAPProviderConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEAPProviderConfig> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEAPProviderConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEAPProviderConfig> for ::windows::core::IUnknown {
-    fn from(value: &IEAPProviderConfig) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEAPProviderConfig, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEAPProviderConfig {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -664,36 +622,7 @@ impl IEAPProviderConfig2 {
         (::windows::core::Vtable::vtable(self).GetGlobalConfig)(::windows::core::Vtable::as_raw(self), dweaptypeid, ::core::mem::transmute(ppconfigdataout), ::core::mem::transmute(pdwsizeofconfigdataout)).ok()
     }
 }
-impl ::core::convert::From<IEAPProviderConfig2> for ::windows::core::IUnknown {
-    fn from(value: IEAPProviderConfig2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEAPProviderConfig2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEAPProviderConfig2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEAPProviderConfig2> for ::windows::core::IUnknown {
-    fn from(value: &IEAPProviderConfig2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IEAPProviderConfig2> for IEAPProviderConfig {
-    fn from(value: IEAPProviderConfig2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEAPProviderConfig2> for &'a IEAPProviderConfig {
-    fn from(value: &'a IEAPProviderConfig2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEAPProviderConfig2> for IEAPProviderConfig {
-    fn from(value: &IEAPProviderConfig2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEAPProviderConfig2, ::windows::core::IUnknown, IEAPProviderConfig);
 impl ::core::clone::Clone for IEAPProviderConfig2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -784,51 +713,7 @@ impl IEAPProviderConfig3 {
         (::windows::core::Vtable::vtable(self).ServerInvokeCertificateConfigUI)(::windows::core::Vtable::as_raw(self), dweaptypeid, uconnectionparam, hwnd.into(), ::core::mem::transmute(pconfigdatain), dwsizeofconfigdatain, ::core::mem::transmute(ppconfigdataout), ::core::mem::transmute(pdwsizeofconfigdataout), ureserved).ok()
     }
 }
-impl ::core::convert::From<IEAPProviderConfig3> for ::windows::core::IUnknown {
-    fn from(value: IEAPProviderConfig3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEAPProviderConfig3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEAPProviderConfig3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEAPProviderConfig3> for ::windows::core::IUnknown {
-    fn from(value: &IEAPProviderConfig3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IEAPProviderConfig3> for IEAPProviderConfig {
-    fn from(value: IEAPProviderConfig3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEAPProviderConfig3> for &'a IEAPProviderConfig {
-    fn from(value: &'a IEAPProviderConfig3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEAPProviderConfig3> for IEAPProviderConfig {
-    fn from(value: &IEAPProviderConfig3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IEAPProviderConfig3> for IEAPProviderConfig2 {
-    fn from(value: IEAPProviderConfig3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEAPProviderConfig3> for &'a IEAPProviderConfig2 {
-    fn from(value: &'a IEAPProviderConfig3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEAPProviderConfig3> for IEAPProviderConfig2 {
-    fn from(value: &IEAPProviderConfig3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEAPProviderConfig3, ::windows::core::IUnknown, IEAPProviderConfig, IEAPProviderConfig2);
 impl ::core::clone::Clone for IEAPProviderConfig3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -885,21 +770,7 @@ impl IRouterProtocolConfig {
         (::windows::core::Vtable::vtable(self).RemoveProtocol)(::windows::core::Vtable::as_raw(self), pszmachinename.into(), dwtransportid, dwprotocolid, hwnd.into(), dwflags, prouter.into().abi(), ureserved1).ok()
     }
 }
-impl ::core::convert::From<IRouterProtocolConfig> for ::windows::core::IUnknown {
-    fn from(value: IRouterProtocolConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRouterProtocolConfig> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRouterProtocolConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRouterProtocolConfig> for ::windows::core::IUnknown {
-    fn from(value: &IRouterProtocolConfig) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRouterProtocolConfig, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRouterProtocolConfig {
     fn clone(&self) -> Self {
         Self(self.0.clone())
