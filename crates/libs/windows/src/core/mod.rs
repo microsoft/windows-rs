@@ -95,3 +95,32 @@ fn wide_trim_end(mut wide: &[u16]) -> &[u16] {
     }
     wide
 }
+
+#[doc(hidden)]
+#[macro_export]
+macro_rules! interface_hierarchy {
+    ($child:ty, $parent:ty) => {
+        impl ::core::convert::From<$child> for $parent {
+            fn from(value: $child) -> Self {
+                unsafe { ::core::mem::transmute(value) }
+            }
+        }
+        impl ::core::convert::From<&$child> for &$parent {
+            fn from(value: &$child) -> Self {
+                unsafe { ::core::mem::transmute(value) }
+            }
+        }
+        impl ::core::convert::From<&$child> for $parent {
+            fn from(value: &$child) -> Self {
+                unsafe { ::core::mem::transmute(::core::clone::Clone::clone(value)) }
+            }
+        }
+    };
+    ($child:ty, $first:ty, $($rest:ty),+) => {
+        crate::core::interface_hierarchy!($child, $first);
+        crate::core::interface_hierarchy!($child, $($rest),+);
+    };
+}
+
+#[doc(hidden)]
+pub use interface_hierarchy;

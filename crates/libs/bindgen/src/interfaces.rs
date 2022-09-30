@@ -111,29 +111,45 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
             }
         });
 
-        for ty in &vtables {
-            let into = gen.type_name(ty);
-            let cfg = gen.cfg_features(&cfg.union(&gen.reader.type_cfg(ty)));
-            tokens.combine(&quote! {
-                #cfg
-                impl<#constraints> ::core::convert::From<#ident> for #into {
-                    fn from(value: #ident) -> Self {
-                        unsafe { ::core::mem::transmute(value) }
+        if !vtables.is_empty() && generics.is_empty() {
+            let mut hierarchy = format!("crate::core::interface_hierarchy!({}", ident);
+            let mut hierarchy_cfg = cfg.clone();
+
+            for ty in &vtables {
+                let into = gen.type_name(ty);
+
+                write!(&mut hierarchy, ", {}", into).unwrap();
+                hierarchy_cfg = hierarchy_cfg.union(&gen.reader.type_cfg(ty));
+            }
+
+            hierarchy.push_str(");");
+            tokens.combine(&gen.cfg_features(&hierarchy_cfg));
+            tokens.push_str(&hierarchy);
+        } else {
+            for ty in &vtables {
+                let into = gen.type_name(ty);
+                let cfg = gen.cfg_features(&cfg.union(&gen.reader.type_cfg(ty)));
+                tokens.combine(&quote! {
+                    #cfg
+                    impl<#constraints> ::core::convert::From<#ident> for #into {
+                        fn from(value: #ident) -> Self {
+                            unsafe { ::core::mem::transmute(value) }
+                        }
                     }
-                }
-                #cfg
-                impl<'a, #constraints> ::core::convert::From<&'a #ident> for &'a #into {
-                    fn from(value: &'a #ident) -> Self {
-                        unsafe { ::core::mem::transmute(value) }
+                    #cfg
+                    impl<'a, #constraints> ::core::convert::From<&'a #ident> for &'a #into {
+                        fn from(value: &'a #ident) -> Self {
+                            unsafe { ::core::mem::transmute(value) }
+                        }
                     }
-                }
-                #cfg
-                impl<#constraints> ::core::convert::From<&#ident> for #into {
-                    fn from(value: &#ident) -> Self {
-                        ::core::convert::From::from(::core::clone::Clone::clone(value))
+                    #cfg
+                    impl<#constraints> ::core::convert::From<&#ident> for #into {
+                        fn from(value: &#ident) -> Self {
+                            ::core::convert::From::from(::core::clone::Clone::clone(value))
+                        }
                     }
-                }
-            });
+                });
+            }
         }
 
         if gen.reader.type_def_flags(def).winrt() {
