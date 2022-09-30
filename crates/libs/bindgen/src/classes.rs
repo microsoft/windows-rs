@@ -129,7 +129,7 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
 }
 
 fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[Interface], cfg: &Cfg) -> TokenStream {
-    let features = gen.cfg_features(&cfg);
+    let features = gen.cfg_features(cfg);
     let mut tokens = quote! {
         #features
         ::windows::core::interface_hierarchy!(#name, ::windows::core::IUnknown, ::windows::core::IInspectable);
