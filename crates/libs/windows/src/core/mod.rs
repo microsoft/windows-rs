@@ -100,25 +100,25 @@ fn wide_trim_end(mut wide: &[u16]) -> &[u16] {
 #[macro_export]
 macro_rules! interface_hierarchy {
     ($child:ty, $parent:ty) => {
-        impl ::core::convert::From<$child> for $parent {
+        impl ::std::convert::From<$child> for $parent {
             fn from(value: $child) -> Self {
-                unsafe { ::core::mem::transmute(value) }
+                unsafe { ::std::mem::transmute(value) }
             }
         }
-        impl ::core::convert::From<&$child> for &$parent {
+        impl ::std::convert::From<&$child> for &$parent {
             fn from(value: &$child) -> Self {
-                unsafe { ::core::mem::transmute(value) }
+                unsafe { ::std::mem::transmute(value) }
             }
         }
-        impl ::core::convert::From<&$child> for $parent {
+        impl ::std::convert::From<&$child> for $parent {
             fn from(value: &$child) -> Self {
-                unsafe { ::core::mem::transmute(::core::clone::Clone::clone(value)) }
+                unsafe { ::std::mem::transmute(::std::clone::Clone::clone(value)) }
             }
         }
     };
     ($child:ty, $first:ty, $($rest:ty),+) => {
-        crate::core::interface_hierarchy!($child, $first);
-        crate::core::interface_hierarchy!($child, $($rest),+);
+        $crate::core::interface_hierarchy!($child, $first);
+        $crate::core::interface_hierarchy!($child, $($rest),+);
     };
 }
 

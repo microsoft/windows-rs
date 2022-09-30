@@ -112,7 +112,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
         });
 
         if !vtables.is_empty() && generics.is_empty() {
-            let mut hierarchy = format!("crate::core::interface_hierarchy!({}", ident);
+            let mut hierarchy = format!("::windows::core::interface_hierarchy!({}", ident);
             let mut hierarchy_cfg = cfg.clone();
 
             for ty in &vtables {

@@ -84,36 +84,7 @@ unsafe impl ::windows::core::Interface for Class {
 impl ::windows::core::RuntimeName for Class {
     const NAME: &'static str = "test_component.Class";
 }
-impl ::core::convert::From<Class> for ::windows::core::IUnknown {
-    fn from(value: Class) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Class> for ::windows::core::IUnknown {
-    fn from(value: &Class) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Class> for &::windows::core::IUnknown {
-    fn from(value: &Class) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Class> for ::windows::core::IInspectable {
-    fn from(value: Class) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Class> for ::windows::core::IInspectable {
-    fn from(value: &Class) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Class> for &::windows::core::IInspectable {
-    fn from(value: &Class) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Class, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Class {}
 unsafe impl ::core::marker::Sync for Class {}
 pub trait IClass_Impl: Sized {
